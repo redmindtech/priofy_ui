@@ -1,0 +1,21 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "[javascript]": { "editor.formatOnSave": true },
+    "eslint.validate": [
+        "typescript",
+        "typescriptreact",
+        "html",
+        "css",
+        "typescriptangular"
+    ],
+    "editor.tabSize": 2,
+    "eslint.options": {
+        "extensions": [".ts", ".html"]
+    },
+    "workbench.colorCustomizations": {
+        "statusBar.noFolderBackground": "#970505",
+        "statussBar.prominentBackground": "#970505"
+    },
+}

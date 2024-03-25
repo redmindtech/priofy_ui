@@ -1,0 +1,95 @@
+<div class="register-box">
+  <div class="register-logo">
+    <a routerLink='/'><b>Admin</b>LTE</a>
+  </div>
+
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">Register a new membership</p>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="input-group mb-3">
+          <input formControlName="fullname" type="text" class="form-control" placeholder="Full name"
+            [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+          <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+            <div *ngIf="f['fullname'].errors['required']">Fullname is required</div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input formControlName="email" type="email" class="form-control" placeholder="Email"
+            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors['required']">Email is required</div>
+            <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input formControlName="password" type="password" class="form-control" placeholder="Password"
+            [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+          <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+            <div *ngIf="f['password'].errors['required']">Password is required</div>
+            <div *ngIf="f['password'].errors['minlength']">
+              Password must be at least 6 characters
+            </div>
+            <div *ngIf="f['password'].errors['maxlength']">
+              Username must not exceed 40 characters
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input formControlName="confirmPassword" type="password" class="form-control" placeholder="Retype password"
+            [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+          <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback">
+            <div *ngIf="f['confirmPassword'].errors['required']">
+              Confirm Password is required
+            </div>
+            <div *ngIf="f['confirmPassword'].errors['matching']">
+              Confirm Password does not match
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input formControlName="acceptTerms" type="checkbox" id="agreeTerms" name="terms" value="agree" 
+              [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }">
+              <label for="agreeTerms">
+               I agree to the <a href="#">terms</a>
+              </label>
+              <div *ngIf="submitted && f['acceptTerms'].errors" class="invalid-feedback">
+                Accept Terms is required
+              </div>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+      <a routerLink='/login' class="text-center">I already have a membership</a>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
