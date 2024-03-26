@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '@app/service/auth.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { AuthService } from '@app/service/auth.service';
 })
 export class HomeComponent implements OnInit {
   user: any
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+    private router: Router,) {
   }
 
   ngOnInit(): void {
@@ -18,5 +20,7 @@ export class HomeComponent implements OnInit {
     // this.authService.getUser()
     // console.log(this.authService.currentUserValue)
   }
-
+viewselected(){
+  this.router.navigate(['/today']);
+}
 }

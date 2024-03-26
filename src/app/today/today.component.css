@@ -1,0 +1,35 @@
+.mat {
+  
+  border-color: black;
+ 
+   margin: 3%;
+  
+ }
+ .custom-toast {
+  position: fixed;
+  bottom: 60px; /* Adjust the value as needed to leave space from the top */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%; /* Adjust width as needed */
+  background-color: #ff0000; /* Example background color */
+  color: #ffffff; /* Example text color */
+  padding: 10px;
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+ .header{
+  text-align: center;
+  margin-top: 2%;
+ }
+ .whitecolor{
+  background-color:#83C0C1;
+ 
+ }
+ .colourbule{
+ 
+  background-color:#96E9C6;
+ }
+.btn{
+  background-color:#F5DD61 ;
+  
+  margin: 1%;
+}

@@ -1,59 +1,41 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Role } from '@app/model/Role';
-import { User } from '@app/model/User';
-import { environment } from '@environments/environment';
-import { catchError, map, Observable, of } from 'rxjs';
-import { tap } from "rxjs/operators";
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  private loggedUser: any;
+  private apiUrl = 'http://localhost:8080/projectMain';
 
   constructor(private http: HttpClient) { }
 
-  isLoggedIn$(): Observable<boolean> {
-    return this.getCurrentUser().pipe(
-      map(user => !!user),
-      catchError(() => of(false))
-    );
-  }
-
-
-  getCurrentUser(): Observable<any> {
-    if (this.loggedUser) {
-      return of(this.loggedUser);
-    } else {
-      return this.http.get<User>(`${environment.apiUrl}/api/auth/user`)
-        .pipe(tap(user => this.loggedUser = user));
-    }
-  }
-
-  login(credential: Credential): Observable<any> {
-    return this.http.post<any>(`${environment.apiUrl}/api/auth/login`, credential, {
-      withCredentials: true
-    }).pipe(tap(data => this.loggedUser = data))
-  }
-
-
-  register(body: any): Observable<any> {
-    return this.http.post<any>(`${environment.apiUrl}/api/auth/register`, body, {
-      withCredentials: true
-    })
+  login(credentials: { username: string, password: string }): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/login`, credentials)
+      .pipe(
+        tap(response => {
+          // Handle successful login, e.g., store user information in local storage
+          localStorage.setItem('currentUser', JSON.stringify(response.user));
+          // You might want to store the token if using JWT
+          localStorage.setItem('token', response.token);
+        }),
+        catchError(error => {
+          // Handle login error
+          console.error('Login error:', error);
+          return of(false); // Return observable with false value indicating login failure
+        })
+      );
   }
 
   logout(): void {
-    this.http.post(`${environment.apiUrl}/api/auth/logout`, {}, { withCredentials: true }).toPromise()
-    this.loggedUser = undefined;
+    // Clear user information from local storage upon logout
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('token');
   }
 
-  hasRole(role: Role): Observable<boolean> {
-    return this.getCurrentUser().pipe(
-      map(user => user.roles.indexOf(role) !== -1),
-      catchError(() => of(false))
-    );
+  isLoggedIn(): boolean {
+    // Check if user is logged in by verifying the presence of user information in local storage
+    return !!localStorage.getItem('currentUser');
   }
 }

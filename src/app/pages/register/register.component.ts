@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
 
     console.log(JSON.stringify(this.form.value, null, 2));
     console.log({raw: this.form.getRawValue()})
-    this.authService.register(this.form.getRawValue())
+   // this.authService.register(this.form.getRawValue())
   }
 
   onReset(): void {

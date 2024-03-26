@@ -11,6 +11,8 @@ import { PermissionDeniedComponent } from '@app/pages/permission-denied/permissi
 import { RegisterComponent } from '@app/pages/register/register.component';
 import { SubMenuComponent } from '@app/pages/sub-menu/sub-menu.component';
 import { UserManagementComponent } from './pages/user-management/user-management.component';
+import { TodaytaskComponent } from './todaytask/todaytask.component';
+import { TodayComponent } from './today/today.component';
 
 const routes: Routes = [
   {
@@ -21,7 +23,7 @@ const routes: Routes = [
   
     children: [
       {
-        path: '',
+        path: 'home',
         component: HomeComponent,
         // canActivate: [AuthGuard],
         data: { roles: [Role.Admin, Role.User] }
@@ -58,6 +60,14 @@ const routes: Routes = [
       {
         path: 'permission-denied',
         component: PermissionDeniedComponent,
+      },
+      {
+        path: 'todaytask',
+        component: TodaytaskComponent,
+      },
+      {
+        path: 'today',
+        component: TodayComponent,
       },
     ]
   }, {

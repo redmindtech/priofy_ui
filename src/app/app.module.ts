@@ -60,6 +60,43 @@ import { CustomNgbDateAdapter } from './shared/custom-ngb-date-adapter';
 import { CustomNgbDateParserFormatter } from './shared/custom-ngb-date-parser-formatter';
 import { CustomNgbDatepickerI18n } from './shared/custom-ngb-datepicker-i18n';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { TodaytaskComponent } from './todaytask/todaytask.component';
+
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatRippleModule } from '@angular/material/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTreeModule } from '@angular/material/tree';
+import {MatTabsModule} from '@angular/material/tabs';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TodayComponent } from './today/today.component';
 
 
 @NgModule({
@@ -76,15 +113,53 @@ import { SharedModule } from './shared/shared.module';
     NotificationsComponent,
     UserMenuComponent,
     HomeComponent,
+   
     PermissionDeniedComponent,
     RegisterComponent,
-    DocsComponent
+    DocsComponent,
+    TodaytaskComponent,
+    TodayComponent
   ],
   imports: [
-    BrowserModule,
+  
     SharedModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+     MatCardModule,
+     MatExpansionModule,
+     BrowserModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule,
+    MatMenuModule,
+    MatTableModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRippleModule,
+    MatDividerModule,
+    MatTreeModule,
+    MatTooltipModule,
+    MatPaginatorModule,
+    MatExpansionModule,
+    MatAutocompleteModule,
+    MatRadioModule,
+    MatPaginatorModule,
+    MatSlideToggleModule,
+    MatChipsModule,
+    MatButtonToggleModule,
+    MatSnackBarModule,
+    MatTabsModule,
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

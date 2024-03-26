@@ -1,26 +1,30 @@
-<div class="login-box">
-  <div class="login-logo">
-    <a routerLink="/"><b>Admin</b>LTE</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
-
+<div class="login-container">
+  <div class="login-box">
+    <div class="login-logo">
+      <a routerLink="/"><h3>USER LOGIN</h3></a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card login-card-body">
       <form [formGroup]="form" (submit)="submit()">
-        <div class="input-group mb-3">
-          <input formControlName="email" type="email" class="form-control" placeholder="Email" required>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <div class="input-group mb-3">
+            <input formControlName="username" type="email" id="username" class="form-control" placeholder="Username" required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <input formControlName="password" type="password" class="form-control" placeholder="Password" required>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-group mb-3">
+            <input formControlName="password" type="password" id="password" class="form-control" placeholder="Password" required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -35,14 +39,15 @@
         </div>
       </form>
 
-      <p class="mb-1">
+      <!-- <p class="mb-1">
         <a routerLink='/forgot-password'>I forgot my password</a>
-      </p>
-      <p class="mb-0">
+      </p> -->
+      <!-- <p class="mb-0">
         <a routerLink='/register' class="text-center">Register a new membership</a>
-      </p>
+      </p> -->
     </div>
-    <!-- /.login-card-body -->
+    <!-- /.card -->
   </div>
+  <!-- /.login-box -->
 </div>
-<!-- /.login-box -->
+<!-- /.login-container -->
