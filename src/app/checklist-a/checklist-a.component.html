@@ -1,0 +1,344 @@
+<form [formGroup]="ChecklistA">
+  <mat-card class="mat">
+    <mat-card-content>
+      <table class="outline-table">
+        <thead>
+          <tr>
+            <th class="headers">Step</th>
+            <th class="headers">Action (Hazard/Precaution if applicable)</th>
+            <th class="header">Yes   No</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>
+              
+              <label for="pressure_BFW">OOT to ensure treated high pressure BFW (140 kg/cm2g HBF) is available.</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn" id="pressure_BFW-yes" formControlName="pressure_BFW" value="Yes" (focusout)="onSubmit()"/>
+           
+              <input type="radio" class="radiobtn" id="pressure_BFW-no" formControlName="pressure_BFW" value="No"  (focusout)="onSubmit()"/>
+            </td>
+            
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>
+              <label for="decoke_MOV">OOT to ensure the following furnace BFW/steam side valves, drains and vents are closed.
+              </label><br>
+              <label>*HBF inlet DB 1" drains.
+              </label>
+              <br>
+              <label>*FV-22X6-08 downstream 1" drains.</label>
+              <br>
+              <label>*FV-22X6-08 bypass 1" drains.</label>
+              <br>
+              <label>*ECO inlet 1 vents.</label>
+              <br>
+              <label>*ECO outlet 1" drains.</label>
+              <br>
+              <label>*Steam Drum Inlet Check Valve 1" drains.</label>
+              <br>
+              <label>*Untreated HBF Inlet DB 1 drains.</label>
+              <br>
+              <label>*Untreated HBF Inlet Check Valve 1" drains.</label>
+              <br>
+              <label>*HPSSH-2 Outlet 1-1/2" drains.</label>
+              <br>
+              <label>*HXS line upstream NRV (non-return valve).
+              </label>
+              <br>
+              <label>*Vent Silencer PV-22X0-43 upstream 1 drains.</label>
+              <br>
+              <label>*Vent Silencer PV-22X0-43 downstream 1" drain.</label>
+              <br>
+              <label>*HXS outlet DB 1" drains..</label>
+              <br>
+              <label>*Steam Drum Level Transmitters (#3) 1" drains and vents.</label>
+              <br>
+              <label>*2" Steam Drum Intermittent Blow down (#2).</label>
+              <br>
+              <label>*Steam Drum Continuous BD Header DB 1" drains</label>
+              <br>
+              <label>*Secondary TLE Continuous BD Header DB 1" drains.
+              </label>
+              <br>
+              <label>*Intermittent BD Header B/V 1" drains.</label>
+              <br>
+              <label>*Primary TLEs 2" blow downs (#12).
+              </label>
+              <br>
+              <label>*Secondary TLE 1 blow downs (#2)</label>
+              
+              <br>
+              <label>*Primary TLEs Common Header 1" bleeds.</label>
+
+            </td>
+            
+            <td>
+              
+           
+              
+              <input type="radio" class="radiobtnmulti"  id="hbf_inlet-yes" formControlName="hbf_inlet" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="hbf_inlet-no" formControlName="hbf_inlet" value="No" (focusout)="onSubmit()" />
+             
+              <input type="radio" class="radiobtnmulti"  id="fv_downstream-yes" formControlName="fv_downstream" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="fv_downstream-no" formControlName="fv_downstream" value="No" (focusout)="onSubmit()" />
+            
+              <input type="radio" class="radiobtnmulti"  id="fv_bypass-yes" formControlName="fv_bypass" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="fv_bypass-no" formControlName="fv_bypass" value="No" (focusout)="onSubmit()" />
+           
+              <input type="radio" class="radiobtnmulti"  id="eco_inlet-yes" formControlName="eco_inlet" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="eco_inlet-no" formControlName="eco_inlet" value="No" (focusout)="onSubmit()" />
+           
+              <input type="radio" class="radiobtnmulti"  id="eco_outlet-yes" formControlName="eco_outlet" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="eco_outlet-no" formControlName="eco_outlet" value="No" (focusout)="onSubmit()" />
+           
+              <input type="radio" class="radiobtnmulti"  id="inlet_check_valve-yes" formControlName="inlet_check_valve" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="inlet_check_valve-no" formControlName="inlet_check_valve" value="No" (focusout)="onSubmit()" />
+           
+              <input type="radio" class="radiobtnmulti"  id="inlet_DB-yes" formControlName="inlet_DB" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="inlet_DB-no" formControlName="inlet_DB" value="No" (focusout)="onSubmit()" />
+            
+              <input type="radio" class="radiobtnmulti"  id="inlet_check-yes" formControlName="inlet_check" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="inlet_check-no" formControlName="inlet_check" value="No" (focusout)="onSubmit()" />
+            
+              <input type="radio" class="radiobtnmulti"  id="hpssh-yes" formControlName="hpssh" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="hpssh-no" formControlName="hpssh" value="No" (focusout)="onSubmit()" />
+           
+              <input type="radio" class="radiobtnmulti"  id="hxs_upstream-yes" formControlName="hxs_upstream" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="hxs_upstream-no" formControlName="hxs_upstream" value="No" (focusout)="onSubmit()" />
+
+              <input type="radio" class="radiobtnmulti"  id="vent_upstream-yes" formControlName="vent_upstream" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="vent_upstream-no" formControlName="vent_upstream" value="No" (focusout)="onSubmit()" />
+
+              <input type="radio" class="radiobtnmulti"  id="vent_downstream-yes" formControlName="vent_downstream" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="vent_downstream-no" formControlName="vent_downstream" value="No" (focusout)="onSubmit()" />
+
+              <input type="radio" class="radiobtnmulti"  id="hxs_outlet-yes" formControlName="hxs_outlet" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="hxs_outlet-no" formControlName="hxs_outlet" value="No" (focusout)="onSubmit()" />
+
+              <input type="radio" class="radiobtnmulti"  id="transmitters-yes" formControlName="transmitters" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="transmitters-no" formControlName="transmitters" value="No" (focusout)="onSubmit()" />
+
+              <input type="radio" class="radiobtnmulti"  id="intermittent-yes" formControlName="intermittent" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="intermittent-no" formControlName="intermittent" value="No" (focusout)="onSubmit()" />
+
+              <input type="radio" class="radiobtnmulti"  id="bd_header-yes" formControlName="bd_header" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="bd_header-no" formControlName="bd_header" value="No" (focusout)="onSubmit()" />
+
+              <input type="radio" class="radiobtnmulti"  id="secondary_tle-yes" formControlName="secondary_tle" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="secondary_tle-no" formControlName="secondary_tle" value="No" (focusout)="onSubmit()" />
+
+              <input type="radio" class="radiobtnmulti"  id="intermittent_db-yes" formControlName="intermittent_db" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="intermittent_db-no" formControlName="intermittent_db" value="No" (focusout)="onSubmit()" />
+
+              <input type="radio" class="radiobtnmulti"  id="primary_tles-yes" formControlName="primary_tles" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="primary_tles-no" formControlName="primary_tles" value="No" (focusout)="onSubmit()" />
+
+              <input type="radio" class="radiobtnmulti"  id="secondary_blow-yes" formControlName="secondary_blow" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="secondary_blow-no" formControlName="secondary_blow" value="No" (focusout)="onSubmit()" />
+
+              <input type="radio" class="radiobtnmulti"  id="primary_common-yes" formControlName="primary_common" value="Yes" (focusout)="onSubmit()" />
+              <input type="radio" class="radiobtnmulti"  id="primary_common-no" formControlName="primary_common" value="No" (focusout)="onSubmit()" />
+
+             
+            </td>
+            
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>
+              
+              <label for="decoke_MOV">IOT to ensure that Decoke MOV is open, CG MOVs are closed and the local MOV switches are in "REMOTE" position.</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn"  id="decoke_MOV-yes" formControlName="decoke_MOV" value="Yes" (focusout)="onSubmit()" />
+           
+              <input type="radio" class="radiobtn"  id="decoke_MOV-no" formControlName="decoke_MOV" value="No" (focusout)="onSubmit()" />
+            </td>
+            
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>
+              <label for="furnace_control">IOT to ensure Furnace control sequence is in Process Wait step.</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn"  id="furnace_control-yes" formControlName="furnace_control" value="Yes" (focusout)="onSubmit()" />
+           
+              <input type="radio" class="radiobtn"  id="furnace_control-no" formControlName="furnace_control" value="No" (focusout)="onSubmit()"/>
+            </td>
+            
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>
+              <label for="bm_sequence">IOT to move BM sequence to Process Wait step.</label>
+            </td>
+            <td>
+              <input type="radio"class="radiobtn"  id="bm_sequence-yes" formControlName="bm_sequence" value="Yes" (focusout)="onSubmit()"/>
+           
+              <input type="radio" class="radiobtn"  id="bm_sequence-no" formControlName="bm_sequence" value="No" (focusout)="onSubmit()"/>
+            </td>
+            
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>
+              <label for="auto_burner">IOT to go to each individual auto burner and move its sequence to Process Wait.</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn"  id="auto_burner-yes" formControlName="auto_burner" value="Yes" (focusout)="onSubmit()" />
+           
+              <input type="radio" class="radiobtn"  id="auto_burner-no" formControlName="auto_burner" value="No" (focusout)="onSubmit()"/>
+            </td>
+           
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>
+              <label for="gas_isolated">OOT to double check that feed and fuel gas are isolated.</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn"  id="gas_isolated-yes" formControlName="gas_isolated" value="Yes"(focusout)="onSubmit()" />
+            
+              <input type="radio"  class="radiobtn" id="gas_isolated-no" formControlName="gas_isolated" value="No" (focusout)="onSubmit()" />
+            </td>
+            
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>
+              <label for="bm_Control">IOT to move BM control sequence to Stand By step.</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn"  id="bm_Control-yes" formControlName="bm_Control" value="Yes"(focusout)="onSubmit()" />
+            
+              <input type="radio"  class="radiobtn" id="bm_Control-no" formControlName="bm_Control" value="No" (focusout)="onSubmit()" />
+            </td>
+            
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>
+              <label for="bms_Moved">Once BMS is moved to Standby, IOT can manually move Furnace control sequence step from process wait to purge light off.</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn"  id="bms_Moved-yes" formControlName="bms_Moved" value="Yes"(focusout)="onSubmit()" />
+            
+              <input type="radio"  class="radiobtn" id="bms_Moved-no" formControlName="bms_Moved" value="No" (focusout)="onSubmit()" />
+            </td>
+            
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>
+              <label for="drum_BFW">OOT to ensure steam drum BFW inlet B/V at the inlet of steam drum is open and car sealed (on top deck).</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn"  id="drum_BFW-yes" formControlName="drum_BFW" value="Yes"(focusout)="onSubmit()" />
+            
+              <input type="radio"  class="radiobtn" id="drum_BFW-no" formControlName="drum_BFW" value="No" (focusout)="onSubmit()" />
+            </td>
+            
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>
+              <label for="furnace_battery">OOT to ensure furnace battery limit HBF inlet 4" second B/V is closed.</label><br>
+              <label for="furnace_battery">Note: First B/V should not be operated (it should be always open).</label><br>
+              <label for="furnace_battery">Note: The first block valve bypass valves to be used for initial pressurization of the downstream system.</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn"  id="furnace_battery-yes" formControlName="furnace_battery" value="Yes"(focusout)="onSubmit()" />
+            
+              <input type="radio"  class="radiobtn" id="furnace_battery-no" formControlName="furnace_battery" value="No" (focusout)="onSubmit()" />
+            </td>
+            
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>
+              <label for="up_down">OOT to ensure HBF control valve (FV-22X6-08) upstream and downstream B/Vs are open.</label><br>
+              <label for="furnace_battery"> Note: This step is applicable only for furnace-2280, and for the other fumaces should be closed.</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn"  id="up_down-yes" formControlName="up_down" value="Yes"(focusout)="onSubmit()" />
+            
+              <input type="radio"  class="radiobtn" id="up_down-no" formControlName="up_down" value="No" (focusout)="onSubmit()" />
+            </td>
+            
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>
+              <label for="globe_valve">OOT to ensure HBF control valve (FV-22X6-08) bypass 2 B/V and globe valve are closed.</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn"  id="globe_valve-yes" formControlName="globe_valve" value="Yes"(focusout)="onSubmit()" />
+            
+              <input type="radio"  class="radiobtn" id="globe_valve-no" formControlName="globe_valve" value="No" (focusout)="onSubmit()" />
+            </td>
+            
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>
+              <label for="steam_drum">Keep the steam drum 3" startup vent valves open.</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn"  id="steam_drum-yes" formControlName="steam_drum" value="Yes"(focusout)="onSubmit()" />
+            
+              <input type="radio"  class="radiobtn" id="steam_drum-no" formControlName="steam_drum" value="No" (focusout)="onSubmit()" />
+            </td>
+            
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>
+              <label for="hxs_vent">OOT to open both HXS vent valve PV-22X0-43 4" upstream block valves.</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn"  id="hxs_vent-yes" formControlName="hxs_vent" value="Yes"(focusout)="onSubmit()" />
+            
+              <input type="radio"  class="radiobtn" id="hxs_vent-no" formControlName="hxs_vent" value="No" (focusout)="onSubmit()" />
+            </td>
+            
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>
+             
+              <label for="pv_22X043">IOT to ensure PV-22X0-43 is in "auto" control at the default flow set point of 10 Mt/h and default pressure set point of 112 kg/cm2g.</label><br>
+              <label for="pv_22X043">Note: this will ensure that the HPSSHs will have the minimum steam flow.</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn"  id="pv_22X043-yes" formControlName="pv_22X043" value="Yes"(focusout)="onSubmit()" />
+            
+              <input type="radio"  class="radiobtn" id="pv_22X043-no" formControlName="pv_22X043" value="No" (focusout)="onSubmit()" />
+            </td>
+            
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>
+              <label for="bypass_valves">Initially use the bypass valves across first block valve to pressurize the downstream header and then open the main block valve. Then close the bypass valves across the first block valve. Start taking BFW to steam drum through FV-22X6-08 2" bypass line, keeping first bypass open and throttling 2nd bypass valve.</label><br>
+              <label for="pv_22X043">Note: For F-2280 keep the side entry 4" header valve (manifold from battery limit) and bypass valve closed.</label>
+            </td>
+            <td>
+              <input type="radio" class="radiobtn"  id="bypass_valves-yes" formControlName="bypass_valves" value="Yes"(focusout)="onSubmit()" />
+            
+              <input type="radio"  class="radiobtn" id="bypass_valves-no" formControlName="bypass_valves" value="No" (focusout)="onSubmit()" />
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</form>

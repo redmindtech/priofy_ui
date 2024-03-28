@@ -24,20 +24,34 @@ this.formInitialization();
   }
 formInitialization(){
   this.FirstForm = this.fb.group({ // Define form controls
-    condensate: ['', Validators.required],
-    protective_clothings: ['', Validators.required], 
-    asphyxiant: ['', Validators.required], 
-    frc: ['', Validators.required] ,
-    gas_meter: ['', Validators.required] ,
-    protection: ['', Validators.required] ,
-    comfort_mask: ['', Validators.required] ,
-    cooling_vest: ['', Validators.required] ,
-    plenty: ['', Validators.required] ,
-    peak_summer: ['', Validators.required] ,
-    neutral_body: ['', Validators.required],
-     leather_gloves: ['', Validators.required] 
+    condensate: [false, Validators.required],
+    protective_clothings: [false, Validators.required], 
+    asphyxiant: [false, Validators.required], 
+    frc: [false, Validators.required] ,
+    gas_meter: [false, Validators.required] ,
+    protection: [false, Validators.required] ,
+    comfort_mask: [false, Validators.required] ,
+    cooling_vest: [false, Validators.required] ,
+    plenty: [false, Validators.required] ,
+    peak_summer: [false, Validators.required] ,
+    neutral_body: [false, Validators.required],
+     leather_gloves: [false, Validators.required] ,
+     userid:[1]
   });
     }
+    isFormValid(): boolean {
+      const formValues = this.FirstForm.value;
+      for (const key in formValues) {
+        if (formValues.hasOwnProperty(key) && key !== 'userid' && formValues[key] !== true) {
+          return false;
+        }
+      }
+      return true;
+    }
+    
+    
+    
+    
     submit(): void {
       if (this.FirstForm.valid) {
         const firstFormValue = this.FirstForm.value;
@@ -56,11 +70,7 @@ formInitialization(){
         );
       } else {
        
-        this.toast.open('Form is invalid. Please fill all required fields.', 'Close', {
-          duration: 3000,
-          panelClass: ['custom-toast'],
-          verticalPosition: 'top'
-          });
+        
         console.error('Form is invalid. Please fill all required fields.');
       }
      

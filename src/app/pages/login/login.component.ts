@@ -22,10 +22,11 @@ export class LoginComponent {
   submit() {
     if (this.form.valid) {
       const { username, password } = this.form.value;
-      this.authService.login({ username, password }).subscribe(
-        () => {
-          console.log("hh");
-          this.router.navigate(['/home']);
+      this.authService.login({username,password}).subscribe(
+        (response) => {
+          console.log('response: ', response);
+         if(response){
+          this.router.navigate(['/main/home']);}
           // Login successful, redirect or perform necessary action
         },
         error => {

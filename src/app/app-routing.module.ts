@@ -13,15 +13,17 @@ import { SubMenuComponent } from '@app/pages/sub-menu/sub-menu.component';
 import { UserManagementComponent } from './pages/user-management/user-management.component';
 import { TodaytaskComponent } from './todaytask/todaytask.component';
 import { TodayComponent } from './today/today.component';
+import { ChecklistAComponent } from './checklist-a/checklist-a.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'main',
     component: MainComponent,
     // canActivate: [AuthGuard],
      data: { roles: [Role.Admin, Role.User] },
   
     children: [
+     
       {
         path: 'home',
         component: HomeComponent,
@@ -69,9 +71,13 @@ const routes: Routes = [
         path: 'today',
         component: TodayComponent,
       },
+      {
+        path: 'checklistA',
+        component: ChecklistAComponent,
+      },
     ]
   }, {
-    path: 'login',
+    path: '',
     component: LoginComponent,
   }, {
     path: 'register',

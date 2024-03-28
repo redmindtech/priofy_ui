@@ -1,0 +1,30 @@
+.outline-table {
+  border: 2px solid #000; /* Set border width and color */
+  border-collapse: collapse; /* Collapse border spacing */
+  margin: 11%;
+}
+
+.outline-table th,
+.outline-table td {
+  border: 1px solid #000; /* Set border width and color for table cells */
+  padding: 8px; /* Add padding for better spacing */
+}
+.radiobtn{
+  margin: 9%;
+}
+.headers{
+  background-color:#21f0b2;
+  text-align: center;
+  
+}
+.header{
+  background-color:#21f0b2;
+  
+  width: 8%;
+}
+
+.radiobtnmulti{
+  
+  margin: 9%;
+  margin-top: 15%!important;
+}

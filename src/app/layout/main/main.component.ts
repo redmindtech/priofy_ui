@@ -32,36 +32,36 @@ export class MainComponent implements OnInit {
 
 export const MENU = [
   {
-    name: 'Dashboard',
-    path: ['/'],
-    icon: 'fa-tachometer-alt'
+    name: 'Hazards & Precaution',
+    path: ['/main/today'],
+    
   },
   {
-    name: 'Blank',
-    path: ['/blank']
+    name: 'Tools & Equipment',
+    path: ['/main/todaytask']
   },
-  {
-    name: 'Administration',
-    icon: 'fa-users-cog',
-    children: [
-      {
-        name: 'User management',
-        path: ['/user-management'],
-        icon: 'fa-users',
-      },
-      {
-        name: 'API',
-        path: ['/docs'],
-        icon: 'fa-book',
-      },
-      {
-        name: 'Sub Menu 1',
-        path: ['/sub-menu-1']
-      },
-      {
-        name: 'Sub Menu 2',
-        path: ['/sub-menu-2']
-      }
-    ]
-  }
+  // {
+  //   name: 'Administration',
+  //   icon: 'fa-users-cog',
+  //   children: [
+  //     {
+  //       name: 'User management',
+  //       path: ['/user-management'],
+  //       icon: 'fa-users',
+  //     },
+  //     {
+  //       name: 'API',
+  //       path: ['/docs'],
+  //       icon: 'fa-book',
+  //     },
+  //     {
+  //       name: 'Sub Menu 1',
+  //       path: ['/sub-menu-1']
+  //     },
+  //     {
+  //       name: 'Sub Menu 2',
+  //       path: ['/sub-menu-2']
+  //     }
+  //   ]
+  // }
 ];

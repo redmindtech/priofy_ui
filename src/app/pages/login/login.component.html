@@ -5,6 +5,7 @@
     </div>
     <!-- /.login-logo -->
     <div class="card login-card-body">
+      <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
       <form [formGroup]="form" (submit)="submit()">
         <div class="form-group">
           <label for="username">Username</label>

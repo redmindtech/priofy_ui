@@ -97,6 +97,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TodayComponent } from './today/today.component';
+import { ChecklistAComponent } from './checklist-a/checklist-a.component';
 
 
 @NgModule({
@@ -118,7 +119,8 @@ import { TodayComponent } from './today/today.component';
     RegisterComponent,
     DocsComponent,
     TodaytaskComponent,
-    TodayComponent
+    TodayComponent,
+    ChecklistAComponent
   ],
   imports: [
   
