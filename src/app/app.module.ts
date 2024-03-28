@@ -98,6 +98,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TodayComponent } from './today/today.component';
 import { ChecklistAComponent } from './checklist-a/checklist-a.component';
+import { ToolcompComponent } from './toolcomp/toolcomp.component';
+import { StartupComponent } from './startup/startup.component';
+
 
 
 @NgModule({
@@ -120,7 +123,10 @@ import { ChecklistAComponent } from './checklist-a/checklist-a.component';
     DocsComponent,
     TodaytaskComponent,
     TodayComponent,
-    ChecklistAComponent
+    ChecklistAComponent,
+    ToolcompComponent,
+    StartupComponent,
+    
   ],
   imports: [
   

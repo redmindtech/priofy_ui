@@ -61,7 +61,7 @@ formInitialization(){
             console.log('Response from server:', response);
             
             
-            this.router.navigate(['/listpage']);
+            this.router.navigate(['main/toolcomp']);
           },
           (error) => {
             console.error('Error while sending data:', error);

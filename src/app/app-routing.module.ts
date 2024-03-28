@@ -14,6 +14,9 @@ import { UserManagementComponent } from './pages/user-management/user-management
 import { TodaytaskComponent } from './todaytask/todaytask.component';
 import { TodayComponent } from './today/today.component';
 import { ChecklistAComponent } from './checklist-a/checklist-a.component';
+import { ToolcompComponent } from './toolcomp/toolcomp.component';
+import { StartupComponent } from './startup/startup.component';
+
 
 const routes: Routes = [
   {
@@ -66,6 +69,14 @@ const routes: Routes = [
       {
         path: 'todaytask',
         component: TodaytaskComponent,
+      },
+      {
+        path: 'toolcomp',
+        component: ToolcompComponent,
+      },
+      {
+        path: 'startup',
+        component: StartupComponent,
       },
       {
         path: 'today',

@@ -1,0 +1,45 @@
+h2{
+  margin-top: 40px;
+  text-align: center;
+}
+.mat {
+  width: 90%;
+  align-items: center;/* Adjust width as needed */
+  margin: auto; /* Center the card */
+  padding: 20px; /* Add some padding */
+}
+
+.mat-card-content {
+  margin-top: 40px;
+  padding: 0; /* Remove padding from card content */
+}
+.table {
+  display: table;
+  width: 100%;
+}
+.mat{
+  margin-top: 80px;
+  width: 900px;
+  height: 550px;
+}
+.table-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: table-row;
+}
+
+.table-cell {
+  font-size: medium;
+  display: table-cell;
+  padding: 5px;
+}
+.table-row:nth-child(even) {
+  background-color: #96E9C6;
+}
+.table-row:nth-child(odd) {
+  background-color:#83C0C1;
+}
+.check_class {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

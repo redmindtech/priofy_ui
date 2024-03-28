@@ -1,0 +1,209 @@
+
+<h4>Tools and Equipment</h4>
+<form [formGroup]="FirstForm">
+<mat-card class="mat">
+  <mat-card-content>
+<table class="colourbule">
+    <tr>
+    <th style width="30%">Tools and/or Equipment</th>
+    <th style width="75%">Use(if explaination needed)</th>
+</tr>
+    <tr>
+      <td class="right-head" id="pipe-wrench-id">Pipe-wrench</td>
+      <td>
+        <div class="checkbox-row">
+          <label><input type="radio" id="applicable" formControlName="pipe_wrench" value="applicable"> Applicable</label>
+          <label><input type="radio" id= "not-applicable" formControlName="pipe_wrench" value="not-applicable"> Not Applicable</label>
+          <label><input type="radio" id="not-available" formControlName="pipe_wrench" value="not-available"> Not Available</label>
+          <label><input type="radio" id="used-by-others" formControlName="pipe_wrench" value="used-by-others"> Used by Others</label>
+      <label class="move-comm">Comments</label>
+        <textarea class="form-control"  id="comment" formControlName="pipeComment" rows="1"></textarea>
+        </div>
+      </td>
+    </tr>
+<tr>
+    <td class="right-head">Valve Key</td>
+    <td>
+        <div class="checkbox-row">
+            <label><input type="radio" formControlName="valveKey" value="applicable"> Applicable</label>
+            <label><input type="radio" formControlName="valveKey" value="not-applicable"> Not Applicable</label>
+            <label><input type="radio" formControlName="valveKey" value="not-available"> Not Available</label>
+            <label><input type="radio" formControlName="valveKey" value="used-by-others"> Used by Others</label>
+           <label class="move-comm">Comments</label>
+          <textarea class="form-control" id="comment" formControlName="valvekey_comment" rows="1"></textarea>
+      </div>
+    </td>
+</tr>
+<tr>
+    <td class="right-head">Radio</td>
+    <td>
+        <div class="checkbox-row">
+            <label><input type="radio" formControlName="radio" value="applicable"> Applicable</label>
+            <label><input type="radio" formControlName="radio" value="not-applicable"> Not Applicable</label>
+            <label><input type="radio" formControlName="radio"  value="not-available"> Not Available</label>
+            <label><input type="radio" formControlName="radio" value="used-by-others"> Used by Others</label>
+            <label class="move-comm">Comments</label>
+        <textarea class="form-control" id="comment" formControlName="radio_comment" rows="1"></textarea>
+    </div>
+    </td>
+</tr>
+
+  <tr>
+    <td class="right-head">LEL Meter</td>
+    <td>
+        <div class="checkbox-row">
+            <label><input type="radio" formControlName="lel_meter" value="applicable"> Applicable</label>
+            <label><input type="radio"  formControlName="lel_meter" value="not-applicable"> Not Applicable</label>
+            <label><input type="radio"  formControlName="lel_meter" value="not-available"> Not Available</label>
+            <label><input type="radio"  formControlName="lel_meter" value="used-by-others"> Used by Others</label>
+             <label class="move-comm">Comments</label>
+        <textarea class="form-control" id="comment" formControlName="lelComment"  rows="1"></textarea>
+     </div>
+     </td>
+</tr>
+
+  <tr>
+    <td class="right-head">Manual Igniter</td>
+    <td>
+        <div class="checkbox-row">
+            <label><input type="radio" formControlName="manual" value="applicable"> Applicable</label>
+            <label><input type="radio"  formControlName="manual" value="not-applicable"> Not Applicable</label>
+            <label><input type="radio"  formControlName="manual" value="not-available"> Not Available</label>
+            <label><input type="radio"  formControlName="manual" value="used-by-others"> Used by Others</label>
+        <label class="move-comm">Comments</label>
+        <textarea class="form-control" id="comment" formControlName="manualComment" rows="1"></textarea>
+     </div>
+     </td>
+</tr>
+
+  <tr>
+    <td class="right-head">Mono Goggles</td>
+    <td>
+        <div class="checkbox-row">
+            <label><input type="radio"  formControlName="mono_goggles" value="applicable"> Applicable</label>
+            <label><input type="radio"  formControlName="mono_goggles" value="not-applicable"> Not Applicable</label>
+            <label><input type="radio"  formControlName="mono_goggles" value="not-available"> Not Available</label>
+            <label><input type="radio"  formControlName="mono_goggles" value="used-by-others"> Used by Others</label>
+      <label class="move-comm">Comments</label>
+        <textarea class="form-control" id="comment" formControlName="monoComment" rows="1">If handling of chemicals is required.</textarea>
+      </div>
+      </td>
+</tr>
+  <tr>
+    <td class="right-head">FRC</td>
+    <td>
+        <div class="checkbox-row">
+            <label><input type="radio"  formControlName="frcs" value="applicable"> Applicable</label>
+            <label><input type="radio" formControlName="frcs"  value="not-applicable"> Not Applicable</label>
+            <label><input type="radio" formControlName="frcs" value="not-available"> Not Available</label>
+            <label><input type="radio" formControlName="frcs" value="used-by-others"> Used by Others</label>
+        <label class="move-comm">Comments</label>
+        <textarea class="form-control" id="comment" formControlName="frcs_Comment" rows="1">In flammable areas to minimize injury from flash fire</textarea>
+      </div>
+    </td>
+</tr>
+  <tr>
+    <td class="right-head">Ear plug(or) Ear muff</td>
+    <td>
+        <div class="checkbox-row">
+            <label><input type="radio" formControlName="earplug" value="applicable"> Applicable</label>
+            <label><input type="radio" formControlName="earplug" value="not-applicable"> Not Applicable</label>
+            <label><input type="radio" formControlName="earplug" value="not-available"> Not Available</label>
+            <label><input type="radio" formControlName="earplug" value="used-by-others"> Used by Others</label>
+        <label class="move-comm">Comments</label>
+        <textarea class="form-control" id="comment" formControlName="earplugComment" rows="1">To protect from high noise.</textarea>
+      </div>
+    </td>
+</tr>
+  <tr>
+    <td class="right-head">Leather Gloves</td>
+    <td>
+        <div class="checkbox-row">
+            <label><input type="radio" formControlName="leather_gloves" value="applicable"> Applicable</label>
+            <label><input type="radio" formControlName="leather_gloves"  value="not-applicable"> Not Applicable</label>
+            <label><input type="radio" formControlName="leather_gloves"  value="not-available"> Not Available</label>
+            <label><input type="radio" formControlName="leather_gloves"  value="used-by-others"> Used by Others</label>
+        <label class="move-comm">Comments</label>
+        <textarea class="form-control" id="comment" formControlName="leatherComment" rows="1">While operating valve with valve keys to avoid pich points ,hot surface.</textarea>
+       </div>
+</tr>
+
+  <tr>
+    <td class="right-head">Helmet</td>
+    <td>
+        <div class="checkbox-row">
+            <label><input type="radio" formControlName="helmet" value="applicable"> Applicable</label>
+            <label><input type="radio" formControlName="helmet" value="not-applicable"> Not Applicable</label>
+            <label><input type="radio" formControlName="helmet" value="not-available"> Not Available</label>
+            <label><input type="radio" formControlName="helmet" value="used-by-others"> Used by Others</label>
+    <label class="move-comm">Comments</label>
+        <textarea class="form-control" id="comment" formControlName="helmetComment" rows="1">While operating valve with valve keys to avoid pinch points, hot surfaces.</textarea>
+      </div>
+</tr>
+  <tr>
+    <td class="right-head">Safety Shoes</td>
+    <td>
+        <div class="checkbox-row">
+            <label><input type="radio" formControlName="safety_shoes" value="applicable"> Applicable</label>
+            <label><input type="radio" formControlName="safety_shoes" value="not-applicable"> Not Applicable</label>
+            <label><input type="radio" formControlName="safety_shoes" value="not-available"> Not Available</label>
+            <label><input type="radio" formControlName="safety_shoes" value="used-by-others">Used by Others</label>
+        <label class="move-comm">Comments</label>
+        <textarea class="form-control" id="comment" formControlName="safety_shoes_comment" rows="1">While operating valve with valve keys to avoid pinch points, hot surfaces.</textarea>
+      </div>
+</tr>
+
+
+  <tr>
+    <td class="right-head">Safety Glasses</td>
+    <td>
+        <div class="checkbox-row">
+            <label><input type="radio" formControlName="safety_glass" value="applicable"> Applicable</label>
+            <label><input type="radio" formControlName="safety_glass" value="not-applicable"> Not Applicable</label>
+            <label><input type="radio" formControlName="safety_glass"  value="not-available"> Not Available</label>
+            <label><input type="radio" formControlName="safety_glass"  value="used-by-others"> Used by Others</label>
+            <label class="move-comm">Comments</label>
+          <textarea class="form-control" id="comment" formControlName="safety_glass_comment" rows="1">While operating valve with valve keys to avoid pinch points, hot surfaces.</textarea>
+      </div>
+      </td>
+</tr>
+
+
+  <tr>
+    <td class="right-head">Cooling Vest</td>
+    <td>
+        <div class="checkbox-row">
+            <label><input type="radio" id="applicable" formControlName="cooling_vest" value="applicable"> Applicable</label>
+            <label><input type="radio" formControlName="cooling_vest" value="not-applicable"> Not Applicable</label>
+            <label><input type="radio" formControlName="cooling_vest" value="not-available"> Not Available</label>
+            <label><input type="radio" formControlName="cooling_vest" value="used-by-others"> Used by Others</label>
+            <label class="move-comm">Comments</label>
+            <textarea class="form-control" id="comment" formControlName="coolingComment" rows="1">To mitigate against heat stress during summer</textarea>
+        </div>
+      </td>
+  </tr>
+
+  <tr>
+    <td class="right-head">Utility Hoses</td>
+      <td>
+        <div class="checkbox-row">
+            <label><input type="radio" id="applicable" formControlName="utility_hoses" value="applicable"> Applicable</label>
+            <label><input type="radio" formControlName="utility_hoses"  value="not-applicable"> Not Applicable</label>
+            <label><input type="radio" formControlName="utility_hoses"  value="not-available"> Not Available</label>
+            <label><input type="radio" formControlName="utility_hoses"  value="used-by-others"> Used by Others</label>
+            <label class="move-comm">Comments</label>
+           <textarea class="form-control" id="comment" formControlName="utilityComment" rows="1">For purging, graining, pressurizing</textarea>
+          </div>
+        </td>
+    </tr>
+</table>
+
+</mat-card-content>
+
+</mat-card>
+<div class="button-container">
+  <button mat-raised-button color="primary" style="float: left" class="btnleft" (click)="submitprev()">Previous</button>
+<button mat-raised-button color="primary" [disabled]="!FirstForm.valid" (click)="submit()">Next</button>
+
+</div>
+</form>

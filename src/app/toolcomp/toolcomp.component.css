@@ -1,0 +1,79 @@
+h4{
+  text-align: center;
+ }
+.mat {
+  width: 1570px;
+  height: 1400px;
+  border-color: black;
+   margin: 3%;
+ }
+ .colourbule {
+  border-collapse: collapse; /* Collapse table borders */
+  width: 90%;
+}
+ .colourbule tr {
+  padding: 5px 0; /* Adjust the padding as needed */
+}
+ .colourbule tr:nth-child(odd) {
+  background-color:#83C0C1 ; /* Color for odd rows */
+}
+
+.colourbule tr:nth-child(even) {
+  background-color:#96E9C6 ; /* Color for even rows */
+
+}
+th{
+  font-size: larger;
+  background-color: #F5DD61 !important;
+  text-align: center;
+}
+td {
+  padding: 8px;
+  text-align: left;
+
+}
+th {
+  background-color: #f2f2f2;
+}
+.right-head{
+  width: 100px;
+  font-weight: bold;
+  margin-left:250px;
+  padding-left: 100px;
+}
+.checkbox-row {
+ margin-left: 10px;
+}
+.move-comm {
+  font-weight: bold;
+  padding-left: 80px;
+
+}
+.form-control{
+  margin-left: 700px;
+}
+.checkbox-row input[type="radio"] {
+  margin-top: 10px;
+  padding-top: 20px;
+  margin-left: 40px;
+  width: 15px; /* Adjust width as needed */
+  height: 15px;
+}
+.checkbox-row label {
+  margin-left: 10px;
+}
+
+
+textarea {
+  margin-left: 300px;
+  display: block;
+  width: 650px;
+  resize: none;
+}
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Align items to the right */
+}
+.btnleft {
+  float: left;
+}

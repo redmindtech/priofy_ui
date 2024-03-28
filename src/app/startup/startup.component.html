@@ -1,0 +1,50 @@
+<p>startup works!</p>
+<form [formGroup]="FirstForm" >
+  <mat-card class="mat">
+    <mat-card-content>
+      <div class="table">
+        <div class="table-row">
+          <div class="table-cell">
+             <h2>STARTUP PROCEDURE</h2>
+          </div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">
+            <input type="checkbox" class="check_class" formControlName="furnace" value="furnace" />
+            Confirm that the "Furnace, Prepare to Startup" procedure has been executed.
+          </div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">
+            <input type="checkbox" class="check_class" formControlName="PFIC" value="PFIC" />
+            Verify that the "Process Fluid Introduction Checklist" (PFIC) has been completed if the furnace underwent prolonged
+            shutdown or significant maintenance. If unsure, consult the technical staff for guidance.
+          </div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">
+            <input type="checkbox" class="check_class" formControlName="close" value="close" />
+            Close and cap or plug all open-ended vents and drain valves on the Ethane/DMS/DMDS/Fuel/Cracked Gas lines to prevent
+            any leaks or spills.
+          </div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">
+            <input type="checkbox" class="check_class" formControlName="TLEs" value="TLEs" />
+            Ensure that all drains on the Primary, Secondary, and Tertiary TLEs (Thermal Liquid Exchangers) are securely closed to
+            maintain system integrity.
+          </div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">
+            <input type="checkbox" class="check_class" formControlName="drum" value="drum" />
+            Confirm that both the steam drum and secondary TLE blowdown valves are closed to maintain pressure and prevent any
+            unintended release of fluid. These preliminary checks are essential to ensure the safe and smooth startup of the furnace
+            operation.
+          </div>
+        </div>
+      </div>
+      <button mat-raised-button style="margin-left: 80%;" color="primary" [disabled]="!FirstForm.valid" (click)="submit()">Submit</button>
+    </mat-card-content>
+  </mat-card>
+</form>

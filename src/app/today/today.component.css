@@ -1,7 +1,8 @@
 .mat {
   
   border-color: black;
- 
+  border-width: thin;
+  border-style: solid; 
    margin: 3%;
   
  }
@@ -29,7 +30,7 @@
   background-color:#96E9C6;
  }
 .btn{
-  background-color:#21f0b2 ;
+  background-color:#97ca94 ;
   
   margin: 1%;
 }
