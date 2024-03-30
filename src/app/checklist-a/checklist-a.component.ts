@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ChecklistAService } from '@app/utils/service/checklist-a.service';
 import { Subscription } from 'rxjs';
@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./checklist-a.component.css']
 })
 export class ChecklistAComponent implements OnInit {
+  @Input() checklistformenable: boolean;
   ChecklistA: FormGroup;
   currentDate: string;
   currenttime: string;

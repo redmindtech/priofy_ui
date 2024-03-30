@@ -100,6 +100,8 @@ import { TodayComponent } from './today/today.component';
 import { ChecklistAComponent } from './checklist-a/checklist-a.component';
 import { ToolcompComponent } from './toolcomp/toolcomp.component';
 import { StartupComponent } from './startup/startup.component';
+import { SafeoperComponent } from './safeoper/safeoper.component';
+import { DevaitionComponent } from './devaition/devaition.component';
 
 
 
@@ -126,6 +128,8 @@ import { StartupComponent } from './startup/startup.component';
     ChecklistAComponent,
     ToolcompComponent,
     StartupComponent,
+    SafeoperComponent,
+    DevaitionComponent,
     
   ],
   imports: [

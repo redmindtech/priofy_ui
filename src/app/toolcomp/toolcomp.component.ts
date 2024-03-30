@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,8 @@ import { ToolcompService } from '@app/utils/service/toolcomp.service';
   styleUrls: ['./toolcomp.component.css']
 })
 export class ToolcompComponent implements OnInit {
-
+  @Input() nextformenable: boolean;
+  startupformenable: boolean = true;
   
   FirstForm: FormGroup;
   constructor(private fb: FormBuilder,
@@ -24,6 +25,8 @@ export class ToolcompComponent implements OnInit {
 ngOnInit(): void {
 
   this.formInitialization();
+  this.startupformenable=true;
+  console.log(' this.nextformenable: ',  this.nextformenable);
 
     }
   formInitialization(){
@@ -76,7 +79,8 @@ submit() {
   this.apiService.savesecondpage(firstFormValue).subscribe(
     response => {
       console.log('Data saved successfully:', response);
-      this.router.navigate(['/startup']);
+      this.startupformenable=false;
+      //this.router.navigate(['/main/startup']);
       // You can add further logic here, such as showing a success message to the user
     },
     error => {

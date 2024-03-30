@@ -4,8 +4,10 @@ h4{
 .mat {
   width: 1570px;
   height: 1400px;
+  border-width: thin;
+  border-style: solid; 
   border-color: black;
-   margin: 3%;
+  
  }
  .colourbule {
   border-collapse: collapse; /* Collapse table borders */
@@ -14,17 +16,10 @@ h4{
  .colourbule tr {
   padding: 5px 0; /* Adjust the padding as needed */
 }
- .colourbule tr:nth-child(odd) {
-  background-color:#83C0C1 ; /* Color for odd rows */
-}
-
-.colourbule tr:nth-child(even) {
-  background-color:#96E9C6 ; /* Color for even rows */
-
-}
+ 
 th{
   font-size: larger;
-  background-color: #F5DD61 !important;
+  background-color: #97ca94 !important;
   text-align: center;
 }
 td {
@@ -33,12 +28,12 @@ td {
 
 }
 th {
-  background-color: #f2f2f2;
+  background-color: #97ca94;
 }
 .right-head{
   width: 100px;
   font-weight: bold;
-  margin-left:250px;
+  margin-left:150px;
   padding-left: 100px;
 }
 .checkbox-row {
@@ -76,4 +71,14 @@ textarea {
 }
 .btnleft {
   float: left;
+}
+.mat-expansion-panel-header-description {
+  
+  flex-grow: unset !important;
+  margin-left: 10px !important;
+}
+.mat-expansion-panel-header-description {
+  
+  flex-grow: unset !important;
+  margin-left: 10px !important;
 }

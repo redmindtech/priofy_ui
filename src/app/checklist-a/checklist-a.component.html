@@ -1,11 +1,24 @@
+<mat-accordion>
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="false">
+    <mat-expansion-panel-header class="mat_expansion_header_border">
+      <div class="row">
+        <h5 style="margin-right: 1150px;display: contents;">6.Procedure Checklist index</h5>
+      </div>
+      <mat-panel-description></mat-panel-description>
+    </mat-expansion-panel-header>
+
+
+
 <form [formGroup]="ChecklistA">
   <mat-card class="mat">
     <mat-card-content>
+     
+      <h6 style="margin-left: 30%;"><strong>PROCEDURE CHECKLIST #A ESTABLISH STEAM DRUM LEVEL</strong></h6>
       <table class="outline-table">
         <thead>
           <tr>
             <th class="headers">Step</th>
-            <th class="headers">Action (Hazard/Precaution if applicable)</th>
+            <th class="headers" style="padding: 15px;">Action (Hazard/Precaution if applicable)</th>
             <th class="header">Yes   No</th>
             
             
@@ -85,67 +98,67 @@
               
               <input type="radio" class="radiobtnmulti"  id="hbf_inlet-yes" formControlName="hbf_inlet" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="hbf_inlet-no" formControlName="hbf_inlet" value="No" (focusout)="onSubmit()" />
-             
+             <br>
               <input type="radio" class="radiobtnmulti"  id="fv_downstream-yes" formControlName="fv_downstream" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="fv_downstream-no" formControlName="fv_downstream" value="No" (focusout)="onSubmit()" />
-            
+              <br>
               <input type="radio" class="radiobtnmulti"  id="fv_bypass-yes" formControlName="fv_bypass" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="fv_bypass-no" formControlName="fv_bypass" value="No" (focusout)="onSubmit()" />
-           
+              <br>
               <input type="radio" class="radiobtnmulti"  id="eco_inlet-yes" formControlName="eco_inlet" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="eco_inlet-no" formControlName="eco_inlet" value="No" (focusout)="onSubmit()" />
-           
+              <br>
               <input type="radio" class="radiobtnmulti"  id="eco_outlet-yes" formControlName="eco_outlet" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="eco_outlet-no" formControlName="eco_outlet" value="No" (focusout)="onSubmit()" />
-           
+              <br>
               <input type="radio" class="radiobtnmulti"  id="inlet_check_valve-yes" formControlName="inlet_check_valve" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="inlet_check_valve-no" formControlName="inlet_check_valve" value="No" (focusout)="onSubmit()" />
-           
+              <br>
               <input type="radio" class="radiobtnmulti"  id="inlet_DB-yes" formControlName="inlet_DB" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="inlet_DB-no" formControlName="inlet_DB" value="No" (focusout)="onSubmit()" />
-            
+              <br>
               <input type="radio" class="radiobtnmulti"  id="inlet_check-yes" formControlName="inlet_check" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="inlet_check-no" formControlName="inlet_check" value="No" (focusout)="onSubmit()" />
-            
+              <br>
               <input type="radio" class="radiobtnmulti"  id="hpssh-yes" formControlName="hpssh" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="hpssh-no" formControlName="hpssh" value="No" (focusout)="onSubmit()" />
-           
+              <br>
               <input type="radio" class="radiobtnmulti"  id="hxs_upstream-yes" formControlName="hxs_upstream" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="hxs_upstream-no" formControlName="hxs_upstream" value="No" (focusout)="onSubmit()" />
-
+              <br>
               <input type="radio" class="radiobtnmulti"  id="vent_upstream-yes" formControlName="vent_upstream" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="vent_upstream-no" formControlName="vent_upstream" value="No" (focusout)="onSubmit()" />
-
+              <br>
               <input type="radio" class="radiobtnmulti"  id="vent_downstream-yes" formControlName="vent_downstream" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="vent_downstream-no" formControlName="vent_downstream" value="No" (focusout)="onSubmit()" />
-
+              <br>
               <input type="radio" class="radiobtnmulti"  id="hxs_outlet-yes" formControlName="hxs_outlet" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="hxs_outlet-no" formControlName="hxs_outlet" value="No" (focusout)="onSubmit()" />
-
+              <br>
               <input type="radio" class="radiobtnmulti"  id="transmitters-yes" formControlName="transmitters" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="transmitters-no" formControlName="transmitters" value="No" (focusout)="onSubmit()" />
-
+              <br>
               <input type="radio" class="radiobtnmulti"  id="intermittent-yes" formControlName="intermittent" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="intermittent-no" formControlName="intermittent" value="No" (focusout)="onSubmit()" />
-
+              <br>
               <input type="radio" class="radiobtnmulti"  id="bd_header-yes" formControlName="bd_header" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="bd_header-no" formControlName="bd_header" value="No" (focusout)="onSubmit()" />
-
+              <br>
               <input type="radio" class="radiobtnmulti"  id="secondary_tle-yes" formControlName="secondary_tle" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="secondary_tle-no" formControlName="secondary_tle" value="No" (focusout)="onSubmit()" />
-
+              <br>
               <input type="radio" class="radiobtnmulti"  id="intermittent_db-yes" formControlName="intermittent_db" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="intermittent_db-no" formControlName="intermittent_db" value="No" (focusout)="onSubmit()" />
-
+              <br>
               <input type="radio" class="radiobtnmulti"  id="primary_tles-yes" formControlName="primary_tles" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="primary_tles-no" formControlName="primary_tles" value="No" (focusout)="onSubmit()" />
-
+              <br>
               <input type="radio" class="radiobtnmulti"  id="secondary_blow-yes" formControlName="secondary_blow" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="secondary_blow-no" formControlName="secondary_blow" value="No" (focusout)="onSubmit()" />
-
+              <br>
               <input type="radio" class="radiobtnmulti"  id="primary_common-yes" formControlName="primary_common" value="Yes" (focusout)="onSubmit()" />
               <input type="radio" class="radiobtnmulti"  id="primary_common-no" formControlName="primary_common" value="No" (focusout)="onSubmit()" />
-
+              <br>
              
             </td>
             
@@ -342,3 +355,5 @@
     </mat-card-content>
   </mat-card>
 </form>
+</mat-expansion-panel>
+</mat-accordion>

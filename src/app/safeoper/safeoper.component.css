@@ -3,7 +3,7 @@ h2{
   text-align: center;
 }
 .mat {
-  width: 90%;
+  width: 100%;
   align-items: center;/* Adjust width as needed */
   margin: auto; /* Center the card */
   padding: 20px; /* Add some padding */
@@ -18,26 +18,26 @@ h2{
   width: 100%;
 }
 .mat{
-
   border-color: black;
   border-width: thin;
   border-style: solid;
-  margin: 3%;
+ 
 }
 .table-row {
-
-  margin-top: 10px;
- 
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: table-row;
+  background-color: #97ca94;
 }
 
 .table-cell {
   font-size: medium;
   display: table-cell;
   padding: 5px;
-
 }
-
+.table-row {
+  background-color: #97ca94;
+}
 .check_class {
   margin-top: 20px;
   margin-bottom: 20px;

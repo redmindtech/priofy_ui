@@ -34,3 +34,8 @@
   
   margin: 1%;
 }
+.mat-expansion-panel-header-description {
+  
+  flex-grow: unset !important;
+  margin-left: 10px !important;
+}

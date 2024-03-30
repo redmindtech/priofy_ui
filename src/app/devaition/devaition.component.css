@@ -1,0 +1,55 @@
+h2{
+  text-align: center;
+}
+
+.table-row {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+.btn1{
+margin-left: 1600%;
+}
+.btn2{
+  margin-left: 1300%;
+}
+@media only screen and (max-width: 1400px)
+{
+  .btn1{
+    margin-left: 850%;
+    }
+    .btn2{
+      margin-left: 700%;
+    }
+}
+.row {
+  display: table-row;
+
+}
+.top-aligned .column {
+
+  vertical-align: top;
+}
+.column {
+  display: table-cell;
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+.column-heading{
+  text-align: center;
+}
+th{
+  font-size: larger;
+
+  text-align: center;
+}
+
+label {
+  display: inline-block;
+  width: 100%;
+}
+.mat-expansion-panel-header-description {
+  
+  flex-grow: unset !important;
+  margin-left: 10px !important;
+}

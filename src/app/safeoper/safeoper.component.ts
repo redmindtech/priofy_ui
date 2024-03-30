@@ -1,46 +1,42 @@
-
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { StartsService } from '@app/utils/service/starts.service';
-
-
+import { SafeoperService } from '@app/utils/service/safeoper.service';
 @Component({
-  selector: 'app-startup',
-  templateUrl: './startup.component.html',
-  styleUrls: ['./startup.component.css']
+  selector: 'app-safeoper',
+  templateUrl: './safeoper.component.html',
+  styleUrls: ['./safeoper.component.css']
 })
-export class StartupComponent implements OnInit {
-  @Input() startupformenable: boolean;
-  saferoperformenable: boolean = true;
+export class SafeoperComponent implements OnInit {
+  @Input() saferoperformenable: boolean;
+  devaitionformenable: boolean = true;
   FirstForm: FormGroup;
   constructor(private fb: FormBuilder,
-    private apiService: StartsService,
+    private apiService:SafeoperService,
     private router: Router,
     private toast: MatSnackBar,
     ) { }
 
     ngOnInit(): void {
       this.FirstForm = this.fb.group({
-        prepare_to_startup: [false],
-        pfic: [false],
-        prevent_leaks_or_spill: [false],
-        thermal_liquid_exchangers: [false],
-        tLE_blowdown_valves: [false]
-      });
+        steam_drum_level: [false],
+        furnacedraft: [false],
+        fuel_gas_system: [false],
+        furnace_area_is_cleared: [false]
+    })
     }
     submit() {
       if (this.FirstForm.valid) {
         const formData = this.FirstForm.value;
-        this.apiService.savestratuppage(formData).subscribe(
+        this.apiService.savesafeoperpage(formData).subscribe(
           (response) => {
             // Handle successful response
             console.log('Data saved successfully:', response);
             this.toast.open('Data saved successfully', 'Close', { duration: 3000 });
             // Redirect to another route if needed
-           this.saferoperformenable=false;
-            //this.router.navigate(['/success']);
+           // this.router.navigate(['/success']);
+          this.devaitionformenable=false;
           },
           (error) => {
             // Handle error

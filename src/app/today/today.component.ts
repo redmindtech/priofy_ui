@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -10,7 +11,10 @@ import { FirstpageService } from '@app/utils/service/firstpage.service';
   styleUrls: ['./today.component.css']
 })
 export class TodayComponent implements OnInit {
+ 
+  nextformenable: boolean = true;
   FirstForm: FormGroup; 
+  
   constructor(private fb: FormBuilder, 
     private apiService: FirstpageService,
     private router: Router,
@@ -59,9 +63,10 @@ formInitialization(){
         this.apiService.savefirstpage(firstFormValue).subscribe(
           (response) => {
             console.log('Response from server:', response);
+            this.nextformenable=false;
+            // this.router.navigate(['/main/toolcomp']);
             
-            
-            this.router.navigate(['main/toolcomp']);
+         
           },
           (error) => {
             console.error('Error while sending data:', error);
@@ -74,5 +79,7 @@ formInitialization(){
         console.error('Form is invalid. Please fill all required fields.');
       }
      
+ 
     }
+    
 }

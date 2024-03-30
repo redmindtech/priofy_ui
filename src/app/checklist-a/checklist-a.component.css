@@ -1,7 +1,9 @@
 .outline-table {
   border: 2px solid #000; /* Set border width and color */
   border-collapse: collapse; /* Collapse border spacing */
-  margin: 11%;
+ margin-left: 11%;
+ margin-right: 11%;
+  margin-bottom: 11%;
 }
 
 .outline-table th,
@@ -10,21 +12,36 @@
   padding: 8px; /* Add padding for better spacing */
 }
 .radiobtn{
-  margin: 9%;
+  margin: 10%;
 }
 .headers{
-  background-color:#21f0b2;
+  background-color:#97ca94;
   text-align: center;
   
 }
 .header{
-  background-color:#21f0b2;
+  background-color:#97ca94;
   
   width: 8%;
 }
-
+@media only screen and (max-width: 1400px)
+{
+  .outline-table th,
+  .outline-table td {
+    border: 1px solid #000; /* Set border width and color for table cells */
+    padding: 2px; /* Add padding for better spacing */
+  } 
+  .radiobtn{
+    margin:12%;
+  }
+}
 .radiobtnmulti{
   
   margin: 9%;
   margin-top: 15%!important;
+}
+.mat-expansion-panel-header-description {
+  
+  flex-grow: unset !important;
+  margin-left: 10px !important;
 }

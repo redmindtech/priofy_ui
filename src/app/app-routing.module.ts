@@ -16,6 +16,8 @@ import { TodayComponent } from './today/today.component';
 import { ChecklistAComponent } from './checklist-a/checklist-a.component';
 import { ToolcompComponent } from './toolcomp/toolcomp.component';
 import { StartupComponent } from './startup/startup.component';
+import { SafeoperComponent } from './safeoper/safeoper.component';
+import { DevaitionComponent } from './devaition/devaition.component';
 
 
 const routes: Routes = [
@@ -77,6 +79,14 @@ const routes: Routes = [
       {
         path: 'startup',
         component: StartupComponent,
+      },
+      {
+        path: 'safeoper',
+        component: SafeoperComponent,
+      },
+      {
+        path: 'devaition',
+        component: DevaitionComponent,
       },
       {
         path: 'today',
