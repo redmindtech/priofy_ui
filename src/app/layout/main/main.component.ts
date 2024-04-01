@@ -31,15 +31,15 @@ export class MainComponent implements OnInit {
 }
 
 export const MENU = [
-  {
-    name: 'Hazards & Precaution',
-    path: ['/main/today'],
+  // {
+  //   name: 'Hazards & Precaution',
+  //   path: ['/main/today'],
     
-  },
-  {
-    name: 'Tools & Equipment',
-    path: ['/main/todaytask']
-  },
+  // },
+  // {
+  //   name: 'Tools & Equipment',
+  //   path: ['/main/toolcomp']
+  // },
   // {
   //   name: 'Administration',
   //   icon: 'fa-users-cog',

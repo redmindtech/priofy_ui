@@ -26,9 +26,13 @@ export class LoginComponent {
       this.authService.login({ username, password }).subscribe(
         (response) => {
          this.error= response;
-          console.log(response);
+       let id =  response.result.id
+       console.log('id: ', id);
+          console.log(response.result);
           if (response){
-            this.router.navigate(['/main/home']);
+            const id = response.result.id;
+            localStorage.setItem('currentUser', JSON.stringify(response.result));
+            this.router.navigate(['/main/home'], { queryParams: { id } });
           }
          
           // Login successful, redirect or perform necessary action

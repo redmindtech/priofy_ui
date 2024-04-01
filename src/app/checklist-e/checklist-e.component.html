@@ -1,0 +1,198 @@
+<mat-accordion>
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="false">
+    <mat-expansion-panel-header class="mat_expansion_header_border">
+      <div class="row">
+        <h5 style="margin-right: 1150px;display: contents;">10.Procedure Checklist index</h5>
+      </div>
+      <mat-panel-description></mat-panel-description>
+    </mat-expansion-panel-header>
+
+<mat-card >
+  <mat-card-content>
+    <h6 style="margin-left: 30%;"><strong>Procedure Checklist #E—Warm Up COT</strong></h6>
+    <form  [formGroup]="ChecklistE">
+    <table>
+      <thead>
+        <tr>
+          <th class="theader">Step</th>
+          <th class="theader">Action (Hazard/Precaution if applicable)</th>
+          <th class="theader" >Yes/No</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center;" >1</td>
+          <td class="header">OOT to ensure that all lower level burners are lit before starting light off of upper level burners.</td>
+          <td>
+            <input type="radio" class="radio"  id="OOT_lower_level_burner-yes" formControlName="OOT_lower_level_burner" value="Yes" />
+          
+            <input type="radio" class="radio" id="OOT_lower_level_burner-no" formControlName="OOT_lower_level_burner"  value="No" />
+            
+          </td>
+        </tr>
+       
+        <tr>
+          <td style="text-align: center;">2</td>
+          <td class="header">IOT to continuously monitor the fuel gas pressure and OOT to continue lighting off more burners as required</td>
+          <td>
+            <input type="radio" class="radio" id="IOT_monitor_the_fuel_gas-yes" formControlName="IOT_monitor_the_fuel_gas"    value="Yes" />
+            
+            <input type="radio" class="radio" id="IOT_monitor_the_fuel_gas-no" formControlName="IOT_monitor_the_fuel_gas" value="No" />
+          
+          </td>
+        </tr>
+       
+        <tr>
+          <td style="text-align: center;">3</td>
+          <td class="header">OOT to open desuperheater Untreated BFW manual block valves (DB&B) when the COT is &gt; 450 ºC.</td>
+          <td>
+            <input type="radio" class="radio"  id="OOT_desuperheater-yes" formControlName="OOT_desuperheater"   value="Yes" />
+      
+            <input type="radio" class="radio" id="OOT_desuperheater-no" formControlName="OOT_desuperheater" value="No" />
+            
+          </td>
+        </tr>
+       
+        <tr>
+          <td style="text-align: center;">4</td>
+          <td class="header">IOT to confirm that the desuperheater valve does not pass. If it passes, instruct the OOT to close the B/V until desuperheating flow is needed.</td>
+          <td>
+            <input type="radio" class="radio" id="IOT_desuperheater_not_pass-yes" formControlName="IOT_desuperheater_not_pass" value="Yes" />
+            
+            <input type="radio" class="radio" id="IOT_desuperheater_not_pass-no" formControlName="IOT_desuperheater_not_pass"  value="No" />
+           
+          </td>
+        </tr>
+         
+     
+          <tr>
+          <td style="text-align: center;" >5</td>
+          <td class="header" >When steam drum pressure is above 90 kg/cm2g:</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td ></td>
+          <td class="header">*OOT to line up steam drum continuous blowdown valve and block in steam drum intermittent blowdown.</td>
+          <td>
+            <input type="radio" class="radio" id="OOT_line_up_sd-yes" formControlName="OOT_line_up_sd"   value="Yes" />
+           
+            <input type="radio" class="radio" id="OOT_line_up_sd-no" formControlName="OOT_line_up_sd"   value="No" />
+          
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="header">*OOT to confirm that the sTLE blowdown to CBD header is lined up.</td>
+          <td>
+            <input type="radio" class="radio" id="OOT_CBD-yes-4"  formControlName="OOT_CBD" value="Yes" />
+         
+            <input type="radio" class="radio" id="OOT_CBD-no-4" formControlName="OOT_CBD" value="No" />
+           
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="header">*OOT to ensure steam drum blowdown analyzer online and confirm cooling water flow to and from cooler.</td>
+          <td>
+            <input type="radio" class="radio" id="OOT_confirm_cooling_water-yes" formControlName="OOT_confirm_cooling_water" value="Yes" />
+            
+            <input type="radio" class="radio" id="OOT_confirm_cooling_water-no" formControlName="OOT_confirm_cooling_water" value="No" />
+          
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="header">*OOT to ensure sTLE blowdown analyzer cooling water flow
+            to and from cooler is established.</td>
+          <td>
+            <input type="radio" class="radio" id="OOT_sTLE_blowdown_analyzer-yes"  formControlName="OOT_sTLE_blowdown_analyzer" value="Yes" />
+            
+            <input type="radio" class="radio" id="OOT_sTLE_blowdown_analyzer-no"formControlName="OOT_sTLE_blowdown_analyzer" value="No" />
+          
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="header">*OOT to open desuperheater untreated BFW manual block
+            valves (DB&B) if not done before.</td>
+          <td>
+            <input type="radio" class="radio" id="OOT_desuperheater_untreated_BFW-yes"  formControlName="OOT_desuperheater_untreated_BFW" value="Yes" />
+            
+            <input type="radio" class="radio" id="OOT_desuperheater_untreated_BFW-no" formControlName="OOT_desuperheater_untreated_BFW" value="No" />
+          
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="header">*IOT to enable steam drum and sTLE continuous blow downs
+            from HMI Station.
+            </td>
+          <td>
+            <input type="radio" class="radio" id="IOT_to_enable_sd-yes" formControlName="IOT_to_enable_sd"  value="Yes" />
+            
+            <input type="radio" class="radio" id="IOT_to_enable_sd-no" formControlName="IOT_to_enable_sd" value="No" />
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td style="text-align: center;">6</td>
+          <td class="header">If steam PSV EVT testing needs to be done, hold COTs at 700°C
+            (via COT manual set point) and steam drum pressure at 93
+            kg/cm2g using steam vent to atmosphere control valve (flow
+            should be around 12 M t/h).
+            
+            </td>
+          <td>
+            <input type="radio" class="radio" id="PSV_EVT_start-yes" formControlName="PSV_EVT_start" value="Yes" />
+            
+            <input type="radio" class="radio" id="PSV_EVT_start-no" formControlName="PSV_EVT_start"value="No" />
+          
+          </td>
+        </tr>
+        <tr>
+          <td ></td>
+          <td class="header">*Continue with warm-up when PSV EVT testing is complete
+            </td>
+          <td>
+            <input type="radio" class="radio" id="PSV_EVT_complete-yes"  formControlName="PSV_EVT_complete" value="Yes" />
+            
+            <input type="radio" class="radio" id="PSV_EVT_complete-no" formControlName="PSV_EVT_complete" value="No" />
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td style="text-align: center;">7</td>
+          <td class="header">OOT&IOT to reconfirm that Decoke Air is blinded (ONIS device).
+            </td>
+          <td>
+            <input type="radio" class="radio"  id="OOTIOT_Decoke_Air-yes"  formControlName="OOTIOT_Decoke_Air" value="Yes" />
+            
+            <input type="radio" class="radio" id="OOTIOT_Decoke_Air-no" formControlName="OOTIOT_Decoke_Air" value="No" />
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td style="text-align: center;">8</td>
+          <td class="header">When COT temperature is above 760ºC and if steam flow
+            confirmed higher than 10 Mt/h per side, it is possible to move the
+            Furnace sequence to Swing MOV step, if ready to do so.        
+            </td>
+          <td>
+            <input type="radio" class="radio" id="Furnace_sequence_to_Swing_MOV-yes"  formControlName="Furnace_sequence_to_Swing_MOV"  value="Yes" />
+            
+            <input type="radio" class="radio" id="Furnace_sequence_to_Swing_MOV-no" formControlName="Furnace_sequence_to_Swing_MOV" value="No" />
+          
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+  <button mat-raised-button style="margin-left: 95%; margin-top: 2%; background-color: #97ca94;" [disabled]="!ChecklistE.valid" (click)="onSubmit()">Next</button>
+  </mat-card-content>
+</mat-card>
+</mat-expansion-panel>
+</mat-accordion>
+

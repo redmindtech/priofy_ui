@@ -102,6 +102,7 @@ import { ToolcompComponent } from './toolcomp/toolcomp.component';
 import { StartupComponent } from './startup/startup.component';
 import { SafeoperComponent } from './safeoper/safeoper.component';
 import { DevaitionComponent } from './devaition/devaition.component';
+import { ChecklistEComponent } from './checklist-e/checklist-e.component';
 
 
 
@@ -130,6 +131,7 @@ import { DevaitionComponent } from './devaition/devaition.component';
     StartupComponent,
     SafeoperComponent,
     DevaitionComponent,
+    ChecklistEComponent,
     
   ],
   imports: [

@@ -3,6 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AuthService } from '@app/service/auth.service';
 import { FirstpageService } from '@app/utils/service/firstpage.service';
 
 @Component({
@@ -14,18 +15,28 @@ export class TodayComponent implements OnInit {
  
   nextformenable: boolean = true;
   FirstForm: FormGroup; 
+  currentUser: any;
   
   constructor(private fb: FormBuilder, 
     private apiService: FirstpageService,
     private router: Router,
     private toast: MatSnackBar,
+    private authService: AuthService
     ) { }
 
   ngOnInit(): void {
-    
-this.formInitialization();
-    
+    const storedUser = localStorage.getItem('currentUser');
+
+     this.currentUser = storedUser ? JSON.parse(storedUser) : null;
+     console.log(' this.currentUser: ',  this.currentUser);
+
+      this.formInitialization();
+
   }
+
+  
+
+
 formInitialization(){
   this.FirstForm = this.fb.group({ // Define form controls
     condensate: [false, Validators.required],
