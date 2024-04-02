@@ -15,6 +15,11 @@ export class ChecklistDComponent implements OnInit {
   @Input() checklistdformenable: boolean;
   checklisteformenable: boolean = true;
   FirstForm:FormGroup
+  userDetails: any;
+  userObject: any;
+  position: any;
+  disableiot: any;
+  disableoot: any;
   constructor(private fb: FormBuilder,
     private apiService:ChecklistDService,
     private router: Router,
@@ -22,6 +27,16 @@ export class ChecklistDComponent implements OnInit {
     ){}
   
     ngOnInit(): void {
+      this.userDetails = localStorage.getItem('currentUser');
+    this.userObject = JSON.parse(this.userDetails);
+    this.position = this.userObject.position;
+    if (this.position === 'iot') {
+      this.disableiot = true;
+      this.disableoot = false;
+    } else if (this.position === 'oot') {
+      this.disableiot = false;
+      this.disableoot = true;
+    }
       this.FirstForm = this.fb.group({
         id:[],
         userid:[],
