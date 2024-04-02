@@ -2,11 +2,15 @@ h4{
   text-align: center;
  }
 .mat {
-  width: 1570px;
-  height: 1400px;
+  width: 800px;
+  /* height: 1400px;
   border-width: thin;
   border-style: solid; 
+  border-color: black; */
   border-color: black;
+  border-width: thin;
+  border-style: solid;
+  margin: 3%;
   
  }
  .colourbule {
@@ -34,18 +38,19 @@ th {
   width: 100px;
   font-weight: bold;
   margin-left:150px;
-  padding-left: 100px;
+  /* padding-left: 100px; */
 }
 .checkbox-row {
- margin-left: 10px;
+ margin-left: 126px;
 }
 .move-comm {
   font-weight: bold;
-  padding-left: 80px;
+  padding-left: 29px;
 
 }
 .form-control{
-  margin-left: 700px;
+  margin-left: 350px;
+  margin-top: -40px;
 }
 .checkbox-row input[type="radio"] {
   margin-top: 10px;
@@ -82,3 +87,7 @@ textarea {
   flex-grow: unset !important;
   margin-left: 10px !important;
 }
+.header{
+  text-align: center;
+  margin-top: 2%;
+ }

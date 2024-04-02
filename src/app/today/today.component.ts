@@ -25,10 +25,10 @@ export class TodayComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    const storedUser = localStorage.getItem('currentUser');
+    // const storedUser = localStorage.getItem('currentUser');
 
-     this.currentUser = storedUser ? JSON.parse(storedUser) : null;
-     console.log(' this.currentUser: ',  this.currentUser);
+    //  this.currentUser = storedUser ? JSON.parse(storedUser) : null;
+    //  console.log(' this.currentUser: ',  this.currentUser);
 
       this.formInitialization();
 

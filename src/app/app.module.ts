@@ -103,6 +103,7 @@ import { StartupComponent } from './startup/startup.component';
 import { SafeoperComponent } from './safeoper/safeoper.component';
 import { DevaitionComponent } from './devaition/devaition.component';
 import { ChecklistEComponent } from './checklist-e/checklist-e.component';
+import { ChecklistFComponent } from './checklist-f/checklist-f.component';
 
 
 
@@ -132,6 +133,7 @@ import { ChecklistEComponent } from './checklist-e/checklist-e.component';
     SafeoperComponent,
     DevaitionComponent,
     ChecklistEComponent,
+    ChecklistFComponent
     
   ],
   imports: [
