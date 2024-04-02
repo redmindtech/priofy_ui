@@ -11,6 +11,7 @@ import { ChecklistCService } from '@app/utils/service/checklist-c.service';
 })
 export class ChecklistCComponent implements OnInit {
   @Input() checklistcformenable: boolean;
+  checklistdformenable: boolean = true;
   FirstForm:FormGroup
   currentUser: any;
   disableIO: any;
@@ -86,6 +87,6 @@ submit() {if (this.FirstForm.valid) {
 }
 }
 nxtAccEn(){
-  
+  this.checklistdformenable=true;
 }
 }

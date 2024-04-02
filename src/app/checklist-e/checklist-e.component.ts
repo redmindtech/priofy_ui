@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ChecklistEService } from '@app/utils/service/checklist-e.service';
 import { Subscription } from 'rxjs';
@@ -9,6 +9,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./checklist-e.component.css']
 })
 export class ChecklistEComponent implements OnInit {
+  @Input() checklisteformenable: boolean;
+  checklistfformenable: boolean = true;
   ChecklistE!: FormGroup;
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
@@ -20,8 +22,8 @@ export class ChecklistEComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
     const storedUser = localStorage.getItem('currentUser');
-
      this.currentUser = storedUser ? JSON.parse(storedUser) : null;
      console.log(' this.currentUser: ',  this.currentUser.position);
    this.disableIO=this.currentUser.position;
@@ -82,6 +84,6 @@ export class ChecklistEComponent implements OnInit {
     });
   }
   nxtAccEn(){
-    
+    this.checklistfformenable=true;
   }
 }

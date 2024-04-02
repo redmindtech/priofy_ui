@@ -19,6 +19,7 @@ import { StartupComponent } from './startup/startup.component';
 import { SafeoperComponent } from './safeoper/safeoper.component';
 import { DevaitionComponent } from './devaition/devaition.component';
 import { ChecklistEComponent } from './checklist-e/checklist-e.component';
+import { ChecklistDComponent } from './checklist-d/checklist-d.component';
 
 
 const routes: Routes = [
@@ -80,6 +81,10 @@ const routes: Routes = [
       {
         path: 'startup',
         component: StartupComponent,
+      },
+      {
+        path: 'checklistd',
+        component: ChecklistDComponent,
       },
       {
         path: 'checkliste',

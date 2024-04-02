@@ -17,7 +17,7 @@
           <tr>
             <th class="theader">Step</th>
             <th class="theader">Action (Hazard/Precaution if applicable)</th>
-            <th class="theader">Yes / No</th>
+            <th class="theader">Yes/No</th>
           </tr>
         </thead>
         <tbody>
@@ -32,7 +32,7 @@
         </tr>
         <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
             <td class="style" >  2. </td>
-            <td clas="header">Has IOT confirmed that the VFDs are powered up and the motors are
+            <td class="header">Has IOT confirmed that the VFDs are powered up and the motors are
               energized in the MCC at the Fan Overview HMI (ready DI from
               motor and alarm signal from VSD).</td>
           <td>
@@ -95,7 +95,7 @@
          </tr>
          <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
           <td></td>
-          <td class="header"> ___ Floor burners (bottom level) open, except ALL 4 auto burners.</td>
+          <td class="header">*Floor burners (bottom level) open, except ALL 4 auto burners.</td>
 
           <td>
             <input  type="radio" class="radio" formControlName="oot_Floor_burners" value="yes"/>
@@ -104,7 +104,7 @@
           </tr>
           <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
             <td></td>
-          <td class="header"> ___ Wall burners (top level) closed.</td>
+          <td class="header">*Wall burners (top level) closed.</td>
 
           <td>
          <input class="radio" type="radio" formControlName="oot_Wall_burners" value="yes"/>
@@ -131,7 +131,7 @@
           <input class="radio" type="radio" formControlName="iot_ID_fan_running" value="no"></td>
           <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
           <td></td>
-            <td>Note: The ID fan starts up at 100 rpm until it is confirmed running,
+            <td class="header">Note: The ID fan starts up at 100 rpm until it is confirmed running,
               then it immediately switches to draft control at -12 mm H2O.</td>
               <td></td>
          </tr>
@@ -151,7 +151,7 @@
       </tr>
       <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
         <td class="style"> 13. </td>
-          <td class="heading">Has OOT  checked the ID fan for any abnormality in the field.</td>
+          <td class="header">Has OOT  checked the ID fan for any abnormality in the field.</td>
           <td> <input class="radio" type="radio" formControlName="oot_ID_fan_abnormality" value="yes">
             <input class="radio" type="radio" formControlName="oot_ID_fan_abnormality" value="no"></td>
             </tr>
@@ -179,7 +179,7 @@
           </tr>
           <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
           <td></td>
-          <td>Note: the FD fan starts at about 100 rpm, and then switches to
+          <td class="header">Note: the FD fan starts at about 100 rpm, and then switches to
               airflow control immediately. Minimum airflow for purge is 20.4 Mt/h
               total, with at least 10.2 Mt/h per duct.</td>
               <td></td>
@@ -187,7 +187,7 @@
 
         <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
           <td class="style" > 17. </td>
-          <td class="heading">Has IOT  closed the Fresh Air Doors once the FD fan operation is
+          <td class="header">Has IOT  closed the Fresh Air Doors once the FD fan operation is
               stable.</td>
             <td>
                 <td></td>
@@ -253,31 +253,31 @@
          </tr>
          <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
          <td></td>
-          <td class="header">___S-TLE inlet PT-22X5-05.</td>
+          <td class="header">*S-TLE inlet PT-22X5-05.</td>
             <td><input class="radio" type="radio" formControlName="oot_S_TLE" value="yes">
            <input class="radio" type="radio" formControlName="oot_S_TLE" value="no"></td>
             </tr>
             <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
               <td></td>
-            <td class="header">___ T-TLE outlet PT-22X6-01 and PT-22X6-02.</td>
+            <td class="header">*T-TLE outlet PT-22X6-01 and PT-22X6-02.</td>
               <td><input class="radio" type="radio" formControlName="oot_T_TLE" value="yes">
                <input class="radio" type="radio" formControlName="oot_T_TLE" value="no"></td>
                </tr>
                <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
                 <td></td>
-              <td class="header">___ CG MOVs intermediate PT-22X6-07 (also HV-22X6-15 must be closed).</td>
+              <td class="header">*CG MOVs intermediate PT-22X6-07 (also HV-22X6-15 must be closed).</td>
               <td><input class="radio" type="radio" formControlName="oot_CG_movs_intermediate" value="yes">
                <input class="radio" type="radio" formControlName="oot_CG_movs_intermediate" value="no"></td>
               </tr>
               <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
               <td></td>
-              <td class="header">___ CG MOVs HV-22X6-13A.</td>
+              <td class="header">*CG MOVs HV-22X6-13A.</td>
               <td><input class="radio" type="radio" formControlName="oot_CG_HV_22X6_13A" value="yes">
                 <input class="radio" type="radio" formControlName="oot_CG_HV_22X6_13A" value="no"></td>
               </tr>
               <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
               <td></td>
-                  <td class="header">___ Decoke MOV HV-22X6-14.</td>
+                  <td class="header">*Decoke MOV HV-22X6-14.</td>
                   <td><input class="radio" type="radio" formControlName="oot_Decoke_MOV" value="yes">
                     <input class="radio" type="radio" formControlName="oot_Decoke_MOV" value="no"></td>
              </tr>
@@ -341,30 +341,30 @@
               </tr>
               <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
                 <td></td>
-              <td class="header">___2” main B/V at fourth platform level.</td>
+              <td class="header">*2” main B/V at fourth platform level.</td>
               <td><input class="radio" type="radio" formControlName="oot_fourth_platform_level" value="yes">
               <input class="radio" type="radio" formControlName="oot_fourth_platform_level" value="no"></td>
               </tr>
               <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
-                <td></td><td class="header">___1” B/V to AT-22X0-11A.</td>
+                <td></td><td class="header">*1” B/V to AT-22X0-11A.</td>
                 <td><input class="radio" type="radio" formControlName="oot_1inch_BV_to_AT_22x0_11A" value="yes">
                   <input class="radio" type="radio" formControlName="oot_1inch_BV_to_AT_22x0_11A" value="no"></td>
                   </tr>
                   <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
                     <td></td>
-                    <td class="header">___1” B/V to AT-22X0-11B.</td>
+                    <td class="header">*1” B/V to AT-22X0-11B.</td>
                   <td> <input class="radio"type="radio" formControlName="oot_1inch_BV_to_AT_22x0_11B" value="yes">
                 <input class="radio"type="radio" formControlName="oot_1inch_BV_to_AT_22x0_11B" value="no"></td>
                 </tr>
                 <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
                   <td></td>
-                      <td class="header">___3/4” B/V to AP-22X0-11A.</td>
+                      <td class="header">*3/4” B/V to AP-22X0-11A.</td>
                 <td><input class="radio"type="radio" formControlName="oot_34_BV_to_AP_22x0_11A" value="yes">
                  <input class="radio"type="radio" formControlName="oot_34_BV_to_AP_22x0_11A" value="no"></td>
                  </tr>
                  <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
                   <td></td>
-                 <td class="header">___3/4” B/V to AP-22X0-11B.</td>
+                 <td class="header">*3/4” B/V to AP-22X0-11B.</td>
              <td><input class="radio" type="radio" formControlName="oot_3by4inch_BV_to_AP_22x0_11B" value="yes">
             <input class="radio" type="radio" formControlName="oot_3by4inch_BV_to_AP_22x0_11B" value="no"></td>
              </tr>
@@ -377,7 +377,7 @@
          <td><input class="radio" type="radio" formControlName="iot_ignitors_and_flame_scanners" value="yes">
           <input class="radio" type="radio" formControlName="iot_ignitors_and_flame_scanners" value="no"></td>
       </tbody>
-      <button mat-raised-button style="margin-left: 80%;margin-top: 10px;" color="primary" [disabled]="!FirstFormb.valid" (click)="nxtAccEn()">Next</button>
+      <button mat-raised-button style="margin-left: 90%;margin-top: 10px;background-color: #97ca94;" [disabled]="!FirstFormb.valid" (click)="nxtAccEn()">Next</button>
     </form>
     </mat-card-content>
   </mat-card>

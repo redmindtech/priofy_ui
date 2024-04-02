@@ -106,6 +106,7 @@ import { ChecklistEComponent } from './checklist-e/checklist-e.component';
 import { ChecklistFComponent } from './checklist-f/checklist-f.component';
 import { ChecklistBComponent } from './checklist-b/checklist-b.component';
 import { ChecklistCComponent } from './checklist-c/checklist-c.component';
+import { ChecklistDComponent } from './checklist-d/checklist-d.component';
 
 
 
@@ -134,10 +135,12 @@ import { ChecklistCComponent } from './checklist-c/checklist-c.component';
     StartupComponent,
     SafeoperComponent,
     DevaitionComponent,
+    
+    ChecklistBComponent,
+    ChecklistCComponent,
+    ChecklistDComponent,
     ChecklistEComponent,
     ChecklistFComponent,
-    ChecklistBComponent,
-    ChecklistCComponent
     
   ],
   imports: [

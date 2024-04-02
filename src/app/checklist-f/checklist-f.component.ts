@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./checklist-f.component.css']
 })
 export class ChecklistFComponent implements OnInit {
-
+  @Input() checklistfformenable: boolean;
   
   ChecklistF: FormGroup;
   currentDate: string;

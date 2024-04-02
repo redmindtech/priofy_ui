@@ -70,7 +70,7 @@
           </tr>
           <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
           <td></td>
-      <td>Note: all other purge permissive (Purge airflow) must be satisfied
+      <td class="header">Note: all other purge permissive (Purge airflow) must be satisfied
         during this operation. The purge counter re-starts once the
         sequence returns to the Standby step.</td>
       </tr>
@@ -184,34 +184,34 @@
      </tr>
      <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
     <td></td>
-    <td class="header">___ Steam drum level.</td>
+    <td class="header">*Steam drum level.</td>
     <td><input type="radio" class="radio" formControlName="IOT_Steam_drum_level" value="yes">
       <input type="radio" class="radio" formControlName="IOT_Steam_drum_level" value="no"></td>
         </tr>
         <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"><td></td>
-      <td class="header">___ Firebox draft.</td>
+      <td class="header">*Firebox draft.</td>
       <td><input type="radio" class="radio" formControlName="IOT_Firebox_draft" value="yes">
         <input type="radio" class="radio" formControlName="IOT_Firebox_draft" value="no"></td>
       </tr>
       <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
         <td></td>
-        <td class="header">___ All automated burners are ready for light off.</td>
+        <td class="header">*All automated burners are ready for light off.</td>
        <td><input type="radio" class="radio" formControlName="IOTautomated_burner" value="yes">
           <input type="radio" class="radio" formControlName="IOTautomated_burner" value="no"></td>
           </tr>
           <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
          <td></td>
-          <td class="header">___ purge permissive true.</td>
+          <td class="header">*purge permissive true.</td>
           <td><input type="radio" class="radio" formControlName="IOT_purge_permissive" value="yes">
          <input type="radio" class="radio" formControlName="IOT_purge_permissive" value="no"></td>
          </tr>
          <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"><td></td>
-            <td class="header">___ No combustibles in firebox.</td>
+            <td class="header">*No combustibles in firebox.</td>
             <td><input type="radio" class="radio" formControlName="IOT_No_combustibles" value="yes">
               <input type="radio" class="radio" formControlName="IOT_No_combustibles" value="no"></td>
               </tr>
               <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"><td></td>
-              <td class="header">___ Fuel control valves closed.</td>
+              <td class="header">*Fuel control valves closed.</td>
               <td><input type="radio" class="radio" formControlName="IOT_Fuel_control" value="yes">
                 <input type="radio" class="radio"  formControlName="IOT_Fuel_control" value="no"></td>
                 </tr>
@@ -352,10 +352,12 @@
     <input type="radio"class="radio" formControlName="e_attempted_via_the_HMI" value="no"></td>
     </tr>
 
-<button mat-raised-button style="margin-left: 90%;margin-top: 10px;" color="primary" [disabled]="!FirstForm.valid" (click)="nxtAccEn()">Next</button>
+<button mat-raised-button style="margin-left: 90%;margin-top: 10px; background-color: #97ca94;" [disabled]="!FirstForm.valid" (click)="nxtAccEn()">Next</button>
 
 </form>
 </mat-card-content>
 </mat-card>
 </mat-expansion-panel>
 </mat-accordion>
+<br>
+<app-checklist-d [checklistdformenable]="checklistdformenable"></app-checklist-d>
