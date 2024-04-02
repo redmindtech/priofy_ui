@@ -27,3 +27,7 @@ th {
   flex-grow: unset !important;
   margin-left: 10px !important;
 }
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
