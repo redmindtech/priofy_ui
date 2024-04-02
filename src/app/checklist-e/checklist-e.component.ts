@@ -81,4 +81,7 @@ export class ChecklistEComponent implements OnInit {
       this.ChecklistE.patchValue(response.result);
     });
   }
+  nxtAccEn(){
+    
+  }
 }

@@ -2,7 +2,7 @@
   <mat-expansion-panel class="mat_expansion_border" [expanded]="false"  [disabled]="false">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
-        <h5 style="margin-right: 1150px;display: contents;">1.Procedure Checklist-A</h5>
+        <h5 style="margin-right: 1150px;display: contents;">6.Procedure Checklist-A</h5>
       </div>
       <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
@@ -362,11 +362,11 @@
         
       </tbody>
     </table>
-    <button mat-raised-button style="margin-left: 95%; margin-top: 2%; background-color: #97ca94;" [disabled]="!ChecklistA.valid" >Next</button>
+    <button mat-raised-button style="margin-left: 90%; margin-top: 2%; background-color: #97ca94;" [disabled]="!ChecklistA.valid" (click)="nxtAccEn()" >Next</button>
   </form>
   </mat-card-content>
 </mat-card>
 </mat-expansion-panel>
 </mat-accordion>
 <br>
-<app-checklist-e></app-checklist-e>
+<app-checklist-b [checklistbformenable]="checklistbformenable"></app-checklist-b>

@@ -1,6 +1,6 @@
 import { Component,Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ChecklistAService } from '@app/utils/service/checklist-a.service';
+import { ChecklistFService } from '@app/utils/service/checklist-f.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -21,7 +21,7 @@ export class ChecklistFComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private apiService: ChecklistAService
+    private apiService: ChecklistFService
   ) { }
 
   ngOnInit(): void {
@@ -77,7 +77,7 @@ export class ChecklistFComponent implements OnInit {
     if (this.ChecklistF.valid) {
       const permitFormValue = this.ChecklistF.value;
       console.log('Form Data:', permitFormValue);
-      this.addSubscription = this.apiService.createchecklistA(permitFormValue).subscribe(
+      this.addSubscription = this.apiService.createchecklistF(permitFormValue).subscribe(
         (response) => {
           console.log('Response from server:', response);
          
@@ -93,7 +93,7 @@ export class ChecklistFComponent implements OnInit {
     
   }
   add() {
-    this.apiService.getchecklist().subscribe((response: any) => {
+    this.apiService.getchecklistF().subscribe((response: any) => {
       console.log(response, 'checking');
       this.ChecklistF.patchValue(response.result);
     });

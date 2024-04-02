@@ -104,6 +104,8 @@ import { SafeoperComponent } from './safeoper/safeoper.component';
 import { DevaitionComponent } from './devaition/devaition.component';
 import { ChecklistEComponent } from './checklist-e/checklist-e.component';
 import { ChecklistFComponent } from './checklist-f/checklist-f.component';
+import { ChecklistBComponent } from './checklist-b/checklist-b.component';
+import { ChecklistCComponent } from './checklist-c/checklist-c.component';
 
 
 
@@ -133,7 +135,9 @@ import { ChecklistFComponent } from './checklist-f/checklist-f.component';
     SafeoperComponent,
     DevaitionComponent,
     ChecklistEComponent,
-    ChecklistFComponent
+    ChecklistFComponent,
+    ChecklistBComponent,
+    ChecklistCComponent
     
   ],
   imports: [

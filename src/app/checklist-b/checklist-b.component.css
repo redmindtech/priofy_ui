@@ -1,0 +1,37 @@
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+th {
+  background-color: #f2f2f2;
+  color: black;
+}
+.radio{
+  margin-left: 15px;
+}
+.header{
+  font-size: 16px
+}
+.theader{
+  background-color:#97ca94;
+  padding:15px ;
+  text-align: center;
+}
+.mat-expansion-panel-header-description {
+
+  flex-grow: unset !important;
+  margin-left: 10px !important;
+}
+.style{
+  text-align: center;
+}
+.disabled-row {
+  opacity: 0.5; /* or any other styling to indicate disabled state */
+  pointer-events: none; /* optionally disable pointer events */
+}

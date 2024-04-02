@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class ChecklistAComponent implements OnInit {
   @Input() checklistformenable: boolean;
+  checklistbformenable: boolean = true;
   ChecklistA: FormGroup;
   currentDate: string;
   currenttime: string;
@@ -88,6 +89,7 @@ export class ChecklistAComponent implements OnInit {
       console.log('Form Data:', permitFormValue);
       this.addSubscription = this.apiService.createchecklistA(permitFormValue).subscribe(
         (response) => {
+         
           console.log('Response from server:', response);
          
         },
@@ -107,4 +109,9 @@ export class ChecklistAComponent implements OnInit {
       this.ChecklistA.patchValue(response.result);
     });
   }
+  nxtAccEn(){
+
+    this.checklistbformenable=true;
+  }
 }
+

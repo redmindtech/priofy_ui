@@ -1,19 +1,18 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChecklistAService { 
+export class ChecklistFService {
 
-
-  baseUrl: string = "http://localhost:8080/checklistA";
+  baseUrl: string = "";
   
   constructor(private httpClient: HttpClient) { }
 
   // Create new permit data
-  public createchecklistA(data: any): Observable<any> {
+  public createchecklistF(data: any): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -23,9 +22,9 @@ export class ChecklistAService {
       }),
     };
 
-    return this.httpClient.post(this.baseUrl+('/ChecklistASave'), data, httpOptions);
+    return this.httpClient.post(this.baseUrl+('/ChecklistFSave'), data, httpOptions);
   }
-  public getchecklist(): Observable<any> {
+  public getchecklistF(): Observable<any> {
     return this.httpClient.get(this.baseUrl+('/last'));
   }
 }

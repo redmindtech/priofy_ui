@@ -1,0 +1,388 @@
+<mat-accordion>
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="false">
+    <mat-expansion-panel-header class="mat_expansion_header_border">
+      <div class="row">
+        <h5 style="margin-right: 1150px;display: contents;">7.Procedure Checklist-B</h5>
+        <!-- //<br>
+        <h5 style="margin-right: 1150px;display: contents;">Checklist for EU2 Inside & Outside Operation Technologists to confirm furnace readiness for light-off</h5>
+        <h5 style="margin-right: 1150px;display: contents;"> class="highlight-text">Common Hazards: Noise, Flammable Area, Heat Stress, Sand Storm, pinch/hit hazards, ergonomic issues.</h5> -->
+      </div>
+      <mat-panel-description></mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card class="mat">
+      <mat-card-content>
+     <form [formGroup]="FirstFormb" (ngSubmit)="submit()">
+  
+      <thead>
+          <tr>
+            <th class="theader">Step</th>
+            <th class="theader">Action (Hazard/Precaution if applicable)</th>
+            <th class="theader">Yes / No</th>
+          </tr>
+        </thead>
+        <tbody>
+       <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+           <td class="style" >  1. </td>
+          <td class="header">Has OOT confirmed that both fan bearings oil levels cups are filled to
+              normal.</td>
+            <td>
+            <input type="radio" class="radio" formControlName="OOT_bearings_oil_levels" value="yes"/>
+           <input type="radio" class="radio" formControlName="OOT_bearings_oil_levels" value="no"/>
+          </td>
+        </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+            <td class="style" >  2. </td>
+            <td clas="header">Has IOT confirmed that the VFDs are powered up and the motors are
+              energized in the MCC at the Fan Overview HMI (ready DI from
+              motor and alarm signal from VSD).</td>
+          <td>
+            <input type="radio" class="radio" formControlName="iot_Overview_HMI" value="yes">
+          <input type="radio" class="radio" formControlName="iot_Overview_HMI" value="no">
+        </td>
+      </tr>
+    <tr>
+        <td class="style">  3. </td>
+            <td class="header">Confirm that pure wave UPS system is up and running. Check
+              with Electrician is required for confirmation.</td>
+         <td>
+            <input class="radio" type="radio" formControlName="UPS_system" value="yes">
+          <input class="radio" type="radio" formControlName="UPS_system" value="no">
+          </td>
+      </tr>
+      <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+        <td class="style">  4. </td>
+          <td class="header">Has OOT confirmed that each drop out door area is caged and both
+              doors are open.</td>
+           <td>
+            <input class="radio" type="radio" formControlName="oot_caged_doors_open" value="yes">
+         <input class="radio" type="radio" formControlName="oot_caged_doors_open" value="no">
+        </td>
+        </tr>
+    <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+      <td class="style">  5. </td>
+         <td class="header">Has OOT  confirmed all peep doors at all levels are closed and levers
+              installed.</td>
+          <td>
+          <input class="radio" type="radio" formControlName="oot_peep_doors_closed" value="yes">
+           <input class="radio" type="radio" formControlName="oot_peep_doors_closed" value="no">
+          </td>
+       </tr>
+       <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+        <td class="style"> 6. </td>
+          <td class="header">Has OOT placed local “start-stop” switch in “auto” for both fans.</td>
+          <td><input class="radio" type="radio" formControlName="oot_local_start_stop" value="yes">
+            <input class="radio" type="radio" formControlName="oot_local_start_stop" value="no">
+          </td>
+      </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+          <td class="style"> 7. </td>
+          <td class="header">Has OOT checked that whether the ID fan casing 1” drain valve is closed.</td>
+          <td><input class="radio" type="radio" formControlName="oot_ID_fan_casing" value="yes"/>
+            <input class="radio" type="radio" formControlName="oot_ID_fan_casing" value="no"/>
+        </td>
+      </tr>
+       <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+        <td class="style">  8. </td>
+           <td class="header">Has OOT checked that the FD suction 2” B/V and casing 2” drain valve
+              are both closed.</td>
+            <td><input class="radio" type="radio" formControlName="oot_FD_suction" value="yes"/>
+            <input class="radio" type="radio" formControlName="oot_FD_suction" value="no"/></td>
+         </tr>
+      <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+        <td class="style">  9. </td>
+         <td class="header">Has  OOT setted all the combustion air registers as follows:</td>
+         <td></td>
+         </tr>
+         <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+          <td></td>
+          <td class="header"> ___ Floor burners (bottom level) open, except ALL 4 auto burners.</td>
+
+          <td>
+            <input  type="radio" class="radio" formControlName="oot_Floor_burners" value="yes"/>
+            <input type="radio" class="radio" formControlName="oot_Floor_burners" value="no"/>
+          </td>
+          </tr>
+          <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+            <td></td>
+          <td class="header"> ___ Wall burners (top level) closed.</td>
+
+          <td>
+         <input class="radio" type="radio" formControlName="oot_Wall_burners" value="yes"/>
+          <input class="radio"  type="radio" formControlName="oot_Wall_burners" value="no"/>
+        </td>
+        </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+          <td></td>
+            <td class="header">Note: TPUS recommendation is to have them all set at
+              approximately 25% open</td>
+              <td></td>
+              </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+        <td class="style"> 10. </td>
+        <td class="header">Has the IOT started ID fan.</td>
+         <td><input class="radio"  type="radio" formControlName="iot_start_ID_fan" value="yes">
+           <input class="radio" type="radio" formControlName="iot_start_ID_fan" value="no"></td>
+        </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+        <td class="style">  11. </td>
+        <td class="header">Has IOT's ensured the ID fan is running.</td>
+        <td>
+          <input class="radio"  type="radio" formControlName="iot_ID_fan_running" value="yes">
+          <input class="radio" type="radio" formControlName="iot_ID_fan_running" value="no"></td>
+          <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+          <td></td>
+            <td>Note: The ID fan starts up at 100 rpm until it is confirmed running,
+              then it immediately switches to draft control at -12 mm H2O.</td>
+              <td></td>
+         </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+          <td class="style" >12. </td>
+           <td class="header">Has IOT  checked ID fan/motor vibration readings are within the
+              acceptable limits and NO alarms.
+           </td>
+           <td>
+            <input class="radio" type="radio" formControlName="iot_fanmotor_readings" value="yes">
+            <input class="radio"  type="radio" formControlName="iot_fanmotor_readings" value="no"></td>
+            </tr>
+            <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+            <td></td>
+              <td>Note: use the Fan Overview HMI.</td>
+              <td></td>
+      </tr>
+      <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+        <td class="style"> 13. </td>
+          <td class="heading">Has OOT  checked the ID fan for any abnormality in the field.</td>
+          <td> <input class="radio" type="radio" formControlName="oot_ID_fan_abnormality" value="yes">
+            <input class="radio" type="radio" formControlName="oot_ID_fan_abnormality" value="no"></td>
+            </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+          <td class="style" > 14. </td>
+         <td class="header">Has the OOT  confirmed that the four air duct “chain valves” to each burner
+              side are open.</td>
+              <td>
+         <input class="radio" type="radio" formControlName="oot_four_air_duct" value="yes">
+           <input class="radio" type="radio" formControlName="oot_four_air_duct" value="no"></td>
+         </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+          <td class="style" > 15. </td>
+          <td class="header">Has IOT started FD fan.</td>
+          <td>
+          <input class="radio" type="radio" formControlName="iot_start_FD" value="yes">
+          <input class="radio" type="radio" formControlName="iot_start_FD" value="no"></td>
+          </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+          <td class="style" > 16. </td>
+          <td class="header">Has IOT  ensured the FD fan is running.</td>
+
+          <td><input class="radio" type="radio" formControlName="iot_FD_fan_running" value="yes">
+          <input class="radio" type="radio" formControlName="iot_FD_fan_running" value="no"></td>
+          </tr>
+          <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+          <td></td>
+          <td>Note: the FD fan starts at about 100 rpm, and then switches to
+              airflow control immediately. Minimum airflow for purge is 20.4 Mt/h
+              total, with at least 10.2 Mt/h per duct.</td>
+              <td></td>
+          </tr>
+
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+          <td class="style" > 17. </td>
+          <td class="heading">Has IOT  closed the Fresh Air Doors once the FD fan operation is
+              stable.</td>
+            <td>
+                <td></td>
+                <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+                  <td></td>
+                  <td class="header">Step 1: put FC signal in manual at 50% to achieve a FD fan
+                speed higher than 475 rpm.</td>
+                <td><input class="radio" type="radio" formControlName="iot_FC_signal" value="yes">
+                <input class="radio" type="radio" formControlName="iot_FC_signal" value="no"></td>
+                </tr>
+                <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+                  <td></td>
+                <td class="header">Step 2: close the doors.</td>
+                     <td><input class="radio" type="radio" formControlName="iot_close_the_doors" value="yes">
+                      <input class="radio" type="radio" formControlName="iot_close_the_doors" value="no"></td>
+                </tr>
+                <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+              <td></td>
+             <td class="header">Step 3: put the FC back in auto.</td>
+             <td>
+             <input class="radio" type="radio" formControlName="iot_FC_back_in_auto" value="yes">
+             <input class="radio" type="radio" formControlName="iot_FC_back_in_auto" value="no"></td>
+             </tr>
+           <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+            <td class="style">  18. </td>
+          <td class="header">Has IOT  checked FD fan/motor vibration readings are within the
+              acceptable limits and NO alarms.</td>
+           <td><input class="radio" type="radio" formControlName="iot_FD_fanmotor_readings" value="yes">
+            <input class="radio" type="radio" formControlName="iot_FD_fanmotor_readings" value="no"></td>
+            </tr>
+            <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+              <td></td>
+             <td class="header">Note: use the Fan Overview HMI.</td>
+              <td></td>
+              </tr>
+              <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+                <td class="style">  19. </td>
+              <td class="header">Has OOT checked that the FD fan vibration and shaft speed local
+              indicators are operational.</td>
+              <td><input class="radio" type="radio" formControlName="oot_FD_shaft_speed" value="yes">
+               <input class="radio" type="radio" formControlName="oot_FD_shaft_speed" value="no"></td>
+             </tr>
+
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+          <td class="style">  20. </td>
+          <td class="header">Has OOT checked the FD fan for any abnormality in the field.</td>
+         <td><input class="radio" type="radio" formControlName="oot_FD_fan_abnormality" value="yes">
+            <input class="radio" type="radio" formControlName="oot_FD_fan_abnormality" value="no"></td>
+        </tr>
+
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+          <td class="style">  21. </td>
+          <td class="header">Has OOT  ensured LS steam / condensate main block valve at the
+              furnace battery limit are open and LS is lined up to HV-22X6-13B
+              seat.</td>
+          <td><input class="radio" type="radio" formControlName="oot_LS_steam_condensate" value="yes">
+            <input class="radio" type="radio" formControlName="oot_LS_steam_condensate" value="no"></td>
+          </tr>
+          <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+            <td class="style">  22. </td>
+         <td class="header"> OOT  ensure that  each instrument LS purge B/V is/are closed:</td>
+            
+         </tr>
+         <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+         <td></td>
+          <td class="header">___S-TLE inlet PT-22X5-05.</td>
+            <td><input class="radio" type="radio" formControlName="oot_S_TLE" value="yes">
+           <input class="radio" type="radio" formControlName="oot_S_TLE" value="no"></td>
+            </tr>
+            <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+              <td></td>
+            <td class="header">___ T-TLE outlet PT-22X6-01 and PT-22X6-02.</td>
+              <td><input class="radio" type="radio" formControlName="oot_T_TLE" value="yes">
+               <input class="radio" type="radio" formControlName="oot_T_TLE" value="no"></td>
+               </tr>
+               <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+                <td></td>
+              <td class="header">___ CG MOVs intermediate PT-22X6-07 (also HV-22X6-15 must be closed).</td>
+              <td><input class="radio" type="radio" formControlName="oot_CG_movs_intermediate" value="yes">
+               <input class="radio" type="radio" formControlName="oot_CG_movs_intermediate" value="no"></td>
+              </tr>
+              <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+              <td></td>
+              <td class="header">___ CG MOVs HV-22X6-13A.</td>
+              <td><input class="radio" type="radio" formControlName="oot_CG_HV_22X6_13A" value="yes">
+                <input class="radio" type="radio" formControlName="oot_CG_HV_22X6_13A" value="no"></td>
+              </tr>
+              <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+              <td></td>
+                  <td class="header">___ Decoke MOV HV-22X6-14.</td>
+                  <td><input class="radio" type="radio" formControlName="oot_Decoke_MOV" value="yes">
+                    <input class="radio" type="radio" formControlName="oot_Decoke_MOV" value="no"></td>
+             </tr>
+
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+          <td class="style">  23. </td>
+          <td class="header">OOT ensure that LS Purge to Instruments 2” Double Block is open.</td>
+          <td>
+          <input class="radio"  type="radio" formControlName="oot_Double_Block" value="yes">
+            <input class="radio" type="radio" formControlName="oot_Double_Block" value="no"></td>
+         </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+          <td class="style">  24. </td>
+         <td class="header">OOT ensure that all LS purge system steam traps are lined up and operational.</td>
+         <td><input class="radio" type="radio" formControlName="oot_LS_purge_lined_up" value="yes">
+          <input class="radio" type="radio" formControlName="oot_LS_purge_lined_up" value="no"></td>
+            </tr>
+        <tr>
+          <td class="style">  25. </td>
+          <td class="header">Ensure that MS Steam is available.</td>
+          <td><input class="radio" type="radio" formControlName="MS_Steam" value="yes">
+            <input class="radio" type="radio" formControlName="MS_Steam" value="no"></td>
+          </tr>
+      <tr>
+          <td class="style">  26. </td>
+
+          <td class="header">Ensure that Fuel Gas system is ready.</td>
+          <td><input class="radio" type="radio" formControlName="fgs_ready" value="yes">
+            <input class="radio" type="radio" formControlName="fgs_ready" value="no"></td>
+      </tr>
+
+          <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+            <td class="style">  27. </td>
+            <td class="header">Has OOT  ensured that all burners manual B/V and all four HV-automated
+              burner valves are closed.</td>
+          <td><input class="radio" type="radio" formControlName="oot_burners_manual_BV" value="yes">
+            <input class="radio" type="radio" formControlName="oot_burners_manual_BV" value="no"></td>
+          </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+          <td class="style">  28. </td>
+          <td class="header">Has OOT  ensured that ignitor and flame scanner Instrument Air purges
+              are on.</td>
+              <td><input class="radio" type="radio" formControlName="oot_ignitor_and_flame_scanner" value="yes">
+               <input class="radio" type="radio" formControlName="oot_ignitor_and_flame_scanner" value="no"></td>
+               </tr>
+               <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+                <td></td>
+                <td class="header">Note: the local flow indicators should be at half of the range.</td>
+                <td></td>
+          </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+          <td class="style">  29. </td>
+          <td class="header">OOT ensure that the Instrument Air valves to the O2 analyzers
+              at the firebox are open.</td>
+              <td></td>
+              </tr>
+              <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+                <td></td>
+              <td class="header">Is it required by analyzer technician.</td>
+              <td></td>
+              </tr>
+              <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+                <td></td>
+              <td class="header">___2” main B/V at fourth platform level.</td>
+              <td><input class="radio" type="radio" formControlName="oot_fourth_platform_level" value="yes">
+              <input class="radio" type="radio" formControlName="oot_fourth_platform_level" value="no"></td>
+              </tr>
+              <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+                <td></td><td class="header">___1” B/V to AT-22X0-11A.</td>
+                <td><input class="radio" type="radio" formControlName="oot_1inch_BV_to_AT_22x0_11A" value="yes">
+                  <input class="radio" type="radio" formControlName="oot_1inch_BV_to_AT_22x0_11A" value="no"></td>
+                  </tr>
+                  <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+                    <td></td>
+                    <td class="header">___1” B/V to AT-22X0-11B.</td>
+                  <td> <input class="radio"type="radio" formControlName="oot_1inch_BV_to_AT_22x0_11B" value="yes">
+                <input class="radio"type="radio" formControlName="oot_1inch_BV_to_AT_22x0_11B" value="no"></td>
+                </tr>
+                <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+                  <td></td>
+                      <td class="header">___3/4” B/V to AP-22X0-11A.</td>
+                <td><input class="radio"type="radio" formControlName="oot_34_BV_to_AP_22x0_11A" value="yes">
+                 <input class="radio"type="radio" formControlName="oot_34_BV_to_AP_22x0_11A" value="no"></td>
+                 </tr>
+                 <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+                  <td></td>
+                 <td class="header">___3/4” B/V to AP-22X0-11B.</td>
+             <td><input class="radio" type="radio" formControlName="oot_3by4inch_BV_to_AP_22x0_11B" value="yes">
+            <input class="radio" type="radio" formControlName="oot_3by4inch_BV_to_AP_22x0_11B" value="no"></td>
+             </tr>
+
+             <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+          <td class="style">  30. </td>
+          <td class="header">Has IOT  ensured that ignitors and flame scanners are energized. Check
+              for the “HEALTHY” indication on the HMI</td>
+
+         <td><input class="radio" type="radio" formControlName="iot_ignitors_and_flame_scanners" value="yes">
+          <input class="radio" type="radio" formControlName="iot_ignitors_and_flame_scanners" value="no"></td>
+      </tbody>
+      <button mat-raised-button style="margin-left: 80%;margin-top: 10px;" color="primary" [disabled]="!FirstFormb.valid" (click)="nxtAccEn()">Next</button>
+    </form>
+    </mat-card-content>
+  </mat-card>
+</mat-expansion-panel>
+</mat-accordion>
+<br>
+<app-checklist-c [checklistcformenable]="checklistcformenable"></app-checklist-c>
+

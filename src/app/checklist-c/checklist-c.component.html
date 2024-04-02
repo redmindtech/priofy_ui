@@ -1,0 +1,361 @@
+<mat-accordion>
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="false">
+    <mat-expansion-panel-header class="mat_expansion_header_border">
+      <div class="row">
+        <h5 style="margin-right: 1150px;display: contents;">8.Procedure Checklist-C</h5>
+        <!-- <h2>Procedure Checklist #C—Light Off Preparation</h2>
+      <h5>Here's a step-by-step guide for EU2 Inside & Outside Operation Technologists to safely light off the furnace:
+    </h5>
+    <p><span class="highlight-text">Common Hazards: Noise, Flammable Area, Heat Stress, Sand Storm, pinch/hit hazards, ergonomic issues.</span></p> -->
+      </div>
+      <mat-panel-description></mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card class="mat">
+      <mat-card-content>
+   <form [formGroup]="FirstForm" (ngSubmit)="submit()">
+  
+      <thead>
+          <tr>
+            <th class="theader">Step</th>
+            <th class="theader">Action (Hazard/Precaution if applicable)</th>
+            <th class="theader">Yes/No</th>
+          </tr>
+        </thead>
+ <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+  <td class="style">  1. </td>
+    <td class="header">Has IOT  manually  moved the BM sequence to Stand By step and also
+      manually  moved the Furnace control sequence moves to Purge & Light Off step.
+    </td>
+   <td><input type="radio" class="radio" formControlName="IOT_Furnace_control_sequence" value="yes">
+      <input type="radio" class="radio" formControlName="IOT_Furnace_control_sequence" value="no"></td>
+    </tr>
+    <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+      <td></td>
+      <td class="header">Note: In this step the burner management sequence performs
+        pressure test, purge and light off of burners. This Purge & Light
+        Off step is used for “cold” light off.</td>
+        <td></td>
+</tr>
+<tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+  <td class="style">  2. </td>
+    <td class="header">After one purge volume is completed has  the OOT pressed
+      the field reset button, so that IOT can move the BM sequence to Fuel
+      Header Purge step.</td>
+      <td></td>
+      </tr>
+      <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+        <td></td>
+        <td class="header">If the pressure test and hold pressure (holding time = 30 seconds) is
+        performed in this step prior to the pad/depad. Then ,does pad/depad to
+        atmosphere is done 6 times in “auto”. If purge permissive are not
+        maintained or pressure up & holding do not meet the
+        requirements, furnace will trip.</td>
+        <td><input type="radio" class="radio" formControlName="OOT_reset_IOTmove_BM_sequence" value="yes">
+          <input type="radio" class="radio" formControlName="OOT_reset_IOTmove_BM_sequence" value="no"></td>
+          </tr>
+          <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+            <td></td>
+            <td class="header">Note: this Step will only be when the furnace fuel gas header
+        was pressure tested by N2, to get rid of N2 from the fuel gas
+        header. This provides for proper fuel gas composition for Light  Off.</td>
+      <!-- <td><input type="radio" class="radio" formControlName="pressure_test" value="yes">
+    <input type="radio" class="radio" formControlName="pressure_test" value="no"></td> -->
+      </tr>
+    <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+      <td class="style">  3. </td>
+        <td class="header">IOT's ensure that whether BM sequence returns back to Standby
+      step after Fuel Header Purge step is done.</td>
+          <td><input type="radio" class="radio" formControlName="IOT_Fuel_Header_Purge" value="yes">
+        <input type="radio" class="radio" formControlName="IOT_Fuel_Header_Purge" value="no"></td>
+          </tr>
+          <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+          <td></td>
+      <td>Note: all other purge permissive (Purge airflow) must be satisfied
+        during this operation. The purge counter re-starts once the
+        sequence returns to the Standby step.</td>
+      </tr>
+<tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+  <td class="style">  4. </td>
+    <td class="header">OOT check and  make sure that the furnace to be lit and the adjacent
+      furnaces area is cleared of all personnel, including the Furnace OOT.</td>
+      <td><input type="radio" class="radio" formControlName="OOT_adjacent_furnaces_area" value="yes">
+      <input type="radio" class="radio" formControlName="OOT_adjacent_furnaces_area" value="no"></td>
+      </tr>
+      <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+      <td></td>
+       <td class="header">Note: All platform levels must be checked prior to confirm that the
+        furnace area (included the adjacent furnaces area) is clear.</td>
+        <td></td>
+        </tr>
+  <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+    <td class="style">  5. </td>
+      <td class="header">After one purge volume is completed, Has IOT  requested OOT to
+      push local reset button (field flashing green light should come on
+      solid).</td>
+  <td><input type="radio" class="radio" formControlName="IOT_request_local_reset" value="yes">
+   <input type="radio" class="radio" formControlName="IOT_request_local_reset" value="no"></td>
+ </tr>
+  <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+    <td class="style">  6. </td>
+      <td class="header">Has IOT moved BM sequence to Pressure Test step within 15 minutes
+      of field reset.</td>
+        <td><input type="radio" class="radio" formControlName="IOT_move_Pressure_Test" value="yes">
+         <input type="radio" class="radio" formControlName="IOT_move_Pressure_Test" value="no"></td>
+         </tr>
+         <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+          <td></td>
+      <td class="header">Note: in this step the fuel gas system is tested for leaks or open
+        manual burners.</td>
+      </tr>
+  <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+    <td class="style">  7. </td>
+    <td class="header">Has IOT  observed pressure test of fuel gas system.</td>
+    <td></td>
+    </tr>
+    <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"><td></td>
+      <td class="header">Pressure Up: bypass DB&B opens, local PCV opens and header
+      is pressurized to 0.2 kg/cm2g within 100 seconds, or trip occurs.</td>
+      <td><input type="radio" class="radio" formControlName="IOT_Pressure_Up" value="yes">
+        <input type="radio" class="radio" formControlName="IOT_Pressure_Up" value="no"></td>
+        </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+          <td></td>
+      <td class="header">Hold: bypass DB&B closes, pressure must not drop more than
+      0.02 kg/cm2 (10%) or trip occurs.
+      </td>
+      <td><input type="radio" class="radio" formControlName="IOT_Hold" value="yes">
+        <input type="radio" class="radio" formControlName="IOT_Hold" value="no"></td>
+        </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+          <td></td>
+      <td class="header">Note: purge permissive must be maintained all the time, if not
+      furnace will trip.</td>
+      <td></td>
+      </tr>
+  <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+    <td class="style">  8. </td>
+      <td class="header">If Pressure Test fails, has OOT  de-pressured fuel gas
+      headers to radiant box.</td>
+  <td><input type="radio" class="radio" formControlName="OOT_Pressure_Test" value="yes">
+    <input type="radio" class="radio" formControlName="OOT_Pressure_Test" value="no"></td>
+  </tr>
+  <tr>
+    <td class="style">  9. </td>
+      <td class="header">When Pressure Test is complete BM sequence moves
+      automatically to Firebox Purge step.</td>
+      <td><input type="radio" class="radio"  formControlName="Pressure_Test_BM_sequence" value="yes">
+        <input type="radio" class="radio" formControlName="Pressure_Test_BM_sequence" value="no"></td>
+        </tr><tr><td></td>
+      <td class="header"> Note: this step is to ensure all flammables are purged from
+      firebox prior to light off. Purge permissive must be maintained all
+      the time, if not furnace will trip.</td>
+      <td></td>
+      </tr>
+   <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+    <td class="style"> 10. </td>
+      <td class="header">Has the OOT ensured that all floor burners air registers are fully open,
+      except the 4 automated burners that must be closed.</td>
+  <td><input type="radio" class="radio" formControlName="OOT_4_automated_burners" value="yes">
+   <input type="radio"class="radio"  formControlName="OOT_4_automated_burners" value="no"></td>
+  </tr>
+  <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+    <td class="style">  11. </td>
+  <td class="header" >Has OOT  ensured that all wall burners air registers are closed.</td>
+  <td><input type="radio" class="radio" formControlName="OOT_wall_burners" value="yes">
+    <input type="radio" class="radio" formControlName="OOT_wall_burners" value="no"></td>
+    </tr>
+  <tr>
+    <td class="style">  12. </td>
+  <td class="header">After 5 purge volumes are completed, does the BM sequence moves
+      automatically to Purge Complete step.</td>
+      <td><input type="radio" class="radio" formControlName="BM_sequence_moves_Purge" value="yes">
+     <input type="radio" class="radio" formControlName="BM_sequence_moves_Purge" value="no"></td>
+     </tr><tr>
+      <td></td>
+       <td class="header">Note: in this step purge permissive are monitored and must not
+        be violated.</td>
+          <td></td>
+       </tr>
+  <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+    <td class="style"> 13. </td>
+      <td class="header">Has IOT  ensured that ALL parameters below are OK so he can
+      initiate the light off.</td>
+       <td></td>
+     </tr>
+     <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+    <td></td>
+    <td class="header">___ Steam drum level.</td>
+    <td><input type="radio" class="radio" formControlName="IOT_Steam_drum_level" value="yes">
+      <input type="radio" class="radio" formControlName="IOT_Steam_drum_level" value="no"></td>
+        </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"><td></td>
+      <td class="header">___ Firebox draft.</td>
+      <td><input type="radio" class="radio" formControlName="IOT_Firebox_draft" value="yes">
+        <input type="radio" class="radio" formControlName="IOT_Firebox_draft" value="no"></td>
+      </tr>
+      <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+        <td></td>
+        <td class="header">___ All automated burners are ready for light off.</td>
+       <td><input type="radio" class="radio" formControlName="IOTautomated_burner" value="yes">
+          <input type="radio" class="radio" formControlName="IOTautomated_burner" value="no"></td>
+          </tr>
+          <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+         <td></td>
+          <td class="header">___ purge permissive true.</td>
+          <td><input type="radio" class="radio" formControlName="IOT_purge_permissive" value="yes">
+         <input type="radio" class="radio" formControlName="IOT_purge_permissive" value="no"></td>
+         </tr>
+         <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"><td></td>
+            <td class="header">___ No combustibles in firebox.</td>
+            <td><input type="radio" class="radio" formControlName="IOT_No_combustibles" value="yes">
+              <input type="radio" class="radio" formControlName="IOT_No_combustibles" value="no"></td>
+              </tr>
+              <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"><td></td>
+              <td class="header">___ Fuel control valves closed.</td>
+              <td><input type="radio" class="radio" formControlName="IOT_Fuel_control" value="yes">
+                <input type="radio" class="radio"  formControlName="IOT_Fuel_control" value="no"></td>
+                </tr>
+                <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"><td></td>
+                <td class="header">Note: these are really part of the purge permissive that the
+      Triconex is checking.</td><td></td>
+      </tr>
+            <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+    <td class="style">  14. </td>
+      <td class="header">Has IOT  moved BM sequence to Light off Burners step within 15
+      minutes of Purge complete otherwise the furnace will go to Total
+      Trip.</td>
+  <td><input type="radio" class="radio" formControlName="IOT_Total_Trip" value="yes">
+    <input type="radio" class="radio" formControlName="IOT_Total_Trip" value="no"></td>
+    </tr>
+  <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+    <td class="style">  15. </td>
+      <td class="header">Has IOT  manually RESET the BM & BNR alarms (unlatch).
+      The remote burner light off cycle is automatically initiated in this
+      step. Auto burner Light off attempt sequence is #7, #30, #21 and
+      #16.</td>
+      <td><input type="radio" class="radio" formControlName="IOT_to_manually_RESET" value="yes">
+        <input type="radio"class="radio"  formControlName="IOT_to_manually_RESET" value="no"></td>
+      </tr>
+      <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+      <td></td>
+      <td class="header">Notes:
+     <ul>
+        <li> Pressure regulators installed around the control valves control
+          the burner fuel gas pressure at 0.2 kg/cm2g during light off.
+          </li>
+          <li> Only one burner will be attempted at a time. Each burner is
+            automatically attempted once and it is only attempted if its
+            own sequence is in the Process Wait step, and no alarms on
+            this burner.</li>
+            <li> At least one burner in each cell must be successfully lit at the
+              end of the light off sequence, or the furnace will move to the
+              Total Trip step (based on flameout Total Trip).</li>
+              <li> Burners with invalid flame detected are not sequenced for
+                light off attempt. At least one purge volume (time) must elapse
+                between unsuccessful light off attempts if the furnace is below
+                auto ignition.</li>
+                <li> The time the burner is allowed to have its B/V open attempting
+                  light off is limited to 10 seconds.</li>
+                  <li> If a burner fails to ignite (flame scanner does not indicate
+                    flame) the burner B/V is closed & the igniter is retracted and
+                    de-energized.
+                  </li>
+                  <li> One purge volume must occur before subsequent attempt to
+                      light the next burner.</li>
+      </ul></td>
+
+   </tr>
+   <tr>
+    <td class="style">  16. </td>
+  <td class="header">Do Ensure that atleast one burner in each zone must be lit to move the
+      Burner Management sequence to the Run step.</td>
+    <td><input type="radio" class="radio" formControlName="one_burner_bms" value="yes">
+    <input type="radio" class="radio" formControlName="one_burner_bms" value="no"></td>
+  </tr>
+  <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+    <td class="style">  17. </td>
+      <td class="header">Has OOT  adjusted the air damper for the automated burners which
+      are lit to one notch for steady flame.</td>
+    <td><input type="radio" class="radio" formControlName="OOT_adjust_air_damper" value="yes">
+    <input type="radio" class="radio" formControlName="OOT_adjust_air_damper" value="no"></td>
+  </tr>
+<tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+    <td></td>
+    <td class="header">Note: don’t want to have operator normally on the furnace during
+      initial light off. </td>
+    <td></td>
+  </tr>
+  <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+    <td class="style">  18. </td>
+    <td class="header">Has OOT  ensured Igniters are not stuck inside the firebox..</td>
+    <td><input type="radio" class="radio" formControlName="OOT_Igniters_not_stuck" value="yes">
+    <input type="radio" class="radio" formControlName="OOT_Igniters_not_stuck" value="no"></td>
+    </tr>
+    <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+      <td></td>
+      <td class="header">Note: ensure Igniter panel is reset in substation.</td>
+      <td></td>
+   </tr>
+
+  <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+     <td class="style">  19. </td>
+      <td class="header">Has IOT  confirmed BNR sequence moves after light off attempt:</td>
+      <td></td>
+      </tr>
+      <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+        <td></td>
+        <td class="header"><ul><li> Unsuccessful light, sequence moves to total Trip step (HV
+          closes).</li></ul></td>
+          <td><input type="radio" class="radio" formControlName="iot_Unsuccessful_light" value="yes">
+          <input type="radio" class="radio" formControlName="iot_Unsuccessful_light" value="no"></td>
+        </tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+          <td></td>
+          <td class="header"><ul><li> Successful light, sequence can be moved to Run step by IOT.</li></ul></td>
+          <td><input type="radio" class="radio" formControlName="iot_Successful_light" value="yes">
+            <input type="radio" class="radio" formControlName="iot_Successful_light" value="no"></td>
+        </tr>
+    <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+   <td class="style">  20. </td>
+      <td class="header">If the Light off of the furnace failed, has OOT  manually
+      depressurized the burner headers.</td>
+   <td><input type="radio" class="radio" formControlName="furnace_failed" value="yes">
+    <input type="radio" class="radio" formControlName="furnace_failed" value="no"></td>
+    </tr>
+  <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+     <td class="style">  21. </td>
+      <td class="header">Has IOT  manually move BM sequence to Run step if successfully
+      achieved at least one burner per zone.</td>
+      <td><input type="radio" class="radio" formControlName="iot_manually_move_BM_sequence" value="yes">
+  <input type="radio"  class="radio" formControlName="iot_manually_move_BM_sequence" value="no"></td>
+  </tr>
+  <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+    <td></td>
+    <td class="header">Note: IOT must move the BM sequence as soon as he gets
+      permission to do so. If a burner gets an invalid flame (say
+      mismatch) that alarm trips as long as in Light off step</td>
+      <td></td>
+  </tr>
+
+    <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+     <td class="style">  22. </td>
+        <td class="header">Has IOT confirmed that Furnace sequence has auto moved to Warm
+      Up Arch step.</td>
+     <td><input type="radio" class="radio" formControlName="IOT_to_confirm" value="yes">
+   <input type="radio" class="radio" formControlName="IOT_to_confirm" value="no"></td>
+   </tr>
+<tr>
+<td class="style">  23. </td>
+    <td class="header">Has Auto burners that did not successfully light during the auto-light
+      cycle, have it  been re-attempted via the HMI.</td>
+  <td><input type="radio" class="radio" formControlName="e_attempted_via_the_HMI" value="yes">
+    <input type="radio"class="radio" formControlName="e_attempted_via_the_HMI" value="no"></td>
+    </tr>
+
+<button mat-raised-button style="margin-left: 90%;margin-top: 10px;" color="primary" [disabled]="!FirstForm.valid" (click)="nxtAccEn()">Next</button>
+
+</form>
+</mat-card-content>
+</mat-card>
+</mat-expansion-panel>
+</mat-accordion>
