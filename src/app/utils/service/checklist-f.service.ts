@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class ChecklistFService {
 
-  baseUrl: string = "";
+  baseUrl: string = "http://localhost:8080/CheckListF";
   
   constructor(private httpClient: HttpClient) { }
 
@@ -22,7 +22,7 @@ export class ChecklistFService {
       }),
     };
 
-    return this.httpClient.post(this.baseUrl+('/ChecklistFSave'), data, httpOptions);
+    return this.httpClient.post(this.baseUrl+('/CheckListFSave'), data, httpOptions);
   }
   public getchecklistF(): Observable<any> {
     return this.httpClient.get(this.baseUrl+('/last'));

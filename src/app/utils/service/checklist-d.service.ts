@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/internal/Observable';
 export class ChecklistDService {
 
   
-  baseUrl: string = "http://localhost:8080/checkc";
+  baseUrl: string = "http://localhost:8080/ChecklistD";
 
   constructor(private httpClient: HttpClient) { }
   public savecheckdpage(data: any): Observable<any> {
@@ -22,5 +22,5 @@ export class ChecklistDService {
       }),
     };
 
-    return this.httpClient.post(this.baseUrl+('/CheckdSave'), data, httpOptions);
+    return this.httpClient.post(this.baseUrl+('/ChecklistDSave'), data, httpOptions);
   }}
