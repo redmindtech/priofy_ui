@@ -27,3 +27,7 @@ th {
   flex-grow: unset !important;
   margin-left: 10px !important;
 }
+.disabled-row {
+  opacity: 0.5; /* or any other styling to indicate disabled state */
+  pointer-events: none; /* optionally disable pointer events */
+}

@@ -29,6 +29,7 @@ export class TodayComponent implements OnInit {
 
     //  this.currentUser = storedUser ? JSON.parse(storedUser) : null;
     //  console.log(' this.currentUser: ',  this.currentUser);
+    
 
       this.formInitialization();
 

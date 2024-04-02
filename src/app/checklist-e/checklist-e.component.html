@@ -9,7 +9,7 @@
 
 <mat-card >
   <mat-card-content>
-    <h6 style="margin-left: 30%;"><strong>Procedure Checklist #E—Warm Up COT</strong></h6>
+    <h6 style="margin-left: 35%;"><strong>Procedure Checklist #E—Warm Up COT</strong></h6>
     <form  [formGroup]="ChecklistE">
     <table>
       <thead>
@@ -20,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }">
           <td style="text-align: center;" >1</td>
           <td class="header">OOT to ensure that all lower level burners are lit before starting light off of upper level burners.</td>
           <td>
@@ -31,7 +31,7 @@
           </td>
         </tr>
        
-        <tr>
+        <tr  [ngClass]="{ 'disabled-row': disableIO !== 'iot' }">
           <td style="text-align: center;">2</td>
           <td class="header">IOT to continuously monitor the fuel gas pressure and OOT to continue lighting off more burners as required</td>
           <td>
@@ -42,7 +42,7 @@
           </td>
         </tr>
        
-        <tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }">
           <td style="text-align: center;">3</td>
           <td class="header">OOT to open desuperheater Untreated BFW manual block valves (DB&B) when the COT is &gt; 450 ºC.</td>
           <td>
@@ -53,7 +53,7 @@
           </td>
         </tr>
        
-        <tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'iot' }">
           <td style="text-align: center;">4</td>
           <td class="header">IOT to confirm that the desuperheater valve does not pass. If it passes, instruct the OOT to close the B/V until desuperheating flow is needed.</td>
           <td>
@@ -65,12 +65,12 @@
         </tr>
          
      
-          <tr>
+          <tr >
           <td style="text-align: center;" >5</td>
           <td class="header" >When steam drum pressure is above 90 kg/cm2g:</td>
           <td></td>
         </tr>
-        <tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }">
           <td ></td>
           <td class="header">*OOT to line up steam drum continuous blowdown valve and block in steam drum intermittent blowdown.</td>
           <td>
@@ -80,7 +80,7 @@
           
           </td>
         </tr>
-        <tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }">
           <td></td>
           <td class="header">*OOT to confirm that the sTLE blowdown to CBD header is lined up.</td>
           <td>
@@ -90,7 +90,7 @@
            
           </td>
         </tr>
-        <tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }">
           <td></td>
           <td class="header">*OOT to ensure steam drum blowdown analyzer online and confirm cooling water flow to and from cooler.</td>
           <td>
@@ -100,7 +100,7 @@
           
           </td>
         </tr>
-        <tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }">
           <td></td>
           <td class="header">*OOT to ensure sTLE blowdown analyzer cooling water flow
             to and from cooler is established.</td>
@@ -111,7 +111,7 @@
           
           </td>
         </tr>
-        <tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }">
           <td></td>
           <td class="header">*OOT to open desuperheater untreated BFW manual block
             valves (DB&B) if not done before.</td>
@@ -122,7 +122,7 @@
           
           </td>
         </tr>
-        <tr>
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
           <td></td>
           <td class="header">*IOT to enable steam drum and sTLE continuous blow downs
             from HMI Station.
@@ -150,7 +150,7 @@
           
           </td>
         </tr>
-        <tr>
+        <tr >
           <td ></td>
           <td class="header">*Continue with warm-up when PSV EVT testing is complete
             </td>
@@ -174,7 +174,7 @@
           </td>
         </tr>
         
-        <tr>
+        <tr >
           <td style="text-align: center;">8</td>
           <td class="header">When COT temperature is above 760ºC and if steam flow
             confirmed higher than 10 Mt/h per side, it is possible to move the
@@ -190,7 +190,7 @@
       </tbody>
     </table>
   </form>
-  <button mat-raised-button style="margin-left: 95%; margin-top: 2%; background-color: #97ca94;" [disabled]="!ChecklistE.valid" >Next</button>
+  <button mat-raised-button style="margin-left: 90%; margin-top: 2%; background-color: #97ca94;" [disabled]="!ChecklistE.valid" >Next</button>
   </mat-card-content>
 </mat-card>
 </mat-expansion-panel>

@@ -12,12 +12,19 @@ export class ChecklistEComponent implements OnInit {
   ChecklistE!: FormGroup;
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
+  disableIO: string;
+  currentUser: any;
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ChecklistEService
   ) { }
 
   ngOnInit(): void {
+    const storedUser = localStorage.getItem('currentUser');
+
+     this.currentUser = storedUser ? JSON.parse(storedUser) : null;
+     console.log(' this.currentUser: ',  this.currentUser.position);
+   this.disableIO=this.currentUser.position;
     this.formInitialization();
     this.setupSubmitInterval();
   }
