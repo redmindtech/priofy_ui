@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder,FormGroup } from '@angular/forms';
+import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ChecklistDService } from '@app/utils/service/checklist-d.service';
+import { Subscription } from 'rxjs';
 
 
 
@@ -14,18 +15,20 @@ import { ChecklistDService } from '@app/utils/service/checklist-d.service';
 export class ChecklistDComponent implements OnInit {
   @Input() checklistdformenable: boolean;
   checklisteformenable: boolean = true;
-  FirstForm:FormGroup
+  ChecklistD:FormGroup
   userDetails: any;
   userObject: any;
   position: any;
   disableiot: any;
   disableoot: any;
+  private onSubmitInterval: any;
+  private addSubscription: Subscription | undefined;
   constructor(private fb: FormBuilder,
     private apiService:ChecklistDService,
     private router: Router,
     private toast: MatSnackBar,
     ){}
-  
+
     ngOnInit(): void {
       this.userDetails = localStorage.getItem('currentUser');
     this.userObject = JSON.parse(this.userDetails);
@@ -37,82 +40,96 @@ export class ChecklistDComponent implements OnInit {
       this.disableiot = false;
       this.disableoot = true;
     }
-      this.FirstForm = this.fb.group({
+    this.formInitialization();
+  }
+  ngOnDestroy(): void {
+    clearInterval(this.onSubmitInterval);
+    if (this.addSubscription) {
+      this.addSubscription.unsubscribe();
+    }
+  }
+  formInitialization(){
+    this.ChecklistD = this.fb.group({
         id:[],
         userid:[],
         master_id:[],
-        burners_20_:[false],
-        IOT_arch_temperature:[false],
-        OOT_air_ONIS_blind:[false],
-        OOT_to_open_4:[false],
-        IOT_start_decoke:[false],
-        OOT_fuel_gas:[false],
-        OOT_burner_light_off:[false],
-        OOT_add_burners:[false],
-        air_registers_3_notches:[false],
-        burners_20:[false],
-        IOT_to_request_OOT:[false],
-        IOT_COTs_rising:[false],
-        IOT_Venturi_Ratios:[false],
-        IOT_suspect_coils:[false],
-        OOT_Start_warm_MS_steam:[false],
-        OOT_spool_piece:[false],
-        OOT_open_MS_EBV:[false],
-        OOT_topen_MS_steam_8:[false],
-        IOT_both_steam:[false],
-        OOT_steam_lines_up:[false],
-        OOT_Dilution_Steam:[false],
-        OOT_open_2inch_steam:[false],
-        OOT_to_open_3by4inch:[false],
-        oot_open_3by4_ethane:[false],
-        oot_crack_open_10inch_BbyV:[false],
-        Open_the_upstream_and_downstream:[false],
-        Phosphate_and_Morpholine:[false],
-        Before_starting:[false],
-        IOT_reduce_draf:[false],
-        IOT_visually_check_the_firebox:[false],
-        iot_HTC1_outside_temperature:[false],
-        oot_DS_and_steam_to_FPH:[false],
-        IOTchecking_that_all_COTs:[false],
-        iot_hecking_tha_all_venture_ratios:[false],
-        IOT_to_clear_pluggage:[false],
-        OOTSecondary_TLE:[false],
-        OOT_Tertiary_TLE:[false],
-        OOT_PT_between_both_CG_MOVs:[false],
-        oot_CG_Decoke_MOV:[false],
-        iot_SHP_steam_flow:[false],
-        IOT_monitor_fuel_gas:[false],
-        oot_monitor_the_firebox:[false],
-        the_steam_flow_greater10:[false],
-        OOT_close_decoke_air:[false],
-        OOT_to_close_4inch_decoke:[false],
-        IOT_disable_Decoke_Air_controllers:[false],
-        HV_22X0_07_is_closed:[false],
-        OOT_to_fully_open_downstream:[false],
-        IOT_to_confirm_ethane_feed:[false],
-        OOT_to_line_up_steam_drum:[false],
-        adjust_the_steam_drum_blow_down:[false],
-        Furnace_sequence_auto_move_to_Warm_up:[false],
+        burners_20_:[null,Validators.required],
+        IOT_arch_temperature:[null,Validators.required],
+        OOT_air_ONIS_blind:[null,Validators.required],
+        OOT_to_open_4:[null,Validators.required],
+        IOT_start_decoke:[null,Validators.required],
+        OOT_fuel_gas:[null,Validators.required],
+        OOT_burner_light_off:[null,Validators.required],
+        OOT_add_burners:[null,Validators.required],
+        air_registers_3_notches:[null,Validators.required],
+        burners_20:[null,Validators.required],
+        IOT_to_request_OOT:[null,Validators.required],
+        IOT_COTs_rising:[null,Validators.required],
+        IOT_Venturi_Ratios:[null,Validators.required],
+        IOT_suspect_coils:[null,Validators.required],
+        OOT_Start_warm_MS_steam:[null,Validators.required],
+        OOT_spool_piece:[null,Validators.required],
+        OOT_open_MS_EBV:[null,Validators.required],
+        OOT_topen_MS_steam_8:[null,Validators.required],
+        IOT_both_steam:[null,Validators.required],
+        OOT_steam_lines_up:[null,Validators.required],
+        OOT_Dilution_Steam:[null,Validators.required],
+        OOT_open_2inch_steam:[null,Validators.required],
+        OOT_to_open_3by4inch:[null,Validators.required],
+        oot_open_3by4_ethane:[null,Validators.required],
+        oot_crack_open_10inch_BbyV:[null,Validators.required],
+        Open_the_upstream_and_downstream:[null,Validators.required],
+        Phosphate_and_Morpholine:[null,Validators.required],
+        Before_starting:[null,Validators.required],
+        IOT_reduce_draf:[null,Validators.required],
+        IOT_visually_check_the_firebox:[null,Validators.required],
+        iot_HTC1_outside_temperature:[null,Validators.required],
+        oot_DS_and_steam_to_FPH:[null,Validators.required],
+        IOTchecking_that_all_COTs:[null,Validators.required],
+        iot_hecking_tha_all_venture_ratios:[null,Validators.required],
+        IOT_to_clear_pluggage:[null,Validators.required],
+        OOTSecondary_TLE:[null,Validators.required],
+        OOT_Tertiary_TLE:[null,Validators.required],
+        OOT_PT_between_both_CG_MOVs:[null,Validators.required],
+        oot_CG_Decoke_MOV:[null,Validators.required],
+        iot_SHP_steam_flow:[null,Validators.required],
+        IOT_monitor_fuel_gas:[null,Validators.required],
+        oot_monitor_the_firebox:[null,Validators.required],
+        the_steam_flow_greater10:[null,Validators.required],
+        OOT_close_decoke_air:[null,Validators.required],
+        OOT_to_close_4inch_decoke:[null,Validators.required],
+        IOT_disable_Decoke_Air_controllers:[null,Validators.required],
+        HV_22X0_07_is_closed:[null,Validators.required],
+        OOT_to_fully_open_downstream:[null,Validators.required],
+        IOT_to_confirm_ethane_feed:[null,Validators.required],
+        OOT_to_line_up_steam_drum:[null,Validators.required],
+        adjust_the_steam_drum_blow_down:[null,Validators.required],
+        Furnace_sequence_auto_move_to_Warm_up:[null,Validators.required],
         Warm_Up_arch_table_1_id:[]
-  
-  
+
+
     })
-  
     }
-  submit()
+    setupSubmitInterval() {
+      this.onSubmitInterval = setInterval(() => {
+        console.log('onSubmitInterval: ', this.onSubmitInterval);
+        this.add();
+      }, 15* 1000); // 2 minutes in milliseconds
+    }
+ onSubmit()
   {
-    if (this.FirstForm.valid) {
-      const formData = this.FirstForm.value;
+    if (this.ChecklistD.valid) {
+      const formData = this.ChecklistD.value;
       this.apiService.savecheckdpage(formData).subscribe(
         (response) => {
-  
+
           console.log('Data saved successfully:', response);
           this.toast.open('Data saved successfully', 'Close', { duration: 3000 });
-  
+
           this.router.navigate(['/blank']);
         },
         (error) => {
-  
+
           console.error('Error saving data:', error);
           this.toast.open('Error saving data', 'Close', { duration: 3000 });
         }
@@ -121,5 +138,11 @@ export class ChecklistDComponent implements OnInit {
   }
   nxtAccEn(){
     this.checklistdformenable=true;
+  }
+  add() {
+    this.apiService.getchecklistD().subscribe((response: any) => {
+      console.log(response, 'checking');
+      this.ChecklistD.patchValue(response.result);
+    });
   }
 }

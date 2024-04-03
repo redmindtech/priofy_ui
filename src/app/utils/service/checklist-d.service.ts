@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class ChecklistDService {
 
-  
+
   baseUrl: string = "http://localhost:8080/ChecklistD";
 
   constructor(private httpClient: HttpClient) { }
@@ -23,4 +23,8 @@ export class ChecklistDService {
     };
 
     return this.httpClient.post(this.baseUrl+('/ChecklistDSave'), data, httpOptions);
-  }}
+  }
+  public getchecklistD(): Observable<any> {
+    return this.httpClient.get(this.baseUrl+('/last'));
+  }
+}

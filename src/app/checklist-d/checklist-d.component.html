@@ -19,7 +19,7 @@
     </mat-expansion-panel-header>
     <mat-card class="mat">
       <mat-card-content>
-        <form [formGroup]="FirstForm" (ngSubmit)="submit()">
+        <form [formGroup]="ChecklistD" (ngSubmit)="onSubmit()">
 
           <thead>
             <tr>
@@ -47,8 +47,8 @@
               Note: in the Warm Up Arch step the furnace temperature
               increase is controlled by the arch temperature.
             </td>
-            <td><input class="radio" type="radio" formControlName="IOT_arch_temperature" value="yes">
-              <input type="radio" class="radio" formControlName="IOT_arch_temperature" value="no">
+            <td><input class="radio" type="radio" formControlName="IOT_arch_temperature" value="yes" (focusout)="onSubmit()">
+              <input type="radio" class="radio" formControlName="IOT_arch_temperature" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -56,8 +56,8 @@
           <tr [class.disabled]="disableiot">
             <td class="style"> 2. </td>
             <td class="header">OOT to open decoke air ONIS blind and 6” main B/V</td>
-            <td><input class="radio" type="radio" formControlName="OOT_air_ONIS_blind" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_air_ONIS_blind" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_air_ONIS_blind" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_air_ONIS_blind" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr>
@@ -65,8 +65,8 @@
             <td class="header">COOT to open 4” decoke air B/V downstream each control valve
               FV-22X0-10A/B.</td>
             <td>
-              <input class="radio" type="radio" formControlName="OOT_to_open_4" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_to_open_4" r value="no">
+              <input class="radio" type="radio" formControlName="OOT_to_open_4" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_to_open_4" r value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr [class.disabled]="disableoot">
@@ -75,8 +75,8 @@
               IOT to enable Decoke Air controllers and start flow through the
               coils at the default set point of 3.0 Mt/h per pass (side) by
               resetting HV-22X0-07 through its HS.</td>
-            <td><input class="radio" type="radio" formControlName="IOT_start_decoke" value="yes">
-              <input class="radio" type="radio" formControlName="IOT_start_decoke" value="no">
+            <td><input class="radio" type="radio" formControlName="IOT_start_decoke" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="IOT_start_decoke" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -89,21 +89,21 @@
             <td></td>
           </tr>
           <tr [class.disabled]="disableiot">
-            
+
             <td></td>
             <td class="header">Note 1: fuel gas pressure needs to be maintained as low as
               possible to keep the flame close to the tile when steam enters
               the firebox, in order to allow the scanner to see the flame.</td>
-            <td><input class="radio" type="radio" formControlName="OOT_fuel_gas" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_fuel_gas" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_fuel_gas" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_fuel_gas" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr [class.disabled]="disableiot">
             <td></td>
             <td class="header">Note 2: burner light off sequence attached in Appendix A
               must be followed.</td>
-            <td><input class="radio" type="radio" formControlName="OOT_burner_light_off" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_burner_light_off" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_burner_light_off" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_burner_light_off" value="no"(focusout)="onSubmit()">
             </td>
           </tr>
           <tr [class.disabled]="disableiot">
@@ -111,24 +111,24 @@
             <td class="header">Note 3: “add burners” alarm set point is 0.5 kg/cm2g (stops the
               ramp) and “cut burners” alarm is 0.2 kg/cm2g. Low-pressure
               constraint controller set point is 0.15 kg/cm2g.</td>
-            <td><input class="radio" type="radio" formControlName="OOT_add_burners" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_add_burners" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_add_burners" value="yes"(focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_add_burners" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr>
             <td class="style"> 6. </td>
             <td class="header">When 10 burners are lit the air registers of the lit burners should
               now be opened to 3 notches.</td>
-            <td><input class="radio" type="radio" formControlName="air_registers_3_notches" value="yes">
-              <input class="radio" type="radio" formControlName="air_registers_3_notches" value="no">
+            <td><input class="radio" type="radio" formControlName="air_registers_3_notches" value="yes"(focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="air_registers_3_notches" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr>
             <td class="style"> 7. </td>
             <td class="header">When around 20 burners are lit all the lit burners air registers
               should be opened out to 100%.</td>
-            <td><input class="radio" type="radio" formControlName="burners_20_" value="yes">
-              <input class="radio" type="radio" formControlName="burners_20_" value="no">
+            <td><input class="radio" type="radio" formControlName="burners_20_" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="burners_20_" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -136,8 +136,8 @@
             <td class="style"> 8. </td>
             <td class="header">IOT to request OOT to close the 3” steam drum start up vents
               when the steam drum pressure is 5 kg/cm2g.</td>
-            <td><input class="radio" type="radio" formControlName="IOT_to_request_OOT" value="yes">
-              <input class="radio" type="radio" formControlName="IOT_to_request_OOT" value="no">
+            <td><input class="radio" type="radio" formControlName="IOT_to_request_OOT" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="IOT_to_request_OOT" value="no" (focusout)="onSubmit()">
             </td>
 
           <tr [class.disabled]="disableoot">
@@ -148,8 +148,8 @@
           <tr>
             <td></td>
             <td class="header">*Checking that all COTs are rising at about the same rate.</td>
-            <td><input class="radio" type="radio" formControlName="IOT_COTs_rising" value="yes">
-              <input class="radio" type="radio" formControlName="IOT_COTs_rising" value="no">
+            <td><input class="radio" type="radio" formControlName="IOT_COTs_rising" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="IOT_COTs_rising" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr>
@@ -159,8 +159,8 @@
               Note: The accuracy of the venturi ratios will be poor while the
               feed header pressure is low, and the coil airflow is low.
             </td>
-            <td><input class="radio" type="radio" formControlName="IOT_Venturi_Ratios" value="yes">
-              <input class="radio" type="radio" formControlName="IOT_Venturi_Ratios" value="no">
+            <td><input class="radio" type="radio" formControlName="IOT_Venturi_Ratios" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="IOT_Venturi_Ratios" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -168,8 +168,8 @@
             <td class="style"> 10. </td>
             <td class="header">IOT to clear pluggage from suspect coils by increasing the air
               flow (max. 3.6 Mt/h) on that side of the furnace.</td>
-            <td><input class="radio" type="radio" formControlName="IOT_suspect_coils" value="yes">
-              <input class="radio" type="radio" formControlName="IOT_suspect_coils" value="no">
+            <td><input class="radio" type="radio" formControlName="IOT_suspect_coils" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="IOT_suspect_coils" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr [class.disabled]="disableiot">
@@ -180,8 +180,8 @@
               Keep ¾” bleed cracked open until the line is warm (dry steam
               coming from the drain).
             </td>
-            <td><input class="radio" type="radio" formControlName="OOT_Start_warm_MS_steam" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_Start_warm_MS_steam" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_Start_warm_MS_steam" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_Start_warm_MS_steam" value="no" (focusout)="onSubmit()">
             </td>
 </tr>
 
@@ -191,8 +191,8 @@
               pad and then line up steam trap to MC header.<br>
               Keep ¾” bleed cracked open until the line is warm (dry steam
               coming from the drain).</td>
-            <td><input class="radio" type="radio" formControlName="OOT_spool_piece" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_spool_piece" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_spool_piece" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_spool_piece" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -200,8 +200,8 @@
           <tr [class.disabled]="disableiot">
             <td class="style"> 13. </td>
             <td class="header">OOT to open MS EBV, HV-22X0-06. </td>
-            <td><input class="radio" type="radio" formControlName="OOT_open_MS_EBV" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_open_MS_EBV" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_open_MS_EBV" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_open_MS_EBV" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -209,8 +209,8 @@
             <td class="style"> 14. </td>
             <td class="header">Once condensate has been drained OOT to open MS steam 8”
               B/V.</td>
-            <td><input class="radio" type="radio" formControlName="OOT_topen_MS_steam_8" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_topen_MS_steam_8" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_topen_MS_steam_8" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_topen_MS_steam_8" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -218,8 +218,8 @@
             <td class="style"> 15. </td>
             <td class="header">IOT to make sure that both steam control valves FV-22X0-22A/B
               remain closed.</td>
-            <td><input class="radio" type="radio" formControlName="IOT_both_steam" value="yes">
-              <input class="radio" type="radio" formControlName="IOT_both_steam" value="no">
+            <td><input class="radio" type="radio" formControlName="IOT_both_steam" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="IOT_both_steam" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr [class.disabled]="disableiot">
@@ -233,8 +233,8 @@
             <td class="header">*Keep ¾” bleed upstream each FV and ¾” bleed upstream 10”
               spectable blind cracked open until the lines are warm (dry steam
               coming from the drain).</td>
-            <td><input class="radio" type="radio" formControlName="OOT_steam_lines_up" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_steam_lines_up" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_steam_lines_up" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_steam_lines_up" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr>
@@ -243,8 +243,8 @@
               by opening the ¾” bleed downstream each FV. <br>
               Keep ¾” bleed cracked open until the lines are warm (dry steam
               coming from the drain).</td>
-            <td><input class="radio" type="radio" formControlName="OOT_Dilution_Steam" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_Dilution_Steam" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_Dilution_Steam" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_Dilution_Steam" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -256,8 +256,8 @@
               HV-22X0-02. <br>
               Keep ¾” bleed cracked open until the lines are warm (dry steam
               coming from the drain).</td>
-            <td><input class="radio" type="radio" formControlName="OOT_open_2inch_steam" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_open_2inch_steam" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_open_2inch_steam" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_open_2inch_steam" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -269,8 +269,8 @@
               <br>Keep ¾” bleed cracked open until the line is warm (dry steam
               coming from the drain).
             </td>
-            <td><input class="radio" type="radio" formControlName="OOT_to_open_3by4inch" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_to_open_3by4inch" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_to_open_3by4inch" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_to_open_3by4inch" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -283,8 +283,8 @@
               Keep ¾” bleeds cracked open until the line is warm (dry steam
               coming from the drain).<br>When all the condensate is drained out close the drains and the
               10” block valves.</td>
-            <td><input class="radio" type="radio" formControlName="oot_crack_open_10inch_BbyV" value="yes">
-              <input class="radio" type="radio" formControlName="oot_crack_open_10inch_BbyV" value="no">
+            <td><input class="radio" type="radio" formControlName="oot_crack_open_10inch_BbyV" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="oot_crack_open_10inch_BbyV" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -293,8 +293,8 @@
             <td class="header">Open the upstream and downstream 4” B/V of FV-22X0-08 and
               start closing the 2” bypass then take the control using the control
               valve FV-22X0-08.</td>
-            <td> <input class="radio" type="radio" formControlName="Open_the_upstream_and_downstream" value="yes">
-              <input class="radio" type="radio" formControlName="Open_the_upstream_and_downstream" value="no">
+            <td> <input class="radio" type="radio" formControlName="Open_the_upstream_and_downstream" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="Open_the_upstream_and_downstream" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr>
@@ -303,8 +303,8 @@
               started. Dosing rate to be decided based on blowdown sample.<br>Note: Separate injection point valves for
               old F-2280 line should
               be kept closed.</td>
-            <td> <input class="radio" type="radio" formControlName="Phosphate_and_Morpholine" value="yes">
-              <input class="radio" type="radio" formControlName="Phosphate_and_Morpholine" value="no">
+            <td> <input class="radio" type="radio" formControlName="Phosphate_and_Morpholine" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="Phosphate_and_Morpholine" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -314,8 +314,8 @@
               air flow to the furnace FC-22X2-15D-16D should be increased to 60 M t/h to dilute the effect of steam on
               the scanners. IOT to
               enter manual set point.</td>
-            <td><input class="radio" type="radio" formControlName="Before_starting" value="yes">
-              <input class="radio" type="radio" formControlName="Before_starting" value="no">
+            <td><input class="radio" type="radio" formControlName="Before_starting" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="Before_starting" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -323,8 +323,8 @@
             <td class="style"> 23. </td>
             <td class="header">IOT to reduce the draft to (-8) mmH2O by entering a manual
               draft set point, before starting the steam flow through the coils.</td>
-            <td><input class="radio" type="radio" formControlName="IOT_reduce_draf" value="yes">
-              <input class="radio" type="radio" formControlName="IOT_reduce_draf" value="no">
+            <td><input class="radio" type="radio" formControlName="IOT_reduce_draf" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="IOT_reduce_draf" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr [class.disabled]="disableoot">
@@ -333,7 +333,7 @@
               Auto then enable the steam flow via the HMI when the arch
               temperature is >350°C and start steam flow VERY SLOWLY and
               in MANUAL, by following the next sub-steps<br>
-            
+
            FV-22X0-22 A/B will ramp steam flow on control vale output.</td>
             <td></td>
           </tr>
@@ -341,8 +341,8 @@
             <td></td>
             <td class="header">*Request the OOT to visually check the firebox to see if
               it starts to look foggy due to steam.</td>
-            <td><input class="radio" type="radio" formControlName="IOT_visually_check_the_firebox" value="yes">
-              <input class="radio" type="radio" formControlName="IOT_visually_check_the_firebox" value="no">
+            <td><input class="radio" type="radio" formControlName="IOT_visually_check_the_firebox" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="IOT_visually_check_the_firebox" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr [class.disabled]="disableoot">
@@ -360,19 +360,19 @@
               flame”.
 
             </td>
-            <td><input class="radio" type="radio" formControlName="iot_HTC1_outside_temperature" value="yes">
-              <input class="radio" type="radio" formControlName="iot_HTC1_outside_temperature" value="no">
+            <td><input class="radio" type="radio" formControlName="iot_HTC1_outside_temperature" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="iot_HTC1_outside_temperature" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
-         
-          
+
+
 
           <tr  [class.disabled]="disableiot">
             <td class="style"> 25. </td>
             <td class="header">OOT to line up steam lines purges (DS and steam to FPH) to
               C-2317 once all the steam lines are confirmed dry.
-            <td><input class="radio" type="radio" formControlName="oot_DS_and_steam_to_FPH" value="yes">
-              <input class="radio" type="radio" formControlName="oot_DS_and_steam_to_FPH" value="no">
+            <td><input class="radio" type="radio" formControlName="oot_DS_and_steam_to_FPH" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="oot_DS_and_steam_to_FPH" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr  [class.disabled]="disableiot">
@@ -388,8 +388,8 @@
           <tr  [class.disabled]="disableoot">
             <td></td>
             <td class="header">*Checking that all COTs are rising at about the same rate.</td>
-            <td><input class="radio" type="radio" formControlName="IOTchecking_that_all_COTs" value="yes">
-              <input class="radio" type="radio" formControlName="IOTchecking_that_all_COTs" value="no">
+            <td><input class="radio" type="radio" formControlName="IOTchecking_that_all_COTs" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="IOTchecking_that_all_COTs" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr  [class.disabled]="disableoot">
@@ -399,18 +399,18 @@
               Note: the accuracy of the ratios will be poor while the feed header
               pressure is low, and the coil steam flow is low.
             </td>
-            <td><input class="radio" type="radio" formControlName="iot_hecking_tha_all_venture_ratios" value="yes">
-              <input class="radio" type="radio" formControlName="iot_hecking_tha_all_venture_ratios" value="no">
+            <td><input class="radio" type="radio" formControlName="iot_hecking_tha_all_venture_ratios" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="iot_hecking_tha_all_venture_ratios" value="no" (focusout)="onSubmit()">
             </td>
-          
+
           </tr>
-        
+
           <tr  [class.disabled]="disableoot">
             <td class="style"> 27. </td>
             <td class="header">IOT to clear pluggage from suspect coils by slowly increasing the
               steam flow on that side of the furnace.</td>
-            <td><input class="radio" type="radio" formControlName="IOT_to_clear_pluggage" value="yes">
-              <input class="radio" type="radio" formControlName="IOT_to_clear_pluggage" value="no">
+            <td><input class="radio" type="radio" formControlName="IOT_to_clear_pluggage" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="IOT_to_clear_pluggage" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr  [class.disabled]="disableiot">
@@ -421,30 +421,30 @@
           <tr  [class.disabled]="disableiot">
             <td></td>
             <td class="header">*Secondary TLE inlet PT</td>
-            <td><input class="radio" type="radio" formControlName="OOTSecondary_TLE" value="yes">
-              <input class="radio" type="radio" formControlName="OOTSecondary_TLE" value="no">
+            <td><input class="radio" type="radio" formControlName="OOTSecondary_TLE" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOTSecondary_TLE" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr  [class.disabled]="disableiot">
             <td></td>
             <td class="header">*Tertiary TLE outlet PTs.</td>
-            <td><input class="radio" type="radio" formControlName="OOT_Tertiary_TLE" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_Tertiary_TLE" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_Tertiary_TLE" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_Tertiary_TLE" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr  [class.disabled]="disableiot">
             <td></td>
             <td class="header">*PT between both CG MOVs.</td>
-            <td><input class="radio" type="radio" formControlName="OOT_PT_between_both_CG_MOVs" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_PT_between_both_CG_MOVs" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_PT_between_both_CG_MOVs" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_PT_between_both_CG_MOVs" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr  [class.disabled]="disableiot">
             <td></td>
             <td class="header">*Both CG MOVs and Decoke MOV seats (HV-22X0-13A and
               HV-22X0-14 and Cavity).</td>
-            <td><input class="radio" type="radio" formControlName="oot_CG_Decoke_MOV" value="yes">
-              <input class="radio" type="radio" formControlName="oot_CG_Decoke_MOV" value="no">
+            <td><input class="radio" type="radio" formControlName="oot_CG_Decoke_MOV" value="yes"(focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="oot_CG_Decoke_MOV" value="no"(focusout)="onSubmit()">
             </td>
           </tr>
           <tr  [class.disabled]="disableiot">
@@ -456,8 +456,8 @@
           <tr  [class.disabled]="disableoot">
             <td class="style"> 29. </td>
             <td class="header">IOT to ensure that SHP steam flow is exiting the vent silencer.</td>
-            <td><input class="radio" type="radio" formControlName="iot_SHP_steam_flow" value="yes">
-              <input class="radio" type="radio" formControlName="iot_SHP_steam_flow" value="no">
+            <td><input class="radio" type="radio" formControlName="iot_SHP_steam_flow" value="yes"(focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="iot_SHP_steam_flow" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr  [class.disabled]="disableoot">
@@ -467,17 +467,17 @@
             <br>
             Note: FG pressure should be maintained between 0.2 -0.4
             kg/cm2g.</td>
-            <td><input class="radio" type="radio" formControlName="IOT_monitor_fuel_gas" value="yes">
-              <input class="radio" type="radio" formControlName="IOT_monitor_fuel_gas" value="no">
+            <td><input class="radio" type="radio" formControlName="IOT_monitor_fuel_gas" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="IOT_monitor_fuel_gas" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
-         
+
           <tr  [class.disabled]="disableiot">
             <td class="style"> 31. </td>
             <td class="header">OOT to continuously monitor the firebox to see if it starts to look
               foggy due to steam entering it.</td>
-            <td><input class="radio" type="radio" formControlName="oot_monitor_the_firebox" value="yes">
-              <input class="radio" type="radio" formControlName="oot_monitor_the_firebox" value="no">
+            <td><input class="radio" type="radio" formControlName="oot_monitor_the_firebox" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="oot_monitor_the_firebox" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr>
@@ -487,18 +487,18 @@
             <br>
             Note: the steam flow is expected to reach its full flow at an arch
             temperature of 650ºC.</td>
-            <td><input class="radio" type="radio" formControlName="the_steam_flow_greater10" value="yes">
-              <input class="radio" type="radio" formControlName="the_steam_flow_greater10" value="no">
+            <td><input class="radio" type="radio" formControlName="the_steam_flow_greater10" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="the_steam_flow_greater10" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
-          
+
 
           <tr  [class.disabled]="disableiot">
             <td class="style"> 33. </td>
             <td class="header">OOT to close decoke air ONIS blind and 6” main B/V once there
               is no more air flow to coils.</td>
-            <td><input class="radio" type="radio" formControlName="OOT_close_decoke_air" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_close_decoke_air" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_close_decoke_air" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_close_decoke_air" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -506,8 +506,8 @@
             <td class="style"> 34. </td>
             <td class="header">OOT to close 4” decoke air B/V downstream each control valve
               FV-22X0-10A/B.</td>
-            <td><input class="radio" type="radio" formControlName="OOT_to_close_4inch_decoke" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_to_close_4inch_decoke" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_to_close_4inch_decoke" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_to_close_4inch_decoke" value="no"(focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -515,8 +515,8 @@
             <td class="style"> 35. </td>
             <td class="header">IOT to disable Decoke Air controllers and confirm that the ONIS
               “Close DI” is true.</td>
-            <td><input class="radio" type="radio" formControlName="IOT_disable_Decoke_Air_controllers" value="yes">
-              <input class="radio" type="radio" formControlName="IOT_disable_Decoke_Air_controllers" value="no">
+            <td><input class="radio" type="radio" formControlName="IOT_disable_Decoke_Air_controllers" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="IOT_disable_Decoke_Air_controllers" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
 
@@ -524,16 +524,16 @@
             <td class="style"> 36. </td>
             <td class="header">When Decoke air HV-22X0-07 is closed HV-22X0-02 (purge
               steam to ethane feed line) should open 25% on program logic.</td>
-            <td><input class="radio" type="radio" formControlName="HV_22X0_07_is_closed" value="yes">
-              <input class="radio" type="radio" formControlName="HV_22X0_07_is_closed" value="no">
+            <td><input class="radio" type="radio" formControlName="HV_22X0_07_is_closed" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="HV_22X0_07_is_closed" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr  [class.disabled]="disableiot">
             <td class="style"> 37. </td>
             <td class="header">OOT to fully open downstream block valves of the ethane feed
               control valves FV-22X0-14A/B and metallic car seal provided.</td>
-            <td><input class="radio" type="radio" formControlName="OOT_to_fully_open_downstream" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_to_fully_open_downstream" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_to_fully_open_downstream" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_to_fully_open_downstream" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr  [class.disabled]="disableoot">
@@ -541,16 +541,16 @@
             <td class="header">IOT to confirm that ethane feed control valves FV-22X0-14A/B
               come fully open in auto to allow starting steam flow through the
               feed preheat coils.</td>
-            <td><input class="radio" type="radio" formControlName="IOT_to_confirm_ethane_feed" value="yes">
-              <input class="radio" type="radio" formControlName="IOT_to_confirm_ethane_feed" value="no">
+            <td><input class="radio" type="radio" formControlName="IOT_to_confirm_ethane_feed" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="IOT_to_confirm_ethane_feed" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr [class.disabled]="disableiot">
             <td class="style"> 39. </td>
             <td class="header">OOT to line up steam drum and sTLE continuous blowdown to
               header. When steam drum header pressure reads > 12 kg/cm2.</td>
-            <td><input class="radio" type="radio" formControlName="OOT_to_line_up_steam_drum" value="yes">
-              <input class="radio" type="radio" formControlName="OOT_to_line_up_steam_drum" value="no">
+            <td><input class="radio" type="radio" formControlName="OOT_to_line_up_steam_drum" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="OOT_to_line_up_steam_drum" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
           <tr>
@@ -561,11 +561,11 @@
             Note:this is done by increasing intermittent blowdown at the
             steam drum so there is more flow through the ECO to prevent
             high temps.</td>
-            <td><input class="radio" type="radio" formControlName="adjust_the_steam_drum_blow_down" value="yes">
-              <input class="radio" type="radio" formControlName="adjust_the_steam_drum_blow_down" value="no">
+            <td><input class="radio" type="radio" formControlName="adjust_the_steam_drum_blow_down" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="adjust_the_steam_drum_blow_down" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
-         
+
 
           <tr [class.disabled]="disableoot">
             <td class="style"> 41. </td>
@@ -575,14 +575,14 @@
               Note: warm up switches from Arch control to COT control when
               both sides average COT temperature is higher than 450°C and
               dilution steam flow on each side is higher than 5 Mt/h. </td>
-            <td><input class="radio" type="radio" formControlName="Furnace_sequence_auto_move_to_Warm_up" value="yes">
-              <input class="radio" type="radio" formControlName="Furnace_sequence_auto_move_to_Warm_up" value="no">
+            <td><input class="radio" type="radio" formControlName="Furnace_sequence_auto_move_to_Warm_up" value="yes" (focusout)="onSubmit()">
+              <input class="radio" type="radio" formControlName="Furnace_sequence_auto_move_to_Warm_up" value="no" (focusout)="onSubmit()">
             </td>
           </tr>
-         
+
 
           <button mat-raised-button style="margin-left: 90%;margin-top: 10px;" color="primary"
-            [disabled]="!FirstForm.valid" (click)="nxtAccEn()">Next</button>
+            [disabled]="!ChecklistD.valid" (click)="nxtAccEn()">Next</button>
         </form>
       </mat-card-content>
     </mat-card>
