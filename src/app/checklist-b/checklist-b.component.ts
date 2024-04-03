@@ -44,9 +44,9 @@ formInitialization(){
    
     userid:[this.currentUser.id],
     master_id:[1],
-    OOT_bearings_oil_levels:[null,Validators.required],
+    oot_bearings_oil_levels:[null,Validators.required],
     iot_Overview_HMI:[null,Validators.required],
-    UPS_system:[null,Validators.required],
+    ups_system:[null,Validators.required],
     oot_caged_doors_open:[null,Validators.required],
     oot_peep_doors_closed:[null,Validators.required],
     oot_local_start_stop:[null,Validators.required],
@@ -56,7 +56,7 @@ formInitialization(){
     oot_Wall_burners :[null,Validators.required],
     iot_start_ID_fan:[null,Validators.required],
     iot_ID_fan_running:[null,Validators.required],
-    iot_fanmotor_readings:[null,Validators.required],
+    iot_FD_fan_motor_readings:[null,Validators.required],
     oot_ID_fan_abnormality:[null,Validators.required],
     oot_four_air_duct:[null,Validators.required],
     iot_start_FD:[null,Validators.required],
@@ -64,7 +64,7 @@ formInitialization(){
     iot_FC_signal:[null,Validators.required],
     iot_close_the_doors:[null,Validators.required],
     iot_FC_back_in_auto:[null,Validators.required],
-    iot_FD_fanmotor_readings:[null,Validators.required],
+    iot_fan_motor_readings:[null,Validators.required],
     oot_FD_shaft_speed:[null,Validators.required],
     oot_FD_fan_abnormality:[null,Validators.required],
     oot_LS_steam_condensate:[null,Validators.required],
@@ -75,19 +75,21 @@ formInitialization(){
     oot_Decoke_MOV:[null,Validators.required],
     oot_Double_Block:[null,Validators.required],
     oot_LS_purge_lined_up:[null,Validators.required],
-    MS_Steam:[null,Validators.required],
+    ms_Steam:[null,Validators.required],
     fgs_ready:[null,Validators.required],
     oot_burners_manual_BV:[null,Validators.required],
     oot_ignitor_and_flame_scanner:[null,Validators.required],
     oot_fourth_platform_level:[null,Validators.required],
-    oot_1inch_BV_to_AT_22x0_11A:[null,Validators.required],
-    oot_1inch_BV_to_AT_22x0_11B:[null,Validators.required],
-    oot_34_BV_to_AP_22x0_11A:[null,Validators.required],
-    oot_3by4inch_BV_to_AP_22x0_11B:[null,Validators.required],
+    oot_1_BV_to_AT_22X0_11A:[null,Validators.required],
+    oot_1_BV_to_AT_22X0_11B:[null,Validators.required],
+    oot_34_BV_to_AP_22X0_11A:[null,Validators.required],
+    oot_34_BV_to_AP_22X0_11B:[null,Validators.required],
     iot_ignitors_and_flame_scanners:[null,Validators.required],
-
-
-
+    blow_down_HXS_header:[null,Validators.required],
+    oot_10_block_valves:[null,Validators.required],
+    oot_8_NRV_valve:[null,Validators.required],
+    iot_SD_level:[null,Validators.required],
+    oot_bleed_to_flare:[null,Validators.required]
 })
 }
 setupSubmitInterval() {
