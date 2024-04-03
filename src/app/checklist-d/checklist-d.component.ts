@@ -118,7 +118,7 @@ export class ChecklistDComponent implements OnInit {
     }
  onSubmit()
   {
-    if (this.ChecklistD.valid) {
+   
       const formData = this.ChecklistD.value;
       this.apiService.savecheckdpage(formData).subscribe(
         (response) => {
@@ -134,7 +134,7 @@ export class ChecklistDComponent implements OnInit {
           this.toast.open('Error saving data', 'Close', { duration: 3000 });
         }
       );
-    }
+    
   }
   nxtAccEn(){
     this.checklistdformenable=true;

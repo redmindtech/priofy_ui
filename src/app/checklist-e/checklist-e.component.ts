@@ -59,7 +59,7 @@ export class ChecklistEComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.ChecklistE.valid) {
+
       const permitFormValue = this.ChecklistE.value;
       console.log('Form Data:', permitFormValue);
       this.addSubscription = this.apiService.createchecklistE(permitFormValue).subscribe(
@@ -71,10 +71,7 @@ export class ChecklistEComponent implements OnInit {
           console.error('Error while sending data:', error);
         }
       );
-    } else {
-      
-      console.error('Form is invalid. Please fill all required fields.');
-    }
+    
     
   }
   add() {

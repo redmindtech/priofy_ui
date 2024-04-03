@@ -85,7 +85,8 @@ setupSubmitInterval() {
     this.add();
   }, 15* 1000); // 2 minutes in milliseconds
 }
-onSubmit() {if (this.ChecklistC.valid) {
+onSubmit() {
+  
   const formData = this.ChecklistC.value;
   this.apiService.savecheckcpage(formData).subscribe(
     (response) => {
@@ -101,7 +102,7 @@ onSubmit() {if (this.ChecklistC.valid) {
       this.toast.open('Error saving data', 'Close', { duration: 3000 });
     }
   );
-}
+
 }
 nxtAccEn(){
   this.checklistdformenable=true;
