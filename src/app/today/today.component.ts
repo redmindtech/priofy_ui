@@ -46,13 +46,13 @@ formInitialization(){
     frc: [false, Validators.required] ,
     gas_meter: [false, Validators.required] ,
     protection: [false, Validators.required] ,
-    comfort_mask: [false, Validators.required] ,
+    comfort_mask: [false, Validators.required],
     cooling_vest: [false, Validators.required] ,
     plenty: [false, Validators.required] ,
     peak_summer: [false, Validators.required] ,
     neutral_body: [false, Validators.required],
      leather_gloves: [false, Validators.required] ,
-     userid:[1]
+     userid:[1],
   });
     }
     isFormValid(): boolean {

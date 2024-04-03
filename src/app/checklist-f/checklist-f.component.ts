@@ -12,8 +12,7 @@ export class ChecklistFComponent implements OnInit {
   @Input() checklistfformenable: boolean;
   
   ChecklistF: FormGroup;
-  currentDate: string;
-  currenttime: string;
+  
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
   currentUser: any;
@@ -41,7 +40,7 @@ export class ChecklistFComponent implements OnInit {
   }
   formInitialization() {
     this.ChecklistF = this.formBuilder.group({
-      iot_move_furnace_sequence_to_Swing: [null],
+      iot_move_furnace_sequence_to_Swing: [null,Validators.required],
       IOT_to_confirm:  [null,Validators.required],
       oot_ALL_BV_of_LS_steam:  [null,Validators.required],
       OOT_flare_block: [null,Validators.required],
@@ -62,7 +61,8 @@ export class ChecklistFComponent implements OnInit {
       the_top_burners: [null,Validators.required],
       Increase_IBD_CBD: [null,Validators.required],
       Continue_with_Furnace: [null,Validators.required],
-       userid:[1]
+      userid:[this.currentUser.id],
+      master_id:[1],
     });
   }
 

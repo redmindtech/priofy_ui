@@ -8,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class MainComponent implements OnInit {
   public sidebarMenuOpened = true;
   public menu = MENU;
+  currentUser: any;
+  username: any;
+ 
 
   constructor() { }
 
   ngOnInit(): void {
+    const storedUser = localStorage.getItem('currentUser');
+    this.currentUser = storedUser ? JSON.parse(storedUser) : null;
+   let name= this.currentUser.username
+   if(name=="Operator1"){
+      this.username="Siva"
+   }
+   else{
+    this.username="Sakthi"
+   }
     document.querySelector('body')?.removeAttribute('class');
     document.querySelector('body')?.classList.add('sidebar-mini','sidebar-open','layout-fixed');
   }

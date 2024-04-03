@@ -46,8 +46,8 @@ export class ChecklistEComponent implements OnInit {
       PSV_EVT_complete:[null,Validators.required],
       OOTIOT_Decoke_Air:[null,Validators.required],
       Furnace_sequence_to_Swing_MOV:[null,Validators.required],
-     userid:[1]
-      
+      userid:[this.currentUser.id],
+      master_id:[1],
     });
   }
   

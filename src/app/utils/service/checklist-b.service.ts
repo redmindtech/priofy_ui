@@ -7,10 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class ChecklistBService {
 
-  baseUrl: string = "http://localhost:8080/checkb";
+  baseUrl: string = "http://localhost:8080/checklistB";
 
   constructor(private httpClient: HttpClient) { }
-  public savecheckbpage(data: any): Observable<any> {
+  public savecheckBpage(data: any): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -20,6 +20,9 @@ export class ChecklistBService {
       }),
     };
 
-    return this.httpClient.post(this.baseUrl+('/CheckbSave'), data, httpOptions);
+    return this.httpClient.post(this.baseUrl+('/ChecklistBSave'), data, httpOptions);
+  }
+  public getchecklistB(): Observable<any> {
+    return this.httpClient.get(this.baseUrl+('/last'));
   }
 }
