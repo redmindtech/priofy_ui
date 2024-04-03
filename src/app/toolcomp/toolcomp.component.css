@@ -2,16 +2,16 @@ h4{
   text-align: center;
  }
 .mat {
-  width: 800px;
+  width: 1400px;
   /* height: 1400px;
   border-width: thin;
-  border-style: solid; 
+  border-style: solid;
   border-color: black; */
   border-color: black;
   border-width: thin;
   border-style: solid;
   margin: 3%;
-  
+
  }
  .colourbule {
   border-collapse: collapse; /* Collapse table borders */
@@ -20,7 +20,7 @@ h4{
  .colourbule tr {
   padding: 5px 0; /* Adjust the padding as needed */
 }
- 
+
 th{
   font-size: larger;
   background-color: #97ca94 !important;
@@ -49,7 +49,9 @@ th {
 
 }
 .form-control{
-  margin-left: 350px;
+  width:30% ;
+
+  margin-left: 750px;
   margin-top: -40px;
 }
 .checkbox-row input[type="radio"] {
@@ -67,7 +69,7 @@ th {
 textarea {
   margin-left: 300px;
   display: block;
-  width: 650px;
+
   resize: none;
 }
 .button-container {
@@ -78,12 +80,12 @@ textarea {
   float: left;
 }
 .mat-expansion-panel-header-description {
-  
+
   flex-grow: unset !important;
   margin-left: 10px !important;
 }
 .mat-expansion-panel-header-description {
-  
+
   flex-grow: unset !important;
   margin-left: 10px !important;
 }

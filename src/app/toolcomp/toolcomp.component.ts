@@ -74,7 +74,7 @@ submit() {
   console.log('Form validity:', this.FirstForm.valid);
 
   // Send data to the API
-  if (this.FirstForm.valid) {
+
     const firstFormValue = this.FirstForm.value;
   this.apiService.savesecondpage(firstFormValue).subscribe(
     response => {
@@ -88,16 +88,7 @@ submit() {
       // You can handle errors here, such as showing an error message to the user
     }
   );
-}
-else {
 
-  this.toast.open('Form is invalid. Please fill all required fields.', 'Close', {
-    duration: 2000,
-    panelClass: ['custom-toast'],
-    verticalPosition: 'top'
-    });
-  console.error('Form is invalid. Please fill all required fields.');
-}
 
 }
 }
