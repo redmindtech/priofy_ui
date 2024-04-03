@@ -1,210 +1,168 @@
-<mat-panel-title
-        class="font-weight-bold master_header_color"
-        style="color: #151516; margin: 1%;"
-      >
-      
-        Furnace Startup
-      </mat-panel-title>
+<mat-panel-title class="font-weight-bold master_header_color" style="color: #151516; margin: 1%;">
+
+  Furnace Startup
+</mat-panel-title>
 
 
-      <mat-accordion>
-        <mat-expansion-panel class="mat_expansion_border" [expanded]="false">
-          <mat-expansion-panel-header class="mat_expansion_header_border">
-            <div class="row">
-              <h5 style="margin-right: 1150px;display: contents;">1.Hazards & Precaution</h5>
-            </div>
-            <mat-panel-description></mat-panel-description>
-          </mat-expansion-panel-header>
-
-
-<form [formGroup]="FirstForm" (ngSubmit)="submit()">
-<mat-card class="mat">
-  <mat-card-content >
-<div class="row" style="background-color:#97ca94">
-<div class="col">
-  <h5 class="header">HAZARDS</h5>
-</div>
-<div class="col">
-  <h5 class="header">PRECAUTION</h5>
-</div>
-</div>
-<div class="row" >
-<div class="col m-1">
-  <p>
-    Hot piping/equipment and potential risk of burning if flames exit
-    sight ports and furnace doors during draft upset conditions.
-  </p>
-</div>
-<div class="col m-1">
-  <input
-  type="checkbox"
-  class="checkbox m-1"
-  formControlName="condensate"
-  value="condensate"
-/>
-System contains hot condensate, BFW & steam which can cause severe
-burn.
-<br>
-<input
-type="checkbox"
-class="checkbox m-1"
-formControlName="protective_clothings"
-value="protective_clothings"
-/>
-Proper protective clothing must be worn. Full sleeve and leather
-gloves must be used.
-</div>
-
-</div>
-<div class="row">
-  <div class="col m-1">
-    <p>Nitrogen asphyxiation</p>
-  </div>
-  <div class="col m-1">
-    <input
-    type="checkbox"
-    class="checkbox m-1"
-    formControlName="asphyxiant"
-    value="asphyxiant"
-  />
-  Nitrogen is a known asphyxiant, be away during depressurizing,
-  barricade the area and put warning signs of N2 asphyxiation
-  </div>
-  
-  </div>
-  <div class="row">
-    <div class="col m-1">
-      <p>Flammable Area</p>
-    </div>
-    <div class="col m-1">
-      <input
-            type="checkbox"
-            class="checkbox m-1"
-            formControlName="frc"
-            value="frc"
-          />
-          FRC.
-    <br>
-    <input
-    type="checkbox"
-    class="checkbox m-1"
-    formControlName="gas_meter"
-    value="gas_meter"
-    />
-    use gas meter
-    </div>
-    
-    </div>
-    <div class="row">
-      <div class="col m-1">
-        <p>Noise</p>
-      </div>
-      <div class="col m-1">
-        <input
-        type="checkbox"
-        class="checkbox m-1"
-        formControlName="protection"
-        value="protection"
-      />
-      Single hearing protection Ear Plug or Ear Muff.
-      </div>
-      
-      </div>
+<mat-accordion>
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="false">
+    <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
-        <div class="col m-1">
-          <p>Sand Storm</p>
-        </div>
-        <div class="col m-1">
-          <input
-          type="checkbox"
-          class="checkbox m-1"
-         
-          value="comfort_mask"
-          formControlName="comfort_mask"
-        />
-        Comfort mask.
-        </div>
+        <h5 style="margin-right: 1150px;display: contents;">1.Hazards & Precaution</h5>
+      </div>
+      <mat-panel-description></mat-panel-description>
+    </mat-expansion-panel-header>
+
+
+    <form [formGroup]="FirstForm">
+      <mat-card class="mat">
+        <mat-card-content>
+          <div class="row" style="background-color:#97ca94">
+            <div class="col">
+              <h5 class="header">HAZARDS</h5>
+            </div>
+            <div class="col">
+              <h5 class="header">PRECAUTION</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col m-1">
+              <p>
+                Hot piping/equipment and potential risk of burning if flames exit
+                sight ports and furnace doors during draft upset conditions.
+              </p>
+            </div>
+            <div class="col m-1">
+              <ul>
+                <li> System contains hot condensate, BFW & steam which can cause severe
+                  burn.</li>
+              </ul>
+
+              <ul>
+                <li>Proper protective clothing must be worn. Full sleeve and leather
+                  gloves must be used.</li>
+              </ul>
+
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col m-1">
+              <p>Nitrogen asphyxiation</p>
+            </div>
+            <div class="col m-1">
+              <ul>
+                <li> Nitrogen is a known asphyxiant, be away during depressurizing,
+                  barricade the area and put warning signs of N2 asphyxiation</li>
+              </ul>
+
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col m-1">
+              <p>Flammable Area</p>
+            </div>
+            <div class="col m-1">
+              <ul>
+                <li> FRC</li>
+              </ul>
+              <ul>
+                <li> use gas meter</li>
+              </ul>
+
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col m-1">
+              <p>Noise</p>
+            </div>
+            <div class="col m-1">
+              <ul>
+                <li> Single hearing protection Ear Plug or Ear Muff.</li>
+              </ul>
+
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col m-1">
+              <p>Sand Storm</p>
+            </div>
+            <div class="col m-1">
+              <ul>
+                <li> Comfort mask.</li>
+              </ul>
+
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col m-1">
+              <p>Heat Stress</p>
+            </div>
+            <div class="col m-1">
+              <ul>
+                <li> Follow Heat stress guideline published in CLIENT PAS (Public Address
+                  System)</li>
+              </ul>
+
+           
+              <ul>
+                <li>Use cooling vest</li>
+              </ul>
+
         
-        </div>
-        <div class="row">
-          <div class="col m-1">
-            <p>Heat Stress</p>
-          </div>
-          <div class="col m-1">
-            Follow Heat stress guideline published in CLIENT PAS (Public Address
-          System)
-          <br>
-            <input
-            type="checkbox"
-            class="checkbox m-1"
-            
-            value="cooling_vest"
-            formControlName="cooling_vest"
-          />
-          Use cooling vest
-          <br>
-          <input
-          type="checkbox"
-          class="checkbox m-1"
-          
-          value="plenty"
-          formControlName="plenty"
-          />
-          Drink plenty of water
-          <br>
-          <input
-          type="checkbox"
-          class="checkbox m-1"
-          
-          value="peak_summer"
-          formControlName="peak_summer"
-          />
-          During Peak Summer (June till September) perform this task during 6 PM-6 AM.
-          </div>
-          
+              <ul>
+                <li>Drink plenty of water</li>
+              </ul>
+
+         
+              <ul>
+                <li>During Peak Summer (June till September) perform this task during 6 PM-6 AM.</li>
+              </ul>
+
+            </div>
+
           </div>
           <div class="row">
             <div class="col m-1">
               <p>Ergonomic issues like strain and sprain</p>
             </div>
             <div class="col m-1">
-             
-              <input
-              type="checkbox"
-              class="checkbox m-1"
-              
-              value="neutral_body"
-              formControlName="neutral_body"
-            />
-            Use neutral body posture while opening valves, lubricate valves, take breaks.
-            
+              <ul>
+                <li> Use neutral body posture while opening valves, lubricate valves, take breaks.
+                </li>
+              </ul>
+
+
             </div>
+          </div>
+          <div class="row">
+            <div class="col m-1">
+              <p>Pinch/Hit hazards</p>
             </div>
-            <div class="row">
-              <div class="col m-1">
-                <p>Pinch/Hit hazards</p>
-              </div>
-              <div class="col m-1">
-               
-                <input
-                type="checkbox"
-                class="checkbox m-1"
-                
-                value="leather_gloves"
-                formControlName="leather_gloves"
-              />
-              Use leather gloves, ensure all sharp edges are identified and covered.
-              
-              </div>
-              </div>
-             
-              <button style="margin-left: 93%;" type="button" class="btn" [disabled]="!isFormValid()" (click)="submit()">Next</button>
-  </mat-card-content>
-</mat-card>
-</form>
-</mat-expansion-panel>
+            <div class="col m-1">
+
+              <ul>
+                <li>Use leather gloves, ensure all sharp edges are identified and covered.</li>
+              </ul>
+
+
+            </div>
+          </div>
+        
+          
+          <div style="display: flex; justify-content: flex-end;">
+            <button class="btn1" mat-raised-button style="background-color: #97ca94; margin-right: 10px;" >Agree</button>
+            <button class="btn2" mat-raised-button style="background-color: #97ca94;">Disagree</button>
+          </div>          
+         
+        </mat-card-content>
+      </mat-card>
+    </form>
+  </mat-expansion-panel>
 </mat-accordion>
 <br>
-<app-toolcomp [nextformenable]="nextformenable" ></app-toolcomp>
-
-
+<app-toolcomp [nextformenable]="nextformenable"></app-toolcomp>

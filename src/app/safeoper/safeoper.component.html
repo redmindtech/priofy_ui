@@ -9,40 +9,42 @@
     </mat-expansion-panel-header>
 
 
-<form [formGroup]="FirstForm" (ngSubmit)="submit()">
+<form [formGroup]="FirstForm">
   <mat-card class="mat">
     <mat-card-content>
       <h5 style="margin-left: 40%;"><strong> SAFE OPERATING & LIMITS</strong></h5>
       <div class="table">
         <div>
           <div class="table-cell">
-            <input type="checkbox" class="check_class" formControlName="steam_drum_level" value="steam" />
-            Steam drum level should be maintained at 50 % (low-level total trip sp is 18%, partial trip sp is 40% and low alarm sp is
-42%)
+           <ul><li>Steam drum level should be maintained at 50 % (low-level total trip sp is 18%, partial trip sp is 40% and low alarm sp is
+            42%)</li></ul>
+            
+          </div>
+        </div>
+        <div>
+          <div class="table-cell"><ul><li> Furnace draft (firebox pressure) should be maintained < -4 mm H20 column (low draft total trip sp is 0 mm H2O, partial trip
+            sp is -2 mmH2O).</li></ul>
+           
           </div>
         </div>
         <div>
           <div class="table-cell">
-            <input type="checkbox" class="check_class" formControlName="furnacedraft" value="furnacedraft" />
-            Furnace draft (firebox pressure) should be maintained < -4 mm H20 column (low draft total trip sp is 0 mm H2O, partial trip
-sp is -2 mmH2O).
+           <ul><li> Fuel gas system pressure must be maintained > than 0.056 kg/cm2g and < 2.8 kg/cm2g to avoid furnace trip.</li></ul>
+           
           </div>
         </div>
         <div>
           <div class="table-cell">
-            <input type="checkbox" class="check_class" formControlName="fuel_gas_system" value="fuelgas" />
-            Fuel gas system pressure must be maintained > than 0.056 kg/cm2g and < 2.8 kg/cm2g to avoid furnace trip.
-          </div>
-        </div>
-        <div>
-          <div class="table-cell">
-            <input type="checkbox" class="check_class" formControlName="furnace_area_is_cleared" value="lightoff" />
-            Ensure that the furnace area is cleared of all personnel before initial automatic light off.
+            <ul><li> Ensure that the furnace area is cleared of all personnel before initial automatic light off.</li></ul>
+           
           </div>
         </div>
 
       </div>
-      <button mat-raised-button style="margin-left: 90%; background-color: #97ca94;" [disabled]="!FirstForm.valid" (click)="submit()">Next</button>
+      <div style="display: flex; justify-content: flex-end;">
+        <button class="btn1" mat-raised-button style="background-color: #97ca94; margin-right: 10px;" >Agree</button>
+        <button class="btn2" mat-raised-button style="background-color: #97ca94;">Disagree</button>
+      </div>  
     </mat-card-content>
   </mat-card>
 </form>

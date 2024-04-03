@@ -39,3 +39,6 @@
   flex-grow: unset !important;
   margin-left: 10px !important;
 }
+.align-right {
+  text-align: right;
+}

@@ -9,7 +9,7 @@
         </mat-expansion-panel-header>
 
 
-<form [formGroup]="FirstForm" (ngSubmit)="submit()">
+<form [formGroup]="FirstForm" >
   <mat-card class="mat">
     <mat-card-content>
       <h5 style="margin-left: 40%;"><strong> BEFORE YOU BEGIN</strong></h5>
@@ -21,41 +21,45 @@
         </div> -->
         <div class="table-row">
           <div class="table-cell">
-            <input type="checkbox" class="check_class" formControlName="prepare_to_startup" value="furnace" />
-            Confirm that the "Furnace, Prepare to Startup" procedure has been executed.
+           <ul><li>  Confirm that the "Furnace, Prepare to Startup" procedure has been executed.</li></ul>
+           
           </div>
         </div>
         <div class="table-row">
           <div class="table-cell">
-            <input type="checkbox" class="check_class" formControlName="pfic" value="PFIC" />
-            Verify that the "Process Fluid Introduction Checklist" (PFIC) has been completed if the furnace underwent prolonged
-            shutdown or significant maintenance. If unsure, consult the technical staff for guidance.
+            <ul><li> Verify that the "Process Fluid Introduction Checklist" (PFIC) has been completed if the furnace underwent prolonged
+              shutdown or significant maintenance. If unsure, consult the technical staff for guidance.</li></ul>
+            
           </div>
         </div>
         <div class="table-row">
           <div class="table-cell">
-            <input type="checkbox" class="check_class" formControlName="prevent_leaks_or_spill" value="close" />
-            Close and cap or plug all open-ended vents and drain valves on the Ethane/DMS/DMDS/Fuel/Cracked Gas lines to prevent
-            any leaks or spills.
+          <ul><li>  Close and cap or plug all open-ended vents and drain valves on the Ethane/DMS/DMDS/Fuel/Cracked Gas lines to prevent
+            any leaks or spills.</li></ul>
+           
           </div>
         </div>
         <div class="table-row">
           <div class="table-cell">
-            <input type="checkbox" class="check_class" formControlName="thermal_liquid_exchangers" value="TLEs" />
-            Ensure that all drains on the Primary, Secondary, and Tertiary TLEs (Thermal Liquid Exchangers) are securely closed to
-            maintain system integrity.
+            <ul><li>  Ensure that all drains on the Primary, Secondary, and Tertiary TLEs (Thermal Liquid Exchangers) are securely closed to
+              maintain system integrity.</li></ul>
+           
           </div>
         </div>
         <div class="table-row">
           <div class="table-cell">
-            <input type="checkbox" class="check_class" formControlName="tLE_blowdown_valves" value="drum" />
-            Confirm that both the steam drum and secondary TLE blowdown valves are closed to maintain pressure and prevent any
-            unintended release of fluid. These preliminary checks are essential to ensure the safe and smooth startup of the furnace
-            operation.
+           
+            <ul><li>  Confirm that both the steam drum and secondary TLE blowdown valves are closed to maintain pressure and prevent any
+              unintended release of fluid. These preliminary checks are essential to ensure the safe and smooth startup of the furnace
+              operation.</li></ul>
+           
           </div>
         </div>
       </div>
-      <button mat-raised-button style="margin-left: 90%; background-color: #97ca97;" [disabled]="!FirstForm.valid" (click)="submit()">Next</button>
+      <div style="display: flex; justify-content: flex-end;">
+        <button class="btn1" mat-raised-button style="background-color: #97ca94; margin-right: 10px;" >Agree</button>
+        <button class="btn2" mat-raised-button style="background-color: #97ca94;">Disagree</button>
+      </div>  
     </mat-card-content>
   </mat-card>
 </form>
