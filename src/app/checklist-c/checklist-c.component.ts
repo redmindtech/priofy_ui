@@ -42,38 +42,39 @@ ngOnDestroy(): void {
 }
 formInitialization(){
   this.ChecklistC= this.fb.group({
-    IOT_Furnace_control_sequence:[null,Validators.required],
-    OOT_reset_IOTmove_BM_sequence:[null,Validators.required],
+    iot_furnace_control_sequence:[null,Validators.required],
+    oot_reset_IOTmove_BM_sequence:[null,Validators.required],
     pressure_test:[null,Validators.required],
-    IOT_Fuel_Header_Purge:[null,Validators.required],
-    OOT_adjacent_furnaces_area:[null,Validators.required],
-    IOT_request_local_reset:[null,Validators.required],
-    IOT_move_Pressure_Test:[null,Validators.required],
-    IOT_Pressure_Up:[null,Validators.required],
-    IOT_Hold:[null,Validators.required],
-    OOT_Pressure_Test:[null,Validators.required],
-    Pressure_Test_BM_sequence:[null,Validators.required],
-    OOT_4_automated_burners:[null,Validators.required],
-    OOT_wall_burners:[null,Validators.required],
-    BM_sequence_moves_Purge:[null,Validators.required],
-    IOT_Steam_drum_level:[null,Validators.required],
-    IOT_Firebox_draft:[null,Validators.required],
-    IOTautomated_burner:[null,Validators.required],
-    IOT_purge_permissive:[null,Validators.required],
-    IOT_No_combustibles:[null,Validators.required],
-    IOT_Fuel_control:[null,Validators.required],
-    IOT_Total_Trip:[null,Validators.required],
-    IOT_to_manually_RESET:[null,Validators.required],
+    iot_fuel_header_purge:[null,Validators.required],
+    oot_adjacent_furnaces_area:[null,Validators.required],
+    iot_request_local_reset:[null,Validators.required],
+    iot_move_pressure_test:[null,Validators.required],
+    iot_pressure_up:[null,Validators.required],
+    iot_Hold:[null,Validators.required],
+    oot_pressure_test:[null,Validators.required],
+    pressure_test_BM_sequence:[null,Validators.required],
+    oot_4_automated_burners:[null,Validators.required],
+    oot_wall_burners:[null,Validators.required],
+    bm_sequence_moves_purge:[null,Validators.required],
+    iot_steam_drum_level:[null,Validators.required],
+    iot_firebox_draft:[null,Validators.required],
+    iot_automated_burners:[null,Validators.required],
+    iot_purge_permissive:[null,Validators.required],
+    iot_no_combustibles:[null,Validators.required],
+    iot_fuel_control:[null,Validators.required],
+    iot_total_trip:[null,Validators.required],
+    iot_to_manually_RESET:[null,Validators.required],
     one_burner_bms:[null,Validators.required],
-    OOT_adjust_air_damper:[null,Validators.required],
-    OOT_Igniters_not_stuck:[null,Validators.required],
-    iot_Unsuccessful_light:[null,Validators.required],
-    iot_Successful_light:[null,Validators.required],
+    oot_adjust_air_damper:[null,Validators.required],
+    oot_igniters_not_stuck:[null,Validators.required],
+    iot_unsuccessful_light:[null,Validators.required],
+    iot_successful_light:[null,Validators.required],
     furnace_failed:[null,Validators.required],
     iot_manually_move_BM_sequence:[null,Validators.required],
-    IOT_to_confirm:[null,Validators.required],
+    iot_to_confirm:[null,Validators.required],
     e_attempted_via_the_HMI:[null,Validators.required],
-    userid:[1],
+    userid:['1'],
+    master_id:['1'],
     Light_Off_table_1_id:[]
 
 
@@ -94,7 +95,7 @@ onSubmit() {
       console.log('Data saved successfully:', response);
       this.toast.open('Data saved successfully', 'Close', { duration: 3000 });
 
-      this.router.navigate(['/blank']);
+      // this.router.navigate(['/blank']);
     },
     (error) => {
 
