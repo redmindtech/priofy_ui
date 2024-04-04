@@ -16,6 +16,8 @@ export class ChecklistEComponent implements OnInit {
   private addSubscription: Subscription | undefined;
   disableIO: string;
   currentUser: any;
+  id: any;
+  aceptreject:string = "null";
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ChecklistEService
@@ -32,21 +34,36 @@ export class ChecklistEComponent implements OnInit {
   }
   formInitialization() {
     this.ChecklistE = this.formBuilder.group({
-      OOT_lower_level_burner: [null,Validators.required],
-      IOT_monitor_the_fuel_gas:[null,Validators.required],
-      OOT_desuperheater:[null,Validators.required],
-      IOT_desuperheater_not_pass:[null,Validators.required],
-      OOT_line_up_sd:[null,Validators.required],
-      OOT_CBD:[null,Validators.required],
-      OOT_confirm_cooling_water:[null,Validators.required],
-      OOT_sTLE_blowdown_analyzer:[null,Validators.required],
-      OOT_desuperheater_untreated_BFW:[null,Validators.required],
-      IOT_to_enable_sd:[null,Validators.required],
-      PSV_EVT_start:[null,Validators.required],
-      PSV_EVT_complete:[null,Validators.required],
-      OOTIOT_Decoke_Air:[null,Validators.required],
-      Furnace_sequence_to_Swing_MOV:[null,Validators.required],
+      oot_lower_level_burner: [null,Validators.required],
+      iot_monitor_the_fuel_gas:[null,Validators.required],
+      oot_desuperheater:[null,Validators.required],
+      iot_desuperheater_not_pass:[null,Validators.required],
+      oot_lineup_sd:[null,Validators.required],
+      oot_cbd:[null,Validators.required],
+      oot_cbd_confirm_cooling_water:[null,Validators.required],
+      oot_stle_blowdown_analyzer:[null,Validators.required],
+      oot_desuperheater_untreated_bfw:[null,Validators.required],
+      iot_to_enable_sd:[null,Validators.required],
+      psv_evt_start:[null,Validators.required],
+      psv_evt_complete:[null,Validators.required],
+      ootIOT_decoke_air:[null,Validators.required],
+      furnace_sequence_to_swing_mov:[null,Validators.required],
+      furnace_sequence_to_swing_mov_comment:[null],
+      ootIOT_decoke_air_comment:[null],
+      psv_evt_complete_comment:[null],
+      psv_evt_start_comment:[null],
+      iot_to_enable_sd_comment:[null],
+      oot_desuperheater_untreated_bfw_comment:[null],
+      oot_stle_blowdown_analyzer_comment:[null],
+      oot_cbd_confirm_cooling_water_comment:[null],
+      oot_cbd_comment:[null],
+      oot_lineup_sd_comment:[null],
+      iot_desuperheater_not_pass_comment:[null],
+      oot_desuperheater_comment:[null],
+      iot_monitor_the_fuel_gas_comment:[null],
+      oot_lower_level_burner_comment:[null],
       userid:[this.currentUser.id],
+      id:[this.id],
       master_id:[1],
     });
   }
@@ -59,28 +76,63 @@ export class ChecklistEComponent implements OnInit {
   }
 
   onSubmit() {
-
-      const permitFormValue = this.ChecklistE.value;
-      console.log('Form Data:', permitFormValue);
-      this.addSubscription = this.apiService.createchecklistE(permitFormValue).subscribe(
+    const permitFormValue = this.ChecklistE.value;
+    console.log('Form Data:', permitFormValue);
+    this.addSubscription = this.apiService.createchecklistE(permitFormValue).subscribe(
         (response) => {
-          console.log('Response from server:', response);
-         
+          this.id=response.result.id
+            console.log('Response from server:', response);
         },
         (error) => {
-          console.error('Error while sending data:', error);
+            console.error('Error while sending data:', error);
         }
-      );
-    
-    
-  }
+    );
+}
   add() {
     this.apiService.getchecklistE().subscribe((response: any) => {
       console.log(response, 'checking');
       this.ChecklistE.patchValue(response.result);
+      
     });
   }
   nxtAccEn(){
     this.checklistfformenable=true;
   }
+  onRadioChange() {
+    // You may want to check if the input field has focus or not
+    // before making the API call
+    const activeElement = document.activeElement as HTMLElement;
+    console.log('activeElement: ', activeElement);
+    console.log('activeElement.tagName.toLowerCase(): ', activeElement.tagName.toLowerCase());
+    if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
+        this.onSubmit();
+    }
+}
+onRadioChangeup() {
+  // You may want to check if the input field has focus or not
+  // before making the API call
+  const activeElement = document.activeElement as HTMLElement;
+  console.log('activeElement: ', activeElement);
+  console.log('activeElement.tagName.toLowerCase(): ', activeElement.tagName.toLowerCase());
+  if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
+      this.updateFormValues();
+  }
+}
+updateFormValues(): void {
+  const formData = this.ChecklistE.value;
+  console.log('formData: ', formData);
+  this.apiService.updatePermitData(formData).subscribe(
+    (response) => {
+      // Assuming 'permitForm' is a FormGroup
+   
+     
+    },
+    (error) => {
+      console.error('An error occurred:', error);
+      
+      // Handle error appropriately, e.g., show error message to user
+    }
+  );
+}
+
 }
