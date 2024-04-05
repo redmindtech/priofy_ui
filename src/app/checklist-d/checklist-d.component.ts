@@ -23,6 +23,8 @@ export class ChecklistDComponent implements OnInit {
   disableoot: any;
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
+  currentUser: any;
+  id: any;
   constructor(private fb: FormBuilder,
     private apiService:ChecklistDService,
     private router: Router,
@@ -30,7 +32,11 @@ export class ChecklistDComponent implements OnInit {
     ){}
 
     ngOnInit(): void {
-      this.userDetails = localStorage.getItem('currentUser');
+    //   this.userDetails = localStorage.getItem('currentUser');
+    //   this.currentUser = storedUser ? JSON.parse(storedUser) : null;
+    // this.userObject = JSON.parse(this.userDetails);
+    // this.position = this.userObject.position;
+    this.userDetails = localStorage.getItem('currentUser');
     this.userObject = JSON.parse(this.userDetails);
     this.position = this.userObject.position;
     if (this.position === 'iot') {
@@ -49,9 +55,8 @@ export class ChecklistDComponent implements OnInit {
     }
   }
   formInitialization(){
-    this.ChecklistD = this.fb.group({        
-        userid:[1],
-        master_id:[1],
+    this.ChecklistD = this.fb.group({
+
         // burners_20_:[null,Validators.required],
         iot_arch_temperature:[null,Validators.required],
         OOT_air_ONIS_blind:[null,Validators.required],
@@ -106,7 +111,61 @@ export class ChecklistDComponent implements OnInit {
         furnace_sequence_automove_to_warmup:[null,Validators.required],
         // Warm_Up_arch_table_1_id:[]
 
+        iot_arch_temperature_comment:[null],
+        OOT_air_ONIS_blind_comment:[null],
+        oot_to_open4_comment:[null],
+        iot_start_decoke_comment:[null],
+        oot_fuel_gas_comment:[null],
+        oot_burner_light_off_comment:[null],
+        oot_add_burners_comment:[null],
+        air_registers_3Notches_comment:[null],
+        burners_20_comment:[null,Validators.required],
+        iot_to_request_OOT_comment:[null],
+        iot_COTs_rising_comment:[null],
+        iot_venturi_Ratios_comment:[null],
+        iot_suspect_coils_comment:[null],
+        oot_Start_warm_MS_steam_comment:[null],
+        oot_spool_piece_comment:[null],
+        oot_open_MS_EBV_comment:[null],
+        oot_topen_MS_steam8_comment:[null],
+        iot_both_steam_comment:[null],
+        oot_steam_lines_up_comment:[null],
+        oot_dilution_steam_comment:[null],
+        oot_open2_steam_comment:[null],
+        oot_to_open3_4_comment:[null],
+        oot_open_3_4_ethane_comment:[null],
+        oot_crack_open_10_b_v_comment:[null],
+        open_the_upstream_and_downstream_comment:[null],
+        Phosphate_and_Morpholine_comment:[null],
+        before_starting_comment:[null],
+        iot_reduce_draf_comment:[null],
+        iot_visually_check_the_firebox_comment:[null],
+        iot_htc_1_outside_temperature_comment:[null],
+        oot_ds_and_steam_to_fph_comment:[null],
+        iot_checking_that_all_COTs_comment:[null],
+        iot_checking_that_all_venture_ratios_comment:[null],
+        iot_to_clear_pluggage_comment:[null],
+        ootsecondary_tle_comment:[null],
+        oottertiary_tle_comment:[null],
+        oot_pt_between_both_CG_movs_comment:[null],
+        oot_CG_Decoke_MOV_comment:[null],
+        iot_shp_steamflow_i_comment:[null],
+        iot_monitor_fuelgas_comment:[null],
+        oot_monitor_the_firebox_comment:[null],
+        thesteamflow_is_greaterthan_10_comment:[null],
+        oot_close_decoke_air_comment:[null],
+        oot_to_close_4decoke_comment:[null],
+        iot_disable_decokeair_controller_comment:[null],
+        hv_22x0_07_isclosed_comment:[null],
+        oot_to_fully_open_downstream_comment:[null],
+        iot_to_confirm_ethane_feed_comment:[null],
+        oot_to_lineup_steamdrum_comment:[null],
+        adjust_the_steam_drum_blowdown_comment:[null],
+        furnace_sequence_automove_to_warmup_comment:[null],
 
+        id:[this.id],
+        userid:[this.userObject.id],
+        master_id:[1],
     })
     }
     setupSubmitInterval() {
@@ -117,7 +176,7 @@ export class ChecklistDComponent implements OnInit {
     }
  onSubmit()
   {
-   
+
       const formData = this.ChecklistD.value;
       this.apiService.savecheckdpage(formData).subscribe(
         (response) => {
@@ -133,7 +192,7 @@ export class ChecklistDComponent implements OnInit {
           this.toast.open('Error saving data', 'Close', { duration: 3000 });
         }
       );
-    
+
   }
   nxtAccEn(){
     this.checklistdformenable=true;
@@ -143,5 +202,41 @@ export class ChecklistDComponent implements OnInit {
       console.log(response, 'checking');
       this.ChecklistD.patchValue(response.result);
     });
+  }
+  onRadioChange() {
+    // You may want to check if the input field has focus or not
+    // before making the API call
+    const activeElement = document.activeElement as HTMLElement;
+    console.log('activeElement: ', activeElement);
+    console.log('activeElement.tagName.toLowerCase(): ', activeElement.tagName.toLowerCase());
+    if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
+        this.onSubmit();
+    }
+  }
+  onRadioChangeup() {
+  // You may want to check if the input field has focus or not
+  // before making the API call
+  const activeElement = document.activeElement as HTMLElement;
+  console.log('activeElement: ', activeElement);
+  console.log('activeElement.tagName.toLowerCase(): ', activeElement.tagName.toLowerCase());
+  if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
+      this.updateFormValues();
+  }
+  }
+  updateFormValues(): void {
+  const formData = this.ChecklistD.value;
+  console.log('formData: ', formData);
+  this.apiService.updatePermitData(formData).subscribe(
+    (response) => {
+      // Assuming 'permitForm' is a FormGroup
+
+
+    },
+    (error) => {
+      console.error('An error occurred:', error);
+
+      // Handle error appropriately, e.g., show error message to user
+    }
+  );
   }
 }
