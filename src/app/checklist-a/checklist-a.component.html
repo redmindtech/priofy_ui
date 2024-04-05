@@ -2,7 +2,7 @@
   <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="false">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
-        <h5 style="margin-right: 1150px;display: contents;">6.Procedure Checklist-A {{disableiot}}</h5>
+        <h5 style="margin-right: 1150px;display: contents;">6.Procedure Checklist-A</h5>
       </div>
       <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
@@ -34,7 +34,7 @@
 
                   <input type="radio" class="custom-radio" id="oot_high_pressure-skip" name="oot_high_pressure"
                     value="Skip" formControlName="oot_high_pressure" (change)="onRadioChange()" />
-                  <label for="oot_high_pressure-skip" class="action">Skip</label>
+                  <label for="oot_high_pressure-skip" class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_high_pressure')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -68,7 +68,7 @@
 
                   <input type="radio" class="custom-radio" id="oot_hbf_inlet-skip" name="oot_hbf_inlet" value="Skip"
                     formControlName="oot_hbf_inlet" (change)="onRadioChangeup()" />
-                  <label for="oot_hbf_inlet-skip" class="action">Skip</label>
+                  <label for="oot_hbf_inlet-skip" class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_hbf_inlet')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -105,7 +105,7 @@
                   <input type="radio" class="custom-radio" id="oot_downstream_1_drains-skip"
                     name="oot_downstream_1_drains" value="Skip" formControlName="oot_downstream_1_drains"
                     (change)="onRadioChangeup()" />
-                  <label for="oot_downstream_1_drains-skip" class="action">Skip</label>
+                  <label for="oot_downstream_1_drains-skip" class="action" [ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_downstream_1_drains')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -140,7 +140,7 @@
 
                   <input type="radio" class="custom-radio" id="oot_bypass-skip" name="oot_bypass" value="Skip"
                     formControlName="oot_bypass" (change)="onRadioChangeup()" />
-                  <label for="oot_bypass-skip" class="action">Skip</label>
+                  <label for="oot_bypass-skip" class="action" [ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_bypass')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -168,7 +168,7 @@
 
                   <input type="radio" class="custom-radio" id="oot_inlet_vents-skip" name="oot_inlet_vents" value="Skip"
                     formControlName="oot_inlet_vents" (change)="onRadioChangeup()" />
-                  <label for="oot_inlet_vents-skip" class="action">Skip</label>
+                  <label for="oot_inlet_vents-skip" class="action" [ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_inlet_vents')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -196,7 +196,7 @@
 
                   <input type="radio" class="custom-radio" id="oot_outlet_drains-skip" name="oot_outlet_drains"
                     value="Skip" formControlName="oot_outlet_drains" (change)="onRadioChangeup()" />
-                  <label for="oot_outlet_drains-skip" class="action">Skip</label>
+                  <label for="oot_outlet_drains-skip" class="action" [ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_outlet_drains')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -227,7 +227,7 @@
                   <input type="radio" class="custom-radio" id="oot_stream_drum_inlet_check-skip"
                     name="oot_stream_drum_inlet_check" value="Skip" formControlName="oot_stream_drum_inlet_check"
                     (change)="onRadioChangeup()" />
-                  <label for="oot_stream_drum_inlet_check-skip" class="action">Skip</label>
+                  <label for="oot_stream_drum_inlet_check-skip" class="action" [ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_stream_drum_inlet_check')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -257,7 +257,7 @@
                   <input type="radio" class="custom-radio" id="oot_untreated_inlet_db_1-skip"
                     name="oot_untreated_inlet_db_1" value="Skip" formControlName="oot_untreated_inlet_db_1"
                     (change)="onRadioChangeup()" />
-                  <label for="oot_untreated_inlet_db_1-skip" class="action">Skip</label>
+                  <label for="oot_untreated_inlet_db_1-skip" class="action" [ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_untreated_inlet_db_1')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -282,12 +282,12 @@
                   <input type="radio" class="custom-radio" id="oot_untreated_hbf_inlet_check-risk"
                     name="oot_untreated_hbf_inlet_check" value="Risk" formControlName="oot_untreated_hbf_inlet_check"
                     (change)="onRadioChangeup()" />
-                  <label for="oot_untreated_hbf_inlet_check-risk" class="action">Risk</label>
+                  <label for="oot_untreated_hbf_inlet_check-risk" class="action" >Risk</label>
 
                   <input type="radio" class="custom-radio" id="oot_untreated_hbf_inlet_check-skip"
                     name="oot_untreated_hbf_inlet_check" value="Skip" formControlName="oot_untreated_hbf_inlet_check"
                     (change)="onRadioChangeup()" />
-                  <label for="oot_untreated_hbf_inlet_check-skip" class="action">Skip</label>
+                  <label for="oot_untreated_hbf_inlet_check-skip" class="action" [ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_untreated_hbf_inlet_check')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -315,7 +315,7 @@
 
                   <input type="radio" class="custom-radio" id="oot_hpssh_2_Outlet-skip" name="oot_hpssh_2_Outlet"
                     value="Skip" formControlName="oot_hpssh_2_Outlet" (change)="onRadioChangeup()" />
-                  <label for="oot_hpssh_2_Outlet-skip" class="action">Skip</label>
+                  <label for="oot_hpssh_2_Outlet-skip" class="action" [ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_hpssh_2_Outlet')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -349,7 +349,7 @@
 
                   <input type="radio" class="custom-radio" id="oot_hxs_upstream_nrv-skip" name="oot_hxs_upstream_nrv"
                     value="Skip" formControlName="oot_hxs_upstream_nrv" (change)="onRadioChangeup()" />
-                  <label for="oot_hxs_upstream_nrv-skip" class="action">Skip</label>
+                  <label for="oot_hxs_upstream_nrv-skip" class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_hxs_upstream_nrv')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -380,7 +380,7 @@
                   <input type="radio" class="custom-radio" id="oot_vent_silencer_upstream-skip"
                     name="oot_vent_silencer_upstream" value="Skip" formControlName="oot_vent_silencer_upstream"
                     (change)="onRadioChangeup()" />
-                  <label for="oot_vent_silencer_upstream-skip" class="action">Skip</label>
+                  <label for="oot_vent_silencer_upstream-skip" class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_vent_silencer_upstream')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -417,7 +417,7 @@
                   <input type="radio" class="custom-radio" id="oot_vent_silencer_downstream-skip"
                     name="oot_vent_silencer_downstream" value="Skip" formControlName="oot_vent_silencer_downstream"
                     (change)="onRadioChangeup()" />
-                  <label for="oot_vent_silencer_downstream-skip" class="action">Skip</label>
+                  <label for="oot_vent_silencer_downstream-skip" class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_vent_silencer_downstream')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -425,7 +425,7 @@
                     <div style="margin-left: 31%;">
                       <button class="btn btn-primary m-1"
                         (click)="ChecklistA?.get('oot_vent_silencer_downstream')?.setValue(''); ChecklistA?.get('oot_vent_silencer_downstream_comment')?.setValue('')">Cancel</button>
-                      <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+                      <button class="btn btn-primary m-1" (click)="onRadioChangeup()"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Confirm</button>
                     </div>
                   </div>
                 </td>
@@ -445,7 +445,7 @@
 
                   <input type="radio" class="custom-radio" id="oot_hxs_outlet-skip" name="oot_hxs_outlet" value="Skip"
                     formControlName="oot_hxs_outlet" (change)="onRadioChangeup()" />
-                  <label for="oot_hxs_outlet-skip" class="action">Skip</label>
+                  <label for="oot_hxs_outlet-skip" class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_hxs_outlet')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -473,7 +473,7 @@
 
                   <input type="radio" class="custom-radio" id="oot_sdl_transmitters-skip" name="oot_sdl_transmitters"
                     value="Skip" formControlName="oot_sdl_transmitters" (change)="onRadioChangeup()" />
-                  <label for="oot_sdl_transmitters-skip" class="action">Skip</label>
+                  <label for="oot_sdl_transmitters-skip" class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_sdl_transmitters')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -500,7 +500,7 @@
 
                   <input type="radio" class="custom-radio" id="oot_sdi_blow_down-skip" name="oot_sdi_blow_down"
                     value="Skip" formControlName="oot_sdi_blow_down" (change)="onRadioChangeup()" />
-                  <label for="oot_sdi_blow_down-skip" class="action">Skip</label>
+                  <label for="oot_sdi_blow_down-skip" class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_sdi_blow_down')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -1313,9 +1313,41 @@
 
             </tbody>
           </table>
-          <button mat-raised-button style="margin-left: 90%; margin-top: 2%; background-color: #97ca94;"
-            [disabled]="!ChecklistA.valid" (click)="nxtAccEn()">Next</button>
+          
         </form>
+        <div *ngIf="remainingValues && remainingValues.shift_comment_a_oot != null">
+          <p><strong>Comment : </strong>{{ remainingValues.shift_comment_a_oot }}</p>
+        </div>
+      <div *ngIf="remainingValues && remainingValues.shift_comment_a_iot != null">
+        <p><strong>Comment : </strong>{{ remainingValues.shift_comment_a_iot }}</p>
+      
+      </div>
+      <!-- <p><strong>2.UserName : </strong>{{ this.currentUser.username === 'Operator1' ? 'Siva' : 'Sakthi' }} <strong>Comment : </strong>{{ remainingValues.shift_comment_e_iot }}</p> -->
+      
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2%;">
+        
+          <div *ngIf="disableoot">
+            <div *ngIf="enable" [formGroup]="ChecklistA">
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_a_oot"></textarea>
+              <button class="btn btn-primary m-1" style="margin-bottom: 4%;" (click)="onRadioChangeup()">Save</button>
+            </div>
+            <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">ShiftFinish Comment OOT</button>
+          </div>
+        
+        <div *ngIf="disableiot">
+          <div *ngIf="enable" [formGroup]="ChecklistA">
+            <div>
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_a_iot"></textarea>
+              <button class="btn btn-primary m-1"  style="margin-bottom: 4%;"  (click)="onRadioChangeup()">Save</button>
+            </div>
+          </div>
+          <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">ShiftFinish Comment IOT</button>
+        </div>
+        <div>
+          <button mat-raised-button style="background-color: #97ca94;" [disabled]="!ChecklistA.valid" (click)="nxtAccEn()">Next</button>
+        </div>
+      </div>
       </mat-card-content>
     </mat-card>
   </mat-expansion-panel>

@@ -19,9 +19,12 @@ export class ChecklistAComponent implements OnInit {
   position: any;
   disableiot: any;
   disableoot: any;
+  enable: boolean = false;
+  aceptreject:string = 'null'; 
   id:any;
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
+  remainingValues: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -131,6 +134,8 @@ export class ChecklistAComponent implements OnInit {
       iot_steam_drum_level_control_master_comment: [null, Validators.required],
       pressurize_the_downstream: [null, Validators.required],
       pressurize_the_downstream_comment: [null, Validators.required],
+      shift_comment_a_oot:[null, Validators.required],
+      shift_comment_a_iot:[null, Validators.required],
       userid: [this.userObject.id],
       master_id: [1],
       id:[this.id],
@@ -162,8 +167,16 @@ export class ChecklistAComponent implements OnInit {
   }
   add() {
     this.apiService.getchecklist().subscribe((response: any) => {
-      console.log(response, 'checking');
-      this.ChecklistA.patchValue(response.result);
+      this.remainingValues = response.result;
+      console.log('shift_comment_a_iot: ', response.result.shift_comment_a_iot);
+  
+      
+      Object.keys(this.remainingValues).forEach(key => {
+        if (key !== 'shift_comment_a_oot' && key !== 'shift_comment_a_iot') {
+          this.ChecklistA.get(key)?.patchValue(this.remainingValues[key]);
+         
+        }
+      });
     });
   }
   nxtAccEn() {
@@ -196,7 +209,8 @@ updateFormValues(): void {
   this.apiService.updatePermitData(formData).subscribe(
     (response) => {
       // Assuming 'permitForm' is a FormGroup
-   
+      this.ChecklistA.get('shift_comment_a_oot')?.reset();
+      this.ChecklistA.get('shift_comment_a_iot')?.reset();
      console.log(response)
     },
     (error) => {
@@ -205,5 +219,8 @@ updateFormValues(): void {
       // Handle error appropriately, e.g., show error message to user
     }
   );
+}
+toggleEnable() {
+  this.enable = !this.enable; // Toggle the value of enable between true and false
 }
 }

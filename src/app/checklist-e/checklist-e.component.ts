@@ -17,7 +17,9 @@ export class ChecklistEComponent implements OnInit {
   disableIO: string;
   currentUser: any;
   id: any;
-  aceptreject:string = "null";
+  enable: boolean = false; 
+  aceptreject:string = 'null';
+  remainingValues: any;
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ChecklistEService
@@ -62,6 +64,8 @@ export class ChecklistEComponent implements OnInit {
       oot_desuperheater_comment:[null],
       iot_monitor_the_fuel_gas_comment:[null],
       oot_lower_level_burner_comment:[null],
+      shift_comment_e_oot:[null],
+      shift_comment_e_iot:[null],
       userid:[this.currentUser.id],
       id:[this.id],
       master_id:[1],
@@ -72,7 +76,7 @@ export class ChecklistEComponent implements OnInit {
     this.onSubmitInterval = setInterval(() => {
       console.log('onSubmitInterval: ', this.onSubmitInterval);
       this.add();
-    }, 15* 1000); // 2 minutes in milliseconds
+    }, 5* 1000); // 2 minutes in milliseconds
   }
 
   onSubmit() {
@@ -88,13 +92,22 @@ export class ChecklistEComponent implements OnInit {
         }
     );
 }
-  add() {
-    this.apiService.getchecklistE().subscribe((response: any) => {
-      console.log(response, 'checking');
-      this.ChecklistE.patchValue(response.result);
-      
+add() {
+  this.apiService.getchecklistE().subscribe((response: any) => {
+    console.log(response, 'checking');
+    this.remainingValues = response.result;
+    console.log('shift_comment_e_iot: ', response.result.shift_comment_e_iot);
+
+    
+    Object.keys(this.remainingValues).forEach(key => {
+      if (key !== 'shift_comment_e_oot' && key !== 'shift_comment_e_iot') {
+        this.ChecklistE.get(key)?.patchValue(this.remainingValues[key]);
+       
+      }
     });
-  }
+  });
+}
+
   nxtAccEn(){
     this.checklistfformenable=true;
   }
@@ -124,8 +137,9 @@ updateFormValues(): void {
   this.apiService.updatePermitData(formData).subscribe(
     (response) => {
       // Assuming 'permitForm' is a FormGroup
-   
-     
+      //this.aceptreject=response.result
+      this.ChecklistE.get('shift_comment_e_oot')?.reset();
+      this.ChecklistE.get('shift_comment_e_iot')?.reset();
     },
     (error) => {
       console.error('An error occurred:', error);
@@ -134,5 +148,7 @@ updateFormValues(): void {
     }
   );
 }
-
+toggleEnable() {
+  this.enable = !this.enable; // Toggle the value of enable between true and false
+}
 }
