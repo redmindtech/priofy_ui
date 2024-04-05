@@ -1,0 +1,63 @@
+<mat-card>
+  <mat-card-content>
+    <button type="button" class="btn btn-primary createbutton" (click)="openDialog()">Create Procedure</button>
+
+    <table mat-table [dataSource]="listData" class="mat-elevation-z8">
+      <!-- Index Column -->
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef class="headercolour">S.No</th>
+        <td mat-cell *matCellDef="let element">{{ element.index }}</td>
+      </ng-container>
+
+      <!-- Furnace Id Column -->
+      <ng-container matColumnDef="Furnace_Id">
+        <th mat-header-cell *matHeaderCellDef> Furnace Id </th>
+        <td mat-cell *matCellDef="let element"> 
+          {{ element.Furnace_Id ||  'N/A' }} 
+        </td>
+      </ng-container>
+    
+      <!-- Job Plan Date Column -->
+      <ng-container matColumnDef="job_plan_date">
+        <th mat-header-cell *matHeaderCellDef>Job Plan Date</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.job_plan_date || 'N/A' }}
+        </td>
+      </ng-container>
+    
+      <!-- Job Start Date Column -->
+      <ng-container matColumnDef="job_start_date">
+        <th mat-header-cell *matHeaderCellDef>Job Start Date</th>
+        <td mat-cell *matCellDef="let element"> {{ element.job_start_date || 'N/A' }} </td>
+      </ng-container>
+    
+      <!-- Job End Date Column -->
+      <ng-container matColumnDef="job_end_date">
+        <th mat-header-cell *matHeaderCellDef>Job End Date</th>
+        <td mat-cell *matCellDef="let element"> {{ element.job_end_date || 'N/A' }} </td>
+      </ng-container>
+
+       <!-- OOT Operator Column -->
+       <ng-container matColumnDef="oot_operator">
+        <th mat-header-cell *matHeaderCellDef>OOT Operator</th>
+        <td mat-cell *matCellDef="let element"> {{ element.oot_operator || 'N/A' }} </td>
+      </ng-container>
+
+       <!-- IOT Operator Column -->
+       <ng-container matColumnDef="iot_operator">
+        <th mat-header-cell *matHeaderCellDef>IOT Operator</th>
+        <td mat-cell *matCellDef="let element"> {{ element.iot_operator || 'N/A' }} </td>
+      </ng-container>
+
+       <!-- Status Column -->
+       <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element"> {{ element.status || 'N/A' }} </td>
+       </ng-container>
+
+     
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

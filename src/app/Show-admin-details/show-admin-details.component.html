@@ -1,0 +1,133 @@
+
+  <div #showCM tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div >
+        <div >
+            <div class="card card-warning" >
+                <div class="card-header" style="background-color: #97ca94;padding: 6px;">
+                    <h3  class="card-title">1.Procedure</h3>
+                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                </div>
+                <div class="card-body" >
+                    <form [formGroup]="Procedure" class="register-form" >
+                        
+  
+                        <div class="row" *ngIf="!editfield">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>Furnace Name</label>
+                              <input type="text" id="Furnace_Id" formControlName="Furnace_Id" class="form-control" placeholder="Enter Furnace Name ">
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>Job Plan Date</label>
+                              <input type="date" id="job_plan_date" formControlName="job_plan_date" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row" *ngIf="!editfield">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Job start Date</label>
+                                <input type="date" id="job_start_date" formControlName="job_start_date" class="form-control" >
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Job End Date</label>
+                                <input type="date" id="job_end_date" formControlName="job_end_date" class="form-control" >
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row" *ngIf="!editfield">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Catagory</label>                            
+                                <select id="catagory"  [(ngModel)]="catagory" formControlName="catagory" placeholder="Select Catagory"  >
+                                    <option value="critical">Critical</option>
+                                    <option value="emergency">Emergency</option>
+                                    <option value="operating">Operating</option>
+                                    <option value="maintenance">Maintenance</option>
+                                    <option value="other">Other</option>
+                                  </select>
+                                  <div *ngIf="catagory === 'other'" [hidden]='false'>
+                                    <br>
+                                    <input  class="form-control col-sm-13 mb-3 mb-sm-0" name="  other_qualification" formControlName="other_qualification" type="text">
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Attributes</label>
+                                <select id="Attributes" formControlName="Attributes" >
+                                    <option value="routine">Routine</option>
+                                    <option value="nonroutine">Non-Routine</option>
+                                  </select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row" *ngIf="!editfield">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Status</label>
+                                <input type="text" id="status" formControlName="status" class="form-control" placeholder="Enter Status">
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Comments</label>
+                                <input type="text" id="comments" formControlName="comments" class="form-control" placeholder="Enter Comments">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row" *ngIf="!editfield">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>OOT Operator(Shift 1)</label>
+                                <input type="text" id="oot_operator" formControlName="oot_operator" class="form-control" placeholder="Enter OOT Operator">
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>IOT Operator(Shift 1)</label>
+                                <input type="text" id="iot_operator" formControlName="iot_operator" class="form-control" placeholder="Enter IOT Operator">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row" *ngIf="!editfield">
+                            <div class="col-sm-6" *ngIf="addbutton">
+                              <div class="form-group">
+                                <label>OOT Operator(Shift 2)</label>
+                                <input type="text" id="oot_operator" formControlName="oot_operator" class="form-control" placeholder="Enter OOT Operator">
+                              </div>
+                            </div>
+                            <div class="col-sm-6" *ngIf="addbutton">
+                              <div class="form-group">
+                                <label>IOT Operator(Shift 2)</label>
+                                <input type="text" id="iot_operator" formControlName="iot_operator" class="form-control" placeholder="Enter IOT Operator">
+                              </div>
+                            </div>
+                          </div>
+                          
+                          
+
+                      
+                      <button type="button" class="btn btn-primary" style="margin-left: 92%;margin-top: auto;background-color: #97ca94; color:black" (click)="addItem()" [hidden]="addbutton">Add</button>&nbsp;
+                     
+  
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <button style="margin-left: 92%;background-color: #97ca94;">Save</button> -->
+    <button type="button" class="btn btn-primary" style="margin-left: 92%;background-color: #97ca94; color:black" (click)="addItem()">Save</button>&nbsp;
+    
+  </div>
+  
+  
