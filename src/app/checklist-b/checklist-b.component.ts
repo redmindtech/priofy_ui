@@ -18,6 +18,9 @@ export class ChecklistBComponent implements OnInit {
   currentUser: any;
   disableIO: any;
   id: any;
+  enable: boolean = false; 
+  aceptreject:string = 'null';
+  remainingValues: any;
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
   constructor(private fb: FormBuilder,
@@ -140,7 +143,9 @@ formInitialization(){
     oot_10_block_valves_comment:[null],
     oot_8_NRV_valve_comment:[null],
     iot_SD_level_comment:[null],
-    oot_bleed_to_flare_comment:[null]
+    oot_bleed_to_flare_comment:[null],
+    shift_comment_b_oot:[null],
+    shift_comment_b_iot:[null],
 })
 }
 setupSubmitInterval() {
@@ -175,8 +180,16 @@ nxtAccEn(){
 }
 add() {
   this.apiService.getchecklistB().subscribe((response: any) => {
-    console.log(response, 'checking');
-    this.ChecklistB.patchValue(response.result);
+    this.remainingValues = response.result;
+    console.log('shift_comment_b_iot: ', response.result.shift_comment_b_iot);
+
+    
+    Object.keys(this.remainingValues).forEach(key => {
+      if (key !== 'shift_comment_b_oot' && key !== 'shift_comment_b_iot') {
+        this.ChecklistB.get(key)?.patchValue(this.remainingValues[key]);
+       
+      }
+    });
   });
 }
 onRadioChange() {
@@ -205,7 +218,8 @@ console.log('formData: ', formData);
 this.apiService.updatePermitData(formData).subscribe(
   (response) => {
     // Assuming 'permitForm' is a FormGroup
-
+    this.ChecklistB.get('shift_comment_b_oot')?.reset();
+    this.ChecklistB.get('shift_comment_b_iot')?.reset();
 
   },
   (error) => {
@@ -214,5 +228,8 @@ this.apiService.updatePermitData(formData).subscribe(
     // Handle error appropriately, e.g., show error message to user
   }
 );
+}
+toggleEnable() {
+  this.enable = !this.enable; // Toggle the value of enable between true and false
 }
 }

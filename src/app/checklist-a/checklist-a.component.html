@@ -1330,19 +1330,19 @@
           <div *ngIf="disableoot">
             <div *ngIf="enable" [formGroup]="ChecklistA">
               <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_a_oot"></textarea>
-              <button class="btn btn-primary m-1" style="margin-bottom: 4%;" (click)="onRadioChangeup()">Save</button>
+              <button class="btn btn-primary m-1" style="margin-bottom: 4%;" (click)="onRadioChangeup()">Add Comment</button>
             </div>
-            <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">ShiftFinish Comment OOT</button>
+            <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
           </div>
         
         <div *ngIf="disableiot">
           <div *ngIf="enable" [formGroup]="ChecklistA">
             <div>
               <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_a_iot"></textarea>
-              <button class="btn btn-primary m-1"  style="margin-bottom: 4%;"  (click)="onRadioChangeup()">Save</button>
+              <button class="btn btn-primary m-1"  style="margin-bottom: 4%;"  (click)="onRadioChangeup()">Add Comment</button>
             </div>
           </div>
-          <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">ShiftFinish Comment IOT</button>
+          <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
         </div>
         <div>
           <button mat-raised-button style="background-color: #97ca94;" [disabled]="!ChecklistA.valid" (click)="nxtAccEn()">Next</button>

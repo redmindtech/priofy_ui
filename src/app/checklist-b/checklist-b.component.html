@@ -421,16 +421,16 @@
               <td class="header">Has IOT ensured the FD fan is running.</td>
               <td>
                 <input type="radio" class="custom-radio" id="iot_FD_fan_running-done" name="iot_FD_fan_running" value="Done" formControlName="iot_FD_fan_running"  (change)="onRadioChangeup()"/>
-                <label for=" iot_FD_fan_running-done"class="action">Done</label>
+                <label for="iot_FD_fan_running-done"class="action">Done</label>
 
                 <input type="radio" class="custom-radio" id="iot_FD_fan_running-risk" name="iot_FD_fan_running" value="Risk" formControlName="iot_FD_fan_running" (change)="onRadioChangeup()"/>
-                <label for=" iot_FD_fan_running-risk"class="action">Risk</label>
+                <label for="iot_FD_fan_running-risk"class="action">Risk</label>
 
                 <input type="radio" class="custom-radio" id="iot_FD_fan_running-skip" name="iot_FD_fan_running" value="Skip" formControlName="iot_FD_fan_running"  (change)="onRadioChangeup()"/>
-                <label for=" iot_FD_fan_running-skip"class="action">Skip</label>
+                <label for="iot_FD_fan_running-skip"class="action">Skip</label>
 
                 <div *ngIf="ChecklistB?.get('iot_FD_fan_running')?.value === 'Skip'">
-                  <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName=" iot_FD_fan_running_comment"></textarea>
+                  <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_FD_fan_running_comment"></textarea>
                   <div style="margin-left: 31%;">
                     <button class="btn btn-primary m-1" (click)="ChecklistB?.get('iot_FD_fan_running')?.setValue(''); ChecklistB?.get('iot_FD_fan_running_comment')?.setValue('')">Cancel</button>
                     <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
@@ -1017,21 +1017,21 @@
             <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
               <td class="style"> 30. </td>
               <td class="header">Has IOT ensured that ignitors and flame scanners are energized. Check
-                for the “HEALTHY” indication on the HMI</td>
+                for the “HEALTHY” indication on the HMI</td>  
                 <td>
                   <input type="radio" class="custom-radio" id="iot_ignitors_and_flame_scanners-done" name="iot_ignitors_and_flame_scanners" value="Done" formControlName="iot_ignitors_and_flame_scanners"  (change)="onRadioChangeup()"/>
                   <label for="iot_ignitors_and_flame_scanners-done"class="action">Done</label>
-
+  
                   <input type="radio" class="custom-radio" id="iot_ignitors_and_flame_scanners-risk" name="iot_ignitors_and_flame_scanners" value="Risk" formControlName="iot_ignitors_and_flame_scanners" (change)="onRadioChangeup()"/>
                   <label for="iot_ignitors_and_flame_scanners-risk"class="action">Risk</label>
-
+  
                   <input type="radio" class="custom-radio" id="iot_ignitors_and_flame_scanners-skip" name="iot_ignitors_and_flame_scanners" value="Skip" formControlName="iot_ignitors_and_flame_scanners"  (change)="onRadioChangeup()"/>
                   <label for="iot_ignitors_and_flame_scanners-skip"class="action">Skip</label>
-
+  
                   <div *ngIf="ChecklistB?.get('iot_ignitors_and_flame_scanners')?.value === 'Skip'">
-                    <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_ignitors_and_flame_scanners_comment"></textarea>
+                    <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_ignitors_and_flame_scanners"></textarea>
                     <div style="margin-left: 31%;">
-                      <button class="btn btn-primary m-1" (click)="ChecklistB?.get('iot_ignitors_and_flame_scanners_comment')?.setValue(''); ChecklistB?.get('iot_ignitors_and_flame_scanners_comment')?.setValue('')">Cancel</button>
+                      <button class="btn btn-primary m-1" (click)="ChecklistB?.get('iot_ignitors_and_flame_scanners')?.setValue(''); ChecklistB?.get('iot_ignitors_and_flame_scanners_comment')?.setValue('')" >Cancel</button>
                       <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
                     </div>
                   </div>
@@ -1156,9 +1156,41 @@
                       </tr>
 
           </tbody>
-          <button mat-raised-button style="margin-left: 90%;margin-top: 10px;background-color: #97ca94;"
-            [disabled]="!ChecklistB.valid" (click)="nxtAccEn()">Next</button>
+
         </form>
+        <div *ngIf="remainingValues && remainingValues.shift_comment_b_oot != null">
+          <p><strong>Comment : </strong>{{ remainingValues.shift_comment_b_oot }}</p>
+        </div>
+      <div *ngIf="remainingValues && remainingValues.shift_comment_b_iot != null">
+        <p><strong>Comment : </strong>{{ remainingValues.shift_comment_b_iot }}</p>
+      
+      </div>
+      <!-- <p><strong>2.UserName : </strong>{{ this.currentUser.username === 'Operator1' ? 'Siva' : 'Sakthi' }} <strong>Comment : </strong>{{ remainingValues.shift_comment_e_iot }}</p> -->
+      
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2%;">
+        
+          <div *ngIf="disableIO ==='oot'">
+            <div *ngIf="enable" [formGroup]="ChecklistB">
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_b_oot"></textarea>
+              <button class="btn btn-primary m-1" style="margin-bottom: 4%;" (click)="onRadioChangeup()">Add Comment</button>
+            </div>
+            <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
+          </div>
+        
+        <div *ngIf="disableIO ==='iot'">
+          <div *ngIf="enable" [formGroup]="ChecklistB">
+            <div>
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_b_iot"></textarea>
+              <button class="btn btn-primary m-1"  style="margin-bottom: 4%;"  (click)="onRadioChangeup()">Add Comment</button>
+            </div>
+          </div>
+          <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
+        </div>
+        <div>
+          <button mat-raised-button style="background-color: #97ca94;" [disabled]="!ChecklistB.valid" (click)="nxtAccEn()">Next</button>
+        </div>
+      </div>
       </mat-card-content>
     </mat-card>
   </mat-expansion-panel>

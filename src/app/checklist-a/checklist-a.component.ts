@@ -157,6 +157,7 @@ export class ChecklistAComponent implements OnInit {
         .createchecklistA(permitFormValue)
         .subscribe(
           (response) => {
+            this.id=response.result.id
             console.log('Response from server:', response);
           },
           (error) => {
