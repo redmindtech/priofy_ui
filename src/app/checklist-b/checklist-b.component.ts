@@ -17,6 +17,7 @@ export class ChecklistBComponent implements OnInit {
   ChecklistB: FormGroup;
   currentUser: any;
   disableIO: any;
+  id: any;
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
   constructor(private fb: FormBuilder,
@@ -41,8 +42,9 @@ export class ChecklistBComponent implements OnInit {
     }
 formInitialization(){
   this.ChecklistB= this.fb.group({
-   
+
     userid:[this.currentUser.id],
+    id:[this.id],
     master_id:[1],
     oot_bearings_oil_levels:[null,Validators.required],
     iot_Overview_HMI:[null,Validators.required],
@@ -89,7 +91,56 @@ formInitialization(){
     oot_10_block_valves:[null,Validators.required],
     oot_8_NRV_valve:[null,Validators.required],
     iot_SD_level:[null,Validators.required],
-    oot_bleed_to_flare:[null,Validators.required]
+    oot_bleed_to_flare:[null,Validators.required],
+
+
+
+    oot_bearings_oil_levels_comment:[null],
+    iot_Overview_HMI_comment:[null],
+    ups_system_comment:[null],
+    oot_caged_doors_open_comment:[null],
+    oot_peep_doors_closed_comment:[null],
+    oot_local_start_stop_comment:[null],
+    oot_ID_fan_casing_comment:[null],
+    oot_FD_suction_comment:[null],
+    oot_Floor_burners_comment:[null],
+    oot_Wall_burners_comment :[null],
+    iot_start_ID_fan_comment:[null],
+    iot_ID_fan_running_comment:[null],
+    iot_FD_fan_motor_readings_comment:[null],
+    oot_ID_fan_abnormality_comment:[null],
+    oot_four_air_duct_comment:[null],
+    iot_start_FD_comment:[null],
+    iot_FD_fan_running_comment:[null],
+    iot_FC_signal_comment:[null],
+    iot_close_the_doors_comment:[null],
+    iot_FC_back_in_auto_comment:[null],
+    iot_fan_motor_readings_comment:[null],
+    oot_FD_shaft_speed_comment:[null],
+    oot_FD_fan_abnormality_comment:[null],
+    oot_LS_steam_condensate_comment:[null],
+    oot_S_TLE_comment:[null],
+    oot_T_TLE_comment:[null],
+    oot_CG_movs_intermediate_comment:[null],
+    oot_CG_HV_22X6_13A_comment:[null],
+    oot_Decoke_MOV_comment:[null],
+    oot_Double_Block_comment:[null],
+    oot_LS_purge_lined_up_comment:[null],
+    ms_Steam_comment:[null],
+    fgs_ready_comment:[null],
+    oot_burners_manual_BV_comment:[null],
+    oot_ignitor_and_flame_scanner_comment:[null],
+    oot_fourth_platform_level_comment:[null],
+    oot_1_BV_to_AT_22X0_11A_comment:[null],
+    oot_1_BV_to_AT_22X0_11B_comment:[null],
+    oot_34_BV_to_AP_22X0_11A_comment:[null],
+    oot_34_BV_to_AP_22X0_11B_comment:[null],
+    iot_ignitors_and_flame_scanners_comment:[null],
+    blow_down_HXS_header_comment:[null],
+    oot_10_block_valves_comment:[null],
+    oot_8_NRV_valve_comment:[null],
+    iot_SD_level_comment:[null],
+    oot_bleed_to_flare_comment:[null]
 })
 }
 setupSubmitInterval() {
@@ -101,11 +152,11 @@ setupSubmitInterval() {
 
 onSubmit()
   {
-  
+
     const formData = this.ChecklistB.value;
     this.apiService.savecheckBpage(formData).subscribe(
       (response) => {
-        
+
         console.log('Data saved successfully:', response);
         this.toast.open('Data saved successfully', 'Close', { duration: 3000 });
 
@@ -117,7 +168,7 @@ onSubmit()
         this.toast.open('Error saving data', 'Close', { duration: 3000 });
       }
     );
- 
+
 }
 nxtAccEn(){
   this.checklistcformenable=true;
@@ -127,5 +178,41 @@ add() {
     console.log(response, 'checking');
     this.ChecklistB.patchValue(response.result);
   });
+}
+onRadioChange() {
+  // You may want to check if the input field has focus or not
+  // before making the API call
+  const activeElement = document.activeElement as HTMLElement;
+  console.log('activeElement: ', activeElement);
+  console.log('activeElement.tagName.toLowerCase(): ', activeElement.tagName.toLowerCase());
+  if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
+      this.onSubmit();
+  }
+}
+onRadioChangeup() {
+// You may want to check if the input field has focus or not
+// before making the API call
+const activeElement = document.activeElement as HTMLElement;
+console.log('activeElement: ', activeElement);
+console.log('activeElement.tagName.toLowerCase(): ', activeElement.tagName.toLowerCase());
+if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
+    this.updateFormValues();
+}
+}
+updateFormValues(): void {
+const formData = this.ChecklistB.value;
+console.log('formData: ', formData);
+this.apiService.updatePermitData(formData).subscribe(
+  (response) => {
+    // Assuming 'permitForm' is a FormGroup
+
+
+  },
+  (error) => {
+    console.error('An error occurred:', error);
+
+    // Handle error appropriately, e.g., show error message to user
+  }
+);
 }
 }
