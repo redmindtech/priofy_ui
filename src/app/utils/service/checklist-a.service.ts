@@ -28,4 +28,17 @@ export class ChecklistAService {
   public getchecklist(): Observable<any> {
     return this.httpClient.get(this.baseUrl+('/last'));
   }
+  // Update permit data
+  updatePermitData(data: any): Observable<any> {
+    console.log('data: ', data);
+    console.log(data.userId);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+
+    // Assuming data.userId exists
+    return this.httpClient.put<any>(`${this.baseUrl}/${data.id}`, data, httpOptions);
+  }
 }

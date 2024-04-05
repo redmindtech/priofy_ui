@@ -19,6 +19,7 @@ export class ChecklistAComponent implements OnInit {
   position: any;
   disableiot: any;
   disableoot: any;
+  id:any;
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
 
@@ -31,6 +32,7 @@ export class ChecklistAComponent implements OnInit {
     this.userDetails = localStorage.getItem('currentUser');
     this.userObject = JSON.parse(this.userDetails);
     this.position = this.userObject.position;
+    console.log(this.position)
     if (this.position === 'iot') {
       this.disableiot = true;
       this.disableoot = false;
@@ -42,56 +44,96 @@ export class ChecklistAComponent implements OnInit {
     this.formInitialization();
     this.setupSubmitInterval();
   }
-  ngOnDestroy(): void {
-    clearInterval(this.onSubmitInterval);
-    if (this.addSubscription) {
-      this.addSubscription.unsubscribe();
-    }
-  }
+  
   formInitialization() {
     this.ChecklistA = this.formBuilder.group({
-      oot_high_pressure: [null,Validators.required],
-      iot_decoke_mov: [null,Validators.required],
-      iot_furnace_control_sequence: [null,Validators.required],
-      iot_bm_sequence:[null,Validators.required],
-      iot_individual_auto_burner: [null,Validators.required],
-      oot_feed_and_fuel_gas: [null,Validators.required],
-      oot_hbf_inlet: [null,Validators.required],
-      oot_downstream_1_drains: [null,Validators.required],
-      oot_bypass: [null,Validators.required],
-      oot_inlet_vents:[null,Validators.required],
-      oot_outlet_drains: [null,Validators.required],
-      oot_stream_drum_inlet_check: [null,Validators.required],
-      oot_untreated_inlet_db_1: [null,Validators.required],
-      oot_untreated_hbf_inlet_check: [null,Validators.required],
-      oot_hpssh_2_Outlet: [null,Validators.required],
-      oot_hxs_upstream_nrv: [null,Validators.required],
-      oot_vent_silencer_upstream: [null,Validators.required],
-      oot_vent_silencer_downstream: [null,Validators.required],
-      oot_hxs_outlet: [null,Validators.required],
-      oot_sdl_transmitters: [null,Validators.required],
-      oot_sdi_blow_down: [null,Validators.required],
-      oot_bd_header: [null,Validators.required],
-      oot_secondary_tle: [null,Validators.required],
-      oot_intermittent_bd_header: [null,Validators.required],
-      oot_primary_tles_2: [null,Validators.required],
-      oot_secondary_tle_1: [null,Validators.required],
-      oot_primary_tles_commom_header: [null,Validators.required],
-      iot_bm_control_sequence_to_stand: [null,Validators.required],
-      iot_purge_light_off:[null,Validators.required],
-      oot_open_and_car_sealed: [null,Validators.required],
-      oot_second_bv: [null,Validators.required],
-      oot_upstream_and_downstram_bv_open: [null,Validators.required],
-      oot_bv_and_globe_value_close:[null,Validators.required],
-      drum_3_startup_vent: [null,Validators.required],
-      oot_hxs_vent_valve: [null,Validators.required],
-      iot_default_pressure:[null,Validators.required],
-      iot_filling_the_steam_drum: [null,Validators.required],
-      iot_steam_drum_level_control_master: [null,Validators.required],
-      pressurize_the_downstream:[null,Validators.required],
-      
-      userid:[this.userObject.id],
-    master_id:[1],
+      oot_high_pressure: [null, Validators.required],
+      oot_high_pressure_comment: [null, Validators.required],
+      oot_hbf_inlet: [null, Validators.required],
+      oot_hbf_inlet_comment: [null, Validators.required],
+      iot_decoke_mov: [null, Validators.required],
+      iot_decoke_mov_comment: [null, Validators.required],
+      iot_furnace_control_sequence: [null, Validators.required],
+      iot_furnace_control_sequence_comment: [null, Validators.required],
+      iot_bm_sequence: [null, Validators.required],
+      iot_bm_sequence_comment: [null, Validators.required],
+      iot_individual_auto_burner: [null, Validators.required],
+      iot_individual_auto_burner_comment: [null, Validators.required],
+      oot_feed_and_fuel_gas: [null, Validators.required],
+      oot_feed_and_fuel_gas_comment: [null, Validators.required],
+      oot_downstream_1_drains: [null, Validators.required],
+      oot_downstream_1_drains_comment: [null, Validators.required],
+      oot_bypass: [null, Validators.required],
+      oot_bypass_comment: [null, Validators.required],
+      oot_inlet_vents: [null, Validators.required],
+      oot_inlet_vents_comment: [null, Validators.required],
+      oot_outlet_drains: [null, Validators.required],
+      oot_outlet_drains_comment: [null, Validators.required],
+      oot_stream_drum_inlet_check: [null, Validators.required],
+      oot_stream_drum_inlet_check_comment: [null, Validators.required],
+      oot_untreated_inlet_db_1: [null, Validators.required],
+      oot_untreated_inlet_db_1_comment: [null, Validators.required],
+      oot_untreated_hbf_inlet_check: [null, Validators.required],
+      oot_untreated_hbf_inlet_check_comment: [null, Validators.required],
+      oot_hpssh_2_Outlet: [null, Validators.required],
+      oot_hpssh_2_Outlet_comment: [null, Validators.required],
+      oot_hxs_upstream_nrv: [null, Validators.required],
+      oot_hxs_upstream_nrv_comment: [null, Validators.required],
+      oot_vent_silencer_upstream: [null, Validators.required],
+      oot_vent_silencer_upstream_comment: [null, Validators.required],
+      oot_vent_silencer_downstream: [null, Validators.required],
+      oot_vent_silencer_downstream_comment: [null, Validators.required],
+      oot_hxs_outlet: [null, Validators.required],
+      oot_hxs_outlet_comment: [null, Validators.required],
+      oot_sdl_transmitters: [null, Validators.required],
+      oot_sdl_transmitters_comment: [null, Validators.required],
+      oot_sdi_blow_down: [null, Validators.required],
+      oot_sdi_blow_down_comment: [null, Validators.required],
+      oot_bd_header: [null, Validators.required],
+      oot_bd_header_comment: [null, Validators.required],
+      oot_secondary_tle: [null, Validators.required],
+      oot_secondary_tle_comment: [null, Validators.required],
+      oot_intermittent_bd_header_comment: [null, Validators.required],
+      oot_intermittent_bd_header: [null, Validators.required],
+
+      oot_primary_tles_2_comment: [null, Validators.required],
+      oot_primary_tles_2: [null, Validators.required],
+
+      oot_secondary_tle_1: [null, Validators.required],
+      oot_secondary_tle_1_comment: [null, Validators.required],
+      oot_primary_tles_commom_header: [null, Validators.required],
+      oot_primary_tles_commom_header_comment: [null, Validators.required],
+      iot_bm_control_sequence_to_stand: [null, Validators.required],
+      iot_bm_control_sequence_to_stand_comment: [null, Validators.required],
+      iot_purge_light_off: [null, Validators.required],
+      iot_purge_light_off_comment: [null, Validators.required],
+
+      oot_open_and_car_sealed: [null, Validators.required],
+      oot_open_and_car_sealed_comment: [null, Validators.required],
+      oot_second_bv: [null, Validators.required],
+      oot_second_bv_comment: [null, Validators.required],
+      oot_upstream_and_downstram_bv_open: [null, Validators.required],
+      oot_upstream_and_downstram_bv_open_comment: [null, Validators.required],
+      oot_bv_and_globe_value_close: [null, Validators.required],
+      oot_bv_and_globe_value_close_comment: [null, Validators.required],
+
+      drum_3_startup_vent: [null, Validators.required],
+      drum_3_startup_vent_comment: [null, Validators.required],
+
+      oot_hxs_vent_valve: [null, Validators.required],
+      oot_hxs_vent_valve_comment: [null, Validators.required],
+      iot_default_pressure: [null, Validators.required],
+      iot_default_pressure_comment: [null, Validators.required],
+      iot_filling_the_steam_drum: [null, Validators.required],
+      iot_filling_the_steam_drum_comment: [null, Validators.required],
+
+      iot_steam_drum_level_control_master: [null, Validators.required],
+      iot_steam_drum_level_control_master_comment: [null, Validators.required],
+      pressurize_the_downstream: [null, Validators.required],
+      pressurize_the_downstream_comment: [null, Validators.required],
+      userid: [this.userObject.id],
+      master_id: [1],
+      id:[this.id],
     });
   }
 
@@ -127,4 +169,41 @@ export class ChecklistAComponent implements OnInit {
   nxtAccEn() {
     this.checklistbformenable = true;
   }
+
+  onRadioChange() {
+    // You may want to check if the input field has focus or not
+    // before making the API call
+    const activeElement = document.activeElement as HTMLElement;
+    console.log('activeElement: ', activeElement);
+    console.log('activeElement.tagName.toLowerCase(): ', activeElement.tagName.toLowerCase());
+    if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
+        this.onSubmit();
+    }
+}
+onRadioChangeup() {
+  // You may want to check if the input field has focus or not
+  // before making the API call
+  const activeElement = document.activeElement as HTMLElement;
+  console.log('activeElement: ', activeElement);
+  console.log('activeElement.tagName.toLowerCase(): ', activeElement.tagName.toLowerCase());
+  if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
+      this.updateFormValues();
+  }
+}
+updateFormValues(): void {
+  const formData = this.ChecklistA.value;
+  console.log('formData: ', formData);
+  this.apiService.updatePermitData(formData).subscribe(
+    (response) => {
+      // Assuming 'permitForm' is a FormGroup
+   
+     console.log(response)
+    },
+    (error) => {
+      console.error('An error occurred:', error);
+      
+      // Handle error appropriately, e.g., show error message to user
+    }
+  );
+}
 }

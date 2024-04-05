@@ -21,8 +21,17 @@ export class MainComponent implements OnInit {
    if(name=="Operator1"){
       this.username="Siva"
    }
-   else{
+   else if(name=="Operator2"){
     this.username="Sakthi"
+   }
+   else if(name=="Operator3"){
+    this.username="Manoj"
+   }
+   else if(name=="Operator4"){
+    this.username="Karthik"
+   }
+   else if(name=="Admin"){
+    this.username="Arun"
    }
     document.querySelector('body')?.removeAttribute('class');
     document.querySelector('body')?.classList.add('sidebar-mini','sidebar-open','layout-fixed');
