@@ -12,6 +12,7 @@ export class LoginComponent {
   form: FormGroup;
   errorMessage: string;
    error:boolean = true;
+  name: any;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService,  private router: Router) {
     this.form = this.formBuilder.group({
@@ -29,10 +30,18 @@ export class LoginComponent {
        let id =  response.result.id
        console.log('id: ', id);
           console.log(response.result);
+          localStorage.setItem('currentUser', JSON.stringify(response.result));
           if (response){
             const id = response.result.id;
-            localStorage.setItem('currentUser', JSON.stringify(response.result));
+           this.name= response.result.username
+           if(this.name=='Admin'){
+            this.router.navigate(['/main/dashboard'], { queryParams: { id } });
+           }
+           else{
             this.router.navigate(['/main/home'], { queryParams: { id } });
+           }
+           
+            
           }
          
           // Login successful, redirect or perform necessary action
