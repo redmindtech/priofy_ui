@@ -20,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }">
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }" class="colour1">
           <td style="text-align: center;" >1</td>
           <td class="header">OOT to ensure that all lower level burners are lit before starting light off of upper level burners.</td>
          
@@ -44,7 +44,7 @@
         </td>
         </tr>
        
-        <tr  [ngClass]="{ 'disabled-row': disableIO !== 'iot' }">
+        <tr  [ngClass]="{ 'disabled-row': disableIO !== 'iot' }" class="colour2">
           <td style="text-align: center;">2</td>
           <td class="header">IOT to continuously monitor the fuel gas pressure and OOT to continue lighting off more burners as required</td>
           
@@ -68,7 +68,7 @@
         </td>
         </tr>
        
-        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }">
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }" class="colour1">
           <td style="text-align: center;">3</td>
           <td class="header">OOT to open desuperheater Untreated BFW manual block valves (DB&B) when the COT is &gt; 450 ºC.</td>
 
@@ -92,7 +92,7 @@
         </td>
         </tr>
        
-        <tr [ngClass]="{ 'disabled-row': disableIO !== 'iot' }">
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'iot' }" class="colour2">
           <td style="text-align: center;">4</td>
           <td class="header">IOT to confirm that the desuperheater valve does not pass. If it passes, instruct the OOT to close the B/V until desuperheating flow is needed.</td>
          
@@ -117,12 +117,12 @@
         </tr>
          
      
-          <tr >
+          <tr class="colour1">
           <td style="text-align: center;" >5</td>
           <td class="header" >When steam drum pressure is above 90 kg/cm2g:</td>
           <td></td>
         </tr>
-        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }">
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }"class="colour1">
           <td ></td>
           <td class="header">*OOT to line up steam drum continuous blowdown valve and block in steam drum intermittent blowdown.</td>
           
@@ -145,7 +145,7 @@
             </div>
         </td>
         </tr>
-        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }">
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }" class="colour2">
           <td></td>
           <td class="header">*OOT to confirm that the sTLE blowdown to CBD header is lined up.</td>
           
@@ -168,7 +168,7 @@
             </div>
         </td>
         </tr>
-        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }">
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }"class="colour1">
           <td></td>
           <td class="header">*OOT to ensure steam drum blowdown analyzer online and confirm cooling water flow to and from cooler.</td>
 
@@ -191,7 +191,7 @@
             </div>
         </td>
         </tr>
-        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }">
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }" class="colour2">
           <td></td>
           <td class="header">*OOT to ensure sTLE blowdown analyzer cooling water flow
             to and from cooler is established.</td>
@@ -215,7 +215,7 @@
             </div>
         </td>
         </tr>
-        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }">
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }" class="colour1">
           <td></td>
           <td class="header">*OOT to open desuperheater untreated BFW manual block
             valves (DB&B) if not done before.</td>
@@ -238,7 +238,7 @@
             </div>
         </td>
         </tr>
-        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"class="colour2">
           <td></td>
           <td class="header">*IOT to enable steam drum and sTLE continuous blow downs
             from HMI Station.
@@ -264,7 +264,7 @@
         </td>
         </tr>
         
-        <tr>
+        <tr class="colour1">
           <td style="text-align: center;">6</td>
           <td class="header">If steam PSV EVT testing needs to be done, hold COTs at 700°C
             (via COT manual set point) and steam drum pressure at 93
@@ -292,7 +292,7 @@
             </div>
         </td>
         </tr>
-        <tr >
+        <tr class="colour2" >
           <td ></td>
           <td class="header">*Continue with warm-up when PSV EVT testing is complete
             </td>
@@ -317,7 +317,7 @@
         </td>
         </tr>
         
-        <tr>
+        <tr class="colour1">
           <td style="text-align: center;">7</td>
           <td class="header">OOT&IOT to reconfirm that Decoke Air is blinded (ONIS device).
             </td>
@@ -342,7 +342,7 @@
         </td>
         </tr>
         
-        <tr >
+        <tr class="colour2" >
           <td style="text-align: center;">8</td>
           <td class="header">When COT temperature is above 760ºC and if steam flow
             confirmed higher than 10 Mt/h per side, it is possible to move the
@@ -384,44 +384,44 @@
 
 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2%;">
   
-    <div *ngIf="disableIO ==='oot'">
-      <div class="row" style="margin-left: 450px;">
-        <div class="col">
-          <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
-          </div>
-          <div class="col">
-          <button mat-raised-button style="background-color: #97ca94; " [disabled]="!ChecklistE.valid" (click)="nxtAccEn()">Next</button>
-          </div>
-        </div>
-      <div *ngIf="enable" [formGroup]="ChecklistE">
-        <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_e_oot"></textarea>
-        <button class="btn btn-primary ml-2"style="background-color: #97ca94;margin-bottom: 4%;" (click)="onRadioChangeup()">Add Comment</button>
-      </div>
-      <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
-    </div>
-  
-  <div *ngIf="disableIO ==='iot'">
-    <div class="row" style="margin-left: 450px;">
+  <div *ngIf="disableIO ==='oot'">
+    <div class="row" style="margin-left: 50px;">
       <div class="col">
-        <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
+        <button mat-raised-button style="background-color: #147737;" (click)="toggleEnable()">Finish Shift</button>
         </div>
         <div class="col">
-        <button mat-raised-button style="background-color: #97ca94; " [disabled]="!ChecklistE.valid" (click)="nxtAccEn()">Next</button>
-        </div>
+          <button mat-raised-button style="background-color: #147737; " [disabled]="!ChecklistE.valid" (click)="nxtAccEn()">Next</button>
+          </div>
       </div>
     <div *ngIf="enable" [formGroup]="ChecklistE">
-      <div>
-        <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_e_iot"></textarea>
-        <button class="btn btn-primary ml-2"  style="background-color: #97ca94;margin-bottom: 4%;"  (click)="onRadioChangeup()">Add Comment</button>
-      </div>
+      
+      <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_e_oot"></textarea>
+      <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;" (click)="onRadioChangeup()">Add Comment</button>
     </div>
-    <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
+   
   </div>
-  <div>
-    <button mat-raised-button style="background-color: #97ca94;" [disabled]="!ChecklistE.valid" (click)="nxtAccEn()">Next</button>
+
+<div *ngIf="disableIO ==='iot'">
+  <div class="row" style="margin-left: 500px;">
+  <div class="col">
+    <button mat-raised-button style="background-color: #147737;" (click)="toggleEnable()">Finish Shift</button>
+    </div>
+    <div class="col">
+      <button mat-raised-button style="background-color: #147737; " [disabled]="!ChecklistE.valid" (click)="nxtAccEn()">Next</button>
+      </div>
   </div>
+  
+  <div *ngIf="enable" class="m-2" [formGroup]="ChecklistE">
+   
+    <div>
+      <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_e_iot"></textarea>
+      <button class="btn btn-primary ml-2"  style="background-color: #147737;margin-bottom: 4%;"  (click)="onRadioChangeup()">Add Comment</button>
+    </div>
+  </div>
+  
 </div>
 
+</div>
 
 </mat-card-content>
 </mat-card>
