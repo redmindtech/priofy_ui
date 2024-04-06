@@ -48,20 +48,20 @@
           <td style="text-align:center">2</td>
           <td class="header">IOT to confirm that HV-22X0-02 (purge steam to ethane feed line(FV-22X0-14 A/B are open) opens to 100% automatically.</td>
           <td>
-            <input type="radio" class="custom-radio" id="IOT_to_confirm-done" name="IOT_to_confirm" value="Done" formControlName="IOT_to_confirm"  (change)="onRadioChangeup()"/>
-            <label for="IOT_to_confirm-done"class="action">Done</label>
+            <input type="radio" class="custom-radio" id="iot_to_confirm-done" name="iot_to_confirm" value="Done" formControlName="iot_to_confirm"  (change)="onRadioChangeup()"/>
+            <label for="iot_to_confirm-done"class="action">Done</label>
 
-            <input type="radio" class="custom-radio" id="IOT_to_confirm-risk" name="IOT_to_confirm" value="Risk" formControlName="IOT_to_confirm" (change)="onRadioChangeup()"/>
-            <label for="IOT_to_confirm-risk"class="action">Risk</label>
+            <input type="radio" class="custom-radio" id="iot_to_confirm-risk" name="iot_to_confirm" value="Risk" formControlName="iot_to_confirm" (change)="onRadioChangeup()"/>
+            <label for="iot_to_confirm-risk"class="action">Risk</label>
 
-            <input type="radio" class="custom-radio" id="IOT_to_confirm-skip" name="IOT_to_confirm" value="Skip" formControlName="IOT_to_confirm"  (change)="onRadioChangeup()"/>
-            <label for="IOT_to_confirm-skip"class="action">Skip</label>
+            <input type="radio" class="custom-radio" id="iot_to_confirm-skip" name="iot_to_confirm" value="Skip" formControlName="iot_to_confirm"  (change)="onRadioChangeup()"/>
+            <label for="iot_to_confirm-skip"class="action">Skip</label>
 
-            <div *ngIf="ChecklistF?.get('IOT_to_confirm')?.value === 'Skip'">
-              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="IOT_to_confirm_comment"></textarea>
+            <div *ngIf="ChecklistF?.get('iot_to_confirm')?.value === 'Skip'">
+              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_to_confirm_comment"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"
-                (click)="ChecklistF?.get('IOT_to_confirm')?.setValue(''); ChecklistF?.get('IOT_to_confirm_comment')?.setValue('')">Cancel</button>
+                (click)="ChecklistF?.get('iot_to_confirm')?.setValue(''); ChecklistF?.get('iot_to_confirm_comment')?.setValue('')">Cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
               </div>
             </div>
@@ -98,20 +98,20 @@
           <td class="header">OOT to confirm that both B/V of the CG MOVs purge steam lines
             drain valves and the flare block and bleed valves are closed.</td>
             <td>
-              <input type="radio" class="custom-radio" id="OOT_flare_block-done" name="OOT_flare_block" value="Done" formControlName="OOT_flare_block"  (change)="onRadioChangeup()"/>
-              <label for="OOT_flare_block-done"class="action">Done</label>
+              <input type="radio" class="custom-radio" id="oot_flare_block-done" name="oot_flare_block" value="Done" formControlName="oot_flare_block"  (change)="onRadioChangeup()"/>
+              <label for="oot_flare_block-done"class="action">Done</label>
 
-              <input type="radio" class="custom-radio" id="OOT_flare_block-risk" name="OOT_flare_block" value="Risk" formControlName="OOT_flare_block" (change)="onRadioChangeup()"/>
-              <label for="OOT_flare_block-risk"class="action">Risk</label>
+              <input type="radio" class="custom-radio" id="oot_flare_block-risk" name="oot_flare_block" value="Risk" formControlName="oot_flare_block" (change)="onRadioChangeup()"/>
+              <label for="oot_flare_block-risk"class="action">Risk</label>
 
-              <input type="radio" class="custom-radio" id="OOT_flare_block-skip" name="OOT_flare_block" value="Skip" formControlName="OOT_flare_block"  (change)="onRadioChangeup()"/>
-              <label for="OOT_flare_block-skip"class="action">Skip</label>
+              <input type="radio" class="custom-radio" id="oot_flare_block-skip" name="oot_flare_block" value="Skip" formControlName="oot_flare_block"  (change)="onRadioChangeup()"/>
+              <label for="oot_flare_block-skip"class="action">Skip</label>
 
-              <div *ngIf="ChecklistF?.get('OOT_flare_block')?.value === 'Skip'">
-                <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="OOT_flare_block_comment"></textarea>
+              <div *ngIf="ChecklistF?.get('oot_flare_block')?.value === 'Skip'">
+                <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="oot_flare_block_comment"></textarea>
                 <div style="margin-left: 31%;">
                   <button class="btn btn-primary m-1"
-                  (click)="ChecklistF?.get('OOT_flare_block')?.setValue(''); ChecklistF?.get('OOT_flare_block_comment')?.setValue('')">Cancel</button>
+                  (click)="ChecklistF?.get('oot_flare_block')?.setValue(''); ChecklistF?.get('oot_flare_block_comment')?.setValue('')">Cancel</button>
                   <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
                 </div>
               </div>
@@ -121,20 +121,20 @@
           <td style="text-align:center">5</td>
           <td class="header">OOT&IOT to reconfirm that Decoke Air is blinded.</td>
           <td>
-            <input type="radio" class="custom-radio" id="OOT_IOT_Decoke_Air-done" name="OOT_IOT_Decoke_Air" value="Done" formControlName="OOT_IOT_Decoke_Air"  (change)="onRadioChangeup()"/>
-            <label for="OOT_IOT_Decoke_Air-done"class="action">Done</label>
+            <input type="radio" class="custom-radio" id="oot_IOT_Decoke_Air-done" name="oot_IOT_Decoke_Air" value="Done" formControlName="oot_IOT_Decoke_Air"  (change)="onRadioChangeup()"/>
+            <label for="oot_IOT_Decoke_Air-done"class="action">Done</label>
 
-            <input type="radio" class="custom-radio" id="OOT_IOT_Decoke_Air-risk" name="OOT_IOT_Decoke_Air" value="Risk" formControlName="OOT_IOT_Decoke_Air" (change)="onRadioChangeup()"/>
-            <label for="OOT_IOT_Decoke_Air-risk"class="action">Risk</label>
+            <input type="radio" class="custom-radio" id="oot_IOT_Decoke_Air-risk" name="oot_IOT_Decoke_Air" value="Risk" formControlName="oot_IOT_Decoke_Air" (change)="onRadioChangeup()"/>
+            <label for="oot_IOT_Decoke_Air-risk"class="action">Risk</label>
 
-            <input type="radio" class="custom-radio" id="OOT_IOT_Decoke_Air-skip" name="OOT_IOT_Decoke_Air" value="Skip" formControlName="OOT_IOT_Decoke_Air"  (change)="onRadioChangeup()"/>
-            <label for="OOT_IOT_Decoke_Air-skip"class="action">Skip</label>
+            <input type="radio" class="custom-radio" id="oot_IOT_Decoke_Air-skip" name="oot_IOT_Decoke_Air" value="Skip" formControlName="oot_IOT_Decoke_Air"  (change)="onRadioChangeup()"/>
+            <label for="oot_IOT_Decoke_Air-skip"class="action">Skip</label>
 
-            <div *ngIf="ChecklistF?.get('OOT_IOT_Decoke_Air')?.value === 'Skip'">
-              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="OOT_IOT_Decoke_Air_comment"></textarea>
+            <div *ngIf="ChecklistF?.get('oot_IOT_Decoke_Air')?.value === 'Skip'">
+              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="oot_IOT_Decoke_Air_comment"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"
-                        (click)="ChecklistF?.get('OOT_IOT_Decoke_Air')?.setValue(''); ChecklistF?.get('OOT_IOT_Decoke_Air_comment')?.setValue('')">Cancel</button>
+                        (click)="ChecklistF?.get('oot_IOT_Decoke_Air')?.setValue(''); ChecklistF?.get('oot_IOT_Decoke_Air_comment')?.setValue('')">Cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
               </div>
             </div>
@@ -145,20 +145,20 @@
           <td style="text-align:center">6</td>
           <td class="header">OOT to confirm that ethane feed DB&B are closed.</td>
           <td>
-            <input type="radio" class="custom-radio" id="OOT_feed_DB_B-done" name="OOT_feed_DB_B" value="Done" formControlName="OOT_feed_DB_B"  (change)="onRadioChangeup()"/>
-            <label for="OOT_feed_DB_B-done"class="action">Done</label>
+            <input type="radio" class="custom-radio" id="oot_feed_DB_B-done" name="oot_feed_DB_B" value="Done" formControlName="oot_feed_DB_B"  (change)="onRadioChangeup()"/>
+            <label for="oot_feed_DB_B-done"class="action">Done</label>
 
-            <input type="radio" class="custom-radio" id="OOT_feed_DB_B-risk" name="OOT_feed_DB_B" value="Risk" formControlName="OOT_feed_DB_B" (change)="onRadioChangeup()"/>
-            <label for="OOT_feed_DB_B-risk"class="action">Risk</label>
+            <input type="radio" class="custom-radio" id="oot_feed_DB_B-risk" name="oot_feed_DB_B" value="Risk" formControlName="oot_feed_DB_B" (change)="onRadioChangeup()"/>
+            <label for="oot_feed_DB_B-risk"class="action">Risk</label>
 
-            <input type="radio" class="custom-radio" id="OOT_feed_DB_B-skip" name="OOT_feed_DB_B" value="Skip" formControlName="OOT_feed_DB_B"  (change)="onRadioChangeup()"/>
-            <label for="OOT_feed_DB_B-skip"class="action">Skip</label>
+            <input type="radio" class="custom-radio" id="oot_feed_DB_B-skip" name="oot_feed_DB_B" value="Skip" formControlName="oot_feed_DB_B"  (change)="onRadioChangeup()"/>
+            <label for="oot_feed_DB_B-skip"class="action">Skip</label>
 
-            <div *ngIf="ChecklistF?.get('OOT_feed_DB_B')?.value === 'Skip'">
-              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="OOT_feed_DB_B_comment"></textarea>
+            <div *ngIf="ChecklistF?.get('oot_feed_DB_B')?.value === 'Skip'">
+              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="oot_feed_DB_B_comment"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"
-                        (click)="ChecklistF?.get('OOT_feed_DB_B')?.setValue(''); ChecklistF?.get('OOT_feed_DB_B_comment')?.setValue('')">Cancel</button>
+                        (click)="ChecklistF?.get('oot_feed_DB_B')?.setValue(''); ChecklistF?.get('oot_feed_DB_B_comment')?.setValue('')">Cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
               </div>
             </div>
@@ -265,20 +265,20 @@
           <td style="text-align:center">11</td>
           <td class="header">IOT to confirm that second CG MOV fully opens (HV-22X6-13B).</td>
           <td>
-            <input type="radio" class="custom-radio" id="IOT_second_CG_MOV-done" name="IOT_second_CG_MOV" value="Done" formControlName="IOT_second_CG_MOV"  (change)="onRadioChangeup()"/>
-            <label for="IOT_second_CG_MOV-done"class="action">Done</label>
+            <input type="radio" class="custom-radio" id="iot_second_CG_MOV-done" name="iot_second_CG_MOV" value="Done" formControlName="iot_second_CG_MOV"  (change)="onRadioChangeup()"/>
+            <label for="iot_second_CG_MOV-done"class="action">Done</label>
 
-            <input type="radio" class="custom-radio" id="IOT_second_CG_MOV-risk" name="IOT_second_CG_MOV" value="Risk" formControlName="IOT_second_CG_MOV" (change)="onRadioChangeup()"/>
-            <label for="IOT_second_CG_MOV-risk"class="action">Risk</label>
+            <input type="radio" class="custom-radio" id="iot_second_CG_MOV-risk" name="iot_second_CG_MOV" value="Risk" formControlName="iot_second_CG_MOV" (change)="onRadioChangeup()"/>
+            <label for="iot_second_CG_MOV-risk"class="action">Risk</label>
 
-            <input type="radio" class="custom-radio" id="IOT_second_CG_MOV-skip" name="IOT_second_CG_MOV" value="Skip" formControlName="IOT_second_CG_MOV"  (change)="onRadioChangeup()"/>
-            <label for="IOT_second_CG_MOV-skip"class="action">Skip</label>
+            <input type="radio" class="custom-radio" id="iot_second_CG_MOV-skip" name="iot_second_CG_MOV" value="Skip" formControlName="iot_second_CG_MOV"  (change)="onRadioChangeup()"/>
+            <label for="iot_second_CG_MOV-skip"class="action">Skip</label>
 
-            <div *ngIf="ChecklistF?.get('IOT_second_CG_MOV')?.value === 'Skip'">
-              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="IOT_second_CG_MOV_comment"></textarea>
+            <div *ngIf="ChecklistF?.get('iot_second_CG_MOV')?.value === 'Skip'">
+              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_second_CG_MOV_comment"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"
-                (click)="ChecklistF?.get('IOT_second_CG_MOV')?.setValue(''); ChecklistF?.get('IOT_second_CG_MOV_comment')?.setValue('')">Cancel</button>
+                (click)="ChecklistF?.get('iot_second_CG_MOV')?.setValue(''); ChecklistF?.get('iot_second_CG_MOV_comment')?.setValue('')">Cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
               </div>
             </div>
@@ -337,20 +337,20 @@
           <td style="text-align:center">14</td>
           <td class="header">IOT to confirm that primary CG MOV (HV-22X6-13A) opens by delayed pulses to achieve the lower pressure set point (set point for opening MOV).</td>
           <td>
-            <input type="radio" class="custom-radio" id="IOT_lower_pressure-done" name="IOT_lower_pressure" value="Done" formControlName="IOT_lower_pressure"  (change)="onRadioChangeup()"/>
-            <label for="IOT_lower_pressure-done"class="action">Done</label>
+            <input type="radio" class="custom-radio" id="iot_lower_pressure-done" name="iot_lower_pressure" value="Done" formControlName="iot_lower_pressure"  (change)="onRadioChangeup()"/>
+            <label for="iot_lower_pressure-done"class="action">Done</label>
 
-            <input type="radio" class="custom-radio" id="IOT_lower_pressure-risk" name="IOT_lower_pressure" value="Risk" formControlName="IOT_lower_pressure" (change)="onRadioChangeup()"/>
-            <label for="IOT_lower_pressure-risk"class="action">Risk</label>
+            <input type="radio" class="custom-radio" id="iot_lower_pressure-risk" name="iot_lower_pressure" value="Risk" formControlName="iot_lower_pressure" (change)="onRadioChangeup()"/>
+            <label for="iot_lower_pressure-risk"class="action">Risk</label>
 
-            <input type="radio" class="custom-radio" id="IOT_lower_pressure-skip" name="IOT_lower_pressure" value="Skip" formControlName="IOT_lower_pressure"  (change)="onRadioChangeup()"/>
-            <label for="IOT_lower_pressure-skip"class="action">Skip</label>
+            <input type="radio" class="custom-radio" id="iot_lower_pressure-skip" name="iot_lower_pressure" value="Skip" formControlName="iot_lower_pressure"  (change)="onRadioChangeup()"/>
+            <label for="iot_lower_pressure-skip"class="action">Skip</label>
 
-            <div *ngIf="ChecklistF?.get('IOT_lower_pressure')?.value === 'Skip'">
-              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="IOT_lower_pressure_comment"></textarea>
+            <div *ngIf="ChecklistF?.get('iot_lower_pressure')?.value === 'Skip'">
+              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_lower_pressure_comment"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"
-                (click)="ChecklistF?.get('IOT_lower_pressure')?.setValue(''); ChecklistF?.get('IOT_lower_pressure_comment')?.setValue('')">Cancel</button>
+                (click)="ChecklistF?.get('iot_lower_pressure')?.setValue(''); ChecklistF?.get('iot_lower_pressure_comment')?.setValue('')">Cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
               </div>
             </div>
@@ -385,20 +385,20 @@
           <td style="text-align:center">16</td>
           <td class="header">IOT to confirm via HMI that the Decoke MOV is fully closed after OOT confirms this in the field.<br>Note: this confirmation allows the IOT to open out primary CG MOV to fully open without delay pulses.</td>
           <td>
-            <input type="radio" class="custom-radio" id="IOT_confirm_via_HMI-done" name="IOT_confirm_via_HMI" value="Done" formControlName="IOT_confirm_via_HMI"  (change)="onRadioChangeup()"/>
-            <label for="IOT_confirm_via_HMI-done"class="action">Done</label>
+            <input type="radio" class="custom-radio" id="iot_confirm_via_HMI-done" name="iot_confirm_via_HMI" value="Done" formControlName="iot_confirm_via_HMI"  (change)="onRadioChangeup()"/>
+            <label for="iot_confirm_via_HMI-done"class="action">Done</label>
 
-            <input type="radio" class="custom-radio" id="IOT_confirm_via_HMI-risk" name="IOT_confirm_via_HMI" value="Risk" formControlName="IOT_confirm_via_HMI" (change)="onRadioChangeup()"/>
-            <label for="IOT_confirm_via_HMI-risk"class="action">Risk</label>
+            <input type="radio" class="custom-radio" id="iot_confirm_via_HMI-risk" name="iot_confirm_via_HMI" value="Risk" formControlName="iot_confirm_via_HMI" (change)="onRadioChangeup()"/>
+            <label for="iot_confirm_via_HMI-risk"class="action">Risk</label>
 
-            <input type="radio" class="custom-radio" id="IOT_confirm_via_HMI-skip" name="IOT_confirm_via_HMI" value="Skip" formControlName="IOT_confirm_via_HMI"  (change)="onRadioChangeup()"/>
-            <label for="IOT_confirm_via_HMI-skip"class="action">Skip</label>
+            <input type="radio" class="custom-radio" id="iot_confirm_via_HMI-skip" name="iot_confirm_via_HMI" value="Skip" formControlName="iot_confirm_via_HMI"  (change)="onRadioChangeup()"/>
+            <label for="iot_confirm_via_HMI-skip"class="action">Skip</label>
 
-            <div *ngIf="ChecklistF?.get('IOT_confirm_via_HMI')?.value === 'Skip'">
-              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="IOT_confirm_via_HMI_comment"></textarea>
+            <div *ngIf="ChecklistF?.get('iot_confirm_via_HMI')?.value === 'Skip'">
+              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_confirm_via_HMI_comment"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"
-                (click)="ChecklistF?.get('IOT_confirm_via_HMI')?.setValue(''); ChecklistF?.get('IOT_confirm_via_HMI_comment')?.setValue('')">Cancel</button>
+                (click)="ChecklistF?.get('iot_confirm_via_HMI')?.setValue(''); ChecklistF?.get('iot_confirm_via_HMI_comment')?.setValue('')">Cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
               </div>
             </div>
@@ -439,20 +439,20 @@
           <td class="header"></td>
           <td class="header">Adjust combustion air flow.</td>
           <td>
-            <input type="radio" class="custom-radio" id="Adjust_combustion-done" name="Adjust_combustion" value="Done" formControlName="Adjust_combustion"  (change)="onRadioChangeup()"/>
-            <label for="Adjust_combustion-done"class="action">Done</label>
+            <input type="radio" class="custom-radio" id="adjust_combustion-done" name="adjust_combustion" value="Done" formControlName="adjust_combustion"  (change)="onRadioChangeup()"/>
+            <label for="adjust_combustion-done"class="action">Done</label>
 
-            <input type="radio" class="custom-radio" id="Adjust_combustion-risk" name="Adjust_combustion" value="Risk" formControlName="Adjust_combustion" (change)="onRadioChangeup()"/>
-            <label for="Adjust_combustion-risk"class="action">Risk</label>
+            <input type="radio" class="custom-radio" id="adjust_combustion-risk" name="adjust_combustion" value="Risk" formControlName="adjust_combustion" (change)="onRadioChangeup()"/>
+            <label for="adjust_combustion-risk"class="action">Risk</label>
 
-            <input type="radio" class="custom-radio" id="Adjust_combustion-skip" name="Adjust_combustion" value="Skip" formControlName="Adjust_combustion"  (change)="onRadioChangeup()"/>
-            <label for="Adjust_combustion-skip"class="action">Skip</label>
+            <input type="radio" class="custom-radio" id="adjust_combustion-skip" name="adjust_combustion" value="Skip" formControlName="adjust_combustion"  (change)="onRadioChangeup()"/>
+            <label for="adjust_combustion-skip"class="action">Skip</label>
 
-            <div *ngIf="ChecklistF?.get('Adjust_combustion')?.value === 'Skip'">
-              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="Adjust_combustion_comment"></textarea>
+            <div *ngIf="ChecklistF?.get('adjust_combustion')?.value === 'Skip'">
+              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="adjust_combustion_comment"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"
-                (click)="ChecklistF?.get('Adjust_combustion')?.setValue(''); ChecklistF?.get('Adjust_combustion_comment')?.setValue('')">Cancel</button>
+                (click)="ChecklistF?.get('adjust_combustion')?.setValue(''); ChecklistF?.get('adjust_combustion_comment')?.setValue('')">Cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
               </div>
             </div>
@@ -487,20 +487,20 @@
           <td class="header"></td>
           <td class="header">Increase IBD/ CBD.</td>
           <td>
-            <input type="radio" class="custom-radio" id="Increase_IBD_CBD-done" name="Increase_IBD_CBD" value="Done" formControlName="Increase_IBD_CBD"  (change)="onRadioChangeup()"/>
-            <label for="Increase_IBD_CBD-done"class="action">Done</label>
+            <input type="radio" class="custom-radio" id="increase_IBD_CBD-done" name="increase_IBD_CBD" value="Done" formControlName="increase_IBD_CBD"  (change)="onRadioChangeup()"/>
+            <label for="increase_IBD_CBD-done"class="action">Done</label>
 
-            <input type="radio" class="custom-radio" id="Increase_IBD_CBD-risk" name="Increase_IBD_CBD" value="Risk" formControlName="Increase_IBD_CBD" (change)="onRadioChangeup()"/>
-            <label for="Increase_IBD_CBD-risk"class="action">Risk</label>
+            <input type="radio" class="custom-radio" id="increase_IBD_CBD-risk" name="increase_IBD_CBD" value="Risk" formControlName="increase_IBD_CBD" (change)="onRadioChangeup()"/>
+            <label for="increase_IBD_CBD-risk"class="action">Risk</label>
 
-            <input type="radio" class="custom-radio" id="Increase_IBD_CBD-skip" name="Increase_IBD_CBD" value="Skip" formControlName="Increase_IBD_CBD"  (change)="onRadioChangeup()"/>
-            <label for="Increase_IBD_CBD-skip"class="action">Skip</label>
+            <input type="radio" class="custom-radio" id="increase_IBD_CBD-skip" name="increase_IBD_CBD" value="Skip" formControlName="increase_IBD_CBD"  (change)="onRadioChangeup()"/>
+            <label for="increase_IBD_CBD-skip"class="action">Skip</label>
 
-            <div *ngIf="ChecklistF?.get('Increase_IBD_CBD')?.value === 'Skip'">
-              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="Increase_IBD_CBD_comment"></textarea>
+            <div *ngIf="ChecklistF?.get('increase_IBD_CBD')?.value === 'Skip'">
+              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="increase_IBD_CBD_comment"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"
-                (click)="ChecklistF?.get('Increase_IBD_CBD')?.setValue(''); ChecklistF?.get('Increase_IBD_CBD_comment')?.setValue('')">Cancel</button>
+                (click)="ChecklistF?.get('increase_IBD_CBD')?.setValue(''); ChecklistF?.get('increase_IBD_CBD_comment')?.setValue('')">Cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
               </div>
             </div>
@@ -513,20 +513,20 @@
           <td style="text-align:center">19</td>
           <td class="header">Continue with Furnace, Feed In procedure.</td>
           <td>
-            <input type="radio" class="custom-radio" id="Continue_with_Furnace-done" name="Continue_with_Furnace" value="Done" formControlName="Continue_with_Furnace"  (change)="onRadioChangeup()"/>
-            <label for="Continue_with_Furnace-done"class="action">Done</label>
+            <input type="radio" class="custom-radio" id="continue_with_Furnace-done" name="continue_with_Furnace" value="Done" formControlName="continue_with_Furnace"  (change)="onRadioChangeup()"/>
+            <label for="continue_with_Furnace-done"class="action">Done</label>
 
-            <input type="radio" class="custom-radio" id="Continue_with_Furnace-risk" name="Continue_with_Furnace" value="Risk" formControlName="Continue_with_Furnace" (change)="onRadioChangeup()"/>
-            <label for="Continue_with_Furnace-risk"class="action">Risk</label>
+            <input type="radio" class="custom-radio" id="continue_with_Furnace-risk" name="continue_with_Furnace" value="Risk" formControlName="continue_with_Furnace" (change)="onRadioChangeup()"/>
+            <label for="continue_with_Furnace-risk"class="action">Risk</label>
 
-            <input type="radio" class="custom-radio" id="Continue_with_Furnace-skip" name="Continue_with_Furnace" value="Skip" formControlName="Continue_with_Furnace"  (change)="onRadioChangeup()"/>
-            <label for="Continue_with_Furnace-skip"class="action">Skip</label>
+            <input type="radio" class="custom-radio" id="continue_with_Furnace-skip" name="continue_with_Furnace" value="Skip" formControlName="continue_with_Furnace"  (change)="onRadioChangeup()"/>
+            <label for="continue_with_Furnace-skip"class="action">Skip</label>
 
-            <div *ngIf="ChecklistF?.get('Continue_with_Furnace')?.value === 'Skip'">
-              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="Continue_with_Furnace_comment"></textarea>
+            <div *ngIf="ChecklistF?.get('continue_with_Furnace')?.value === 'Skip'">
+              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="continue_with_Furnace_comment"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"
-                (click)="ChecklistF?.get('Continue_with_Furnace')?.setValue(''); ChecklistF?.get('Continue_with_Furnace_comment')?.setValue('')">Cancel</button>
+                (click)="ChecklistF?.get('continue_with_Furnace')?.setValue(''); ChecklistF?.get('continue_with_Furnace_comment')?.setValue('')">Cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
               </div>
             </div>
@@ -539,7 +539,54 @@
       </tbody>
     </table>
   </form>
-  <button mat-raised-button style="margin-left: 90%; margin-top: 2%; background-color: #97ca94;" [disabled]="!ChecklistF.valid">Next</button>
+  <div *ngIf="remainingValues && remainingValues.shift_comment_f_oot != null">
+    <p><strong>Comment : </strong>{{ remainingValues.shift_comment_f_oot }}</p>
+  </div>
+<div *ngIf="remainingValues && remainingValues.shift_comment_f_iot != null">
+  <p><strong>Comment : </strong>{{ remainingValues.shift_comment_f_iot }}</p>
+
+</div>
+<!-- <p><strong>2.UserName : </strong>{{ this.currentUser.username === 'Operator1' ? 'Siva' : 'Sakthi' }} <strong>Comment : </strong>{{ remainingValues.shift_comment_e_iot }}</p> -->
+
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2%;">
+  
+    <div *ngIf="disableIO ==='oot'">
+      <div class="row" style="margin-left: 450px;">
+        <div class="col">
+          <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
+          </div>
+          
+        </div>
+      <div *ngIf="enable" [formGroup]="ChecklistF">
+        
+        <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_f_oot"></textarea>
+        <button class="btn btn-primary ml-2" style="background-color: #97ca94;margin-bottom: 4%;" (click)="onRadioChangeup()">Add Comment</button>
+      </div>
+     
+    </div>
+  
+  <div *ngIf="disableIO ==='iot'">
+    <div class="row" style="margin-left: 450px;">
+    <div class="col">
+      <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
+      </div>
+      
+    </div>
+    
+    <div *ngIf="enable" class="m-2" [formGroup]="ChecklistF">
+     
+      <div>
+        <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_f_iot"></textarea>
+        <button class="btn btn-primary ml-2"  style="background-color: #97ca94;margin-bottom: 4%;"  (click)="onRadioChangeup()">Add Comment</button>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+  
   </mat-card-content>
 </mat-card>
 </mat-expansion-panel>

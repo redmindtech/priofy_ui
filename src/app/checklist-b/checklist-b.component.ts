@@ -152,7 +152,7 @@ setupSubmitInterval() {
   this.onSubmitInterval = setInterval(() => {
     console.log('onSubmitInterval: ', this.onSubmitInterval);
     this.add();
-  }, 15 * 1000); // 2 minutes in milliseconds
+  }, 5 * 1000); // 2 minutes in milliseconds
 }
 
 onSubmit()
@@ -161,7 +161,7 @@ onSubmit()
     const formData = this.ChecklistB.value;
     this.apiService.savecheckBpage(formData).subscribe(
       (response) => {
-
+        this.id=response.result.id;
         console.log('Data saved successfully:', response);
         this.toast.open('Data saved successfully', 'Close', { duration: 3000 });
 

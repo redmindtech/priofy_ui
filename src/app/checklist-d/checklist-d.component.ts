@@ -24,7 +24,11 @@ export class ChecklistDComponent implements OnInit {
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
   currentUser: any;
-  id: any;
+  enable: boolean = false;
+  aceptreject:string = 'null'; 
+  id:any;
+
+  remainingValues: any;
   constructor(private fb: FormBuilder,
     private apiService:ChecklistDService,
     private router: Router,
@@ -47,6 +51,7 @@ export class ChecklistDComponent implements OnInit {
       this.disableoot = true;
     }
     this.formInitialization();
+  this.setupSubmitInterval()
   }
   ngOnDestroy(): void {
     clearInterval(this.onSubmitInterval);
@@ -55,8 +60,9 @@ export class ChecklistDComponent implements OnInit {
     }
   }
   formInitialization(){
+    
     this.ChecklistD = this.fb.group({
-
+      id:[this.id],
         // burners_20_:[null,Validators.required],
         iot_arch_temperature:[null,Validators.required],
         OOT_air_ONIS_blind:[null,Validators.required],
@@ -119,7 +125,7 @@ export class ChecklistDComponent implements OnInit {
         oot_burner_light_off_comment:[null],
         oot_add_burners_comment:[null],
         air_registers_3Notches_comment:[null],
-        burners_20_comment:[null,Validators.required],
+        burners_20_comment:[null],
         iot_to_request_OOT_comment:[null],
         iot_COTs_rising_comment:[null],
         iot_venturi_Ratios_comment:[null],
@@ -162,28 +168,31 @@ export class ChecklistDComponent implements OnInit {
         oot_to_lineup_steamdrum_comment:[null],
         adjust_the_steam_drum_blowdown_comment:[null],
         furnace_sequence_automove_to_warmup_comment:[null],
-
-        id:[this.id],
         userid:[this.userObject.id],
         master_id:[1],
+     
     })
+    
     }
     setupSubmitInterval() {
       this.onSubmitInterval = setInterval(() => {
         console.log('onSubmitInterval: ', this.onSubmitInterval);
         this.add();
-      }, 15* 1000); // 2 minutes in milliseconds
+      }, 5* 1000); // 2 minutes in milliseconds
     }
  onSubmit()
   {
 
       const formData = this.ChecklistD.value;
+      console.log('formData: ', formData);
       this.apiService.savecheckdpage(formData).subscribe(
         (response) => {
-
+          this.id=response.result.id;
+          // this.ChecklistD.get('id')?.setValue(this.id);
           console.log('Data saved successfully:', response);
           this.toast.open('Data saved successfully', 'Close', { duration: 3000 });
-
+        
+          console.log('this.id: ', this.id);
           // this.router.navigate(['/blank']);
         },
         (error) => {
@@ -200,8 +209,17 @@ export class ChecklistDComponent implements OnInit {
   add() {
     this.apiService.getchecklistD().subscribe((response: any) => {
       console.log(response, 'checking');
-      this.ChecklistD.patchValue(response.result);
+      this.remainingValues = response.result;
+    console.log('shift_comment_d_iot: ', response.result.shift_comment_d_iot);
+
+    
+    Object.keys(this.remainingValues).forEach(key => {
+      if (key !== 'shift_comment_d_oot' && key !== 'shift_comment_d_iot') {
+        this.ChecklistD.get(key)?.patchValue(this.remainingValues[key]);
+       
+      }
     });
+  });
   }
   onRadioChange() {
     // You may want to check if the input field has focus or not
@@ -229,7 +247,8 @@ export class ChecklistDComponent implements OnInit {
   this.apiService.updatePermitData(formData).subscribe(
     (response) => {
       // Assuming 'permitForm' is a FormGroup
-
+      this.ChecklistD.get('shift_comment_d_oot')?.reset();
+      this.ChecklistD.get('shift_comment_d_iot')?.reset();
 
     },
     (error) => {
@@ -239,4 +258,8 @@ export class ChecklistDComponent implements OnInit {
     }
   );
   }
+  toggleEnable() {
+    this.enable = !this.enable; // Toggle the value of enable between true and false
+  }
+ 
 }

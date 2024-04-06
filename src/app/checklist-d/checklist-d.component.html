@@ -25,7 +25,7 @@
             <tr>
               <th class="theader">Step</th>
               <th class="theader">Action (Hazard/Precaution if applicable)</th>
-              <th class="theader"style="width: 29%; text-align: center;">Yes/No</th>
+              <th class="theader"style="width: 33%; text-align: center;">Actions</th>
             </tr>
           </thead>
           <tr>
@@ -1387,10 +1387,11 @@
               both sides average COT temperature is higher than 450°C and
               dilution steam flow on each side is higher than 5 Mt/h. </td>
               <td>
+                <button>
                 <input type="radio" class="custom-radio" id="furnace_sequence_automove_to_warmup-done" name="furnace_sequence_automove_to_warmup" value="Done" formControlName="furnace_sequence_automove_to_warmup"  (change)="onRadioChangeup()"/>
                 <label for="furnace_sequence_automove_to_warmup-done"class="action">Done</label>
 
-                <input type="radio" class="custom-radio" id="furnace_sequence_automove_to_warmup-risk" name="furnace_sequence_automove_to_warmup" value="Risk" formControlName="furnace_sequence_automove_to_warmup" (change)="onRadioChangeup()"/>
+                <input  type="radio" class="custom-radio" id="furnace_sequence_automove_to_warmup-risk" name="furnace_sequence_automove_to_warmup" value="Risk" formControlName="furnace_sequence_automove_to_warmup" (change)="onRadioChangeup()"/>
                 <label for="furnace_sequence_automove_to_warmup-risk"class="action">Risk</label>
 
                 <input type="radio" class="custom-radio" id="furnace_sequence_automove_to_warmup-skip" name="furnace_sequence_automove_to_warmup" value="Skip" formControlName="furnace_sequence_automove_to_warmup"  (change)="onRadioChangeup()"/>
@@ -1404,14 +1405,64 @@
                     <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
                   </div>
                 </div>
+              </button>
             </td>
 
           </tr>
 
 
-          <button mat-raised-button style="margin-left: 90%;margin-top: 10px;" color="primary"
-            [disabled]="!ChecklistD.valid" (click)="nxtAccEn()">Next</button>
+         
         </form>
+        <div *ngIf="remainingValues && remainingValues.shift_comment_d_oot != null">
+          <p><strong>Comment : </strong>{{ remainingValues.shift_comment_d_oot }}</p>
+        </div>
+      <div *ngIf="remainingValues && remainingValues.shift_comment_d_iot != null">
+        <p><strong>Comment : </strong>{{ remainingValues.shift_comment_d_iot }}</p>
+      
+      </div>
+      <!-- <p><strong>2.UserName : </strong>{{ this.currentUser.username === 'Operator1' ? 'Siva' : 'Sakthi' }} <strong>Comment : </strong>{{ remainingValues.shift_comment_e_iot }}</p> -->
+      
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2%;">
+        
+          <div *ngIf="disableoot">
+            <div class="row" style="margin-left: 450px;">
+              <div class="col">
+                <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
+                </div>
+                <div class="col">
+                <button mat-raised-button style="background-color: #97ca94; " [disabled]="!ChecklistD.valid" (click)="nxtAccEn()">Next</button>
+                </div>
+              </div>
+            <div *ngIf="enable"class="ml-2" [formGroup]="ChecklistD">
+              
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_d_oot"></textarea>
+              <button class="btn btn-primary ml-2" style="background-color: #97ca94;margin-bottom: 4%;" (click)="onRadioChangeup()">Add Comment</button>
+            </div>
+           
+          </div>
+        
+        <div *ngIf="disableiot">
+          <div class="row" style="margin-left: 450px;">
+          <div class="col">
+            <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
+            </div>
+            <div class="col">
+            <button mat-raised-button style="background-color: #97ca94; " [disabled]="!ChecklistD.valid" (click)="nxtAccEn()">Next</button>
+            </div>
+          </div>
+          
+          <div *ngIf="enable" class="ml-2" [formGroup]="ChecklistD">
+           
+            <div>
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_d_iot"></textarea>
+              <button class="btn btn-primary ml-1"  style="background-color: #97ca94;margin-bottom: 4%;"  (click)="onRadioChangeup()">Add Comment</button>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
       </mat-card-content>
     </mat-card>
   </mat-expansion-panel>

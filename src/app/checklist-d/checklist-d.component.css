@@ -34,6 +34,7 @@ th {
 }
 .custom-radio {
   display: none;
+
 }
 
 .custom-radio + label {
@@ -41,6 +42,7 @@ th {
   padding: 5px 10px;
   border: 1px solid #ccc;
   cursor: pointer;
+  border-radius: 30px;
 }
 
 .custom-radio[value="Done"]:checked + label {

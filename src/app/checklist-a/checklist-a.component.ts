@@ -146,7 +146,7 @@ export class ChecklistAComponent implements OnInit {
     this.onSubmitInterval = setInterval(() => {
       console.log('onSubmitInterval: ', this.onSubmitInterval);
       this.add();
-    }, 15 * 1000); // 2 minutes in milliseconds
+    }, 5 * 1000); // 2 minutes in milliseconds
   }
 
   onSubmit() {

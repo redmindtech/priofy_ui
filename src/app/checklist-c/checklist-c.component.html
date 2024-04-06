@@ -18,16 +18,35 @@
           <tr>
             <th class="theader">Step</th>
             <th class="theader">Action (Hazard/Precaution if applicable)</th>
-            <th class="theader">Yes/No</th>
+            <th class="theader" style="width: 29%; text-align: center;" >Action</th>
           </tr>
         </thead>
- <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
+        <tbody>
+ <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">  
   <td class="style">  1. </td>
     <td class="header">Has IOT  manually  moved the BM sequence to Stand By step and also
       manually  moved the Furnace control sequence moves to Purge & Light Off step.
     </td>
-   <td><input type="radio" class="radio" formControlName="iot_furnace_control_sequence" value="yes" (focusout)="onSubmit()"/>
-      <input type="radio" class="radio" formControlName="iot_furnace_control_sequence" value="no" (focusout)="onSubmit()"/></td>
+    <td>
+      <input type="radio" class="custom-radio" id="iot_furnace_control_sequence-done" name="iot_furnace_control_sequence" value="Done" formControlName="iot_furnace_control_sequence"  (change)="onRadioChange()"/>
+      <label for="iot_furnace_control_sequence-done"class="action">Done</label>
+      
+      <input type="radio" class="custom-radio" id="iot_furnace_control_sequence-risk" name="iot_furnace_control_sequence" value="Risk" formControlName="iot_furnace_control_sequence" (change)="onRadioChange()"/>
+      <label for="iot_furnace_control_sequence-risk"class="action">Risk</label>
+      
+      <input type="radio" class="custom-radio" id="iot_furnace_control_sequence-skip" name="iot_furnace_control_sequence" value="Skip" formControlName="iot_furnace_control_sequence"  (change)="onRadioChange()"/>
+      <label for="iot_furnace_control_sequence-skip"class="action">Skip</label>
+      
+      <div *ngIf="ChecklistC?.get('iot_furnace_control_sequence')?.value === 'Skip'">
+        <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_furnace_control_sequence_comment"></textarea>
+        <div style="margin-left: 31%;">
+          <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_furnace_control_sequence')?.setValue(''); ChecklistC?.get('iot_furnace_control_sequence_comment')?.setValue('')">cancel</button>
+          <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+        </div>
+      </div>
+  </td>
+
+   
     </tr>
     <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
       <td></td>
@@ -50,8 +69,28 @@
         atmosphere is done 6 times in “auto”. If purge permissive are not
         maintained or pressure up & holding do not meet the
         requirements, furnace will trip.</td>
-        <td><input type="radio" class="radio" formControlName="pressure_test" value="yes" (focusout)="onSubmit()">
-          <input type="radio" class="radio" formControlName="pressure_test" value="no" (focusout)="onSubmit()"></td>
+
+        <td>
+          <input type="radio" class="custom-radio" id="pressure_test-done" name="pressure_test" value="Done" formControlName="pressure_test"  (change)="onRadioChangeup()"/>
+          <label for="pressure_test-done"class="action">Done</label>
+          
+          <input type="radio" class="custom-radio" id="pressure_test-risk" name="pressure_test" value="Risk" formControlName="pressure_test" (change)="onRadioChangeup()"/>
+          <label for="pressure_test-risk"class="action">Risk</label>
+          
+          <input type="radio" class="custom-radio" id="pressure_test-skip" name="pressure_test" value="Skip" formControlName="pressure_test"  (change)="onRadioChangeup()"/>
+          <label for="pressure_test-skip"class="action">Skip</label>
+          
+          <div *ngIf="ChecklistC?.get('pressure_test')?.value === 'Skip'">
+            <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="pressure_test_comment"></textarea>
+            <div style="margin-left: 31%;">
+              <button class="btn btn-primary m-1" (click)="ChecklistC?.get('pressure_test')?.setValue(''); ChecklistC?.get('pressure_test_comment')?.setValue('')">cancel</button>
+              <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+            </div>
+          </div>
+      </td>
+
+        <!-- <td><input type="radio" class="radio" formControlName="pressure_test" value="yes" (focusout)="onSubmit()">
+          <input type="radio" class="radio" formControlName="pressure_test" value="no" (focusout)="onSubmit()"></td> -->
           </tr>
           <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
             <td></td>
@@ -64,8 +103,28 @@
       <td class="style">  3. </td>
         <td class="header">IOT's ensure that whether BM sequence returns back to Standby
       step after Fuel Header Purge step is done.</td>
-          <td><input type="radio" class="radio" formControlName="iot_fuel_header_purge" value="yes" (focusout)="onSubmit()">
-        <input type="radio" class="radio" formControlName="iot_fuel_header_purge" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="iot_fuel_header_purge-done" name="iot_fuel_header_purge" value="Done" formControlName="iot_fuel_header_purge"  (change)="onRadioChangeup()"/>
+        <label for="iot_fuel_header_purge-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="iot_fuel_header_purge-risk" name="iot_fuel_header_purge" value="Risk" formControlName="iot_fuel_header_purge" (change)="onRadioChangeup()"/>
+        <label for="iot_fuel_header_purge-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="iot_fuel_header_purge-skip" name="iot_fuel_header_purge" value="Skip" formControlName="iot_fuel_header_purge"  (change)="onRadioChangeup()"/>
+        <label for="iot_fuel_header_purge-skip"class="action">Skip</label>
+        
+        <div *ngIf="ChecklistC?.get('iot_fuel_header_purge')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="iot_fuel_header_purge_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_fuel_header_purge')?.setValue(''); ChecklistC?.get('iot_fuel_header_purge_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+          <!-- <td><input type="radio" class="radio" formControlName="iot_fuel_header_purge" value="yes" (focusout)="onSubmit()">
+        <input type="radio" class="radio" formControlName="iot_fuel_header_purge" value="no" (focusout)="onSubmit()"></td> -->
           </tr>
           <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
           <td></td>
@@ -77,8 +136,28 @@
   <td class="style">  4. </td>
     <td class="header">OOT check and  make sure that the furnace to be lit and the adjacent
       furnaces area is cleared of all personnel, including the Furnace OOT.</td>
-      <td><input type="radio" class="radio" formControlName="oot_adjacent_furnaces_area" value="yes" (focusout)="onSubmit()">
-      <input type="radio" class="radio" formControlName="oot_adjacent_furnaces_area" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="oot_adjacent_furnaces_area-done" name="oot_adjacent_furnaces_area" value="Done" formControlName="oot_adjacent_furnaces_area"  (change)="onRadioChangeup()"/>
+        <label for="oot_adjacent_furnaces_area-done" class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="oot_adjacent_furnaces_area-risk" name="oot_adjacent_furnaces_area" value="Risk" formControlName="oot_adjacent_furnaces_area" (change)="onRadioChangeup()"/>
+        <label for="oot_adjacent_furnaces_area-risk" class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="oot_adjacent_furnaces_area-skip" name="oot_adjacent_furnaces_area" value="Skip" formControlName="oot_adjacent_furnaces_area"  (change)="onRadioChangeup()"/>
+        <label for="oot_adjacent_furnaces_area-skip" class="action">Skip</label>
+        
+        <div *ngIf="ChecklistC?.get('oot_adjacent_furnaces_area')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_adjacent_furnaces_area_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('oot_adjacent_furnaces_area')?.setValue(''); ChecklistC?.get('oot_adjacent_furnaces_area_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1"(click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+      <!-- <td><input type="radio" class="radio" formControlName="oot_adjacent_furnaces_area" value="yes" (focusout)="onSubmit()">
+      <input type="radio" class="radio" formControlName="oot_adjacent_furnaces_area" value="no" (focusout)="onSubmit()"></td> -->
       </tr>
       <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
       <td></td>
@@ -91,15 +170,55 @@
       <td class="header">After one purge volume is completed, Has IOT  requested OOT to
       push local reset button (field flashing green light should come on
       solid).</td>
-  <td><input type="radio" class="radio" formControlName="iot_request_local_reset" value="yes" (focusout)="onSubmit()">
-   <input type="radio" class="radio" formControlName="iot_request_local_reset" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="iot_request_local_reset-done" name="iot_request_local_reset" value="Done" formControlName="iot_request_local_reset"  (change)="onRadioChangeup()"/>
+        <label for="iot_request_local_reset-done" class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="iot_request_local_reset-risk" name="iot_request_local_reset" value="Risk" formControlName="iot_request_local_reset" (change)="onRadioChangeup()"/>
+        <label for="iot_request_local_reset-risk" class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="iot_request_local_reset-skip" name="iot_request_local_reset" value="Skip" formControlName="iot_request_local_reset"  (change)="onRadioChangeup()"/>
+        <label for="iot_request_local_reset-skip" class="action">Skip</label>
+        
+        <div *ngIf="ChecklistC?.get('iot_request_local_reset')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="iot_request_local_reset_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_request_local_reset')?.setValue(''); ChecklistC?.get('iot_request_local_reset_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+  <!-- <td><input type="radio" class="radio" formControlName="iot_request_local_reset" value="yes" (focusout)="onSubmit()">
+   <input type="radio" class="radio" formControlName="iot_request_local_reset" value="no" (focusout)="onSubmit()"></td> -->
  </tr>
   <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
     <td class="style">  6. </td>
       <td class="header">Has IOT moved BM sequence to Pressure Test step within 15 minutes
       of field reset.</td>
-        <td><input type="radio" class="radio" formControlName="iot_move_pressure_test" value="yes" (focusout)="onSubmit()">
-         <input type="radio" class="radio" formControlName="iot_move_pressure_test" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="iot_move_pressure_test-done" name="iot_move_pressure_test" value="Done" formControlName="iot_move_pressure_test"  (change)="onRadioChangeup()"/>
+        <label for="iot_move_pressure_test-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="iot_move_pressure_test-risk" name="iot_move_pressure_test" value="Risk" formControlName="iot_move_pressure_test" (change)="onRadioChangeup()"/>
+        <label for="iot_move_pressure_test-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="iot_move_pressure_test-skip" name="iot_move_pressure_test" value="Skip" formControlName="iot_move_pressure_test"  (change)="onRadioChangeup()"/>
+        <label for="iot_move_pressure_test-skip"class="action">Skip</label>
+        
+        <div *ngIf="ChecklistC?.get('iot_move_pressure_test')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="iot_move_pressure_test_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_move_pressure_test')?.setValue(''); ChecklistC?.get('iot_move_pressure_test_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+        <!-- <td><input type="radio" class="radio" formControlName="iot_move_pressure_test" value="yes" (focusout)="onSubmit()">
+         <input type="radio" class="radio" formControlName="iot_move_pressure_test" value="no" (focusout)="onSubmit()"></td> -->
          </tr>
          <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
           <td></td>
@@ -114,16 +233,56 @@
     <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"><td></td>
       <td class="header">Pressure Up: bypass DB&B opens, local PCV opens and header
       is pressurized to 0.2 kg/cm2g within 100 seconds, or trip occurs.</td>
-      <td><input type="radio" class="radio" formControlName="iot_pressure_up" value="yes" (focusout)="onSubmit()">
-        <input type="radio" class="radio" formControlName="iot_pressure_up" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="iot_pressure_up-done" name="iot_pressure_up" value="Done" formControlName="iot_pressure_up"  (change)="onRadioChangeup()"/>
+        <label for="iot_pressure_up-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="iot_pressure_up-risk" name="iot_pressure_up" value="Risk" formControlName="iot_pressure_up" (change)="onRadioChangeup()"  />
+        <label for="iot_pressure_up-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="iot_pressure_up-skip" name="iot_pressure_up" value="Skip" formControlName="iot_pressure_up"  (change)="onRadioChangeup()"/>
+        <label for="iot_pressure_up-skip"class="action">Skip</label>
+        
+        <div *ngIf="ChecklistC?.get('iot_pressure_up')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="iot_pressure_up_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_pressure_up')?.setValue(''); ChecklistC?.get('iot_pressure_up_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()" >Confirm</button>
+          </div>
+        </div>
+    </td>
+
+      <!-- <td><input type="radio" class="radio" formControlName="iot_pressure_up" value="yes" (focusout)="onSubmit()">
+        <input type="radio" class="radio" formControlName="iot_pressure_up" value="no" (focusout)="onSubmit()"></td> -->
         </tr>
         <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
           <td></td>
       <td class="header">Hold: bypass DB&B closes, pressure must not drop more than
       0.02 kg/cm2 (10%) or trip occurs.
       </td>
-      <td><input type="radio" class="radio" formControlName="iot_Hold" value="yes" (focusout)="onSubmit()">
-        <input type="radio" class="radio" formControlName="iot_Hold" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="iot_Hold-done" name="iot_Hold" value="Done" formControlName="iot_Hold"  (change)="onRadioChangeup()"/>
+        <label for="iot_Hold-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="iot_Hold-risk" name="iot_Hold" value="Risk" formControlName="iot_Hold" (change)="onRadioChangeup()"  />
+        <label for="iot_Hold-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="iot_Hold-skip" name="iot_Hold" value="Skip" formControlName="iot_Hold"  (change)="onRadioChangeup()"/>
+        <label for="iot_Hold-skip"class="action">Skip</label>
+        
+        <div *ngIf="ChecklistC?.get('iot_Hold')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="iot_Hold_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_Hold')?.setValue(''); ChecklistC?.get('iot_Hold_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()" >Confirm</button>
+          </div>
+        </div>
+    </td>
+
+      <!-- <td><input type="radio" class="radio" formControlName="iot_Hold" value="yes" (focusout)="onSubmit()">
+        <input type="radio" class="radio" formControlName="iot_Hold" value="no" (focusout)="onSubmit()"></td> -->
         </tr>
         <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
           <td></td>
@@ -135,15 +294,55 @@
     <td class="style">  8. </td>
       <td class="header">If Pressure Test fails, has OOT  de-pressured fuel gas
       headers to radiant box.</td>
-  <td><input type="radio" class="radio" formControlName="oot_pressure_test" value="yes" (focusout)="onSubmit()">
-    <input type="radio" class="radio" formControlName="oot_pressure_test" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="oot_pressure_test-done" name="oot_pressure_test" value="Done" formControlName="oot_pressure_test"  (change)="onRadioChangeup()"/>
+        <label for="oot_pressure_test-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="oot_pressure_test-risk" name="oot_pressure_test" value="Risk" formControlName="oot_pressure_test" (change)="onRadioChangeup()"  />
+        <label for="oot_pressure_test-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="oot_pressure_test-skip" name="oot_pressure_test" value="Skip" formControlName="oot_pressure_test"  (change)="onRadioChangeup()"/>
+        <label for="oot_pressure_test-skip"class="action">Skip</label>
+    
+        <div *ngIf="ChecklistC?.get('oot_pressure_test')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="oot_pressure_test_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('oot_pressure_test')?.setValue(''); ChecklistC?.get('oot_pressure_test_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+  <!-- <td><input type="radio" class="radio" formControlName="oot_pressure_test" value="yes" (focusout)="onSubmit()">
+    <input type="radio" class="radio" formControlName="oot_pressure_test" value="no" (focusout)="onSubmit()"></td> -->
   </tr>
   <tr>
     <td class="style">  9. </td>
       <td class="header">When Pressure Test is complete BM sequence moves
       automatically to Firebox Purge step.</td>
-      <td><input type="radio" class="radio"  formControlName="pressure_test_BM_sequence" value="yes" (focusout)="onSubmit()">
-        <input type="radio" class="radio" formControlName="pressure_test_BM_sequence" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="pressure_test_BM_sequence-done" name="pressure_test_BM_sequence" value="Done" formControlName="pressure_test_BM_sequence"  (change)="onRadioChangeup()"/>
+        <label for="pressure_test_BM_sequence-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="pressure_test_BM_sequence-risk" name="pressure_test_BM_sequence" value="Risk" formControlName="pressure_test_BM_sequence" (change)="onRadioChangeup()"  />
+        <label for="pressure_test_BM_sequence-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="pressure_test_BM_sequence-skip" name="pressure_test_BM_sequence" value="Skip" formControlName="pressure_test_BM_sequence"  (change)="onRadioChangeup()"/>
+        <label for="pressure_test_BM_sequence-skip"class="action">Skip</label>
+    
+        <div *ngIf="ChecklistC?.get('pressure_test_BM_sequence')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="pressure_test_BM_sequence_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('pressure_test_BM_sequence')?.setValue(''); ChecklistC?.get('pressure_test_BM_sequence_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+      <!-- <td><input type="radio" class="radio"  formControlName="pressure_test_BM_sequence" value="yes" (focusout)="onSubmit()">
+        <input type="radio" class="radio" formControlName="pressure_test_BM_sequence" value="no" (focusout)="onSubmit()"></td> -->
         </tr><tr><td></td>
       <td class="header"> Note: this step is to ensure all flammables are purged from
       firebox prior to light off. Purge permissive must be maintained all
@@ -154,21 +353,81 @@
     <td class="style"> 10. </td>
       <td class="header">Has the OOT ensured that all floor burners air registers are fully open,
       except the 4 automated burners that must be closed.</td>
-  <td><input type="radio" class="radio" formControlName="oot_4_automated_burners" value="yes" (focusout)="onSubmit()">
-   <input type="radio"class="radio"  formControlName="oot_4_automated_burners" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="oot_4_automated_burners-done" name="oot_4_automated_burners" value="Done" formControlName="oot_4_automated_burners"  (change)="onRadioChangeup()"/>
+        <label for="oot_4_automated_burners-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="oot_4_automated_burners-risk" name="oot_4_automated_burners" value="Risk" formControlName="oot_4_automated_burners" (change)="onRadioChangeup()"  />
+        <label for="oot_4_automated_burners-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="oot_4_automated_burners-skip" name="oot_4_automated_burners" value="Skip" formControlName="oot_4_automated_burners"  (change)="onRadioChangeup()"/>
+        <label for="oot_4_automated_burners-skip"class="action">Skip</label>
+    
+        <div *ngIf="ChecklistC?.get('oot_4_automated_burners')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="oot_4_automated_burners_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('oot_4_automated_burners')?.setValue(''); ChecklistC?.get('oot_4_automated_burners_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+  <!-- <td><input type="radio" class="radio" formControlName="oot_4_automated_burners" value="yes" (focusout)="onSubmit()">
+   <input type="radio"class="radio"  formControlName="oot_4_automated_burners" value="no" (focusout)="onSubmit()"></td> -->
   </tr>
   <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
     <td class="style">  11. </td>
   <td class="header" >Has OOT  ensured that all wall burners air registers are closed.</td>
-  <td><input type="radio" class="radio" formControlName="oot_wall_burners" value="yes" (focusout)="onSubmit()">
-    <input type="radio" class="radio" formControlName="oot_wall_burners" value="no" (focusout)="onSubmit()"></td>
+
+  <td>
+    <input type="radio" class="custom-radio" id="oot_wall_burners-done" name="oot_wall_burners" value="Done" formControlName="oot_wall_burners"  (change)="onRadioChangeup()"/>
+    <label for="oot_wall_burners-done"class="action">Done</label>
+    
+    <input type="radio" class="custom-radio" id="oot_wall_burners-risk" name="oot_wall_burners" value="Risk" formControlName="oot_wall_burners" (change)="onRadioChangeup()"  />
+    <label for="oot_wall_burners-risk"class="action">Risk</label>
+    
+    <input type="radio" class="custom-radio" id="oot_wall_burners-skip" name="oot_wall_burners" value="Skip" formControlName="oot_wall_burners"  (change)="onRadioChangeup()"/>
+    <label for="oot_wall_burners-skip"class="action">Skip</label>
+
+    <div *ngIf="ChecklistC?.get('oot_wall_burners')?.value === 'Skip'">
+      <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="oot_wall_burners_comment"></textarea>
+      <div style="margin-left: 31%;">
+        <button class="btn btn-primary m-1" (click)="ChecklistC?.get('oot_wall_burners')?.setValue(''); ChecklistC?.get('oot_wall_burners_comment')?.setValue('')">cancel</button>
+        <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+      </div>
+    </div>
+</td>
+
+  <!-- <td><input type="radio" class="radio" formControlName="oot_wall_burners" value="yes" (focusout)="onSubmit()">
+    <input type="radio" class="radio" formControlName="oot_wall_burners" value="no" (focusout)="onSubmit()"></td> -->
     </tr>
   <tr>
     <td class="style">  12. </td>
   <td class="header">After 5 purge volumes are completed, does the BM sequence moves
       automatically to Purge Complete step.</td>
-      <td><input type="radio" class="radio" formControlName="bm_sequence_moves_purge" value="yes" (focusout)="onSubmit()">
-     <input type="radio" class="radio" formControlName="bm_sequence_moves_purge" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="bm_sequence_moves_purge-done" name="bm_sequence_moves_purge" value="Done" formControlName="bm_sequence_moves_purge"  (change)="onRadioChangeup()"/>
+        <label for="bm_sequence_moves_purge-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="bm_sequence_moves_purge-risk" name="bm_sequence_moves_purge" value="Risk" formControlName="bm_sequence_moves_purge" (change)="onRadioChangeup()"  />
+        <label for="bm_sequence_moves_purge-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="bm_sequence_moves_purge-skip" name="bm_sequence_moves_purge" value="Skip" formControlName="bm_sequence_moves_purge"  (change)="onRadioChangeup()"/>
+        <label for="bm_sequence_moves_purge-skip"class="action">Skip</label>
+    
+        <div *ngIf="ChecklistC?.get('bm_sequence_moves_purge')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="bm_sequence_moves_purge_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('bm_sequence_moves_purge')?.setValue(''); ChecklistC?.get('bm_sequence_moves_purge_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+      <!-- <td><input type="radio" class="radio" formControlName="bm_sequence_moves_purge" value="yes" (focusout)="onSubmit()">
+     <input type="radio" class="radio" formControlName="bm_sequence_moves_purge" value="no" (focusout)="onSubmit()"></td> -->
      </tr><tr>
       <td></td>
        <td class="header">Note: in this step purge permissive are monitored and must not
@@ -184,35 +443,155 @@
      <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
     <td></td>
     <td class="header">*Steam drum level.</td>
-    <td><input type="radio" class="radio" formControlName="iot_steam_drum_level" value="yes" (focusout)="onSubmit()">
-      <input type="radio" class="radio" formControlName="iot_steam_drum_level" value="no" (focusout)="onSubmit()"></td>
+
+    <td>
+      <input type="radio" class="custom-radio" id="iot_steam_drum_level-done" name="iot_steam_drum_level" value="Done" formControlName="iot_steam_drum_level"  (change)="onRadioChangeup()"/>
+      <label for="iot_steam_drum_level-done"class="action">Done</label>
+      
+      <input type="radio" class="custom-radio" id="iot_steam_drum_level-risk" name="iot_steam_drum_level" value="Risk" formControlName="iot_steam_drum_level" (change)="onRadioChangeup()"  />
+      <label for="iot_steam_drum_level-risk"class="action">Risk</label>
+      
+      <input type="radio" class="custom-radio" id="iot_steam_drum_level-skip" name="iot_steam_drum_level" value="Skip" formControlName="iot_steam_drum_level"  (change)="onRadioChangeup()"/>
+      <label for="iot_steam_drum_level-skip"class="action">Skip</label>
+  
+      <div *ngIf="ChecklistC?.get('iot_steam_drum_level')?.value === 'Skip'">
+        <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="iot_steam_drum_level_comment"></textarea>
+        <div style="margin-left: 31%;">
+          <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_steam_drum_level')?.setValue(''); ChecklistC?.get('iot_steam_drum_level_comment')?.setValue('')">cancel</button>
+          <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+        </div>
+      </div>
+  </td>
+
+    <!-- <td><input type="radio" class="radio" formControlName="iot_steam_drum_level" value="yes" (focusout)="onSubmit()">
+      <input type="radio" class="radio" formControlName="iot_steam_drum_level" value="no" (focusout)="onSubmit()"></td> -->
         </tr>
         <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"><td></td>
       <td class="header">*Firebox draft.</td>
-      <td><input type="radio" class="radio" formControlName="iot_firebox_draft" value="yes" (focusout)="onSubmit()">
-        <input type="radio" class="radio" formControlName="iot_firebox_draft" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="iot_firebox_draft-done" name="iot_firebox_draft" value="Done" formControlName="iot_firebox_draft"  (change)="onRadioChangeup()"/>
+        <label for="iot_firebox_draft-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="iot_firebox_draft-risk" name="iot_firebox_draft" value="Risk" formControlName="iot_firebox_draft" (change)="onRadioChangeup()"  />
+        <label for="iot_firebox_draft-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="iot_firebox_draft-skip" name="iot_firebox_draft" value="Skip" formControlName="iot_firebox_draft"  (change)="onRadioChangeup()"/>
+        <label for="iot_firebox_draft-skip"class="action">Skip</label>
+    
+        <div *ngIf="ChecklistC?.get('iot_firebox_draft')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="iot_firebox_draft_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_firebox_draft')?.setValue(''); ChecklistC?.get('iot_firebox_draft_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+      <!-- <td><input type="radio" class="radio" formControlName="iot_firebox_draft" value="yes" (focusout)="onSubmit()">
+        <input type="radio" class="radio" formControlName="iot_firebox_draft" value="no" (focusout)="onSubmit()"></td> -->
       </tr>
       <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
         <td></td>
         <td class="header">*All automated burners are ready for light off.</td>
-       <td><input type="radio" class="radio" formControlName="iot_automated_burners" value="yes" (focusout)="onSubmit()">
-          <input type="radio" class="radio" formControlName="iot_automated_burners" value="no" (focusout)="onSubmit()"></td>
+
+        <td>
+          <input type="radio" class="custom-radio" id="iot_automated_burners-done" name="iot_automated_burners" value="Done" formControlName="iot_automated_burners"  (change)="onRadioChangeup()"/>
+          <label for="iot_automated_burners-done"class="action">Done</label>
+          
+          <input type="radio" class="custom-radio" id="iot_automated_burners-risk" name="iot_automated_burners" value="Risk" formControlName="iot_automated_burners" (change)="onRadioChangeup()"  />
+          <label for="iot_automated_burners-risk"class="action">Risk</label>
+          
+          <input type="radio" class="custom-radio" id="iot_automated_burners-skip" name="iot_automated_burners" value="Skip" formControlName="iot_automated_burners"  (change)="onRadioChangeup()"/>
+          <label for="iot_automated_burners-skip"class="action">Skip</label>
+      
+          <div *ngIf="ChecklistC?.get('iot_automated_burners')?.value === 'Skip'">
+            <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="iot_automated_burners_comment"></textarea>
+            <div style="margin-left: 31%;">
+              <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_automated_burners')?.setValue(''); ChecklistC?.get('iot_automated_burners_comment')?.setValue('')">cancel</button>
+              <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+            </div>
+          </div>
+      </td>
+
+       <!-- <td><input type="radio" class="radio" formControlName="iot_automated_burners" value="yes" (focusout)="onSubmit()">
+          <input type="radio" class="radio" formControlName="iot_automated_burners" value="no" (focusout)="onSubmit()"></td> -->
           </tr>
           <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
          <td></td>
           <td class="header">*purge permissive true.</td>
-          <td><input type="radio" class="radio" formControlName="iot_purge_permissive" value="yes" (focusout)="onSubmit()">
-         <input type="radio" class="radio" formControlName="iot_purge_permissive" value="no"(focusout)="onSubmit()"></td>
+
+          <td>
+            <input type="radio" class="custom-radio" id="iot_purge_permissive-done" name="iot_purge_permissive" value="Done" formControlName="iot_purge_permissive"  (change)="onRadioChangeup()"/>
+            <label for="iot_purge_permissive-done"class="action">Done</label>
+            
+            <input type="radio" class="custom-radio" id="iot_purge_permissive-risk" name="iot_purge_permissive" value="Risk" formControlName="iot_purge_permissive" (change)="onRadioChangeup()"  />
+            <label for="iot_purge_permissive-risk"class="action">Risk</label>
+            
+            <input type="radio" class="custom-radio" id="iot_purge_permissive-skip" name="iot_purge_permissive" value="Skip" formControlName="iot_purge_permissive"  (change)="onRadioChangeup()"/>
+            <label for="iot_purge_permissive-skip"class="action">Skip</label>
+        
+            <div *ngIf="ChecklistC?.get('iot_purge_permissive')?.value === 'Skip'">
+              <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="iot_purge_permissive_comment"></textarea>
+              <div style="margin-left: 31%;">
+                <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_purge_permissive')?.setValue(''); ChecklistC?.get('iot_purge_permissive_comment')?.setValue('')">cancel</button>
+                <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+              </div>
+            </div>
+        </td>
+
+          <!-- <td><input type="radio" class="radio" formControlName="iot_purge_permissive" value="yes" (focusout)="onSubmit()">
+         <input type="radio" class="radio" formControlName="iot_purge_permissive" value="no"(focusout)="onSubmit()"></td> -->
          </tr>
          <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"><td></td>
             <td class="header">*No combustibles in firebox.</td>
-            <td><input type="radio" class="radio" formControlName="iot_no_combustibles" value="yes"(focusout)="onSubmit()">
-              <input type="radio" class="radio" formControlName="iot_no_combustibles" value="no" (focusout)="onSubmit()"></td>
+
+            <td>
+              <input type="radio" class="custom-radio" id="iot_no_combustibles-done" name="iot_no_combustibles" value="Done" formControlName="iot_no_combustibles"  (change)="onRadioChangeup()"/>
+              <label for="iot_no_combustibles-done"class="action">Done</label>
+              
+              <input type="radio" class="custom-radio" id="iot_no_combustibles-risk" name="iot_no_combustibles" value="Risk" formControlName="iot_no_combustibles" (change)="onRadioChangeup()"  />
+              <label for="iot_no_combustibles-risk"class="action">Risk</label>
+              
+              <input type="radio" class="custom-radio" id="iot_no_combustibles-skip" name="iot_no_combustibles" value="Skip" formControlName="iot_no_combustibles"  (change)="onRadioChangeup()"/>
+              <label for="iot_no_combustibles-skip"class="action">Skip</label>
+          
+              <div *ngIf="ChecklistC?.get('iot_no_combustibles')?.value === 'Skip'">
+                <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="iot_no_combustibles_comment"></textarea>
+                <div style="margin-left: 31%;">
+                  <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_no_combustibles')?.setValue(''); ChecklistC?.get('iot_no_combustibles_comment')?.setValue('')">cancel</button>
+                  <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+                </div>
+              </div>
+          </td>
+
+            <!-- <td><input type="radio" class="radio" formControlName="iot_no_combustibles" value="yes"(focusout)="onSubmit()">
+              <input type="radio" class="radio" formControlName="iot_no_combustibles" value="no" (focusout)="onSubmit()"></td> -->
               </tr>
               <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"><td></td>
-              <td class="header">*Fuel control valves closed.</td>
-              <td><input type="radio" class="radio" formControlName="iot_fuel_control" value="yes" (focusout)="onSubmit()">
-                <input type="radio" class="radio"  formControlName="iot_fuel_control" value="no" (focusout)="onSubmit()"></td>
+                <td class="header">*Fuel control valves closed.</td>
+                <td>
+                  <input type="radio" class="custom-radio" id="iot_fuel_control-done" name="iot_fuel_control" value="Done" formControlName="iot_fuel_control"  (change)="onRadioChangeup()"/>
+                  <label for="iot_fuel_control-done"class="action">Done</label>
+                  
+                  <input type="radio" class="custom-radio" id="iot_fuel_control-risk" name="iot_fuel_control" value="Risk" formControlName="iot_fuel_control" (change)="onRadioChangeup()"  />
+                  <label for="iot_fuel_control-risk"class="action">Risk</label>
+                  
+                  <input type="radio" class="custom-radio" id="iot_fuel_control-skip" name="iot_fuel_control" value="Skip" formControlName="iot_fuel_control"  (change)="onRadioChangeup()"/>
+                  <label for="iot_fuel_control-skip"class="action">Skip</label>
+              
+                  <div *ngIf="ChecklistC?.get('iot_fuel_control')?.value === 'Skip'">
+                    <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="iot_fuel_control_comment"></textarea>
+                    <div style="margin-left: 31%;">
+                      <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_fuel_control')?.setValue(''); ChecklistC?.get('iot_fuel_control_comment')?.setValue('')">cancel</button>
+                      <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+                    </div>
+                  </div>
+              </td>
+
+              
+              <!-- <td><input type="radio" class="radio" formControlName="iot_fuel_control" value="yes" (focusout)="onSubmit()">
+                <input type="radio" class="radio"  formControlName="iot_fuel_control" value="no" (focusout)="onSubmit()"></td> -->
                 </tr>
                 <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"><td></td>
                 <td class="header">Note: these are really part of the purge permissive that the
@@ -223,8 +602,28 @@
       <td class="header">Has IOT  moved BM sequence to Light off Burners step within 15
       minutes of Purge complete otherwise the furnace will go to Total
       Trip.</td>
-  <td><input type="radio" class="radio" formControlName="iot_total_trip" value="yes" (focusout)="onSubmit()">
-    <input type="radio" class="radio" formControlName="iot_total_trip" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="iot_total_trip-done" name="iot_total_trip" value="Done" formControlName="iot_total_trip"  (change)="onRadioChangeup()"/>
+        <label for="iot_total_trip-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="iot_total_trip-risk" name="iot_total_trip" value="Risk" formControlName="iot_total_trip" (change)="onRadioChangeup()"  />
+        <label for="iot_total_trip-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="iot_total_trip-skip" name="iot_total_trip" value="Skip" formControlName="iot_total_trip"  (change)="onRadioChangeup()"/>
+        <label for="iot_total_trip-skip"class="action">Skip</label>
+    
+        <div *ngIf="ChecklistC?.get('iot_total_trip')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="iot_total_trip_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_total_trip')?.setValue(''); ChecklistC?.get('iot_total_trip_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+  <!-- <td><input type="radio" class="radio" formControlName="iot_total_trip" value="yes" (focusout)="onSubmit()">
+    <input type="radio" class="radio" formControlName="iot_total_trip" value="no" (focusout)="onSubmit()"></td> -->
     </tr>
   <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
     <td class="style">  15. </td>
@@ -232,8 +631,28 @@
       The remote burner light off cycle is automatically initiated in this
       step. Auto burner Light off attempt sequence is #7, #30, #21 and
       #16.</td>
-      <td><input type="radio" class="radio" formControlName="iot_to_manually_RESET" value="yes" (focusout)="onSubmit()">
-        <input type="radio"class="radio"  formControlName="iot_to_manually_RESET" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="iot_to_manually_RESET-done" name="iot_to_manually_RESET" value="Done" formControlName="iot_to_manually_RESET"  (change)="onRadioChangeup()"/>
+        <label for="iot_to_manually_RESET-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="iot_to_manually_RESET-risk" name="iot_to_manually_RESET" value="Risk" formControlName="iot_to_manually_RESET" (change)="onRadioChangeup()"  />
+        <label for="iot_to_manually_RESET-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="iot_to_manually_RESET-skip" name="iot_to_manually_RESET" value="Skip" formControlName="iot_to_manually_RESET"  (change)="onRadioChangeup()"/>
+        <label for="iot_to_manually_RESET-skip"class="action">Skip</label>
+    
+        <div *ngIf="ChecklistC?.get('iot_to_manually_RESET')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="iot_to_manually_RESET_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_to_manually_RESET')?.setValue(''); ChecklistC?.get('iot_to_manually_RESET_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+      <!-- <td><input type="radio" class="radio" formControlName="iot_to_manually_RESET" value="yes" (focusout)="onSubmit()">
+        <input type="radio"class="radio"  formControlName="iot_to_manually_RESET" value="no" (focusout)="onSubmit()"></td> -->
       </tr>
       <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
       <td></td>
@@ -268,15 +687,55 @@
     <td class="style">  16. </td>
   <td class="header">Do Ensure that atleast one burner in each zone must be lit to move the
       Burner Management sequence to the Run step.</td>
-    <td><input type="radio" class="radio" formControlName="one_burner_bms" value="yes"(focusout)="onSubmit()">
-    <input type="radio" class="radio" formControlName="one_burner_bms" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="one_burner_bms-done" name="one_burner_bms" value="Done" formControlName="one_burner_bms"  (change)="onRadioChangeup()"/>
+        <label for="one_burner_bms-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="one_burner_bms-risk" name="one_burner_bms" value="Risk" formControlName="one_burner_bms" (change)="onRadioChangeup()"  />
+        <label for="one_burner_bms-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="one_burner_bms-skip" name="one_burner_bms" value="Skip" formControlName="one_burner_bms"  (change)="onRadioChangeup()"/>
+        <label for="one_burner_bms-skip"class="action">Skip</label>
+    
+        <div *ngIf="ChecklistC?.get('one_burner_bms')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="one_burner_bms_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('one_burner_bms')?.setValue(''); ChecklistC?.get('one_burner_bms_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+    <!-- <td><input type="radio" class="radio" formControlName="one_burner_bms" value="yes"(focusout)="onSubmit()">
+    <input type="radio" class="radio" formControlName="one_burner_bms" value="no" (focusout)="onSubmit()"></td> -->
   </tr>
   <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
     <td class="style">  17. </td>
       <td class="header">Has OOT  adjusted the air damper for the automated burners which
       are lit to one notch for steady flame.</td>
-    <td><input type="radio" class="radio" formControlName="oot_adjust_air_damper" value="yes" (focusout)="onSubmit()">
-    <input type="radio" class="radio" formControlName="oot_adjust_air_damper" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="oot_adjust_air_damper-done" name="oot_adjust_air_damper" value="Done" formControlName="oot_adjust_air_damper"  (change)="onRadioChangeup()"/>
+        <label for="oot_adjust_air_damper-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="oot_adjust_air_damper-risk" name="oot_adjust_air_damper" value="Risk" formControlName="oot_adjust_air_damper" (change)="onRadioChangeup()"  />
+        <label for="oot_adjust_air_damper-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="oot_adjust_air_damper-skip" name="oot_adjust_air_damper" value="Skip" formControlName="oot_adjust_air_damper"  (change)="onRadioChangeup()"/>
+        <label for="oot_adjust_air_damper-skip"class="action">Skip</label>
+    
+        <div *ngIf="ChecklistC?.get('oot_adjust_air_damper')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="oot_adjust_air_damper_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('oot_adjust_air_damper')?.setValue(''); ChecklistC?.get('oot_adjust_air_damper_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+    <!-- <td><input type="radio" class="radio" formControlName="oot_adjust_air_damper" value="yes" (focusout)="onSubmit()">
+    <input type="radio" class="radio" formControlName="oot_adjust_air_damper" value="no" (focusout)="onSubmit()"></td> -->
   </tr>
 <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
     <td></td>
@@ -287,8 +746,28 @@
   <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
     <td class="style">  18. </td>
     <td class="header">Has OOT  ensured Igniters are not stuck inside the firebox..</td>
-    <td><input type="radio" class="radio" formControlName="oot_igniters_not_stuck" value="yes" (focusout)="onSubmit()">
-    <input type="radio" class="radio" formControlName="oot_igniters_not_stuck" value="no" (focusout)="onSubmit()"></td>
+
+    <td>
+      <input type="radio" class="custom-radio" id="oot_igniters_not_stuck-done" name="oot_igniters_not_stuck" value="Done" formControlName="oot_igniters_not_stuck"  (change)="onRadioChangeup()"/>
+      <label for="oot_igniters_not_stuck-done"class="action">Done</label>
+      
+      <input type="radio" class="custom-radio" id="oot_igniters_not_stuck-risk" name="oot_igniters_not_stuck" value="Risk" formControlName="oot_igniters_not_stuck" (change)="onRadioChangeup()"  />
+      <label for="oot_igniters_not_stuck-risk"class="action">Risk</label>
+      
+      <input type="radio" class="custom-radio" id="oot_igniters_not_stuck-skip" name="oot_igniters_not_stuck" value="Skip" formControlName="oot_igniters_not_stuck"  (change)="onRadioChangeup()"/>
+      <label for="oot_igniters_not_stuck-skip"class="action">Skip</label>
+  
+      <div *ngIf="ChecklistC?.get('oot_igniters_not_stuck')?.value === 'Skip'">
+        <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="oot_igniters_not_stuck_comment"></textarea>
+        <div style="margin-left: 31%;">
+          <button class="btn btn-primary m-1" (click)="ChecklistC?.get('oot_igniters_not_stuck')?.setValue(''); ChecklistC?.get('oot_igniters_not_stuck_comment')?.setValue('')">cancel</button>
+          <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+        </div>
+      </div>
+  </td>
+
+    <!-- <td><input type="radio" class="radio" formControlName="oot_igniters_not_stuck" value="yes" (focusout)="onSubmit()">
+    <input type="radio" class="radio" formControlName="oot_igniters_not_stuck" value="no" (focusout)="onSubmit()"></td> -->
     </tr>
     <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
       <td></td>
@@ -305,28 +784,108 @@
         <td></td>
         <td class="header"><ul><li> Unsuccessful light, sequence moves to total Trip step (HV
           closes).</li></ul></td>
-          <td><input type="radio" class="radio" formControlName="iot_unsuccessful_light" value="yes" (focusout)="onSubmit()">
-          <input type="radio" class="radio" formControlName="iot_unsuccessful_light" value="no" (focusout)="onSubmit()"></td>
+
+          <td>
+            <input type="radio" class="custom-radio" id="iot_unsuccessful_light-done" name="iot_unsuccessful_light" value="Done" formControlName="iot_unsuccessful_light"  (change)="onRadioChangeup()"/>
+            <label for="iot_unsuccessful_light-done"class="action">Done</label>
+            
+            <input type="radio" class="custom-radio" id="iot_unsuccessful_light-risk" name="iot_unsuccessful_light" value="Risk" formControlName="iot_unsuccessful_light" (change)="onRadioChangeup()"  />
+            <label for="iot_unsuccessful_light-risk"class="action">Risk</label>
+            
+            <input type="radio" class="custom-radio" id="iot_unsuccessful_light-skip" name="iot_unsuccessful_light" value="Skip" formControlName="iot_unsuccessful_light"  (change)="onRadioChangeup()"/>
+            <label for="iot_unsuccessful_light-skip"class="action">Skip</label>
+        
+            <div *ngIf="ChecklistC?.get('iot_unsuccessful_light')?.value === 'Skip'">
+              <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="iot_unsuccessful_light_comment"></textarea>
+              <div style="margin-left: 31%;">
+                <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_unsuccessful_light')?.setValue(''); ChecklistC?.get('iot_unsuccessful_light_comment')?.setValue('')">cancel</button>
+                <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+              </div>
+            </div>
+        </td>
+
+          <!-- <td><input type="radio" class="radio" formControlName="iot_unsuccessful_light" value="yes" (focusout)="onSubmit()">
+          <input type="radio" class="radio" formControlName="iot_unsuccessful_light" value="no" (focusout)="onSubmit()"></td> -->
         </tr>
         <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
           <td></td>
           <td class="header"><ul><li> Successful light, sequence can be moved to Run step by IOT.</li></ul></td>
-          <td><input type="radio" class="radio" formControlName="iot_successful_light" value="yes" (focusout)="onSubmit()">
-            <input type="radio" class="radio" formControlName="iot_successful_light" value="no" (focusout)="onSubmit()"></td>
+
+          <td>
+            <input type="radio" class="custom-radio" id="iot_successful_light-done" name="iot_successful_light" value="Done" formControlName="iot_successful_light"  (change)="onRadioChangeup()"/>
+            <label for="iot_successful_light-done"class="action">Done</label>
+            
+            <input type="radio" class="custom-radio" id="iot_successful_light-risk" name="iot_successful_light" value="Risk" formControlName="iot_successful_light" (change)="onRadioChangeup()"  />
+            <label for="iot_successful_light-risk"class="action">Risk</label>
+            
+            <input type="radio" class="custom-radio" id="iot_successful_light-skip" name="iot_successful_light" value="Skip" formControlName="iot_successful_light"  (change)="onRadioChangeup()"/>
+            <label for="iot_successful_light-skip"class="action">Skip</label>
+        
+            <div *ngIf="ChecklistC?.get('iot_successful_light')?.value === 'Skip'">
+              <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="iot_successful_light_comment"></textarea>
+              <div style="margin-left: 31%;">
+                <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_successful_light')?.setValue(''); ChecklistC?.get('iot_successful_light_comment')?.setValue('')">cancel</button>
+                <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+              </div>
+            </div>
+        </td>
+
+          <!-- <td><input type="radio" class="radio" formControlName="iot_successful_light" value="yes" (focusout)="onSubmit()">
+            <input type="radio" class="radio" formControlName="iot_successful_light" value="no" (focusout)="onSubmit()"></td> -->
         </tr>
     <tr [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
    <td class="style">  20. </td>
       <td class="header">If the Light off of the furnace failed, has OOT  manually
       depressurized the burner headers.</td>
-   <td><input type="radio" class="radio" formControlName="furnace_failed" value="yes" (focusout)="onSubmit()">
-    <input type="radio" class="radio" formControlName="furnace_failed" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="furnace_failed-done" name="furnace_failed" value="Done" formControlName="furnace_failed"  (change)="onRadioChangeup()"/>
+        <label for="furnace_failed-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="furnace_failed-risk" name="furnace_failed" value="Risk" formControlName="furnace_failed" (change)="onRadioChangeup()"  />
+        <label for="furnace_failed-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="furnace_failed-skip" name="furnace_failed" value="Skip" formControlName="furnace_failed"  (change)="onRadioChangeup()"/>
+        <label for="furnace_failed-skip"class="action">Skip</label>
+    
+        <div *ngIf="ChecklistC?.get('furnace_failed')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="furnace_failed_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('furnace_failed')?.setValue(''); ChecklistC?.get('furnace_failed_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+   <!-- <td><input type="radio" class="radio" formControlName="furnace_failed" value="yes" (focusout)="onSubmit()">
+    <input type="radio" class="radio" formControlName="furnace_failed" value="no" (focusout)="onSubmit()"></td> -->
     </tr>
   <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
      <td class="style">  21. </td>
       <td class="header">Has IOT  manually move BM sequence to Run step if successfully
       achieved at least one burner per zone.</td>
-      <td><input type="radio" class="radio" formControlName="iot_manually_move_BM_sequence" value="yes" (focusout)="onSubmit()">
-  <input type="radio"  class="radio" formControlName="iot_manually_move_BM_sequence" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="iot_manually_move_BM_sequence-done" name="iot_manually_move_BM_sequence" value="Done" formControlName="iot_manually_move_BM_sequence"  (change)="onRadioChangeup()"/>
+        <label for="iot_manually_move_BM_sequence-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="iot_manually_move_BM_sequence-risk" name="iot_manually_move_BM_sequence" value="Risk" formControlName="iot_manually_move_BM_sequence" (change)="onRadioChangeup()"  />
+        <label for="iot_manually_move_BM_sequence-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="iot_manually_move_BM_sequence-skip" name="iot_manually_move_BM_sequence" value="Skip" formControlName="iot_manually_move_BM_sequence"  (change)="onRadioChangeup()"/>
+        <label for="iot_manually_move_BM_sequence-skip"class="action">Skip</label>
+    
+        <div *ngIf="ChecklistC?.get('iot_manually_move_BM_sequence')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="iot_manually_move_BM_sequence_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_manually_move_BM_sequence')?.setValue(''); ChecklistC?.get('iot_manually_move_BM_sequence_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+      <!-- <td><input type="radio" class="radio" formControlName="iot_manually_move_BM_sequence" value="yes" (focusout)="onSubmit()">
+  <input type="radio"  class="radio" formControlName="iot_manually_move_BM_sequence" value="no" (focusout)="onSubmit()"></td> -->
   </tr>
   <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
     <td></td>
@@ -340,20 +899,108 @@
      <td class="style">  22. </td>
         <td class="header">Has IOT confirmed that Furnace sequence has auto moved to Warm
       Up Arch step.</td>
-     <td><input type="radio" class="radio" formControlName="iot_to_confirm" value="yes">
-   <input type="radio" class="radio" formControlName="iot_to_confirm" value="no"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="iot_to_confirm-done" name="iot_to_confirm" value="Done" formControlName="iot_to_confirm"  (change)="onRadioChangeup()"/>
+        <label for="iot_to_confirm-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="iot_to_confirm-risk" name="iot_to_confirm" value="Risk" formControlName="iot_to_confirm" (change)="onRadioChangeup()"  />
+        <label for="iot_to_confirm-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="iot_to_confirm-skip" name="iot_to_confirm" value="Skip" formControlName="iot_to_confirm"  (change)="onRadioChangeup()"/>
+        <label for="iot_to_confirm-skip"class="action">Skip</label>
+    
+        <div *ngIf="ChecklistC?.get('iot_to_confirm')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="iot_to_confirm_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_to_confirm')?.setValue(''); ChecklistC?.get('iot_to_confirm_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+     <!-- <td><input type="radio" class="radio" formControlName="iot_to_confirm" value="yes">
+   <input type="radio" class="radio" formControlName="iot_to_confirm" value="no"></td> -->
    </tr>
 <tr>
 <td class="style">  23. </td>
     <td class="header">Has Auto burners that did not successfully light during the auto-light
       cycle, have it  been re-attempted via the HMI.</td>
-  <td><input type="radio" class="radio" formControlName="e_attempted_via_the_HMI" value="yes" (focusout)="onSubmit()">
-    <input type="radio"class="radio" formControlName="e_attempted_via_the_HMI" value="no" (focusout)="onSubmit()"></td>
+
+      <td>
+        <input type="radio" class="custom-radio" id="e_attempted_via_the_HMI-done" name="e_attempted_via_the_HMI" value="Done" formControlName="e_attempted_via_the_HMI"  (change)="onRadioChangeup()"/>
+        <label for="e_attempted_via_the_HMI-done"class="action">Done</label>
+        
+        <input type="radio" class="custom-radio" id="e_attempted_via_the_HMI-risk" name="e_attempted_via_the_HMI" value="Risk" formControlName="e_attempted_via_the_HMI" (change)="onRadioChangeup()"  />
+        <label for="e_attempted_via_the_HMI-risk"class="action">Risk</label>
+        
+        <input type="radio" class="custom-radio" id="e_attempted_via_the_HMI-skip" name="e_attempted_via_the_HMI" value="Skip" formControlName="e_attempted_via_the_HMI"  (change)="onRadioChangeup()"/>
+        <label for="e_attempted_via_the_HMI-skip"class="action">Skip</label>
+    
+        <div *ngIf="ChecklistC?.get('e_attempted_via_the_HMI')?.value === 'Skip'">
+          <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="e_attempted_via_the_HMI_comment"></textarea>
+          <div style="margin-left: 31%;">
+            <button class="btn btn-primary m-1" (click)="ChecklistC?.get('e_attempted_via_the_HMI')?.setValue(''); ChecklistC?.get('e_attempted_via_the_HMI_comment')?.setValue('')">cancel</button>
+            <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+          </div>
+        </div>
+    </td>
+
+  <!-- <td><input type="radio" class="radio" formControlName="e_attempted_via_the_HMI" value="yes" (focusout)="onSubmit()">
+    <input type="radio"class="radio" formControlName="e_attempted_via_the_HMI" value="no" (focusout)="onSubmit()"></td> -->
     </tr>
 
-<button mat-raised-button style="margin-left: 90%;margin-top: 10px; background-color: #97ca94;" [disabled]="!ChecklistC.valid" (click)="nxtAccEn()">Next</button>
 
+
+</tbody>
 </form>
+<div *ngIf="remainingValues && remainingValues.shift_comment_c_oot != null">
+  <p><strong>Comment : </strong>{{ remainingValues.shift_comment_c_oot }}</p>
+</div>
+<div *ngIf="remainingValues && remainingValues.shift_comment_c_iot != null">
+<p><strong>Comment : </strong>{{ remainingValues.shift_comment_c_iot }}</p>
+
+</div>
+<!-- <p><strong>2.UserName : </strong>{{ this.currentUser.username === 'Operator1' ? 'Siva' : 'Sakthi' }} <strong>Comment : </strong>{{ remainingValues.shift_comment_e_iot }}</p> -->
+
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2%;">
+
+  <div *ngIf="disableIO ==='oot'">
+    <div class="row" style="margin-left: 450px;">
+      <div class="col">
+        <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
+        </div>
+        <div class="col">
+        <button mat-raised-button style="background-color: #97ca94; " [disabled]="!ChecklistC.valid" (click)="nxtAccEn()">Next</button>
+        </div>
+      </div>
+    <div *ngIf="enable"  [formGroup]="ChecklistC">
+      <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_c_oot"></textarea>
+      <button class="btn btn-primary ml-2" style="background-color: #97ca94;margin-bottom: 4%;" (click)="onRadioChangeup()">Add Comment</button>
+    </div>
+  
+  </div>
+
+<div *ngIf="disableIO ==='iot'">
+  <div class="row" style="margin-left: 450px;">
+    <div class="col">
+      <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
+      </div>
+      <div class="col">
+      <button mat-raised-button style="background-color: #97ca94; " [disabled]="!ChecklistC.valid" (click)="nxtAccEn()">Next</button>
+      </div>
+    </div>
+  <div *ngIf="enable" [formGroup]="ChecklistC">
+    <div>
+      <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_c_iot"></textarea>
+      <button class="btn btn-primary ml-2 "  style="background-color: #97ca94;margin-bottom: 4%;"  (click)="onRadioChangeup()">Add Comment</button>
+    </div>
+  </div>
+  
+</div>
+
+</div>
 </mat-card-content>
 </mat-card>
 </mat-expansion-panel>
