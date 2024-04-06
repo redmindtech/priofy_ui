@@ -10,13 +10,14 @@ import { Subscription } from 'rxjs';
 })
 export class ChecklistFComponent implements OnInit {
   @Input() checklistfformenable: boolean;
-  
+
   ChecklistF: FormGroup;
-  
+
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
   currentUser: any;
   disableIO: any;
+  id :any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,7 +31,7 @@ export class ChecklistFComponent implements OnInit {
   this.disableIO=this.currentUser.position;
     this.formInitialization();
     this.setupSubmitInterval();
-    
+
   }
   ngOnDestroy(): void {
     clearInterval(this.onSubmitInterval);
@@ -63,6 +64,28 @@ export class ChecklistFComponent implements OnInit {
       Continue_with_Furnace: [null,Validators.required],
       userid:[this.currentUser.id],
       master_id:[1],
+      id:[this.id],
+      iot_move_furnace_sequence_to_Swing_comment: [null],
+      IOT_to_confirm_comment:  [null],
+      oot_ALL_BV_of_LS_steam_comment:  [null],
+      OOT_flare_block_comment: [null],
+      OOT_IOT_Decoke_Air_comment: [null],
+      OOT_feed_DB_B_comment: [null],
+      iot_MOVs_status_comment: [null],
+      oot_MOVs_local_switches_comment: [null],
+      oot_furnace_is_clear_comment: [null],
+      iot_Operator_Permissives_comment: [null],
+      IOT_second_CG_MOV_comment: [null],
+      iot_Decoke_MOV_comment: [null],
+      iot_higher_pressure_comment: [null],
+      IOT_lower_pressure_comment: [null],
+      iot_decoke_MOV_closed_comment: [null],
+      IOT_confirm_via_HMI_comment: [null],
+      iot_HSSB_Crack_Gas_step_comment: [null],
+      Adjust_combustion_comment: [null],
+      the_top_burners_comment: [null],
+      Increase_IBD_CBD_comment: [null],
+      Continue_with_Furnace_comment: [null]
     });
   }
 
@@ -74,20 +97,20 @@ export class ChecklistFComponent implements OnInit {
   }
 
   onSubmit() {
-    
+
       const permitFormValue = this.ChecklistF.value;
       console.log('Form Data:', permitFormValue);
       this.addSubscription = this.apiService.createchecklistF(permitFormValue).subscribe(
         (response) => {
           console.log('Response from server:', response);
-         
+
         },
         (error) => {
           console.error('Error while sending data:', error);
         }
       );
-    
-    
+
+
   }
   add() {
     this.apiService.getchecklistF().subscribe((response: any) => {
@@ -95,5 +118,40 @@ export class ChecklistFComponent implements OnInit {
       this.ChecklistF.patchValue(response.result);
     });
   }
+  onRadioChange() {
+    // You may want to check if the input field has focus or not
+    // before making the API call
+    const activeElement = document.activeElement as HTMLElement;
+    console.log('activeElement: ', activeElement);
+    console.log('activeElement.tagName.toLowerCase(): ', activeElement.tagName.toLowerCase());
+    if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
+        this.onSubmit();
+    }
+}
+onRadioChangeup() {
+  // You may want to check if the input field has focus or not
+  // before making the API call
+  const activeElement = document.activeElement as HTMLElement;
+  console.log('activeElement: ', activeElement);
+  console.log('activeElement.tagName.toLowerCase(): ', activeElement.tagName.toLowerCase());
+  if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
+      this.updateFormValues();
+  }
+}
+updateFormValues(): void {
+  const formData = this.ChecklistF.value;
+  console.log('formData: ', formData);
+  this.apiService.updatePermitData(formData).subscribe(
+    (response) => {
+      // Assuming 'permitForm' is a FormGroup
 
+
+    },
+    (error) => {
+      console.error('An error occurred:', error);
+
+      // Handle error appropriately, e.g., show error message to user
+    }
+  );
+}
 }
