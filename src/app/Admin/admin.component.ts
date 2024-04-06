@@ -26,8 +26,12 @@ export class AdminComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ShowAdminDetailsComponent, {
-      width: '1000px',
-      height: '600px',
+      width: '80%',
+      height: '75%',
+      position: {
+        right: '50px', // Positioning the dialog to the right
+       
+      },
       data: { listData: this.listData }
     });
 

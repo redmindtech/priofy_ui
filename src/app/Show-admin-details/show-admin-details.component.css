@@ -5,7 +5,7 @@ form {
   flex-direction: column;
   /* width: 800px; */
   margin: 0 auto;
-  padding: 20px;
+  /* padding: 20px; */
   
   border-radius: 5px;
   
@@ -30,7 +30,7 @@ label {
   margin-bottom: 5px;
 }
 
-input, select {
+ select {
   width: 100%;
   padding: 9px;
   border: 1px solid #ccc;
@@ -111,4 +111,11 @@ th {
 }
 .mat-dialog-container{
   overflow-y: hidden !important;
+}
+textarea.form-control {
+  height: auto;
+}
+.form-check {
+  display: inline-block;
+  margin-right: 10px; /* Adjust margin as needed */
 }

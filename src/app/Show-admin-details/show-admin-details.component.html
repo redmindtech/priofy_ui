@@ -4,39 +4,59 @@
         <div >
             <div class="card card-warning" >
                 <div class="card-header" style="background-color: #97ca94;padding: 6px;">
-                    <h3  class="card-title">1.Procedure</h3>
+                    <h3  class="card-title">1.Furnace Startup</h3>
                     <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
                 </div>
-                <div class="card-body" >
+                <div class="card-body" style="margin-top: -20px;">
                     <form [formGroup]="Procedure" class="register-form" >
                         
   
-                        <div class="row" *ngIf="!editfield">
-                          <div class="col-sm-6">
+                        <!-- <div class="row" *ngIf="!editfield"> -->
+                          <div class="row">
+                          <div class="card-body"  *ngIf="!editfield" style="margin-left: -10px;">
                             <div class="form-group">
-                              <label>Furnace Name</label>
-                              <input type="text" id="Furnace_Id" formControlName="Furnace_Id" class="form-control" placeholder="Enter Furnace Name ">
-                            </div>
+                              <label for="Furnace_Id">Furnace Name</label>
+                              <input type="text" class="form-control" id="Furnace_Id" formControlName="Furnace_Id" placeholder="Enter Furnace Name">
+                              </div>
                           </div>
-                          <div class="col-sm-6">
+                          </div>
+                          
+                         
+
+                          <!-- <div class="col-sm-6">
                             <div class="form-group">
                               <label>Job Plan Date</label>
                               <input type="date" id="job_plan_date" formControlName="job_plan_date" class="form-control">
                             </div>
-                          </div>
-                        </div>
+                          </div> -->
+                        <!-- </div> -->
 
                         <div class="row" *ngIf="!editfield">
                             <div class="col-sm-6">
                               <div class="form-group">
-                                <label>Job start Date</label>
+                                <label>Planned Start Date</label>
                                 <input type="date" id="job_start_date" formControlName="job_start_date" class="form-control" >
                               </div>
                             </div>
                             <div class="col-sm-6">
                               <div class="form-group">
-                                <label>Job End Date</label>
+                                <label>Planned Start Time</label>
+                                <input type="time" id="job_start_time" formControlName="job_start_time" class="form-control" >
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row" *ngIf="!editfield">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Planned End Date</label>
                                 <input type="date" id="job_end_date" formControlName="job_end_date" class="form-control" >
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Planned End Time</label>
+                                <input type="time" id="job_end_time" formControlName="job_end_time" class="form-control" >
                               </div>
                             </div>
                           </div>
@@ -45,7 +65,7 @@
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Catagory</label>                            
-                                <select id="catagory"  [(ngModel)]="catagory" formControlName="catagory" placeholder="Select Catagory"  >
+                                <!-- <select id="catagory"  [(ngModel)]="catagory" formControlName="catagory" placeholder="Select Catagory"  >
                                     <option value="critical">Critical</option>
                                     <option value="emergency">Emergency</option>
                                     <option value="operating">Operating</option>
@@ -55,60 +75,74 @@
                                   <div *ngIf="catagory === 'other'" [hidden]='false'>
                                     <br>
                                     <input  class="form-control col-sm-13 mb-3 mb-sm-0" name="  other_qualification" formControlName="other_qualification" type="text">
-                                  </div>
+                                  </div> -->
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radio1" id="radio1_critical">
+                                    <label class="form-check-label" for="radio1_critical">Critical</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radio1" id="radio1_emergency">
+                                    <label class="form-check-label" for="radio1_emergency">Emergency</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radio1" id="radio1_operating">
+                                    <label class="form-check-label" for="radio1_operating">Operating</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radio1" id="radio1_maintenance">
+                                    <label class="form-check-label" for="radio1_maintenance">Maintenance</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radio1" id="radio1_other">
+                                    <label class="form-check-label" for="radio1_other">Other</label>
+                                </div>
+                                
                               </div>
                             </div>
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Attributes</label>
-                                <select id="Attributes" formControlName="Attributes" >
+                                <!-- <select id="Attributes" formControlName="Attributes" >
                                     <option value="routine">Routine</option>
                                     <option value="nonroutine">Non-Routine</option>
-                                  </select>
+                                  </select> -->
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radio1" id="radio1_other">
+                                    <label class="form-check-label" for="radio1_other">Routine</label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="radio1" id="radio1_other">
+                                  <label class="form-check-label" for="radio1_other">Non-Routine</label>
+                              </div>
                               </div>
                             </div>
                           </div>
-
+                          <h3  class="card-title" style="margin-right: auto;">Shift 1</h3>
                           <div class="row" *ngIf="!editfield">
                             <div class="col-sm-6">
                               <div class="form-group">
-                                <label>Status</label>
-                                <input type="text" id="status" formControlName="status" class="form-control" placeholder="Enter Status">
-                              </div>
-                            </div>
-                            <div class="col-sm-6">
-                              <div class="form-group">
-                                <label>Comments</label>
-                                <input type="text" id="comments" formControlName="comments" class="form-control" placeholder="Enter Comments">
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="row" *ngIf="!editfield">
-                            <div class="col-sm-6">
-                              <div class="form-group">
-                                <label>OOT Operator(Shift 1)</label>
+                                <label>OOT Operator</label>
                                 <input type="text" id="oot_operator" formControlName="oot_operator" class="form-control" placeholder="Enter OOT Operator">
                               </div>
                             </div>
                             <div class="col-sm-6">
                               <div class="form-group">
-                                <label>IOT Operator(Shift 1)</label>
+                                <label>IOT Operator</label>
                                 <input type="text" id="iot_operator" formControlName="iot_operator" class="form-control" placeholder="Enter IOT Operator">
                               </div>
                             </div>
                           </div>
-
+                          <h3  class="card-title" *ngIf="addbutton" style="margin-right: auto;">Shift 2</h3>
                           <div class="row" *ngIf="!editfield">
                             <div class="col-sm-6" *ngIf="addbutton">
                               <div class="form-group">
-                                <label>OOT Operator(Shift 2)</label>
+                                <label>OOT Operator</label>
                                 <input type="text" id="oot_operator" formControlName="oot_operator" class="form-control" placeholder="Enter OOT Operator">
                               </div>
                             </div>
                             <div class="col-sm-6" *ngIf="addbutton">
                               <div class="form-group">
-                                <label>IOT Operator(Shift 2)</label>
+                                <label>IOT Operator</label>
                                 <input type="text" id="iot_operator" formControlName="iot_operator" class="form-control" placeholder="Enter IOT Operator">
                               </div>
                             </div>
@@ -117,8 +151,29 @@
                           
 
                       
-                      <button type="button" class="btn btn-primary" style="margin-left: 92%;margin-top: auto;background-color: #97ca94; color:black" (click)="addItem()" [hidden]="addbutton">Add</button>&nbsp;
+                      <button type="button" class="btn btn-primary" style="margin-left: 92%;margin-top: auto;background-color: #97ca94; color:black;width: max-content;" (click)="addItem()" [hidden]="addbutton">Add Shift</button>&nbsp;
                      
+                     
+                      <div class="row" *ngIf="!editfield">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>Status</label>
+                            <select id="status" formControlName="status" >
+                              <option value="" disabled selected>Open</option>
+                              <option value="planning">Planning</option>
+                              <option value="inprogress">Inprogress</option>
+                              <option value="complete">Complete</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>Procedure Summary Comments</label>
+                            <textarea type="text" id="comments" formControlName="comments" rows="3" class="form-control" placeholder="Enter Comments"></textarea>
+                            </div>
+                          
+                        </div>
+                      </div>
   
                     </form>
                 </div>
@@ -126,7 +181,7 @@
         </div>
     </div>
     <!-- <button style="margin-left: 92%;background-color: #97ca94;">Save</button> -->
-    <button type="button" class="btn btn-primary" style="margin-left: 92%;background-color: #97ca94; color:black" (click)="addItem()">Save</button>&nbsp;
+    <button type="button" class="btn btn-primary" style="margin-left: 85%;background-color: #97ca94; color:black;width: max-content;" (click)="addItem()">Initiate Procedure</button>&nbsp;
     
   </div>
   

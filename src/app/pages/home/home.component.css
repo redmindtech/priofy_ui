@@ -4,16 +4,8 @@
  border-style: solid; /* Setting border style to solid */
   margin: 5%;
   width: 45%;
-background-color: #59D5E0;
+background-color: #8dc6ff;
   
-}
-.mat:hover {
-  box-shadow: 
-  -10px -10px 20px rgba(5, 211, 226, 0.1), /* Top Left */
-  10px -10px 20px rgba(5, 211, 226, 0.1),  /* Top Right */
-  -10px 10px 20px rgba(5, 211, 226, 0.1),  /* Bottom Left */
-  10px 10px 20px rgba(5, 211, 226, 0.1);   /* Bottom Right */
-
 }
 .align{
   margin-left: 35%;

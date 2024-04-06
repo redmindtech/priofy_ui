@@ -15,9 +15,11 @@ export class ShowAdminDetailsComponent implements OnInit {
   constructor(  public dialogRef: MatDialogRef<ShowAdminDetailsComponent>,@Inject(MAT_DIALOG_DATA) public data: any,private fb: FormBuilder) { 
     this.Procedure = this.fb.group({
       Furnace_Id: [''],
-      job_plan_date:[''],
+      // job_plan_date:[''],
       job_start_date:[''],
+      job_start_time:[''],
       job_end_date:[''],
+      job_end_time:[''],
       oot_operator:[''],
       iot_operator:[''],
       status:[''],
