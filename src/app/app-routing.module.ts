@@ -24,10 +24,6 @@ import { AdminComponent } from './Admin/admin.component';
 import { DashboardComponent } from './Dashboard/dashboard.component';
 import { MaindashboardComponent } from './maindashboard/maindashboard.component';
 
-
-
-
-
 const routes: Routes = [
   {
     path: 'main',

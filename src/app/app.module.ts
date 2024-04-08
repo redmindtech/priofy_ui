@@ -110,8 +110,9 @@ import { ChecklistDComponent } from './checklist-d/checklist-d.component';
 import { AdminComponent } from './Admin/admin.component';
 import { ShowAdminDetailsComponent } from './Show-admin-details/show-admin-details.component';
 import { DashboardComponent } from './Dashboard/dashboard.component';
-
 import { MaindashboardComponent } from './maindashboard/maindashboard.component';
+import { OpendialogcompleteComponent } from './opendialogcomplete/opendialogcomplete.component';
+
 
 
 
@@ -150,20 +151,21 @@ import { MaindashboardComponent } from './maindashboard/maindashboard.component'
     ChecklistFComponent,
     AdminComponent,
     ShowAdminDetailsComponent,
-    DashboardComponent,
-    
+    DashboardComponent,    
     MaindashboardComponent,
+     OpendialogcompleteComponent, 
+    
+       
     
   ],
-  imports: [
-  
+  imports: [  
     SharedModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-     MatCardModule,
-     MatExpansionModule,
-     BrowserModule,
+    MatCardModule,
+    MatExpansionModule,
+    BrowserModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,

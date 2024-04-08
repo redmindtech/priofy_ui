@@ -1330,10 +1330,10 @@
           <div *ngIf="disableoot">
             <div class="row" style="margin-left:  500px;">
               <div class="col">
-                <button mat-raised-button style="background-color: #147737;" (click)="toggleEnable()">Finish Shift</button>
+                <button mat-raised-button style="background-color: #147737; color: white;" (click)="toggleEnable()">Finish Shift</button>
                 </div>
                 <div class="col">
-                <button mat-raised-button style="background-color: #147737; " [disabled]="!ChecklistA.valid" (click)="nxtAccEn()">Next</button>
+                <button mat-raised-button style="background-color: #147737;color: white; " [disabled]="!ChecklistA.valid" (click)="nxtAccEn()">Next</button>
                 </div>
               </div>
             <div *ngIf="enable"  [formGroup]="ChecklistA">
@@ -1346,10 +1346,10 @@
         <div *ngIf="disableiot">
           <div class="row" style="margin-left: 500px;">
             <div class="col">
-              <button mat-raised-button style="background-color: #147737;" (click)="toggleEnable()">Finish Shift</button>
+              <button mat-raised-button style="background-color: #147737;color: white;" (click)="toggleEnable()">Finish Shift</button>
               </div>
               <div class="col">
-              <button mat-raised-button style="background-color: #147737; " [disabled]="!ChecklistA.valid" (click)="nxtAccEn()">Next</button>
+              <button mat-raised-button style="background-color: #147737;color: white; " [disabled]="!ChecklistA.valid" (click)="nxtAccEn()">Next</button>
               </div>
             </div>
             

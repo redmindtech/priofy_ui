@@ -2,6 +2,11 @@ import { Component,Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ChecklistFService } from '@app/utils/service/checklist-f.service';
 import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { OpendialogcompleteComponent } from '@app/opendialogcomplete/opendialogcomplete.component';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-checklist-f',
@@ -23,7 +28,7 @@ export class ChecklistFComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private apiService: ChecklistFService
+    private apiService: ChecklistFService,public dialog: MatDialog,private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +40,20 @@ export class ChecklistFComponent implements OnInit {
     this.setupSubmitInterval();
 
   }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(OpendialogcompleteComponent, {
+      width: '400px', 
+      height: '300px',
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      // console.log('The dialog was closed');
+      dialogRef.close();
+      this.router.navigate(['main/home']);
+    });
+  }
+ 
+  
   ngOnDestroy(): void {
     clearInterval(this.onSubmitInterval);
     if (this.addSubscription) {
