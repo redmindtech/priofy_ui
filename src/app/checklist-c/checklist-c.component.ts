@@ -188,13 +188,16 @@ if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
 }
 }
 updateFormValues(): void {
+  // this.ChecklistC.get('shift_comment_c_oot')?.setValue(this.remainingValues.shift_comment_c_oot);
+  // this.ChecklistC.get('shift_comment_c_iot')?.setValue(this.remainingValues.shift_comment_c_iot);
 const formData = this.ChecklistC.value;
 console.log('formData: ', formData);
+
 this.apiService.updatePermitData(formData).subscribe(
   (response) => {
     // Assuming 'permitForm' is a FormGroup
-    this.ChecklistC.get('shift_comment_c_oot')?.reset();
-    this.ChecklistC.get('shift_comment_c_iot')?.reset();
+    this.ChecklistC.get('shift_comment_c_oot')?.setValue(null);
+    this.ChecklistC.get('shift_comment_c_iot')?.setValue(null);
    console.log(response)
   },
   (error) => {

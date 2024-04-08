@@ -155,13 +155,15 @@ onRadioChangeup() {
   }
 }
 updateFormValues(): void {
+  // this.ChecklistF.get('shift_comment_f_oot')?.setValue(this.remainingValues.shift_comment_f_oot);
+  //     this.ChecklistF.get('shift_comment_f_iot')?.setValue(this.remainingValues.shift_comment_f_iot);
   const formData = this.ChecklistF.value;
   console.log('formData: ', formData);
   this.apiService.updatePermitData(formData).subscribe(
     (response) => {
       // Assuming 'permitForm' is a FormGroup
-      this.ChecklistF.get('shift_comment_f_oot')?.reset();
-      this.ChecklistF.get('shift_comment_f_iot')?.reset();
+      this.ChecklistF.get('shift_comment_f_oot')?.setValue(null);
+      this.ChecklistF.get('shift_comment_f_iot')?.setValue(null);
 
     },
     (error) => {

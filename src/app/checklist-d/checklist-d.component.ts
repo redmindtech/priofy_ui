@@ -244,13 +244,15 @@ export class ChecklistDComponent implements OnInit {
   }
   }
   updateFormValues(): void {
+    // this.ChecklistD.get('shift_comment_d_oot')?.setValue(this.remainingValues.shift_comment_d_oot);
+    // this.ChecklistD.get('shift_comment_d_iot')?.setValue(this.remainingValues.shift_comment_d_oot);
   const formData = this.ChecklistD.value;
   console.log('formData: ', formData);
   this.apiService.updatePermitData(formData).subscribe(
     (response) => {
       // Assuming 'permitForm' is a FormGroup
-      this.ChecklistD.get('shift_comment_d_oot')?.reset();
-      this.ChecklistD.get('shift_comment_d_iot')?.reset();
+      this.ChecklistD.get('shift_comment_d_oot')?.setValue(null);
+      this.ChecklistD.get('shift_comment_d_iot')?.setValue(null);
 
     },
     (error) => {
