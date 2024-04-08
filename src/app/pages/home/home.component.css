@@ -3,11 +3,17 @@
  border-color: black;
  border-style: solid; /* Setting border style to solid */
   margin: 5%;
+  margin-left: 20%;
   width: 45%;
-background-color: #8dc6ff;
+background-color: #147737;
+color: white;
   
 }
 .align{
-  margin-left: 35%;
-  padding: 2%;
+  
+  margin-top: 1.5%;
+}
+.datealign{
+  margin-top: 3%;
+  margin-left: 15%;
 }

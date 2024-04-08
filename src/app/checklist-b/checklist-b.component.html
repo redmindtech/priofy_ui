@@ -1,8 +1,8 @@
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="false">
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="checklistbformenable">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
-        <h5 style="margin-right: 1150px;display: contents;">7.Procedure Checklist-B</h5>
+        <h5 style="margin-right: 1150px;display: contents;">7.Procedure Checklist #B—Light Off Preparation (data crud in checklista table)</h5>
         <!-- //<br>
         <h5 style="margin-right: 1150px;display: contents;">Checklist for EU2 Inside & Outside Operation Technologists to confirm furnace readiness for light-off</h5>
         <h5 style="margin-right: 1150px;display: contents;"> class="highlight-text">Common Hazards: Noise, Flammable Area, Heat Stress, Sand Storm, pinch/hit hazards, ergonomic issues.</h5> -->
@@ -11,7 +11,7 @@
     </mat-expansion-panel-header>
     <mat-card >
       <mat-card-content>
-        <h6 style="margin-left: 35%;"><strong>Procedure Checklist #B</strong></h6>
+        <!-- <h6 style="margin-left: 35%;"><strong>Procedure Checklist #B</strong></h6> -->
 
         <form [formGroup]="ChecklistB"(ngSubmit)="onSubmit()">
 

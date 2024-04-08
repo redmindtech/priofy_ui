@@ -21,7 +21,8 @@ import { DevaitionComponent } from './devaition/devaition.component';
 import { ChecklistEComponent } from './checklist-e/checklist-e.component';
 import { ChecklistDComponent } from './checklist-d/checklist-d.component';
 import { AdminComponent } from './Admin/admin.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './Dashboard/dashboard.component';
+import { MaindashboardComponent } from './maindashboard/maindashboard.component';
 
 
 
@@ -58,6 +59,12 @@ const routes: Routes = [
         component: DocsComponent,
         // canActivate: [AuthGuard],
         data: { roles: [Role.Admin, Role.User] }
+      },
+      {
+        path: 'maindashboard',
+        // canActivate: [AuthGuard],
+        component: MaindashboardComponent,
+        data: { roles: [Role.Admin] }
       },
       {
         path: 'sub-menu-1',
@@ -104,7 +111,7 @@ const routes: Routes = [
         component: DevaitionComponent,
       },
       {
-        path: 'today',
+        path: 'mainmenu',
         component: TodayComponent,
       },
       {

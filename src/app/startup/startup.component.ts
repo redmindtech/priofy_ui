@@ -39,7 +39,7 @@ export class StartupComponent implements OnInit {
             console.log('Data saved successfully:', response);
             this.toast.open('Data saved successfully', 'Close', { duration: 3000 });
             // Redirect to another route if needed
-           this.saferoperformenable=false;
+           
             //this.router.navigate(['/success']);
           },
           (error) => {
@@ -54,5 +54,10 @@ export class StartupComponent implements OnInit {
         this.toast.open('Please fill all required fields', 'Close', { duration: 3000 });
       }
     }
-
+    showmsg(){
+      this.toast.open('Please select "Agree" only.', 'Close', { duration: 3000 });
+    }
+    nxt(){
+      this.saferoperformenable=false;
+    }
   }

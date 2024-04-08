@@ -1,6 +1,6 @@
 
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="false">
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="devaitionformenable">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents;">5.Consequences Of Deviation</h5>
@@ -12,12 +12,12 @@
 <form >
   <mat-card class="mat">
     <mat-card-content>
-      <h5 style="margin-left: 35%;"><strong>CONSEQUENCES OF DEVIATION</strong></h5>
+      <!-- <h5 style="text-align: center;padding: 10px; "><strong>CONSEQUENCES OF DEVIATION</strong></h5> -->
       <div >
         <thead>
           <tr>
-            <th class="column-heading" style="padding: 12px;background-color: #97ca94">Types of Deviation</th>
-            <th class="column-heading" style="padding: 12px;background-color: #97ca94">Consequences and How to Avoid</th>
+            <th class="column-heading" style="padding: 10px;background-color: #147737;color: white;">Types of Deviation</th>
+            <th class="column-heading" style="padding: 10px;background-color: #147737 ;color: white;">Consequences and How to Avoid</th>
           </tr>
         </thead>
         <div class="row top-aligned">
@@ -292,11 +292,12 @@ from outside and inside.</li>
 
         </div>
         <thead>
-          <tr>
-            <th > <button class="btn1" mat-raised-button style="margin-top: 10px; background-color: #97ca94;" (click)="submit()">Agree</button></th>
-            <th ><button class="btn2" mat-raised-button style="margin-top: 10px;background-color: #97ca94;"  >Disagree</button></th>
+          <tr style="display: flex; justify-content: center;">
+            <th >  <button class="btn1" mat-raised-button style="background-color: #147737; " (click)="nxt()">Agree</button></th>
+            <th > <button class="btn2" mat-raised-button style="background-color: #147737;" (click)="showmsg()">Disagree</button></th>
           </tr>
 </thead>
+      
       
         
      

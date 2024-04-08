@@ -25,7 +25,7 @@ export class ToolcompComponent implements OnInit {
 ngOnInit(): void {
 
   this.formInitialization();
-  this.startupformenable=true;
+  
   console.log(' this.nextformenable: ',  this.nextformenable);
 
     }
@@ -79,7 +79,7 @@ submit() {
   this.apiService.savesecondpage(firstFormValue).subscribe(
     response => {
       console.log('Data saved successfully:', response);
-      this.startupformenable=false;
+      
       //this.router.navigate(['/main/startup']);
       // You can add further logic here, such as showing a success message to the user
     },
@@ -90,5 +90,11 @@ submit() {
   );
 
 
+}
+showmsg(){
+  this.toast.open('Please select "Agree" only.', 'Close', { duration: 3000 });
+}
+nxt(){
+  this.startupformenable=false;
 }
 }

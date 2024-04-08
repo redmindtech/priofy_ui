@@ -6,6 +6,7 @@
    margin: 3%;
   
  }
+ 
  .custom-toast {
   position: fixed;
   bottom: 60px; /* Adjust the value as needed to leave space from the top */

@@ -75,7 +75,7 @@ formInitialization(){
         this.apiService.savefirstpage(firstFormValue).subscribe(
           (response) => {
             console.log('Response from server:', response);
-            this.nextformenable=false;
+            
             // this.router.navigate(['/main/toolcomp']);
             
          
@@ -93,5 +93,10 @@ formInitialization(){
      
  
     }
-    
+    showmsg(){
+      this.toast.open('Please select "Agree" only.', 'Close', { duration: 3000 });
+    }
+    nxt(){
+      this.nextformenable=false;
+    }
 }

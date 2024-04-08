@@ -1,8 +1,8 @@
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="false">
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="checklistcformenable">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
-        <h5 style="margin-right: 1150px;display: contents;">8.Procedure Checklist-C</h5>
+        <h5 style="margin-right: 1150px;display: contents;">8.rocedure Checklist #C —Light Off</h5>
         <!-- <h2>Procedure Checklist #C—Light Off Preparation</h2>
       <h5>Here's a step-by-step guide for EU2 Inside & Outside Operation Technologists to safely light off the furnace:
     </h5>
@@ -30,21 +30,21 @@
     
 
   <td>
-    <input type="radio" class="custom-radio" id="iot_furnace_control_sequence-done" name="iot_furnace_control_sequence" value="Done" formControlName="iot_furnace_control_sequence"  (change)="onRadioChange()"/>
-    <label for="iot_furnace_control_sequence-done"class="action">Done</label>
+    <input type="radio" class="custom-radio" id="iot_furnace_control-done" name="iot_furnace_control" value="Done" formControlName="iot_furnace_control"  (change)="onRadioChange()"/>
+    <label for="iot_furnace_control-done"class="action">Done</label>
 
-    <input type="radio" class="custom-radio" id="iot_furnace_control_sequence-risk" name="iot_furnace_control_sequence" value="Risk" formControlName="iot_furnace_control_sequence" (change)="onRadioChange()"/>
-    <label for="iot_furnace_control_sequence-risk"class="action">Risk</label>
+    <input type="radio" class="custom-radio" id="iot_furnace_control-risk" name="iot_furnace_control" value="Risk" formControlName="iot_furnace_control" (change)="onRadioChange()"/>
+    <label for="iot_furnace_control-risk"class="action">Risk</label>
 
-    <input type="radio" class="custom-radio" id="iot_furnace_control_sequence-skip" name="iot_furnace_control_sequence" value="Skip" formControlName="iot_furnace_control_sequence"  (change)="onRadioChange()"/>
-    <label for="iot_furnace_control_sequence-skip"class="action">Skip</label>
+    <input type="radio" class="custom-radio" id="iot_furnace_control-skip" name="iot_furnace_control" value="Skip" formControlName="iot_furnace_control"  (change)="onRadioChange()"/>
+    <label for="iot_furnace_control-skip"class="action">Skip</label>
     <!-- <button class="btn btn-primary m-1"
     (click)="ChecklistA?.get('oot_high_pressure')?.setValue(''); ChecklistA?.get('oot_high_pressure_comment')?.setValue('')">Cancel</button> -->
 
-    <div *ngIf="ChecklistC?.get('iot_furnace_control_sequence')?.value === 'Skip'">
-      <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_furnace_control_sequence_comment"></textarea>
+    <div *ngIf="ChecklistC?.get('iot_furnace_control')?.value === 'Skip'">
+      <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_furnace_control_comment"></textarea>
       <div style="margin-left: 31%;">
-        <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_furnace_control_sequence')?.setValue(''); ChecklistC?.get('iot_furnace_control_sequence_comment')?.setValue('')" >Cancel</button>
+        <button class="btn btn-primary m-1" (click)="ChecklistC?.get('iot_furnace_control')?.setValue(''); ChecklistC?.get('iot_furnace_control_comment')?.setValue('')" >Cancel</button>
         <button class="btn btn-primary m-1" (click)="onSubmit()">Confirm</button>
       </div>
     </div>

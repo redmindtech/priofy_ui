@@ -8,10 +8,12 @@ h2{
   border-collapse: collapse;
 }
 .btn1{
-margin-left: 1600%;
+margin-left: 750%;
+
 }
 .btn2{
-  margin-left: 1300%;
+  margin-left: 600%;
+ 
 }
 @media only screen and (max-width: 1400px)
 {

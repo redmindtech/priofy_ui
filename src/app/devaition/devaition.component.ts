@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-devaition',
@@ -8,11 +9,19 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DevaitionComponent implements OnInit {
   @Input() devaitionformenable: boolean;
   checklistformenable: boolean = true;
-  constructor() { }
+  constructor(
+    private toast: MatSnackBar,
+  ) { }
 
   ngOnInit(): void {
   }
   submit(){
+    
+  }
+  showmsg(){
+    this.toast.open('Please select "Agree" only.', 'Close', { duration: 3000 });
+  }
+  nxt(){
     this.checklistformenable=false;
   }
 }

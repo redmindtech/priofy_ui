@@ -9,6 +9,7 @@ import { AuthService } from '@app/service/auth.service';
 })
 export class HomeComponent implements OnInit {
   user: any
+  formattedDate: string;
   constructor(private authService: AuthService,
     private router: Router,) {
   }
@@ -19,8 +20,13 @@ export class HomeComponent implements OnInit {
     // })
     // this.authService.getUser()
     // console.log(this.authService.currentUserValue)
+    const currentDate: Date = new Date();
+
+// Format the date as needed (e.g., DD/MM/YYYY)
+this.formattedDate = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`;
   }
 viewselected(){
-  this.router.navigate(['/main/today']);
+  this.router.navigate(['/main/mainmenu']);
 }
+
 }

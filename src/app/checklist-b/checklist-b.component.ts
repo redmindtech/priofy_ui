@@ -176,7 +176,7 @@ onSubmit()
 
 }
 nxtAccEn(){
-  this.checklistcformenable=true;
+  this.checklistcformenable=false;
 }
 add() {
   this.apiService.getchecklistB().subscribe((response: any) => {

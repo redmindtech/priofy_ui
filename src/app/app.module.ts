@@ -109,7 +109,7 @@ import { ChecklistCComponent } from './checklist-c/checklist-c.component';
 import { ChecklistDComponent } from './checklist-d/checklist-d.component';
 import { AdminComponent } from './Admin/admin.component';
 import { ShowAdminDetailsComponent } from './Show-admin-details/show-admin-details.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './Dashboard/dashboard.component';
 
 import { MaindashboardComponent } from './maindashboard/maindashboard.component';
 

@@ -111,7 +111,7 @@ add() {
 
 
   nxtAccEn(){
-    this.checklistfformenable=true;
+    this.checklistfformenable=false;
   }
   onRadioChange() {
     // You may want to check if the input field has focus or not

@@ -36,7 +36,7 @@ export class SafeoperComponent implements OnInit {
             this.toast.open('Data saved successfully', 'Close', { duration: 3000 });
             // Redirect to another route if needed
            // this.router.navigate(['/success']);
-          this.devaitionformenable=false;
+         
           },
           (error) => {
             // Handle error
@@ -50,5 +50,10 @@ export class SafeoperComponent implements OnInit {
         this.toast.open('Please fill all required fields', 'Close', { duration: 3000 });
       }
     }
-
+    showmsg(){
+      this.toast.open('Please select "Agree" only.', 'Close', { duration: 3000 });
+    }
+    nxt(){
+      this.devaitionformenable=false;
+    }
   }

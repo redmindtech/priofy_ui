@@ -47,8 +47,8 @@ ngOnDestroy(): void {
 }
 formInitialization(){
   this.ChecklistC= this.fb.group({
-    iot_furnace_control_sequence:[null,Validators.required],
-    iot_furnace_control_sequence_comment:[null],
+    iot_furnace_control:[null,Validators.required],
+    iot_furnace_control_comment:[null],
     // oot_reset_IOTmove_BM_sequence:[null,Validators.required],
     pressure_test:[null,Validators.required],
     pressure_test_comment:[null],
@@ -146,7 +146,7 @@ onSubmit() {
 
 }
 nxtAccEn(){
-  this.checklistdformenable=true;
+  this.checklistdformenable=false;
 }
 add() {
   this.apiService.getchecklistC().subscribe((response: any) => {

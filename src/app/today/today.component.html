@@ -1,6 +1,6 @@
 <mat-panel-title class="font-weight-bold master_header_color" style="color: #151516; margin: 1%;">
 
-  Furnace Startup
+  <h3 style="text-align:center; margin-left: 40%;">Furnace Startup</h3>
 </mat-panel-title>
 
 
@@ -17,7 +17,7 @@
     <form [formGroup]="FirstForm">
       <mat-card class="mat">
         <mat-card-content>
-          <div class="row" style="background-color:#97ca94">
+          <div class="row" style="background-color:#147737 ;color: white;" >
             <div class="col">
               <h5 class="header">HAZARDS</h5>
             </div>
@@ -154,9 +154,9 @@
           </div>
         
           
-          <div style="display: flex; justify-content: flex-end;">
-            <button class="btn1" mat-raised-button style="background-color: #97ca94; margin-right: 10px;" >Agree</button>
-            <button class="btn2" mat-raised-button style="background-color: #97ca94;">Disagree</button>
+          <div style="display: flex; justify-content: center;">
+            <button class="btn1" mat-raised-button style="background-color: #147737; margin-right: 10px;" (click)="nxt()">Agree</button>
+            <button class="btn2" mat-raised-button style="background-color: #147737;" (click)="showmsg()">Disagree</button>
           </div>          
          
         </mat-card-content>

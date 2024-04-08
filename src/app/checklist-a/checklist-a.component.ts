@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ChecklistAService } from '@app/utils/service/checklist-a.service';
 import { Subscription } from 'rxjs';
 
@@ -28,7 +29,8 @@ export class ChecklistAComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private apiService: ChecklistAService
+    private apiService: ChecklistAService,
+    private toast: MatSnackBar,
   ) {}
 
   ngOnInit(): void {
@@ -159,6 +161,7 @@ export class ChecklistAComponent implements OnInit {
           (response) => {
             this.id=response.result.id
             console.log('Response from server:', response);
+            this.toast.open('Data saved successfully', 'Close', { duration: 3000 });
           },
           (error) => {
             console.error('Error while sending data:', error);
@@ -184,7 +187,7 @@ export class ChecklistAComponent implements OnInit {
 }
 
   nxtAccEn() {
-    this.checklistbformenable = true;
+    this.checklistbformenable = false;
   }
 
   onRadioChange() {
