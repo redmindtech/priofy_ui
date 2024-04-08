@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FirstpageService {
-  baseUrl: string = "http://localhost:8080/precaution";
+  // baseUrl: string ="http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/precaution";
+  baseUrl: string ='http://localhost:8080/precaution';
 
   constructor(private httpClient: HttpClient) { }
  // Create new permit data

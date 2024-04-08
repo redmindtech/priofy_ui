@@ -10,7 +10,7 @@ export class MainComponent implements OnInit {
   public menu = MENU;
   currentUser: any;
   username: any;
- 
+
 
   constructor() { }
 
@@ -19,19 +19,19 @@ export class MainComponent implements OnInit {
     this.currentUser = storedUser ? JSON.parse(storedUser) : null;
    let name= this.currentUser.username
    if(name=="Operator1"){
-      this.username="Siva"
+      this.username="Shift-Operator1"
    }
    else if(name=="Operator2"){
-    this.username="Sakthi"
+    this.username="Shift-Operator2"
    }
    else if(name=="Operator3"){
-    this.username="Manoj"
+    this.username="Shift-Operator3"
    }
    else if(name=="Operator4"){
-    this.username="Karthik"
+    this.username="Shift-Operator4"
    }
    else if(name=="Admin"){
-    this.username="Arun"
+    this.username="Shift-Leader"
    }
     document.querySelector('body')?.removeAttribute('class');
     document.querySelector('body')?.classList.add('sidebar-mini','sidebar-open','layout-fixed');
@@ -52,15 +52,19 @@ export class MainComponent implements OnInit {
 }
 
 export const MENU = [
-  // {
-  //   name: 'Hazards & Precaution',
-  //   path: ['/main/today'],
-    
-  // },
-  // {
-  //   name: 'Tools & Equipment',
-  //   path: ['/main/toolcomp']
-  // },
+  {
+    name: 'Dashboard',
+    path: ['/main/maindashboard']
+  },
+  {
+    name: 'Shift Leader Dashboard',
+    path: ['/main/dashboard']
+  },
+
+  {
+   name: 'Process Initialization',
+   path: ['/main/Admin']
+  },
   // {
   //   name: 'Administration',
   //   icon: 'fa-users-cog',

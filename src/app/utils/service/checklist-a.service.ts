@@ -8,7 +8,8 @@ import { Observable } from 'rxjs/internal/Observable';
 export class ChecklistAService { 
 
 
-  baseUrl: string = "http://localhost:8080/checklistA";
+  // baseUrl: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/checklistA";
+  baseUrl: string ='http://localhost:8080/checklistA';
   
   constructor(private httpClient: HttpClient) { }
 

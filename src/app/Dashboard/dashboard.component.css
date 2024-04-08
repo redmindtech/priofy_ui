@@ -1,3 +1,56 @@
+.grayheading .small-box {
+  width:100px;
+  height:150px;
+  background-color: #130c0c;
+}
 .small-box>.inner {
   padding: 30px;
+}
+.search-container {
+  margin-top:-40px;
+  display: block;
+  justify-content:left;
+  margin-bottom: 20px;/* Center the search bar horizontally */
+}
+
+.input-group {
+  width: 100%; /* Make the search bar fill its container */
+  max-width: 1650px; /* Optionally limit the maximum width */
+  padding-top: 40px;
+}
+.button-slide {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutToTop {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+.slide-in {
+  animation-name: slideInFromTop;
+}
+
+
+.button-transition {
+
+  transition: opacity 0.5s ease;
 }

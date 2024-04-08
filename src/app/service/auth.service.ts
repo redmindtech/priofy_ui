@@ -7,8 +7,9 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/projectMain';
+  // private apiUrl = 'http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/projectMain';
 
+private apiUrl='http://localhost:8080//projectMain'
   constructor(private http: HttpClient) { }
 
   login(credentials: { username: string, password: string }): Observable<any> {
