@@ -11,10 +11,11 @@ h4{
   border-width: thin;
   border-style: solid;
   border-color: black; */
-  border-color: black;
+  border-color:  rgb(165, 164, 164);
   border-width: thin;
-  border-style: solid;
+  border-style: none;
   margin: 3%;
+  border-radius: 3%;
 
  }
 

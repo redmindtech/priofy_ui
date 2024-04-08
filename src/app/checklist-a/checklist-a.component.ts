@@ -173,6 +173,7 @@ export class ChecklistAComponent implements OnInit {
   this.apiService.getchecklist().subscribe((response: any) => {
     if (response && response.result) { // Check if response and response.result are not null or undefined
       this.remainingValues = response.result;
+      
 
       Object.keys(this.remainingValues).forEach(key => {
         if (key !== 'shift_comment_a_oot' && key !== 'shift_comment_a_iot') {
@@ -211,6 +212,8 @@ onRadioChangeup() {
   }
 }
 updateFormValues(): void {
+  console.log('this.remainingValues.shift_comment_a_oot:', this.remainingValues.shift_comment_a_oot);
+  console.log('this.remainingValues.shift_comment_a_oot:', this.remainingValues.shift_comment_a_iot);
   // this.ChecklistA.get('shift_comment_a_oot')?.setValue(this.remainingValues.shift_comment_a_oot );
   // console.log('this.remainingValues.shift_comment_a_oot: ', this.remainingValues.get('shift_comment_a_oot').value);
   // this.ChecklistA.get('shift_comment_a_iot')?.setValue(this.remainingValues.shift_comment_a_iot );

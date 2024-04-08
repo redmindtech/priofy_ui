@@ -18,9 +18,10 @@ h2{
   width: 100%;
 }
 .mat{
-  border-color: black;
+  border-color: rgb(165, 164, 164);
   border-width: thin;
-  border-style: solid;
+  border-style: none;
+  border-radius: 3%;
  
 }
 .table-row {

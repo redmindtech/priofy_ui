@@ -35,7 +35,7 @@ margin-left: 750%;
 .column {
   display: table-cell;
   padding: 5px 10px;
-  border: 1px solid black;
+  border: 1px solid rgb(165, 164, 164);
 }
 .column-heading{
   text-align: center;
@@ -54,4 +54,11 @@ label {
   
   flex-grow: unset !important;
   margin-left: 10px !important;
+}
+.mat{
+  border-color: rgb(165, 164, 164);
+  border-width: thin;
+  border-style: none;
+  border-radius: 2%;
+ 
 }

@@ -68,3 +68,10 @@ th {
   .colour1{
     background-color: #c6cfd4;
   }
+  .mat{
+    border-color: rgb(165, 164, 164);
+    border-width: thin;
+    border-style: none;
+    border-radius: 2%;
+   
+  }

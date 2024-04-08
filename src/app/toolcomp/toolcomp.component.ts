@@ -13,6 +13,7 @@ import { ToolcompService } from '@app/utils/service/toolcomp.service';
 })
 export class ToolcompComponent implements OnInit {
   @Input() nextformenable: boolean;
+  @Input() expand: boolean;
   startupformenable: boolean = true;
   
   FirstForm: FormGroup;
@@ -96,5 +97,6 @@ showmsg(){
 }
 nxt(){
   this.startupformenable=false;
+//  this.expand=
 }
 }

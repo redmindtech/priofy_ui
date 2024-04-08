@@ -14,6 +14,7 @@ import { StartsService } from '@app/utils/service/starts.service';
 export class StartupComponent implements OnInit {
   @Input() startupformenable: boolean;
   saferoperformenable: boolean = true;
+
   FirstForm: FormGroup;
   constructor(private fb: FormBuilder,
     private apiService: StartsService,
@@ -59,5 +60,6 @@ export class StartupComponent implements OnInit {
     }
     nxt(){
       this.saferoperformenable=false;
+    
     }
   }
