@@ -22,9 +22,7 @@ import { ChecklistEComponent } from './checklist-e/checklist-e.component';
 import { ChecklistDComponent } from './checklist-d/checklist-d.component';
 import { AdminComponent } from './Admin/admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { PlanningComponent } from './planning/planning.component';
-import { InprogressComponent } from './inprogress/inprogress.component';
-import { CompleteComponent } from './complete/complete.component';
+
 
 
 
@@ -121,18 +119,7 @@ const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
       },
-      {
-        path: 'Planning',
-        component: PlanningComponent,
-      },
-      {
-        path: 'inprogress',
-        component: InprogressComponent,
-      },
-      {
-        path: 'complete',
-        component: CompleteComponent,
-      },
+     
     ]
   }, {
     path: '',

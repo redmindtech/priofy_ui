@@ -110,9 +110,8 @@ import { ChecklistDComponent } from './checklist-d/checklist-d.component';
 import { AdminComponent } from './Admin/admin.component';
 import { ShowAdminDetailsComponent } from './Show-admin-details/show-admin-details.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { PlanningComponent } from './planning/planning.component';
-import { InprogressComponent } from './inprogress/inprogress.component';
-import { CompleteComponent } from './complete/complete.component';
+
+import { MaindashboardComponent } from './maindashboard/maindashboard.component';
 
 
 
@@ -152,9 +151,8 @@ import { CompleteComponent } from './complete/complete.component';
     AdminComponent,
     ShowAdminDetailsComponent,
     DashboardComponent,
-    PlanningComponent,
-    InprogressComponent,
-    CompleteComponent,
+    
+    MaindashboardComponent,
     
   ],
   imports: [

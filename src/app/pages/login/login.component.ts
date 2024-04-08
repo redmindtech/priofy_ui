@@ -35,10 +35,10 @@ export class LoginComponent {
             const id = response.result.id;
            this.name= response.result.username
            if(this.name=='Admin'){
-            this.router.navigate(['/main/dashboard'], { queryParams: { id } });
+            this.router.navigate(['/main/dashboard'] );
            }
            else{
-            this.router.navigate(['/main/home'], { queryParams: { id } });
+            this.router.navigate(['/main/home']);
            }
            
             
