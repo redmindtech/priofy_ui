@@ -119,19 +119,21 @@ export class ChecklistFComponent implements OnInit {
   }
   add() {
     this.apiService.getchecklistF().subscribe((response: any) => {
-      console.log(response, 'checking');
-      this.remainingValues = response.result;
-      console.log('shift_comment_f_iot: ', response.result.shift_comment_f_iot);
-  
-      
-      Object.keys(this.remainingValues).forEach(key => {
-        if (key !== 'shift_comment_f_oot' && key !== 'shift_comment_f_iot') {
-          this.ChecklistF.get(key)?.patchValue(this.remainingValues[key]);
-         
-        }
-      });
+      if (response && response.result) { // Check if response and response.result are not null or undefined
+        this.remainingValues = response.result;
+        this.ChecklistF.patchValue(response.result);
+        Object.keys(this.remainingValues).forEach(key => {
+          if (key !== 'shift_comment_f_oot' && key !== 'shift_comment_f_iot') {
+            this.ChecklistF.get(key)?.patchValue(this.remainingValues[key]);
+          }
+        });
+      } else {
+        console.log("Response or response.result is null or undefined.");
+        // Handle the error or notify the user accordingly
+      }
     });
   }
+  
   onRadioChange() {
     // You may want to check if the input field has focus or not
     // before making the API call
@@ -158,8 +160,8 @@ updateFormValues(): void {
   this.apiService.updatePermitData(formData).subscribe(
     (response) => {
       // Assuming 'permitForm' is a FormGroup
-      this.ChecklistF.get('shift_comment_e_oot')?.reset();
-      this.ChecklistF.get('shift_comment_e_iot')?.reset();
+      this.ChecklistF.get('shift_comment_f_oot')?.reset();
+      this.ChecklistF.get('shift_comment_f_iot')?.reset();
 
     },
     (error) => {

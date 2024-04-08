@@ -26,8 +26,7 @@ export class ChecklistCService {
   public getchecklistC(): Observable<any> {
     return this.httpClient.get(this.baseUrl+('/last'));
   }
-   // Update permit data
-   updatePermitData(data: any): Observable<any> {
+  updatePermitData(data: any): Observable<any> {
     console.log('data: ', data);
     console.log(data.userId);
     const httpOptions = {

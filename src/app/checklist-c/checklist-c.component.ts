@@ -150,19 +150,21 @@ nxtAccEn(){
 }
 add() {
   this.apiService.getchecklistC().subscribe((response: any) => {
-    console.log(response, 'checking');
-    this.remainingValues = response.result;
-    console.log('shift_comment_c_iot: ', response.result.shift_comment_c_iot);
+    if (response && response.result) { // Check if response and response.result are not null or undefined
+      this.remainingValues = response.result;
 
-    
-    Object.keys(this.remainingValues).forEach(key => {
-      if (key !== 'shift_comment_c_oot' && key !== 'shift_comment_c_iot') {
-        this.ChecklistC.get(key)?.patchValue(this.remainingValues[key]);
-       
-      }
-    });
+      Object.keys(this.remainingValues).forEach(key => {
+        if (key !== 'shift_comment_c_oot' && key !== 'shift_comment_c_iot') {
+          this.ChecklistC.get(key)?.patchValue(this.remainingValues[key]);
+        }
+      });
+    } else {
+      console.log("Response or response.result is null or undefined.");
+      // Handle the error or notify the user accordingly
+    }
   });
 }
+
 
 onRadioChange() {
   // You may want to check if the input field has focus or not
@@ -170,7 +172,7 @@ onRadioChange() {
   console.log("kk");
   const activeElement = document.activeElement as HTMLElement;
   console.log('activeElement: ', activeElement);
-  console.log('activeElement.tagName.toLowerCase(): ', activeElement.tagName.toLowerCase());
+
   if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
       this.onSubmit();
   }

@@ -19,9 +19,10 @@ th {
   font-size: 16px
 }
 .theader{
-  background-color:#97ca94;
+  background-color:#147737;
   padding:15px ;
   text-align: center;
+  color: white;
 }
 .mat-expansion-panel-header-description {
 
@@ -63,3 +64,9 @@ th {
 .style{
   text-align: center;
 }
+.colour2{
+  background-color: #a8d5eb;
+  }
+  .colour1{
+    background-color: #c6cfd4;
+  }

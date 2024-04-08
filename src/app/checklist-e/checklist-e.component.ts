@@ -94,19 +94,21 @@ export class ChecklistEComponent implements OnInit {
 }
 add() {
   this.apiService.getchecklistE().subscribe((response: any) => {
-    console.log(response, 'checking');
-    this.remainingValues = response.result;
-    console.log('shift_comment_e_iot: ', response.result.shift_comment_e_iot);
+    if (response && response.result) { // Check if response and response.result are not null or undefined
+      this.remainingValues = response.result;
 
-    
-    Object.keys(this.remainingValues).forEach(key => {
-      if (key !== 'shift_comment_e_oot' && key !== 'shift_comment_e_iot') {
-        this.ChecklistE.get(key)?.patchValue(this.remainingValues[key]);
-       
-      }
-    });
+      Object.keys(this.remainingValues).forEach(key => {
+        if (key !== 'shift_comment_e_oot' && key !== 'shift_comment_e_iot') {
+          this.ChecklistE.get(key)?.patchValue(this.remainingValues[key]);
+        }
+      });
+    } else {
+      console.log("Response or response.result is null or undefined.");
+      // Handle the error or notify the user accordingly
+    }
   });
 }
+
 
   nxtAccEn(){
     this.checklistfformenable=true;

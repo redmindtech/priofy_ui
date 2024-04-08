@@ -208,19 +208,21 @@ export class ChecklistDComponent implements OnInit {
   }
   add() {
     this.apiService.getchecklistD().subscribe((response: any) => {
-      console.log(response, 'checking');
-      this.remainingValues = response.result;
-    console.log('shift_comment_d_iot: ', response.result.shift_comment_d_iot);
-
-    
-    Object.keys(this.remainingValues).forEach(key => {
-      if (key !== 'shift_comment_d_oot' && key !== 'shift_comment_d_iot') {
-        this.ChecklistD.get(key)?.patchValue(this.remainingValues[key]);
-       
+      if (response && response.result) { // Check if response and response.result are not null or undefined
+        this.remainingValues = response.result;
+  
+        Object.keys(this.remainingValues).forEach(key => {
+          if (key !== 'shift_comment_d_oot' && key !== 'shift_comment_d_iot') {
+            this.ChecklistD.get(key)?.patchValue(this.remainingValues[key]);
+          }
+        });
+      } else {
+        console.log("Response or response.result is null or undefined.");
+        // Handle the error or notify the user accordingly
       }
     });
-  });
   }
+  
   onRadioChange() {
     // You may want to check if the input field has focus or not
     // before making the API call

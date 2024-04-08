@@ -28,7 +28,7 @@
               <th class="theader"style="width: 33%; text-align: center;">Actions</th>
             </tr>
           </thead>
-          <tr>
+          <tr class="colour1" >
             <td></td>
             <td class="header">NOTE: Outside OT to make sure Decoke header is properly
               drained before lining up decoke air to the furnace.
@@ -37,7 +37,7 @@
             <td></td>
           </tr>
 
-          <tr [class.disabled]="disableoot">
+          <tr [class.disabled]="disableoot"class="colour2" >
             <td class="style"> 1. </td>
             <td class="header">Has IOT's confirm that “arch temperature” warm up ramp set point is
               0.83 ºC/min (equivalent to 50 ºC/hr or to increase 200 ºC/hr in 4
@@ -69,7 +69,7 @@
             </tr>
 
 
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot"class="colour1" >
             <td class="style"> 2. </td>
             <td class="header">OOT to open decoke air ONIS blind and 6” main B/V</td>
             <td>
@@ -93,7 +93,7 @@
           </td>
 
           </tr>
-          <tr>
+          <tr class="colour2" >
             <td class="style"> 3. </td>
             <td class="header">COOT to open 4” decoke air B/V downstream each control valve
               FV-22X0-10A/B.</td>
@@ -118,7 +118,7 @@
             </td>
 
           </tr>
-          <tr [class.disabled]="disableoot">
+          <tr [class.disabled]="disableoot"class="colour1" >
             <td class="style"> 4. </td>
             <td class="header">Note: IOT to inform Utility before start decoke airflow.<br>
               IOT to enable Decoke Air controllers and start flow through the
@@ -146,7 +146,7 @@
 
           </tr>
 
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot"class="colour2" >
             <td class="style"> 5. </td>
             <td class="header">OOT to light manual burners as requested by IOT (to maintain
               fuel gas pressure between 0.2 to 0.4 kg/cm2g) and by following
@@ -154,7 +154,7 @@
             </td>
             <td></td>
           </tr>
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot"class="colour1" >
 
             <td></td>
             <td class="header">Note 1: fuel gas pressure needs to be maintained as low as
@@ -181,7 +181,7 @@
             </td>
 
           </tr>
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot"class="colour2" >
             <td></td>
             <td class="header">Note 2: burner light off sequence attached in Appendix A
               must be followed.</td>
@@ -206,7 +206,7 @@
             </td>
 
           </tr>
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot"class="colour1" >
             <td></td>
             <td class="header">Note 3: “add burners” alarm set point is 0.5 kg/cm2g (stops the
               ramp) and “cut burners” alarm is 0.2 kg/cm2g. Low-pressure
@@ -232,7 +232,7 @@
             </td>
 
           </tr>
-          <tr>
+          <tr class="colour2" >
             <td class="style"> 6. </td>
             <td class="header">When 10 burners are lit the air registers of the lit burners should
               now be opened to 3 notches.</td>
@@ -257,7 +257,7 @@
             </td>
 
           </tr>
-          <tr>
+          <tr class="colour1" >
             <td class="style"> 7. </td>
             <td class="header">When around 20 burners are lit all the lit burners air registers
               should be opened out to 100%.</td>
@@ -283,7 +283,7 @@
 
           </tr>
 
-          <tr [class.disabled]="disableoot">
+          <tr [class.disabled]="disableoot"class="colour2" >
             <td class="style"> 8. </td>
             <td class="header">IOT to request OOT to close the 3” steam drum start up vents
               when the steam drum pressure is 5 kg/cm2g.</td>
@@ -308,12 +308,12 @@
             </td>
            </tr>
 
-          <tr [class.disabled]="disableoot">
+          <tr [class.disabled]="disableoot"class="colour1" >
             <td class="style"> 9. </td>
             <td class="header">IOT to ensure air is flowing through each coil by:</td>
             <td></td>
           </tr>
-          <tr>
+          <tr  class="colour1">
             <td></td>
             <td class="header">*Checking that all COTs are rising at about the same rate.</td>
             <td>
@@ -337,7 +337,7 @@
           </td>
 
           </tr>
-          <tr>
+          <tr class="colour2" >
             <td></td>
             <td class="header"> *Checking that all Venturi Ratios are about the same value.
               <br>
@@ -366,7 +366,7 @@
 
           </tr>
 
-          <tr [class.disabled]="disableoot">
+          <tr [class.disabled]="disableoot"class="colour1" >
             <td class="style"> 10. </td>
             <td class="header">IOT to clear pluggage from suspect coils by increasing the air
               flow (max. 3.6 Mt/h) on that side of the furnace.</td>
@@ -391,7 +391,7 @@
             </td>
 
           </tr>
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot"class="colour2" >
             <td class="style"> 11. </td>
             <td class="header">OOT to start warm up of the MS steam header by draining
               condensate upstream the 8” B/V to pad.
@@ -421,7 +421,7 @@
 
 </tr>
 
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot"class="colour1" >
             <td class="style"> 12. </td>
             <td class="header">OOT to drain spool piece between 8” B/V and HV-22X0-06 to
               pad and then line up steam trap to MC header.<br>
@@ -450,7 +450,7 @@
           </tr>
 
 
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot"class="colour2" >
             <td class="style"> 13. </td>
             <td class="header">OOT to open MS EBV, HV-22X0-06. </td>
             <td>
@@ -475,7 +475,7 @@
 
           </tr>
 
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot"class="colour1" >
             <td class="style"> 14. </td>
             <td class="header">Once condensate has been drained OOT to open MS steam 8”
               B/V.</td>
@@ -501,7 +501,7 @@
 
           </tr>
 
-          <tr [class.disabled]="disableoot">
+          <tr [class.disabled]="disableoot"class="colour2" >
             <td class="style"> 15. </td>
             <td class="header">IOT to make sure that both steam control valves FV-22X0-22A/B
               remain closed.</td>
@@ -526,13 +526,13 @@
             </td>
 
           </tr>
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot"class="colour1" >
             <td class="style"> 16. </td>
             <td class="header">OOT to warm up the steam lines up to steam control valves
               FV-22X0-22A/B.</td>
             <td></td>
           </tr>
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot"class="colour2" >
             <td></td>
             <td class="header">*Keep ¾” bleed upstream each FV and ¾” bleed upstream 10”
               spectable blind cracked open until the lines are warm (dry steam
@@ -558,7 +558,7 @@
             </td>
 
           </tr>
-          <tr>
+          <tr class="colour1" >
             <td class="style"> 17. </td>
             <td class="header">HOOT to drain the Dilution Steam to FPH Outlet lines (Pass 1&2)
               by opening the ¾” bleed downstream each FV. <br>
@@ -587,7 +587,7 @@
           </tr>
 
 
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot"class="colour2" >
             <td class="style"> 18. </td>
             <td class="header">OOT to open 2” steam B/V to ethane feed line and drain
               condensate by opening the ¾” bleed to pad upstream of
@@ -616,7 +616,7 @@
             </tr>
 
 
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot"class="colour1" >
             <td class="style"> 19. </td>
             <td class="header">OOT to open 3/4” bleed downstream ethane feed HV-22X0-86 to
               pad.
@@ -645,7 +645,7 @@
          </tr>
 
 
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot"class="colour2" >
             <td class="style"> 20. </td>
             <td class="header">OOT to crack open 10” B/V downstream each ethane feed
               control valve FV-22X0-14A/B and drain the ethane line to FPH
@@ -674,7 +674,7 @@
             </td>
           </tr>
 
-          <tr>
+          <tr class="colour1" >
             <td class="style"> 21. </td>
             <td class="header">Open the upstream and downstream 4” B/V of FV-22X0-08 and
               start closing the 2” bypass then take the control using the control
@@ -699,7 +699,7 @@
                 </div>
             </td>
            </tr>
-          <tr>
+          <tr class="colour2" >
             <td></td>
             <td class="header">Phosphate and Morpholine injection to main BFW line to be
               started. Dosing rate to be decided based on blowdown sample.<br>Note: Separate injection point valves for
@@ -726,7 +726,7 @@
             </td>
           </tr>
 
-          <tr [class.disabled]="disableoot">
+          <tr [class.disabled]="disableoot"class="colour1" >
             <td class="style"> 22. </td>
             <td class="header"> Before starting the steam flow through the coils the combustion
               air flow to the furnace FC-22X2-15D-16D should be increased to 60 M t/h to dilute the effect of steam on
@@ -753,7 +753,7 @@
             </td>
           </tr>
 
-          <tr [class.disabled]="disableoot">
+          <tr [class.disabled]="disableoot"class="colour2" >
             <td class="style"> 23. </td>
             <td class="header">IOT to reduce the draft to (-8) mmH2O by entering a manual
               draft set point, before starting the steam flow through the coils.</td>
@@ -778,7 +778,7 @@
             </td>
 
           </tr>
-          <tr [class.disabled]="disableoot">
+          <tr [class.disabled]="disableoot" class="colour1" >
             <td class="style"> 24. </td>
             <td class="header">The IOT should put dilution steam FV-22X0-22A/B on program
               Auto then enable the steam flow via the HMI when the arch
@@ -788,7 +788,7 @@
            FV-22X0-22 A/B will ramp steam flow on control vale output.</td>
             <td></td>
           </tr>
-          <tr [class.disabled]="disableoot">
+          <tr [class.disabled]="disableoot" class="colour2" >
             <td></td>
             <td class="header">*Request the OOT to visually check the firebox to see if
               it starts to look foggy due to steam.</td>
@@ -813,7 +813,7 @@
             </td>
 
           </tr>
-          <tr [class.disabled]="disableoot">
+          <tr [class.disabled]="disableoot" class="colour1" >
             <td></td>
             <td class="header">*Monitor the steam flow reading to each side
               (FT-22X0-22A/B), the HTC-1 outside temperature on each
@@ -848,7 +848,7 @@
               </div>
           </td>
           </tr>
-          <tr  [class.disabled]="disableiot">
+          <tr  [class.disabled]="disableiot" class="colour2" >
             <td class="style"> 25. </td>
             <td class="header">OOT to line up steam lines purges (DS and steam to FPH) to
               C-2317 once all the steam lines are confirmed dry.</td>
@@ -872,17 +872,17 @@
                 </div>
 
           </tr>
-          <tr  [class.disabled]="disableiot">
+          <tr  [class.disabled]="disableiot"class="colour1" >
             <td></td>
             <td class="header">Make sure that the 2” B/V at the common header is open.</td>
             <td></td>
           </tr>
-          <tr  [class.disabled]="disableoot">
+          <tr  [class.disabled]="disableoot" class="colour2" >
             <td class="style"> 26. </td>
             <td class="header">IOT to ensure steam is flowing through each coil by:</td>
             <td></td>
           </tr>
-          <tr  [class.disabled]="disableoot">
+          <tr  [class.disabled]="disableoot" class="colour1" >
             <td></td>
             <td class="header">*Checking that all COTs are rising at about the same rate.</td>
             <td>
@@ -906,7 +906,7 @@
           </td>
 
           </tr>
-          <tr  [class.disabled]="disableoot">
+          <tr  [class.disabled]="disableoot" class="colour1" >
             <td></td>
             <td class="header">*Checking that all venture ratios are about the same value.
               <br>
@@ -933,7 +933,7 @@
               </div>
           </td>
           </tr>
-          <tr  [class.disabled]="disableoot">
+          <tr  [class.disabled]="disableoot" class="colour2" >
             <td class="style"> 27. </td>
             <td class="header">IOT to clear pluggage from suspect coils by slowly increasing the
               steam flow on that side of the furnace.</td>
@@ -957,12 +957,12 @@
                 </div>
             </td>
           </tr>
-          <tr  [class.disabled]="disableiot">
+          <tr  [class.disabled]="disableiot" class="colour1" >
             <td class="style"> 28. </td>
             <td class="header">OOT to line up LS “purge steam” to:</td>
             <td></td>
           </tr>
-          <tr  [class.disabled]="disableiot">
+          <tr  [class.disabled]="disableiot" class="colour2" >
             <td></td>
             <td class="header">*Secondary TLE inlet PT</td>
             <td>
@@ -986,7 +986,7 @@
           </td>
 
           </tr>
-          <tr  [class.disabled]="disableiot">
+          <tr  [class.disabled]="disableiot" class="colour1" >
             <td></td>
             <td class="header">*Tertiary TLE outlet PTs.</td>
             <td>
@@ -1010,7 +1010,7 @@
           </td>
 
           </tr>
-          <tr  [class.disabled]="disableiot">
+          <tr  [class.disabled]="disableiot" class="colour2" >
             <td></td>
             <td class="header">*PT between both CG MOVs.</td>
             <td>
@@ -1034,7 +1034,7 @@
           </td>
 
           </tr>
-          <tr  [class.disabled]="disableiot">
+          <tr  [class.disabled]="disableiot" class="colour1" >
             <td></td>
             <td class="header">*Both CG MOVs and Decoke MOV seats (HV-22X0-13A and
               HV-22X0-14 and Cavity).</td>
@@ -1059,13 +1059,13 @@
             </td>
 
           </tr>
-          <tr  [class.disabled]="disableiot">
+          <tr  [class.disabled]="disableiot"class="colour2" >
             <td></td>
             <td class="header">Make sure the inlet header 2” B/V are open and steam traps
               operational.</td>
             <td></td>
           </tr>
-          <tr  [class.disabled]="disableoot">
+          <tr  [class.disabled]="disableoot" class="colour1" >
             <td class="style"> 29. </td>
             <td class="header">IOT to ensure that SHP steam flow is exiting the vent silencer.</td>
             <td>
@@ -1089,7 +1089,7 @@
           </td>
 
           </tr>
-          <tr  [class.disabled]="disableoot">
+          <tr  [class.disabled]="disableoot" class="colour2" >
             <td class="style"> 30. </td>
             <td class="header">IOT to continuously monitor the fuel gas pressure and OOT to
               continue lighting off more burners as required.
@@ -1117,7 +1117,7 @@
           </td>
            </tr>
 
-          <tr  [class.disabled]="disableiot">
+          <tr  [class.disabled]="disableiot" class="colour1" >
             <td class="style"> 31. </td>
             <td class="header">OOT to continuously monitor the firebox to see if it starts to look
               foggy due to steam entering it.</td>
@@ -1142,7 +1142,7 @@
             </td>
 
           </tr>
-          <tr>
+          <tr class="colour2" >
             <td class="style"> 32. </td>
             <td class="header">When the steam flow is >10 T/H/coil the decoke air flow is backed
               off by closing the FV’S in auto.
@@ -1171,7 +1171,7 @@
         </tr>
 
 
-          <tr  [class.disabled]="disableiot">
+          <tr  [class.disabled]="disableiot" class="colour1" >
             <td class="style"> 33. </td>
             <td class="header">OOT to close decoke air ONIS blind and 6” main B/V once there
               is no more air flow to coils.</td>
@@ -1197,7 +1197,7 @@
 
           </tr>
 
-          <tr  [class.disabled]="disableiot">
+          <tr  [class.disabled]="disableiot" class="colour2" >
             <td class="style"> 34. </td>
             <td class="header">OOT to close 4” decoke air B/V downstream each control valve
               FV-22X0-10A/B.</td>
@@ -1222,7 +1222,7 @@
             </td>
             </tr>
 
-          <tr  [class.disabled]="disableoot">
+          <tr  [class.disabled]="disableoot" class="colour1" >
             <td class="style"> 35. </td>
             <td class="header">IOT to disable Decoke Air controllers and confirm that the ONIS
               “Close DI” is true.</td>
@@ -1247,8 +1247,8 @@
             </td>
           </tr>
 
-          <tr>
-            <td class="style"> 36. </td>
+          <tr  class="colour2">
+            <td class="style" > 36. </td>
             <td class="header">When Decoke air HV-22X0-07 is closed HV-22X0-02 (purge
               steam to ethane feed line) should open 25% on program logic.</td>
               <td>
@@ -1272,7 +1272,7 @@
             </td>
 
           </tr>
-          <tr  [class.disabled]="disableiot">
+          <tr  [class.disabled]="disableiot" class="colour1" >
             <td class="style"> 37. </td>
             <td class="header">OOT to fully open downstream block valves of the ethane feed
               control valves FV-22X0-14A/B and metallic car seal provided.</td>
@@ -1297,7 +1297,7 @@
             </td>
 
           </tr>
-          <tr  [class.disabled]="disableoot">
+          <tr  [class.disabled]="disableoot" class="colour2" >
             <td class="style"> 38. </td>
             <td class="header">IOT to confirm that ethane feed control valves FV-22X0-14A/B
               come fully open in auto to allow starting steam flow through the
@@ -1322,7 +1322,7 @@
                 </div>
             </td>
          </tr>
-          <tr [class.disabled]="disableiot">
+          <tr [class.disabled]="disableiot" class="colour1" >
             <td class="style"> 39. </td>
             <td class="header">OOT to line up steam drum and sTLE continuous blowdown to
               header. When steam drum header pressure reads > 12 kg/cm2.</td>
@@ -1347,7 +1347,7 @@
             </td>
 
           </tr>
-          <tr>
+          <tr class="colour2" >
             <td class="style"> 40. </td>
             <td class="header">If needed, adjust the steam drum blow down to maintain the BFW
               economizer coil outlet temperature below 312ºC.
@@ -1378,7 +1378,7 @@
           </tr>
 
 
-          <tr [class.disabled]="disableoot">
+          <tr [class.disabled]="disableoot"class="colour1" >
             <td class="style"> 41. </td>
             <td class="header">IOT to ensure Furnace sequence auto-move to Warm up COT
               HSSB step occurs. Warm up continues at 50°C per hour.
@@ -1426,29 +1426,29 @@
       <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2%;">
         
           <div *ngIf="disableoot">
-            <div class="row" style="margin-left: 450px;">
+            <div class="row" style="margin-left: 500px;">
               <div class="col">
-                <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
+                <button mat-raised-button style="background-color: #147737;" (click)="toggleEnable()">Finish Shift</button>
                 </div>
                 <div class="col">
-                <button mat-raised-button style="background-color: #97ca94; " [disabled]="!ChecklistD.valid" (click)="nxtAccEn()">Next</button>
+                <button mat-raised-button style="background-color: #147737; " [disabled]="!ChecklistD.valid" (click)="nxtAccEn()">Next</button>
                 </div>
               </div>
             <div *ngIf="enable"class="ml-2" [formGroup]="ChecklistD">
               
               <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_d_oot"></textarea>
-              <button class="btn btn-primary ml-2" style="background-color: #97ca94;margin-bottom: 4%;" (click)="onRadioChangeup()">Add Comment</button>
+              <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;" (click)="onRadioChangeup()">Add Comment</button>
             </div>
            
           </div>
         
         <div *ngIf="disableiot">
-          <div class="row" style="margin-left: 450px;">
+          <div class="row" style="margin-left: 500px;">
           <div class="col">
-            <button mat-raised-button style="background-color: #97ca94;" (click)="toggleEnable()">Finish Shift</button>
+            <button mat-raised-button style="background-color: #147737;" (click)="toggleEnable()">Finish Shift</button>
             </div>
             <div class="col">
-            <button mat-raised-button style="background-color: #97ca94; " [disabled]="!ChecklistD.valid" (click)="nxtAccEn()">Next</button>
+            <button mat-raised-button style="background-color: #147737; " [disabled]="!ChecklistD.valid" (click)="nxtAccEn()">Next</button>
             </div>
           </div>
           
@@ -1456,7 +1456,7 @@
            
             <div>
               <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_d_iot"></textarea>
-              <button class="btn btn-primary ml-1"  style="background-color: #97ca94;margin-bottom: 4%;"  (click)="onRadioChangeup()">Add Comment</button>
+              <button class="btn btn-primary ml-1"  style="background-color: #147737;margin-bottom: 4%;"  (click)="onRadioChangeup()">Add Comment</button>
             </div>
           </div>
           
