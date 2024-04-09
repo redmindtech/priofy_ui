@@ -155,4 +155,11 @@ updateFormValues(): void {
 toggleEnable() {
   this.enable = !this.enable; // Toggle the value of enable between true and false
 }
+// AcceptReject() {
+//   this.apiService.getnotification().subscribe((response: any) => {
+ 
+//  console.log('response.result: ', response.result);
+    
+//   });
+// }
 }

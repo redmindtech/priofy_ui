@@ -26,6 +26,7 @@ export class ChecklistAComponent implements OnInit {
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
   remainingValues: any;
+  disableform: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,7 +38,10 @@ export class ChecklistAComponent implements OnInit {
     this.userDetails = localStorage.getItem('currentUser');
     this.userObject = JSON.parse(this.userDetails);
     this.position = this.userObject.position;
+   // this.disableform=this.userObject.checklistA;
+   this.disableform=true
     console.log(this.position)
+    // this.formenable();
     if (this.position === 'iot') {
       this.disableiot = true;
       this.disableoot = false;
@@ -238,4 +242,13 @@ updateFormValues(): void {
 toggleEnable() {
   this.enable = !this.enable; // Toggle the value of enable between true and false
 }
+// formenable() {
+//   if (this.disableform) {
+//     console.log("Disabling form");
+//     this.ChecklistA.disable();
+//   } else {
+//     console.log("Enabling form");
+//     this.ChecklistA.enable();
+//   }
+// }
 }

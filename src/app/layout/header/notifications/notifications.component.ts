@@ -1,51 +1,84 @@
-import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { NotificationService } from '@app/utils/service/notification.service';
 import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.css']
 })
-export class NotificationsComponent { 
+export class NotificationsComponent implements OnInit, OnDestroy {
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
-  remainingValues: any;
-  constructor(private fb: FormBuilder,  private apiService: NotificationService )
-{}
+  ootIotObject: { [k: string]: unknown } = {};
+  notificationForm: FormGroup;
+  id: any;
 
-ngOnInit(): void {
+  constructor(
+    private fb: FormBuilder,
+    private apiService: NotificationService
+  ) {}
 
-this.setupSubmitInterval();
-}
-setupSubmitInterval() {
-  this.onSubmitInterval = setInterval(() => {
-    console.log('onSubmitInterval: ', this.onSubmitInterval);
-    this.add();
-  }, 5* 1000); // 2 minutes in milliseconds
-}
+  ngOnInit(): void {
+    this.setupSubmitInterval();
+    this.notificationForm = this.fb.group({});
+  }
 
-add() {
-  this.apiService.getnotification().subscribe((response: any) => {
-    console.log(response, 'checking');
-    
-    this.remainingValues = response.result;
+  ngOnDestroy(): void {
+    clearInterval(this.onSubmitInterval);
+  }
 
-    // Iterate through the values and check if any value is not null or empty
-    Object.keys(this.remainingValues).forEach(key => {
-      if (this.remainingValues[key]) {
-        // If the value is not null or empty, patch it
-        
-        console.log('this.remainingValues[key]: ', this.remainingValues[key]);
-      }
+  setupSubmitInterval() {
+    this.onSubmitInterval = setInterval(() => {
+      this.add();
+    }, 5 * 1000); // 5 seconds interval
+  }
+
+  add() {
+    this.apiService.getnotification().subscribe((response: any) => {
+   this.id=response.result.id
+      const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
+        key.startsWith('oot') || key.startsWith('iot')
+      );
+      this.ootIotObject = Object.fromEntries(ootIotEntries);
+      this.createFormControls();
     });
-  });
-}
+  }
 
-patchValue(value: any) {
-  // Your patch logic here
-}
+  createFormControls() {
+    // Clear existing form controls
+    this.notificationForm = this.fb.group({});
 
+    // Dynamically create form controls based on the received data
+    Object.keys(this.ootIotObject).forEach(key => {
+      this.notificationForm.addControl(key, new FormControl(''));
+    });
+  }
 
+  accept(key: string) {
+    console.log("acc");
+    const formValue = this.notificationForm.get(key)?.value;
+    this.saveNotification(formValue, key, 'accept');
+  }
 
+  reject(key: string) {
+    const formValue = this.notificationForm.get(key)?.value;
+    this.saveNotification(formValue, key, 'reject');
+  }
+
+  saveNotification(formValue: any, key: string, action: string) {
+    console.log("save");
+    const payload = {id: this.id, [key]: action  }; 
+    
+    this.addSubscription = this.apiService.savenotification(payload).subscribe(
+      (response) => {
+        console.log('Response from server:', response);
+        // Optionally, you can perform additional actions upon successful save
+      },
+      (error) => {
+        console.error('Error while sending data:', error);
+      }
+    );
+  }
 }

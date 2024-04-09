@@ -1,36 +1,46 @@
-<app-dropdown size="xl">
+
+<!-- <app-dropdown size="xl">
     <ng-container dropdown-button>
         <i class="far fa-bell"></i>
         <span class="badge badge-warning navbar-badge">15</span>
     </ng-container>
-    <ng-container  dropdown-menu>
+    <ng-container dropdown-menu style="width: 900%;">
         <span class="dropdown-item dropdown-header">15 Notifications</span>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item dropdown-footer">
-            See All Notifications
-        </a>
-    </ng-container>
-</app-dropdown>
 
-<ng-template #notification>
-    <a href="#" class="dropdown-item">
-        <i class="fas fa-envelope mr-2"></i> 4 new messages
-        <span class="float-right text-muted text-sm">3 mins</span>
-    </a>
-    <div class="dropdown-divider"></div>
-</ng-template>
+        <div *ngIf="ootIotObject">
+            <div *ngFor="let key of ootIotObject | keyvalue">
+                <div class="notification-box">
+                    <p>{{ key.key }} : {{ key.value }}</p>
+                </div>
+            </div>
+        </div>
+
+      
+
+    </ng-container>
+</app-dropdown> -->
+<app-dropdown size="xl">
+    <ng-container dropdown-button>
+        <i class="far fa-bell"></i>
+        <span class="badge badge-warning navbar-badge">1</span>
+    </ng-container>
+    <mat-card dropdown-menu style="width: 300px; margin: 7%;" >
+        <mat-card-content style="width: 300px;">
+            <div *ngIf="ootIotObject">
+                <div *ngFor="let keyValuePair of ootIotObject | keyvalue; let i = index">
+                    <div class="notification-box">
+                        <p *ngIf="i === 0"><strong>Comment :</strong> {{ keyValuePair.value }}</p>
+                        <p *ngIf="i === 1"><strong>Status :</strong> {{ keyValuePair.value }}</p>
+                        <!-- Move the buttons inside the ngFor loop -->
+                        
+                    </div>
+                    <div *ngIf="i === 1" class="row">
+                    <button  mat-button color="primary" style="margin-left: 130px;" (click)="accept(keyValuePair.key)">Accept</button>
+                        <button  mat-button color="warn"  (click)="reject(keyValuePair.key)">Reject</button>
+                    </div>
+                    </div>
+                
+            </div>
+        </mat-card-content>
+    </mat-card>
+    
