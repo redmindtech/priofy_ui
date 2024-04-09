@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class NotificationService {
 
   baseUrl: string = "http://localhost:8080/CheckListE";
-
+//  baseUrl: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/Safeoperatinglimits";
   constructor(private httpClient: HttpClient) { }
  // Create new permit data
  public savenotification(data: any): Observable<any> {
