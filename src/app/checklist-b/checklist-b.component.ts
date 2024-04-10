@@ -36,6 +36,7 @@ export class ChecklistBComponent implements OnInit {
   this.disableIO=this.currentUser.position;
     this.formInitialization();
     this.setupSubmitInterval();
+    console.log(this.ChecklistB)
     }
     ngOnDestroy(): void {
       clearInterval(this.onSubmitInterval);

@@ -1,52 +1,131 @@
 <h1>DashBoard</h1>
-<mat-card class="mat" (click)="viewselected()">
+<section class="content">
+
+  <!-- Adjusted column width -->
+  <div class="search-container">
+ <div class="input-group" data-widget="sidebar-search">
+   <input #searchInput class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search" >
+   <button class="btn btn-sidebar" >
+     <i class="fas fa-search fa-fw"></i>
+   </button>
+ </div>
+</div>
+
+     <br>
+
+       <div class="container-fluid">
+         <!-- Small boxes (Stat box) -->
+         <div class="row">
+     <!-- small box -->
+     <div class="col-lg-4 col-6 ">
+     <div class="small-box bg-info">
+       <div class="inner">
+         <h3>Startup Procedures</h3>
+         <!-- <p>Registered Office Bearers</p> -->
+       </div>
+       <div class="icon">
+         <i class="ion ion-stats-bars"></i>
+       </div>
+       <p class="small-box-footer button-transition " (click)="addItem()"  >More info <i class="fas fa-arrow-circle-right"></i></p>
+     </div>
+  
+
+   </div>
+   <!-- ./col -->
+   <br>
+     <br>
+   <div class="col-lg-4 col-6">
+     <!-- small box -->
+     <div class="small-box bg-success">
+       <div class="inner">
+         <h3>Maintenance</h3>
+         <!-- <p>No.of District Reg OB</p> -->
+       </div>
+       <div class="icon">
+         <i class="ion ion-stats-bars"></i>
+       </div>
+       <p class="small-box-footer button-transition" >More info <i class="fas fa-arrow-circle-right"></i></p>
+     </div>
+
+
+
+   </div>
+   <br>
+     <br>
+   <div class="col-lg-4 col-6">
+     <!-- small box -->
+     <div class="small-box bg-secondary">
+       <div class="inner" style="color: white;">
+         <h3>Shutdown</h3>
+         <!-- <p>Number of District</p> -->
+       </div>
+       <div class="icon">
+         <i class="ion ion-stats-bars"></i>
+       </div>
+       <p class="small-box-footer button-transition" >More info <i class="fas fa-arrow-circle-right"></i></p>
+     </div>
+
+   
+
+   </div>
+   <!-- <div>
+         <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
+       </div>   -->
+ </div>
+
+
+ <!-- <div class="text-secondary text-center"  *ngIf="barchat==''"><h3><b>NO DATA FOUND FOR GRAPHS</b></h3></div> -->
+
+</div>
+</section>
+<mat-card class="mat" (click)="viewselected()"  *ngIf="addbutton">
   <mat-card-content>
-<div class="row headercolor">
-<h3 style="margin: 1%;">Furnace Startup</h3>
-<h3 class="align">(HV-2210-86)</h3>
-<h6 class="datealign"> DATE : {{formattedDate}}</h6>
-</div>
-<hr>
-<div class="tdcolour">
-    <div class="row">
-<div class="col">
-<h4 style="margin-left: 7%;">Categroy</h4>
-</div>
-<div class="col">
-<h4 style="text-align: center;margin-left: 7%;">Attiributes</h4>
-</div>
-</div>
-<div class="row">
-  <div class="col">
-<p style="margin-left: 12%;">Critical</p>
-  </div>
-  <div class="col">
-  <p style="text-align: center;margin-left: 7%">Routine</p>
-  </div>
-  </div>
-  <h4 style="margin-left: 40%;">SHIFTH-1</h4>
-  <div class="row">
-    <div class="col">
-      <p style="margin-left: 6%;">User : Operator1</p>
-      <p style="margin-left: 6%;">Position : IOT</p>
+    <div class="row headercolor">
+      <h3 style="margin: 1%;">Furnace Startup</h3>
+      <h3 class="align">(HV-2210-86)</h3>    
+    </div>
+    <hr>  
+    <!-- <h6>DATE: {{formattedDate}}</h6> -->
+      <div class="row">
+        <div class="col">
+          <h4 style="margin-left: 7%;">Categroy</h4>
+        </div>
+        <div class="col">
+          <h4 style="text-align: center;margin-left: 7%;">Attiributes</h4>
+        </div>
+      </div>
+      <div class="row">        
+        <div class="col">
+          <p style="margin-left: 12%;">Critical</p>
+        </div>
+        <div class="col">
+          <p style="text-align: center;margin-left: 7%">Routine</p>
+        </div>
+      </div>
+      <h4 style="margin-left: 40%;">SHIFT-1</h4>
+      <div class="row">
+        <div class="col">
+          <p style="margin-left: 6%;">User : Operator1</p>
+          <p style="margin-left: 6%;">Position : IOT</p>
         </div>
         <div class="col">
           <p style="margin-left: 7%;text-align: center;">User : Operator2</p>
-        <p style="margin-left: 6%;text-align: center;">Position : OOT</p>
+          <p style="margin-left: 6%;text-align: center;">Position : OOT</p>
         </div>
-  </div>
-  <h4 style="margin-left: 40%;">SHIFTH-2</h4>
-  <div class="row">
-    <div class="col">
-      <p style="margin-left: 6%;">User : Operator3</p>
-      <p style="margin-left: 6%;">Position : IOT</p>
+      </div>
+      <!-- <h4 style="margin-left: 40%;">SHIFT-2</h4>
+      <div class="row">
+        <div class="col">
+          <p style="margin-left: 6%;">User : Operator3</p>
+          <p style="margin-left: 6%;">Position : IOT</p>
         </div>
         <div class="col">
           <p style="margin-left: 7%;text-align: center;">User : Operator4</p>
-        <p style="margin-left: 6%;text-align: center;">Position : OOT</p>
+          <p style="margin-left: 6%;text-align: center;">Position : OOT</p>
         </div>
-  </div>
-</div>
- 
+      </div> -->
+     
+
+    
   </mat-card-content>
 </mat-card>

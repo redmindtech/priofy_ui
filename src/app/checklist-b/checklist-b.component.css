@@ -64,15 +64,15 @@ th {
   text-align: center;
 }
 .colour2{
-  background-color: #a8d5eb;
+  background-color: white;
   }
   .colour1{
     background-color: #c6cfd4;
   }
   .mat{
     border-color: rgb(204, 202, 202);
-    border-width: thin;
-    border-style: none;
+    border-width: thick;
+    border-style: double;
     border-radius: 2%;
    
   }

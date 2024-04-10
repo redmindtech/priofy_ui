@@ -10,6 +10,7 @@ import { AuthService } from '@app/service/auth.service';
 export class HomeComponent implements OnInit {
   user: any
   formattedDate: string;
+  addbutton: boolean = false;
   constructor(private authService: AuthService,
     private router: Router,) {
   }
@@ -28,5 +29,11 @@ this.formattedDate = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${c
 viewselected(){
   this.router.navigate(['/main/mainmenu']);
 }
+addItem(): void {
 
+  setTimeout(() => {
+this.addbutton = true;
+  
+}, 500);
+}
 }

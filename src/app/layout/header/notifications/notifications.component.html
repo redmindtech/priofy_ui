@@ -29,14 +29,14 @@
             <div *ngIf="ootIotObject">
                 <div *ngFor="let keyValuePair of ootIotObject | keyvalue; let i = index">
                     <div class="notification-box">
-                        <p *ngIf="i === 0"><strong>Comment :</strong> {{ keyValuePair.value }}</p>
-                        <p *ngIf="i === 1"><strong>Status :</strong> {{ keyValuePair.value }}</p>
+                        <p *ngIf="i === 0"><strong>Skip Request form Operators</strong> {{ keyValuePair.value }}</p>
+                        <!-- <p *ngIf="i === 1"><strong>Status :</strong> {{ keyValuePair.value }}</p> -->
                         <!-- Move the buttons inside the ngFor loop -->
                         
                     </div>
-                    <div *ngIf="i === 1" class="row">
-                    <button  mat-button color="primary" style="margin-left: 130px;" (click)="accept(keyValuePair.key)">Accept</button>
-                        <button  mat-button color="warn"  (click)="reject(keyValuePair.key)">Reject</button>
+                    <div >
+                    <button  mat-button color="primary" style="margin-left: 130px;" >Accept</button>
+                        <button  mat-button color="warn"  >Reject</button>
                     </div>
                     </div>
                 

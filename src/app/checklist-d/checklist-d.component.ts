@@ -204,7 +204,7 @@ export class ChecklistDComponent implements OnInit {
 
   }
   nxtAccEn(){
-    this.checklistdformenable=false;
+    this.checklisteformenable=false;
   }
   add() {
     this.apiService.getchecklistD().subscribe((response: any) => {

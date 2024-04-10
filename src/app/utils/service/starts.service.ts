@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class StartsService {
-  baseUrl: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/startuprocedure";
-  // baseUrl: string ='http://localhost:8080/startuprocedure';
+  // baseUrl: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/startuprocedure";
+  baseUrl: string ='http://localhost:8080/startuprocedure';
   
 
   constructor(private httpClient: HttpClient) { }

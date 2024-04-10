@@ -1333,7 +1333,7 @@
                 <button mat-raised-button style="background-color: #147737; color: white;" (click)="toggleEnable()">Finish Shift</button>
                 </div>
                 <div class="col">
-                <button mat-raised-button style="background-color: #147737;color: white; " [disabled]="!ChecklistA.valid" (click)="nxtAccEn()">Next</button>
+                <button mat-raised-button style="background-color: #147737;color: white; "  (click)="nxtAccEn()">Next</button>
                 </div>
               </div>
             <div *ngIf="enable"  [formGroup]="ChecklistA">
@@ -1349,7 +1349,7 @@
               <button mat-raised-button style="background-color: #147737;color: white;" (click)="toggleEnable()">Finish Shift</button>
               </div>
               <div class="col">
-              <button mat-raised-button style="background-color: #147737;color: white; " [disabled]="!ChecklistA.valid" (click)="nxtAccEn()">Next</button>
+              <button mat-raised-button style="background-color: #147737;color: white; "  (click)="nxtAccEn()">Next</button>
               </div>
             </div>
             

@@ -1428,10 +1428,10 @@
           <div *ngIf="disableoot">
             <div class="row" style="margin-left: 500px;">
               <div class="col">
-                <button mat-raised-button style="background-color: #147737;" (click)="toggleEnable()">Finish Shift</button>
+                <button mat-raised-button style="background-color: #147737;color: white;" (click)="toggleEnable()">Finish Shift</button>
                 </div>
                 <div class="col">
-                <button mat-raised-button style="background-color: #147737; " [disabled]="!ChecklistD.valid" (click)="nxtAccEn()">Next</button>
+                <button mat-raised-button style="background-color: #147737;color: white;"  (click)="nxtAccEn()">Next</button>
                 </div>
               </div>
             <div *ngIf="enable"class="ml-2" [formGroup]="ChecklistD">
@@ -1448,7 +1448,7 @@
             <button mat-raised-button style="background-color: #147737;color: white;" (click)="toggleEnable()">Finish Shift</button>
             </div>
             <div class="col">
-            <button mat-raised-button style="background-color: #147737;color: white; " [disabled]="!ChecklistD.valid" (click)="nxtAccEn()">Next</button>
+            <button mat-raised-button style="background-color: #147737;color: white; " (click)="nxtAccEn()">Next</button>
             </div>
           </div>
           

@@ -1,68 +1,71 @@
-<div class="login-container">
-  <img src="../../../assets/img/images_upscaled.jpeg" alt="Rectangle" width="800" height="502">
-  <div class="login-box">
-    <div class="login-logo">
-      <h1><strong>Equate - Process Digitization</strong></h1>
-      <br>
-      <h3><strong>Sign in to your workspace</strong></h3>
-    </div>
-    <!-- /.login-logo -->
-    <div class="card login-card-body" style="height: 355px;">
-      
-      <form [formGroup]="form" (submit)="submit()">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <div class="input-group mb-3">
-            <input formControlName="username" type="email" id="username" class="form-control" placeholder="Username" required>
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <!-- <span class="fas fa-envelope"></span> -->
+<div class="background-container">
+  
+  <div class="login-container">
+    <img src="../../../assets/img/images_upscaled.jpeg" alt="Rectangle" width="500" height="502">
+    <div class="login-box">
+      <div class="login-logo">
+        <h1><strong>Equate - Process Digitization</strong></h1>
+        <br>
+        <h3><strong>Sign in to your workspace</strong></h3>
+      </div>
+      <!-- /.login-logo -->
+      <div class="card login-card-body" style="height: 355px;">
+        
+        <form [formGroup]="form" (submit)="submit()">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <div class="input-group mb-3">
+              <input formControlName="username" type="email" id="username" class="form-control" placeholder="Username" required>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <!-- <span class="fas fa-envelope"></span> -->
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <div class="input-group mb-3">
-            <input formControlName="password" type="password" id="password" class="form-control" placeholder="Password" required>
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="password-toggle-icon"><i class="fas fa-eye"></i></span>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-group mb-3">
+              <input formControlName="password" type="password" id="password" class="form-control" placeholder="Password" required>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="password-toggle-icon"><i class="fas fa-eye"></i></span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <br>
-        <mat-error *ngIf="!this.error"><h4  style="margin-left: 12%;">Username or Password Not Correct</h4></mat-error>
-        <div>
-          <input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe" style="margin-left: 2%;">Remember me</label>
-          <!-- <label for="forgetpassword" routerLink="/forgot-password" style="margin-left: 30%;">Forget Password?</label> -->
-          <a routerLink="/forgot-password" style="margin-left: 30%;">Forgot password?</a>
-        </div>
-        <div class="row">
-          <div class="col-8">
+          <br>
+          <mat-error *ngIf="!this.error"><h4  style="margin-left: 12%;">Username or Password Not Correct</h4></mat-error>
+          <div>
+            <input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe" style="margin-left: 2%;">Remember me</label>
+            <!-- <label for="forgetpassword" routerLink="/forgot-password" style="margin-left: 30%;">Forget Password?</label> -->
+            <a routerLink="/forgot-password" style="margin-left: 30%;">Forgot password?</a>
           </div>
-          <!-- /.col -->
-          <div class="col-4" style="margin-left: 35%;">
-            <button type="submit" class="btn btn-primary btn-block">Log me in</button>
+          <div class="row">
+            <div class="col-8">
+            </div>
+            <!-- /.col -->
+            <div class="col-4" style="margin-left: 35%;">
+              <button type="submit" class="btn btn-primary btn-block">Log me in</button>
+            </div>
+            <!-- /.col -->
           </div>
-          <!-- /.col -->
-        </div>
-        <br>
-        <div>
-          <label>Don't have a Account? <a routerLink="/sign-up">Sign Up</a></label>
-        </div>
-      </form>
-
-      <!-- <p class="mb-1">
-        <a routerLink='/forgot-password'>I forgot my password</a>
-      </p> -->
-      <!-- <p class="mb-0">
-        <a routerLink='/register' class="text-center">Register a new membership</a>
-      </p> -->
+          <br>
+          <!-- <div>
+            <label>Don't have a Account? <a routerLink="/sign-up">Sign Up</a></label>
+          </div> -->
+        </form>
+  
+        <!-- <p class="mb-1">
+          <a routerLink='/forgot-password'>I forgot my password</a>
+        </p> -->
+        <!-- <p class="mb-0">
+          <a routerLink='/register' class="text-center">Register a new membership</a>
+        </p> -->
+      </div>
+      <!-- /.card -->
     </div>
-    <!-- /.card -->
+    <!-- /.login-box -->
   </div>
-  <!-- /.login-box -->
-</div>
-<!-- /.login-container -->
+  </div>
+  <!-- /.login-container -->

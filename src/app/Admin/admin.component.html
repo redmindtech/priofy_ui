@@ -14,7 +14,7 @@
           <button class="btn btn-secondary csv" tabindex="0" aria-controls="example1" type="button" (click)="downloadCSV()">
             <span>CSV</span>
           </button>
-          <!-- <button class="btn btn-secondary excel" tabindex="0" aria-controls="example1" type="button">
+          <button class="btn btn-secondary excel" tabindex="0" aria-controls="example1" type="button">
             <span>Excel</span>
           </button>
           <button class="btn btn-secondary pdf" tabindex="0" aria-controls="example1" type="button">
@@ -22,12 +22,12 @@
           </button>
           <button class="btn btn-secondary print" tabindex="0" aria-controls="example1" type="button">
             <span>Print</span>
-          </button> -->
-          <!-- <div class="btn-group">
+          </button>
+          <div class="btn-group">
             <button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" aria-haspopup="true" aria-expanded="false">
               <span>Column visibility</span><span class="dt-down-arrow"></span>
             </button>
-          </div> -->
+          </div>
         </div>
       </div>
       
@@ -41,8 +41,8 @@
   <tr>
 <th (click)="sortData('index')">S.No <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'index'}"></i></th>
 <th (click)="sortData('Furnace_Id')">Furnace Id <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'Furnace_Id'}"></i></th>
-<th (click)="sortData('job_start_date')">Planned Start Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'job_start_date'}"></i></th>
-<th (click)="sortData('job_end_date')">Planned End Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'job_end_date'}"></i></th>
+<th (click)="sortData('job_start_date')">Job Start Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'job_start_date'}"></i></th>
+<th (click)="sortData('job_end_date')">Job End Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'job_end_date'}"></i></th>
 <th (click)="sortData('oot_operator')">OOT Operator <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'oot_operator'}"></i></th>
 <th (click)="sortData('iot_operator')">IOT Operator <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'iot_operator'}"></i></th>
 <th (click)="sortData('status')">Status <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'status'}"></i></th>
@@ -54,8 +54,8 @@
   <td>1</td>
   <td>F1
   </td>
-  <td>22-04-2024</td>
-  <td>28-04-2024</td>
+  <td>2024-04-02</td>
+  <td>2024-04-03</td>
   <td>Operator1</td>
   <td>Operator2</td>
   <td>Completed</td>
@@ -64,8 +64,8 @@
     <td>2</td>
     <td>F2
     </td>
-    <td>23-04-2024</td>
-    <td>29-04-2024</td>
+    <td>2024-04-02</td>
+    <td>2024-04-03</td>
     <td>Operator1</td>
     <td>Operator2</td>
     <td>Completed</td>
@@ -74,8 +74,8 @@
       <td>3</td>
       <td>F3
       </td>
-      <td>08-05-2024</td>
-      <td>18-05-2024</td>
+      <td>2024-04-02</td>
+      <td>2024-04-03</td>
       <td>Operator1</td>
       <td>Operator2</td>
       <td>Completed</td>
@@ -84,8 +84,8 @@
         <td>4</td>
         <td>F4
         </td>
-        <td>19-05-2024</td>
-        <td>20-05-2024</td>
+        <td>2024-04-02</td>
+        <td>2024-04-03</td>
         <td>Operator1</td>
         <td>Operator2</td>
         <td>Completed</td>
@@ -94,8 +94,8 @@
           <td>5</td>
           <td>F5
           </td>
-          <td>25-06-2024</td>
-          <td>01-07-2024</td>
+          <td>2024-04-02</td>
+          <td>2024-04-03</td>
           <td>Operator1</td>
           <td>Operator2</td>
           <td>Completed</td>
@@ -104,8 +104,8 @@
             <td>6</td>
             <td>F6
             </td>
-            <td>02-07-2024</td>
-            <td>15-07-2024</td>
+            <td>2024-04-02</td>
+            <td>2024-04-03</td>
             <td>Operator1</td>
             <td>Operator2</td>
             <td>Completed</td>
@@ -114,8 +114,8 @@
               <td>7</td>
               <td>F7
               </td>
-              <td>03-08-2024</td>
-              <td>15-09-2024</td>
+              <td>2024-04-02</td>
+              <td>2024-04-03</td>
               <td>Operator1</td>
               <td>Operator2</td>
               <td>Completed</td>
@@ -124,8 +124,8 @@
                 <td>8</td>
                 <td>F8
                 </td>
-                <td>05-05-2024</td>
-                <td>18-05-2024</td>
+                <td>2024-04-02</td>
+                <td>2024-04-03</td>
                 <td>Operator1</td>
                 <td>Operator2</td>
                 <td>Completed</td>
@@ -134,8 +134,8 @@
                   <td>8</td>
                   <td>F8
                   </td>
-                  <td>20-06-2024</td>
-                  <td>28-06-2024</td>
+                  <td>2024-04-02</td>
+                  <td>2024-04-03</td>
                   <td>Operator1</td>
                   <td>Operator2</td>
                   <td>Completed</td>
@@ -144,8 +144,8 @@
                     <td>10</td>
                     <td>F10
                     </td>
-                    <td>04-04-2024</td>
-                    <td>05-04-2024</td>
+                    <td>2024-04-02</td>
+                    <td>2024-04-03</td>
                     <td>Operator1</td>
                     <td>Operator2</td>
                     <td>Completed</td>

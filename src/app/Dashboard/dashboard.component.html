@@ -1,359 +1,361 @@
 <section class="content">
 
-     <!-- Adjusted column width -->
-     <div class="search-container">
-    <div class="input-group" data-widget="sidebar-search">
-      <input #searchInput class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search" >
-      <button class="btn btn-sidebar" (click)="handleSearch(searchInput.value)">
-        <i class="fas fa-search fa-fw"></i>
-      </button>
-    </div>
-  </div>
+  <!-- Adjusted column width -->
+  <div class="search-container">
+ <div class="input-group" data-widget="sidebar-search">
+   <input #searchInput class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search" >
+   <button class="btn btn-sidebar" (click)="handleSearch(searchInput.value)">
+     <i class="fas fa-search fa-fw"></i>
+   </button>
+ </div>
+</div>
 
-        <br>
+     <br>
 
-          <div class="container-fluid">
-            <!-- Small boxes (Stat box) -->
-            <div class="row">
-        <!-- small box -->
-        <div class="col-lg-4 col-6 ">
-        <div class="small-box bg-info">
-          <div class="inner">
-            <h3>Startup Procedure</h3>
-            <!-- <p>Registered Office Bearers</p> -->
-          </div>
-          <div class="icon">
-            <i class="ion ion-stats-bars"></i>
-          </div>
-          <p class="small-box-footer button-transition "  (click)="addItem()">More info <i class="fas fa-arrow-circle-right"></i></p>
-        </div>
-      <div class="row col-md-12">
-        <div class="small-box bg-info cols-4 button-slide slide-in" style="width: fit-content;" *ngIf="addbutton">
-          <div class="inner" style="width: 220px;">
-            <h4>Furnace Startup</h4>
-            <!-- <p>Registered Office Bearers</p> -->
-          </div>
-          <div class="icon">
-            <i class="ion ion-stats-bars"></i>
-          </div>
-          <a href="#" class="small-box-footer" routerLink="/main/Admin">More info <i class="fas fa-arrow-circle-right"></i></a>
-        </div>
-
-        <div class="small-box bg-info cols-4 button-slide slide-in" style="width: fit-content; margin-left: 3px;" *ngIf="addbutton">
-          <div class="inner" style="width: 220px;">
-            <h4>Tub Boiler</h4>
-            <!-- <p>Registered Office Bearers</p> -->
-          </div>
-          <div class="icon">
-            <i class="ion ion-stats-bars"></i>
-          </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-        </div>
-
-        <div class="small-box bg-info cols-4 button-slide slide-in" style="width: fit-content; " *ngIf="addbutton">
-          <div class="inner" style="width: 220px;">
-            <h4>Dust Collector</h4>
-            <!-- <p>Registered Office Bearers</p> -->
-          </div>
-          <div class="icon">
-            <i class="ion ion-stats-bars"></i>
-          </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-        </div>
-
-        <div class="small-box bg-info cols-4 button-slide slide-in" style="width: fit-content; margin-left: 3px;" *ngIf="addbutton">
-          <div class="inner" style="width: 220px;">
-            <h4>Safety Valve</h4>
-            <!-- <p>Registered Office Bearers</p> -->
-          </div>
-          <div class="icon">
-            <i class="ion ion-stats-bars"></i>
-          </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-        </div>
-
-      </div>
-
-      </div>
-      <!-- ./col -->
-      <br>
-        <br>
-      <div class="col-lg-4 col-6">
-        <!-- small box -->
-        <div class="small-box bg-success">
-          <div class="inner">
-            <h3>Maintenance</h3>
-            <!-- <p>No.of District Reg OB</p> -->
-          </div>
-          <div class="icon">
-            <i class="ion ion-stats-bars"></i>
-          </div>
-          <p class="small-box-footer button-transition" (click)="addItem1()">More info <i class="fas fa-arrow-circle-right"></i></p>
-        </div>
-
-        <div class="row col-md-12">
-          <div class="small-box bg-success cols-4  button-slide slide-in" style="width: fit-content;" *ngIf="addbutton2">
-            <div class="inner" style="width: 220px;">
-              <h4>Thermostat</h4>
-              <!-- <p>Registered Office Bearers</p> -->
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-
-          <div class="small-box bg-success cols-4  button-slide slide-in" style="width: fit-content; margin-left: 3px;" *ngIf="addbutton2">
-            <div class="inner" style="width: 220px;">
-              <h4>Air filter</h4>
-              <!-- <p>Registered Office Bearers</p> -->
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-          <div class="small-box bg-success cols-4  button-slide slide-in" style="width: fit-content;" *ngIf="addbutton2">
-            <div class="inner" style="width: 220px;">
-              <h4>Heat</h4>
-              <!-- <p>Registered Office Bearers</p> -->
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-
-          <div class="small-box bg-success cols-4  button-slide slide-in" style="width: fit-content; margin-left: 3px;" *ngIf="addbutton2">
-            <div class="inner" style="width: 220px;">
-              <h4>Clean flame sensor</h4>
-              <!-- <p>Registered Office Bearers</p> -->
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-
-
-        </div>
-
-      </div>
-      <br>
-        <br>
-      <div class="col-lg-4 col-6">
-        <!-- small box -->
-        <div class="small-box bg-warning">
-          <div class="inner" style="color: white;">
-            <h3>Shutdown</h3>
-            <!-- <p>Number of District</p> -->
-          </div>
-          <div class="icon">
-            <i class="ion ion-stats-bars"></i>
-          </div>
-          <p class="small-box-footer button-transition" (click)="addItem2()">More info <i class="fas fa-arrow-circle-right"></i></p>
-        </div>
-
-        <div class="row col-md-12">
-          <div class="small-box bg-warning cols-4  button-slide slide-in" style="width: fit-content;" *ngIf="addbutton3">
-            <div class="inner" style="width: 220px;color: white;">
-              <h4>Fanning</h4>
-              <!-- <p>Registered Office Bearers</p> -->
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-
-          <div class="small-box bg-warning cols-4  button-slide slide-in" style="width: fit-content; margin-left: 3px;" *ngIf="addbutton3">
-            <div class="inner" style="width: 220px;color: white;">
-              <h4>Blowing Out</h4>
-              <!-- <p>Registered Office Bearers</p> -->
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-          <div class="small-box bg-warning cols-4  button-slide slide-in" style="width: fit-content;" *ngIf="addbutton3">
-            <div class="inner" style="width: 220px;color: white;">
-              <h4>Combustion Chamber</h4>
-              <!-- <p>Registered Office Bearers</p> -->
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-          <div class="small-box bg-warning cols-4  button-slide slide-in" style="width: fit-content;margin-left: 3px;" *ngIf="addbutton3">
-            <div class="inner" style="width: 220px;color: white;">
-              <h4>Dust Collector</h4>           
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-
-      </div>
-      <!-- <div>
-            <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
-          </div>   -->
-    </div>
-
-    <div class="row h-auto justify-content-around"  *ngIf="barchat!=''" style="gap: 10px;">
-      <div class="col" >
-       <!-- Applications Overview Bar chart -->
-         <div class="card shadow h-100">
-             <div class="card-header" >
-                 <h6 class="m-0 font-weight-bold text-primary  button-slide slide-in">District-wise Engineers Overview</h6>
-             </div>
-             <div class="card-body" >
-                 <div >
-                     <canvas  id="MyChart" ></canvas>
-                 </div>
-             </div>
-         </div>
+       <div class="container-fluid">
+         <!-- Small boxes (Stat box) -->
+         <div class="row">
+     <!-- small box -->
+     <div class="col-lg-4 col-6 ">
+     <div class="small-box bg-info">
+       <div class="inner">
+         <h3>Startup Procedures</h3>
+         <!-- <p>Registered Office Bearers</p> -->
        </div>
-       <div class="col">
-           <div class="card shadow h-100">
-             <div class="card-header" >
-                 <h6 class="m-0 font-weight-bold text-primary  button-slide slide-in">Branch-wise Engineers</h6>
-             </div>
-             <div class="card-body" >
-                 <div>
-                   <canvas id="canvas"></canvas>
-                 </div>
+       <div class="icon">
+         <i class="ion ion-stats-bars"></i>
+       </div>
+       <p class="small-box-footer button-transition "  (click)="addItem()">More info <i class="fas fa-arrow-circle-right"></i></p>
+     </div>
+   <div class="row col-md-12">
+     <div class="small-box bg-info cols-4 button-slide slide-in" style="width: fit-content;" *ngIf="addbutton">
+       <div class="inner" style="width: 220px;">
+         <h4>Furnace Startup</h4>
+         <!-- <p>Registered Office Bearers</p> -->
+       </div>
+       <div class="icon">
+         <i class="ion ion-stats-bars"></i>
+       </div>
+       <a href="#" class="small-box-footer" routerLink="/main/Admin">More info <i class="fas fa-arrow-circle-right"></i></a>
+     </div>
+
+     <div class="small-box bg-info cols-4 button-slide slide-in" style="width: fit-content; margin-left: 3px;" *ngIf="addbutton">
+       <div class="inner" style="width: 220px;">
+         <h4>Tub Boiler</h4>
+         <!-- <p>Registered Office Bearers</p> -->
+       </div>
+       <div class="icon">
+         <i class="ion ion-stats-bars"></i>
+       </div>
+       <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+     </div>
+
+     <div class="small-box bg-info cols-4 button-slide slide-in" style="width: fit-content; " *ngIf="addbutton">
+       <div class="inner" style="width: 220px;">
+         <h4>Dust Collector</h4>
+         <!-- <p>Registered Office Bearers</p> -->
+       </div>
+       <div class="icon">
+         <i class="ion ion-stats-bars"></i>
+       </div>
+       <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+     </div>
+
+     <div class="small-box bg-info cols-4 button-slide slide-in" style="width: fit-content; margin-left: 3px;" *ngIf="addbutton">
+       <div class="inner" style="width: 220px;">
+         <h4>Safety Valve</h4>
+         <!-- <p>Registered Office Bearers</p> -->
+       </div>
+       <div class="icon">
+         <i class="ion ion-stats-bars"></i>
+       </div>
+       <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+     </div>
+
+   </div>
+
+   </div>
+   <!-- ./col -->
+   <br>
+     <br>
+   <div class="col-lg-4 col-6">
+     <!-- small box -->
+     <div class="small-box bg-success">
+       <div class="inner">
+         <h3>Maintenance</h3>
+         <!-- <p>No.of District Reg OB</p> -->
+       </div>
+       <div class="icon">
+         <i class="ion ion-stats-bars"></i>
+       </div>
+       <p class="small-box-footer button-transition" (click)="addItem1()">More info <i class="fas fa-arrow-circle-right"></i></p>
+     </div>
+
+     <div class="row col-md-12">
+       <div class="small-box bg-success cols-4  button-slide slide-in" style="width: fit-content;" *ngIf="addbutton2">
+         <div class="inner" style="width: 220px;">
+           <h4>Thermostat</h4>
+           <!-- <p>Registered Office Bearers</p> -->
+         </div>
+         <div class="icon">
+           <i class="ion ion-stats-bars"></i>
+         </div>
+         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+       </div>
+
+       <div class="small-box bg-success cols-4  button-slide slide-in" style="width: fit-content; margin-left: 3px;" *ngIf="addbutton2">
+         <div class="inner" style="width: 220px;">
+           <h4>Air filter</h4>
+           <!-- <p>Registered Office Bearers</p> -->
+         </div>
+         <div class="icon">
+           <i class="ion ion-stats-bars"></i>
+         </div>
+         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+       </div>
+       <div class="small-box bg-success cols-4  button-slide slide-in" style="width: fit-content;" *ngIf="addbutton2">
+         <div class="inner" style="width: 220px;">
+           <h4>Heat</h4>
+           <!-- <p>Registered Office Bearers</p> -->
+         </div>
+         <br>
+         <div class="icon">
+           <i class="ion ion-stats-bars"></i>
+         </div>
+         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+       </div>
+
+       <div class="small-box bg-success cols-4  button-slide slide-in" style="width: fit-content; margin-left: 3px;" *ngIf="addbutton2">
+         <div class="inner" style="width: 220px;">
+           <h4>Clean flame sensor</h4>
+           <!-- <p>Registered Office Bearers</p> -->
+         </div>
+         <div class="icon">
+           <i class="ion ion-stats-bars"></i>
+         </div>
+         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+       </div>
+
+
+     </div>
+
+   </div>
+   <br>
+     <br>
+   <div class="col-lg-4 col-6">
+     <!-- small box -->
+     <div class="small-box bg-secondary">
+       <div class="inner" style="color: white;">
+         <h3>Shutdown</h3>
+         <!-- <p>Number of District</p> -->
+       </div>
+       <div class="icon">
+         <i class="ion ion-stats-bars"></i>
+       </div>
+       <p class="small-box-footer button-transition" (click)="addItem2()">More info <i class="fas fa-arrow-circle-right"></i></p>
+     </div>
+
+     <div class="row col-md-12">
+       <div class="small-box bg-secondary cols-4  button-slide slide-in" style="width: fit-content;" *ngIf="addbutton3">
+         <div class="inner" style="width: 220px;color: white;">
+           <h4>Fanning</h4>
+           <!-- <p>Registered Office Bearers</p> -->
+         </div>
+         <div class="icon">
+           <i class="ion ion-stats-bars"></i>
+         </div>
+         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+       </div>
+
+       <div class="small-box bg-secondary cols-4  button-slide slide-in" style="width: fit-content; margin-left: 3px;" *ngIf="addbutton3">
+         <div class="inner" style="width: 220px;color: white;">
+           <h4>Blowing Out</h4>
+           <!-- <p>Registered Office Bearers</p> -->
+         </div>
+         <div class="icon">
+           <i class="ion ion-stats-bars"></i>
+         </div>
+         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+       </div>
+       <div class="small-box bg-secondary cols-4  button-slide slide-in" style="width: fit-content;" *ngIf="addbutton3">
+         <div class="inner" style="width: 220px;color: white;">
+           <h4>Combustion Chamber</h4>
+           <!-- <p>Registered Office Bearers</p> -->
+         </div>
+         <div class="icon">
+           <i class="ion ion-stats-bars"></i>
+         </div>
+         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+       </div>
+       <div class="small-box bg-secondary cols-4  button-slide slide-in" style="width: fit-content;margin-left: 3px;" *ngIf="addbutton3">
+         <div class="inner" style="width: 220px;color: white;">
+           <h4>Dust  Collector</h4>           
+         </div>
+         <div class="icon">
+           <i class="ion ion-stats-bars"></i>
+         </div>
+         <br>
+         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+       </div>
+     </div>
+
+   </div>
+   <!-- <div>
+         <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
+       </div>   -->
+ </div>
+
+ <div class="row h-auto justify-content-around"  *ngIf="barchat!=''" style="gap: 10px;">
+   <div class="col" >
+    <!-- Applications Overview Bar chart -->
+      <div class="card shadow h-100">
+          <div class="card-header" >
+              <h6 class="m-0 font-weight-bold text-primary  button-slide slide-in">District-wise Engineers Overview</h6>
+          </div>
+          <div class="card-body" >
+              <div >
+                  <canvas  id="MyChart" ></canvas>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="col">
+        <div class="card shadow h-100">
+          <div class="card-header" >
+              <h6 class="m-0 font-weight-bold text-primary  button-slide slide-in">Branch-wise Engineers</h6>
+          </div>
+          <div class="card-body" >
+              <div>
+                <canvas id="canvas"></canvas>
+              </div>
+          </div>
+        </div>
+    </div>
+     <!-- <div class="row">
+       <div class="col-md-6 card">
+         <div class="card shadow h-100">
+           <div class="card-header">
+             <h6 class="m-0 font-weight-bold text-primary">District-wise Engineers Overview</h6>
+           </div>
+           <div class="card-body">
+             <div>
+               <div id="donut"></div>
              </div>
            </div>
+         </div>
        </div>
-        <!-- <div class="row">
-          <div class="col-md-6 card">
-            <div class="card shadow h-100">
-              <div class="card-header">
-                <h6 class="m-0 font-weight-bold text-primary">District-wise Engineers Overview</h6>
-              </div>
-              <div class="card-body">
-                <div>
-                  <div id="donut"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 card">
-                  <div class="card shadow h-100">
-                    <div class="card-header">
-                      <h6 class="m-0 font-weight-bold text-primary">District-wise Engineers Overview</h6>
-                    </div>
-                    <div class="card-body">
-                      <div>
-                        <div id="donut2"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-        </div> -->
-          <!-- <div class="col-md-12">
-            <div class="card shadow h-100">
-              <div class="card-header">
-                <h6 class="m-0 font-weight-bold text-primary">Branch-wise Engineers</h6>
-              </div>
-              <div class="card-body">
-                  <div class="form-group row">
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                      <label>Party District / கட்சி மாவட்டம்<span class="required "> *</span></label><br>
-                      <select class="form-control" [(ngModel)]="district" (change)="getPosting(district);">
-                        <option value="" selected disabled hidden>Select District</option>
-                        <option *ngFor="let option of district_list" (value)="option">
-                          {{option}}</option>
-                      </select>
-                      <div class="invalid-msg" *ngIf="!district" [hidden]='hidden'>Select District
-                      </div>
-                    </div></div>
-                <div>
-                  <div id="graphDiv2"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card shadow h-100">
-              <div class="card-header">
-                <h6 class="m-0 font-weight-bold text-primary">DistrictWise Office Bearers</h6>
-              </div>
-              <div class="card-body">
+       <div class="col-md-6 card">
+               <div class="card shadow h-100">
+                 <div class="card-header">
+                   <h6 class="m-0 font-weight-bold text-primary">District-wise Engineers Overview</h6>
+                 </div>
+                 <div class="card-body">
+                   <div>
+                     <div id="donut2"></div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+     </div> -->
+       <!-- <div class="col-md-12">
+         <div class="card shadow h-100">
+           <div class="card-header">
+             <h6 class="m-0 font-weight-bold text-primary">Branch-wise Engineers</h6>
+           </div>
+           <div class="card-body">
+               <div class="form-group row">
+                 <div class="col-sm-6 mb-3 mb-sm-0">
+                   <label>Party District / கட்சி மாவட்டம்<span class="required "> *</span></label><br>
+                   <select class="form-control" [(ngModel)]="district" (change)="getPosting(district);">
+                     <option value="" selected disabled hidden>Select District</option>
+                     <option *ngFor="let option of district_list" (value)="option">
+                       {{option}}</option>
+                   </select>
+                   <div class="invalid-msg" *ngIf="!district" [hidden]='hidden'>Select District
+                   </div>
+                 </div></div>
+             <div>
+               <div id="graphDiv2"></div>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div class="col-md-12">
+         <div class="card shadow h-100">
+           <div class="card-header">
+             <h6 class="m-0 font-weight-bold text-primary">DistrictWise Office Bearers</h6>
+           </div>
+           <div class="card-body">
 
-                <div>
-                  <div id="chartdiv"></div>
-                </div>
-              </div>
-            </div>
-          </div> -->
+             <div>
+               <div id="chartdiv"></div>
+             </div>
+           </div>
+         </div>
+       </div> -->
 
 
-            <!-- <div class="col-md-12">
-              <div class="card shadow h-100">
-                <div class="card-header">
-                  <h6 class="m-0 font-weight-bold text-primary">DistrictWise Office Engineers</h6>
-                </div>
-                <div class="card-body">
+         <!-- <div class="col-md-12">
+           <div class="card shadow h-100">
+             <div class="card-header">
+               <h6 class="m-0 font-weight-bold text-primary">DistrictWise Office Engineers</h6>
+             </div>
+             <div class="card-body">
 
-                  <div>
-                    <div id="graphDiv1"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="card shadow h-100">
-                <div class="card-header">
-                  <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
-                </div>
-                <div class="card-body">
-                  <div>
-                    <div id="graphDiv"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-                <div class="col-md-12">
-                  <div class="card shadow h-100">
-                    <div class="card-header">
-                      <h6 class="m-0 font-weight-bold text-primary">Stubborn Chart</h6>
-                    </div>
-                    <div class="card-body">
+               <div>
+                 <div id="graphDiv1"></div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class="col-md-12">
+           <div class="card shadow h-100">
+             <div class="card-header">
+               <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+             </div>
+             <div class="card-body">
+               <div>
+                 <div id="graphDiv"></div>
+               </div>
+             </div>
+           </div>
+         </div>
+             <div class="col-md-12">
+               <div class="card shadow h-100">
+                 <div class="card-header">
+                   <h6 class="m-0 font-weight-bold text-primary">Stubborn Chart</h6>
+                 </div>
+                 <div class="card-body">
 
-                      <div>
-                        <div id="chartDiv5"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
+                   <div>
+                     <div id="chartDiv5"></div>
+                   </div>
+                 </div>
+               </div>
+             </div> -->
 
-          <style>
-            #chartdiv {
-              width: 100%;
-              height: 500px;
-            }
-            #graphDiv,#graphDiv1,#chartDiv5, #graphDiv2,#donut,#donut2 {
-              width: 100%;
-              height: 500px;
-            }
-          </style>
+       <style>
+         #chartdiv {
+           width: 100%;
+           height: 500px;
+         }
+         #graphDiv,#graphDiv1,#chartDiv5, #graphDiv2,#donut,#donut2 {
+           width: 100%;
+           height: 500px;
+         }
+       </style>
 
-          <!-- Resources -->
-
-
-          <!-- Chart code -->
-          <script>
-
-          </script>
+       <!-- Resources -->
 
 
-    </div>
-    <!-- <div class="text-secondary text-center"  *ngIf="barchat==''"><h3><b>NO DATA FOUND FOR GRAPHS</b></h3></div> -->
+       <!-- Chart code -->
+       <script>
 
-  </div>
- </section>
+       </script>
+
+
+ </div>
+ <!-- <div class="text-secondary text-center"  *ngIf="barchat==''"><h3><b>NO DATA FOUND FOR GRAPHS</b></h3></div> -->
+
+</div>
+</section>

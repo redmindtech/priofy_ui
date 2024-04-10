@@ -35,7 +35,7 @@ export class LoginComponent {
             const id = response.result.id;
            this.name= response.result.username
            if(this.name=='Admin'){
-            this.router.navigate(['/main/dashboard'] );
+            this.router.navigate(['/main/maindashboard'] );
            }
            else{
             this.router.navigate(['/main/home']);

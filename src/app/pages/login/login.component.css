@@ -3,7 +3,23 @@
   justify-content: center;
   align-items: center;
   height: 100vh; /* Adjust as needed */
+ }
+.background-container {
+  background-color: #f6f7fa; /* Set the background color to grey */
+  /* Ensure the background covers the entire viewport height */
+  display: flex;
+  justify-content: center; /* Center the login container horizontally */
+  align-items: center; /* Center the login container vertically */
 }
+
+/* .login-container {
+  /* Your existing styles for the login container */
+  /* Ensure to set a background color or style for the login container to prevent transparency */
+  /* background-color: #fff; /* Set the background color to white */
+  /* border-radius: 5px; Optional: Add some border radius for visual appeal */
+  /* padding: 20px; Optional: Add padding for spacing */ */
+/* }  */
+
 
 .login-box {
   width: 360px;
