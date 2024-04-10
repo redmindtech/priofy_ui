@@ -1,3 +1,5 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
 .mat-table {
   width: 100%;
   border-collapse: collapse;
@@ -16,10 +18,34 @@
 .mat-header-row th, .mat-row td {
   padding: 12px;
 }
-.createbutton {
-  float: right;
-  margin: 2%;
+
+.searchbar{
+margin-left: 5px;
 }
+
+.row{
+  padding-top: 15px;
+  align-items: center;
+  align-content: space-evenly;
+}
+
+.collectivebuttons{
+  display: flex;
+  margin-left: 35px;
+  margin-top: 15px;
+}
+
+.createbutton {
+  display: flex;
+  margin-top: 15px;
+  margin-left: 35px;
+  margin-right: 0px;
+  
+}
+.form-control-sm{
+  float: right;
+}
+
 .mat-dialog-container {
   display: block;
   padding: 24px;

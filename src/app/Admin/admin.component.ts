@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ShowAdminDetailsComponent } from '@app/Show-admin-details/show-admin-details.component';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-admin',
@@ -8,10 +9,14 @@ import { ShowAdminDetailsComponent } from '@app/Show-admin-details/show-admin-de
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  @ViewChild(MatSort) sort: MatSort;
 
   listData: any[] = []; // Define your listData array here
-
+  filteredListData: any[] = [];
   displayedColumns: string[] = ['index', 'Furnace_Id', 'job_plan_date', 'job_start_date', 'job_end_date', 'oot_operator', 'iot_operator', 'status'];
+  searchValue: string = ''; 
+  sortColumn: string = '';
+  sortDirection: number = 1;
 
   constructor(public dialog: MatDialog) { }
 
@@ -22,15 +27,56 @@ export class AdminComponent implements OnInit {
       { index: 2, Furnace_Id: 'F2', job_plan_date: '2024-04-04', job_start_date: '2024-04-05', job_end_date: '2024-04-06', oot_operator: 'Operator2', iot_operator: 'Operator3', status: 'In Progress' },
       // Add more objects as needed
     ];
+    this.filteredListData = [...this.listData];
   }
 
+  sortData(column: string): void {
+    console.log(this.sortColumn)
+    this.sortDirection = (column === this.sortColumn) ? -this.sortDirection : 1;
+    this.sortColumn = column;
+
+    this.filteredListData.sort((a, b) => {
+      const valA = a[column];
+      const valB = b[column];
+
+      if (typeof valA === 'string' && typeof valB === 'string') {
+        return valA.localeCompare(valB) * this.sortDirection;
+      } else {
+        return (valA - valB) * this.sortDirection;
+      }
+    });
+  }
+  
+  // Function to filter data based on search term
+  filterTable(event: Event): void {
+    const searchValue = (event.target as HTMLInputElement).value.toLowerCase();
+    const tableRows = document.querySelectorAll('#example1 tbody tr');
+    const searchValueLowerCase = searchValue.toLowerCase(); // Use the searchValue parameter
+  
+    tableRows.forEach(row => {
+      const cells = row.querySelectorAll('td');
+      let found = false;
+  
+      cells.forEach(cell => {
+        if (cell.textContent?.toLowerCase().includes(searchValueLowerCase)) {
+          found = true;
+        }
+      });
+  
+      if (found) {
+        (row as HTMLElement).style.display = '';
+      } else {
+        (row as HTMLElement).style.display = 'none';
+      }
+    });
+  }
+  
   openDialog(): void {
     const dialogRef = this.dialog.open(ShowAdminDetailsComponent, {
       width: '80%',
       height: '75%',
       position: {
         right: '50px', // Positioning the dialog to the right
-       
       },
       data: { listData: this.listData }
     });
@@ -38,5 +84,46 @@ export class AdminComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  downloadCSV() {
+    const table = document.getElementById("example1") as HTMLTableElement;
+    let csv = [];
+    for (let i = 0; i < table.rows.length; i++) {
+      let row = [];
+      for (let j = 0; j < table.rows[i].cells.length; j++) {
+        row.push(table.rows[i].cells[j].innerText);
+      }
+      csv.push(row.join(","));
+    }
+    let csvContent = csv.join("\n");
+    let blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    let link = document.createElement("a");
+    link.setAttribute("href", URL.createObjectURL(blob));
+    link.setAttribute("download", "table_data.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+  
+  copyToClipboard() {
+    const table = document.getElementById("example1") as HTMLTableElement;
+    const range = document.createRange();
+    range.selectNode(table);
+    const selection = window.getSelection?.();
+    if (selection) {
+      selection.removeAllRanges();
+      selection.addRange(range);
+      const successful = document.execCommand('copy');
+      selection.removeAllRanges();
+      if (successful) {
+        const numRows = table.rows.length;
+        alert(numRows + " row(s) copied to clipboard.");
+      } else {
+        alert("Failed to copy table data.");
+      }
+    } else {
+      alert("Browser does not support copying to clipboard.");
+    }
   }
 }
