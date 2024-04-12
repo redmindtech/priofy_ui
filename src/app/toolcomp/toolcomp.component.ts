@@ -15,6 +15,7 @@ export class ToolcompComponent implements OnInit {
   @Input() nextformenable: boolean;
   @Input() expand: boolean;
   startupformenable: boolean = true;
+  open1 : boolean ;
   
   FirstForm: FormGroup;
   constructor(private fb: FormBuilder,
@@ -27,7 +28,8 @@ ngOnInit(): void {
 
   this.formInitialization();
   
-  console.log(' this.nextformenable: ',  this.nextformenable);
+  
+
 
     }
   formInitialization(){
@@ -97,6 +99,8 @@ showmsg(){
 }
 nxt(){
   this.startupformenable=false;
-//  this.expand=
+  this.expand = false;
+  this.open1 =true
+
 }
 }

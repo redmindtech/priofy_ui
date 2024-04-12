@@ -1,6 +1,6 @@
 
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="nextformenable">
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand" [disabled]="nextformenable">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents;color:rgb(115, 182, 158)">2.Tools & Equipment</h5>
@@ -83,4 +83,4 @@
 </mat-expansion-panel>
 </mat-accordion>
 <br>
-<app-startup [startupformenable]="startupformenable"></app-startup>
+<app-startup [startupformenable]="startupformenable" [expand]="open1"></app-startup>

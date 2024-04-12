@@ -1,6 +1,6 @@
 
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="saferoperformenable">
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand" [disabled]="saferoperformenable">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents;color:rgb(115, 182, 158)">4.Safe Operating & Limits</h5>
@@ -51,5 +51,5 @@
 </mat-expansion-panel>
 </mat-accordion>
 <br>
-<app-devaition [devaitionformenable]="devaitionformenable"></app-devaition>
+<app-devaition [devaitionformenable]="devaitionformenable" [expand]="open1"></app-devaition>
 

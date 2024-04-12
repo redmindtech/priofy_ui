@@ -1,5 +1,5 @@
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="checklisteformenable">
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand" [disabled]="checklisteformenable">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents;color:rgb(115, 182, 158)">10.Procedure Checklist #E - Warm Up COT</h5>
@@ -428,4 +428,4 @@
 </mat-expansion-panel>
 </mat-accordion>
 <br>
-<app-checklist-f [checklistfformenable]="checklistfformenable"></app-checklist-f>
+<app-checklist-f [checklistfformenable]="checklistfformenable" [expand]="open1"></app-checklist-f>

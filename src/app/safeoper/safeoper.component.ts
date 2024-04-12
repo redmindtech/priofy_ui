@@ -12,6 +12,8 @@ export class SafeoperComponent implements OnInit {
   @Input() saferoperformenable: boolean;
   devaitionformenable: boolean = true;
   FirstForm: FormGroup;
+  open1:boolean;
+  @Input() expand: boolean;
   constructor(private fb: FormBuilder,
     private apiService:SafeoperService,
     private router: Router,
@@ -55,5 +57,7 @@ export class SafeoperComponent implements OnInit {
     }
     nxt(){
       this.devaitionformenable=false;
+      this.expand = false;
+      this.open1 =true
     }
   }

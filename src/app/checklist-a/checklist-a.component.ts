@@ -11,6 +11,8 @@ import { Subscription } from 'rxjs';
 })
 export class ChecklistAComponent implements OnInit {
   @Input() checklistformenable: boolean;
+  open1:boolean;
+  @Input() expand: boolean;
   checklistbformenable: boolean = true;
   ChecklistA: FormGroup;
   currentDate: string;
@@ -193,6 +195,8 @@ export class ChecklistAComponent implements OnInit {
 
   nxtAccEn() {
     this.checklistbformenable = false;
+    this.expand = false;
+    this.open1 =true
   }
 
   onRadioChange() {

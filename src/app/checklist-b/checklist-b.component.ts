@@ -18,6 +18,8 @@ export class ChecklistBComponent implements OnInit {
   currentUser: any;
   disableIO: any;
   id: any;
+  open1:boolean;
+  @Input() expand: boolean;
   enable: boolean = false; 
   aceptreject:string = 'null';
   remainingValues: any;
@@ -178,6 +180,8 @@ onSubmit()
 }
 nxtAccEn(){
   this.checklistcformenable=false;
+  this.expand = false;
+    this.open1 =true
 }
 add() {
   this.apiService.getchecklistB().subscribe((response: any) => {

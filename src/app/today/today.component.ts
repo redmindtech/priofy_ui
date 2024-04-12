@@ -16,7 +16,8 @@ export class TodayComponent implements OnInit {
   nextformenable: boolean = true;
   FirstForm: FormGroup; 
   currentUser: any;
-  expand: boolean=true;
+  expand: boolean;
+  open:boolean=true;
   
   constructor(private fb: FormBuilder, 
     private apiService: FirstpageService,
@@ -100,5 +101,6 @@ formInitialization(){
     nxt(){
       this.nextformenable=false;
       this.expand=true;
+     this. open=false
     }
 }

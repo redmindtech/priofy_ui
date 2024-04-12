@@ -1,5 +1,5 @@
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="false" [disabled]="checklistformenable">
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand" [disabled]="checklistformenable">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents; color:rgb(115, 182, 158)">6.Proceddure checklist #A - Establish Steam Drum Level</h5>
@@ -1368,4 +1368,4 @@
   </mat-expansion-panel>
 </mat-accordion>
 <br>
-<app-checklist-b [checklistbformenable]="checklistbformenable"></app-checklist-b>
+<app-checklist-b [checklistbformenable]="checklistbformenable" [expand]="open1"></app-checklist-b>

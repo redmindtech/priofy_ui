@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 
 export class ToolcompService {
-  baseUrl: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/toolsAndEquipment";
-  // baseUrl: string ='http://localhost:8080/toolsAndEquipment';
+  // baseUrl: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/toolsAndEquipment";
+  baseUrl: string ='http://localhost:8080/toolsAndEquipment';
 
   constructor(private httpClient: HttpClient) { }
   public savesecondpage(data: any): Observable<any> {

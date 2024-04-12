@@ -15,7 +15,8 @@ import { Router } from '@angular/router';
 })
 export class ChecklistFComponent implements OnInit {
   @Input() checklistfformenable: boolean;
-
+  open1:boolean;
+  @Input() expand: boolean;
   ChecklistF: FormGroup;
 
   private onSubmitInterval: any;

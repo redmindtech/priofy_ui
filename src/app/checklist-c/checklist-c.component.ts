@@ -24,6 +24,8 @@ export class ChecklistCComponent implements OnInit {
   enable: boolean = false; 
   aceptreject:string = 'null';
   remainingValues: any;
+  open1:boolean;
+  @Input() expand: boolean;
 
   constructor(private fb: FormBuilder,
     private apiService:ChecklistCService,
@@ -147,6 +149,8 @@ onSubmit() {
 }
 nxtAccEn(){
   this.checklistdformenable=false;
+  this.expand = false;
+    this.open1 =true
 }
 add() {
   this.apiService.getchecklistC().subscribe((response: any) => {

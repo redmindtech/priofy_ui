@@ -17,6 +17,8 @@ export class ChecklistEComponent implements OnInit {
   disableIO: string;
   currentUser: any;
   id: any;
+  open1:boolean;
+  @Input() expand: boolean;
   enable: boolean = false; 
   aceptreject:string = 'null';
   remainingValues: any;
@@ -112,6 +114,8 @@ add() {
 
   nxtAccEn(){
     this.checklistfformenable=false;
+    this.expand = false;
+    this.open1 =true
   }
   onRadioChange() {
     // You may want to check if the input field has focus or not

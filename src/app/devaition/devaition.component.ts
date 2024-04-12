@@ -9,6 +9,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class DevaitionComponent implements OnInit {
   @Input() devaitionformenable: boolean;
   checklistformenable: boolean = true;
+  open1:boolean;
+  @Input() expand: boolean;
   constructor(
     private toast: MatSnackBar,
   ) { }
@@ -23,5 +25,7 @@ export class DevaitionComponent implements OnInit {
   }
   nxt(){
     this.checklistformenable=false;
+    this.expand = false;
+    this.open1 =true
   }
 }

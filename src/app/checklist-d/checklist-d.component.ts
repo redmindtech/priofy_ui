@@ -15,6 +15,8 @@ import { Subscription } from 'rxjs';
 export class ChecklistDComponent implements OnInit {
   @Input() checklistdformenable: boolean;
   checklisteformenable: boolean = true;
+  open1:boolean;
+  @Input() expand: boolean;
   ChecklistD:FormGroup
   userDetails: any;
   userObject: any;
@@ -205,6 +207,8 @@ export class ChecklistDComponent implements OnInit {
   }
   nxtAccEn(){
     this.checklisteformenable=false;
+    this.expand = false;
+    this.open1 =true
   }
   add() {
     this.apiService.getchecklistD().subscribe((response: any) => {

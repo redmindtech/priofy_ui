@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SafeoperService {
-  baseUrl: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/Safeoperatinglimits";
-  // baseUrl: string ='http://localhost:8080/Safeoperatinglimits';
+  // baseUrl: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/Safeoperatinglimits";
+  baseUrl: string ='http://localhost:8080/Safeoperatinglimits';
 
   constructor(private httpClient: HttpClient) { }
   public savesafeoperpage(data: any): Observable<any> {
