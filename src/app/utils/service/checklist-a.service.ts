@@ -42,4 +42,7 @@ export class ChecklistAService {
     // Assuming data.userId exists
     return this.httpClient.put<any>(`${this.baseUrl}/${data.id}`, data, httpOptions);
   }
+  getformdisable(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl}/formstatus/${id}`);
+  }
 }

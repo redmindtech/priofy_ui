@@ -29,6 +29,11 @@ export class ChecklistAComponent implements OnInit {
   private addSubscription: Subscription | undefined;
   remainingValues: any;
   disableform: any;
+  skipcolor: any;
+  colour:string = 'null'; 
+  clrvalue: string='null';
+  formid: any;
+  
 
   constructor(
     private formBuilder: FormBuilder,
@@ -179,7 +184,7 @@ export class ChecklistAComponent implements OnInit {
   this.apiService.getchecklist().subscribe((response: any) => {
     if (response && response.result) { // Check if response and response.result are not null or undefined
       this.remainingValues = response.result;
-      
+      this.formid= response.result.id;
 
       Object.keys(this.remainingValues).forEach(key => {
         if (key !== 'shift_comment_a_oot' && key !== 'shift_comment_a_iot') {
@@ -190,7 +195,27 @@ export class ChecklistAComponent implements OnInit {
       console.log("Response or response.result is null or undefined.");
       // Handle the error or notify the user accordingly
     }
+
+    if (response && response.result) {
+      this.skipcolor = response.result;
+      
+   
+    
+      Object.entries(this.skipcolor).forEach(([key, value]) => {
+        if (value === 'accept'|| value==='reject') {
+            this.colour = (key);
+            this.clrvalue=(value)
+        }
+    });
+    
+      console.log(this.colour);
+    } else {
+      console.log("Response or response.result is null or undefined.");
+      // Handle the error or notify the user accordingly
+    }
+
   });
+  this.formdisable();
 }
 
   nxtAccEn() {
@@ -246,13 +271,28 @@ updateFormValues(): void {
 toggleEnable() {
   this.enable = !this.enable; // Toggle the value of enable between true and false
 }
-// formenable() {
-//   if (this.disableform) {
-//     console.log("Disabling form");
-//     this.ChecklistA.disable();
-//   } else {
-//     console.log("Enabling form");
-//     this.ChecklistA.enable();
-//   }
-// }
+formdisable() {
+  if (this.formid) {
+    console.log('this.formid: ', this.formid);
+    this.apiService.getformdisable(this.formid).subscribe((response: any) => {
+      console.log('API response:', response);
+      
+      // Verify if response.result is as expected
+      const shouldDisable = response.result;
+      console.log('Should disable form:', shouldDisable);
+
+      // Disable or enable the form based on the API response
+      if (shouldDisable) {
+        this.ChecklistA.disable();
+        console.log('Form disabled.');
+      } else {
+        this.ChecklistA.enable();
+        console.log('Form enabled.');
+      }
+    }, error => {
+      console.error('Error fetching form disable data:', error);
+    });
+  }
+}
+
 }

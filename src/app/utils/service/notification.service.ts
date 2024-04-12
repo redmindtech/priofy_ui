@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class NotificationService {
 
-  baseUrl: string = "http://localhost:8080/CheckListE";
+  baseUrl: string = "http://localhost:8080/checklistA";
 //  baseUrl: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/CheckListE";
   constructor(private httpClient: HttpClient) { }
  // Create new permit data
@@ -21,9 +21,37 @@ export class NotificationService {
     }),
   };
 
-  return this.httpClient.post(this.baseUrl+('/ChecklistESave'), data, httpOptions);
+  return this.httpClient.post(this.baseUrl+('/ChecklistASave'), data, httpOptions);
 }
-public getnotification(): Observable<any> {
+
+// savenotification(payload: any): Observable<any> {
+  
+//   const httpOptions = {
+//     headers: new HttpHeaders({
+//       'Content-Type': 'application/json',
+//     })
+//   };
+
+//   // Assuming data.userId exists
+//   return this.httpClient.put<any>(`${this.baseUrl}/${payload.id}`, payload, httpOptions);
+// }
+
+public getnotificationA(): Observable<any> {
+  return this.httpClient.get(this.baseUrl+('/lastcomment'));
+}
+public getnotificationB(): Observable<any> {
+  return this.httpClient.get(this.baseUrl+('/lastcomment'));
+}
+public getnotificationC(): Observable<any> {
+  return this.httpClient.get(this.baseUrl+('/lastcomment'));
+}
+public getnotificationD(): Observable<any> {
+  return this.httpClient.get(this.baseUrl+('/lastcomment'));
+}
+public getnotificationE(): Observable<any> {
+  return this.httpClient.get(this.baseUrl+('/lastcomment'));
+}
+public getnotificationF(): Observable<any> {
   return this.httpClient.get(this.baseUrl+('/lastcomment'));
 }
 }

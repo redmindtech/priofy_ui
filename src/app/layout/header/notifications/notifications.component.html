@@ -27,16 +27,19 @@
     <mat-card dropdown-menu style="width: 300px; margin: 7%;" >
         <mat-card-content style="width: 300px;">
             <div *ngIf="ootIotObject">
+                <p><strong>procedure : </strong>{{ show?.checklist }}</p>
+                <p><strong>UserName : </strong>{{show?.userLoginDTO.username}}</p>
                 <div *ngFor="let keyValuePair of ootIotObject | keyvalue; let i = index">
                     <div class="notification-box">
+                     
                         <p *ngIf="i === 0"><strong>Skip Request form Operators</strong> {{ keyValuePair.value }}</p>
-                        <!-- <p *ngIf="i === 1"><strong>Status :</strong> {{ keyValuePair.value }}</p> -->
+                        <p *ngIf="i === 1"></p>
                         <!-- Move the buttons inside the ngFor loop -->
                         
                     </div>
-                    <div >
-                    <button  mat-button color="primary" style="margin-left: 130px;" >Accept</button>
-                        <button  mat-button color="warn"  >Reject</button>
+                    <div *ngIf="i === 1">
+                    <button  mat-button color="primary" style="margin-left: 130px;" (click)="accept(keyValuePair.key)">Accept</button>
+                        <button  mat-button color="warn" (click)="reject(keyValuePair.key)"  >Reject</button>
                     </div>
                     </div>
                 

@@ -34,7 +34,7 @@
 
                   <input type="radio" class="custom-radio" id="oot_high_pressure-skip" name="oot_high_pressure"
                     value="Skip" formControlName="oot_high_pressure" (change)="onRadioChange()" />
-                  <label for="oot_high_pressure-skip" class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+                  <label for="oot_high_pressure-skip" class="action"[ngStyle]="{ 'background-color': colour === 'oot_high_pressure_comment_status' && clrvalue==='accept' ? 'green' : (colour && clrvalue === 'null' ? '' : 'red') }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_high_pressure')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"

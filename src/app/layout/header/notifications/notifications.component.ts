@@ -14,6 +14,8 @@ export class NotificationsComponent implements OnInit, OnDestroy {
   ootIotObject: { [k: string]: unknown } = {};
   notificationForm: FormGroup;
   id: any;
+  show: any;
+  next: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -36,14 +38,80 @@ export class NotificationsComponent implements OnInit, OnDestroy {
   }
 
   add() {
-    this.apiService.getnotification().subscribe((response: any) => {
-   this.id=response.result.id
-      const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
-        key.startsWith('oot') || key.startsWith('iot')
-      );
-      this.ootIotObject = Object.fromEntries(ootIotEntries);
-      this.createFormControls();
+    this.apiService.getnotificationA().subscribe((response: any) => {
+      if(response.result.id){
+        this.id=response.result.id
+        this.show= response.result
+           const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
+             key.startsWith('oot') || key.startsWith('iot')
+           );
+           if(this.ootIotObject){
+            this.ootIotObject = Object.fromEntries(ootIotEntries);
+            this.createFormControls();
+            this.next=true;
+           }
+           
+      }
     });
+    // if(this.next){
+
+    //   this.apiService.getnotificationB().subscribe((response: any) => {
+    //     if(response.result.id){
+    //       this.id=response.result.id
+    //       this.show= response.result
+    //          const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
+    //            key.startsWith('oot') || key.startsWith('iot')
+    //          );
+    //          this.ootIotObject = Object.fromEntries(ootIotEntries);
+    //          this.createFormControls();
+    //     }
+    //   });
+    // }
+    
+    // this.apiService.getnotificationC().subscribe((response: any) => {
+    //   if(response.result.id){
+    //     this.id=response.result.id
+    //     this.show= response.result
+    //        const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
+    //          key.startsWith('oot') || key.startsWith('iot')
+    //        );
+    //        this.ootIotObject = Object.fromEntries(ootIotEntries);
+    //        this.createFormControls();
+    //   }
+    // });
+    // this.apiService.getnotificationD().subscribe((response: any) => {
+    //   if(response.result.id){
+    //     this.id=response.result.id
+    //     this.show= response.result
+    //        const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
+    //          key.startsWith('oot') || key.startsWith('iot')
+    //        );
+    //        this.ootIotObject = Object.fromEntries(ootIotEntries);
+    //        this.createFormControls();
+    //   }
+    // });
+    // this.apiService.getnotificationE().subscribe((response: any) => {
+    //   if(response.result.id){
+    //     this.id=response.result.id
+    //     this.show= response.result
+    //        const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
+    //          key.startsWith('oot') || key.startsWith('iot')
+    //        );
+    //        this.ootIotObject = Object.fromEntries(ootIotEntries);
+    //        this.createFormControls();
+    //   }
+    // });
+    // this.apiService.getnotificationF().subscribe((response: any) => {
+    //   if(response.result.id){
+    //     this.id=response.result.id
+    //     this.show= response.result
+    //        const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
+    //          key.startsWith('oot') || key.startsWith('iot')
+    //        );
+    //        this.ootIotObject = Object.fromEntries(ootIotEntries);
+    //        this.createFormControls();
+    //   }
+    // });
   }
 
   createFormControls() {
@@ -69,7 +137,12 @@ export class NotificationsComponent implements OnInit, OnDestroy {
 
   saveNotification(formValue: any, key: string, action: string) {
     console.log("save");
-    const payload = {id: this.id, [key]: action  }; 
+    const payload = {
+      id: this.id,
+      userid: this.show.userLoginDTO.id,
+      master_id: this.show.masterTableDTO.master_id,
+      [key]: action
+    };
     
     this.addSubscription = this.apiService.savenotification(payload).subscribe(
       (response) => {
