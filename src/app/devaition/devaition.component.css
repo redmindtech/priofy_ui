@@ -4,7 +4,7 @@ h2{
 
 .table-row {
   display: table;
-  width: 100%;
+  width: 95%;
   border-collapse: collapse;
 }
 .btn1{
@@ -13,7 +13,7 @@ margin-left: 750%;
 }
 .btn2{
   margin-left: 600%;
- 
+
 }
 @media only screen and (max-width: 1400px)
 {
@@ -32,8 +32,15 @@ margin-left: 750%;
 
   vertical-align: top;
 }
+.column label,
+.column ul,
+.column ul li {
+  font-weight: normal;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
 .column {
-  display: table-cell;
+    display: table-cell;
   padding: 5px 10px;
   border: 1px solid rgb(165, 164, 164);
 }
@@ -41,9 +48,7 @@ margin-left: 750%;
   text-align: center;
 }
 th{
-  font-size: larger;
-
-  text-align: center;
+   text-align: center;
 }
 
 label {
@@ -51,14 +56,14 @@ label {
   width: 100%;
 }
 .mat-expansion-panel-header-description {
-  
+
   flex-grow: unset !important;
   margin-left: 10px !important;
 }
 .mat{
   border-color: rgb(165, 164, 164);
-  border-width: thin;
-  border-style: none;
+  border-width: thick;
+  border-style: double;
   border-radius: 2%;
- 
+
 }

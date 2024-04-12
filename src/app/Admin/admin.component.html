@@ -14,7 +14,7 @@
           <button class="btn btn-secondary csv" tabindex="0" aria-controls="example1" type="button" (click)="downloadCSV()">
             <span>CSV</span>
           </button>
-          <button class="btn btn-secondary excel" tabindex="0" aria-controls="example1" type="button">
+          <!-- <button class="btn btn-secondary excel" tabindex="0" aria-controls="example1" type="button">
             <span>Excel</span>
           </button>
           <button class="btn btn-secondary pdf" tabindex="0" aria-controls="example1" type="button">
@@ -22,143 +22,52 @@
           </button>
           <button class="btn btn-secondary print" tabindex="0" aria-controls="example1" type="button">
             <span>Print</span>
-          </button>
+          </button> -->
           <div class="btn-group">
-            <button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" (click)="toggleColumnVisibilityDropdown()">
               <span>Column visibility</span><span class="dt-down-arrow"></span>
             </button>
+         <div class="dropdown-menu" [ngClass]="{'show': showColumnVisibilityDropdown}" role="menu">
+    <a class="dropdown-item" href="#" (click)="toggleColumnVisibility('Furnace_Id', $event)">Furnace Id</a>
+    <a class="dropdown-item" href="#" (click)="toggleColumnVisibility('job_start_date', $event)">Job Start Date</a>
+    <a class="dropdown-item" href="#" (click)="toggleColumnVisibility('job_end_date', $event)">Job End Date</a>
+    <a class="dropdown-item" href="#" (click)="toggleColumnVisibility('oot_operator', $event)">OOT Operator</a>
+    <a class="dropdown-item" href="#" (click)="toggleColumnVisibility('iot_operator', $event)">IOT Operator</a>
+    <a class="dropdown-item" href="#" (click)="toggleColumnVisibility('status', $event)">Status</a>
+</div>
           </div>
         </div>
       </div>
       
-    <button type="button" class="btn btn-primary createbutton" (click)="openDialog()">Create Procedure Initialization</button>
+    <button type="button" class="btn btn-primary createbutton ml-auto" (click)="openDialog()">Create Procedure Initialization</button>
   <!-- <h3 class="card-title">DataTable with default features</h3> -->
   </div>
   
   <div class="card-body">
-  <table id="example1" class="table table-bordered table-striped">
+  <table #example1Table id="example1" class="table table-bordered table-striped">
   <thead>
   <tr>
-<th (click)="sortData('index')">S.No <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'index'}"></i></th>
-<th (click)="sortData('Furnace_Id')">Furnace Id <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'Furnace_Id'}"></i></th>
-<th (click)="sortData('job_start_date')">Job Start Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'job_start_date'}"></i></th>
-<th (click)="sortData('job_end_date')">Job End Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'job_end_date'}"></i></th>
-<th (click)="sortData('oot_operator')">OOT Operator <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'oot_operator'}"></i></th>
-<th (click)="sortData('iot_operator')">IOT Operator <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'iot_operator'}"></i></th>
-<th (click)="sortData('status')">Status <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'status'}"></i></th>
-
+    <th (click)="sortData('sno')" data-column="index">S.No <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'sno'}"></i></th>
+    <th (click)="sortData('Furnace_Id')" data-column="Furnace_Id">Furnace Id <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'Furnace_Id'}"></i></th>
+    <th (click)="sortData('job_start_date')" data-column="job_start_date">Job Start Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'job_start_date'}"></i></th>
+    <th (click)="sortData('job_end_date')" data-column="job_end_date">Job End Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'job_end_date'}"></i></th>
+    <th (click)="sortData('oot_operator')" data-column="oot_operator">OOT Operator <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'oot_operator'}"></i></th>
+    <th (click)="sortData('iot_operator')" data-column="iot_operator">IOT Operator <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'iot_operator'}"></i></th>
+    <th (click)="sortData('status')" data-column="status">Status <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'status'}"></i></th>
   </tr>
   </thead>
   <tbody>
   <tr>
-  <td>1</td>
-  <td>F1
-  </td>
-  <td>2024-04-02</td>
-  <td>2024-04-03</td>
-  <td>Operator1</td>
-  <td>Operator2</td>
-  <td>Completed</td>
+    <tr *ngFor="let row of tableData">
+    <td>{{ row.sno }}</td>
+    <td>{{ row.Furnace_Id }}</td>
+    <td>{{ row.job_start_date }}</td>
+    <td>{{ row.job_end_date }}</td>
+    <td>{{ row.oot_operator }}</td>
+    <td>{{ row.iot_operator }}</td>
+    <td>{{ row.status }}</td>
   </tr>
-  <tr>
-    <td>2</td>
-    <td>F2
-    </td>
-    <td>2024-04-02</td>
-    <td>2024-04-03</td>
-    <td>Operator1</td>
-    <td>Operator2</td>
-    <td>Completed</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>F3
-      </td>
-      <td>2024-04-02</td>
-      <td>2024-04-03</td>
-      <td>Operator1</td>
-      <td>Operator2</td>
-      <td>Completed</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>F4
-        </td>
-        <td>2024-04-02</td>
-        <td>2024-04-03</td>
-        <td>Operator1</td>
-        <td>Operator2</td>
-        <td>Completed</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>F5
-          </td>
-          <td>2024-04-02</td>
-          <td>2024-04-03</td>
-          <td>Operator1</td>
-          <td>Operator2</td>
-          <td>Completed</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>F6
-            </td>
-            <td>2024-04-02</td>
-            <td>2024-04-03</td>
-            <td>Operator1</td>
-            <td>Operator2</td>
-            <td>Completed</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>F7
-              </td>
-              <td>2024-04-02</td>
-              <td>2024-04-03</td>
-              <td>Operator1</td>
-              <td>Operator2</td>
-              <td>Completed</td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td>F8
-                </td>
-                <td>2024-04-02</td>
-                <td>2024-04-03</td>
-                <td>Operator1</td>
-                <td>Operator2</td>
-                <td>Completed</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>F8
-                  </td>
-                  <td>2024-04-02</td>
-                  <td>2024-04-03</td>
-                  <td>Operator1</td>
-                  <td>Operator2</td>
-                  <td>Completed</td>
-                  </tr>
-                  <tr>
-                    <td>10</td>
-                    <td>F10
-                    </td>
-                    <td>2024-04-02</td>
-                    <td>2024-04-03</td>
-                    <td>Operator1</td>
-                    <td>Operator2</td>
-                    <td>Completed</td>
-                    </tr>
-    
-
-  
-  
   </table>
   </div>
-  
-  <aside class="control-sidebar control-sidebar-dark">
-  
-  </aside>
-
+  <aside class="control-sidebar control-sidebar-dark"></aside>
   </div>

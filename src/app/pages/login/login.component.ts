@@ -38,7 +38,7 @@ export class LoginComponent {
             this.router.navigate(['/main/maindashboard'] );
            }
            else{
-            this.router.navigate(['/main/home']);
+            this.router.navigate(['/main/dashboard']);
            }
            
             

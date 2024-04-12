@@ -1,13 +1,16 @@
 .mat {
-  
+
   border-color: rgb(165, 164, 164);
-  border-width: thin;
-  border-style: none; 
+  border-width:thick;
+  border-style: double;
    margin: 3%;
    border-radius: 3%;
-  
+
  }
- 
+.row{
+  font-size: 18px;
+  font-family:Arial, Helvetica, sans-serif;
+  }
  .custom-toast {
   position: fixed;
   bottom: 60px; /* Adjust the value as needed to leave space from the top */
@@ -19,25 +22,28 @@
   padding: 10px;
   z-index: 1000; /* Ensure it appears above other elements */
 }
+
  .header{
+
+  font-family:Arial, Helvetica, sans-serif;
   text-align: center;
   margin-top: 2%;
  }
  .whitecolor{
   background-color:#83C0C1;
- 
+
  }
  .colourbule{
- 
+
   background-color:#96E9C6;
  }
 .btn{
   background-color:#97ca94 ;
-  
+
   margin: 1%;
 }
 .mat-expansion-panel-header-description {
-  
+
   flex-grow: unset !important;
   margin-left: 10px !important;
 }

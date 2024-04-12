@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
   public sidebarMenuOpened = true;
-  public menu = MENU;
+ // public menu = MENU;
+ public menu: any[] = [];
   currentUser: any;
   username: any;
 
@@ -20,18 +21,23 @@ export class MainComponent implements OnInit {
    let name= this.currentUser.username
    if(name=="Operator1"){
       this.username="Shift-Operator1"
+      this.menu = this.getOperator1Menu();
    }
    else if(name=="Operator2"){
     this.username="Shift-Operator2"
+    this.menu = this.getOperator1Menu();
    }
    else if(name=="Operator3"){
     this.username="Shift-Operator3"
+    this.menu = this.getOperator1Menu();
    }
    else if(name=="Operator4"){
     this.username="Shift-Operator4"
+    this.menu = this.getOperator1Menu();
    }
    else if(name=="Admin"){
-    this.username="Shift-Leader"
+    this.username="Shift-Leader";
+    this.menu = this.getAdminMenu();
    }
     document.querySelector('body')?.removeAttribute('class');
     document.querySelector('body')?.classList.add('sidebar-mini','sidebar-open','layout-fixed');
@@ -49,22 +55,22 @@ export class MainComponent implements OnInit {
     }
   }
 
-}
 
-export const MENU = [
-  {
-    name: 'Dashboard',
-    path: ['/main/maindashboard']
-  },
-  {
-    name: 'Shift Leader Dashboard',
-    path: ['/main/dashboard']
-  },
 
-  {
-   name: 'Process Initialization',
-   path: ['/main/Admin']
-  },
+// export const MENU = [
+//   {
+//     name: 'Dashboard',
+//     path: ['/main/maindashboard']
+//   },
+//   {
+//     name: 'Shift Leader Dashboard',
+//     path: ['/main/dashboard']
+//   },
+
+//   {
+//    name: 'Process Initialization',
+//    path: ['/main/Admin']
+//   },
   // {
   //   name: 'Administration',
   //   icon: 'fa-users-cog',
@@ -89,4 +95,18 @@ export const MENU = [
   //     }
   //   ]
   // }
-];
+//];
+private getAdminMenu() {
+  return [
+    { name: 'Dashboard', path: ['/main/maindashboard'] },
+    { name: 'Shift Leader Dashboard', path: ['/main/dashboard'] },
+    { name: 'Process Initialization', path: ['/main/Admin'] }
+  ];
+}
+private getOperator1Menu() {
+  return [
+    { name: 'Procedural Dashboard', path: ['/main/dashboard'] },
+    { name: 'Operational Dashboard', path: ['/main/home'] },
+  ];
+}
+}

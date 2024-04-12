@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ShowAdminDetailsComponent } from '@app/Show-admin-details/show-admin-details.component';
 import { MatSort } from '@angular/material/sort';
+declare var $: any;
 
 @Component({
   selector: 'app-admin',
@@ -13,29 +14,77 @@ export class AdminComponent implements OnInit {
 
   listData: any[] = []; // Define your listData array here
   filteredListData: any[] = [];
-  displayedColumns: string[] = ['index', 'Furnace_Id', 'job_plan_date', 'job_start_date', 'job_end_date', 'oot_operator', 'iot_operator', 'status'];
+  displayedColumns: string[] = ['sno', 'Furnace_Id', 'job_plan_date', 'job_start_date', 'job_end_date', 'oot_operator', 'iot_operator', 'status'];
   searchValue: string = ''; 
   sortColumn: string = '';
   sortDirection: number = 1;
+  showColumnVisibilityDropdown: boolean = false;
+  tableData:any[]=[];
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    // Initialize listData with your data
-    this.listData = [
-      { index: 1, Furnace_Id: 'F1', job_plan_date: '2024-04-01', job_start_date: '2024-04-02', job_end_date: '2024-04-03', oot_operator: 'Operator1', iot_operator: 'Operator2', status: 'Completed' },
-      { index: 2, Furnace_Id: 'F2', job_plan_date: '2024-04-04', job_start_date: '2024-04-05', job_end_date: '2024-04-06', oot_operator: 'Operator2', iot_operator: 'Operator3', status: 'In Progress' },
-      // Add more objects as needed
+    this.tableData = [
+      { sno: 1, Furnace_Id: 'F1', job_start_date: '02-04-2024', job_end_date: '03-04-2024', oot_operator: 'Operator1', iot_operator: 'Operator2', status: 'Completed' },
+      { sno: 2, Furnace_Id: 'F2', job_start_date: '02-04-2024', job_end_date: '03-04-2024', oot_operator: 'Operator1', iot_operator: 'Operator2', status: 'Completed' },
+      { sno: 3, Furnace_Id: 'F3', job_start_date: '02-04-2024', job_end_date: '03-04-2024', oot_operator: 'Operator1', iot_operator: 'Operator2', status: 'Completed' },
+      { sno: 4, Furnace_Id: 'F4', job_start_date: '02-04-2024', job_end_date: '03-04-2024', oot_operator: 'Operator1', iot_operator: 'Operator2', status: 'Completed' },
+      { sno: 5, Furnace_Id: 'F5', job_start_date: '02-04-2024', job_end_date: '03-04-2024', oot_operator: 'Operator1', iot_operator: 'Operator2', status: 'Completed' },
+      { sno: 6, Furnace_Id: 'F6', job_start_date: '02-04-2024', job_end_date: '03-04-2024', oot_operator: 'Operator1', iot_operator: 'Operator2', status: 'Completed' },
+      { sno: 7, Furnace_Id: 'F7', job_start_date: '02-04-2024', job_end_date: '03-04-2024', oot_operator: 'Operator1', iot_operator: 'Operator2', status: 'Completed' },
+      { sno: 8, Furnace_Id: 'F8', job_start_date: '02-04-2024', job_end_date: '03-04-2024', oot_operator: 'Operator1', iot_operator: 'Operator2', status: 'Completed' },
+      { sno: 9, Furnace_Id: 'F8', job_start_date: '02-04-2024', job_end_date: '03-04-2024', oot_operator: 'Operator1', iot_operator: 'Operator2', status: 'Completed' },
+      { sno: 10, Furnace_Id: 'F10', job_start_date: '02-04-2024', job_end_date: '03-04-2024', oot_operator: 'Operator1', iot_operator: 'Operator2', status: 'Not Completed' }
     ];
+    const dropdownItem = document.querySelectorAll('.dropdown-item');
+    dropdownItem.forEach(item =>{
+      item.classList.add('selected');
+    });
     this.filteredListData = [...this.listData];
   }
+
+  
+  toggleColumnVisibilityDropdown() {
+    this.showColumnVisibilityDropdown = !this.showColumnVisibilityDropdown;
+  }
+
+  toggleColumnVisibility(columnName: string, event: Event) {
+  event.preventDefault();
+  const dropdownItem = event.target as HTMLElement;
+  const th = document.querySelector(`th[data-column="${columnName}"]`);
+  th?.classList.toggle('hidden');
+  dropdownItem.classList.toggle('selected');
+
+  // Get the visibility status of the column
+  const isVisible = !th?.classList.contains('hidden');
+
+  // Get the index of the column
+  const columnIndex = this.displayedColumns.indexOf(columnName);
+
+  // Loop through table rows to toggle visibility of corresponding td elements in the specified column
+  const tableRows = document.querySelectorAll('#example1 tbody tr');
+  tableRows.forEach(row => {
+    const cells = row.querySelectorAll('td');
+    const cell = cells[columnIndex] as HTMLElement; // Cast to HTMLElement
+    if (cell) {
+      cell.style.display = isVisible ? '' : 'none';
+    }
+  });
+
+  // Also, toggle visibility of the column header
+  const columnHeader = document.querySelector(`th[data-column="${columnName}"]`) as HTMLElement; // Cast to HTMLElement
+  if (columnHeader) {
+    columnHeader.style.display = isVisible ? '' : 'none';
+  }
+}
+
 
   sortData(column: string): void {
     console.log(this.sortColumn)
     this.sortDirection = (column === this.sortColumn) ? -this.sortDirection : 1;
     this.sortColumn = column;
 
-    this.filteredListData.sort((a, b) => {
+    this.tableData.sort((a, b) => {
       const valA = a[column];
       const valB = b[column];
 
@@ -76,7 +125,8 @@ export class AdminComponent implements OnInit {
       width: '80%',
       height: '75%',
       position: {
-        right: '50px', // Positioning the dialog to the right
+        right: '80px', 
+        // Positioning the dialog to the right
       },
       data: { listData: this.listData }
     });
@@ -126,4 +176,5 @@ export class AdminComponent implements OnInit {
       alert("Browser does not support copying to clipboard.");
     }
   }
+  
 }

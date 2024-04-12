@@ -1,68 +1,68 @@
 
-    <mat-accordion>
-     
-      <mat-expansion-panel class="mat_expansion_border"  [expanded]="false" [disabled]="startupformenable">
-        <mat-expansion-panel-header class="mat_expansion_header_border">
-          <div class="row">
-            <h5 style="margin-right: 1150px;display: contents;">3.Before You Begin</h5>
-          </div>
-          <mat-panel-description></mat-panel-description>
-        </mat-expansion-panel-header>
+<mat-accordion>
+
+  <mat-expansion-panel class="mat_expansion_border"  [expanded]="false" [disabled]="startupformenable">
+    <mat-expansion-panel-header class="mat_expansion_header_border">
+      <div class="row">
+        <h5 style="margin-right: 1150px;display: contents; color:rgb(115, 182, 158)">3.Before You Begin</h5>
+      </div>
+      <mat-panel-description></mat-panel-description>
+    </mat-expansion-panel-header>
 
 
 <form [formGroup]="FirstForm" >
-  <mat-card class="mat">
-    <mat-card-content>
-      <h5 style="text-align: center;padding: 10px; color: white; background-color: #147737;"><strong> BEFORE YOU BEGIN</strong></h5>
-      <div class="table">
-        <!-- <div class="table-row">
-          <div class="table-cell">
-             <h2>STARTUP PROCEDURE</h2>
-          </div>
-        </div> -->
-        <div class="table-row">
-          <div class="table-cell">
-           <ul><li>  Confirm that the "Furnace, Prepare to Startup" procedure has been executed.</li></ul>
-           
-          </div>
-        </div>
-        <div class="table-row">
-          <div class="table-cell">
-            <ul><li> Verify that the "Process Fluid Introduction Checklist" (PFIC) has been completed if the furnace underwent prolonged
-              shutdown or significant maintenance. If unsure, consult the technical staff for guidance.</li></ul>
-            
-          </div>
-        </div>
-        <div class="table-row">
-          <div class="table-cell">
-          <ul><li>  Close and cap or plug all open-ended vents and drain valves on the Ethane/DMS/DMDS/Fuel/Cracked Gas lines to prevent
-            any leaks or spills.</li></ul>
-           
-          </div>
-        </div>
-        <div class="table-row">
-          <div class="table-cell">
-            <ul><li>  Ensure that all drains on the Primary, Secondary, and Tertiary TLEs (Thermal Liquid Exchangers) are securely closed to
-              maintain system integrity.</li></ul>
-           
-          </div>
-        </div>
-        <div class="table-row">
-          <div class="table-cell">
-           
-            <ul><li>  Confirm that both the steam drum and secondary TLE blowdown valves are closed to maintain pressure and prevent any
-              unintended release of fluid. These preliminary checks are essential to ensure the safe and smooth startup of the furnace
-              operation.</li></ul>
-           
-          </div>
-        </div>
+<mat-card class="mat">
+<mat-card-content>
+  <h5 style="text-align: center;padding: 10px; color: white; background-color: #147737;"><strong> BEFORE YOU BEGIN</strong></h5>
+  <div class="table">
+    <!-- <div class="table-row">
+      <div class="table-cell">
+         <h2>STARTUP PROCEDURE</h2>
       </div>
-      <div style="display: flex; justify-content: center;">
-        <button class="btn1" mat-raised-button style="background-color: #147737; color: white;margin-right: 10px;" (click)="nxt()">Agree</button>
-        <button class="btn2" mat-raised-button style="background-color: #147737;color: white;" (click)="showmsg()">Disagree</button>
-      </div>    
-    </mat-card-content>
-  </mat-card>
+    </div> -->
+    <div class="table-row">
+      <div class="table-cell">
+       <ul><li>  Confirm that the "Furnace, Prepare to Startup" procedure has been executed.</li></ul>
+
+      </div>
+    </div>
+    <div class="table-row">
+      <div class="table-cell">
+        <ul><li> Verify that the "Process Fluid Introduction Checklist" (PFIC) has been completed if the furnace underwent prolonged
+          shutdown or significant maintenance. If unsure, consult the technical staff for guidance.</li></ul>
+
+      </div>
+    </div>
+    <div class="table-row">
+      <div class="table-cell">
+      <ul><li>  Close and cap or plug all open-ended vents and drain valves on the Ethane/DMS/DMDS/Fuel/Cracked Gas lines to prevent
+        any leaks or spills.</li></ul>
+
+      </div>
+    </div>
+    <div class="table-row">
+      <div class="table-cell">
+        <ul><li>  Ensure that all drains on the Primary, Secondary, and Tertiary TLEs (Thermal Liquid Exchangers) are securely closed to
+          maintain system integrity.</li></ul>
+
+      </div>
+    </div>
+    <div class="table-row">
+      <div class="table-cell">
+
+        <ul><li>  Confirm that both the steam drum and secondary TLE blowdown valves are closed to maintain pressure and prevent any
+          unintended release of fluid. These preliminary checks are essential to ensure the safe and smooth startup of the furnace
+          operation.</li></ul>
+
+      </div>
+    </div>
+  </div>
+  <div style="display: flex; justify-content: center;">
+    <button class="btn1" mat-raised-button style="background-color: #147737; color: white;margin-right: 10px;" (click)="nxt()">Agree</button>
+    <button class="btn2" mat-raised-button style="background-color: #147737;color: white;" (click)="showmsg()">Disagree</button>
+  </div>
+</mat-card-content>
+</mat-card>
 </form>
 </mat-expansion-panel>
 </mat-accordion>
