@@ -1,3 +1,7 @@
+.mat, .mat *,h1 {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .mat {
   border-width: thin;
   border-color: black;

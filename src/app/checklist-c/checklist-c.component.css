@@ -1,3 +1,16 @@
+h5{
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.theader{
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+th,td{
+  font-family: 'Montserrat', sans-serif;
+}
 
 table {
   border-collapse: collapse;

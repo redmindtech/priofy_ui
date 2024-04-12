@@ -1,12 +1,25 @@
-table {
-  border-collapse: collapse;
-  width: 100%;
+h5{
+  font-size: 20;
+  font-family: 'Montserrat', sans-serif;
 }
+
+.theader{
+  font-size: 18px;
+}
+
 th, td {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  font-family: 'Montserrat', sans-serif;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
 th {
   background-color: #f2f2f2;
   color: black;

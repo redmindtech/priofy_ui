@@ -2,6 +2,16 @@
   width: 100%;
   border-collapse: collapse;
 }
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.card,
+.btn,
+.dropdown-item {
+  font-family: 'Montserrat', sans-serif;
+}
+
 
 .mat-header-cell, .mat-cell {
   padding: 8px;

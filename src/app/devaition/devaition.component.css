@@ -1,3 +1,21 @@
+mat-accordion, mat-expansion-panel, mat-expansion-panel-header, mat-card, ul, li, label, 
+.btn1, .btn2 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.column-heading{
+  font-size: 18px;
+}
+/* Apply font weight bold to the header */
+.table h5{
+  font-weight: bold;
+}
+
+/* Adjust font size and line height if necessary */
+.column-heading, label {
+  font-size: 16px; /* Adjust the font size as needed */
+  line-height: 1.6; /* Adjust the line height as needed */
+}
 h2{
   text-align: center;
 }
@@ -37,7 +55,7 @@ margin-left: 750%;
 .column ul li {
   font-weight: normal;
   font-size: 16px;
-  font-family: Arial, Helvetica, sans-serif !important;
+  font-family: 'Montserrat', sans-serif !important;
 }
 .column {
     display: table-cell;
