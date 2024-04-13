@@ -66,6 +66,43 @@ export class ChecklistAComponent implements OnInit {
       
  oot_high_pressure_id:['1.OOT to ensure treated high pressure BFW (140 kg/cm2g HBF) is available.'],
  oot_hbf_inlet_id:['2.HBF inlet DB 1" drains.'],
+ oot_downstream_1_drains_id:['FV-22X6-08 downstream 1" drains.'],
+ oot_bypass_id:['FV-22X6-08 bypass 1" drains.'],
+ oot_inlet_vents_id:['ECO inlet 1 vents.'],
+ oot_outlet_drains_id:['ECO outlet 1" drains.'],
+ oot_stream_drum_inlet_check_id:['Steam Drum Inlet Check Valve 1" drains.'],
+ oot_untreated_inlet_db_1_id:['Untreated HBF Inlet DB 1 drains.'],
+ oot_untreated_hbf_inlet_check_id:['Untreated HBF Inlet Check Valve 1" drains.'],
+ oot_hpssh_2_Outlet_id:['HPSSH-2 Outlet 1-1/2" drains.'],
+ oot_hxs_upstream_nrv_id:['HXS line upstream NRV (non-return valve).'],
+ oot_vent_silencer_upstream_id:['Vent Silencer PV-22X0-43 upstream 1 drains.'],
+ oot_vent_silencer_downstream_id:['Vent Silencer PV-22X0-43 downstream 1" drain.'],
+ oot_hxs_outlet_id:['HXS outlet DB 1" drains.'],
+ oot_sdl_transmitters_id:['Steam Drum Level Transmitters (#3) 1" drains and vents.'],
+ oot_sdi_blow_down_id:['2" Steam Drum Intermittent Blow down (#2).'],
+ oot_bd_header_id:['Steam Drum Continuous BD Header DB 1" drains'],
+ oot_secondary_tle_id:['Secondary TLE Continuous BD Header DB 1" drains.'],
+ oot_intermittent_bd_header_id :['Intermittent BD Header B/V 1" drains'],
+ oot_primary_tles_2_id:['Primary TLEs 2" blow downs (#12).'],
+ oot_secondary_tle_1_id :['Secondary TLE 1 blow downs (#2)'],
+ oot_primary_tles_commom_header_id:['Primary TLEs Common Header 1" bleeds'],
+ iot_decoke_mov_id:['IOT to ensure that Decoke MOV is open, CG MOVs are closed and the local MOV switches are in REMOTE position.'],
+ iot_furnace_control_sequence_id:['IOT to ensure Furnace control sequence is in Process Wait step.'],
+ iot_bm_sequence_id:['IOT to move BM sequence to Process Wait step.'],
+ iot_individual_auto_burner_id:['IOT to go to each individual auto burner and move its sequence to Process Wait.'],
+ oot_feed_and_fuel_gas_id:['OOT to double check that feed and fuel gas are isolated.'],
+ iot_bm_control_sequence_to_stand_id:['IOT to move BM control sequence to Stand By step.'],
+ iot_purge_light_off_id:['Once BMS is moved to Standby, IOT can manually move Furnace control sequence step from process wait to purge light off.'],
+ oot_open_and_car_sealed_id:['OOT to ensure steam drum BFW inlet B/V at the inlet of steam drum is open and car sealed (on top deck).'],
+ oot_second_bv_id:['OOT to ensure furnace battery limit HBF inlet 4" second B/V is closed.<br>Note: First B/V should not be operated (it should be always open).'],
+ oot_upstream_and_downstram_bv_open_id:['OOT to ensure HBF control valve (FV-22X6-08) upstream and downstream B/Vs are open.'],
+ oot_bv_and_globe_value_close_id:['OOT to ensure HBF control valve (FV-22X6-08) bypass 2 B/V and globe valve are closed.'],
+ drum_3_startup_vent_id:['Keep the steam drum 3" startup vent valves open.'],
+ oot_hxs_vent_valve_id:['OOT to open both HXS vent valve PV-22X0-43 4" upstream block valves.'],
+ iot_default_pressure_id:['IOT to ensure PV-22X0-43 is in "auto" control at the default flow set point of 10 Mt/h and default pressure set point of 112 kg/cm2g.'],
+ pressurize_the_downstream_id:['Initially use the bypass valves across first block valve to pressurize the downstream header and then open the main block valve. Then close the bypass valves across the first block valve.Start taking BFW to steam drum through FV-22X6-08 2" bypass line, keeping first bypass open and throttling 2nd bypass valve.'],
+ iot_filling_the_steam_drum_id:['IOT to start filling the steam drum SLOWLY. Must enable “BFW to steam drum flow control slave” controller through activation of the HS.'],
+ iot_steam_drum_level_control_master_id:['IOT to confirm that “steam drum level control master” controller is automatically enabled after level has been within 5% of fill set point'],
       oot_high_pressure: [null, Validators.required],
       oot_high_pressure_comment: [null],
       oot_hbf_inlet: [null, Validators.required],
@@ -161,7 +198,50 @@ export class ChecklistAComponent implements OnInit {
     console.log('patchvalue() called');
     this.ChecklistA.patchValue({
       oot_high_pressure_comment: this.concatenateValues(this.ChecklistA.get('oot_high_pressure_id')?.value,this.ChecklistA.get('oot_high_pressure_comment')?.value ),
-      oot_hbf_inlet_comment: this.concatenateValues(this.ChecklistA.get('oot_hbf_inlet_id')?.value,this.ChecklistA.get('oot_hbf_inlet_comment')?.value )
+      oot_hbf_inlet_comment: this.concatenateValues(this.ChecklistA.get('oot_hbf_inlet_id')?.value,this.ChecklistA.get('oot_hbf_inlet_comment')?.value ),
+      oot_downstream_1_drains_comment: this.concatenateValues(this.ChecklistA.get('oot_downstream_1_drains_id')?.value,this.ChecklistA.get('oot_downstream_1_drains_comment')?.value ),
+      oot_bypass_comment: this.concatenateValues(this.ChecklistA.get('oot_bypass_id')?.value,this.ChecklistA.get('oot_bypass_comment')?.value ),
+      oot_inlet_vents_comment: this.concatenateValues(this.ChecklistA.get('oot_inlet_vents_id')?.value,this.ChecklistA.get('oot_inlet_vents_comment')?.value ),
+      oot_outlet_drains_comment: this.concatenateValues(this.ChecklistA.get('oot_outlet_drains_id')?.value,this.ChecklistA.get('oot_outlet_drains_comment')?.value ),
+      oot_stream_drum_inlet_check_comment: this.concatenateValues(this.ChecklistA.get('oot_stream_drum_inlet_check_id')?.value,this.ChecklistA.get('oot_stream_drum_inlet_check_comment')?.value ),
+      oot_untreated_inlet_db_1_comment: this.concatenateValues(this.ChecklistA.get('oot_untreated_inlet_db_1_id')?.value,this.ChecklistA.get('oot_untreated_inlet_db_1_comment')?.value ),
+      oot_untreated_hbf_inlet_check_comment: this.concatenateValues(this.ChecklistA.get('oot_untreated_hbf_inlet_check_id')?.value,this.ChecklistA.get('oot_untreated_hbf_inlet_check_comment')?.value ),
+      oot_hpssh_2_Outlet_comment: this.concatenateValues(this.ChecklistA.get('oot_hpssh_2_Outlet_id')?.value,this.ChecklistA.get('oot_hpssh_2_Outlet_comment')?.value ),
+      oot_hxs_upstream_nrv_comment: this.concatenateValues(this.ChecklistA.get('oot_hxs_upstream_nrv_id')?.value,this.ChecklistA.get('oot_hxs_upstream_nrv_comment')?.value ),
+      oot_vent_silencer_upstream_comment: this.concatenateValues(this.ChecklistA.get('oot_vent_silencer_upstream_id')?.value,this.ChecklistA.get('oot_vent_silencer_upstream_comment')?.value ),
+      oot_vent_silencer_downstream_comment: this.concatenateValues(this.ChecklistA.get('oot_vent_silencer_downstream_id')?.value,this.ChecklistA.get('oot_vent_silencer_downstream_comment')?.value ),
+      oot_hxs_outlet_comment: this.concatenateValues(this.ChecklistA.get('oot_hxs_outlet_id')?.value,this.ChecklistA.get('oot_hxs_outlet_comment')?.value ),
+      oot_sdl_transmitters_comment: this.concatenateValues(this.ChecklistA.get('oot_sdl_transmitters_id')?.value,this.ChecklistA.get('oot_sdl_transmitters_comment')?.value ),
+      oot_sdi_blow_down_comment: this.concatenateValues(this.ChecklistA.get('oot_sdi_blow_down_id')?.value,this.ChecklistA.get('oot_sdi_blow_down_comment')?.value ),
+      oot_bd_header_comment: this.concatenateValues(this.ChecklistA.get('oot_bd_header_id')?.value,this.ChecklistA.get('oot_bd_header_comment')?.value ),
+      oot_secondary_tle_comment: this.concatenateValues(this.ChecklistA.get('oot_secondary_tle_id')?.value,this.ChecklistA.get('oot_secondary_tle_comment')?.value ),
+      oot_intermittent_bd_header_comment: this.concatenateValues(this.ChecklistA.get('oot_intermittent_bd_header_id')?.value,this.ChecklistA.get('oot_intermittent_bd_header_comment')?.value ),
+      oot_primary_tles_2_comment: this.concatenateValues(this.ChecklistA.get('oot_primary_tles_2_id')?.value,this.ChecklistA.get('oot_primary_tles_2_comment')?.value ),
+      oot_secondary_tle_1_comment: this.concatenateValues(this.ChecklistA.get('oot_secondary_tle_1_id')?.value,this.ChecklistA.get('oot_secondary_tle_1_comment')?.value ),
+      oot_primary_tles_commom_header_comment: this.concatenateValues(this.ChecklistA.get('oot_primary_tles_commom_header_id')?.value,this.ChecklistA.get('oot_primary_tles_commom_header_comment')?.value ),
+      iot_decoke_mov_comment: this.concatenateValues(this.ChecklistA.get('iot_decoke_mov_id')?.value,this.ChecklistA.get('iot_decoke_mov_comment')?.value ),
+
+      iot_furnace_control_sequence_comment: this.concatenateValues(this.ChecklistA.get('iot_furnace_control_sequence_id')?.value,this.ChecklistA.get('iot_furnace_control_sequence_comment')?.value ),
+
+      iot_individual_auto_burner_comment: this.concatenateValues(this.ChecklistA.get('iot_individual_auto_burner_id')?.value,this.ChecklistA.get('iot_individual_auto_burner_comment')?.value ),
+      oot_feed_and_fuel_gas_comment: this.concatenateValues(this.ChecklistA.get('oot_feed_and_fuel_gas_id')?.value,this.ChecklistA.get('oot_feed_and_fuel_gas_comment')?.value ),
+      iot_bm_control_sequence_to_stand_comment: this.concatenateValues(this.ChecklistA.get('iot_bm_control_sequence_to_stand_id')?.value,this.ChecklistA.get('iot_bm_control_sequence_to_stand_comment')?.value ),
+      iot_purge_light_off_comment: this.concatenateValues(this.ChecklistA.get('iot_purge_light_off_id')?.value,this.ChecklistA.get('iot_purge_light_off_comment')?.value ),
+      oot_open_and_car_sealed_comment: this.concatenateValues(this.ChecklistA.get('oot_open_and_car_sealed_id')?.value,this.ChecklistA.get('oot_open_and_car_sealed_comment')?.value ),
+      oot_second_bv_comment: this.concatenateValues(this.ChecklistA.get('oot_second_bv_id')?.value,this.ChecklistA.get('oot_second_bv_comment')?.value ),
+      oot_upstream_and_downstram_bv_open_comment: this.concatenateValues(this.ChecklistA.get('oot_upstream_and_downstram_bv_open_id')?.value,this.ChecklistA.get('oot_upstream_and_downstram_bv_open_comment')?.value ),
+      oot_bv_and_globe_value_close_comment: this.concatenateValues(this.ChecklistA.get('oot_bv_and_globe_value_close_id')?.value,this.ChecklistA.get('oot_bv_and_globe_value_close_comment')?.value ),
+      drum_3_startup_vent_comment: this.concatenateValues(this.ChecklistA.get('drum_3_startup_vent_id')?.value,this.ChecklistA.get('drum_3_startup_vent_comment')?.value ),
+      oot_hxs_vent_valve_comment: this.concatenateValues(this.ChecklistA.get('oot_hxs_vent_valve_id')?.value,this.ChecklistA.get('oot_hxs_vent_valve_id')?.value ),
+      iot_default_pressure_comment: this.concatenateValues(this.ChecklistA.get('iot_default_pressure_id')?.value,this.ChecklistA.get('iot_default_pressure_comment')?.value ),
+      pressurize_the_downstream_comment: this.concatenateValues(this.ChecklistA.get('pressurize_the_downstream_id')?.value,this.ChecklistA.get('pressurize_the_downstream_comment')?.value ),
+      iot_filling_the_steam_drum_comment: this.concatenateValues(this.ChecklistA.get('iot_filling_the_steam_drum_id')?.value,this.ChecklistA.get('iot_filling_the_steam_drum_comment')?.value ),
+      iot_steam_drum_level_control_master_comment: this.concatenateValues(this.ChecklistA.get('iot_steam_drum_level_control_master_id')?.value,this.ChecklistA.get('iot_steam_drum_level_control_master_comment')?.value ),
+
+
+
+
+    
     });
     console.log( this.ChecklistA)
   }
@@ -213,7 +293,7 @@ export class ChecklistAComponent implements OnInit {
   add() {
   this.apiService.getchecklist().subscribe((response: any) => {
     if (response && response.result) { // Check if response and response.result are not null or undefined
-      this.remainingValues = response.result;
+      this.remainingValues = response.result.checklist;
       this.formid= response.result.id;
 
       Object.keys(this.remainingValues).forEach(key => {
@@ -227,7 +307,7 @@ export class ChecklistAComponent implements OnInit {
     }
 
     if (response && response.result) {
-      this.skipcolor = response.result;
+      this.skipcolor = response.result.checklist;
       
    
     

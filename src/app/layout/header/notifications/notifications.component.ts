@@ -47,26 +47,38 @@ export class NotificationsComponent implements OnInit, OnDestroy {
            );
            if(this.ootIotObject){
             this.ootIotObject = Object.fromEntries(ootIotEntries);
+            console.log('ootIotObject: ',this.ootIotObject);
             this.createFormControls();
-            this.next=true;
+            
            }
-           
+           else{
+             this.next=true
+           }
       }
     });
-    // if(this.next){
+    if(this.next){
+      this.apiService.getnotificationB().subscribe((response: any) => {
+        if(response.result.id){
+          this.id=response.result.id
+          this.show= response.result
+             const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
+               key.startsWith('oot') || key.startsWith('iot')
+             );
+             if(this.ootIotObject){
+              this.ootIotObject = Object.fromEntries(ootIotEntries);
+              console.log('ootIotObject: ',this.ootIotObject);
+              this.createFormControls();
+              
+             }
+             else{
+               this.next=true
+             }
+        }
+      });
+    }
 
-    //   this.apiService.getnotificationB().subscribe((response: any) => {
-    //     if(response.result.id){
-    //       this.id=response.result.id
-    //       this.show= response.result
-    //          const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
-    //            key.startsWith('oot') || key.startsWith('iot')
-    //          );
-    //          this.ootIotObject = Object.fromEntries(ootIotEntries);
-    //          this.createFormControls();
-    //     }
-    //   });
-    // }
+     
+    
     
     // this.apiService.getnotificationC().subscribe((response: any) => {
     //   if(response.result.id){
