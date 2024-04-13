@@ -38,7 +38,7 @@
 
                   <div *ngIf="ChecklistA?.get('oot_high_pressure')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
-                      formControlName="oot_high_pressure_comment"></textarea>
+                      formControlName="oot_high_pressure_comment" (focusout)="patchvalue()" ></textarea>
                     <div style="margin-left: 31%;">
                       <button class="btn btn-primary m-1"
                         (click)="ChecklistA?.get('oot_high_pressure')?.setValue(''); ChecklistA?.get('oot_high_pressure_comment')?.setValue('')">Cancel</button>

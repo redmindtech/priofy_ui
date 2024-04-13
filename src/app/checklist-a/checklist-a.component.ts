@@ -63,6 +63,8 @@ export class ChecklistAComponent implements OnInit {
   
   formInitialization() {
     this.ChecklistA = this.formBuilder.group({
+      
+ oot_high_pressure_id:['1.OOT to ensure treated high pressure BFW (140 kg/cm2g HBF) is available.'],
       oot_high_pressure: [null, Validators.required],
       oot_high_pressure_comment: [null],
       oot_hbf_inlet: [null, Validators.required],
@@ -154,6 +156,35 @@ export class ChecklistAComponent implements OnInit {
       id:[this.id],
     });
   }
+  patchvalue(){
+    console.log('patchvalue() called');
+    this.ChecklistA.patchValue({
+      oot_high_pressure_comment: this.concatenateValues(
+        this.ChecklistA.get('oot_high_pressure_id')?.value,
+        this.ChecklistA.get('oot_high_pressure_comment')?.value
+      ),
+    });
+    console.log( this.ChecklistA)
+  }
+    concatenateValues(controlValue1:any, controlValue2:any): string {
+      // console.log('controlValue1:'+controlValue1+'controlValue2:'+controlValue2)
+      const control1Value = controlValue1 ;
+      const control2Value =controlValue2 ? controlValue2 :'';
+     
+      if(control2Value ==''){
+        let result = ''
+        console.log('if')
+        return result;
+      }
+      else{
+        let result1 = `${control1Value} || ${control2Value}`
+        console.log('else:'+result1)
+        return result1;
+      }
+      
+      
+    }
+  
 
   setupSubmitInterval() {
     this.onSubmitInterval = setInterval(() => {
