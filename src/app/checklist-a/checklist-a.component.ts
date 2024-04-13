@@ -65,6 +65,7 @@ export class ChecklistAComponent implements OnInit {
     this.ChecklistA = this.formBuilder.group({
       
  oot_high_pressure_id:['1.OOT to ensure treated high pressure BFW (140 kg/cm2g HBF) is available.'],
+ oot_hbf_inlet_id:['2.HBF inlet DB 1" drains.'],
       oot_high_pressure: [null, Validators.required],
       oot_high_pressure_comment: [null],
       oot_hbf_inlet: [null, Validators.required],
@@ -159,10 +160,8 @@ export class ChecklistAComponent implements OnInit {
   patchvalue(){
     console.log('patchvalue() called');
     this.ChecklistA.patchValue({
-      oot_high_pressure_comment: this.concatenateValues(
-        this.ChecklistA.get('oot_high_pressure_id')?.value,
-        this.ChecklistA.get('oot_high_pressure_comment')?.value
-      ),
+      oot_high_pressure_comment: this.concatenateValues(this.ChecklistA.get('oot_high_pressure_id')?.value,this.ChecklistA.get('oot_high_pressure_comment')?.value ),
+      oot_hbf_inlet_comment: this.concatenateValues(this.ChecklistA.get('oot_hbf_inlet_id')?.value,this.ChecklistA.get('oot_hbf_inlet_comment')?.value )
     });
     console.log( this.ChecklistA)
   }
