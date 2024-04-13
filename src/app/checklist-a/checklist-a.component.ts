@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup,FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ChecklistAService } from '@app/utils/service/checklist-a.service';
 import { Subscription } from 'rxjs';
@@ -15,6 +15,7 @@ export class ChecklistAComponent implements OnInit {
   @Input() expand: boolean;
   checklistbformenable: boolean = true;
   ChecklistA: FormGroup;
+  formDisableControl = new FormControl(false);
   currentDate: string;
   currenttime: string;
   userDetails: any;
@@ -28,11 +29,12 @@ export class ChecklistAComponent implements OnInit {
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
   remainingValues: any;
-  disableform: any;
+ 
   skipcolor: any;
   colour:string = 'null'; 
   clrvalue: string='null';
   formid: any;
+  formdisable: any;
   
 
   constructor(
@@ -45,8 +47,7 @@ export class ChecklistAComponent implements OnInit {
     this.userDetails = localStorage.getItem('currentUser');
     this.userObject = JSON.parse(this.userDetails);
     this.position = this.userObject.position;
-   // this.disableform=this.userObject.checklistA;
-   this.disableform=true
+   
     console.log(this.position)
     // this.formenable();
     if (this.position === 'iot') {
@@ -232,7 +233,7 @@ export class ChecklistAComponent implements OnInit {
       oot_upstream_and_downstram_bv_open_comment: this.concatenateValues(this.ChecklistA.get('oot_upstream_and_downstram_bv_open_id')?.value,this.ChecklistA.get('oot_upstream_and_downstram_bv_open_comment')?.value ),
       oot_bv_and_globe_value_close_comment: this.concatenateValues(this.ChecklistA.get('oot_bv_and_globe_value_close_id')?.value,this.ChecklistA.get('oot_bv_and_globe_value_close_comment')?.value ),
       drum_3_startup_vent_comment: this.concatenateValues(this.ChecklistA.get('drum_3_startup_vent_id')?.value,this.ChecklistA.get('drum_3_startup_vent_comment')?.value ),
-      oot_hxs_vent_valve_comment: this.concatenateValues(this.ChecklistA.get('oot_hxs_vent_valve_id')?.value,this.ChecklistA.get('oot_hxs_vent_valve_id')?.value ),
+      oot_hxs_vent_valve_comment: this.concatenateValues(this.ChecklistA.get('oot_hxs_vent_valve_id')?.value,this.ChecklistA.get('oot_hxs_vent_valve_comment')?.value ),
       iot_default_pressure_comment: this.concatenateValues(this.ChecklistA.get('iot_default_pressure_id')?.value,this.ChecklistA.get('iot_default_pressure_comment')?.value ),
       pressurize_the_downstream_comment: this.concatenateValues(this.ChecklistA.get('pressurize_the_downstream_id')?.value,this.ChecklistA.get('pressurize_the_downstream_comment')?.value ),
       iot_filling_the_steam_drum_comment: this.concatenateValues(this.ChecklistA.get('iot_filling_the_steam_drum_id')?.value,this.ChecklistA.get('iot_filling_the_steam_drum_comment')?.value ),
@@ -248,13 +249,15 @@ export class ChecklistAComponent implements OnInit {
     concatenateValues(controlValue1:any, controlValue2:any): string {
       // console.log('controlValue1:'+controlValue1+'controlValue2:'+controlValue2)
       const control1Value = controlValue1 ;
-      const control2Value =controlValue2 ? controlValue2 :'';
+      const control2Value =controlValue2 ? controlValue2 :null;
      
-      if(control2Value ==''){
-        let result = ''
-        console.log('if')
+      if (control2Value === null) {
+        let result :any; 
+        console.log('if');
         return result;
-      }
+    }
+    
+     
       else{
         let result1 = `${control1Value} || ${control2Value}`
         console.log('else:'+result1)
@@ -293,9 +296,10 @@ export class ChecklistAComponent implements OnInit {
   add() {
   this.apiService.getchecklist().subscribe((response: any) => {
     if (response && response.result) { // Check if response and response.result are not null or undefined
-      this.remainingValues = response.result.checklist;
+      this.remainingValues = response.result;
       this.formid= response.result.id;
-
+     this.formdisable= response.result.status;
+     
       Object.keys(this.remainingValues).forEach(key => {
         if (key !== 'shift_comment_a_oot' && key !== 'shift_comment_a_iot') {
           this.ChecklistA.get(key)?.patchValue(this.remainingValues[key]);
@@ -307,7 +311,7 @@ export class ChecklistAComponent implements OnInit {
     }
 
     if (response && response.result) {
-      this.skipcolor = response.result.checklist;
+      this.skipcolor = response.result;
       
    
     
@@ -325,7 +329,7 @@ export class ChecklistAComponent implements OnInit {
     }
 
   });
-  this.formdisable();
+  
 }
 
   nxtAccEn() {
@@ -381,28 +385,6 @@ updateFormValues(): void {
 toggleEnable() {
   this.enable = !this.enable; // Toggle the value of enable between true and false
 }
-formdisable() {
-  if (this.formid) {
-    console.log('this.formid: ', this.formid);
-    this.apiService.getformdisable(this.formid).subscribe((response: any) => {
-      console.log('API response:', response);
-      
-      // Verify if response.result is as expected
-      const shouldDisable = response.result;
-      console.log('Should disable form:', shouldDisable);
 
-      // Disable or enable the form based on the API response
-      if (shouldDisable) {
-        this.ChecklistA.disable();
-        console.log('Form disabled.');
-      } else {
-        this.ChecklistA.enable();
-        console.log('Form enabled.');
-      }
-    }, error => {
-      console.error('Error fetching form disable data:', error);
-    });
-  }
-}
 
 }

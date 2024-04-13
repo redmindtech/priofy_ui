@@ -1,5 +1,9 @@
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand" [disabled]="false">
+  
+ {{formdisable}}
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand && formdisable === 'Incompleted'"
+  [disabled]="( formdisable ==='Completed'? 'true':  (checklistformenable ? 'true':'false'))">
+
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents; color:rgb(115, 182, 158)"><strong>6.Procedure checklist #A - Establish Steam Drum Level </strong> </h5>
@@ -9,7 +13,8 @@
     <mat-card class= mat>
       <mat-card-content>
         <!-- <h6 style="margin-left: 30%;"><strong>PROCEDURE CHECKLIST #A ESTABLISH STEAM DRUM LEVEL</strong></h6> -->
-        <form [formGroup]="ChecklistA">
+        <form [formGroup]="ChecklistA"
+        >
           <table>
             <thead>
               <tr>
