@@ -16,6 +16,9 @@ export class NotificationsComponent implements OnInit, OnDestroy {
   id: any;
   show: any;
   next: boolean;
+  beforeValue: string;
+  afterValue: string;
+  detailsHidden :boolean=true;
 
   constructor(
     private fb: FormBuilder,
@@ -39,6 +42,50 @@ export class NotificationsComponent implements OnInit, OnDestroy {
 
   add() {
     this.apiService.getnotificationA().subscribe((response: any) => {
+      if (response.result.id) {
+        
+          this.id = response.result.id;
+          this.show = response.result;
+          const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
+              key.startsWith('oot') || key.startsWith('iot')
+          );
+
+          if (this.ootIotObject) {
+             
+            const lines = Object.entries(response.result).filter(([key, _]) =>
+              key.endsWith('comment') || key.endsWith('comment')
+          );
+          console.log('lines: ', lines);
+          if (lines.length > 0) {
+            console.log('lines: ', lines);
+            const line = lines[0][1] as string; // Extracting the string value from the array
+            const parts: string[] = line.split("||");
+            console.log('parts: ', parts);
+            if (parts.length > 1) {
+                this.beforeValue = parts[0].trim(); // Value before "||"
+                console.log('beforeValue: ', this.beforeValue);
+                // Join the remaining parts after splitting by "||" to handle any special characters
+                this.afterValue = parts.slice(1).join("||").trim(); 
+                console.log('afterValue: ', this.afterValue);
+                // Now you can use 'beforeValue' and 'afterValue' as needed
+            }
+            this.detailsHidden=false;
+        }
+        this.ootIotObject = Object.fromEntries(ootIotEntries);
+        console.log('ootIotObject: ',this.ootIotObject);
+          this.createFormControls();
+      }
+          
+      } else {
+          this.notificationB();
+      }
+    
+  });
+  
+};
+
+  notificationB(){
+    this.apiService.getnotificationB().subscribe((response: any) => {
       if(response.result.id){
         this.id=response.result.id
         this.show= response.result
@@ -46,86 +93,195 @@ export class NotificationsComponent implements OnInit, OnDestroy {
              key.startsWith('oot') || key.startsWith('iot')
            );
            if(this.ootIotObject){
+            const lines = Object.entries(response.result).filter(([key, _]) =>
+              key.endsWith('comment') || key.endsWith('comment')
+          );
+          console.log('lines: ', lines);
+          if (lines.length > 0) {
+            console.log('lines: ', lines);
+            const line = lines[0][1] as string; // Extracting the string value from the array
+            const parts: string[] = line.split("||");
+            console.log('parts: ', parts);
+            if (parts.length > 1) {
+                this.beforeValue = parts[0].trim(); // Value before "||"
+                console.log('beforeValue: ', this.beforeValue);
+                // Join the remaining parts after splitting by "||" to handle any special characters
+                this.afterValue = parts.slice(1).join("||").trim(); 
+                console.log('afterValue: ', this.afterValue);
+                // Now you can use 'beforeValue' and 'afterValue' as needed
+            }
+            this.detailsHidden=false;
+        }
             this.ootIotObject = Object.fromEntries(ootIotEntries);
             console.log('ootIotObject: ',this.ootIotObject);
             this.createFormControls();
             
            }
            else{
-             this.next=true
+            this.notificationC();
            }
       }
     });
-    if(this.next){
-      this.apiService.getnotificationB().subscribe((response: any) => {
-        if(response.result.id){
-          this.id=response.result.id
-          this.show= response.result
-             const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
-               key.startsWith('oot') || key.startsWith('iot')
-             );
-             if(this.ootIotObject){
-              this.ootIotObject = Object.fromEntries(ootIotEntries);
-              console.log('ootIotObject: ',this.ootIotObject);
-              this.createFormControls();
-              
-             }
-             else{
-               this.next=true
-             }
-        }
-      });
-    }
-
-     
-    
-    
-    // this.apiService.getnotificationC().subscribe((response: any) => {
-    //   if(response.result.id){
-    //     this.id=response.result.id
-    //     this.show= response.result
-    //        const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
-    //          key.startsWith('oot') || key.startsWith('iot')
-    //        );
-    //        this.ootIotObject = Object.fromEntries(ootIotEntries);
-    //        this.createFormControls();
-    //   }
-    // });
-    // this.apiService.getnotificationD().subscribe((response: any) => {
-    //   if(response.result.id){
-    //     this.id=response.result.id
-    //     this.show= response.result
-    //        const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
-    //          key.startsWith('oot') || key.startsWith('iot')
-    //        );
-    //        this.ootIotObject = Object.fromEntries(ootIotEntries);
-    //        this.createFormControls();
-    //   }
-    // });
-    // this.apiService.getnotificationE().subscribe((response: any) => {
-    //   if(response.result.id){
-    //     this.id=response.result.id
-    //     this.show= response.result
-    //        const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
-    //          key.startsWith('oot') || key.startsWith('iot')
-    //        );
-    //        this.ootIotObject = Object.fromEntries(ootIotEntries);
-    //        this.createFormControls();
-    //   }
-    // });
-    // this.apiService.getnotificationF().subscribe((response: any) => {
-    //   if(response.result.id){
-    //     this.id=response.result.id
-    //     this.show= response.result
-    //        const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
-    //          key.startsWith('oot') || key.startsWith('iot')
-    //        );
-    //        this.ootIotObject = Object.fromEntries(ootIotEntries);
-    //        this.createFormControls();
-    //   }
-    // });
   }
 
+  notificationC(){
+    this.apiService.getnotificationC().subscribe((response: any) => {
+      if(response.result.id){
+        this.id=response.result.id
+        this.show= response.result
+           const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
+             key.startsWith('oot') || key.startsWith('iot')
+           );
+           if(this.ootIotObject){
+            const lines = Object.entries(response.result).filter(([key, _]) =>
+              key.endsWith('comment') || key.endsWith('comment')
+          );
+          console.log('lines: ', lines);
+          if (lines.length > 0) {
+            console.log('lines: ', lines);
+            const line = lines[0][1] as string; // Extracting the string value from the array
+            const parts: string[] = line.split("||");
+            console.log('parts: ', parts);
+            if (parts.length > 1) {
+                this.beforeValue = parts[0].trim(); // Value before "||"
+                console.log('beforeValue: ', this.beforeValue);
+                // Join the remaining parts after splitting by "||" to handle any special characters
+                this.afterValue = parts.slice(1).join("||").trim(); 
+                console.log('afterValue: ', this.afterValue);
+                // Now you can use 'beforeValue' and 'afterValue' as needed
+            }
+            this.detailsHidden=false;
+        }
+            this.ootIotObject = Object.fromEntries(ootIotEntries);
+            console.log('ootIotObject: ',this.ootIotObject);
+            this.createFormControls();
+            
+           }
+           else{
+            this.notificationD();
+           }
+      }
+    });
+  }
+
+  notificationD(){
+    this.apiService.getnotificationD().subscribe((response: any) => {
+      if(response.result.id){
+        this.id=response.result.id
+        this.show= response.result
+           const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
+             key.startsWith('oot') || key.startsWith('iot')
+           );
+           if(this.ootIotObject){
+            const lines = Object.entries(response.result).filter(([key, _]) =>
+              key.endsWith('comment') || key.endsWith('comment')
+          );
+          console.log('lines: ', lines);
+          if (lines.length > 0) {
+            console.log('lines: ', lines);
+            const line = lines[0][1] as string; // Extracting the string value from the array
+            const parts: string[] = line.split("||");
+            console.log('parts: ', parts);
+            if (parts.length > 1) {
+                this.beforeValue = parts[0].trim(); // Value before "||"
+                console.log('beforeValue: ', this.beforeValue);
+                // Join the remaining parts after splitting by "||" to handle any special characters
+                this.afterValue = parts.slice(1).join("||").trim(); 
+                console.log('afterValue: ', this.afterValue);
+                // Now you can use 'beforeValue' and 'afterValue' as needed
+            }
+            this.detailsHidden=false;
+        }
+            this.ootIotObject = Object.fromEntries(ootIotEntries);
+            console.log('ootIotObject: ',this.ootIotObject);
+            this.createFormControls();
+            
+           }
+           else{
+            this.notificationE();
+           }
+      }
+    });
+  }
+
+  notificationE(){
+    this.apiService.getnotificationE().subscribe((response: any) => {
+      if(response.result.id){
+        this.id=response.result.id
+        this.show= response.result
+           const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
+             key.startsWith('oot') || key.startsWith('iot')
+           );
+           if(this.ootIotObject){
+            const lines = Object.entries(response.result).filter(([key, _]) =>
+              key.endsWith('comment') || key.endsWith('comment')
+          );
+          console.log('lines: ', lines);
+          if (lines.length > 0) {
+            console.log('lines: ', lines);
+            const line = lines[0][1] as string; // Extracting the string value from the array
+            const parts: string[] = line.split("||");
+            console.log('parts: ', parts);
+            if (parts.length > 1) {
+                this.beforeValue = parts[0].trim(); // Value before "||"
+                console.log('beforeValue: ', this.beforeValue);
+                // Join the remaining parts after splitting by "||" to handle any special characters
+                this.afterValue = parts.slice(1).join("||").trim(); 
+                console.log('afterValue: ', this.afterValue);
+                // Now you can use 'beforeValue' and 'afterValue' as needed
+            }
+            this.detailsHidden=false;
+        }
+            this.ootIotObject = Object.fromEntries(ootIotEntries);
+            console.log('ootIotObject: ',this.ootIotObject);
+            this.createFormControls();
+            
+           }
+           else{
+            this.notificationF();
+           }
+      }
+    });
+  }
+
+  notificationF(){
+    this.apiService.getnotificationF().subscribe((response: any) => {
+      if(response.result.id){
+        this.id=response.result.id
+        this.show= response.result
+           const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
+             key.startsWith('oot') || key.startsWith('iot')
+           );
+           const lines = Object.entries(response.result).filter(([key, _]) =>
+            key.endsWith('comment') || key.endsWith('comment')
+        );
+        console.log('lines: ', lines);
+        if (lines.length > 0) {
+          console.log('lines: ', lines);
+          const line = lines[0][1] as string; // Extracting the string value from the array
+          const parts: string[] = line.split("||");
+          console.log('parts: ', parts);
+          if (parts.length > 1) {
+              this.beforeValue = parts[0].trim(); // Value before "||"
+              console.log('beforeValue: ', this.beforeValue);
+              // Join the remaining parts after splitting by "||" to handle any special characters
+              this.afterValue = parts.slice(1).join("||").trim(); 
+              console.log('afterValue: ', this.afterValue);
+              // Now you can use 'beforeValue' and 'afterValue' as needed
+          }
+          this.detailsHidden=false;
+      }
+            this.ootIotObject = Object.fromEntries(ootIotEntries);
+            console.log('ootIotObject: ',this.ootIotObject);
+            this.createFormControls();
+            
+           
+           
+      }
+    });
+  }
+
+  
   createFormControls() {
     // Clear existing form controls
     this.notificationForm = this.fb.group({});
@@ -140,11 +296,13 @@ export class NotificationsComponent implements OnInit, OnDestroy {
     console.log("acc");
     const formValue = this.notificationForm.get(key)?.value;
     this.saveNotification(formValue, key, 'accept');
+    this.detailsHidden=true;
   }
 
   reject(key: string) {
     const formValue = this.notificationForm.get(key)?.value;
     this.saveNotification(formValue, key, 'reject');
+    this.detailsHidden=true;
   }
 
   saveNotification(formValue: any, key: string, action: string) {

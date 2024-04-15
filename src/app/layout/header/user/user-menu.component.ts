@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // import {AppService} from '@services/app.service';
 import { DateTime } from 'luxon';
 import { AuthService } from '@app/service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-menu',
@@ -12,7 +13,7 @@ export class UserMenuComponent implements OnInit {
   public user: any;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -24,10 +25,15 @@ export class UserMenuComponent implements OnInit {
     }
   }
 
-  logout() {
-    this.authService.logout()
-  }
+  async logout() {
+    await this.authService.logout(); // Assuming logout() is an asynchronous function
 
+    // Navigate to the login page
+    this.router.navigateByUrl('/login').then(() => {
+        // Once navigation is complete, refresh the page
+        window.location.reload();
+    });
+}
   formatDate(date: string) {
     return DateTime.fromISO(date)
       .reconfigure({ outputCalendar: "buddhist" })

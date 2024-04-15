@@ -52,24 +52,24 @@
           <td style="text-align:center">2</td>
           <td class="header">IOT to confirm that HV-22X0-02 (purge steam to ethane feed line(FV-22X0-14 A/B are open) opens to 100% automatically.)</td>
           <td>
-            <input type="radio" class="custom-radio" id="iot_to_confirm-done" name="iot_to_confirm" value="Done" formControlName="iot_to_confirm"  (change)="onRadioChangeup()"/>
-            <label for="iot_to_confirm-done"class="action">Done</label>
+            <input type="radio" class="custom-radio" id="iot_confirm-done" name="iot_confirm" value="Done" formControlName="iot_confirm"  (change)="onRadioChangeup()"/>
+            <label for="iot_confirm-done"class="action">Done</label>
 
-            <input type="radio" class="custom-radio" id="iot_to_confirm-risk" name="iot_to_confirm" value="Risk" formControlName="iot_to_confirm" (change)="onRadioChangeup()"/>
-            <label for="iot_to_confirm-risk"class="action">Risk</label>
+            <input type="radio" class="custom-radio" id="iot_confirm-risk" name="iot_confirm" value="Risk" formControlName="iot_confirm" (change)="onRadioChangeup()"/>
+            <label for="iot_confirm-risk"class="action">Risk</label>
 
-            <input type="radio" class="custom-radio" id="iot_to_confirm-skip" name="iot_to_confirm" value="Skip" formControlName="iot_to_confirm"  (change)="onRadioChangeup()"/>
-            <label for="iot_to_confirm-skip"class="action"  [ngStyle]="{
-              'background-color': colour === 'iot_to_confirm_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'iot_to_confirm_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('iot_to_confirm')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            <input type="radio" class="custom-radio" id="iot_confirm-skip" name="iot_confirm" value="Skip" formControlName="iot_confirm"  (change)="onRadioChangeup()"/>
+            <label for="iot_confirm-skip"class="action"  [ngStyle]="{
+              'background-color': colour === 'iot_confirm_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'iot_confirm_satus' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistF?.get('iot_confirm')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
             }">Skip</label>
 
-            <div *ngIf="ChecklistF?.get('iot_to_confirm')?.value === 'Skip'">
-              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_to_confirm_comment" (focusout)="patchvalue()"></textarea>
+            <div *ngIf="ChecklistF?.get('iot_confirm')?.value === 'Skip'">
+              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_confirm_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"
-                (click)="ChecklistF?.get('iot_to_confirm')?.setValue(''); ChecklistF?.get('iot_to_confirm_comment')?.setValue('')">Cancel</button>
+                (click)="ChecklistF?.get('iot_confirm')?.setValue(''); ChecklistF?.get('iot_confirm_comment')?.setValue('')">Cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
               </div>
             </div>

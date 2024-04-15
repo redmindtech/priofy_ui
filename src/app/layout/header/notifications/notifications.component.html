@@ -19,20 +19,28 @@
 
     </ng-container>
 </app-dropdown> -->
-<app-dropdown size="xl">
-    <ng-container dropdown-button>
-        <i class="far fa-bell"></i>
-        <span class="badge badge-warning navbar-badge">1</span>
+<app-dropdown size="xl" [class.disabled]="detailsHidden">
+    <ng-container dropdown-button >
+       
+        <i  class="far fa-bell"></i>
+
+
+        <span *ngIf="!detailsHidden" class="badge badge-warning navbar-badge">1</span>
     </ng-container>
     <mat-card dropdown-menu style="width: 300px; margin: 7%;" >
         <mat-card-content style="width: 300px;">
+           
             <div *ngIf="ootIotObject">
+              
                 <p><strong>procedure : </strong>{{ show?.checklist }}</p>
                 <p><strong>UserName : </strong>{{show?.userLoginDTO.username}}</p>
+                <p><strong>Skip Request form Operators: </strong>{{afterValue}}</p>
+                <p><strong>Text : </strong>{{beforeValue}}</p>
+                
                 <div *ngFor="let keyValuePair of ootIotObject | keyvalue; let i = index">
                     <div class="notification-box">
                      
-                        <p *ngIf="i === 0"><strong>Skip Request form Operators</strong> {{ keyValuePair.value }}</p>
+                        <p *ngIf="i === 0"></p>
                         <p *ngIf="i === 1"></p>
                         <!-- Move the buttons inside the ngFor loop -->
                         
@@ -44,6 +52,7 @@
                     </div>
                 
             </div>
+        
         </mat-card-content>
     </mat-card>
     

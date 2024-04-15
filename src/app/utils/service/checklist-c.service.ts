@@ -21,7 +21,7 @@ export class ChecklistCService {
       }),
     };
 
-    return this.httpClient.post(this.baseUrl+('/ChecklistCSave'), data, httpOptions);
+    return this.httpClient.post(this.baseUrl+('/checklistCSave'), data, httpOptions);
   }
   public getchecklistC(): Observable<any> {
     return this.httpClient.get(this.baseUrl+('/last'));

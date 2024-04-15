@@ -36,10 +36,10 @@ margin-left: 750%;
 @media only screen and (max-width: 1400px)
 {
   .btn1{
-    margin-left: 850%;
+    margin-left: 350%;
     }
     .btn2{
-      margin-left: 700%;
+      margin-left: 280%;
     }
 }
 .row {

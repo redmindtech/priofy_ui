@@ -114,8 +114,8 @@ formInitialization(){
     shift_comment_c_iot:[null],
     userid:[this.currentUser.id],
     master_id:[1],
-    Light_Off_table_1_id:[null,Validators.required]
-    
+    Light_Off_table_1_id:[null,Validators.required],
+    id:[this.id]
 
   })
 }

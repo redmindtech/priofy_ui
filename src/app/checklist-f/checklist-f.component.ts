@@ -68,7 +68,7 @@ export class ChecklistFComponent implements OnInit {
   formInitialization() {
     this.ChecklistF = this.formBuilder.group({
       iot_move_furnace_sequence_to_Swing_id:['1.IOT to move furnace sequence to Swing MOV step, if not done before.'],
-      iot_to_confirm_id:['2.IOT to confirm that HV-22X0-02 (purge steam to ethane feed line(FV-22X0-14 A/B are open) opens to 100% automatically.)'],
+      iot_confirm_id:['2.IOT to confirm that HV-22X0-02 (purge steam to ethane feed line(FV-22X0-14 A/B are open) opens to 100% automatically.)'],
       oot_ALL_BV_of_LS_steam_id:['3.OOT to ensure that ALL B/V of LS steam to PTs and MOVs are lined up.<br>Note: automated valve to CG MOV intermediate PT will not be auto enabled until 2 seconds after feed EBV is opened and will stay open for 120 seconds after the feed EBV closes.'],
       oot_flare_block_id:['4.OOT to confirm that both B/V of the CG MOVs purge steam lines drain valves and the flare block and bleed valves are closed.'],
      
@@ -92,7 +92,7 @@ export class ChecklistFComponent implements OnInit {
       
 
       iot_move_furnace_sequence_to_Swing: [null,Validators.required],
-      iot_to_confirm:  [null,Validators.required],
+      iot_confirm:  [null,Validators.required],
       oot_ALL_BV_of_LS_steam:  [null,Validators.required],
       oot_flare_block: [null,Validators.required],
       oot_IOT_Decoke_Air: [null,Validators.required],
@@ -116,7 +116,7 @@ export class ChecklistFComponent implements OnInit {
       master_id:[1],
       id:[this.id],
       iot_move_furnace_sequence_to_Swing_comment: [null],
-      iot_to_confirm_comment:  [null],
+      iot_confirm_comment:  [null],
       oot_ALL_BV_of_LS_steam_comment:  [null],
       oot_flare_block_comment: [null],
       oot_IOT_Decoke_Air_comment: [null],
@@ -146,7 +146,7 @@ export class ChecklistFComponent implements OnInit {
     console.log('patchvalue() called');
     this.ChecklistF.patchValue({
       iot_move_furnace_sequence_to_Swing_com: this.concatenateValues(this.ChecklistF.get('iot_move_furnace_sequence_to_Swing_id')?.value,this.ChecklistF.get('oot_high_pressure_comment')?.value ),
-      iot_to_confirm_comment:  this.concatenateValues(this.ChecklistF.get('iot_to_confirm_id')?.value,this.ChecklistF.get('iot_to_confirm_comment')?.value ),
+      iot_confirm_comment:  this.concatenateValues(this.ChecklistF.get('iot_confirm_id')?.value,this.ChecklistF.get('iot_confirm_comment')?.value ),
       oot_ALL_BV_of_LS_steam_comment:  this.concatenateValues(this.ChecklistF.get('oot_ALL_BV_of_LS_steam_id')?.value,this.ChecklistF.get('oot_ALL_BV_of_LS_steam_comment')?.value ),
       oot_flare_block_comment: this.concatenateValues(this.ChecklistF.get('oot_ALL_BV_of_LS_steam_id')?.value,this.ChecklistF.get('oot_ALL_BV_of_LS_steam_comment')?.value ),
       oot_IOT_Decoke_Air_comment: this.concatenateValues(this.ChecklistF.get('oot_IOT_Decoke_Air_id')?.value,this.ChecklistF.get('oot_IOT_Decoke_Air_comment')?.value ),
@@ -271,15 +271,12 @@ onRadioChangeup() {
   console.log('activeElement: ', activeElement);
   console.log('activeElement.tagName.toLowerCase(): ', activeElement.tagName.toLowerCase());
   if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
+    console.log("ll");
       this.updateFormValues();
   }
 }
 updateFormValues(): void {
-  this.ChecklistF.get('id')?.value(this.id)
-  // this.ChecklistF.get('shift_comment_f_oot')?.setValue(this.remainingValues.shift_comment_f_oot);
-  //     this.ChecklistF.get('shift_comment_f_iot')?.setValue(this.remainingValues.shift_comment_f_iot);
-  console.log(this.id)
-  console.log(this.id)
+ 
 
   const formData = this.ChecklistF.value;
   console.log('formData: ', formData);
