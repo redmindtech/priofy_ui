@@ -31,11 +31,11 @@
         <mat-card-content style="width: 300px;">
            
             <div *ngIf="ootIotObject">
-              
-                <p><strong>procedure : </strong>{{ show?.checklist }}</p>
                 <p><strong>UserName : </strong>{{show?.userLoginDTO.username}}</p>
+                <p><strong>procedure :Checklist # </strong>{{ show?.checklist }}</p>
+                <p><strong>Steps : </strong>{{beforeValue}}</p>
                 <p><strong>Skip Request form Operators: </strong>{{afterValue}}</p>
-                <p><strong>Text : </strong>{{beforeValue}}</p>
+                
                 
                 <div *ngFor="let keyValuePair of ootIotObject | keyvalue; let i = index">
                     <div class="notification-box">
