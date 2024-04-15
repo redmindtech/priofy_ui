@@ -41,11 +41,11 @@
                     <div class="notification-box">
                      
                         <p *ngIf="i === 0"></p>
-                        <p *ngIf="i === 1"></p>
+                        
                         <!-- Move the buttons inside the ngFor loop -->
                         
                     </div>
-                    <div *ngIf="i === 1">
+                    <div *ngIf="i === 0">
                     <button  mat-button color="primary" style="margin-left: 130px;" (click)="accept(keyValuePair.key)">Accept</button>
                         <button  mat-button color="warn" (click)="reject(keyValuePair.key)"  >Reject</button>
                     </div>

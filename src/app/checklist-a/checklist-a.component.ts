@@ -303,6 +303,7 @@ export class ChecklistAComponent implements OnInit {
       Object.keys(this.remainingValues).forEach(key => {
         if (key !== 'shift_comment_a_oot' && key !== 'shift_comment_a_iot') {
           this.ChecklistA.get(key)?.patchValue(this.remainingValues[key]);
+          console.log('this.remainingValues[key]: ', this.remainingValues[key]);
         }
       });
     } else {

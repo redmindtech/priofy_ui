@@ -47,7 +47,7 @@ export class NotificationsComponent implements OnInit, OnDestroy {
           this.id = response.result.id;
           this.show = response.result;
           const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
-              key.startsWith('oot') || key.startsWith('iot')
+              key.endsWith('status') 
           );
 
           if (this.ootIotObject) {
@@ -90,7 +90,7 @@ export class NotificationsComponent implements OnInit, OnDestroy {
         this.id=response.result.id
         this.show= response.result
            const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
-             key.startsWith('oot') || key.startsWith('iot')
+            key.endsWith('status') 
            );
            if(this.ootIotObject){
             const lines = Object.entries(response.result).filter(([key, _]) =>
@@ -130,7 +130,7 @@ export class NotificationsComponent implements OnInit, OnDestroy {
         this.id=response.result.id
         this.show= response.result
            const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
-             key.startsWith('oot') || key.startsWith('iot')
+            key.endsWith('status') 
            );
            if(this.ootIotObject){
             const lines = Object.entries(response.result).filter(([key, _]) =>
@@ -170,7 +170,7 @@ export class NotificationsComponent implements OnInit, OnDestroy {
         this.id=response.result.id
         this.show= response.result
            const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
-             key.startsWith('oot') || key.startsWith('iot')
+            key.endsWith('status') 
            );
            if(this.ootIotObject){
             const lines = Object.entries(response.result).filter(([key, _]) =>
@@ -210,7 +210,7 @@ export class NotificationsComponent implements OnInit, OnDestroy {
         this.id=response.result.id
         this.show= response.result
            const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
-             key.startsWith('oot') || key.startsWith('iot')
+            key.endsWith('status') 
            );
            if(this.ootIotObject){
             const lines = Object.entries(response.result).filter(([key, _]) =>
@@ -250,7 +250,7 @@ export class NotificationsComponent implements OnInit, OnDestroy {
         this.id=response.result.id
         this.show= response.result
            const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
-             key.startsWith('oot') || key.startsWith('iot')
+            key.endsWith('status') 
            );
            const lines = Object.entries(response.result).filter(([key, _]) =>
             key.endsWith('comment') || key.endsWith('comment')
