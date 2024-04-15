@@ -1,3 +1,13 @@
+.inner,.small-box-footer{
+  font-family: 'Montserrat', sans-serif;
+}
+
+h3{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+}
+
+
 .grayheading .small-box {
   width:100px;
   height:150px;

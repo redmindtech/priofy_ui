@@ -1,3 +1,11 @@
+.small-box-footer,.inner,.mat, .mat *,h1 {
+  font-family: 'Montserrat', sans-serif;
+}
+h3{
+  font-size: 28px;
+}
+
+
 .mat, .mat *,h1 {
   font-family: 'Montserrat', sans-serif;
 }
