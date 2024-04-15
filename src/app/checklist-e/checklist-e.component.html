@@ -32,10 +32,14 @@
             <label for="oot_lower_level_burner-risk"  class="action">Risk</label>
             
             <input type="radio" class="custom-radio" id="oot_lower_level_burner-skip" name="oot_lower_level_burner" value="Skip" formControlName="oot_lower_level_burner"  (change)="onRadioChange()"/>
-            <label for="oot_lower_level_burner-skip"  class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+            <label for="oot_lower_level_burner-skip"  class="action"[ngStyle]="{
+              'background-color': colour === 'oot_lower_level_burner_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'oot_lower_level_burner_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistE?.get('oot_lower_level_burner')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            }">Skip</label>
             
             <div *ngIf="ChecklistE?.get('oot_lower_level_burner')?.value === 'Skip'">
-              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_lower_level_burner_comment"></textarea>
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_lower_level_burner_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1" (click)="ChecklistE?.get('oot_lower_level_burner')?.setValue(''); ChecklistE?.get('oot_lower_level_burner_comment')?.setValue('')">cancel</button>
                 <button class="btn btn-primary m-1"(click)="onSubmit()">Confirm</button>
@@ -56,10 +60,14 @@
             <label for="iot_monitor_the_fuel_gas-risk"class="action">Risk</label>
             
             <input type="radio" class="custom-radio" id="iot_monitor_the_fuel_gas-skip" name="iot_monitor_the_fuel_gas" value="Skip" formControlName="iot_monitor_the_fuel_gas"  (change)="onRadioChangeup()"/>
-            <label for="iot_monitor_the_fuel_gas-skip"class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+            <label for="iot_monitor_the_fuel_gas-skip"class="action"[ngStyle]="{
+              'background-color': colour === 'iot_monitor_the_fuel_gas_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'iot_monitor_the_fuel_gas_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistE?.get('iot_monitor_the_fuel_gas')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            }">Skip</label>
             
             <div *ngIf="ChecklistE?.get('iot_monitor_the_fuel_gas')?.value === 'Skip'">
-              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_monitor_the_fuel_gas_comment"></textarea>
+              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_monitor_the_fuel_gas_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"(click)="ChecklistE?.get('iot_monitor_the_fuel_gas')?.setValue(''); ChecklistE?.get('iot_monitor_the_fuel_gas_comment')?.setValue('')" >cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
@@ -80,10 +88,14 @@
             <label for="oot_desuperheater-risk"class="action">Risk</label>
             
             <input type="radio" class="custom-radio" id="oot_desuperheater-skip" name="oot_desuperheater" value="Skip" formControlName="oot_desuperheater"  (change)="onRadioChangeup()"/>
-            <label for="oot_desuperheater-skip"class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+            <label for="oot_desuperheater-skip"class="action"[ngStyle]="{
+              'background-color': colour === 'oot_desuperheater_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'oot_desuperheater_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistE?.get('oot_desuperheater')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            }">Skip</label>
             
             <div *ngIf="ChecklistE?.get('oot_desuperheater')?.value === 'Skip'">
-              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_desuperheater_comment"></textarea>
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_desuperheater_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1" (click)="ChecklistE?.get('oot_desuperheater')?.setValue(''); ChecklistE?.get('oot_desuperheater_comment')?.setValue('')">cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
@@ -104,10 +116,14 @@
             <label for="iot_desuperheater_not_pass-risk" class="action">Risk</label>
             
             <input type="radio" class="custom-radio" id="iot_desuperheater_not_pass-skip" name="iot_desuperheater_not_pass" value="Skip" formControlName="iot_desuperheater_not_pass"  (change)="onRadioChangeup()"/>
-            <label for="iot_desuperheater_not_pass-skip" class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+            <label for="iot_desuperheater_not_pass-skip" class="action"[ngStyle]="{
+              'background-color': colour === 'iot_desuperheater_not_pass_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'iot_desuperheater_not_pass_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistE?.get('iot_desuperheater_not_pass')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            }">Skip</label>
             
             <div *ngIf="ChecklistE?.get('iot_desuperheater_not_pass')?.value === 'Skip'">
-              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="iot_desuperheater_not_pass_comment"></textarea>
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="iot_desuperheater_not_pass_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"(click)="ChecklistE?.get('iot_desuperheater_not_pass')?.setValue(''); ChecklistE?.get('iot_desuperheater_not_pass_comment')?.setValue('')" >cancel</button>
                 <button class="btn btn-primary m-1"(click)="onRadioChangeup()">Confirm</button>
@@ -134,10 +150,14 @@
             <label for="oot_lineup_sd-risk" class="action">Risk</label>
             
             <input type="radio" class="custom-radio" id="oot_lineup_sd-skip" name="oot_lineup_sd" value="Skip" formControlName="oot_lineup_sd"  (change)="onRadioChangeup()"/>
-            <label for="oot_lineup_sd-skip" class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+            <label for="oot_lineup_sd-skip" class="action"[ngStyle]="{
+              'background-color': colour === 'oot_lineup_sd_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'oot_lineup_sd_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistE?.get('oot_lineup_sd')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            }">Skip</label>
             
             <div *ngIf="ChecklistE?.get('oot_lineup_sd')?.value === 'Skip'">
-              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_lineup_sd_comment"></textarea>
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_lineup_sd_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1" (click)="ChecklistE?.get('oot_lineup_sd')?.setValue(''); ChecklistE?.get('oot_lineup_sd_comment')?.setValue('')">cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
@@ -157,10 +177,14 @@
             <label for="oot_cbd-risk"class="action">Risk</label>
             
             <input type="radio" class="custom-radio" id="oot_cbd-skip" name="oot_cbd" value="Skip" formControlName="oot_cbd"  (change)="onRadioChangeup()"/>
-            <label for="oot_cbd-skip"class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+            <label for="oot_cbd-skip"class="action"[ngStyle]="{
+              'background-color': colour === 'oot_lineup_sd_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'oot_lineup_sd_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistE?.get('oot_lineup_sd')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            }">Skip</label>
             
             <div *ngIf="ChecklistE?.get('oot_cbd')?.value === 'Skip'">
-              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_cbd_comment"></textarea>
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_cbd_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"(click)="ChecklistE?.get('oot_cbd')?.setValue(''); ChecklistE?.get('oot_cbd_comment')?.setValue('')" >cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
@@ -180,10 +204,14 @@
             <label for="oot_cbd_confirm_cooling_water-risk"class="action">Risk</label>
             
             <input type="radio" class="custom-radio" id="oot_cbd_confirm_cooling_water-skip" name="oot_cbd_confirm_cooling_water" value="Skip" formControlName="oot_cbd_confirm_cooling_water"  (change)="onRadioChangeup()"/>
-            <label for="oot_cbd_confirm_cooling_water-skip"class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+            <label for="oot_cbd_confirm_cooling_water-skip"class="action"[ngStyle]="{
+              'background-color': colour === 'oot_cbd_confirm_cooling_water_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'oot_cbd_confirm_cooling_water_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistE?.get('oot_cbd_confirm_cooling_water')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            }">Skip</label>
             
             <div *ngIf="ChecklistE?.get('oot_cbd_confirm_cooling_water')?.value === 'Skip'">
-              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_cbd_confirm_cooling_water_comment"></textarea>
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_cbd_confirm_cooling_water_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"(click)="ChecklistE?.get('oot_cbd_confirm_cooling_water')?.setValue(''); ChecklistE?.get('oot_cbd_confirm_cooling_water_comment')?.setValue('')" >cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
@@ -204,10 +232,14 @@
             <label for="oot_stle_blowdown_analyzer-risk"class="action">Risk</label>
             
             <input type="radio" class="custom-radio" id="oot_stle_blowdown_analyzer-skip" name="oot_stle_blowdown_analyzer" value="Skip" formControlName="oot_stle_blowdown_analyzer"  (change)="onRadioChangeup()"/>
-            <label for="oot_stle_blowdown_analyzer-skip"class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+            <label for="oot_stle_blowdown_analyzer-skip"class="action"[ngStyle]="{
+              'background-color': colour === 'oot_stle_blowdown_analyzer_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'oot_stle_blowdown_analyzer_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistE?.get('oot_stle_blowdown_analyzer')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            }">Skip</label>
             
             <div *ngIf="ChecklistE?.get('oot_stle_blowdown_analyzer')?.value === 'Skip'">
-              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_stle_blowdown_analyzer_comment"></textarea>
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_stle_blowdown_analyzer_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"(click)="ChecklistE?.get('oot_stle_blowdown_analyzer')?.setValue(''); ChecklistE?.get('oot_stle_blowdown_analyzer')?.setValue('')" >cancel</button>
                 <button class="btn btn-primary m-1"(click)="onRadioChangeup()">Confirm</button>
@@ -227,10 +259,14 @@
             <label for="oot_desuperheater_untreated_bfw-risk"class="action">Risk</label>
             
             <input type="radio" class="custom-radio" id="oot_desuperheater_untreated_bfw-skip" name="oot_desuperheater_untreated_bfw" value="Skip" formControlName="oot_desuperheater_untreated_bfw"  (change)="onRadioChangeup()"/>
-            <label for="oot_desuperheater_untreated_bfw-skip"class="action" [ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+            <label for="oot_desuperheater_untreated_bfw-skip"class="action" [ngStyle]="{
+              'background-color': colour === 'oot_desuperheater_untreated_bfw_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'oot_desuperheater_untreated_bfw_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistE?.get('oot_desuperheater_untreated_bfw')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            }">Skip</label>
             
             <div *ngIf="ChecklistE?.get('oot_desuperheater_untreated_bfw')?.value === 'Skip'">
-              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_desuperheater_untreated_bfw_comment"></textarea>
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_desuperheater_untreated_bfw_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"(click)="ChecklistE?.get('oot_desuperheater_untreated_bfw')?.setValue(''); ChecklistE?.get('oot_desuperheater_untreated_bfw_comment')?.setValue('')" >cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
@@ -252,10 +288,14 @@
             <label for="iot_to_enable_sd-risk"class="action">Risk</label>
             
             <input type="radio" class="custom-radio" id="iot_to_enable_sd-skip" name="iot_to_enable_sd" value="Skip" formControlName="iot_to_enable_sd"  (change)="onRadioChangeup()"/>
-            <label for="iot_to_enable_sd-skip"class="action" [ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+            <label for="iot_to_enable_sd-skip"class="action" [ngStyle]="{
+              'background-color': colour === 'iot_to_enable_sd_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'iot_to_enable_sd_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistE?.get('iot_to_enable_sd')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            }">Skip</label>
             
             <div *ngIf="ChecklistE?.get('iot_to_enable_sd')?.value === 'Skip'">
-              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_to_enable_sd_comment"></textarea>
+              <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_to_enable_sd_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"(click)="ChecklistE?.get('iot_to_enable_sd')?.setValue(''); ChecklistE?.get('iot_to_enable_sd_comment')?.setValue('')">cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
@@ -266,7 +306,7 @@
         
         <tr class="colour1">
           <td style="text-align: center;">6</td>
-          <td class="header">If steam PSV EVT testing needs to be done, hold COTs at 700°C
+          <td class="header">*If steam PSV EVT testing needs to be done, hold COTs at 700°C
             (via COT manual set point) and steam drum pressure at 93
             kg/cm2g using steam vent to atmosphere control valve (flow
             should be around 12 M t/h).
@@ -281,10 +321,14 @@
             <label for="psv_evt_start-risk"class="action">Risk</label>
             
             <input type="radio" class="custom-radio" id="psv_evt_start-skip" name="psv_evt_start" value="Skip" formControlName="psv_evt_start"  (change)="onRadioChangeup()"/>
-            <label for="psv_evt_start-skip"class="action" [ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+            <label for="psv_evt_start-skip"class="action" [ngStyle]="{
+              'background-color': colour === 'psv_evt_start_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'psv_evt_start_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistE?.get('psv_evt_start')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            }">Skip</label>
             
             <div *ngIf="ChecklistE?.get('psv_evt_start')?.value === 'Skip'">
-              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="psv_evt_start_comment"></textarea>
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="psv_evt_start_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"(click)="ChecklistE?.get('psv_evt_start')?.setValue(''); ChecklistE?.get('psv_evt_start_comment')?.setValue('')" >cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
@@ -305,10 +349,14 @@
             <label for="psv_evt_complete-risk"class="action">Risk</label>
             
             <input type="radio" class="custom-radio" id="psv_evt_complete-skip" name="psv_evt_complete" value="Skip" formControlName="psv_evt_complete"  (change)="onRadioChangeup()"/>
-            <label for="psv_evt_complete-skip"class="action" [ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+            <label for="psv_evt_complete-skip"class="action" [ngStyle]="{
+              'background-color': colour === 'psv_evt_complete_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'psv_evt_complete_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistE?.get('psv_evt_complete')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            }">Skip</label>
             
             <div *ngIf="ChecklistE?.get('psv_evt_complete')?.value === 'Skip'">
-              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="psv_evt_complete_comment"></textarea>
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="psv_evt_complete_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1"(click)="ChecklistE?.get('psv_evt_complete')?.setValue(''); ChecklistE?.get('psv_evt_complete_comment')?.setValue('')" >cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
@@ -330,10 +378,14 @@
             <label for="ootIOT_decoke_air-risk"class="action">Risk</label>
             
             <input type="radio" class="custom-radio" id="ootIOT_decoke_air-skip" name="ootIOT_decoke_air" value="Skip" formControlName="ootIOT_decoke_air"  (change)="onRadioChangeup()"/>
-            <label for="ootIOT_decoke_air-skip"class="action" [ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+            <label for="ootIOT_decoke_air-skip"class="action" [ngStyle]="{
+              'background-color': colour === 'ootIOT_decoke_air_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'ootIOT_decoke_air_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistE?.get('ootIOT_decoke_air')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            }">Skip</label>
             
             <div *ngIf="ChecklistE?.get('ootIOT_decoke_air')?.value === 'Skip'">
-              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="ootIOT_decoke_air_comment"></textarea>
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="ootIOT_decoke_air_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1" (click)="ChecklistE?.get('ootIOT_decoke_air')?.setValue(''); ChecklistE?.get('ootIOT_decoke_air_comment')?.setValue('')">cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()" >Confirm</button>
@@ -356,10 +408,14 @@
               <label for="furnace_sequence_to_swing_mov-risk"class="action">Risk</label>
      
               <input type="radio" class="custom-radio"  id="furnace_sequence_to_swing_mov-skip" name="furnace_sequence_to_swing_mov" value="Skip" formControlName="furnace_sequence_to_swing_mov"  (change)="onRadioChangeup()"/>
-              <label for="furnace_sequence_to_swing_mov-skip"class="action"[ngStyle]="{ 'background-color': aceptreject === 'Accept' ? 'green' : (aceptreject === 'null' ? '' : 'red') }">Skip</label>
+              <label for="furnace_sequence_to_swing_mov-skip"class="action"[ngStyle]="{
+              'background-color': colour === 'furnace_sequence_to_swing_mov_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'furnace_sequence_to_swing_mov_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
+                                   (ChecklistE?.get('furnace_sequence_to_swing_mov')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+            }">Skip</label>
           
               <div *ngIf="ChecklistE?.get('furnace_sequence_to_swing_mov')?.value === 'Skip'">
-                <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="furnace_sequence_to_swing_mov_comment"></textarea>
+                <textarea id="w3review" name="w3review"rows="4" cols="40" formControlName="furnace_sequence_to_swing_mov_comment" (focusout)="patchvalue()"></textarea>
                 <div style="margin-left: 31%;">
                   <button class="btn btn-primary m-1" (click)="ChecklistE?.get('furnace_sequence_to_swing_mov')?.setValue(''); ChecklistE?.get('furnace_sequence_to_swing_mov_comment')?.setValue('')">cancel</button>
                   <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>

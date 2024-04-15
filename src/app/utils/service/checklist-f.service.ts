@@ -23,7 +23,7 @@ export class ChecklistFService {
       }),
     };
 
-    return this.httpClient.post(this.baseUrl+('/ChecklistFSave'), data, httpOptions);
+    return this.httpClient.post(this.baseUrl+('/CheckListFSave'), data, httpOptions);
   }
   public getchecklistF(): Observable<any> {
     return this.httpClient.get(this.baseUrl+('/last'));
