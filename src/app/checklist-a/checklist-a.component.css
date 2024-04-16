@@ -7,6 +7,10 @@ h5{
   font-size: 18px;
 }
 
+.col, .mat-raised-button,.ml-2{
+  font-family: 'Montserrat', sans-serif;
+}
+
 th, td {
   padding: 8px;
   text-align: left;

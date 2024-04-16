@@ -23,6 +23,7 @@ import { ChecklistDComponent } from './checklist-d/checklist-d.component';
 import { AdminComponent } from './Admin/admin.component';
 import { DashboardComponent } from './Dashboard/dashboard.component';
 import { MaindashboardComponent } from './maindashboard/maindashboard.component';
+import { SwapapprovalComponent } from './swapapproval/swapapproval.component';
 
 const routes: Routes = [
   {
@@ -81,6 +82,10 @@ const routes: Routes = [
       {
         path: 'todaytask',
         component: TodaytaskComponent,
+      },
+      {
+        path: 'swapper',
+        component: SwapapprovalComponent,
       },
       {
         path: 'toolcomp',

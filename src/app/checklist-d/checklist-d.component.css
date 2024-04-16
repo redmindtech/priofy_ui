@@ -8,6 +8,10 @@ h5{
   font-family: 'Montserrat', sans-serif;
 }
 
+.col, .mat-raised-button,.ml-2{
+  font-family: 'Montserrat', sans-serif;
+}
+
 th,td{
   font-family: 'Montserrat', sans-serif;
 }
