@@ -133,12 +133,12 @@
         </tr>
          
      
-          <tr class="colour1">
+          <tr class="colour1"  [ngClass]="{ 'disabled-row': disableIO !== 'oot' }" >
           <td style="text-align: center;" >5</td>
           <td class="header" >When steam drum pressure is above 90 kg/cm2g:</td>
           <td></td>
         </tr>
-        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }"class="colour1">
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }"class="colour2">
           <td ></td>
           <td class="header">*OOT to line up steam drum continuous blowdown valve and block in steam drum intermittent blowdown.</td>
           
@@ -165,7 +165,7 @@
             </div>
         </td>
         </tr>
-        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }" class="colour2">
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }" class="colour1">
           <td></td>
           <td class="header">*OOT to confirm that the sTLE blowdown to CBD header is lined up.</td>
           
@@ -192,7 +192,7 @@
             </div>
         </td>
         </tr>
-        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }"class="colour1">
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }"class="colour2">
           <td></td>
           <td class="header">*OOT to ensure steam drum blowdown analyzer online and confirm cooling water flow to and from cooler.</td>
 
@@ -219,7 +219,7 @@
             </div>
         </td>
         </tr>
-        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }" class="colour2">
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }" class="colour1">
           <td></td>
           <td class="header">*OOT to ensure sTLE blowdown analyzer cooling water flow
             to and from cooler is established.</td>
@@ -247,7 +247,7 @@
             </div>
         </td>
         </tr>
-        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }" class="colour1">
+        <tr [ngClass]="{ 'disabled-row': disableIO !== 'oot' }" class="colour2">
           <td></td>
           <td class="header">*OOT to open desuperheater untreated BFW manual block
             valves (DB&B) if not done before.</td>
@@ -274,7 +274,7 @@
             </div>
         </td>
         </tr>
-        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"class="colour2">
+        <tr [ngClass]="{ 'disabled-row': disableIO !=='iot' }"class="colour1">
           <td></td>
           <td class="header">*IOT to enable steam drum and sTLE continuous blow downs
             from HMI Station.
@@ -304,7 +304,7 @@
         </td>
         </tr>
         
-        <tr class="colour1">
+        <tr class="colour2"  [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
           <td style="text-align: center;">6</td>
           <td class="header">*If steam PSV EVT testing needs to be done, hold COTs at 700°C
             (via COT manual set point) and steam drum pressure at 93
@@ -336,7 +336,7 @@
             </div>
         </td>
         </tr>
-        <tr class="colour2" >
+        <tr class="colour1"   [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
           <td ></td>
           <td class="header">*Continue with warm-up when PSV EVT testing is complete
             </td>
@@ -365,7 +365,7 @@
         </td>
         </tr>
         
-        <tr class="colour1">
+        <tr class="colour2"  [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
           <td style="text-align: center;">7</td>
           <td class="header">OOT&IOT to reconfirm that Decoke Air is blinded (ONIS device).
             </td>
@@ -394,7 +394,7 @@
         </td>
         </tr>
         
-        <tr class="colour2" >
+        <tr class="colour1"  [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
           <td style="text-align: center;">8</td>
           <td class="header">When COT temperature is above 760ºC and if steam flow
             confirmed higher than 10 Mt/h per side, it is possible to move the

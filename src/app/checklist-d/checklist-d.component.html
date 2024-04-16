@@ -101,7 +101,7 @@
           </td>
 
           </tr>
-          <tr class="colour2" >
+          <tr class="colour2" [class.disabled]="disableiot" >
             <td class="style"> 3. </td>
             <td class="header">COOT to open 4” decoke air B/V downstream each control valve
               FV-22X0-10A/B.</td>
@@ -260,7 +260,7 @@
             </td>
 
           </tr>
-          <tr class="colour2" >
+          <tr class="colour2" [class.disabled]="disableiot">
             <td class="style"> 6. </td>
             <td class="header">When 10 burners are lit the air registers of the lit burners should
               now be opened to 3 notches.</td>
@@ -289,7 +289,7 @@
             </td>
 
           </tr>
-          <tr class="colour1" >
+          <tr class="colour1"  [class.disabled]="disableiot">
             <td class="style"> 7. </td>
             <td class="header">When around 20 burners are lit all the lit burners air registers
               should be opened out to 100%.</td>
@@ -353,7 +353,7 @@
             <td class="header">IOT to ensure air is flowing through each coil by:</td>
             <td></td>
           </tr>
-          <tr  class="colour1">
+          <tr  class="colour1"  [class.disabled]="disableoot">
             <td></td>
             <td class="header">*Checking that all COTs are rising at about the same rate.</td>
             <td>
@@ -381,7 +381,7 @@
           </td>
 
           </tr>
-          <tr class="colour2" >
+          <tr class="colour2"  [class.disabled]="disableoot" >
             <td></td>
             <td class="header"> *Checking that all Venturi Ratios are about the same value.
               <br>
@@ -634,7 +634,7 @@
             </td>
 
           </tr>
-          <tr class="colour1" >
+          <tr class="colour1" [class.disabled]="disableiot">
             <td class="style"> 17. </td>
             <td class="header">OOT to drain the Dilution Steam to FPH Outlet lines (Pass 1&2)
               by opening the ¾” bleed downstream each FV. <br>
@@ -766,7 +766,7 @@
             </td>
           </tr>
 
-          <tr class="colour1" >
+          <tr class="colour1"  [class.disabled]="disableiot">
             <td class="style"> 21. </td>
             <td class="header">Open the upstream and downstream 4” B/V of FV-22X0-08 and
               start closing the 2” bypass then take the control using the control
@@ -795,7 +795,7 @@
                 </div>
             </td>
            </tr>
-          <tr class="colour2" >
+          <tr class="colour2"  [class.disabled]="disableiot">
             <td></td>
             <td class="header">Phosphate and Morpholine injection to main BFW line to be
               started. Dosing rate to be decided based on blowdown sample.<br>Note: Separate injection point valves for
@@ -1302,7 +1302,7 @@
             </td>
 
           </tr>
-          <tr class="colour2" >
+          <tr class="colour2" [class.disabled]="disableiot">
             <td class="style"> 32. </td>
             <td class="header">When the steam flow is >10 T/H/coil the decoke air flow is backed
               off by closing the FV’S in auto.
@@ -1423,7 +1423,7 @@
             </td>
           </tr>
 
-          <tr  class="colour2">
+          <tr  class="colour2"  [class.disabled]="disableoot">
             <td class="style" > 36. </td>
             <td class="header">When Decoke air HV-22X0-07 is closed HV-22X0-02 (purge
               steam to ethane feed line) should open 25% on program logic.</td>
@@ -1539,7 +1539,7 @@
             </td>
 
           </tr>
-          <tr class="colour2" >
+          <tr class="colour2"  [class.disabled]="disableiot" >
             <td class="style"> 40. </td>
             <td class="header">If needed, adjust the steam drum blow down to maintain the BFW
               economizer coil outlet temperature below 312ºC.

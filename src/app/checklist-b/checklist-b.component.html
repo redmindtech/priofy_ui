@@ -79,7 +79,7 @@
                 </div>
             </td>
           </tr>
-            <tr class="colour1">
+            <tr  [ngClass]="{ 'disabled-row': disableIO !=='iot' }" class="colour1">
               <td class="style"> 3. </td>
               <td class="header">Confirm that pure wave UPS system is up and running. Check
                 with Electrician is required for confirmation.</td>
@@ -910,7 +910,7 @@
             </td>
 
             </tr>
-            <tr  class="colour1">
+            <tr  class="colour1" [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
               <td class="style"> 25. </td>
               <td class="header">Ensure that MS Steam is available.</td>
               <td>
@@ -936,8 +936,8 @@
                 </div>
             </td>
            </tr>
-            <tr class="colour2">
-              <td class="style"> 26. </td>
+            <tr class="colour2" [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
+              <td class="style" > 26. </td>
 
               <td class="header">Ensure that Fuel Gas system is ready.</td>
               <td>

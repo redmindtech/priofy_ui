@@ -1019,7 +1019,7 @@
                   </div>
                 </td>
               </tr>
-              <tr class="colour2">
+              <tr [class.disabled]="disableoot" class="colour2">
                 <td style="text-align:center">9</td>
                 <td class="header">Once BMS is moved to Standby, IOT can manually move Furnace control sequence step
                   from process wait to purge light off.</td>
@@ -1221,7 +1221,7 @@
                   </div>
                 </td>
               </tr>
-              <tr class="colour1">
+              <tr [class.disabled]="disableiot" class="colour1">
                 <td style="text-align:center">14</td>
                 <td class="header">Keep the steam drum 3" startup vent valves open.</td>
                 <!-- <td>
@@ -1261,7 +1261,7 @@
                   </div>
                 </td>
               </tr>
-              <tr [class.disabled]="disableiot"class="colour1">
+              <tr [class.disabled]="disableiot"class="colour2">
                 <td style="text-align:center">15</td>
                 <td class="header">OOT to open both HXS vent valve PV-22X0-43 4" upstream block valves.</td>
                 <!-- <td>
@@ -1300,7 +1300,7 @@
                   </div>
                 </td>
               </tr>
-              <tr [class.disabled]="disableoot" class="colour2">
+              <tr [class.disabled]="disableoot" class="colour1">
                 <td style="text-align:center">16</td>
                 <td class="header">IOT to ensure PV-22X0-43 is in "auto" control at the default flow set point of 10
                   Mt/h and default pressure set point of 112 kg/cm2g.<br>Note: this will ensure that the HPSSHs will
@@ -1341,7 +1341,7 @@
                   </div>
                 </td>
               </tr>
-              <tr class="colour1">
+              <tr [class.disabled]="disableoot" class="colour2">
                 <td style="text-align:center">17</td>
                 <td class="header">Initially use the bypass valves across first block valve to pressurize the downstream
                   header and then open the main block valve. Then close the bypass valves across the first block valve.
@@ -1385,7 +1385,7 @@
                   </div>
                 </td>
               </tr>
-              <tr [class.disabled]="disableoot" class="colour2">
+              <tr [class.disabled]="disableoot" class="colour1">
                 <td style="text-align:center">18</td>
                 <td class="header">IOT to start filling the steam drum SLOWLY. Must enable “BFW to
                   steam drum flow control slave” controller through activation of the
@@ -1434,7 +1434,7 @@
                   </div>
                 </td>
               </tr>
-              <tr [class.disabled]="disableoot"class="colour1">
+              <tr [class.disabled]="disableoot"class="colour2">
                 <td style="text-align:center">19</td>
                 <td class="header">IOT to confirm that “steam drum level control master” controller is
                   automatically enabled after level has been within 5% of fill set

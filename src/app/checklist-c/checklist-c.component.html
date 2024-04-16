@@ -358,7 +358,7 @@
   <!-- <td><input type="radio" class="radio" formControlName="oot_pressure_test" value="yes" (focusout)="onSubmit()">
     <input type="radio" class="radio" formControlName="oot_pressure_test" value="no" (focusout)="onSubmit()"></td> -->
   </tr>
-  <tr class="colour2">
+  <tr class="colour2" [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
     <td class="style">  9. </td>
       <td class="header">When Pressure Test is complete BM sequence moves
       automatically to Firebox Purge step.</td>
@@ -455,7 +455,7 @@
   <!-- <td><input type="radio" class="radio" formControlName="oot_wall_burners" value="yes" (focusout)="onSubmit()">
     <input type="radio" class="radio" formControlName="oot_wall_burners" value="no" (focusout)="onSubmit()"></td> -->
     </tr>
-  <tr class="colour2">
+  <tr class="colour2" [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
     <td class="style">  12. </td>
   <td class="header">After 5 purge volumes are completed, does the BM sequence moves
       automatically to Purge Complete step.</td>
@@ -485,7 +485,7 @@
 
       <!-- <td><input type="radio" class="radio" formControlName="bm_sequence_moves_purge" value="yes" (focusout)="onSubmit()">
      <input type="radio" class="radio" formControlName="bm_sequence_moves_purge" value="no" (focusout)="onSubmit()"></td> -->
-     </tr><tr class="colour1">
+     </tr><tr class="colour1" [ngClass]="{ 'disabled-row': disableIO !=='oot' }">
       <td></td>
        <td class="header">Note: in this step purge permissive are monitored and must not
         be violated.</td>
@@ -772,7 +772,7 @@
       </ul></td>
 <td></td>
    </tr>
-   <tr class="colour1">
+   <tr class="colour1" [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
     <td class="style">  16. </td>
   <td class="header">Do Ensure that atleast one burner in each zone must be lit to move the
       Burner Management sequence to the Run step.</td>
@@ -1043,7 +1043,7 @@
      <!-- <td><input type="radio" class="radio" formControlName="iot_to_confirm" value="yes">
    <input type="radio" class="radio" formControlName="iot_to_confirm" value="no"></td> -->
    </tr>
-<tr class="colour1">
+<tr class="colour1" [ngClass]="{ 'disabled-row': disableIO !=='iot' }">
 <td class="style">  23. </td>
     <td class="header">Has Auto burners that did not successfully light during the auto-light
       cycle, have it  been re-attempted via the HMI.</td>
