@@ -1,6 +1,6 @@
 <mat-accordion>
   <mat-expansion-panel class="mat_expansion_border" [expanded]="expand && formdisable === 'Incompleted'"
-  [disabled]="false">
+  [disabled]="( formdisable ==='Completed'? 'true':  (checklistbformenable ? 'true':'false'))">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents;color:rgb(115, 182, 158)"><strong> 7.Procedure Checklist #B - Light Off Preparation </strong></h5>
