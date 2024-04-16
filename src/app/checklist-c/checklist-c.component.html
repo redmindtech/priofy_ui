@@ -1,5 +1,6 @@
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand" [disabled]="checklistcformenable">
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand && formdisable === 'Incompleted'"
+  [disabled]="( formdisable ==='Completed'? 'true':  (checklistcformenable ? 'true':'false'))">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents;color:rgb(115, 182, 158)"><strong> 8.Procedure Checklist #C - Light Off</strong></h5>
@@ -1100,9 +1101,10 @@
         <button mat-raised-button style="background-color: #147737;color: white; "  (click)="nxtAccEn()">Next</button>
         </div>
       </div>
-    <div *ngIf="enable"  [formGroup]="ChecklistC">
-      <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_c_oot"></textarea>
-      <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;" (click)="onRadioChangeup()">Add Comment</button>
+    <div *ngIf="enable"  [formGroup]="ChecklistC"style=" margin-top: 2%; ">
+      <textarea id="w3review" name="w3reviews" rows="4" cols="60" formControlName="shift_comment_c_oot" ></textarea>
+      <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;float: inline-end; " (click)="onRadioChangeup()">Comment</button>
+      <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
     </div>
 
   </div>
@@ -1116,10 +1118,11 @@
       <button mat-raised-button style="background-color: #147737; color: white;" (click)="nxtAccEn()">Next</button>
       </div>
     </div>
-  <div *ngIf="enable" [formGroup]="ChecklistC">
+  <div *ngIf="enable" [formGroup]="ChecklistC"style=" margin-top: 2%; ">
     <div>
-      <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_c_iot"></textarea>
-      <button class="btn btn-primary ml-2 "  style="background-color: #147737;margin-bottom: 4%;"  (click)="onRadioChangeup()">Add Comment</button>
+      <textarea id="w3review" name="w3reviews" rows="4" cols="60" formControlName="shift_comment_c_iot" ></textarea>
+      <button class="btn btn-primary ml-2 "  style="background-color: #147737;margin-bottom: 4%;float: inline-end; "  (click)="onRadioChangeup()">Comment</button>
+      <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
     </div>
   </div>
 

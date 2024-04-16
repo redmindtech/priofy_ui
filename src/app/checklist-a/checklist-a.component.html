@@ -1,6 +1,6 @@
 <mat-accordion>
   
-
+{{formdisable}}
   <mat-expansion-panel class="mat_expansion_border" [expanded]="expand && formdisable === 'Incompleted'"
   [disabled]="( formdisable ==='Completed'? 'true':  (checklistformenable ? 'true':'false'))">
 
@@ -119,11 +119,13 @@
                   <input type="radio" class="custom-radio" id="oot_downstream_1_drains-skip"
                     name="oot_downstream_1_drains" value="Skip" formControlName="oot_downstream_1_drains"
                     (change)="onRadioChangeup()" />
+                    
                     <label for="oot_downstream_1_drains-skip" class="action" [ngStyle]="{
-                      'background-color': colour === 'oot_downstream_1_drains_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                           (colour === 'oot_downstream_1_drains_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                           (ChecklistA?.get('oot_downstream_1_drains')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
-                    }">Skip</label>
+    'background-color': colour === 'oot_downstream_1_drains_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                         (colour === 'oot_downstream_1_drains_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                         (ChecklistA?.get('oot_downstream_1_drains')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
+}">Skip</label>
+
 
                   <div *ngIf="ChecklistA?.get('oot_downstream_1_drains')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
@@ -1500,9 +1502,10 @@
                 <button mat-raised-button style="background-color: #147737;color: white; "  (click)="nxtAccEn()">Next</button>
                 </div>
               </div>
-            <div *ngIf="enable"  [formGroup]="ChecklistA">
-              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_a_oot"></textarea>
-              <button class="btn btn-primary ml-2 " style="background-color: #147737;margin-bottom: 4%;" (click)="onRadioChangeup()">Add Comment</button>
+            <div *ngIf="enable"  [formGroup]="ChecklistA" style=" margin-top: 2%; " >
+              <textarea id="w3reviews" name="w3review" rows="4" cols="60" formControlName="shift_comment_a_oot" ></textarea>
+              <button class="btn btn-primary ml-2 " style="background-color: #147737;margin-bottom: 4%; float: inline-end;" (click)="onRadioChangeup()">Comment</button>
+              <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
             </div>
           
           </div>
@@ -1517,10 +1520,11 @@
               </div>
             </div>
             
-          <div *ngIf="enable"  [formGroup]="ChecklistA">
+          <div *ngIf="enable"  [formGroup]="ChecklistA" style=" margin-top: 2%; " >
             <div>
-              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="shift_comment_a_iot"></textarea>
-              <button class="btn btn-primary ml-2 "   style="background-color: #147737;margin-bottom: 4%;" (click)="onRadioChangeup()">Add Comment</button>
+              <textarea id="w3reviews" name="w3review" rows="4" cols="60" formControlName="shift_comment_a_iot" ></textarea>
+              <button class="btn btn-primary ml-2 "   style="background-color: #147737;margin-bottom: 4%;float: inline-end;" (click)="onRadioChangeup()">Add Comment</button>
+              <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
             </div>
           </div>
          
