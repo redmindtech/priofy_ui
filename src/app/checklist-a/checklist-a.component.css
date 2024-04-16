@@ -52,9 +52,11 @@ th {
 .custom-radio + label {
   display: inline-block;
   padding: 5px 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #343a402b;
   cursor: pointer;
   border-radius: 30px;
+
+
 }
 
 .custom-radio[value="Done"]:checked + label {
