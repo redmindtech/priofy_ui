@@ -26,7 +26,7 @@ export class ChecklistFComponent implements OnInit {
   id :any;
   remainingValues: any;
   enable: boolean = false;
-
+  formdisable='Incompleted';
   skipcolor: any;
   colour:string = 'null'; 
   clrvalue: string='null';
@@ -223,7 +223,7 @@ export class ChecklistFComponent implements OnInit {
       if (response && response.result) { // Check if response and response.result are not null or undefined
         this.remainingValues = response.result;
         console.log(  this.remainingValues.id)
-
+        this.formdisable= response.result.status;
         this.ChecklistF.patchValue(response.result);
         Object.keys(this.remainingValues).forEach(key => {
           if (key !== 'shift_comment_f_oot' && key !== 'shift_comment_f_iot') {
@@ -296,5 +296,9 @@ updateFormValues(): void {
 }
 toggleEnable() {
   this.enable = !this.enable; // Toggle the value of enable between true and false
+}
+clearTextarea(){
+  this.ChecklistF.get('shift_comment_f_oot')?.setValue(null);
+      this.ChecklistF.get('shift_comment_f_iot')?.setValue(null);
 }
 }

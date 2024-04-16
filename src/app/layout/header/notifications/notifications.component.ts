@@ -309,9 +309,10 @@ export class NotificationsComponent implements OnInit, OnDestroy {
     console.log("save");
     const payload = {
       id: this.id,
-      userid: this.show.userLoginDTO.id,
-      master_id: this.show.masterTableDTO.master_id,
-      [key]: action
+      // userid: this.show.userLoginDTO.id,
+      checklistType: this.show.checklist,
+      Action:action,
+      objectName:[key]
     };
     
     this.addSubscription = this.apiService.savenotification(payload).subscribe(

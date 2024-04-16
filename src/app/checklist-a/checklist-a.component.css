@@ -93,3 +93,13 @@ th {
       border-radius: 2%;
    
   }
+  #w3reviews{
+    margin-left: 50%;
+  }
+  @media only screen and (max-width: 1400px)
+{
+  #w3reviews{
+    margin-left: 30%;
+    }
+    
+}

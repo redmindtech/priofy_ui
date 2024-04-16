@@ -24,7 +24,7 @@ export class ChecklistDComponent implements OnInit {
   disableoot: any;
   skipcolor: any;
   formid: any;
-  formdisable: any;
+  formdisable='Incompleted';
   colour:string = 'null';
   clrvalue: string='null';
   private onSubmitInterval: any;
@@ -365,7 +365,7 @@ export class ChecklistDComponent implements OnInit {
     this.apiService.getchecklistD().subscribe((response: any) => {
       if (response && response.result) { // Check if response and response.result are not null or undefined
         this.remainingValues = response.result;
-
+        this.formdisable= response.result.status;
         Object.keys(this.remainingValues).forEach(key => {
           if (key !== 'shift_comment_d_oot' && key !== 'shift_comment_d_iot') {
             this.ChecklistD.get(key)?.patchValue(this.remainingValues[key]);
@@ -420,5 +420,8 @@ export class ChecklistDComponent implements OnInit {
   toggleEnable() {
     this.enable = !this.enable; // Toggle the value of enable between true and false
   }
-
+  clearTextarea(){
+    this.ChecklistD.get('shift_comment_d_oot')?.setValue(null);
+    this.ChecklistD.get('shift_comment_d_iot')?.setValue(null);
+  }
 }

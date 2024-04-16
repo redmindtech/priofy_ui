@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class NotificationService {
-
+  update:string="http://localhost:8080/notification/accept-reject?"
   baseUrlA: string = "http://localhost:8080/checklistA";
   baseUrlB: string = "http://localhost:8080/checklistB";
   baseUrlC: string = "http://localhost:8080/checklistC";
@@ -30,16 +30,22 @@ export class NotificationService {
 // }
 
 savenotification(payload: any): Observable<any> {
-  
+
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
+            
     })
   };
-
+// http://localhost:8080/notification/accept-reject?checklistType="A"&objectName="oot_high_pressure_comment_status"&Id=4&action="accept"
   // Assuming data.userId exists
-  return this.httpClient.put<any>(`${this.baseUrlA}/${payload.id}`, payload, httpOptions);
-}
+  return this.httpClient.put<any>(
+    `${this.update}checklistType=${payload.checklistType}&objectName=${payload.objectName}&Id=${payload.id}&Action=${payload.Action}`,
+    payload,
+    httpOptions
+)
+};
+
 
 public getnotificationA(): Observable<any> {
   return this.httpClient.get(this.baseUrlA+('/lastcomment'));

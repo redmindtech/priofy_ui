@@ -34,7 +34,7 @@ export class ChecklistAComponent implements OnInit {
   colour:string = 'null'; 
   clrvalue: string='null';
   formid: any;
-  formdisable: any;
+  formdisable='Incompleted';
   
 
   constructor(
@@ -199,6 +199,7 @@ export class ChecklistAComponent implements OnInit {
     console.log('patchvalue() called');
     this.ChecklistA.patchValue({
       oot_high_pressure_comment: this.concatenateValues(this.ChecklistA.get('oot_high_pressure_id')?.value,this.ChecklistA.get('oot_high_pressure_comment')?.value ),
+      iot_bm_sequence_comment: this.concatenateValues(this.ChecklistA.get('iot_bm_sequence_id')?.value,this.ChecklistA.get('iot_bm_sequence_comment')?.value ),
       oot_hbf_inlet_comment: this.concatenateValues(this.ChecklistA.get('oot_hbf_inlet_id')?.value,this.ChecklistA.get('oot_hbf_inlet_comment')?.value ),
       oot_downstream_1_drains_comment: this.concatenateValues(this.ChecklistA.get('oot_downstream_1_drains_id')?.value,this.ChecklistA.get('oot_downstream_1_drains_comment')?.value ),
       oot_bypass_comment: this.concatenateValues(this.ChecklistA.get('oot_bypass_id')?.value,this.ChecklistA.get('oot_bypass_comment')?.value ),
@@ -318,12 +319,16 @@ export class ChecklistAComponent implements OnInit {
     
       Object.entries(this.skipcolor).forEach(([key, value]) => {
         if (value === 'accept'|| value==='reject') {
+         
+
             this.colour = (key);
-            this.clrvalue=(value)
+            console.log('this.colour: ', this.colour);
+            this.clrvalue=(value);
+            console.log('this.clrvalue: ', this.clrvalue);
         }
     });
     
-      console.log(this.colour);
+      
     } else {
       console.log("Response or response.result is null or undefined.");
       // Handle the error or notify the user accordingly
@@ -386,6 +391,9 @@ updateFormValues(): void {
 toggleEnable() {
   this.enable = !this.enable; // Toggle the value of enable between true and false
 }
-
+clearTextarea(){
+  this.ChecklistA.get('shift_comment_a_oot')?.setValue(null);
+  this.ChecklistA.get('shift_comment_a_iot')?.setValue(null);
+}
 
 }

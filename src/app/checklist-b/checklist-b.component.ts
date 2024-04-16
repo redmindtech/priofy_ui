@@ -23,7 +23,7 @@ export class ChecklistBComponent implements OnInit {
   colour:string = 'null';
   clrvalue: string='null';
   formid: any;
-  formdisable: any;
+  formdisable='Incompleted';
   @Input() expand: boolean;
   enable: boolean = false;
   aceptreject:string = 'null';
@@ -315,7 +315,7 @@ add() {
   this.apiService.getchecklistB().subscribe((response: any) => {
     if (response && response.result) { // Check if response and response.result are not null or undefined
       this.remainingValues = response.result;
-
+      this.formdisable= response.result.status;
       Object.keys(this.remainingValues).forEach(key => {
         if (key !== 'shift_comment_b_oot' && key !== 'shift_comment_b_iot') {
           this.ChecklistB.get(key)?.patchValue(this.remainingValues[key]);
@@ -371,6 +371,11 @@ this.apiService.updatePermitData(formData).subscribe(
 }
 toggleEnable() {
   this.enable = !this.enable; // Toggle the value of enable between true and false
+  
+}
+clearTextarea(){
+  this.ChecklistB.get('shift_comment_b_oot')?.setValue(null);
+  this.ChecklistB.get('shift_comment_b_iot')?.setValue(null);
 }
 }
 
