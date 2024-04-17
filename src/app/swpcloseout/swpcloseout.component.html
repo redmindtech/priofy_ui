@@ -1,0 +1,396 @@
+<mat-accordion></mat-accordion>
+<mat-expansion-panel class="mat_expansion_border">
+  <mat-expansion-panel-header class="mat_expansion_header_border">
+    <div class="row">
+      <h5 style="display: contents; color:rgb(115, 182, 158)"><strong>Stage #4 :Safe Work Permit Close-Out </strong>
+      </h5>
+    </div>
+    <mat-panel-description></mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-card class=mat>
+    <mat-card-content>
+      <!-- <h6 style="margin-left: 30%;"><strong>PROCEDURE CHECKLIST #A ESTABLISH STEAM DRUM LEVEL</strong></h6> -->
+      <form [formGroup]="swpcloseout">
+        <mat-card>
+          <mat-card-content>        
+            <table>
+              <thead>
+                <th class="theader">Safe Work Permit Close-Out </th>
+                <th class="theader" style="width: 29%; text-align: left; padding-left: 85px;">Action</th>
+              </thead>              
+              <tr>
+                <td class="header">Is Housekeeping completed?</td>
+                <td>
+                  <input type="radio" class="custom-radio" id="Housekeeping-yes" name="Housekeeping" value="Yes"
+                    formControlName="Housekeeping" />
+                  <label for="Housekeeping-yes" class="action">Yes</label>
+
+                  <input type="radio" class="custom-radio" id="Housekeeping-no" name="Housekeeping" value="No"
+                    formControlName="Housekeeping" />
+                  <label for="Housekeeping-no" class="action">No</label>
+                </td>
+              </tr>
+              <tr>
+                <td class="header">
+
+                  Is Status of job and equipment reviewed?</td>
+                <td>
+                  <input type="radio" class="custom-radio" id="jobandequipment-yes" name="jobandequipment" value="Yes"
+                    formControlName="jobandequipment" />
+                  <label for="jobandequipment-yes" class="action">Yes</label>
+                  <input type="radio" class="custom-radio" id="jobandequipment-no" name="jobandequipment" value="No"
+                    formControlName="jobandequipment" />
+                  <label for="jobandequipment-no" class="action">No</label>
+                </td>
+              </tr>
+              <tr>
+                <td class="header">Is Radioactive sources removed?</td>
+                <td>
+                  <input type="radio" class="custom-radio" id="Radioactive-yes" name="Radioactive" value="Yes"
+                    formControlName="Radioactive" />
+                  <label for="Radioactive-yes" class="action">Yes</label>
+
+                  <input type="radio" class="custom-radio" id="Radioactive-no" name="Radioactive" value="No"
+                    formControlName="Radioactive" />
+                  <label for="Radioactive-no" class="action">No</label>
+                </td>
+              </tr>
+              <tr>
+                <td class="header">
+                  Is Area/Equipment surveyed by TRSO?</td>
+                <td>
+                  <input type="radio" class="custom-radio" id="AreaEquipment-yes" name="AreaEquipment" value="Yes"
+                    formControlName="AreaEquipment" />
+                  <label for="AreaEquipment-yes" class="action">Yes</label>
+                  <input type="radio" class="custom-radio" id="AreaEquipment-no" name="AreaEquipment" value="No"
+                    formControlName="AreaEquipment" />
+                  <label for="AreaEquipment-no" class="action">No</label>
+                </td>
+              </tr>
+              <tr>
+                <td class="header">
+                  Signature of TRSO</td>
+                <td style="text-align: left; padding-left: 70px;">
+                  <button mat-raised-button style="background-color: #147737;color: white; ">Signature</button>
+                </td>
+              </tr>
+            </table>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-content>
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Permit close-out status</label>
+                  <select id="status" formControlName="closeoutstatus">
+                    <option value="Pending">Pending</option>
+
+                    <option value="complete">Complete</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Work complete signature</label>
+                  <button mat-raised-button style="background-color: #147737;color: white; ">Signature</button>
+                </div>
+              </div>
+              <div class="col-sm-3">
+
+                <label class="col-sm-3 ">Date</label>
+                <div class="col-sm-9">
+                  <input type="date" id="job_start_date" formControlName="job_start_date" class="form-control">
+                </div>
+
+              </div>
+              <div class="col-sm-3">
+
+                <label class="col-sm-3 ">Time</label>
+                <div class="col-sm-9">
+                  <input type="time" id="job_start_time" formControlName="job_start_time" class="form-control">
+
+                </div>
+              </div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-content>         
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Is Duplicates and any additional checklists reconciled?</label>
+                  <input type="radio" class="custom-radio" id="AreaEquipment-yes" name="AreaEquipment" value="Yes"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-yes" class="action">Yes</label>
+                <input type="radio" class="custom-radio" id="AreaEquipment-no" name="AreaEquipment" value="No"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-no" class="action">No</label>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Work complete signature</label>
+                  <button mat-raised-button style="background-color: #147737;color: white; ">Signature</button>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <label class="col-sm-3 ">Date</label>
+                <div class="col-sm-9">
+                  <input type="date" id="job_start_date" formControlName="job_start_date" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <label class="col-sm-3 ">Time</label>
+                <div class="col-sm-9">
+                  <input type="time" id="job_start_time" formControlName="job_start_time" class="form-control">
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-content>         
+            <table>
+            <th class="theader"  style="width: 100%; text-align: center; ">Work Completion </th>
+            </table>      
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Is Work Completed?</label>
+                  <input type="radio" class="custom-radio" id="AreaEquipment-yes" name="AreaEquipment" value="Yes"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-yes" class="action">Yes</label>
+                <input type="radio" class="custom-radio" id="AreaEquipment-no" name="AreaEquipment" value="No"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-no" class="action">No</label>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label>signature</label>
+                  <button mat-raised-button style="background-color: #147737;color: white; ">Signature</button>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <label class="col-sm-3 ">Date</label>
+                <div class="col-sm-9">
+                  <input type="date" id="job_start_date" formControlName="job_start_date" class="form-control">
+                </div>
+
+              </div>
+              <div class="col-sm-3">
+                <label class="col-sm-3 ">Time</label>
+                <div class="col-sm-9">
+                  <input type="time" id="job_start_time" formControlName="job_start_time" class="form-control">
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-content>         
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Additional Work Description (if any)</label>
+                  <textarea type="text" id="comments" formControlName="comments" rows="3" class="form-control" placeholder="Enter Additional Work Description (if any)"></textarea>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Is Additional Work Completed?</label>
+                  <input type="radio" class="custom-radio" id="AreaEquipment-yes" name="AreaEquipment" value="Yes"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-yes" class="action">Yes</label>
+                <input type="radio" class="custom-radio" id="AreaEquipment-no" name="AreaEquipment" value="No"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-no" class="action">No</label>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Work complete signature</label>
+                  <button mat-raised-button style="background-color: #147737;color: white; ">Signature</button>
+                </div>
+              </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Employee Number</label>
+                    <input type="text" id="iot_operator" formControlName="iot_operator" class="form-control" placeholder="Enter Employee Number">
+                    </div>
+                  </div>
+              <div class="col-sm-3">
+                <label class="col-sm-3 ">Date</label>
+                <div class="col-sm-9">
+                  <input type="date" id="job_start_date" formControlName="job_start_date" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <label class="col-sm-3 ">Time</label>
+                <div class="col-sm-9">
+                  <input type="time" id="job_start_time" formControlName="job_start_time" class="form-control">
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-content>         
+            <div class="row">           
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Is House Keeping Completed?</label>
+                  <input type="radio" class="custom-radio" id="AreaEquipment-yes" name="AreaEquipment" value="Yes"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-yes" class="action">Yes</label>
+                <input type="radio" class="custom-radio" id="AreaEquipment-no" name="AreaEquipment" value="No"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-no" class="action">No</label>
+                </div>
+              </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label>Employee Number</label>
+                    <input type="text" id="iot_operator" formControlName="iot_operator" class="form-control" placeholder="Enter Employee Number">
+                  </div>
+                </div>
+              <div class="col-sm-3">
+                <label class="col-sm-3 ">Date</label>
+                <div class="col-sm-9">
+                  <input type="date" id="job_start_date" formControlName="job_start_date" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <label class="col-sm-3 ">Time</label>
+                <div class="col-sm-9">
+                  <input type="time" id="job_start_time" formControlName="job_start_time" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Work complete signature</label>
+                  <button mat-raised-button style="background-color: #147737;color: white; ">Signature</button>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-content>
+            <table>
+              <th class="theader"  style="width: 100%; text-align: center; ">Work Completion </th>
+              </table>   
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Is House Keeping Checked?</label>
+                  <input type="radio" class="custom-radio" id="AreaEquipment-yes" name="AreaEquipment" value="Yes"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-yes" class="action">Yes</label>
+
+                <input type="radio" class="custom-radio" id="AreaEquipment-no" name="AreaEquipment" value="No"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-no" class="action">No</label>
+                </div>
+              </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label>Employee Number</label>
+                    <input type="text" id="iot_operator" formControlName="iot_operator" class="form-control" placeholder="Enter Employee Number">
+                  </div>
+                </div>
+              <div class="col-sm-3">
+                <label class="col-sm-3 ">Date</label>
+                <div class="col-sm-9">
+                  <input type="date" id="job_start_date" formControlName="job_start_date" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <label class="col-sm-3 ">Time</label>
+                <div class="col-sm-9">
+                  <input type="time" id="job_start_time" formControlName="job_start_time" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Work complete signature</label>
+                  <button mat-raised-button style="background-color: #147737;color: white; ">Signature</button>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-content>         
+            <div class="row">           
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Equipment Tested</label>
+                  <input type="radio" class="custom-radio" id="AreaEquipment-yes" name="AreaEquipment" value="Yes"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-yes" class="action">Yes</label>
+                <input type="radio" class="custom-radio" id="AreaEquipment-no" name="AreaEquipment" value="No"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-no" class="action">No</label>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>, De-tagged</label>
+                  <input type="radio" class="custom-radio" id="AreaEquipment-yes" name="AreaEquipment" value="Yes"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-yes" class="action">Yes</label>
+                <input type="radio" class="custom-radio" id="AreaEquipment-no" name="AreaEquipment" value="No"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-no" class="action">No</label>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Ready for Service</label>
+                  <input type="radio" class="custom-radio" id="AreaEquipment-yes" name="AreaEquipment" value="Yes"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-yes" class="action">Yes</label>
+                <input type="radio" class="custom-radio" id="AreaEquipment-no" name="AreaEquipment" value="No"
+                  formControlName="AreaEquipment" />
+                <label for="AreaEquipment-no" class="action">No</label>
+                </div>
+              </div> 
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Employee Number</label>
+                      <input type="text" id="iot_operator" formControlName="iot_operator" class="form-control" placeholder="Enter Employee Number">
+                    </div>
+                  </div>
+              <div class="col-sm-3">
+                <label class="col-sm-3 ">Date</label>
+                <div class="col-sm-9">
+                  <input type="date" id="job_start_date" formControlName="job_start_date" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <label class="col-sm-3 ">Time</label>
+                <div class="col-sm-9">
+                  <input type="time" id="job_start_time" formControlName="job_start_time" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Work complete signature</label>
+                  <button mat-raised-button style="background-color: #147737;color: white; ">Signature</button>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</mat-expansion-panel>

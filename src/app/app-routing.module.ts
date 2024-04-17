@@ -25,6 +25,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
 import { MaindashboardComponent } from './maindashboard/maindashboard.component';
 import { SwapapprovalComponent } from './swapapproval/swapapproval.component';
 import { ProcessingswpComponent } from './processingswp/processingswp.component';
+import { SwpcloseoutComponent } from './swpcloseout/swpcloseout.component';
+import { SwprequestComponent } from './swprequest/swprequest.component';
 
 const routes: Routes = [
   {
@@ -131,6 +133,14 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
+      },
+      {
+        path: 'swpcloseout',
+        component: SwpcloseoutComponent,
+      },
+      {
+        path: 'swaprequest',
+        component: SwprequestComponent,
       },
      
     ]

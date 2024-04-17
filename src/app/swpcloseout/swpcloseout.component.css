@@ -1,0 +1,116 @@
+h5{
+  font-size: 20;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.theader{
+  font-size: 18px;
+}
+
+.col, .mat-raised-button,.ml-2{
+  font-family: 'Montserrat', sans-serif;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-family: 'Montserrat', sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
+th {
+  background-color: #f2f2f2;
+  color: black;
+}
+.radio{
+  margin-left: 10px;
+}
+.header{
+  font-size: 16px
+}
+.theader{
+  background-color:#147737;
+  padding:15px ;
+  text-align: center;
+  color: white;
+}
+.mat-expansion-panel-header-description {
+  
+  flex-grow: unset !important;
+  margin-left: 10px !important;
+}
+.disabled {
+  opacity: 0.5; /* or any other styling to indicate disabled state */
+  pointer-events: none; /* optionally disable pointer events */
+}
+.custom-radio {
+  display: none;
+}
+
+.custom-radio + label {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #343a402b;
+  cursor: pointer;
+  border-radius: 30px;
+
+
+}
+
+.custom-radio[value="Yes"]:checked + label {
+  background-color: rgb(155, 247, 155); /* Change to green when selected */
+}
+
+.custom-radio[value="No"]:checked + label {
+  background-color: rgb(240, 130, 130); /* Change to red when "Risk" is selected */
+}
+
+
+.custom-radio[value="Skip"]:checked + label{
+  background-color: rgb(238, 238, 136); /* Change to yellow when "Skip" or "skip" is selected */
+}
+.action{
+  margin-left: 11%;
+}
+
+.colour2{
+  background-color: white;
+  }
+  .colour1{
+    background-color: #c6cfd4;
+  }
+
+    .mat{
+      border-color: rgb(204, 202, 202);
+      border-width: thick;
+      border-style: double;
+      border-radius: 2%;
+   
+  }
+  #w3reviews{
+    margin-left: 50%;
+  }
+  @media only screen and (max-width: 1400px)
+{
+  #w3reviews{
+    margin-left: 30%;
+    }
+    
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+ select {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}

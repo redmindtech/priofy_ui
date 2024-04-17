@@ -114,6 +114,8 @@ import { MaindashboardComponent } from './maindashboard/maindashboard.component'
 import { OpendialogcompleteComponent } from './opendialogcomplete/opendialogcomplete.component';
 import { ProcessingswpComponent } from './processingswp/processingswp.component';
 import { SwapapprovalComponent } from './swapapproval/swapapproval.component';
+import { SwpcloseoutComponent } from './swpcloseout/swpcloseout.component';
+import { SwprequestComponent } from './swprequest/swprequest.component';
 
 
 
@@ -157,7 +159,9 @@ import { SwapapprovalComponent } from './swapapproval/swapapproval.component';
     MaindashboardComponent,
      OpendialogcompleteComponent,
      ProcessingswpComponent, 
-     SwapapprovalComponent
+     SwapapprovalComponent, 
+     SwpcloseoutComponent,
+     SwprequestComponent, 
     
        
     

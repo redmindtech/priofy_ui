@@ -1,0 +1,258 @@
+<mat-accordion>
+  <mat-expansion-panel class="mat_expansion_border" >
+
+    <mat-expansion-panel-header class="mat_expansion_header_border">
+      <div class="row" >
+        <mat-panel-title>
+        <h5 style=" color:rgb(115, 182, 158)"><strong style="display: flex;justify-content: center;">SECTION #1 Safe Work Permit Request </strong> </h5>
+      </mat-panel-title>
+      </div>
+      <mat-panel-description></mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card class= mat>
+      <mat-card-content>
+        <h4>Safe Work Permit Issuer</h4>
+        <!-- <h6 style="margin-left: 30%;"><strong>PROCEDURE CHECKLIST #A ESTABLISH STEAM DRUM LEVEL</strong></h6> -->
+        <form [formGroup]="swpForm" >
+          <div class="form-row">
+
+            <br>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <input id="startDate" type="text" class="form-control" formControlName="startDate">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="startDate">Start Time</label>
+                <input id="startDate" type="text" class="form-control" formControlName="startTime">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="endDate">End Date</label>
+                <input id="endDate" type="text" class="form-control" formControlName="endDate">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="endDate">End Time</label>
+                <input id="endDate" type="text" class="form-control" formControlName="endTime">
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="requestorName">Requestor Name</label>
+                <input id="requestorName" type="text" class="form-control" formControlName="Requestorname" value="Shift-Operator1" >
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="eaz">EAZ</label>
+
+               <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                <select id="eaz" multiple class="form-control" formControlName="EAZ" value="Zone1">
+                  <option value="Zone1" >Zone1</option>
+                  <option value="Zone2" >Zone2</option>
+                  <option value="Zone3" >Zone3</option>
+                  <option value="Zone4" >Zone4</option>
+                  <option value="Zone5" >Zone5</option>
+                  <option value="Zone6">Zone6</option>
+                  <option value="Zone7" >Zone7</option>
+                  <option value="Zone8" >Zone8</option>
+                  <option value="Zone9" >Zone9</option>
+                  <option value="Zone10" >Zone10</option>
+                </select>
+               </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="equipmentID">Equipment ID</label>
+
+                <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                <select id="equipmentID" multiple class="form-control" formControlName="EquipmentID">
+                  <option value="Zone1" selected>F-2230</option>
+                </select>
+              </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="equipmentDescription">Equipment Description</label>
+                <textarea id="equipmentDescription" rows="4"class="form-control" formControlName="EquipmentDescription"  placeholder="Enter Equipment Description"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="workLocation">Work Location</label>
+
+                <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                <select id="workLocation" multiple class="form-control" formControlName="WorkLocation">
+                  <option value="Zone1" >EU2-E-2231A/B/C/D/E &F PRIMARY TLE'S</option>
+                </select>
+              </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="workDescription">Work Description</label>
+                <textarea id="workDescription" rows="4" class="form-control" formControlName="workDescription"></textarea>
+              </div>
+            </div>
+          </div>
+          </form>
+        </mat-card-content>
+        </mat-card>
+        <mat-card class= mat>
+          <mat-card-content>
+            <form [formGroup]="swpForm" >
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+          <h4>Scope</h4>
+          </div>
+        </div>
+          <div class="col-md-6">
+          <div class="form-group">
+        <h4>Tools</h4>
+        <br>
+        </div>
+      </div>
+      </div>
+          <div class="form-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="Jobscope">Job Scope</label>
+              <textarea id="Jobscope" rows="4" class="form-control" formControlName="Jobscope"></textarea>
+            </div>
+          </div>
+
+
+           <div class="col-md-6">
+              <div class="form-group">
+                <label for="toolsrequired">Tools Required</label>
+                <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+
+                <select id="toolsrequired" multiple class="form-control" formControlName="Toolsrequired">
+                  <option value="handtools" >Hand Tools</option>
+                </select>
+              </div>
+            </div>
+            </div>
+            </div>
+            </form>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="mat">
+            <mat-card-content>
+              <form [formGroup]="swpForm" >
+            <h4>Safety Equipment Requirement</h4>
+            <br>
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="clothing">Clothing</label>
+                  <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                    <select id="clothing" multiple class="form-control" formControlName="clothing">
+                    <option value="jacket" >Jacket</option>
+                  </select>
+                </div>
+              </div>
+              </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="fhprotection">Face/Head Protection</label>
+                    <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                    <select id="fhprotection" multiple class="form-control" formControlName="fhprotection">
+                      <option value="mesh" >Mesh</option>
+                      <option value="faceshield" >Face Shield</option>
+                      <option value="Helmet" > Helmet</option>
+                    </select>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="respirator">Respiratory</label>
+                    <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                    <select id="respirator" multiple class="form-control" formControlName="respirator">
+                      <option value="mesh" >Foldable Basic Respiratory'</option>
+                    </select>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="form-group">
+                  <label for="footleg">Foot/Leg Protection</label>
+                  <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                  <select id="footleg" multiple class="form-control" formControlName="footleg">
+                    <option value="footleg">Ankle High Safety Shoes</option>
+                  </select>
+                </div>
+              </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="ear">Hearing Protection</label>
+                  <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                  <select id="ear" multiple class="form-control" formControlName="ear">
+                    <option value="earmuff">Ear Muffs</option>
+                  </select>
+                </div>
+              </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="eyeprotect">Eye Protection</label>
+                  <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                  <select id="eyeprotect" multiple class="form-control" formControlName="eyeprotect">
+                    <option value="eyeprotect">Safety Glasses with Side Shields</option>
+                  </select>
+                </div>
+              </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Ergonomics">Ergonomics</label>
+                  <textarea id="Ergonomics" rows="4" class="form-control" formControlName="Ergonomics"></textarea>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Heatstress">Heat Stress</label>
+                  <textarea id="Heatstress" rows="4" class="form-control" formControlName="Heatstress"></textarea>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Elevated">Elevated Work</label>
+                  <textarea id="Elevated" rows="4" class="form-control" formControlName="Elevated"></textarea>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Others">Others</label>
+                  <textarea id="Others" rows="4" class="form-control" formControlName="Others"></textarea>
+                </div>
+              </div>
+            </div>
+           <h4>SJP Attachment</h4>
+
+           <div class="form-group">
+            <label for="fileUpload">Upload File (Word/PDF, max 100KB):</label>
+            <input #fileInput id="fileUpload" type="file" class="form-control" accept=".doc, .docx, .pdf" (change)="onFileSelected()">
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-expansion-panel>
+</mat-accordion>
