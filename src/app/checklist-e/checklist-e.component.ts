@@ -119,10 +119,6 @@ export class ChecklistEComponent implements OnInit {
       oot_lineup_sd_comment:this.concatenateValues(this.ChecklistE.get('oot_lineup_sd_id')?.value,this.ChecklistE.get('oot_lineup_sd_comment')?.value ),
       iot_desuperheater_not_pass_comment:this.concatenateValues(this.ChecklistE.get('iot_desuperheater_not_pass_id')?.value,this.ChecklistE.get('iot_desuperheater_not_pass_comment')?.value ),
       oot_desuperheater_comment:this.concatenateValues(this.ChecklistE.get('oot_desuperheater_id')?.value,this.ChecklistE.get('oot_desuperheater_comment')?.value ),
-     
-    
-      
-      id:[this.id],
     
     });
     console.log( this.ChecklistE)

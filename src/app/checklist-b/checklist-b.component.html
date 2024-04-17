@@ -1194,7 +1194,7 @@
                   }">Skip</label>
 
                   <div *ngIf="ChecklistB?.get('iot_ignitors_and_flame_scanners')?.value === 'Skip'">
-                    <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_ignitors_and_flame_scanners" (focusout)="patchvalue()"></textarea>
+                    <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="iot_ignitors_and_flame_scanners_comment" (focusout)="patchvalue()"></textarea>
                     <div style="margin-left: 31%;">
                       <button class="btn btn-primary m-1" (click)="ChecklistB?.get('iot_ignitors_and_flame_scanners')?.setValue(''); ChecklistB?.get('iot_ignitors_and_flame_scanners_comment')?.setValue('')" >Cancel</button>
                       <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>

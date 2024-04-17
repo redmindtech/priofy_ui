@@ -655,11 +655,11 @@
                                        (ChecklistD?.get('oot_dilution_steam')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
                 }">Skip</label>
 
-                <div *ngIf="ChecklistD?.get('oot_steam_lines_up')?.value === 'Skip'">
-                  <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="oot_steam_lines_up_comment" (focusout)="patchvalue()"></textarea>
+                <div *ngIf="ChecklistD?.get('oot_dilution_steam')?.value === 'Skip'">
+                  <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="oot_dilution_steam_comment" (focusout)="patchvalue()"></textarea>
                   <div style="margin-left: 31%;">
                    <button class="btn btn-primary m-1"
-                        (click)="ChecklistD?.get('oot_steam_lines_up')?.setValue(''); ChecklistD?.get('oot_steam_lines_up_comment')?.setValue('')">Cancel</button>
+                        (click)="ChecklistD?.get('oot_dilution_steam')?.setValue(''); ChecklistD?.get('oot_dilution_steam_comment')?.setValue('')">Cancel</button>
                     <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
                   </div>
                 </div>

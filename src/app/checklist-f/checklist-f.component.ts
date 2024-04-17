@@ -148,7 +148,7 @@ export class ChecklistFComponent implements OnInit {
       iot_move_furnace_sequence_to_Swing_com: this.concatenateValues(this.ChecklistF.get('iot_move_furnace_sequence_to_Swing_id')?.value,this.ChecklistF.get('oot_high_pressure_comment')?.value ),
       iot_confirm_comment:  this.concatenateValues(this.ChecklistF.get('iot_confirm_id')?.value,this.ChecklistF.get('iot_confirm_comment')?.value ),
       oot_ALL_BV_of_LS_steam_comment:  this.concatenateValues(this.ChecklistF.get('oot_ALL_BV_of_LS_steam_id')?.value,this.ChecklistF.get('oot_ALL_BV_of_LS_steam_comment')?.value ),
-      oot_flare_block_comment: this.concatenateValues(this.ChecklistF.get('oot_ALL_BV_of_LS_steam_id')?.value,this.ChecklistF.get('oot_ALL_BV_of_LS_steam_comment')?.value ),
+      oot_flare_block_comment: this.concatenateValues(this.ChecklistF.get('oot_flare_block_comment_id')?.value,this.ChecklistF.get('oot_flare_block_comment')?.value ),
       oot_IOT_Decoke_Air_comment: this.concatenateValues(this.ChecklistF.get('oot_IOT_Decoke_Air_id')?.value,this.ChecklistF.get('oot_IOT_Decoke_Air_comment')?.value ),
 
       oot_feed_DB_B_comment: this.concatenateValues(this.ChecklistF.get('oot_feed_DB_B_id')?.value,this.ChecklistF.get('oot_feed_DB_B_comment')?.value ),

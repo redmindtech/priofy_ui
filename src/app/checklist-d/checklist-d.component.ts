@@ -241,6 +241,8 @@ export class ChecklistDComponent implements OnInit {
         furnace_sequence_automove_to_warmup_comment:[null],
         userid:[this.userObject.id],
         master_id:[1],
+        shift_comment_d_oot:[null],
+        shift_comment_d_iot:[null],
 
     })
 
@@ -252,7 +254,7 @@ export class ChecklistDComponent implements OnInit {
       this.ChecklistD.patchValue({
 
         iot_arch_temperature_comment:this.concatenateValues(this.ChecklistD.get('iot_arch_temperature_id')?.value,this.ChecklistD.get('iot_arch_temperature_comment')?.value ),
-        OOT_air_ONIS_blind_comment:this.concatenateValues(this.ChecklistD.get(' OOT_air_ONIS_blind_id')?.value,this.ChecklistD.get(' OOT_air_ONIS_blind_comment')?.value ),
+        OOT_air_ONIS_blind_comment:this.concatenateValues(this.ChecklistD.get('OOT_air_ONIS_blind_id')?.value,this.ChecklistD.get('OOT_air_ONIS_blind_comment')?.value ),
         oot_to_open4_comment:this.concatenateValues(this.ChecklistD.get('oot_to_open4_id')?.value,this.ChecklistD.get('oot_to_open4_comment')?.value ),
         iot_start_decoke_comment:this.concatenateValues(this.ChecklistD.get('iot_start_decoke_id')?.value,this.ChecklistD.get('iot_start_decoke_comment')?.value ),
         oot_fuel_gas_comment:this.concatenateValues(this.ChecklistD.get('oot_fuel_gas_id')?.value,this.ChecklistD.get('oot_fuel_gas_comment')?.value ),
@@ -273,11 +275,11 @@ export class ChecklistDComponent implements OnInit {
         oot_dilution_steam_comment:this.concatenateValues(this.ChecklistD.get('oot_dilution_steam_id')?.value,this.ChecklistD.get('oot_dilution_steam_comment')?.value ),
         oot_open2_steam_comment:this.concatenateValues(this.ChecklistD.get('oot_open2_steam_id')?.value,this.ChecklistD.get('oot_open2_steam_comment')?.value ),
         oot_to_open3_4_comment:this.concatenateValues(this.ChecklistD.get('oot_to_open3_4_id')?.value,this.ChecklistD.get('oot_to_open3_4_comment')?.value ),
-        oot_open_3_4_ethane_comment:this.concatenateValues(this.ChecklistD.get(' oot_open_3_4_ethane_id')?.value,this.ChecklistD.get(' oot_open_3_4_ethane_comment')?.value ),
+        oot_open_3_4_ethane_comment:this.concatenateValues(this.ChecklistD.get('oot_open_3_4_ethane_id')?.value,this.ChecklistD.get('oot_open_3_4_ethane_comment')?.value ),
         oot_crack_open_10_b_v_comment:this.concatenateValues(this.ChecklistD.get('oot_crack_open_10_b_v_id')?.value,this.ChecklistD.get('oot_crack_open_10_b_v_comment')?.value ),
         open_the_upstream_and_downstream_comment:this.concatenateValues(this.ChecklistD.get('open_the_upstream_and_downstream_id')?.value,this.ChecklistD.get('open_the_upstream_and_downstream_comment')?.value ),
         Phosphate_and_Morpholine_comment:this.concatenateValues(this.ChecklistD.get('Phosphate_and_Morpholine_id')?.value,this.ChecklistD.get('Phosphate_and_Morpholine_comment')?.value ),
-        before_starting_comment:this.concatenateValues(this.ChecklistD.get(' before_starting_id')?.value,this.ChecklistD.get(' before_starting_comment')?.value ),
+        before_starting_comment:this.concatenateValues(this.ChecklistD.get('before_starting_id')?.value,this.ChecklistD.get('before_starting_comment')?.value ),
         iot_reduce_draf_comment:this.concatenateValues(this.ChecklistD.get('iot_reduce_draf_id')?.value,this.ChecklistD.get('iot_reduce_draf_comment')?.value ),
         iot_visually_check_the_firebox_comment:this.concatenateValues(this.ChecklistD.get('iot_visually_check_the_firebox_id')?.value,this.ChecklistD.get('iot_visually_check_the_firebox_comment')?.value ),
         iot_htc_1_outside_temperature_comment:this.concatenateValues(this.ChecklistD.get('iot_htc_1_outside_temperature_id')?.value,this.ChecklistD.get('iot_htc_1_outside_temperature_comment')?.value ),
@@ -299,7 +301,7 @@ export class ChecklistDComponent implements OnInit {
         hv_22x0_07_isclosed_comment:this.concatenateValues(this.ChecklistD.get('hv_22x0_07_isclosed_id')?.value,this.ChecklistD.get('hv_22x0_07_isclosed_comment')?.value ),
         oot_to_fully_open_downstream_comment:this.concatenateValues(this.ChecklistD.get('oot_to_fully_open_downstream_id')?.value,this.ChecklistD.get('oot_to_fully_open_downstream_comment')?.value ),
         iot_to_confirm_ethane_feed_comment:this.concatenateValues(this.ChecklistD.get('iot_to_confirm_ethane_feed_id')?.value,this.ChecklistD.get('iot_to_confirm_ethane_feed_comment')?.value ),
-        oot_to_lineup_steamdrum_comment:this.concatenateValues(this.ChecklistD.get(' oot_to_lineup_steamdrum_id')?.value,this.ChecklistD.get(' oot_to_lineup_steamdrum_comment')?.value ),
+        oot_to_lineup_steamdrum_comment:this.concatenateValues(this.ChecklistD.get('oot_to_lineup_steamdrum_id')?.value,this.ChecklistD.get('oot_to_lineup_steamdrum_comment')?.value ),
         adjust_the_steam_drum_blowdown_comment:this.concatenateValues(this.ChecklistD.get('adjust_the_steam_drum_blowdown_id')?.value,this.ChecklistD.get('adjust_the_steam_drum_blowdown_comment')?.value ),
         furnace_sequence_automove_to_warmup_comment:this.concatenateValues(this.ChecklistD.get('furnace_sequence_automove_to_warmup_id')?.value,this.ChecklistD.get('furnace_sequence_automove_to_warmup_comment')?.value ),
 
