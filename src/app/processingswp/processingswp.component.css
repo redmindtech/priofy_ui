@@ -21,3 +21,16 @@ h5{
   font-size: 20;
   font-family: 'Montserrat', sans-serif;
 }
+.gg{
+  border:1px solid rgb(51, 50, 50);
+  
+  
+  }
+  .input-group-append .input-group-text {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+    z-index: 1;
+    border-left: 0;
+    border-radius: .25rem;
+  }
+  

@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ProcessingswpComponent implements OnInit {
   Safeworkpermit!: FormGroup;
-
+  // toppingList: string[] = ['CV-Closed Valve', 'OV-Open Valve', 'SB-Slip Blind', 'SR-Spool Removed', 'OP-One Plus', 'TL-Tag Lock'];
   formattedDate: string;
   formattedTime: string;
   
@@ -56,8 +56,25 @@ this.formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${cu
       residual_energy_material:[''],
       inspection_required_job:[''],
       inadvertent_operation:[''],
-      special_instructions:['']
-
+      special_instructions:[''],
+      // toppings:[''],
+      // location_of_red_tags:[''],
+      // facilityrep_red_tag:[''],
+      // lock_number:[''],
+      tags_reconciled_signature:[''],
+      tag_added_location:[''],
+      tag_added_location_sign:[''],
+      tag_deleted_location:[''],
+      tag_deleted_location_sign:[''],
+     initial_lel:[''],
+      initial_oxygen:[''],
+      initial_others:[''],
+      Retest_1_oxygen:[''],
+      retest_1_lel:[''],
+      retest_1_others:[''],
+      Retest_2_oxygen:[''],
+      retest_2_lel:[''],
+      retest_2_others:['']
   })
   }
 }
