@@ -19,6 +19,7 @@ form {
 
 
 label {
+  font-family: 'Montserrat', sans-serif;
   display: block;
   margin-bottom: 5px;
 }
@@ -125,4 +126,8 @@ textarea.form-control {
 .form-check {
   display: inline-block;
   margin-right: 10px; /* Adjust margin as needed */
+}
+h5{
+  font-size: 20;
+  font-family: 'Montserrat', sans-serif;
 }

@@ -39,12 +39,12 @@ export class SwprequestComponent implements OnInit {
     });
 
     this.swpForm = this.formBuilder.group({
-      EAZ: ['Zone1'],
-      EquipmentID:['F-2230'],
-      WorkLocation:['EU2-E-2231A/B/C/D/E &F PRIMARY TLE S'],
-      Toolsrequired:['Hand Tools'],
-      Clothing:['Jacket'],
-      fhprotection:['Mesh','Face Shield','Helmet']
+      // EAZ: ['Zone1'],
+      // EquipmentID:['F-2230'],
+      // WorkLocation:['EU2-E-2231A/B/C/D/E &F PRIMARY TLE S'],
+      // Toolsrequired:['Hand Tools'],
+      // Clothing:['Jacket'],
+      // fhprotection:['Mesh','Face Shield','Helmet']
 
     });
   }
@@ -68,7 +68,11 @@ export class SwprequestComponent implements OnInit {
       this.fileInput.nativeElement.value = '';
     }
   }
-  toggleSelectExpand() {
-    this.expanded = !this.expanded;
+  toggleSelectExpand(dropdownId: string) {
+    if (this.expandedDropdownId === dropdownId) {
+      this.expandedDropdownId = null;
+    } else {
+      this.expandedDropdownId = dropdownId;
+    }
   }
 }

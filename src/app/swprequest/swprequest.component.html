@@ -3,9 +3,7 @@
 
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row" >
-        <mat-panel-title>
-        <h5 style=" color:rgb(115, 182, 158)"><strong style="display: flex;justify-content: center;">SECTION #1 Safe Work Permit Request </strong> </h5>
-      </mat-panel-title>
+        <h5 style="display: contents; color:rgb(115, 182, 158)"><strong >Stage #3 :Safe Work Permit Request </strong> </h5>
       </div>
       <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
@@ -53,7 +51,7 @@
               <div class="form-group">
                 <label for="eaz">EAZ</label>
 
-               <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+               <div class="select-wrapper" [class.expanded]="expandedDropdownId==='eaz'"  (click)="toggleSelectExpand('eaz')">
                 <select id="eaz" multiple class="form-control" formControlName="EAZ" value="Zone1">
                   <option value="Zone1" >Zone1</option>
                   <option value="Zone2" >Zone2</option>
@@ -75,7 +73,7 @@
               <div class="form-group">
                 <label for="equipmentID">Equipment ID</label>
 
-                <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                <div class="select-wrapper" [class.expanded]="expandedDropdownId==='equipmentID'"  (click)="toggleSelectExpand('equipmentID')">
                 <select id="equipmentID" multiple class="form-control" formControlName="EquipmentID">
                   <option value="Zone1" selected>F-2230</option>
                 </select>
@@ -94,7 +92,7 @@
               <div class="form-group">
                 <label for="workLocation">Work Location</label>
 
-                <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                <div class="select-wrapper" [class.expanded]="expandedDropdownId==='workLocation'"  (click)="toggleSelectExpand('workLocation')">
                 <select id="workLocation" multiple class="form-control" formControlName="WorkLocation">
                   <option value="Zone1" >EU2-E-2231A/B/C/D/E &F PRIMARY TLE'S</option>
                 </select>
@@ -139,7 +137,7 @@
            <div class="col-md-6">
               <div class="form-group">
                 <label for="toolsrequired">Tools Required</label>
-                <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                <div class="select-wrapper" [class.expanded]="expandedDropdownId==='toolsrequired'"  (click)="toggleSelectExpand('toolsrequired')">
 
                 <select id="toolsrequired" multiple class="form-control" formControlName="Toolsrequired">
                   <option value="handtools" >Hand Tools</option>
@@ -160,7 +158,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="clothing">Clothing</label>
-                  <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                  <div class="select-wrapper" [class.expanded]="expandedDropdownId==='clothing'" (click)="toggleSelectExpand('clothing')">
                     <select id="clothing" multiple class="form-control" formControlName="clothing">
                     <option value="jacket" >Jacket</option>
                   </select>
@@ -170,7 +168,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="fhprotection">Face/Head Protection</label>
-                    <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                    <div class="select-wrapper" [class.expanded]="expandedDropdownId==='fhprotection'"  (click)="toggleSelectExpand('fhprotection')">
                     <select id="fhprotection" multiple class="form-control" formControlName="fhprotection">
                       <option value="mesh" >Mesh</option>
                       <option value="faceshield" >Face Shield</option>
@@ -182,7 +180,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="respirator">Respiratory</label>
-                    <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                    <div class="select-wrapper" [class.expanded]="expandedDropdownId==='respirator'"  (click)="toggleSelectExpand('respirator')">
                     <select id="respirator" multiple class="form-control" formControlName="respirator">
                       <option value="mesh" >Foldable Basic Respiratory'</option>
                     </select>
@@ -192,7 +190,7 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label for="footleg">Foot/Leg Protection</label>
-                  <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                  <div class="select-wrapper" [class.expanded]="expandedDropdownId==='footleg'"  (click)="toggleSelectExpand('footleg')">
                   <select id="footleg" multiple class="form-control" formControlName="footleg">
                     <option value="footleg">Ankle High Safety Shoes</option>
                   </select>
@@ -202,7 +200,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="ear">Hearing Protection</label>
-                  <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                  <div class="select-wrapper" [class.expanded]="expandedDropdownId==='ear'"  (click)="toggleSelectExpand('ear')">
                   <select id="ear" multiple class="form-control" formControlName="ear">
                     <option value="earmuff">Ear Muffs</option>
                   </select>
@@ -212,7 +210,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="eyeprotect">Eye Protection</label>
-                  <div class="select-wrapper" [class.expanded]="expanded"  (click)="toggleSelectExpand()">
+                  <div class="select-wrapper" [class.expanded]="expandedDropdownId==='eyeprotect'"  (click)="toggleSelectExpand('eyeprotect')">
                   <select id="eyeprotect" multiple class="form-control" formControlName="eyeprotect">
                     <option value="eyeprotect">Safety Glasses with Side Shields</option>
                   </select>
@@ -256,3 +254,5 @@
     </mat-card>
   </mat-expansion-panel>
 </mat-accordion>
+<br>
+<app-swpcloseout></app-swpcloseout>
