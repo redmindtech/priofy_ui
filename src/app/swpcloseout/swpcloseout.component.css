@@ -114,3 +114,10 @@ label {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
+.mat1{
+  border-color: rgb(204, 202, 202);
+  border-width: thin;
+  border-style: solid;
+  border-radius: 2%;
+
+}
