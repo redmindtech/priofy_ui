@@ -113,6 +113,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
 import { MaindashboardComponent } from './maindashboard/maindashboard.component';
 import { OpendialogcompleteComponent } from './opendialogcomplete/opendialogcomplete.component';
 import { ProcessingswpComponent } from './processingswp/processingswp.component';
+import { SwapapprovalComponent } from './swapapproval/swapapproval.component';
 
 
 
@@ -156,6 +157,7 @@ import { ProcessingswpComponent } from './processingswp/processingswp.component'
     MaindashboardComponent,
      OpendialogcompleteComponent,
      ProcessingswpComponent, 
+     SwapapprovalComponent
     
        
     

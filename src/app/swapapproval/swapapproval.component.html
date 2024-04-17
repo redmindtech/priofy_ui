@@ -1,73 +1,107 @@
-<!-- <p>swapapproval works!</p> -->
-<body>
-     <div class="accordion">
-        <div class="accordion-header" (click)="toggleAccordion($event)"><strong>SWP Approval</strong>
-        </div>
-    <div class="accordion-content">
+<mat-accordion>
+
+  <mat-expansion-panel class="mat_expansion_border"  [expanded]="false" [disabled]="false">
+    <mat-expansion-panel-header class="mat_expansion_header_border">
+      <div class="row">
+        <h5 style="margin-right: 1150px;display: contents; color:rgb(115, 182, 158)"><strong> Safe Work Permit </strong></h5>
+      </div>
+      <mat-panel-description></mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="mat">
+    <div></div>
     <table>
       <thead>
         <tr class="heading">
-          <th> </th>
-          <th>A Approval</th>
-          <th> </th>
+          <th>Safe Work Permit</th>
+          <th>Action</th>
+
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="sno">1</td>
           <td>I understand the scope of work under this permit.</td>
           <td>
-            <button class="btn yes">Yes</button>
-            <button class="btn no">No</button>
+            <input type="radio" class="custom-radio" id="oot_high_pressure-done" name="oot_high_pressure"
+            value="Yes" formControlName="oot_high_pressure"  />
+          <label for="oot_high_pressure-done" class="action">Yes</label>
+
+          <input type="radio" class="custom-radio" id="oot_high_pressure-risk" name="oot_high_pressure"
+            value="No" formControlName="oot_high_pressure"/>
+          <label for="oot_high_pressure-risk" class="action">No</label>
+            
           </td>
         </tr>
         <tr>
-          <td class="sno">2</td>
           <td>Statement - Hardcoded</td>
           <td>
             <div class="button-group">
-                <button class="btn yes">Yes</button>
-                <button class="btn no">No</button>
+              <input type="radio" class="custom-radio" id="oot_downstream_1_drains-done"
+              name="oot_downstream_1_drains" value="Yes" formControlName="oot_downstream_1_drains" />
+            <label for="oot_downstream_1_drains-done" class="action">Yes</label>
+
+            <input type="radio" class="custom-radio" id="oot_downstream_1_drains-risk"
+              name="oot_downstream_1_drains" value="No" formControlName="oot_downstream_1_drains"/>
+            <label for="oot_downstream_1_drains-risk" class="action">No</label>
+
               </div>
           </td>
         </tr>
         <tr>
-          <td class="sno">3</td>
           <td>I understand and follow PPE requirements.</td>
           <td>
-            <div class="button-group">
-                <button class="btn yes">Yes</button>
-                <button class="btn no">No</button>
-              </div>
+            <input type="radio" class="custom-radio" id="oot_bypass-done" name="oot_bypass" value="Yes"
+            formControlName="oot_bypass"/>
+          <label for="oot_bypass-done" class="action">Yes</label>
+
+          <input type="radio" class="custom-radio" id="oot_bypass-risk" name="oot_bypass" value="No"
+            formControlName="oot_bypass"/>
+          <label for="oot_bypass-risk" class="action">No</label>
           </td>
         </tr>
         <tr>
-          <td class="sno">4</td>
           <td>I have the necessary skills, training & knowledge to do the job.</td>
           <td>
             <div class="button-group">
-                <button class="btn yes">Yes</button>
-                <button class="btn no">No</button>
+              <input type="radio" class="custom-radio" id="oot_inlet_vents-done" name="oot_inlet_vents" value="Yes"
+                    formControlName="oot_inlet_vents"/>
+                  <label for="oot_inlet_vents-done" class="action">Yes</label>
+
+                  <input type="radio" class="custom-radio" id="oot_inlet_vents-risk" name="oot_inlet_vents" value="No"
+                    formControlName="oot_inlet_vents"/>
+                  <label for="oot_inlet_vents-risk" class="action">No</label>
               </div>
           </td>
         </tr>
         <tr>
-          <td class="sno">5</td>
+
           <td>Know the emergency alarms, assembly points, location and evacuation procedures.</td>
           <td>
             <div class="button-group">
-                <button class="btn yes">Yes</button>
-                <button class="btn no">No</button>
+              <input type="radio" class="custom-radio" id="oot_outlet_drains-done" name="oot_outlet_drains"
+                    value="Yes" formControlName="oot_outlet_drains"/>
+                  <label for="oot_outlet_drains-done" class="action">Yes</label>
+
+                  <input type="radio" class="custom-radio" id="oot_outlet_drains-risk" name="oot_outlet_drains"
+                    value="No" formControlName="oot_outlet_drains"/>
+                  <label for="oot_outlet_drains-risk" class="action">No</label>
+
               </div>
           </td>
         </tr>
-        <tr>
-          <td class="sno">6</td>
+        <tr class="">
           <td>I know the scope of other work that could impact this work.</td>
           <td>
             <div class="button-group">
-                <button class="btn yes">Yes</button>
-                <button class="btn no">No</button>
+              <input type="radio" class="custom-radio" id="oot_stream_drum_inlet_check-done"
+              name="oot_stream_drum_inlet_check" value="Yes" formControlName="oot_stream_drum_inlet_check"
+             />
+            <label for="oot_stream_drum_inlet_check-done" class="action">Yes</label>
+
+            <input type="radio" class="custom-radio" id="oot_stream_drum_inlet_check-risk"
+              name="oot_stream_drum_inlet_check" value="No" formControlName="oot_stream_drum_inlet_check"
+             />
+            <label for="oot_stream_drum_inlet_check-risk" class="action">No</label>
+              
               </div>
           </td>
         </tr>
@@ -92,13 +126,104 @@
     <div class="date-time-section">
     <label>Date & Time:</label>
     <div class="date-time-box">
-      <!-- Add a box for date & time -->
+      <input class="date-time-box-type" type="text" [(ngModel)]="currentDateAndTime" readonly>
     </div>
   </div>
 </div>
-
     </div>
-     </div>
-  </body>
-
+    <div class="empty"></div>
+    <div class="mat">
+      <table>
+        <thead>
+          <tr class="heading">
+            <th>Safe Work Permit</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>All people working under this SWP have the necessary.</td>
+            <td>
+              <div class="button-group">
+              <input type="radio" class="custom-radio" id="oot_high_pressures-done" name="oot_high_pressures"
+              value="Yes" formControlName="oot_high_pressures"  />
+            <label for="oot_high_pressures-done" class="action">Yes</label>
   
+            <input type="radio" class="custom-radio" id="oot_high_pressures-risk" name="oot_high_pressures"
+              value="No" formControlName="oot_high_pressures"/>
+            <label for="oot_high_pressures-risk" class="action">No</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>All people working under this SWP know the location </td>
+            <td>
+              <div class="button-group">
+                <input type="radio" class="custom-radio" id="oot_downstream_1_drain-done"
+                name="oot_downstream_1_drain" value="Yes" formControlName="oot_downstream_1_drain" />
+              <label for="oot_downstream_1_drain-done" class="action">Yes</label>
+  
+              <input type="radio" class="custom-radio" id="oot_downstream_1_drain-risk"
+                name="oot_downstream_1_drain" value="No" formControlName="oot_downstream_1_drain"/>
+              <label for="oot_downstream_1_drain-risk" class="action">No</label>
+  
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Equipment to be worked on has been properly prepare.</td>
+            <td>
+              <div class="button-group">
+              <input type="radio" class="custom-radio" id="oot_bypasss-done" name="oot_bypasss" value="Yes"
+              formControlName="oot_bypasss"/>
+            <label for="oot_bypasss-done" class="action">Yes</label>
+  
+            <input type="radio" class="custom-radio" id="oot_bypasss-risk" name="oot_bypasss" value="No"
+              formControlName="oot_bypasss"/>
+            <label for="oot_bypasss-risk" class="action">No</label>
+          </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Scope of boundaries of any other work in the area that.</td>
+            <td>
+              <div class="button-group">
+                <input type="radio" class="custom-radio" id="oot_inlet_ventss-done" name="oot_inlet_ventss" value="Yes"
+                      formControlName="oot_inlet_ventsss"/>
+                    <label for="oot_inlet_ventss-done" class="action">Yes</label>
+  
+                    <input type="radio" class="custom-radio" id="oot_inlet_ventss-risk" name="oot_inlet_ventss" value="No"
+                      formControlName="oot_inlet_ventss"/>
+                    <label for="oot_inlet_ventss-risk" class="action">No</label>
+                </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form-section">
+          <!-- Signature section -->
+          <div class="signature-section">
+            <label>Signature:</label>
+            <div class="signature-box">
+              <!-- Add a box for signature -->
+            </div>
+          </div>
+  
+    <div class="employee-number-section">
+      <label>Employee Number:</label>
+      <div class="employee-number-box">
+        <!-- Add a box for employee number -->
+      </div>
+    </div>
+  
+      <div class="date-time-section">
+      <label>Date & Time:</label>
+      <div class="date-time-box">
+        <input class="date-time-box-type" type="text" [(ngModel)]="currentDateAndTime" readonly>
+      </div>
+    </div>
+  </div>
+      </div>
+  </mat-expansion-panel>
+</mat-accordion>
+

@@ -1,143 +1,208 @@
-.heading,.body,tr,td,.sno{
-    font-family: 'Montserrat', sans-serif;
+.heading, .body, tr, td, .sno {
+  font-family: 'Montserrat', sans-serif;
 }
 
-.heading{
-    font-size: 18px;
-    color: #ffffff;
-    background-color: #28a745;
-    text-align: center;
-}
-
-.heading th{
+.heading {
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #28a745;
   text-align: center;
 }
 
-.accordion-header{
-    font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
-    color:rgb(115, 182, 158);
-    background-color: #ffffff;
-    padding: 10px;
-    cursor: pointer;
+.mat{
+  border-color: rgb(165, 164, 164);
+  border-width: thick;
+  border-style: double;
+  margin: 50%;
+  border-radius: 3%;
+  width: 94%;
+  align-items: center;/* Adjust width as needed */
+  margin: auto; /* Center the card */
+  padding: 20px;
+}
+
+.heading th {
+  text-align: center;
+}
+
+.accordion-header {
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(115, 182, 158);
+  background-color: #ffffff;
+  padding: 10px;
+  cursor: pointer;
 }
 
 table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  th, td {
-    padding: 8px;
-    text-align: left;
-    font-size: 16px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #147737;
-  }
-  
-  button {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 15px;
-  }
-  
-  .button-group {
-    display: flex;
-  }
+  border-collapse: collapse;
+  width: 100%;
+}
 
-  .btn.yes {
-    background-color: rgb(155, 247, 155);
-    color: white;
-    font-size: 16px;
-  }
-  
-  .btn.no {
-    background-color: rgb(240, 130, 130); 
-    color: white;
-    font-size: 16px;
-  }
+th, td {
+  padding: 8px;
+  text-align: left;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+}
 
-  .accordion {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 20px; 
-  }
-  
+th {
+  background-color: #147737;
+}
 
-  
-  .accordion-content {
-    display: none;
-    padding: 10px;
-  }
-  
-  .accordion-header.active {
-    background-color: #ffffff;
-  }
-  
-  .accordion-header.active + .accordion-content {
-    display: block;
-  }
-  
-  /* Existing CSS code */
+table tr.last-row {
+  border-bottom: 2px solid #000;
+  /* Adjust the border style as needed */
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.button-group {
+  display: flex;
+}
+
+.btn.yes {
+  background-color: rgb(155, 247, 155);
+  color: white;
+  font-size: 16px;
+}
+.empty{
+height: 25px;
+}
+
+.btn.no {
+  background-color: rgb(240, 130, 130);
+  color: white;
+  font-size: 16px;
+}
+
+.accordion-header::after {
+  content: '\25BE';
+  /* Unicode character for dropdown icon */
+  float: right;
+}
+
+.accordion {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-section{
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn + label {
+  display: inline-block;
+  padding: 5px 15px;
+  border: 1px solid #343a402b;
+  cursor: pointer;
+  border-radius: 30px;
+  margin-right: 15px;
+}
+
+.btn.yes.selected {
+  background-color: rgb(155, 247, 155);
+  /* Green color for selected "Yes" button */
+}
+
+.btn.no.selected {
+  background-color: rgb(240, 130, 130);
+  /* Red color for selected "No" button */
+}
+
+.accordion-content {
+  display: none;
+  padding: 10px;
+}
+
+.accordion-header.active {
+  background-color: #ffffff;
+}
+
+.accordion-header.active + .accordion-content {
+  display: block;
+}
 
 /* Form section container */
 .form-section {
-    display: flex; /* Use flexbox for horizontal alignment */
-    justify-content: space-between; /* Align items with space between */
-    margin-top: 20px; /* Add margin between sections */
-  }
-  
-  /* Signature, Employee Number, and Date & Time sections */
-  .signature-section,
-  .employee-number-section,
-  .date-time-section {
-    display: flex; /* Use flexbox for horizontal alignment */
-    flex-direction: column; /* Arrange items in a column */
-  }
-  
-  .signature-section label,
-  .employee-number-section label,
-  .date-time-section label {
-    font-family: 'Montserrat', sans-serif; /* Font family for labels */
-    font-size: 16px; /* Font size for labels */
-    margin-bottom: 5px; /* Add margin below labels */
-  }
-  
-  .signature-box,
-  .employee-number-box,
-  .date-time-box {
-    border: 1px solid #000; /* Border style for the boxes */
-    height: 40px; /* Adjust the height of the boxes as needed */
-    width: 200px; /* Adjust the width of the boxes as needed */
-    margin-top: 5px; /* Add margin between the boxes and labels */
-  }
-  
+  display: flex;
+  /* Use flexbox for horizontal alignment */
+  justify-content: space-between;
+  /* Align items with space between */
+  margin-top: 20px;
+  /* Add margin between sections */
+}
 
-  /* Existing CSS code */
+/* Signature, Employee Number, and Date & Time sections */
+.signature-section,
+.employee-number-section,
+.date-time-section {
+  display: flex;
+  /* Use flexbox for horizontal alignment */
+  flex-direction: column;
+  /* Arrange items in a column */
+}
+
+.signature-section label,
+.employee-number-section label,
+.date-time-section label {
+  font-size: 16px;
+  /* Font size for labels */
+  margin-bottom: 5px;
+  /* Add margin below labels */
+}
+
+.signature-box,
+.employee-number-box,
+.date-time-box-type {
+  display: block;
+  width: 200px;
+  height: 36px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
 
 /* Dropdown arrow icon */
 .dropdown-arrow {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid black;
-    margin-left: 5px; /* Adjust margin as needed */
-    transition: transform 0.3s; /* Add transition for smooth rotation */
-  }
-  
-  /* Rotate dropdown arrow when accordion is active */
-  .accordion-header.active .dropdown-arrow {
-    transform: rotate(180deg);
-  }
-  
- .accordion-content{ width: 94%;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  margin-left: 5px;
+  /* Adjust margin as needed */
+  transition: transform 0.3s;
+  /* Add transition for smooth rotation */
+}
+
+/* Rotate dropdown arrow when accordion is active */
+.accordion-header.active .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  width: 94%;
   border-color: rgb(165, 164, 164);
   border-width: thick;
   border-style: double;
@@ -145,3 +210,70 @@ table {
   border-radius: 15px;
 }
 
+.custom-radio {
+  display: none;
+}
+
+.custom-radio + label {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #343a402b;
+  cursor: pointer;
+  border-radius: 30px;
+  margin-left: 15px;
+}
+
+.custom-radio[value="Yes"]:checked + label {
+  background-color: rgb(155, 247, 155);
+  /* Change to green when selected */
+}
+
+.custom-radio[value="No"]:checked + label {
+  background-color: rgb(240, 130, 130);
+  /* Change to red when "Risk" is selected */
+}
+
+.mat-expansion-panel-header-description {
+  flex-grow: unset !important;
+  margin-left: 10px !important;
+}
+
+mat-accordion,
+mat-expansion-panel,
+mat-expansion-panel-header,
+mat-card,
+.row {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Additional styling for date-time-box */
+.date-time-box {
+  /* Add padding to the box */
+  font-size: 16px;
+  /* Font size for the text inside the box */
+}
+
+/* Additional styling for date-time-input and date-time-picker-button */
+.date-time-input {
+  position: relative;
+  display: inline-block;
+}
+
+.date-time-box-type {
+  padding-right: 30px; /* Adjust padding to make space for the icon */
+}
+
+.date-time-picker-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.date-time-picker-button i {
+  color: #343a40; /* Adjust icon color as needed */
+  font-size: 16px; /* Adjust icon size as needed */
+}
