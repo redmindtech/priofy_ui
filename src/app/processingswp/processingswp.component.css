@@ -1,0 +1,12 @@
+.mat-expansion-panel-header-description {
+  
+  flex-grow: unset !important;
+  margin-left: 10px !important;
+}
+.mat{
+  border-color: rgb(204, 202, 202);
+  border-width: thick;
+  border-style: double;
+  border-radius: 2%;
+
+}

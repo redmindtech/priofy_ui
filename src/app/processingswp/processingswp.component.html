@@ -1,0 +1,70 @@
+<mat-accordion>
+  
+
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="false"
+  [disabled]="false">
+
+    <mat-expansion-panel-header class="mat_expansion_header_border">
+      <div class="row">
+        <h5 style="margin-right: 1150px;display: contents; color:rgb(115, 182, 158)"><strong>Processing SWP</strong> </h5>
+      </div>
+      <mat-panel-description></mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card class= mat>
+      <div style="background-color: #147737; padding: 7px;">
+        <h6 style="margin-left: 40%;"><strong>SWP - Safe Work Permit</strong></h6>
+      </div>
+        
+      <mat-card-content>
+        <form [formGroup]="Safeworkpermit">
+          <h3 style="margin: 1%;">ECP : {{764564}}</h3>
+          
+            
+        <div class="row mt-3">
+
+<div class="col">
+  <label class="label" for="preparations">Preparations And Tests</label>
+  <textarea type="text" class="form-control" rows="3"   id="preparations" placeholder="please Enter preparations" formControlName="preparations_and_test"></textarea>
+</div>
+<div class="col">
+  <label class="label" for="house_keeping_instructions">Waste Disposal & House Keeping Instructions</label>
+  <textarea type="text" class="form-control" rows="3"   id="house_keeping_instructions" placeholder="please Enter Housing Kepping Instruction" formControlName="house_keeping_instructions"></textarea>
+</div>
+</div>
+<div class="row mt-3">
+
+  <div class="col">
+    <label class="label" for="environmental_concerns">Environmental Concerns & Safeguards</label>
+    <textarea type="text" class="form-control" rows="3"   id="environmental_concerns" placeholder="please Enter EnvironmentalConcerns&Safeguards " formControlName="environmental_concerns"></textarea>
+  </div>
+  <div class="col">
+    <label class="label" for="Physical_Hazards">Physical Hazards</label>
+    <textarea type="text" class="form-control" rows="3"   id="Physical_Hazards" placeholder="please Enter Physical Hazards" formControlName="Physical_Hazards"></textarea>
+  </div>
+  </div>
+  <div class="row mt-3">
+    
+    <div class="col">
+      <label class="label" for="chemicals_last_contained">Chemicals Last Contained</label>
+      <textarea type="text" class="form-control" rows="3"   id="chemicals_last_contained" placeholder="please Enter Chemicals Last Contained " formControlName="chemicals_last_contained"></textarea>
+    </div>
+    <div class="col">
+      <label class="label" for="inspection_required">Inspection Required During the Job</label>
+      <textarea type="text" class="form-control" rows="3"   id="inspection_required" placeholder="please Enter Inspection_Required" formControlName="inspection_required"></textarea>
+    </div>
+    </div>
+    <div class="row mt-3">
+      
+      <div class="col">
+        <label class="label" for="checklists_Attachments_Required">Checklists / Attachments Required</label>
+        <textarea type="text" class="form-control" rows="3"   id="checklists_Attachments_Required" placeholder="please Enter Checklists/Attachments Required" formControlName="checklists_Attachments_Required"></textarea>
+      </div>
+      <div class="col">
+        <label class="label" for="conditions_set_by">Conditions Set By</label>
+        <input type="text" class="form-control" id="conditions_set_by" value="Siva">
+      </div>
+      </div>
+     
+       </form>
+        </mat-card-content>
+        </mat-card>

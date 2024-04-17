@@ -112,6 +112,7 @@ import { ShowAdminDetailsComponent } from './Show-admin-details/show-admin-detai
 import { DashboardComponent } from './Dashboard/dashboard.component';
 import { MaindashboardComponent } from './maindashboard/maindashboard.component';
 import { OpendialogcompleteComponent } from './opendialogcomplete/opendialogcomplete.component';
+import { ProcessingswpComponent } from './processingswp/processingswp.component';
 
 
 
@@ -153,7 +154,8 @@ import { OpendialogcompleteComponent } from './opendialogcomplete/opendialogcomp
     ShowAdminDetailsComponent,
     DashboardComponent,    
     MaindashboardComponent,
-     OpendialogcompleteComponent, 
+     OpendialogcompleteComponent,
+     ProcessingswpComponent, 
     
        
     

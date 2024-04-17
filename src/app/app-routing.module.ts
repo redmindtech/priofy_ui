@@ -24,6 +24,7 @@ import { AdminComponent } from './Admin/admin.component';
 import { DashboardComponent } from './Dashboard/dashboard.component';
 import { MaindashboardComponent } from './maindashboard/maindashboard.component';
 import { SwapapprovalComponent } from './swapapproval/swapapproval.component';
+import { ProcessingswpComponent } from './processingswp/processingswp.component';
 
 const routes: Routes = [
   {
@@ -82,6 +83,10 @@ const routes: Routes = [
       {
         path: 'todaytask',
         component: TodaytaskComponent,
+      },
+      {
+        path: 'processingswp',
+        component: ProcessingswpComponent,
       },
       {
         path: 'swapper',
