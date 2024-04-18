@@ -13,29 +13,35 @@ export class SwprequestComponent implements OnInit {
 formattedTime: string;
   expanded: boolean = false;
   swpForm: FormGroup;
-  swpForm1:FormGroup;
+  //swpForm1:FormGroup;
   expandedDropdownId: string | null = null;
+
+  allZones: string[] = ['Zone1', 'Zone2', 'Zone3', 'Zone4', 'Zone5', 'Zone6', 'Zone7', 'Zone8', 'Zone9', 'Zone10'];
+  EquipID:string[]= ['F-2230','d-3220','e-4422','g-2213'];
+  workloc:string[]=['EU2-E-2231A/B/C/D/E &F PRIMARY TLES' ,'FU2-F-2231A/B/C/D/E &F PRIMARY TLES','GU2-G-2231A/B/C/D/E &F PRIMARY TLES','AU2-B-2231A/B/C/D/E &F PRIMARY TLES']
+  tools:string[]=['Hand tools','Socket sets','Hammer','Hand Saw'];
+  cloth:string[]=['Cotton','Jute','Turky','Jean'];
+  headprotect:string[]=['Mesh','Helmet','Face Shield','Twin Filter Mask'];
+  respir:string[]=['Foldable Basic Respiratory','elf-contained breathing apparatus',' Constant flow equipment',' Full-face mask completed with combined filter',' Half mask completed with particle filter'];
+  footlegs:string[]=['Ankle High Safety Shoes','Metatarsal Guard','Steel/Composite Safety Toe','Thermal Insulated Shoes','Puncture-Resistant Shoes'];
+  earprotect:string[]=['Ear Muff',' Earplugs',' Earplug Dispensers',' Audiometry Cabins '];
+  eyeprotect:string[]=['Safety Glasses with Side Shields','Goggles','Hand Shield','Helmet type Stationary Window'];
+
   constructor(private formBuilder: FormBuilder) {
 
   }
   ngOnInit(): void {
-    const currentDate = new Date();
-    this.formattedDate = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`;
-
-
-// Format the time as needed (e.g., HH:MM:SS)
-this.formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
-
-    this.initializeForm();
+    this.formInitialization()
   }
-  allZones: string[] = ['Zone1', 'Zone2', 'Zone3', 'Zone4', 'Zone5', 'Zone6', 'Zone7', 'Zone8', 'Zone9', 'Zone10'];
-  EquipmentID:['F-2230']
-  initializeForm(): void {
-    this.swpForm = this.formBuilder.group({
-    startDate: [this.formattedDate],
-    startTime: [this.formattedTime],
-    endDate: [this.formattedDate],
-    endTime: [this.formattedTime],
+  formInitialization() {
+    const currentDate = new Date();
+   const formattedDate = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`;
+  // Format the time as needed (e.g., HH:MM:SS)
+     const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+console.log("date",formattedDate);
+console.log("date",formattedTime);
+   this.swpForm = this.formBuilder.group({
+
      EAZ: [[]],
       EquipmentID:['F-2230'],
       WorkLocation:['EU2-E-2231A/B/C/D/E &F PRIMARY TLE S'],
@@ -44,7 +50,7 @@ this.formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${cu
       Jobscope: [''],
       Toolsrequired: ['handtools'],
       clothing: ['jacket'],
-      respirator: ['mesh'],
+      Respiratory: ['mesh'],
       footleg: ['footleg'],
       ear: ['earmuff'],
       eyeprotect: ['eyeprotect'],
