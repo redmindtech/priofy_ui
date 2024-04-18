@@ -8,15 +8,23 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ProcessingswpComponent implements OnInit {
   Safeworkpermit!: FormGroup;
-  // toppingList: string[] = ['CV-Closed Valve', 'OV-Open Valve', 'SB-Slip Blind', 'SR-Spool Removed', 'OP-One Plus', 'TL-Tag Lock'];
+  items: string[] = [''];
+  toppingList: string[] = ['CV-Closed Valve', 'OV-Open Valve', 'SB-Slip Blind', 'SR-Spool Removed', 'OP-One Plus', 'TL-Tag Lock'];
   formattedDate: string;
   formattedTime: string;
   showSignature: boolean = false;
+  redtagaccount: any;
+  addcount:number=0;
+  currentUser: any;
+  position: any;
   constructor(
     private formBuilder: FormBuilder,
   ) { }
 
   ngOnInit(): void {
+    const storedUser = localStorage.getItem('currentUser');
+     this.currentUser = storedUser ? JSON.parse(storedUser) : null;
+     this.position='Facility_rep';
     const currentDate = new Date();
 
 // Format the date as needed (e.g., DD/MM/YYYY)
@@ -32,6 +40,8 @@ this.formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${cu
 
 
     this.formInitialization();
+   
+    
   }
   formInitialization(){
     this.Safeworkpermit = this.formBuilder.group({
@@ -46,7 +56,7 @@ this.formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${cu
       red_tag:[''],
       reason_for_work:['money'],
       work_description:['work is Done'],
-      add_tag:['4'],
+      add_tag:[0],
       facility_representative_sign:[''],
       job_representative_sign:[''],
       employee_number:[''],
@@ -57,10 +67,10 @@ this.formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${cu
       inspection_required_job:[''],
       inadvertent_operation:[''],
       special_instructions:[''],
-      // toppings:[''],
-      // location_of_red_tags:[''],
-      // facilityrep_red_tag:[''],
-      // lock_number:[''],
+      toppings:[''],
+      location_of_red_tags:[''],
+      facilityrep_red_tag:[''],
+      lock_number:[''],
       tags_reconciled_signature:[''],
       tag_added_location:[''],
       tag_added_location_sign:[''],
@@ -92,6 +102,7 @@ this.formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${cu
       job_facility_representative_name:[''],
       job_facility_representative_employee_number:[''],
       job_facility_representative_employee_number_sign:[''],
+      date_and_time:['']
   })
   }
   
@@ -156,4 +167,29 @@ this.formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${cu
       console.error('Failed to get 2D context for canvas');
     }
   }
+  addRow() {
+    // Push a new item to the items array
+    this.items.push('');
+    this.addcount = this.items.length - this.redtagaccount;
+    console.log('this.addcount: ', this.addcount);
+    this.Safeworkpermit.get('add_tag')?.setValue(this.addcount)
+    
+
+  }
+  updateRedTagValue() {
+    console.log("ll");
+    // Your logic here to handle the updated value
+    this.redtagaccount=this.Safeworkpermit.get('red_tag')?.value
+    if(this.redtagaccount){
+      console.log("jj");
+      for (let i = 0; i < this.redtagaccount-1; i++) {
+        this.items.push('');
+      }
+    }
+    // For example:
+    // var redTagValue = value; // Saving the updated value to a global variable
+}
+
+
+
 }

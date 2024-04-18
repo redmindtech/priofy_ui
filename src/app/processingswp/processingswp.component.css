@@ -53,5 +53,13 @@ h5{
     background-color: rgb(240, 130, 130); /* Change to red when "Risk" is selected */
   }
   
+  .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-
+  .position-row {
+    opacity: 0.5; /* or any other styling to indicate disabled state */
+    pointer-events: none; /* optionally disable pointer events */
+  }
