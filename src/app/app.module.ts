@@ -116,6 +116,7 @@ import { ProcessingswpComponent } from './processingswp/processingswp.component'
 import { SwapapprovalComponent } from './swapapproval/swapapproval.component';
 import { SwpcloseoutComponent } from './swpcloseout/swpcloseout.component';
 import { SwprequestComponent } from './swprequest/swprequest.component';
+import { PacdashboardComponent } from './pacdashboard/pacdashboard.component';
 
 
 
@@ -161,7 +162,8 @@ import { SwprequestComponent } from './swprequest/swprequest.component';
      ProcessingswpComponent, 
      SwapapprovalComponent, 
      SwpcloseoutComponent,
-     SwprequestComponent, 
+     SwprequestComponent,
+     PacdashboardComponent, 
     
        
     

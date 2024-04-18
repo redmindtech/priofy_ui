@@ -34,9 +34,14 @@ export class LoginComponent {
           if (response){
             const id = response.result.id;
            this.name= response.result.username
+           console.log( this.name)
            if(this.name=='Admin'){
             this.router.navigate(['/main/maindashboard'] );
            }
+           else if(this.name=='Processactivitycoordinator' ||this.name=='Safeworkpermitissuer' || this.name=='Facilityrep'|| this.name=='Energycontrolplan'|| this.name=='Jobrep'){
+            this.router.navigate(['/main/dashboardpac'] );
+           }
+           
            else{
             this.router.navigate(['/main/dashboard']);
            }

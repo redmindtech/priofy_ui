@@ -11,6 +11,7 @@ export class MainComponent implements OnInit {
  public menu: any[] = [];
   currentUser: any;
   username: any;
+  headname:any;
 
 
   constructor() { }
@@ -20,25 +21,53 @@ export class MainComponent implements OnInit {
     this.currentUser = storedUser ? JSON.parse(storedUser) : null;
    let name= this.currentUser.username
    if(name=="Operator1"){
+    this.headname="Equate- Process Digitization"
       this.username="Shift-Operator1"
       this.menu = this.getOperator1Menu();
    }
    else if(name=="Operator2"){
+    this.headname="Equate- Process Digitization"
     this.username="Shift-Operator2"
     this.menu = this.getOperator1Menu();
    }
    else if(name=="Operator3"){
+    this.headname="Equate- Process Digitization"
     this.username="Shift-Operator3"
     this.menu = this.getOperator1Menu();
    }
    else if(name=="Operator4"){
+    this.headname="Equate- Process Digitization"
     this.username="Shift-Operator4"
     this.menu = this.getOperator1Menu();
    }
    else if(name=="Admin"){
+    this.headname="Equate- Process Digitization"
     this.username="Shift-Leader";
     this.menu = this.getAdminMenu();
    }
+  else if(name=='Processactivitycoordinator') 
+   {
+    this.headname="Safe Work Permit"
+    this.username="Process Activity Co-Ordinator";
+   }
+   else if(name=='Safeworkpermitissuer' )
+    {
+      this.headname="Safe Work Permit"
+     this.username="Safe Work Permit Issuer";
+    }
+    else if( name=='Facilityrep'){
+      this.headname="Safe Work Permit"
+      this.username="Facility Representative";
+    }
+    else if( name=='Energycontrolplan'){
+      this.headname="Safe Work Permit"
+      this.username="Energy Control Plan";
+    }
+    else if(  name=='Jobrep'){
+      this.headname="Safe Work Permit"
+      this.username="Job Representative";
+    }
+
     document.querySelector('body')?.removeAttribute('class');
     document.querySelector('body')?.classList.add('sidebar-mini','sidebar-open','layout-fixed');
   }

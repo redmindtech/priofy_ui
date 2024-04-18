@@ -27,6 +27,7 @@ import { SwapapprovalComponent } from './swapapproval/swapapproval.component';
 import { ProcessingswpComponent } from './processingswp/processingswp.component';
 import { SwpcloseoutComponent } from './swpcloseout/swpcloseout.component';
 import { SwprequestComponent } from './swprequest/swprequest.component';
+import { PacdashboardComponent } from './pacdashboard/pacdashboard.component';
 
 const routes: Routes = [
   {
@@ -141,6 +142,10 @@ const routes: Routes = [
       {
         path: 'swaprequest',
         component: SwprequestComponent,
+      },
+      {
+        path: 'dashboardpac',
+        component: PacdashboardComponent,
       },
      
     ]

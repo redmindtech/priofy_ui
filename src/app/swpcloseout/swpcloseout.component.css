@@ -56,9 +56,10 @@ th {
 .custom-radio + label {
   display: inline-block;
   padding: 5px 10px;
-  border: 1px solid #343a402b;
+  border: 2px solid rgba(148, 141, 141,0.57);
   cursor: pointer;
   border-radius: 30px;
+  
 
 
 }
@@ -120,4 +121,10 @@ label {
   border-style: solid;
   border-radius: 2%;
 
+}
+
+.form-control{
+border-width: 2px; /* Adjust the thickness as needed */
+
+border-color: rgba(148, 141, 141,0.57);
 }

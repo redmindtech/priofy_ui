@@ -90,13 +90,15 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Permit close-out status</label>
-                  <select id="status" formControlName="closeoutstatus">
+                  <select id="status" formControlName="closeoutstatus" class="form-control">
+                    <option value="" selected>Select status</option>
                     <option value="Pending">Pending</option>
-
                     <option value="complete">Complete</option>
                   </select>
                 </div>
               </div>
+              
+              
               <div class="col-sm-3">
                 <div class="form-group" >
                   <label>Work complete signature</label>
@@ -322,7 +324,7 @@
               <th class="theader"  style="width: 100%; text-align: center; ">Work Completion </th>
               </table>   
             <div class="row">
-              <div class="col-sm-3">
+              <div class="col-sm-3" >
                 <div class="form-group">
                   <label>Is House Keeping Checked?</label>
                   <input type="radio" class="custom-radio" id="HouseKeepingCheck-yes" name="HouseKeepingCheck" value="Yes"
@@ -334,8 +336,8 @@
                 <label for="HouseKeepingCheck-no" class="action">No</label>
                 </div>
               </div>
-                <div class="col-sm-3">
-                  <div class="form-group">
+                <div class="col-sm-3" >
+                  <div class="form-group" >
                     <label>Employee Number</label>
                     <input type="text" id="HouseKeeping_emp" formControlName="HouseKeeping_emp" class="form-control" placeholder="Enter Employee Number">
                   </div>
