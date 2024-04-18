@@ -8,10 +8,13 @@ import { FormBuilder, FormGroup,FormControl, Validators } from '@angular/forms';
 })
 export class SwpcloseoutComponent implements OnInit {
   swpcloseout: FormGroup;
+  signatureImage: string;
+  signatureImage1:string
   constructor( private formBuilder: FormBuilder,) { }
 
   ngOnInit(): void {
     this.formInitialization()
+    this.signatureImage1 = "../../../assets/img/sign.png";
   }
   formInitialization() {
     const currentDate = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
@@ -56,5 +59,12 @@ export class SwpcloseoutComponent implements OnInit {
 
  
     });
+
+
+ 
+  }
+  showSignature() {
+  console.log("cdsfdgrg")
+    this.signatureImage = this.signatureImage1; // Replace this with your actual signature image URL
   }
 }
