@@ -9,45 +9,52 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class SwprequestComponent implements OnInit {
   @ViewChild('fileInput') fileInput: ElementRef;
   todayDate: string;
+  formattedDate: string;
+formattedTime: string;
   expanded: boolean = false;
   swpForm: FormGroup;
+  swpForm1:FormGroup;
   expandedDropdownId: string | null = null;
   constructor(private formBuilder: FormBuilder) {
 
   }
   ngOnInit(): void {
+    const currentDate = new Date();
+    this.formattedDate = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`;
+
+
+// Format the time as needed (e.g., HH:MM:SS)
+this.formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+
     this.initializeForm();
   }
-
+  allZones: string[] = ['Zone1', 'Zone2', 'Zone3', 'Zone4', 'Zone5', 'Zone6', 'Zone7', 'Zone8', 'Zone9', 'Zone10'];
+  EquipmentID:['F-2230']
   initializeForm(): void {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = ('0' + (today.getMonth() + 1)).slice(-2);
-    const day = ('0' + today.getDate()).slice(-2);
-    const hours = ('0' + today.getHours()).slice(-2);
-    const minutes = ('0' + today.getMinutes()).slice(-2);
-    const seconds = ('0' + today.getSeconds()).slice(-2);
-    const formattedDate = `${day}-${month}-${year}`;
-    const formattedTime = ` ${hours}:${minutes}:${seconds}`;
-
     this.swpForm = this.formBuilder.group({
-      startDate: [formattedDate ],
-      startTime:[formattedTime],
-      endDate: [formattedDate],
-      endTime:[formattedTime]
-
-    });
-
-    this.swpForm = this.formBuilder.group({
-      // EAZ: ['Zone1'],
-      // EquipmentID:['F-2230'],
-      // WorkLocation:['EU2-E-2231A/B/C/D/E &F PRIMARY TLE S'],
-      // Toolsrequired:['Hand Tools'],
-      // Clothing:['Jacket'],
-      // fhprotection:['Mesh','Face Shield','Helmet']
-
+    startDate: [this.formattedDate],
+    startTime: [this.formattedTime],
+    endDate: [this.formattedDate],
+    endTime: [this.formattedTime],
+     EAZ: [[]],
+      EquipmentID:['F-2230'],
+      WorkLocation:['EU2-E-2231A/B/C/D/E &F PRIMARY TLE S'],
+      Clothing:['Jacket'],
+      fhprotection:['Mesh','Face Shield','Helmet'],
+      Jobscope: [''],
+      Toolsrequired: ['handtools'],
+      clothing: ['jacket'],
+      respirator: ['mesh'],
+      footleg: ['footleg'],
+      ear: ['earmuff'],
+      eyeprotect: ['eyeprotect'],
+      Ergonomics: [''],
+      Heatstress: [''],
+      Elevated: [''],
+      Others: [''],
     });
   }
+
   onFileSelected(): void {
     const file = this.fileInput.nativeElement.files[0];
     const allowedTypes = ['application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/pdf'];

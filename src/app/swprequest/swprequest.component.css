@@ -1,5 +1,6 @@
 .mat-expansion-panel-header-description {
-  flex-grow: unset;
+  flex-grow: unset!important;
+  margin-left: 10px !important;
 
 }
 .mat{
@@ -8,6 +9,13 @@
   border-style: double;
   border-radius: 2%;
 }
+.mat1{
+  border-color: rgb(204, 202, 202);
+  border-width: thin;
+  border-style: solid;
+
+  margin-bottom:5px ;
+}
 /* General styles */
 
 form {
@@ -15,71 +23,112 @@ form {
   flex-direction: column;
    margin: 0 auto;
  border-radius: 5px;
+ font-family: 'Montserrat', sans-serif;
 }
 
+mat-accordion,
+mat-expansion-panel,
+mat-expansion-panel-header,
+mat-card,
+.row {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
 
 label {
   font-family: 'Montserrat', sans-serif;
-  display: block;
+  font-weight: 900;
+  display:block;
   margin-bottom: 5px;
+}
+
+.select-wrapper1 {
+  position: relative;
+  font-size: 14px;
+}
+
+.select-wrapper1 select {
+  font-size: 14px;
+  height: 25px;
+  overflow: hidden;
+}
+
+ .mat-form-field {
+  width: 350px;
+  height: 40px;
+  border-top: 0.1em solid #0b0a0a;
+  border-left:.1em solid #0b0a0a;
+  border-right:.1em solid #0b0a0a;
+  border-bottom:.1em solid #0b0a0a;
+   /* Set the width as needed */
+}
+
+/* Styling the mat-select dropdown */
+.mat-select-panel {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  border-radius: 4px; /* Add border radius for rounded corners */
+  border: 1px solid #260808;
+  width:350px /* Add border for visibility */
+}
+
+/* Styling the mat-select option */
+.mat-option {
+  font-size: 14px; /* Set font size */
+}
+
+/* Styling the mat-select option when hovered */
+.mat-option:hover {
+  background-color: #f0f0f0; /* Change background color on hover */
 }
 .select-wrapper {
   position: relative;
+  font-size: 14px;
 }
 
 .select-wrapper select {
+  font-size: 14px;
   height: 25px;
   overflow: hidden;
-  width: calc(100% - 35px); /* Adjust width to accommodate arrow */
-}
-.select-wrapper.expanded select {
-  position: absolute;
-  height: auto !important;
-  top: 100%;
-  left: 0;
-  z-index: 999;
-  max-height: 100px; /* Adjust as needed */
-  overflow-y: auto;
-}
-.select-wrapper.expanded select option {
-  padding: 7px 10px;
-  font-size: 12px;
-  line-height: 1.0 /* Adjust padding to match other options */
 }
 
-/* Style the dropdown arrow */
+.select-wrapper.expanded select {
+  padding: 2px 10px;
+  font-size: 14px;
+  position: absolute;
+  height: auto !important;
+  top: calc(100% + 2px);
+  left: 0;
+  z-index: 999;
+  overflow-y: auto;
+  width: 90%;
+}
+
+.select-wrapper.expanded select option {
+  padding: 2px 10px;
+  font-size: 14px;
+}
 .select-wrapper::after {
   content: '\25BC';
-  font-size: 12px;
+  font-size: 14px;
   color: #666;
   position: absolute;
   top: 30%;
-  right: 50px;
+  right: 20px;
   transform: translateY(-50%);
-  pointer-events: none; /* Ensure the arrow does not interfere with clicking on select */
+  pointer-events: none;
 }
-
-/* Ensure proper alignment of select options */
-/* .select-wrapper select option {
-  padding: 1px 2px;
-} */
-
-/* Ensure selected text is visible */
 .select-wrapper select option:checked {
   color: #000;
 }
 
-/* Adjust dropdown menu position */
 .select-wrapper.expanded select {
   position: absolute;
-  top: 100%;
-  left: 0;
+  left: 5px;
   z-index: 999;
 }
 
  /* select {
   width: 100%;
-
   border: 1px solid #ccc;
   border-radius: 3px;
   height: 36px;
@@ -91,6 +140,7 @@ label {
 }
 
 .form-control {
+  font-weight: 700;
   display: block;
   width: 100%;
   height: 36px;
@@ -115,11 +165,10 @@ label {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
 
-
-
 .mat-dialog-container{
   overflow-y: hidden !important;
 }
+
 textarea.form-control {
   height: auto;
 }
@@ -130,4 +179,14 @@ textarea.form-control {
 h5{
   font-size: 20;
   font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  background-color:#147737;
+  padding:15px ;
+  text-align: center;
+  color: white;
 }

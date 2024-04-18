@@ -1,15 +1,16 @@
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" >
+  <mat-expansion-panel class="mat_expansion_border"  [expanded]="false">
 
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row" >
-        <h5 style="display: contents; color:rgb(115, 182, 158)"><strong >Stage #3 :Safe Work Permit Request </strong> </h5>
+        <h5 style="margin-right: 1150px;display: contents; color:rgb(115, 182, 158)"><strong >Stage #3 :Safe Work Permit Request </strong> </h5>
       </div>
       <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
     <mat-card class= mat>
+      <mat-card class= mat1>
       <mat-card-content>
-        <h4>Safe Work Permit Issuer</h4>
+        <h4 class="header">Safe Work Permit Issuer</h4>
         <!-- <h6 style="margin-left: 30%;"><strong>PROCEDURE CHECKLIST #A ESTABLISH STEAM DRUM LEVEL</strong></h6> -->
         <form [formGroup]="swpForm" >
           <div class="form-row">
@@ -18,25 +19,25 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="startDate">Start Date</label>
-                <input id="startDate" type="text" class="form-control" formControlName="startDate">
+                <input id="startDate" type="text" class="form-control" formControlName="startDate" placeholder="dd/mm/yyyy">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="startDate">Start Time</label>
-                <input id="startDate" type="text" class="form-control" formControlName="startTime">
+                <label for="startTime">Start Time</label>
+                <input id="startTime" type="text" class="form-control" formControlName="startTime" placeholder="hh:mm:ss">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="endDate">End Date</label>
-                <input id="endDate" type="text" class="form-control" formControlName="endDate">
+                <input id="endDate" type="text" class="form-control" formControlName="endDate" placeholder="dd/mm/yyyy">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="endDate">End Time</label>
-                <input id="endDate" type="text" class="form-control" formControlName="endTime">
+                <label for="endTime">End Time</label>
+                <input id="endTime" type="text" class="form-control" formControlName="endTime" placeholder="hh:mm:ss" >
               </div>
             </div>
           </div>
@@ -50,8 +51,14 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="eaz">EAZ</label>
+                <mat-form-field>
+                  <!-- <mat-label>Select Zones</mat-label> -->
+                  <mat-select class="select-wrapper1"  formControlName="EAZ" multiple>
+                    <mat-option *ngFor="let zone of allZones" [value]="zone">{{ zone }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
 
-               <div class="select-wrapper" [class.expanded]="expandedDropdownId==='eaz'"  (click)="toggleSelectExpand('eaz')">
+               <!-- <div class="select-wrapper" [class.expanded]="expandedDropdownId==='eaz'"  (click)="toggleSelectExpand('eaz')">
                 <select id="eaz" multiple class="form-control" formControlName="EAZ" value="Zone1">
                   <option value="Zone1" >Zone1</option>
                   <option value="Zone2" >Zone2</option>
@@ -63,8 +70,10 @@
                   <option value="Zone8" >Zone8</option>
                   <option value="Zone9" >Zone9</option>
                   <option value="Zone10" >Zone10</option>
+                  <option *ngFor="let zone of allZones" [value]="zone">{{ zone }}</option>
+
                 </select>
-               </div>
+               </div> -->
               </div>
             </div>
           </div>
@@ -74,7 +83,7 @@
                 <label for="equipmentID">Equipment ID</label>
 
                 <div class="select-wrapper" [class.expanded]="expandedDropdownId==='equipmentID'"  (click)="toggleSelectExpand('equipmentID')">
-                <select id="equipmentID" multiple class="form-control" formControlName="EquipmentID">
+                <select id="EquipmentID" multiple class="form-control" formControlName="EquipmentID">
                   <option value="Zone1" selected>F-2230</option>
                 </select>
               </div>
@@ -109,18 +118,19 @@
           </form>
         </mat-card-content>
         </mat-card>
-        <mat-card class= mat>
+        <mat-card class= mat1>
           <mat-card-content>
-            <form [formGroup]="swpForm" >
+            <form [formGroup]="swpForm1" >
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
-          <h4>Scope</h4>
+
+          <h4 >Scope</h4>
           </div>
         </div>
           <div class="col-md-6">
           <div class="form-group">
-        <h4>Tools</h4>
+        <h4 >Tools</h4>
         <br>
         </div>
       </div>
@@ -149,10 +159,10 @@
             </form>
             </mat-card-content>
           </mat-card>
-          <mat-card class="mat">
+          <mat-card class="mat1">
             <mat-card-content>
-              <form [formGroup]="swpForm" >
-            <h4>Safety Equipment Requirement</h4>
+              <form [formGroup]="swpForm1" >
+            <h4 >Safety Equipment Requirement</h4>
             <br>
             <div class="form-row">
               <div class="col-md-6">
@@ -243,14 +253,21 @@
                 </div>
               </div>
             </div>
-           <h4>SJP Attachment</h4>
+              </form>
+              </mat-card-content>
+              </mat-card>
+            <mat-card class="mat1">
+              <mat-card-content>
+                <form [formGroup]="swpForm1" >
+           <h4 >SJP Attachment</h4>
 
            <div class="form-group">
             <label for="fileUpload">Upload File (Word/PDF, max 100KB):</label>
             <input #fileInput id="fileUpload" type="file" class="form-control" accept=".doc, .docx, .pdf" (change)="onFileSelected()">
           </div>
-        </form>
+               </form>
       </mat-card-content>
+    </mat-card>
     </mat-card>
   </mat-expansion-panel>
 </mat-accordion>
