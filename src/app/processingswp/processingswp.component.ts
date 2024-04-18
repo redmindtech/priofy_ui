@@ -9,7 +9,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class ProcessingswpComponent implements OnInit {
   Safeworkpermit!: FormGroup;
   items: string[] = [''];
-  toppingList: string[] = ['CV-Closed Valve', 'OV-Open Valve', 'SB-Slip Blind', 'SR-Spool Removed', 'OP-One Plus', 'TL-Tag Lock'];
+  toppingList: string[] = ['CV-Closed Valve', 'OV-Open Valve', 'SB-Slip Blind', 'SR-Spool Removed', 'OP-One Plus', 'TL-Tag Lock','ED-Electrical Disconnect',
+    'GD-Grounding Device','DL-Disconnect Line','BF-Blind Flange','AT-Adhesive Tape','RB-Remove Breaker & Lock','OF-Open Flange','BD-Blocking Device Installed',
+    'ID-Instrument Disconnect','DV-Double Valve & Vent','RO-Rack-out Breaker & Lock','OL-Off Tag Lock'];
   formattedDate: string;
   formattedTime: string;
   showSignature: boolean = false;
@@ -182,6 +184,7 @@ this.formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${cu
     this.redtagaccount=this.Safeworkpermit.get('red_tag')?.value
     if(this.redtagaccount){
       console.log("jj");
+      this.items = [''];
       for (let i = 0; i < this.redtagaccount-1; i++) {
         this.items.push('');
       }

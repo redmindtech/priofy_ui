@@ -94,7 +94,7 @@
               </div>
               <div class="col">
                 <label class="label" for="red_tag">Total No. of Red Tags</label>
-                <input type="text" class="form-control"  formControlName="red_tag" (change)="updateRedTagValue()" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                <input type="text" class="form-control"  formControlName="red_tag" (focusout)="updateRedTagValue()" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
 
             </div>
               
@@ -130,7 +130,8 @@
             </mat-card>
 
 
-            <mat-card class="card" [ngClass]="{ 'position-row': position === 'Facility_rep' || position === 'Job_rep' }">
+            <mat-card class="card" [ngClass]="{ 'position-row': (position !== 'Facility_rep' || position !== 'Job_rep') }">
+
 
 
               <div style="background-color: #147737;padding: 1px; margin-top: 2%;color: white;">
