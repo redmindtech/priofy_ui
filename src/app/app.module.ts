@@ -117,6 +117,7 @@ import { SwapapprovalComponent } from './swapapproval/swapapproval.component';
 import { SwpcloseoutComponent } from './swpcloseout/swpcloseout.component';
 import { SwprequestComponent } from './swprequest/swprequest.component';
 import { PacdashboardComponent } from './pacdashboard/pacdashboard.component';
+import { SwptableComponent } from './swptable/swptable.component';
 
 
 
@@ -163,7 +164,8 @@ import { PacdashboardComponent } from './pacdashboard/pacdashboard.component';
      SwapapprovalComponent, 
      SwpcloseoutComponent,
      SwprequestComponent,
-     PacdashboardComponent, 
+     PacdashboardComponent,
+     SwptableComponent 
     
        
     

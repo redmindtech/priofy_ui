@@ -28,6 +28,7 @@ import { ProcessingswpComponent } from './processingswp/processingswp.component'
 import { SwpcloseoutComponent } from './swpcloseout/swpcloseout.component';
 import { SwprequestComponent } from './swprequest/swprequest.component';
 import { PacdashboardComponent } from './pacdashboard/pacdashboard.component';
+import { SwptableComponent } from './swptable/swptable.component';
 
 const routes: Routes = [
   {
@@ -94,6 +95,10 @@ const routes: Routes = [
       {
         path: 'swapper',
         component: SwapapprovalComponent,
+      },
+      {
+        path: 'swptable',
+        component: SwptableComponent,
       },
       {
         path: 'toolcomp',
