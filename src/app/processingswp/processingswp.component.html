@@ -12,7 +12,7 @@
     </mat-expansion-panel-header>
     <mat-card class= mat>
     <mat-card class= card>
-      <div style="background-color: #147737; padding: 7px;">
+      <div style="background-color: #147737; padding: 7px; color: white;">
         <h6 style="margin-left: 40%;"><strong>SWP - Safe Work Permit</strong></h6>
       </div>
         
@@ -72,7 +72,7 @@
 
 
         <mat-card class= card>
-          <div style="background-color: #147737; padding: 7px;">
+          <div style="background-color: #147737; padding: 7px;color: white;">
             <h6 style="margin-left: 40%;"><strong>MC - Master Card</strong></h6>
           </div>
             
@@ -94,7 +94,7 @@
               </div>
     <div class="col">
       <label class="label" for="red_tag">Total No. of Red Tags</label>
-      <input type="text" class="form-control"  id="red_tag" placeholder="please Enter Red Tag" formControlName="red_tag">
+      <input type="text" class="form-control"  id="red_tag" placeholder="please Enter Red Tag" formControlName="red_tag" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
     </div>
     </div>
     <div class="row mt-3">
@@ -122,7 +122,7 @@
         </div>
         </div>
         
-        <div style="background-color: #147737;padding: 1px; margin-top: 2%;">
+        <div style="background-color: #147737;padding: 1px; margin-top: 2%;color: white;">
           <h6 style="margin-left: 30%; margin-top: 2%;"><strong>Tags added to the location list of ECP while master card is active
           </strong></h6>
         </div>
@@ -131,7 +131,7 @@
     
           <div class="col">
   <label class="label" for="add_tag">Number of added tags</label>
-  <input type="text" class="form-control"  id="add_tag" placeholder="please Enter Add Tag" formControlName="add_tag">
+  <input type="text" class="form-control"  id="add_tag" placeholder="please Enter Add Tag" formControlName="add_tag" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
 </div>
 <div class="col">
  
@@ -140,11 +140,18 @@
 <div class="row mt-3">
     
  
-<div class="col">
-<label  for="facility_representative_sign">Facility Representative (sign)</label>
-<textarea type="text" class="form-control"   rows="3" id="facility_representative_sign" placeholder="please Enter Facility Representative Sign" formControlName="facility_representative_sign"></textarea>
-<button  style="background-color: #147737;color: white; margin-top: 1%;">Signature</button>
+  <div class="col">
+    <label for="facility_representative_sign">Facility Representative (sign)</label>
+    <textarea formControlName="facility_representative_sign" class="form-control" rows="3" id="facility_representative_sign" placeholder="Please enter Facility Representative Sign"></textarea>
+    <button (click)="showSignatureCard()" style="background-color: #147737;color: white; margin-top: 1%;">Signature</button>
 </div>
+<div id="signature-card" *ngIf="showSignature" >
+    <canvas id="signature-canvas" width="300" height="150" style="border: 1px solid #000;"></canvas>
+    <button (click)="clearCanvas()"style="background-color: #147737;color: white; margin-top: 1%;">Clear</button>
+    <button (click)="saveSignature()"style="background-color: #147737;color: white; margin-top: 1%;">Save</button>
+</div>
+
+
 <div class="col">
   <label  for="job_representative_sign">Job Representative (sign)</label>
   <textarea type="text" class="form-control"   rows="3" id="job_representative_sign" placeholder="please Enter Job Representative Sign" formControlName="job_representative_sign"></textarea>
@@ -170,7 +177,7 @@
             </mat-card>
 
             <mat-card class= card>
-              <div style="background-color: #147737; padding: 7px;">
+              <div style="background-color: #147737; padding: 7px;color: white;">
                 <h6 style="margin-left: 40%;"><strong>ECP - Energy Control Plan</strong></h6>
               </div>
                 
@@ -331,7 +338,7 @@
 
 
                     <mat-card class= card>
-                      <div style="background-color: #147737; padding: 7px;">
+                      <div style="background-color: #147737; padding: 7px;color: white;">
                         <h6 style="margin-left: 40%;"><strong>ECP - Energy Control Plan(ECP Issuer)</strong></h6>
                       </div>
                         
@@ -388,7 +395,7 @@
 
 
                         <mat-card class= card>
-                          <div style="background-color: #147737; padding: 7px;">
+                          <div style="background-color: #147737; padding: 7px; color: white;">
                             <h6 style="margin-left: 40%;"><strong>SWP - Safe Work Permit</strong></h6>
                           </div>
                             <h6 style="text-align: center;">Atmospheric Test Requirements</h6>
@@ -410,11 +417,12 @@
                               
                               <div class="row mt-3">
                     
-                                
                                 <div class="col">
+                                <div class="row">
+                                  <div class="col">
                                   <label class="label" for="initial_oxygen">oxygen</label>
                                   <div class="input-group">
-                                      <input type="text" class="form-control" id="initial_oxygen" placeholder="please Enter oxygen" formControlName="initial_oxygen">
+                                      <input type="text"  id="initial_oxygen" placeholder="please Enter oxygen" formControlName="initial_oxygen">
                                       <div class="input-group-append">
                                           <span class="input-group-text">%</span>
                                       </div>
@@ -424,13 +432,22 @@
                               <div class="col">
                                 <label class="label" for="initial_lel">LEL</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="initial_lel" placeholder="please Enter LEL" formControlName="initial_lel">
+                                    <input type="text"  id="initial_lel" placeholder="please Enter LEL" formControlName="initial_lel">
                                     <div class="input-group-append">
                                         <span class="input-group-text">%</span>
                                     </div>
                                 </div>
                             </div>
-                              
+                          </div>
+                       </div>
+                          <div class="col">
+                            <label class="label" for="date">Date And Time</label>
+                            <div class="row">
+                            <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
+                          <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                            </div>
+                      </div>
+                        
                               </div>
                               <div class="row mt-3">
                     
@@ -439,24 +456,18 @@
                                   <label class="label" for="initial_others">Initial Others</label>
                                   <input type="text" class="form-control"  id="initial_others" placeholder="please Enter others" formControlName="initial_others">
                                 </div>
-                              
-                                <div class="col">
-                                  <label class="label" for="date">Date And Time</label>
-                                  <div class="row">
-                                  <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                                <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
-                                  </div>
-                            </div>
-                              
+                              <div class="col"></div>
+                               
                               </div>
-                            <div class="row mt-3">
+                              <mat-card class="mt-2">
+                            <div class="row mt-1" style="background-color: #147737; padding: 5px;color: white; text-align: center;">
                     
                               <div class="col">
-                                <label class="label form-control" style="text-align: center;" >Retest #1</label>
+                                <label class="label"  >Retest #1</label>
                                
                               </div>
                               <div class="col">
-                                <label class="label form-control" style="text-align: center;" >Retest #2</label>
+                                <label class="label ">Retest #2</label>
                                 
                                 </div>
                     </div>
@@ -464,25 +475,30 @@
                     
                       <div class="col">
                         <div class="row"><label class="ml-3">User Initials : {{'operator'}}</label></div>
-                        <div class="row">
-                          <label class="label ml-3" for="Retest_1_oxygen">oxygen</label>
+                        <div class="col">
+                          <div class="row">
+                          <div class="col">
+                            <label class="label ml-3" for="Retest_1_oxygen">oxygen</label>
+                            <div class="input-group">
+                                <input type="text" class="ml-3" id="Retest_1_oxygen" placeholder="please Enter oxygen" formControlName="Retest_1_oxygen">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col">
+                          <label class="label" for="retest_1_lel">LEL</label>
                           <div class="input-group">
-                              <input type="text" class="form-control ml-3" id="Retest_1_oxygen" placeholder="please Enter oxygen" formControlName="Retest_1_oxygen">
+                              <input type="text"  id="retest_1_lel" placeholder="please Enter LEL" formControlName="retest_1_lel">
                               <div class="input-group-append">
                                   <span class="input-group-text">%</span>
                               </div>
                           </div>
-                      </div>
-                      
-                      <div class="row">
-                        <label class="label ml-3" for="retest_1_lel">LEL</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control ml-3" id="retest_1_lel" placeholder="please Enter LEL" formControlName="retest_1_lel">
-                            <div class="input-group-append">
-                                <span class="input-group-text">%</span>
-                            </div>
+                          </div>
                         </div>
                         </div>
+                        
                         <div class="row-1">
                           <label class="label ml-2" for="date">Date And Time</label>
                           <div class="row-1">
@@ -502,23 +518,25 @@
                       <div class="col">
                         <div class="row"><label class="ml-3">User Initials : {{'operator'}}</label></div>
                         <div class="row">
+                        <div class="col">
                           <label class="label ml-3" for="Retest_2_oxygen">oxygen</label>
                           <div class="input-group">
-                              <input type="text" class="form-control ml-3" id="Retest_2_oxygen" placeholder="please Enter oxygen" formControlName="Retest_2_oxygen">
+                              <input type="text" class="ml-3" id="Retest_2_oxygen" placeholder="please Enter oxygen" formControlName="Retest_2_oxygen">
                               <div class="input-group-append">
                                   <span class="input-group-text">%</span>
                               </div>
                           </div>
                       </div>
                       
-                      <div class="row">
+                      <div class="col">
                         <label class="label ml-3" for="retest_2_lel">LEL</label>
                         <div class="input-group">
-                            <input type="text" class="form-control ml-3" id="retest_2_lel" placeholder="please Enter LEL" formControlName="retest_2_lel">
+                            <input type="text" class="ml-3"  id="retest_2_lel" placeholder="please Enter LEL" formControlName="retest_2_lel">
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
                         </div>
+                      </div>
                         </div>
                         <div class="row-1">
                           <label class="label ml-2" for="date">Date And Time</label>
@@ -537,10 +555,213 @@
                     
                       </div>
                        </div>
-                         
+                         </mat-card>
                            </form>
                             </mat-card-content>
                             </mat-card>
+
+
+                            <mat-card class= card>
+                              <div style="background-color: #147737; padding: 7px;color: white;">
+                                <h6 style="margin-left: 40%;"><strong>SWP - Safe Work Permit</strong></h6>
+                              </div>
+                                 <h6 style="text-align: center;">Equipment Prepared by (Facility Rep.)</h6>
+                              <mat-card-content>
+                                <form [formGroup]="Safeworkpermit">
+                                 
+                                  
+                                  <div class="row mt-3">
+                                    <div class="col">
+                                      <label class="label" for="equipment_prepared_facility_rep">Name</label>
+                                      <input type="text" class="form-control"  id="equipment_prepared_facility_rep" placeholder="please Enter Name" formControlName="equipment_prepared_facility_rep">
+                                    </div>
+                                    <div class="col">
+                                      <label class="label" for="equipment_prepared_employee_number">Employee Number</label>
+                                      <input type="text" class="form-control"  id="equipment_prepared_employee_number" placeholder="please Enter Employee Number" formControlName="equipment_prepared_employee_number">
+                                    </div>
+                                   
+                                   
+                                      
+                                   </div>
+                
+                                <div class="row mt-3">
+                        
+                                  <div class="col">
+                                    <label class="label" for="date">Date And Time</label>
+                                    <div class="row">
+                                    <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
+                                  <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                  <label class="label" for="equipment_prepared_master_card_Number">Master Card Number</label>
+                                  <input type="text" class="form-control"  id="equipment_prepared_master_card_Number" placeholder="please Enter Master Card Number" formControlName="equipment_prepared_master_card_Number">
+                                </div>
+                        </div>
+                        <div class="row mt-3">
+                        
+                          <div class="col">
+                            <label class="label" for="fire_watch_name">Fire Watch Name</label>
+                            <input type="text" class="form-control"  id="fire_watch_name" placeholder="please Enter Fire Watch Nmae" formControlName="fire_watch_name">
+                          </div>
+                          <div class="col">
+                            <label class="label" for="initial_dep_rep">Initial of the other Dep Rep</label>
+                            <input type="text" class="form-control"  id="initial_dep_rep" placeholder="please Enter Dep Rep" formControlName="initial_dep_rep">
+                          </div>
+                           </div>
+                           <div class="row mt-3">
+                        
+                            <div class="col">
+                              <label class="label" for="safety_attendant_name">Safety Attendant Name</label>
+                              <input type="text" class="form-control"  id="safety_attendant_name" placeholder="please Enter Safety Attendant Name" formControlName="safety_attendant_name">
+                            </div>
+                            <div class="col">
+                              <label class="label" for="reviewed_by_trso">Reviewed by TRSO</label>
+                              <input type="text" class="form-control"  id="reviewed_by_trso" placeholder="please Enter Reviewed by TRSO" formControlName="reviewed_by_trso">
+                            </div>
+                             </div>
+                             <div class="row mt-3">
+                        
+                              <div class="col">
+                                <label class="label" for="contractor_rso">Contractor RSO</label>
+                                <input type="text" class="form-control"  id="contractor_rso" placeholder="please Enter Contractor RSO" formControlName="contractor_rso">
+                              </div>
+                              <div class="col">
+                                <label class="label" for="outside_barricade">Radiation Reading Outside Barricade</label>
+                                <input type="text" class="form-control"  id="outside_barricade" placeholder="please Enter Outside Barricade" formControlName="outside_barricade">
+                              </div>
+                               </div>
+                               <div class="row mt-3">
+                        
+                                <div class="col">
+                                  <label class="label" for="inside_barricade">Radiation Reading Inside Barricade</label>
+                                  <input type="text" class="form-control"  id="inside_barricade" placeholder="please Enter InsideBarricade" formControlName="inside_barricade">
+                                </div>
+                                <div class="col">
+                                  <label class="label" >All radiation safe condition applied</label>
+                                  <div class="button-group">
+                                    <input type="radio" class="custom-radio form-control" id="radition_safe_condition-Yes"
+                                    name="radition_safe_condition" value="Yes" formControlName="radition_safe_condition"
+                                   />
+                                  <label for="radition_safe_condition-Yes" class="action">Yes</label>
+                      
+                                  <input type="radio" class="custom-radio form-control ml-2" id="radition_safe_condition-No"
+                                    name="radition_safe_condition" value="No" formControlName="radition_safe_condition"
+                                   />
+                                  <label for="radition_safe_condition-No" class="action ml-2">No</label>
+                                    
+                                    </div>
+                                </div>
+                                 </div>
+                               </form>
+                                </mat-card-content>
+                                </mat-card>
+
+
+
+                                <mat-card class= card>
+                                  <div style="background-color: #147737; padding: 7px;color: white;">
+                                    <h6 style="margin-left: 40%;"><strong>MC - Master Card</strong></h6>
+                                  </div>
+                                     <h6 style="text-align: center;">Equipment is Prepared for Work Described Above</h6>
+                                  <mat-card-content>
+                                    <form [formGroup]="Safeworkpermit">
+                                     
+                                      
+                                      <div class="row mt-3">
+                                        <div class="col">
+                                          <label class="label" for="facility_representative_name">Facility Representative Name</label>
+                                          <input type="text" class="form-control"  id="facility_representative_name" placeholder="please Enter Facility Representative Name" formControlName="facility_representative_name">
+                                        </div>
+                                        <div class="col">
+                                          <label class="label" for="facility_representative_employee_number">Facility Representative Employee Numbe</label>
+                                          <input type="text" class="form-control"  id="facility_representative_employee_number" placeholder="please Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number">
+                                        </div>
+                                       
+                                       
+                                          
+                                       </div>
+                    
+                                    <div class="row mt-3">
+                            
+                                      <div class="col">
+                                        <label class="label" for="date">Date And Time</label>
+                                        <div class="row">
+                                        <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
+                                      <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                      <label class="label" for="facility_representative_employee_number_sign">Facility Representative Employee Number</label>
+                                      <textarea type="text" class="form-control"   rows="3" id="facility_representative_employee_number" placeholder="please Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number"></textarea>
+                                      <button  style="background-color: #147737;color: white; margin-top: 1%;" >Signature</button>
+                                    </div>
+                            </div>
+
+
+                            <!-- <div class="row mt-3">
+                              <div class="col">
+                                <label class="label" for="facility_representative_name">Facility Representative Name</label>
+                                <input type="text" class="form-control"  id="facility_representative_name" placeholder="please Enter Facility Representative Name" formControlName="facility_representative_name">
+                              </div>
+                              <div class="col">
+                                <label class="label" for="facility_representative_employee_number">Facility Representative Employee Numbe</label>
+                                <input type="text" class="form-control"  id="facility_representative_employee_number" placeholder="please Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number">
+                              </div>
+                             
+                             
+                                
+                             </div>
+          
+                          <div class="row mt-3">
+                  
+                            <div class="col">
+                              <label class="label" for="date">Date And Time</label>
+                              <div class="row">
+                              <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
+                            <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                              </div>
+                          </div>
+                          <div class="col">
+                            <label class="label" for="facility_representative_employee_number">Facility Representative Employee Number</label>
+                            <textarea type="text" class="form-control"   rows="3" id="facility_representative_employee_number" placeholder="please Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number"></textarea>
+                            <button  style="background-color: #147737;color: white; margin-top: 1%;" >Signature</button>
+                          </div>
+                  </div> -->
+                  <h6 style="text-align: center;">MC - Master Card PEFM Confirmation Job Representative</h6>
+                  <div class="row mt-3">
+                    <div class="col">
+                      <label class="label" for="job_facility_representative_name">Facility Representative Name</label>
+                      <input type="text" class="form-control"  id="job_facility_representative_name" placeholder="please Enter Job Facility Representative Name" formControlName="job_facility_representative_name">
+                    </div>
+                    <div class="col">
+                      <label class="label" for="job_facility_representative_employee_number">Facility Representative Employee Numbe</label>
+                      <input type="text" class="form-control"  id="job_facility_representative_employee_number" placeholder="please Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number">
+                    </div>
+                   
+                   
+                      
+                   </div>
+
+                <div class="row mt-3">
+        
+                  <div class="col">
+                    <label class="label" for="date">Date And Time</label>
+                    <div class="row">
+                    <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
+                  <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                    </div>
+                </div>
+                <div class="col">
+                  <label class="label" for="job_facility_representative_employee_number_sign">Facility Representative Employee Number</label>
+                  <textarea type="text" class="form-control"   rows="3" id="job_facility_representative_employee_number_sign" placeholder="please Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number_sign"></textarea>
+                  <button  style="background-color: #147737;color: white; margin-top: 1%;" >Signature</button>
+                </div>
+        </div>
+
+                                   </form>
+                                    </mat-card-content>
+                                    </mat-card>
 
 
           </mat-card>
