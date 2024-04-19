@@ -87,12 +87,23 @@ th {
     background-color: #c6cfd4;
   }
 
-    .mat{
+    /* .mat{
       border-color: rgb(204, 202, 202);
       border-width: thick;
       border-style: double;
       border-radius: 2%;
    
+  } */
+  .mat{
+    border-color: rgb(165, 164, 164);
+    border-width: thick;
+    border-style: double;
+  
+    border-radius: 2%;
+    width: 94%;
+    align-items: center;
+    margin: auto; 
+    padding: 20px;
   }
   #w3reviews{
     margin-left: 50%;
@@ -127,4 +138,8 @@ label {
 border-width: 2px; /* Adjust the thickness as needed */
 
 border-color: rgba(148, 141, 141,0.57);
+}
+.position-row {
+  opacity: 0.5; /* or any other styling to indicate disabled state */
+  pointer-events: none; /* optionally disable pointer events */
 }

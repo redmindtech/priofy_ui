@@ -13,7 +13,10 @@ export class SwpcloseoutComponent implements OnInit {
   userDetails: any;
   userObject: any;
   position: any;
-  disable:any;
+  Job_rep_disable:any;
+  SWP_Issuer_disable:any;
+
+
   constructor( private formBuilder: FormBuilder,) { }
 
   ngOnInit(): void {
@@ -23,14 +26,18 @@ export class SwpcloseoutComponent implements OnInit {
     console.log(this.position)
     // SWP_Issuer
     if (this.position === 'Job_rep') {
-      this.disable = true;
+      this.Job_rep_disable = false;
+      this.SWP_Issuer_disable = true;
      
     } else if (this.position === 'SWP_Issuer') {
-      this.disable = false;
+      this.Job_rep_disable = true;
+      this.SWP_Issuer_disable = false;
+      
      
     }
     else{
-      this.disable = false;
+      this.Job_rep_disable = true;
+      this.SWP_Issuer_disable = true;
     }
     this.formInitialization()
     this.signatureImage1 = "../../../assets/img/sign.png";
