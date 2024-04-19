@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-swapapproval',
@@ -7,26 +7,43 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./swapapproval.component.css']
 })
 export class SwapapprovalComponent implements OnInit {
-  yesColor: string = ''; // Color for 'Yes' button
-  noColor: string = ''; // Color for 'No' button
-  currentDateAndTime: string = ''; // Current date and time
-  
+  formattedDate: string;
+  formattedTime: string;
+  agreementForm: FormGroup;
+  allChecked: boolean = false;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    // Call the function to set the current date and time when the component initializes
-    this.setCurrentDateAndTime();
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    const day = currentDate.getDate().toString().padStart(2, '0');
+    const hours = currentDate.getHours().toString().padStart(2, '0');
+    const minutes = currentDate.getMinutes().toString().padStart(2, '0');
+    const seconds = currentDate.getSeconds().toString().padStart(2, '0');
+  
+    this.formattedDate = `${year}-${month}-${day}`;
+    this.formattedTime = `${hours}:${minutes}:${seconds}`;
+  
+
+    this.agreementForm = this.formBuilder.group({
+      scopeOfWork: false,
+      hazards: false,
+      ppeRequirements: false,
+      necessarySkills: false,
+      emergencyKnowledge: false,
+      impactOfWork: false
+    });
+
+    this.agreementForm.valueChanges.subscribe(() => {
+      this.allChecked = this.allCheckboxesChecked();
+      console.log('All checkboxes checked:', this.allChecked);
+    });
   }
 
-  // Function to set the current date and time
-  setCurrentDateAndTime(): void {
-    const currentDate = new Date();
-    // Format the date as needed (e.g., DD/MM/YYYY)
-    const formattedDate = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`;
-    // Format the time as needed (e.g., HH:MM:SS)
-    const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
-    // Combine date and time
-    this.currentDateAndTime = `${formattedDate} ${formattedTime}`;
+  allCheckboxesChecked(): boolean {
+    const formValues = this.agreementForm.value;
+    return Object.values(formValues).every(value => value === true);
   }
 }

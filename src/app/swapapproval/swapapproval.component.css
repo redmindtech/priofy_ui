@@ -14,10 +14,10 @@
   border-width: thick;
   border-style: double;
   margin: 50%;
-  border-radius: 3%;
+  border-radius: 2%;
   width: 94%;
-  align-items: center;/* Adjust width as needed */
-  margin: auto; /* Center the card */
+  align-items: center;
+  margin: auto; 
   padding: 20px;
 }
 
@@ -148,6 +148,7 @@ height: 25px;
 .signature-section,
 .employee-number-section,
 .date-time-section {
+
   display: flex;
   /* Use flexbox for horizontal alignment */
   flex-direction: column;
@@ -157,13 +158,12 @@ height: 25px;
 .signature-section label,
 .employee-number-section label,
 .date-time-section label {
-  font-size: 16px;
+  font-size: 14px;
   /* Font size for labels */
   margin-bottom: 5px;
   /* Add margin below labels */
 }
 
-.signature-box,
 .employee-number-box,
 .date-time-box-type {
   display: block;
@@ -244,7 +244,10 @@ mat-expansion-panel-header,
 mat-card,
 .row {
   font-family: 'Montserrat', sans-serif;
+  justify-content: space-evenly;
 }
+
+
 
 /* Additional styling for date-time-box */
 .date-time-box {
@@ -252,7 +255,6 @@ mat-card,
   font-size: 16px;
   /* Font size for the text inside the box */
 }
-
 /* Additional styling for date-time-input and date-time-picker-button */
 .date-time-input {
   position: relative;
@@ -282,3 +284,40 @@ h5{
   font-family: 'Montserrat', sans-serif;
 }
 
+.agree-button {
+  display: block;
+  margin: 0 auto; /* Center the button horizontally */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #147737;
+  color: #fff;
+  font-size: 16px;
+  position: static;
+}
+
+.agree-button[disabled] {
+  background-color: #ccc; /* Change color to grey when disabled */
+  cursor: not-allowed; /* Change cursor to not-allowed when disabled */
+}
+
+.signature-section,
+.employee-number-section,
+.date-time-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start of the container */
+}
+
+.signature-section label,
+.employee-number-section label,
+.date-time-section label {
+  margin-bottom: 5px;
+}
+
+.signature-box,
+.employee-number-box,
+.date-time-box-type {
+  width: 100%; /* Set width to 100% to fill the container */
+}

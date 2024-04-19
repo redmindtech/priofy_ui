@@ -1,148 +1,113 @@
+<form [formGroup]="agreementForm">
 <mat-accordion>
-
-  <mat-expansion-panel class="mat_expansion_border"  [expanded]="false" >
+  <mat-expansion-panel class="mat_expansion_border"  [expanded]="false" [disabled]="false">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
-        <h5 style="margin-right: 1150px;display: contents; color:rgb(115, 182, 158)"><strong>Stage #3 : Safe Work Permit </strong></h5>
+        <h5 style="margin-right: 1150px;display: contents; color:rgb(115, 182, 158)"><strong>Stage #3 :Safe Work Permit </strong></h5>
       </div>
       <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
+
     <div class="mat">
+      <div class="form-section">
+    <div class="mat-box">
     <div></div>
     <table>
       <thead>
         <tr class="heading">
-          <th>Safe Work Permit</th>
-          <th>Action</th>
+          <th style="height: 50px;">Safe Work Permit</th>
+          <th style="width: 170px;">Action</th>
 
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>I understand the scope of work under this permit.</td>
-          <td>
-            <input type="radio" class="custom-radio" id="oot_high_pressure-done" name="oot_high_pressure"
-            value="Yes" formControlName="oot_high_pressure"  />
-          <label for="oot_high_pressure-done" class="action">Yes</label>
-
-          <input type="radio" class="custom-radio" id="oot_high_pressure-risk" name="oot_high_pressure"
-            value="No" formControlName="oot_high_pressure"/>
-          <label for="oot_high_pressure-risk" class="action">No</label>
+          <td >
+            <input type="checkbox" class="check-box" id="scopeOfWork" style="width: 170px;" formControlName="scopeOfWork" />
             
           </td>
         </tr>
         <tr>
-          <td>Statement - Hardcoded</td>
-          <td>
-            <div class="button-group">
-              <input type="radio" class="custom-radio" id="oot_downstream_1_drains-done"
-              name="oot_downstream_1_drains" value="Yes" formControlName="oot_downstream_1_drains" />
-            <label for="oot_downstream_1_drains-done" class="action">Yes</label>
-
-            <input type="radio" class="custom-radio" id="oot_downstream_1_drains-risk"
-              name="oot_downstream_1_drains" value="No" formControlName="oot_downstream_1_drains"/>
-            <label for="oot_downstream_1_drains-risk" class="action">No</label>
-
-              </div>
+          <td>I understand the hazards of the area, equipment & work and the safeguards in place.</td>
+          <td >
+            <input type="checkbox" class="check-box" id="hazards" style="width: 170px;" formControlName="hazards" />
           </td>
         </tr>
         <tr>
           <td>I understand and follow PPE requirements.</td>
-          <td>
-            <input type="radio" class="custom-radio" id="oot_bypass-done" name="oot_bypass" value="Yes"
-            formControlName="oot_bypass"/>
-          <label for="oot_bypass-done" class="action">Yes</label>
-
-          <input type="radio" class="custom-radio" id="oot_bypass-risk" name="oot_bypass" value="No"
-            formControlName="oot_bypass"/>
-          <label for="oot_bypass-risk" class="action">No</label>
+          <td >
+            <input type="checkbox" class="check-box" id="ppeRequirements"  style="width: 170px;" formControlName="ppeRequirements" />
           </td>
         </tr>
         <tr>
-          <td>I have the necessary skills, training & knowledge to do the job.</td>
+          <td>I have the necessary skills, training & knowledge to do the permitted work safely.</td>
           <td>
-            <div class="button-group">
-              <input type="radio" class="custom-radio" id="oot_inlet_vents-done" name="oot_inlet_vents" value="Yes"
-                    formControlName="oot_inlet_vents"/>
-                  <label for="oot_inlet_vents-done" class="action">Yes</label>
-
-                  <input type="radio" class="custom-radio" id="oot_inlet_vents-risk" name="oot_inlet_vents" value="No"
-                    formControlName="oot_inlet_vents"/>
-                  <label for="oot_inlet_vents-risk" class="action">No</label>
-              </div>
+            <input type="checkbox" class="check-box" id="necessarySkills"   style="width: 170px;" formControlName="necessarySkills" />
           </td>
         </tr>
         <tr>
-
-          <td>Know the emergency alarms, assembly points, location and evacuation procedures.</td>
-          <td>
-            <div class="button-group">
-              <input type="radio" class="custom-radio" id="oot_outlet_drains-done" name="oot_outlet_drains"
-                    value="Yes" formControlName="oot_outlet_drains"/>
-                  <label for="oot_outlet_drains-done" class="action">Yes</label>
-
-                  <input type="radio" class="custom-radio" id="oot_outlet_drains-risk" name="oot_outlet_drains"
-                    value="No" formControlName="oot_outlet_drains"/>
-                  <label for="oot_outlet_drains-risk" class="action">No</label>
-
-              </div>
+          <td>Know the emergency alarms, assembly points, location and usage of emergency equipment.</td>
+          <td >
+            <input type="checkbox" class="check-box" id="emergencyKnowledge" style="width: 170px;" formControlName="emergencyKnowledge" />
           </td>
         </tr>
         <tr class="">
-          <td>I know the scope of other work that could impact this work.</td>
+          <td>I know the scope of other work that could impact this.</td>
           <td>
-            <div class="button-group">
-              <input type="radio" class="custom-radio" id="oot_stream_drum_inlet_check-done"
-              name="oot_stream_drum_inlet_check" value="Yes" formControlName="oot_stream_drum_inlet_check"
-             />
-            <label for="oot_stream_drum_inlet_check-done" class="action">Yes</label>
-
-            <input type="radio" class="custom-radio" id="oot_stream_drum_inlet_check-risk"
-              name="oot_stream_drum_inlet_check" value="No" formControlName="oot_stream_drum_inlet_check"
-             />
-            <label for="oot_stream_drum_inlet_check-risk" class="action">No</label>
-              
-              </div>
+            <input type="checkbox" class="check-box" id="impactOfWork"  style="width: 170px; align-items: center;" formControlName="impactOfWork" />
           </td>
         </tr>
       </tbody>
     </table>
-    <div class="form-section">
-        <!-- Signature section -->
-        <div class="signature-section">
+      <!-- Signature section -->
+      <div class="row" style="  margin-top: 20px;">
+        <div class="cols-4">
           <label>Signature:</label>
           <div class="signature-box">
-            <!-- Add a box for signature -->
+            <button mat-raised-button style="background-color: #147737; color: white; margin-top: 1%;" (click)="signatureImage.style.display = (signatureImage.style.display === 'none' ? 'block' : 'none')">Signature</button>
+            <img #signatureImage src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
+          </div>
+        </div>
+        <div class="cols-4em">
+          <label>Employee Number:</label>
+          <div>
+            <input type="text" class="employee-number-box" formControlName="employeeNumber" />
+          </div>
+        </div>
+        
+
+        <div class="cols-4dt">
+          <label class="label" for="date">Date</label>
+          <div class="row">
+            <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate"></div>
           </div>
         </div>
 
-  <div class="employee-number-section">
-    <label>Employee Number:</label>
-    <div class="employee-number-box">
-      <!-- Add a box for employee number -->
-    </div>
-  </div>
+        <div class="cols-4dt">
+          <label class="label" for="time" style="margin-left: 40px;">Time</label>
+          <div class="row">
+            <div class="col" style="margin-left: 40px;"><input type="time" class="form-control" id="time" [value]="formattedTime"></div>
+          </div>
+        </div>
 
-    <div class="date-time-section">
-    <label>Date & Time:</label>
-    <div class="date-time-box">
-      <input class="date-time-box-type" type="text" [(ngModel)]="currentDateAndTime" readonly>
+      </div>
+      <button type="button" style="  margin-top: 20px;"  class="agree-button" [disabled]="!allCheckboxesChecked()">Agree</button>
     </div>
   </div>
-</div>
-    </div>
     <div class="empty"></div>
-    <div class="mat">
+    <div class="form-section">
+    <div class="mat-box">
       <table>
         <thead>
           <tr class="heading">
-            <th>Safe Work Permit</th>
+            <th style="height: 50px;">Safe Work Permit</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>All people working under this SWP have the necessary.</td>
+            <td>All people working under this SWP have the necessary training and skills to perform the permitted work including the use of special PPE, if any</td>
             <td>
               <div class="button-group">
               <input type="radio" class="custom-radio" id="oot_high_pressures-done" name="oot_high_pressures"
@@ -156,7 +121,7 @@
             </td>
           </tr>
           <tr>
-            <td>All people working under this SWP know the location </td>
+            <td>All people working under this SWP know the location of assembly points, emergency equip. & nearest EB/SS?</td>
             <td>
               <div class="button-group">
                 <input type="radio" class="custom-radio" id="oot_downstream_1_drain-done"
@@ -171,7 +136,7 @@
             </td>
           </tr>
           <tr>
-            <td>Equipment to be worked on has been properly prepare.</td>
+            <td>Equipment to be worked on has been properly prepared, identified and is ready to work on?</td>
             <td>
               <div class="button-group">
               <input type="radio" class="custom-radio" id="oot_bypasss-done" name="oot_bypasss" value="Yes"
@@ -185,7 +150,7 @@
             </td>
           </tr>
           <tr>
-            <td>Scope of boundaries of any other work in the area that.</td>
+            <td>Scope of boundaries of any other work in the area that could affect this permitted work has been reviewed and understood?</td>
             <td>
               <div class="button-group">
                 <input type="radio" class="custom-radio" id="oot_inlet_ventss-done" name="oot_inlet_ventss" value="Yes"
@@ -200,32 +165,44 @@
           </tr>
         </tbody>
       </table>
-      <div class="form-section">
+   
           <!-- Signature section -->
-          <div class="signature-section">
-            <label>Signature:</label>
-            <div class="signature-box">
-              <!-- Add a box for signature -->
+          <div class="row" style="  margin-top: 20px;">
+            <div class="cols-4">
+              <label>Signature:</label>
+              <div class="signature-box">
+                <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Signature</button>
+                <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
+              </div>
+            </div>
+    
+            <div class="cols-4em">
+              <label>Employee Number:</label>
+              <div>
+                <input type="text" class="employee-number-box" formControlName="employeeNumber" />
+              </div>
+            </div>
+    
+            <div class="cols-4dt">
+              <label class="label" for="date">Date</label>
+              <div class="row">
+                <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate"></div>
+              </div>
+            </div>
+    
+            <div class="cols-4dt">
+              <label class="label" for="time" style="margin-left: 40px;">Time</label>
+              <div class="row">
+                <div class="col" style="margin-left: 40px;"><input type="time" class="form-control" id="time" [value]="formattedTime"></div>
+              </div>
             </div>
           </div>
-  
-    <div class="employee-number-section">
-      <label>Employee Number:</label>
-      <div class="employee-number-box">
-        <!-- Add a box for employee number -->
-      </div>
-    </div>
-  
-      <div class="date-time-section">
-      <label>Date & Time:</label>
-      <div class="date-time-box">
-        <input class="date-time-box-type" type="text" [(ngModel)]="currentDateAndTime" readonly>
-      </div>
-    </div>
   </div>
       </div>
+    </div>
   </mat-expansion-panel>
 </mat-accordion>
+</form>
 <br>
 <app-swpcloseout></app-swpcloseout>
 
