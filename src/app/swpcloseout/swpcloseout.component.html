@@ -11,11 +11,11 @@
     <mat-card-content>
       <!-- <h6 style="margin-left: 30%;"><strong>PROCEDURE CHECKLIST #A ESTABLISH STEAM DRUM LEVEL</strong></h6> -->
       <form [formGroup]="swpcloseout">
-        <mat-card class=mat1>
+        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_rep' }">
           <mat-card-content>        
             <table>
               <thead>
-                <th class="theader">Safe Work Permit Close-Out </th>
+                <th class="theader">Safe Work Permit - Close-Out </th>
                 <th class="theader" style="width: 29%; text-align: left; padding-left: 85px;">Action</th>
               </thead>              
               <tr>
@@ -84,7 +84,7 @@
           </mat-card-content>
         </mat-card>
         <br>
-        <mat-card class=mat1>
+        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_rep' }" >
           <mat-card-content>
             <div class="row">
               <div class="col-sm-3">
@@ -127,10 +127,16 @@
               </div>
 
             </div>
+            <br>
+            <div class="row">
+              <div class="col text-center">
+                  <button mat-raised-button style="background-color: #147737; color: white; margin: 0 auto;">save</button>
+              </div>
+          </div>
           </mat-card-content>
         </mat-card>
         <br>
-        <mat-card class=mat1>
+        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'SWP_Issuer' }">
           <mat-card-content>         
             <div class="row">
               <div class="col-sm-3">
@@ -167,13 +173,19 @@
                 </div>
               </div>
             </div>
+            <br>
+            <div class="row">
+              <div class="col text-center">
+                  <button mat-raised-button style="background-color: #147737; color: white; margin: 0 auto;">save</button>
+              </div>
+          </div>
           </mat-card-content>
         </mat-card>
         <br>
-        <mat-card class=mat1>
+        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_rep' }">
           <mat-card-content>         
             <table>
-            <th class="theader"  style="width: 100%; text-align: center; ">Work Completion </th>
+            <th class="theader"  style="width: 100%; text-align: center; ">Master Card - Work Completion </th>
             </table>      
             <div class="row">
               <div class="col-sm-3">
@@ -217,10 +229,11 @@
                 </div>
               </div>
             </div>
+           
           </mat-card-content>
         </mat-card>
         <br>
-        <mat-card class=mat1>
+        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_rep' }">
           <mat-card-content>         
             <div class="row">
               <div class="col-sm-6">
@@ -270,10 +283,11 @@
                 </div>
               </div>
             </div>
+            
           </mat-card-content>
         </mat-card>
         <br>
-        <mat-card class=mat1>
+        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_rep' }">
           <mat-card-content>         
             <div class="row">           
               <div class="col-sm-3">
@@ -315,13 +329,19 @@
                 </div>
               </div>
             </div>
+            <br>
+            <div class="row">
+              <div class="col text-center">
+                  <button mat-raised-button style="background-color: #147737; color: white; margin: 0 auto;">save</button>
+              </div>
+          </div>
           </mat-card-content>
         </mat-card>
         <br>
-        <mat-card class=mat1>
+        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
           <mat-card-content>
             <table>
-              <th class="theader"  style="width: 100%; text-align: center; ">Work Completion </th>
+              <th class="theader"  style="width: 100%; text-align: center; ">Master Card - Work Completion Check & Equipment RFS</th>
               </table>   
             <div class="row">
               <div class="col-sm-3" >
@@ -367,7 +387,7 @@
           </mat-card-content>
         </mat-card>
         <br>
-        <mat-card class=mat1>
+        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
           <mat-card-content>         
             <div class="row">           
               <div class="col-sm-4">
@@ -436,6 +456,18 @@
           </mat-card-content>
         </mat-card>
       </form>
+      <div >
+        <br>
+        <div class="row">
+          <div class="col text-center">
+              <button mat-raised-button style="background-color: #147737; color: white; margin: 0 auto;">save</button>
+          </div>
+      </div>
+      
+      
+       
+      
+      </div>
     </mat-card-content>
   </mat-card>
 </mat-expansion-panel>

@@ -52,7 +52,7 @@ export class PacdashboardComponent implements OnInit {
 
 addItem(){
   
-  this.router.navigate(['/main/swaprequest'] );
+  this.router.navigate(['/main/swptable'] );
   
 }
   addItem1(){
