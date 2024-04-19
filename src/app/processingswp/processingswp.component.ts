@@ -26,15 +26,15 @@ export class ProcessingswpComponent implements OnInit {
   ngOnInit(): void {
     const storedUser = localStorage.getItem('currentUser');
      this.currentUser = storedUser ? JSON.parse(storedUser) : null;
-     this.position='Facility_rep';
+     this.position=this.currentUser.position;
     const currentDate = new Date();
 
 // Format the date as needed (e.g., DD/MM/YYYY)
-this.formattedDate = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`;
+this.formattedDate = new Date().toISOString().split('T')[0]; 
 
 
 // Format the time as needed (e.g., HH:MM:SS)
-this.formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+this.formattedTime = new Date().toTimeString().split(' ')[0];
 
 
 // Combine date and time
@@ -104,7 +104,8 @@ this.formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${cu
       job_facility_representative_name:[''],
       job_facility_representative_employee_number:[''],
       job_facility_representative_employee_number_sign:[''],
-      date_and_time:['']
+      date:[this.formattedDate],
+      time:[this.formattedTime],
   })
   }
   
