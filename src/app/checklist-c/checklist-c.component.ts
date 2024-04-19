@@ -300,6 +300,27 @@ add() {
       console.log("Response or response.result is null or undefined.");
       // Handle the error or notify the user accordingly
     }
+    if (response && response.result) {
+      this.skipcolor = response.result;
+      
+   
+    
+      Object.entries(this.skipcolor).forEach(([key, value]) => {
+        if (value === 'accept'|| value==='reject') {
+         
+
+            this.colour = (key);
+            console.log('this.colour: ', this.colour);
+            this.clrvalue=(value);
+            console.log('this.clrvalue: ', this.clrvalue);
+        }
+    });
+    
+      
+    } else {
+      console.log("Response or response.result is null or undefined.");
+      // Handle the error or notify the user accordingly
+    }
   });
 }
 

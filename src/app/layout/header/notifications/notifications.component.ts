@@ -77,11 +77,12 @@ export class NotificationsComponent implements OnInit, OnDestroy {
       }
           
       } else {
-          this.notificationB();
+        console.log("hh");
+          
       }
     
   });
-  
+  this.notificationB();
 };
 
   notificationB(){
@@ -118,10 +119,11 @@ export class NotificationsComponent implements OnInit, OnDestroy {
             
            }
            else{
-            this.notificationC();
+            
            }
       }
     });
+    this.notificationC();
   }
 
   notificationC(){
@@ -158,10 +160,11 @@ export class NotificationsComponent implements OnInit, OnDestroy {
             
            }
            else{
-            this.notificationD();
+            
            }
       }
     });
+    this.notificationD();
   }
 
   notificationD(){
@@ -198,10 +201,11 @@ export class NotificationsComponent implements OnInit, OnDestroy {
             
            }
            else{
-            this.notificationE();
+            
            }
       }
     });
+    this.notificationE();
   }
 
   notificationE(){
@@ -238,10 +242,11 @@ export class NotificationsComponent implements OnInit, OnDestroy {
             
            }
            else{
-            this.notificationF();
+            
            }
       }
     });
+    this.notificationF();
   }
 
   notificationF(){
