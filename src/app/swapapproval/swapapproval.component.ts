@@ -30,6 +30,10 @@ export class SwapapprovalComponent implements OnInit {
   
 
     this.agreementForm = this.formBuilder.group({
+      people_training: [''],
+      location_known: [''],
+      equipment_prepared: [''],
+      boundaries_reviewed: [''],
       scopeOfWork: false,
       hazards: false,
       ppeRequirements: false,
