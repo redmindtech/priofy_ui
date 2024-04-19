@@ -9,10 +9,29 @@ import { FormBuilder, FormGroup,FormControl, Validators } from '@angular/forms';
 export class SwpcloseoutComponent implements OnInit {
   swpcloseout: FormGroup;
   signatureImage: string;
-  signatureImage1:string
+  signatureImage1:string;
+  userDetails: any;
+  userObject: any;
+  position: any;
+  disable:any;
   constructor( private formBuilder: FormBuilder,) { }
 
   ngOnInit(): void {
+    this.userDetails = localStorage.getItem('currentUser');
+    this.userObject = JSON.parse(this.userDetails);
+    this.position = this.userObject.position;
+    console.log(this.position)
+    // SWP_Issuer
+    if (this.position === 'Job_rep') {
+      this.disable = true;
+     
+    } else if (this.position === 'SWP_Issuer') {
+      this.disable = false;
+     
+    }
+    else{
+      this.disable = false;
+    }
     this.formInitialization()
     this.signatureImage1 = "../../../assets/img/sign.png";
   }

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ShowAdminDetailsComponent } from '@app/Show-admin-details/show-admin-details.component';
 import { MatSort } from '@angular/material/sort';
+import { Router } from '@angular/router';
 declare var $: any;
 
 @Component({
@@ -21,7 +22,7 @@ export class SwptableComponent implements OnInit {
   showColumnVisibilityDropdown: boolean = false;
   tableData:any[]=[];
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,private router: Router) { }
 
   ngOnInit(): void {
     this.tableData = [
@@ -119,20 +120,9 @@ export class SwptableComponent implements OnInit {
     });
   }
   
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ShowAdminDetailsComponent, {
-      width: '80%',
-      height: '75%',
-      position: {
-        right: '80px', 
-        // Positioning the dialog to the right
-      },
-      data: { listData: this.listData }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+  openDialog(){
+    
+    this.router.navigate(['/main/swaprequest'] );
   }
 
   downloadCSV() {

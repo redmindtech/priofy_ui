@@ -40,7 +40,7 @@
         </div>
       </div>
       
-    <button type="button" class="btn btn-primary createbutton ml-auto" (click)="openDialog()">Create Procedure Initialization</button>
+    <button type="button" class="btn btn-primary createbutton ml-auto" (click)="openDialog()">Create Safe Work Permit</button>
   <!-- <h3 class="card-title">DataTable with default features</h3> -->
   </div>
   <div class="collectivebuttons-edv">
@@ -49,19 +49,7 @@
       <!-- Existing buttons -->
     </div>
   
-    <!-- New buttons -->
-    <div class="dt-buttons btn-group flex-wrap">
-      <button class="btn btn-secondary edit" tabindex="0" aria-controls="example1" type="button">
-        <span>Edit</span>
-      </button>
-      <button class="btn btn-secondary delete" tabindex="0" aria-controls="example1" type="button">
-        <span>Delete</span>
-      </button>
-      <button class="btn btn-secondary view" tabindex="0" aria-controls="example1" type="button">
-        <span>View</span>
-      </button>
-    </div>
-  </div>
+  
 
   
   <div class="card-body">
@@ -74,6 +62,10 @@
     <th (click)="sortData('work_location')" data-column="work_location">Work Location <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'work_location'}"></i></th>
     <th (click)="sortData('start_date')" data-column="start_date">Start Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'start_date'}"></i></th>
     <th (click)="sortData('end_date')" data-column="end_date">End Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'end_date'}"></i></th>
+
+    <th  >Edit</th>
+    <th  >View</th>
+    <th >Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -85,6 +77,10 @@
     <td>{{ row.work_location }}</td>
     <td>{{ row.start_date }}</td>
     <td>{{ row.end_date }}</td>
+    <td><i class="fas fa-edit" style="color: blue;"></i></td> <!-- Edit icon color -->
+    <td><i class="fas fa-eye" style="color: green;"></i></td> <!-- View icon color -->
+    <td><i class="fas fa-trash-alt" style="color: red;"></i></td> <!-- Delete icon color -->
+  
   </tr>
   </table>
   </div>
