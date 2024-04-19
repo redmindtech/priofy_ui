@@ -116,8 +116,13 @@
     <td>All people working under this SWP have the necessary training and skills to perform the permitted work including the use of special PPE, if any</td>
     <td>
       <div class="button-group" >
-        <input type="radio" class="custom-radio" id="people_training_done" name="people_training" value="Yes" formControlName="people_training">
-        <input type="radio" class="custom-radio" id="people_training_risk" name="people_training" value="No" formControlName="people_training">        
+        <input type="radio" class="custom-radio" id="people_training_done" name="people_training"
+        value="Yes" formControlName="people_training" />
+      <label for="people_training_done" class="action">Yes</label>
+
+      <input type="radio" class="custom-radio" id="people_training_risk" name="people_training"
+        value="No" formControlName="people_training" />
+      <label for="people_training_risk" class="action">No</label>        
       </div>
     </td>
   </tr>
