@@ -3,11 +3,11 @@
 
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row" >
-        <h5 style="margin-right: 1150px;display: contents; color:rgb(115, 182, 158)"><strong >Stage #1:Safe Work Permit Request </strong> </h5>
+        <h5 style="margin-right: 1150px;display: contents; color:rgb(115, 182, 158)"><strong >Stage #1 : Safe Work Permit Request </strong> </h5>
       </div>
       <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
-    <mat-card class= mat>
+    <mat-card class= mat [ngClass]="{ 'position-row': position !== 'SWP_Issuer' }">
       <mat-card class= mat1>
       <mat-card-content>
 
@@ -17,27 +17,27 @@
           <div class="form-row">
             <br>
             <div class="col-md-3">
-              <div class="form-group">
+              <div class="form-group1">
                 <label >Start Date</label>
-                <input type="text" id="star_tDate"  class="form-control" formControlName="start_Date" >
+                <input type="text" id="startDate"  class="form-control" formControlName="startDate" value="{{ formattedDate}}">
               </div>
             </div>
             <div class="col-md-3">
-              <div class="form-group">
+              <div class="form-group1">
                 <label >Start Time</label>
-                <input id="start_Time" type="text" class="form-control" formControlName="start_Time" >
+                <input id="startTime" type="text" class="form-control" formControlName="startTime"value="{{ formattedTime }}" >
               </div>
             </div>
             <div class="col-md-3">
-              <div class="form-group">
+              <div class="form-group1">
                 <label >End Date</label>
-                <input id="end_Date" type="text" class="form-control" formControlName="end_Date" >
+                <input id="endDate" type="text" class="form-control" formControlName="endDate" value="{{ formattedDate }}">
               </div>
             </div>
             <div class="col-md-3">
-              <div class="form-group">
+              <div class="form-group1">
                 <label >End Time</label>
-                <input id="end_Time" type="text" class="form-control" formControlName="end_Time" >
+                <input id="endTime" type="text" class="form-control" formControlName="endTime"value="{{ formattedTime }}">
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="workDescription">Work Description</label>
-                <textarea id="workDescription" rows="4" class="form-control" formControlName="workDescription"></textarea>
+                <textarea id="workDescription" rows="4" class="form-control" formControlName="workDescription" placeholder="Enter Work Description" ></textarea>
               </div>
             </div>
           </div>
@@ -130,12 +130,12 @@
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
-          <h5>Scope</h5>
+          <h3 style="text-align:center;font-weight: bold ;">Scope</h3>
         </div>
         </div>
           <div class="col-md-6">
           <div class="form-group">
-        <h5 >Tools</h5>
+        <h3 style="text-align:center;font-weight: bold ;">Tools</h3>
        </div>
       </div>
       </div>
@@ -143,7 +143,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="Jobscope">Job Scope</label>
-              <textarea id="Jobscope" rows="4" class="form-control" formControlName="Jobscope"></textarea>
+              <textarea id="Jobscope" rows="4" class="form-control" formControlName="Jobscope"  placeholder="Enter Job Scope" ></textarea>
             </div>
           </div>
 
@@ -175,7 +175,7 @@
             <h4 class="header">Safety Equipment Requirement</h4>
             <br>
             <div class="form-row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
                   <label for="clothing">Clothing</label>
 
@@ -192,7 +192,7 @@
                 </div> -->
               </div>
               </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="form-group">
                     <label for="fhprotection">Face/Head Protection</label>
 
@@ -202,6 +202,19 @@
                       <mat-option *ngFor="let protect of headprotect" [value]="protect">{{ protect}}</mat-option>
                     </mat-select>
                   </mat-form-field>
+                  </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="respirator">Respiratory</label>
+  
+                      <mat-form-field>
+  
+                        <mat-select class="select-wrapper1"  formControlName="Respiratory" multiple>
+                        <mat-option *ngFor="let respirator of respir" [value]="respirator">{{respirator}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  
                     <!-- <div class="select-wrapper" [class.expanded]="expandedDropdownId==='fhprotection'"  (click)="toggleSelectExpand('fhprotection')">
                     <select id="fhprotection" multiple class="form-control" formControlName="fhprotection">
                       <option value="mesh" >Mesh</option>
@@ -211,24 +224,13 @@
                   </div> -->
                 </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="respirator">Respiratory</label>
-
-                    <mat-form-field>
-
-                      <mat-select class="select-wrapper1"  formControlName="Respiratory" multiple>
-                      <mat-option *ngFor="let respirator of respir" [value]="respirator">{{respirator}}</mat-option>
-                    </mat-select>
-                  </mat-form-field>
                     <!-- <div class="select-wrapper" [class.expanded]="expandedDropdownId==='respirator'"  (click)="toggleSelectExpand('respirator')">
                     <select id="respirator" multiple class="form-control" formControlName="respirator">
                       <option value="mesh" >Foldable Basic Respiratory'</option>
                     </select>
                   </div> -->
-                </div>
-                </div>
-                <div class="col-md-6">
+                
+                <div class="col-md-4">
                 <div class="form-group">
                   <label for="footleg">Foot/Leg Protection</label>
 
@@ -245,7 +247,7 @@
                 </div> -->
               </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
                   <label for="ear">Hearing Protection</label>
 
@@ -262,7 +264,7 @@
                 </div> -->
               </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
                   <label for="eyeprotect">Eye Protection</label>
                   <mat-form-field>
@@ -278,29 +280,30 @@
                 </div> -->
               </div>
               </div>
+              
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="Ergonomics">Ergonomics</label>
-                  <textarea id="Ergonomics" rows="4" class="form-control" formControlName="Ergonomics"></textarea>
+                  <textarea id="Ergonomics" rows="4" class="form-control" formControlName="Ergonomics"  placeholder="Enter Ergonomics"></textarea>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="Heatstress">Heat Stress</label>
-                  <textarea id="Heatstress" rows="4" class="form-control" formControlName="Heatstress"></textarea>
+                  <textarea id="Heatstress" rows="4" class="form-control" formControlName="Heatstress" placeholder="Enter heat stress"></textarea>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="Elevated">Elevated Work</label>
-                  <textarea id="Elevated" rows="4" class="form-control" formControlName="Elevated"></textarea>
+                  <textarea id="Elevated" rows="4" class="form-control" formControlName="Elevated"placeholder="Enter Elevated Work"></textarea>
                 </div>
               </div>
 
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="Others">Others</label>
-                  <textarea id="Others" rows="4" class="form-control" formControlName="Others"></textarea>
+                  <textarea id="Others" rows="4" class="form-control" formControlName="Others"placeholder="Enter others specify"></textarea>
                 </div>
               </div>
             </div>
@@ -318,6 +321,13 @@
                </form>
       </mat-card-content>
     </mat-card>
+    <mat-accordion>
+      <!-- Your existing code for the accordion goes here -->
+    </mat-accordion>
+
+  <div class="save-button-container">
+    <button mat-raised-button style="background-color: #147737; color: white; margin: 0 auto;" (click)="saveForm()">Save</button>
+    </div>
     </mat-card>
   </mat-expansion-panel>
 </mat-accordion>

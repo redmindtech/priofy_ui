@@ -26,40 +26,40 @@
 
 <div class="col">
   <label class="label" for="preparations">Preparations And Tests</label>
-  <textarea type="text" class="form-control" rows="3"   id="preparations" placeholder="Please Enter preparations" formControlName="preparations_and_test"></textarea>
+  <textarea type="text" class="form-control" rows="3"   id="preparations" placeholder="Enter Preparations And Tests" formControlName="preparations_and_test"></textarea>
 </div>
 <div class="col">
   <label class="label" for="house_keeping_instructions">Waste Disposal & House Keeping Instructions</label>
-  <textarea type="text" class="form-control" rows="3"   id="house_keeping_instructions" placeholder="Please Enter Housing Kepping Instruction" formControlName="house_keeping_instructions"></textarea>
+  <textarea type="text" class="form-control" rows="3"   id="house_keeping_instructions" placeholder="Enter Waste Disposal & House Keeping Instructions" formControlName="house_keeping_instructions"></textarea>
 </div>
 </div>
 <div class="row mt-3">
 
   <div class="col">
     <label class="label" for="environmental_concerns">Environmental Concerns & Safeguards</label>
-    <textarea type="text" class="form-control" rows="3"   id="environmental_concerns" placeholder="Please Enter EnvironmentalConcerns&Safeguards " formControlName="environmental_concerns"></textarea>
+    <textarea type="text" class="form-control" rows="3"   id="environmental_concerns" placeholder="Enter Environmental Concerns & Safeguards" formControlName="environmental_concerns"></textarea>
   </div>
   <div class="col">
     <label class="label" for="Physical_Hazards">Physical Hazards</label>
-    <textarea type="text" class="form-control" rows="3"   id="Physical_Hazards" placeholder="Please Enter Physical Hazards" formControlName="Physical_Hazards"></textarea>
+    <textarea type="text" class="form-control" rows="3"   id="Physical_Hazards" placeholder="Enter Physical Hazards" formControlName="Physical_Hazards"></textarea>
   </div>
   </div>
   <div class="row mt-3">
     
     <div class="col">
       <label class="label" for="chemicals_last_contained">Chemicals Last Contained</label>
-      <textarea type="text" class="form-control" rows="3"   id="chemicals_last_contained" placeholder="Please Enter Chemicals Last Contained " formControlName="chemicals_last_contained"></textarea>
+      <textarea type="text" class="form-control" rows="3"   id="chemicals_last_contained" placeholder="Enter Chemicals Last Contained " formControlName="chemicals_last_contained"></textarea>
     </div>
     <div class="col">
       <label class="label" for="inspection_required">Inspection Required During the Job</label>
-      <textarea type="text" class="form-control" rows="3"   id="inspection_required" placeholder="Please Enter Inspection_Required" formControlName="inspection_required"></textarea>
+      <textarea type="text" class="form-control" rows="3"   id="inspection_required" placeholder="Enter Inspection Required During the Job" formControlName="inspection_required"></textarea>
     </div>
     </div>
     <div class="row mt-3">
       
       <div class="col">
         <label class="label" for="checklists_Attachments_Required">Checklists / Attachments Required</label>
-        <textarea type="text" class="form-control" rows="3"   id="checklists_Attachments_Required" placeholder="Please Enter Checklists/Attachments Required" formControlName="checklists_Attachments_Required"></textarea>
+        <textarea type="text" class="form-control" rows="3"   id="checklists_Attachments_Required" placeholder="Enter Checklists/Attachments Required" formControlName="checklists_Attachments_Required"></textarea>
       </div>
       <div class="col">
         <label class="label" for="conditions_set_by">Conditions Set By</label>
@@ -97,7 +97,7 @@
                 <div class="row">
               <div class="col-sm-4">
                 <label class="label" for="red_tag">Total No. of Red Tags</label>
-                <input type="text" class="form-control truncate"  formControlName="red_tag" placeholder="Please Enter Red Tag Number" (focusout)="updateRedTagValue()" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                <input type="text" class="form-control truncate"  formControlName="red_tag" placeholder="Enter Total No. of Red Tags" (focusout)="updateRedTagValue()" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
 
             </div>
             <div class="col-sm-4">
@@ -110,11 +110,11 @@
     <div class="row mt-3">
      <div class="col">
         <label class="label" for="reason_for_work">Reason for work</label>
-        <textarea type="text" class="form-control"   rows="3" id="reason_for_work" placeholder="Please Enter Reason for work" formControlName="reason_for_work"></textarea>
+        <textarea type="text" class="form-control"   rows="3" id="reason_for_work" placeholder="Enter Reason for work" formControlName="reason_for_work"></textarea>
       </div>
       <div class="col">
         <label class="label" for="work_description">Work Description</label>
-        <textarea type="text" class="form-control"   rows="3" id="work_description" placeholder="Please Enter Work Description" formControlName="work_description"></textarea>
+        <textarea type="text" class="form-control"   rows="3" id="work_description" placeholder="Enter Work Description" formControlName="work_description"></textarea>
       </div>
       </div>
       
@@ -139,7 +139,7 @@
               
                     <div class="col-sm-2">
             <label class="label" for="add_tag">Number of added tags</label>
-            <input type="text" class="form-control truncate "  id="add_tag" placeholder="Please Enter Add Tag" formControlName="add_tag" oninput="this.value = this.value.replace(/[^0-9]/g, '');" readonly>
+            <input type="text" class="form-control truncate "  id="add_tag" placeholder="Enter Number of added tags" formControlName="add_tag" oninput="this.value = this.value.replace(/[^0-9]/g, '');" readonly>
           </div>
           <div class="col">
            
@@ -206,26 +206,26 @@
                     <div class="col-sm-4">
                       <label class="label" for="date">Date And Time</label>
                       <div class="row">
-      <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" placeholder="Please Enter Date"></div>
-      <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime"placeholder="Please Enter Time" ></div>
+      <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" placeholder="Enter Date"></div>
+      <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime"placeholder="Enter Time" ></div>
                       </div>
                       </div>
                       <div class="col-sm-4">
                         <label class="label" for="date">Date And Time</label>
                         <div class="row">
-        <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate"placeholder="Please Enter Date" ></div>
-        <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime"placeholder="Please Enter Time" ></div>
+        <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate"placeholder="Enter Date" ></div>
+        <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime"placeholder="Enter Time" ></div>
                         </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="row">
                         <div class="col">
                           <label class="label" for="equipment_id">Equipment ID</label>
-                          <input type="text" class="form-control truncate" id="equipment_id" value="11" placeholder="Please Enter Equipment ID " oninput="this.value = this.value.replace(/[^0-9]/g, '');" >
+                          <input type="text" class="form-control truncate" id="equipment_id" value="11" placeholder="Enter Equipment ID " oninput="this.value = this.value.replace(/[^0-9]/g, '');" >
                         </div>
                         <div class="col">
                           <label class="label" for="scope">Scope</label>
-                          <input type="text" class="form-control truncate" id="scope" value="jk" placeholder="Please Enter Scope" >
+                          <input type="text" class="form-control truncate" id="scope" value="jk" placeholder="Enter Scope" >
                         </div>
                       </div>
                     </div>

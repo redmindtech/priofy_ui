@@ -1,6 +1,4 @@
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"><mat-accordion>
-
-  
+<mat-accordion>
   <mat-expansion-panel class="mat_expansion_border"[expanded]="expand && formdisable === 'Incompleted'"
   [disabled]="( formdisable ==='Completed'? 'true':  (checklistfformenable ? 'true':'false'))">
     <mat-expansion-panel-header class="mat_expansion_header_border" >
@@ -35,8 +33,8 @@
             <input type="radio" class="custom-radio" id="iot_move_furnace_sequence_to_Swing-skip" name="iot_move_furnace_sequence_to_Swing" value="Skip" formControlName="iot_move_furnace_sequence_to_Swing"  (change)="onRadioChange()"/>
             <label for="iot_move_furnace_sequence_to_Swing-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'iot_move_furnace_sequence_to_Swing_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'iot_move_furnace_sequence_to_Swing_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('iot_move_furnace_sequence_to_Swing')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'iot_move_furnace_sequence_to_Swing_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('iot_move_furnace_sequence_to_Swing')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('iot_move_furnace_sequence_to_Swing')?.value === 'Skip'">
@@ -64,8 +62,8 @@
             <input type="radio" class="custom-radio" id="iot_confirm-skip" name="iot_confirm" value="Skip" formControlName="iot_confirm"  (change)="onRadioChangeup()"/>
             <label for="iot_confirm-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'iot_confirm_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'iot_confirm_comment_satus' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('iot_confirm')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'iot_confirm_comment_satus' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('iot_confirm')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('iot_confirm')?.value === 'Skip'">
@@ -94,7 +92,7 @@
             <label for="oot_ALL_BV_of_LS_steam-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'oot_ALL_BV_of_LS_steam_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
                                    (colour === 'oot_ALL_BV_of_LS_steam_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('oot_ALL_BV_of_LS_steam')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (ChecklistF?.get('oot_ALL_BV_of_LS_steam')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('oot_ALL_BV_of_LS_steam')?.value === 'Skip'">
@@ -122,8 +120,8 @@
               <input type="radio" class="custom-radio" id="oot_flare_block-skip" name="oot_flare_block" value="Skip" formControlName="oot_flare_block"  (change)="onRadioChangeup()"/>
               <label for="oot_flare_block-skip"class="action"  [ngStyle]="{
                 'background-color': colour === 'oot_flare_block_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                     (colour === 'oot_flare_block_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                     (ChecklistF?.get('oot_flare_block')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                     (colour === 'oot_flare_block_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                     (ChecklistF?.get('oot_flare_block')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
               }">Skip</label>
 
               <div *ngIf="ChecklistF?.get('oot_flare_block')?.value === 'Skip'">
@@ -149,8 +147,8 @@
             <input type="radio" class="custom-radio" id="oot_IOT_Decoke_Air-skip" name="oot_IOT_Decoke_Air" value="Skip" formControlName="oot_IOT_Decoke_Air"  (change)="onRadioChangeup()"/>
             <label for="oot_IOT_Decoke_Air-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'oot_IOT_Decoke_Air_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'oot_IOT_Decoke_Air_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('oot_IOT_Decoke_Air')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'oot_IOT_Decoke_Air_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('oot_IOT_Decoke_Air')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('oot_IOT_Decoke_Air')?.value === 'Skip'">
@@ -177,8 +175,8 @@
             <input type="radio" class="custom-radio" id="oot_feed_DB_B-skip" name="oot_feed_DB_B" value="Skip" formControlName="oot_feed_DB_B"  (change)="onRadioChangeup()"/>
             <label for="oot_feed_DB_B-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'oot_feed_DB_B_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'oot_feed_DB_B_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('oot_feed_DB_B')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'oot_feed_DB_B_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('oot_feed_DB_B')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('oot_feed_DB_B')?.value === 'Skip'">
@@ -205,8 +203,8 @@
             <input type="radio" class="custom-radio" id="iot_MOVs_status-skip" name="iot_MOVs_status" value="Skip" formControlName="iot_MOVs_status"  (change)="onRadioChangeup()"/>
             <label for="iot_MOVs_status-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'iot_MOVs_status_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'iot_MOVs_status_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('iot_MOVs_status')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'iot_MOVs_status_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('iot_MOVs_status')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('iot_MOVs_status')?.value === 'Skip'">
@@ -233,8 +231,8 @@
             <input type="radio" class="custom-radio" id="oot_MOVs_local_switches-skip" name="oot_MOVs_local_switches" value="Skip" formControlName="oot_MOVs_local_switches"  (change)="onRadioChangeup()"/>
             <label for="oot_MOVs_local_switches-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'oot_MOVs_local_switches_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'oot_MOVs_local_switches_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('oot_MOVs_local_switches')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'oot_MOVs_local_switches_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('oot_MOVs_local_switches')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('oot_MOVs_local_switches')?.value === 'Skip'">
@@ -261,8 +259,8 @@
             <input type="radio" class="custom-radio" id="oot_furnace_is_clear-skip" name="oot_furnace_is_clear" value="Skip" formControlName="oot_furnace_is_clear"  (change)="onRadioChangeup()"/>
             <label for="oot_furnace_is_clear-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'oot_furnace_is_clear_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'oot_furnace_is_clear_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('oot_furnace_is_clear')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'oot_furnace_is_clear_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('oot_furnace_is_clear')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('oot_furnace_is_clear')?.value === 'Skip'">
@@ -289,8 +287,8 @@
             <input type="radio" class="custom-radio" id="iot_Operator_Permissives-skip" name="iot_Operator_Permissives" value="Skip" formControlName="iot_Operator_Permissives"  (change)="onRadioChangeup()"/>
             <label for="iot_Operator_Permissives-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'iot_Operator_Permissives_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'iot_Operator_Permissives_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('iot_Operator_Permissives')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'iot_Operator_Permissives_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('iot_Operator_Permissives')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('iot_Operator_Permissives')?.value === 'Skip'">
@@ -317,8 +315,8 @@
             <input type="radio" class="custom-radio" id="iot_second_CG_MOV-skip" name="iot_second_CG_MOV" value="Skip" formControlName="iot_second_CG_MOV"  (change)="onRadioChangeup()"/>
             <label for="iot_second_CG_MOV-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'iot_second_CG_MOV_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'iot_second_CG_MOV_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('oot_high_pressure')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'iot_second_CG_MOV_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('oot_high_pressure')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('iot_second_CG_MOV')?.value === 'Skip'">
@@ -345,8 +343,8 @@
             <input type="radio" class="custom-radio" id="iot_Decoke_MOV-skip" name="iot_Decoke_MOV" value="Skip" formControlName="iot_Decoke_MOV"  (change)="onRadioChangeup()"/>
             <label for="iot_Decoke_MOV-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'iot_Decoke_MOV_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'iot_Decoke_MOV_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('iot_Decoke_MOV')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'iot_Decoke_MOV_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('iot_Decoke_MOV')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('iot_Decoke_MOV')?.value === 'Skip'">
@@ -373,8 +371,8 @@
             <input type="radio" class="custom-radio" id="iot_higher_pressure-skip" name="iot_higher_pressure" value="Skip" formControlName="iot_higher_pressure"  (change)="onRadioChangeup()"/>
             <label for="iot_higher_pressure-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'iot_higher_pressure_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'iot_higher_pressure_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('iot_higher_pressure')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'iot_higher_pressure_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('iot_higher_pressure')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('iot_higher_pressure')?.value === 'Skip'">
@@ -401,8 +399,8 @@
             <input type="radio" class="custom-radio" id="iot_lower_pressure-skip" name="iot_lower_pressure" value="Skip" formControlName="iot_lower_pressure"  (change)="onRadioChangeup()"/>
             <label for="iot_lower_pressure-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'iot_lower_pressure_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'iot_lower_pressure_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('iot_lower_pressure')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'iot_lower_pressure_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('iot_lower_pressure')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('iot_lower_pressure')?.value === 'Skip'">
@@ -429,8 +427,8 @@
             <input type="radio" class="custom-radio" id="iot_decoke_MOV_closed-skip" name="iot_decoke_MOV_closed" value="Skip" formControlName="iot_decoke_MOV_closed"  (change)="onRadioChangeup()"/>
             <label for="iot_decoke_MOV_closed-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'iot_decoke_MOV_closed_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'iot_decoke_MOV_closed_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('iot_decoke_MOV_closed')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'iot_decoke_MOV_closed_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('iot_decoke_MOV_closed')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('iot_decoke_MOV_closed')?.value === 'Skip'">
@@ -457,8 +455,8 @@
             <input type="radio" class="custom-radio" id="iot_confirm_via_HMI-skip" name="iot_confirm_via_HMI" value="Skip" formControlName="iot_confirm_via_HMI"  (change)="onRadioChangeup()"/>
             <label for="iot_confirm_via_HMI-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'iot_confirm_via_HMI_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'iot_confirm_via_HMI_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('iot_confirm_via_HMI')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'iot_confirm_via_HMI_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('iot_confirm_via_HMI')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('iot_confirm_via_HMI')?.value === 'Skip'">
@@ -485,8 +483,8 @@
             <input type="radio" class="custom-radio" id="iot_HSSB_Crack_Gas_step-skip" name="iot_HSSB_Crack_Gas_step" value="Skip" formControlName="iot_HSSB_Crack_Gas_step"  (change)="onRadioChangeup()"/>
             <label for="iot_HSSB_Crack_Gas_step-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'iot_HSSB_Crack_Gas_step_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'iot_HSSB_Crack_Gas_step_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('iot_HSSB_Crack_Gas_step')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'iot_HSSB_Crack_Gas_step_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('iot_HSSB_Crack_Gas_step')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('iot_HSSB_Crack_Gas_step')?.value === 'Skip'">
@@ -519,8 +517,8 @@
             <input type="radio" class="custom-radio" id="adjust_combustion-skip" name="adjust_combustion" value="Skip" formControlName="adjust_combustion"  (change)="onRadioChangeup()"/>
             <label for="adjust_combustion-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'adjust_combustion_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'adjust_combustion_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('adjust_combustion')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'adjust_combustion_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('adjust_combustion')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('adjust_combustion')?.value === 'Skip'">
@@ -547,8 +545,8 @@
             <input type="radio" class="custom-radio" id="the_top_burners-skip" name="the_top_burners" value="Skip" formControlName="the_top_burners"  (change)="onRadioChangeup()"/>
             <label for="the_top_burners-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'the_top_burners_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'the_top_burners_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('the_top_burners')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'the_top_burners_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('the_top_burners')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('the_top_burners')?.value === 'Skip'">
@@ -575,8 +573,8 @@
             <input type="radio" class="custom-radio" id="increase_IBD_CBD-skip" name="increase_IBD_CBD" value="Skip" formControlName="increase_IBD_CBD"  (change)="onRadioChangeup()"/>
             <label for="increase_IBD_CBD-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'increase_IBD_CBD_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'increase_IBD_CBD_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('increase_IBD_CBD')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'increase_IBD_CBD_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('increase_IBD_CBD')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('increase_IBD_CBD')?.value === 'Skip'">
@@ -605,8 +603,8 @@
             <input type="radio" class="custom-radio" id="continue_with_Furnace-skip" name="continue_with_Furnace" value="Skip" formControlName="continue_with_Furnace"  (change)="onRadioChangeup()"/>
             <label for="continue_with_Furnace-skip"class="action"  [ngStyle]="{
               'background-color': colour === 'continue_with_Furnace_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'continue_with_Furnace_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130);' : 
-                                   (ChecklistF?.get('continue_with_Furnace')?.value === 'Skip' ? 'rgb(238, 238, 136);' : ''))
+                                   (colour === 'continue_with_Furnace_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistF?.get('continue_with_Furnace')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
 
             <div *ngIf="ChecklistF?.get('continue_with_Furnace')?.value === 'Skip'">

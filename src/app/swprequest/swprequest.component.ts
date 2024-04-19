@@ -10,10 +10,13 @@ export class SwprequestComponent implements OnInit {
   @ViewChild('fileInput') fileInput: ElementRef;
   todayDate: string;
   formattedDate: string;
-formattedTime: string;
+  formattedTime: string;
   expanded: boolean = false;
   swpForm: FormGroup;
   //swpForm1:FormGroup;
+  userDetails: any;
+  userObject: any;
+  position: any;
   expandedDropdownId: string | null = null;
 
   allZones: string[] = ['Zone1', 'Zone2', 'Zone3', 'Zone4', 'Zone5', 'Zone6', 'Zone7', 'Zone8', 'Zone9', 'Zone10'];
@@ -31,17 +34,25 @@ formattedTime: string;
 
   }
   ngOnInit(): void {
+    this.userDetails = localStorage.getItem('currentUser');
+    this.userObject = JSON.parse(this.userDetails);
+    this.position = this.userObject.position;
+    console.log(this.position)
+    
     this.formInitialization()
   }
   formInitialization() {
     const currentDate = new Date();
-   const formattedDate = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`;
+   this.formattedDate = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`;
   // Format the time as needed (e.g., HH:MM:SS)
-     const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
-console.log("date",formattedDate);
-console.log("date",formattedTime);
+     this.formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+console.log("date",this.formattedDate);
+console.log("time",this.formattedTime);
    this.swpForm = this.formBuilder.group({
-
+    startDate:[this.formattedDate],
+    endDate:[this.formattedDate],
+    startTime:[this.formattedTime],
+    endTime:[this.formattedTime],
      EAZ: [[]],
       EquipmentID:['F-2230'],
       WorkLocation:['EU2-E-2231A/B/C/D/E &F PRIMARY TLE S'],
@@ -88,4 +99,17 @@ console.log("date",formattedTime);
       this.expandedDropdownId = dropdownId;
     }
   }
+
+  saveForm() {
+    if (this.swpForm.valid) {
+      // Perform your save operation here, like sending the form data to a backend API
+      console.log('Form is valid. Saving...');
+    } else {
+      // Handle the case where the form is invalid
+      console.log('Form is invalid. Cannot save.');
+    }
+  }
+
 }
+
+

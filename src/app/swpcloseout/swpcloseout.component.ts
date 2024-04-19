@@ -25,20 +25,7 @@ export class SwpcloseoutComponent implements OnInit {
     this.position = this.userObject.position;
     console.log(this.position)
     // SWP_Issuer
-    if (this.position === 'Job_rep') {
-      this.Job_rep_disable = false;
-      this.SWP_Issuer_disable = true;
-     
-    } else if (this.position === 'SWP_Issuer') {
-      this.Job_rep_disable = true;
-      this.SWP_Issuer_disable = false;
-      
-     
-    }
-    else{
-      this.Job_rep_disable = true;
-      this.SWP_Issuer_disable = true;
-    }
+    
     this.formInitialization()
     this.signatureImage1 = "../../../assets/img/sign.png";
   }
