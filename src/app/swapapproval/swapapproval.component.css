@@ -161,8 +161,9 @@ height: 25px;
   font-size: 14px;
   /* Font size for labels */
   margin-bottom: 5px;
-  /* Add margin below labels */
 }
+
+
 
 .employee-number-box,
 .date-time-box-type {
@@ -284,7 +285,8 @@ h5{
   font-family: 'Montserrat', sans-serif;
 }
 
-.agree-button {
+.save-button,.agree-button {
+  font-family: 'Montserrat', sans-serif;
   display: block;
   margin: 0 auto; /* Center the button horizontally */
   padding: 10px 20px; /* Adjust padding as needed */
@@ -320,4 +322,24 @@ h5{
 .employee-number-box,
 .date-time-box-type {
   width: 100%; /* Set width to 100% to fill the container */
+}
+
+.form-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-section > .mat-box {
+  flex: 1 1 calc(50% - 20px); /* Adjust as needed */
+  margin: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .form-section > .mat-box {
+    flex-basis: calc(100% - 20px);
+  }
+}
+.position-row {
+  opacity: 0.5; /* or any other styling to indicate disabled state */
+  pointer-events: none; /* optionally disable pointer events */
 }

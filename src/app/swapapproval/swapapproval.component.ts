@@ -11,6 +11,8 @@ export class SwapapprovalComponent implements OnInit {
   formattedTime: string;
   agreementForm: FormGroup;
   allChecked: boolean = false;
+  currentUser: any;
+  position: any;
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -40,6 +42,9 @@ export class SwapapprovalComponent implements OnInit {
       this.allChecked = this.allCheckboxesChecked();
       console.log('All checkboxes checked:', this.allChecked);
     });
+    const storedUser = localStorage.getItem('currentUser');
+    this.currentUser = storedUser ? JSON.parse(storedUser) : null;
+    this.position=this.currentUser.position;
   }
 
   allCheckboxesChecked(): boolean {

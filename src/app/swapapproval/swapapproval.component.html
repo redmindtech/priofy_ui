@@ -11,10 +11,11 @@
     <div class="mat">
       <div class="form-section">
     <div class="mat-box">
-    <div></div>
+      <mat-card class= card [ngClass]="{ 'position-row': position !== 'Job_rep' }">
     <table>
       <thead>
         <tr class="heading">
+          
           <th style="height: 50px;">Safe Work Permit</th>
           <th style="width: 170px;">Action</th>
 
@@ -69,12 +70,12 @@
             <img #signatureImage src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
           </div>
         </div>
-        <div class="cols-4em">
-          <label>Employee Number:</label>
-          <div>
-            <input type="text" class="employee-number-box" formControlName="employeeNumber" />
-          </div>
-        </div>
+ 
+            <div class="cols-4em">
+              <label>Employee Number:</label>
+              <div class="employee-number-box">6973412</div>
+            </div>
+            
         
 
         <div class="cols-4dt">
@@ -93,11 +94,16 @@
 
       </div>
       <button type="button" style="  margin-top: 20px;"  class="agree-button" [disabled]="!allCheckboxesChecked()">Agree</button>
+      <div>
+        <button type="button" style="  margin-top: 20px;"  class="save-button">Save</button>
+      </div>
+      </mat-card>
     </div>
   </div>
     <div class="empty"></div>
     <div class="form-section">
     <div class="mat-box">
+      <mat-card class= card [ngClass]="{ 'position-row': position !== 'swp_issuer' }">
       <table>
         <thead>
           <tr class="heading">
@@ -105,65 +111,65 @@
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>All people working under this SWP have the necessary training and skills to perform the permitted work including the use of special PPE, if any</td>
-            <td>
-              <div class="button-group">
-              <input type="radio" class="custom-radio" id="oot_high_pressures-done" name="oot_high_pressures"
-              value="Yes" formControlName="oot_high_pressures"  />
-            <label for="oot_high_pressures-done" class="action">Yes</label>
-  
-            <input type="radio" class="custom-radio" id="oot_high_pressures-risk" name="oot_high_pressures"
-              value="No" formControlName="oot_high_pressures"/>
-            <label for="oot_high_pressures-risk" class="action">No</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>All people working under this SWP know the location of assembly points, emergency equip. & nearest EB/SS?</td>
-            <td>
-              <div class="button-group">
-                <input type="radio" class="custom-radio" id="oot_downstream_1_drain-done"
-                name="oot_downstream_1_drain" value="Yes" formControlName="oot_downstream_1_drain" />
-              <label for="oot_downstream_1_drain-done" class="action">Yes</label>
-  
-              <input type="radio" class="custom-radio" id="oot_downstream_1_drain-risk"
-                name="oot_downstream_1_drain" value="No" formControlName="oot_downstream_1_drain"/>
-              <label for="oot_downstream_1_drain-risk" class="action">No</label>
-  
-                </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Equipment to be worked on has been properly prepared, identified and is ready to work on?</td>
-            <td>
-              <div class="button-group">
-              <input type="radio" class="custom-radio" id="oot_bypasss-done" name="oot_bypasss" value="Yes"
-              formControlName="oot_bypasss"/>
-            <label for="oot_bypasss-done" class="action">Yes</label>
-  
-            <input type="radio" class="custom-radio" id="oot_bypasss-risk" name="oot_bypasss" value="No"
-              formControlName="oot_bypasss"/>
-            <label for="oot_bypasss-risk" class="action">No</label>
-          </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Scope of boundaries of any other work in the area that could affect this permitted work has been reviewed and understood?</td>
-            <td>
-              <div class="button-group">
-                <input type="radio" class="custom-radio" id="oot_inlet_ventss-done" name="oot_inlet_ventss" value="Yes"
-                      formControlName="oot_inlet_ventsss"/>
-                    <label for="oot_inlet_ventss-done" class="action">Yes</label>
-  
-                    <input type="radio" class="custom-radio" id="oot_inlet_ventss-risk" name="oot_inlet_ventss" value="No"
-                      formControlName="oot_inlet_ventss"/>
-                    <label for="oot_inlet_ventss-risk" class="action">No</label>
-                </div>
-            </td>
-          </tr>
-        </tbody>
+<tbody>
+  <tr>
+    <td>All people working under this SWP have the necessary training and skills to perform the permitted work including the use of special PPE, if any</td>
+    <td>
+      <div class="button-group" >
+        <input type="radio" class="custom-radio" id="people_training_done" name="people_training"
+          value="Yes" formControlName="people_training" />
+        <label for="people_training_done" class="action">Yes</label>
+
+        <input type="radio" class="custom-radio" id="people_training_risk" name="people_training"
+          value="No" formControlName="people_training" />
+        <label for="people_training_risk" class="action">No</label>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>All people working under this SWP know the location of assembly points, emergency equip. & nearest EB/SS?</td>
+    <td>
+      <div class="button-group">
+        <input type="radio" class="custom-radio" id="location_known_done" name="location_known"
+          value="Yes" formControlName="location_known" />
+        <label for="location_known_done" class="action">Yes</label>
+
+        <input type="radio" class="custom-radio" id="location_known_risk" name="location_known"
+          value="No" formControlName="location_known" />
+        <label for="location_known_risk" class="action">No</label>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>Equipment to be worked on has been properly prepared, identified and is ready to work on?</td>
+    <td>
+      <div class="button-group">
+        <input type="radio" class="custom-radio" id="equipment_prepared_done" name="equipment_prepared"
+          value="Yes" formControlName="equipment_prepared" />
+        <label for="equipment_prepared_done" class="action">Yes</label>
+
+        <input type="radio" class="custom-radio" id="equipment_prepared_risk" name="equipment_prepared"
+          value="No" formControlName="equipment_prepared" />
+        <label for="equipment_prepared_risk" class="action">No</label>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>Scope of boundaries of any other work in the area that could affect this permitted work has been reviewed and understood?</td>
+    <td>
+      <div class="button-group">
+        <input type="radio" class="custom-radio" id="boundaries_reviewed_done" name="boundaries_reviewed"
+          value="Yes" formControlName="boundaries_reviewed" />
+        <label for="boundaries_reviewed_done" class="action">Yes</label>
+
+        <input type="radio" class="custom-radio" id="boundaries_reviewed_risk" name="boundaries_reviewed"
+          value="No" formControlName="boundaries_reviewed" />
+        <label for="boundaries_reviewed_risk" class="action">No</label>
+      </div>
+    </td>
+  </tr>
+</tbody>
+
       </table>
    
           <!-- Signature section -->
@@ -175,13 +181,13 @@
                 <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
               </div>
             </div>
-    
+
             <div class="cols-4em">
               <label>Employee Number:</label>
-              <div>
-                <input type="text" class="employee-number-box" formControlName="employeeNumber" />
-              </div>
+              <div class="employee-number-box">6973412</div>
             </div>
+            
+            
     
             <div class="cols-4dt">
               <label class="label" for="date">Date</label>
@@ -197,6 +203,10 @@
               </div>
             </div>
           </div>
+          <div>
+            <button type="button" style="  margin-top: 20px;"  class="save-button">Save</button>
+          </div>
+        </mat-card>
   </div>
       </div>
     </div>
