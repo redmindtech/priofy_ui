@@ -40,7 +40,7 @@ export class MainComponent implements OnInit {
     this.username="Shift-Operator4"
     this.menu = this.getOperator1Menu();
    }
-   else if(name=="Admin"){
+   else if(name=="admin"){
     this.headname="Equate- Process Digitization"
     this.username="Shift-Leader";
     this.menu = this.getAdminMenu();

@@ -19,6 +19,7 @@
 
     </ng-container>
 </app-dropdown> -->
+<div *ngIf="currentUser.username ==='admin'">
 <app-dropdown size="xl" [class.disabled]="detailsHidden">
     <ng-container dropdown-button >
        
@@ -55,4 +56,5 @@
         
         </mat-card-content>
     </mat-card>
-    
+    </app-dropdown>
+</div>

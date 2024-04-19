@@ -10,9 +10,9 @@ export class NotificationService {
   baseUrlA: string = "http://localhost:8080/checklistA";
   baseUrlB: string = "http://localhost:8080/checklistB";
   baseUrlC: string = "http://localhost:8080/checklistC";
-  baseUrlD: string = "http://localhost:8080/checklistD";
-  baseUrlE: string = "http://localhost:8080/checklistE";
-  baseUrlF: string = "http://localhost:8080/checklistF";
+  baseUrlD: string = "http://localhost:8080/ChecklistD";
+  baseUrlE: string = "http://localhost:8080/CheckListE";
+  baseUrlF: string = "http://localhost:8080/CheckListF";
 //  baseUrl: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/CheckListE";
   constructor(private httpClient: HttpClient) { }
  // Create new permit data

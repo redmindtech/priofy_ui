@@ -19,6 +19,7 @@ export class NotificationsComponent implements OnInit, OnDestroy {
   beforeValue: string;
   afterValue: string;
   detailsHidden :boolean=true;
+  currentUser: any;
 
   constructor(
     private fb: FormBuilder,
@@ -26,6 +27,9 @@ export class NotificationsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    const storedUser = localStorage.getItem('currentUser');
+    this.currentUser = storedUser ? JSON.parse(storedUser) : null;
+    console.log(' this.currentUser: ',  this.currentUser.username);
     this.setupSubmitInterval();
     this.notificationForm = this.fb.group({});
   }
