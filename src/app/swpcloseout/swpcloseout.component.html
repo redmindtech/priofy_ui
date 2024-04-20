@@ -71,13 +71,29 @@
                 <td class="header">
                   Signature of TRSO
               </td>
-              <td style="text-align: left; padding-left: 70px;">
-     
+              <!-- <td style="text-align: left; padding-left: 70px;">
                 <div style="display: flex; align-items: center;">
-                  <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage.style.display = (signatureImage.style.display === 'none' ? 'block' : 'none')">Signature</button>
+                  <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage.style.display = (signatureImage.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                   <img #signatureImage src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-              </div>
+                  <span *ngIf="signatureImage.style.display !== 'none'">
+                    Employee Name: Ragasudha Ambayeram<br>
+                    Employee No.: 1Emp2024001
+                  </span>
+                </div>
+              </td> -->
+              <td style="text-align: right; padding-right: 40px;">
+                <div style="display: flex; flex-direction: column; align-items: left;">
+                  <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage.style.display = (signatureImage.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                  <div style="margin-top: 10px;">
+                    <img #signatureImage src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                  </div>
+                  <div *ngIf="signatureImage.style.display !== 'none'" style="margin-top: 10px;" style="align-items: left;">
+                   <strong>Ragasudha Ambayeram</strong><br>
+                  <strong>[1Emp2024001]</strong> 
+                  </div>
+                </div>
               </td>
+              
               
               </tr>
             </table>
@@ -102,11 +118,21 @@
               <div class="col-sm-3">
                 <div class="form-group" >
                   <label>Work complete signature</label>
-                  <div style="display: flex; align-items: center;">
+                  <div style="display: flex; flex-direction: column; align-items: left;">
+                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <div style="margin-top: 10px;">
+                      <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                    </div>
+                    <div *ngIf="signatureImage1.style.display !== 'none'" style="margin-top: 10px;" style="align-items: left;">
+                     <strong>Ragasudha Ambayeram</strong><br>
+                    <strong>[1Emp2024001]</strong> 
+                    </div>
+                  </div>
+                  <!-- <div style="display: flex; align-items: center;">
                
                   <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Signature</button>
                   <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                </div>
+                </div> -->
                 </div>
               </div>
               <div class="col-sm-3">
@@ -153,11 +179,21 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Permit closed signature</label>
-                  <div style="display: flex; align-items: center;">
+                  <div style="display: flex; flex-direction: column; align-items: left;">
+                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <div style="margin-top: 10px;">
+                      <img #signatureImage2 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                    </div>
+                    <div *ngIf="signatureImage2.style.display !== 'none'" style="margin-top: 10px;" style="align-items: left;">
+                     <strong>Ramya RajKumar</strong><br>
+                    <strong>[1Emp20240101]</strong> 
+                    </div>
+                  </div>
+                  <!-- <div style="display: flex; align-items: center;">
                
                     <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Signature</button>
                     <img #signatureImage2 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <div class="col-sm-3">
@@ -222,10 +258,20 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>signature</label>
-                  <div style="display: flex; align-items: center;">               
+                  <div style="display: flex; flex-direction: column; align-items: left;">
+                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage3.style.display = (signatureImage3.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <div style="margin-top: 10px;">
+                      <img #signatureImage3 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                    </div>
+                    <div *ngIf="signatureImage3.style.display !== 'none'" style="margin-top: 10px;" style="align-items: centr;">
+                     <strong>Raja Kumaravel</strong><br>
+                    <strong>[1Emp20240101]</strong> 
+                    </div>
+                  </div>
+                  <!-- <div style="display: flex; align-items: center;">               
                     <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage3.style.display = (signatureImage3.style.display === 'none' ? 'block' : 'none')">Signature</button>
                     <img #signatureImage3 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -256,10 +302,20 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Work complete signature</label>
-                  <div style="display: flex; align-items: center;">               
+                  <div style="display: flex; flex-direction: column; align-items: left;">
+                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage4.style.display = (signatureImage4.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <div style="margin-top: 10px;">
+                      <img #signatureImage4 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                    </div>
+                    <div *ngIf="signatureImage4.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                     <strong>Raja Kumaravel</strong><br>
+                    <strong>[1Emp20240101]</strong> 
+                    </div>
+                    </div>
+                  <!-- <div style="display: flex; align-items: center;">               
                     <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage4.style.display = (signatureImage4.style.display === 'none' ? 'block' : 'none')">Signature</button>
                     <img #signatureImage4 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                  </div>
+                  </div> -->
                 </div>
               </div>
               </div>
@@ -322,10 +378,20 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Work complete signature</label>
-                  <div style="display: flex; align-items: center;">               
+                  <div style="display: flex; flex-direction: column; align-items: left;">
+                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage5.style.display = (signatureImage5.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <div style="margin-top: 10px;">
+                      <img #signatureImage5 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                    </div>
+                    <div *ngIf="signatureImage5.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                     <strong>Raja Kumaravel</strong><br>
+                    <strong>[1Emp20240101]</strong> 
+                    </div>
+                    </div>
+                  <!-- <div style="display: flex; align-items: center;">               
                     <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage5.style.display = (signatureImage5.style.display === 'none' ? 'block' : 'none')">Signature</button>
                     <img #signatureImage5 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -338,6 +404,7 @@
           </mat-card-content>
         </mat-card>
         <br>
+        <!--  -->
         <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
           <mat-card-content>
             <table>
@@ -377,17 +444,28 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Work complete signature</label>
-                  <div style="display: flex; align-items: center;">               
+                  <div style="display: flex; flex-direction: column; align-items: left;">
+                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage6.style.display = (signatureImage6.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <div style="margin-top: 10px;">
+                      <img #signatureImage6 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                    </div>
+                    <div *ngIf="signatureImage6.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                     <strong>Punitha Lokesh</strong><br>
+                    <strong>[1Emp20240151]</strong> 
+                    </div>
+                    </div>
+                  <!-- <div style="display: flex; align-items: center;">               
                     <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage6.style.display = (signatureImage6.style.display === 'none' ? 'block' : 'none')">Signature</button>
                     <img #signatureImage6 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
           </mat-card-content>
         </mat-card>
         <br>
-        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
+        <!--  -->
+        <mat-card class=mat1  [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
           <mat-card-content>         
             <div class="row">           
               <div class="col-sm-4">
@@ -446,10 +524,16 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Work complete signature</label>
-                  <div style="display: flex; align-items: center;">               
-                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage7.style.display = (signatureImage7.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                    <img #signatureImage7 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                  </div>
+                  <div style="display: flex; flex-direction: column; align-items: left;">
+                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage7.style.display = (signatureImage7.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <div style="margin-top: 10px;">
+                      <img #signatureImage7 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                    </div>
+                    <div *ngIf="signatureImage7.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                     <strong>Sundhar Ramasamy</strong><br>
+                    <strong>[1Emp20240251]</strong> 
+                    </div>
+                    </div>
                 </div>
               </div>
             </div>
