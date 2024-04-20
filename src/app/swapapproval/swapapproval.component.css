@@ -334,11 +334,11 @@ h5{
   margin: 10px;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .form-section > .mat-box {
     flex-basis: calc(100% - 20px);
   }
-}
+} */
 .position-row {
   opacity: 0.5; /* or any other styling to indicate disabled state */
   pointer-events: none; /* optionally disable pointer events */

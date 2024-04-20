@@ -1,5 +1,5 @@
 .body{
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 .login-container,
@@ -8,7 +8,7 @@
 .login-container h1,
 .login-container h2,
 .login-container h3 {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 .login-container h1{
   font-size: 23px;

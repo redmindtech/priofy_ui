@@ -13,8 +13,12 @@ col header, .col header{
   text-align: center;
   margin-top: 2%;
 }
+/* p{
+  font-family: 'Montserrat', sans-serif;
 
-li{
+} */
+
+li, p{
   font-size: 16px;
 }
 
@@ -23,6 +27,7 @@ li{
 mat-panel-title {
   font-weight: bold;
   font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .mat {
@@ -32,6 +37,7 @@ mat-panel-title {
   border-style: double;
    margin: 3%;
    border-radius: 3%;
+   font-family: 'Montserrat', sans-serif;
 
  }
 .row{

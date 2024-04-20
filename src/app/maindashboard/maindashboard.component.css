@@ -1,7 +1,7 @@
 .body,
 .row,
 .card {
-  font-family: 'Montserrat', sans-serif !important;
+  /* font-family: 'Montserrat', sans-serif !important; */
 }
 .info-box{
   min-height: 100px;

@@ -9,8 +9,8 @@ import { Observable } from 'rxjs/internal/Observable';
 export class ChecklistDService {
 
 
-  // baseUrl: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/ChecklistD";
-  baseUrl: string ='http://localhost:8080/ChecklistD';
+  baseUrl: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/ChecklistD";
+  // baseUrl: string ='http://localhost:8080/ChecklistD';
 
   constructor(private httpClient: HttpClient) { }
   public savecheckdpage(data: any): Observable<any> {

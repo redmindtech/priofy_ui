@@ -14,6 +14,14 @@ export class NotificationService {
   baseUrlE: string = "http://localhost:8080/CheckListE";
   baseUrlF: string = "http://localhost:8080/CheckListF";
 //  baseUrl: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/CheckListE";
+
+// update:string="http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/notification/accept-reject?"
+// baseUrlA: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/checklistA";
+// baseUrlB: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/checklistB";
+// baseUrlC: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/checklistC";
+// baseUrlD: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/ChecklistD";
+// baseUrlE: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/CheckListE";
+// baseUrlF: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/CheckListF";
   constructor(private httpClient: HttpClient) { }
  // Create new permit data
 //  public savenotification(data: any): Observable<any> {

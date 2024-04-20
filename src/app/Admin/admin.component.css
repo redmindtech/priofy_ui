@@ -3,13 +3,13 @@
   border-collapse: collapse;
 }
 body {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 .card,
 .btn,
 .dropdown-item {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 

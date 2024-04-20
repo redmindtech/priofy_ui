@@ -303,11 +303,19 @@
                           <td><input type="text" class="form-control truncate" id="lock_number" placeholder="Please Enter Lock Number" formControlName="lock_number"></td>
                           <td><input type="date" class="form-control truncate" id="date" placeholder="Please Enter Date" formControlName="date"></td>
                           <td><input type="time" class="form-control truncate" id="time" placeholder="Please Enter Time" formControlName="time"></td>
-                          <td><button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage3.style.display = (signatureImage3.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                            <img #signatureImage3 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;"></td>
-                            <td><button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage4.style.display = (signatureImage4.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                              <img #signatureImage4 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;"></td>
-                              
+                          <td>
+                            <div style="display: flex; align-items: center;">
+                                <button mat-raised-button style="background-color: #147737; color: white;">Signature</button>
+                                <img #signatureImage3 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; margin-left: 10px;">
+                            </div>
+                        </td>
+                        <td>
+                          <div style="display: flex; align-items: center;">
+                              <button mat-raised-button style="background-color: #147737; color: white;">Signature</button>
+                              <img #signatureImage3 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; margin-left: 10px;">
+                          </div>
+                      </td>
+                       
                             </tr>
                         
                       </table>

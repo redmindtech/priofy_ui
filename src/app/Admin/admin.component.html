@@ -55,7 +55,11 @@
     <th (click)="sortData('job_end_date')" data-column="job_end_date">Job End Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'job_end_date'}"></i></th>
     <th (click)="sortData('oot_operator')" data-column="oot_operator">OOT Operator <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'oot_operator'}"></i></th>
     <th (click)="sortData('iot_operator')" data-column="iot_operator">IOT Operator <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'iot_operator'}"></i></th>
+   
     <th (click)="sortData('status')" data-column="status">Status <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'status'}"></i></th>
+    <th  >Edit</th>
+    <th  >View</th>
+    <th >Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -68,6 +72,9 @@
     <td>{{ row.oot_operator }}</td>
     <td>{{ row.iot_operator }}</td>
     <td>{{ row.status }}</td>
+    <td><i class="fas fa-edit" style="color: blue;"></i></td> <!-- Edit icon color -->
+    <td><i class="fas fa-eye" style="color: green;"></i></td> <!-- View icon color -->
+    <td><i class="fas fa-trash-alt" style="color: red;"></i></td> <!-- Delete icon color -->
   </tr>
   </table>
   </div>
