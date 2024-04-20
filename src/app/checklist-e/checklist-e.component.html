@@ -198,23 +198,23 @@
           <td class="header">*OOT to ensure steam drum blowdown analyzer online and confirm cooling water flow to and from cooler.</td>
 
           <td>
-            <input type="radio" class="custom-radio" id="oot_cbd_confirm_cooling_water-done" name="oot_cbd_confirm_cooling_water" value="Done" formControlName="oot_cbd_confirm_cooling_water"  (change)="onRadioChangeup()"/>
-            <label for="oot_cbd_confirm_cooling_water-done"class="action">Done</label>
+            <input type="radio" class="custom-radio" id="oot_confirm_cooling_water-done" name="oot_confirm_cooling_water" value="Done" formControlName="oot_confirm_cooling_water"  (change)="onRadioChangeup()"/>
+            <label for="oot_confirm_cooling_water-done"class="action">Done</label>
             
-            <input type="radio" class="custom-radio" id="oot_cbd_confirm_cooling_water-risk" name="oot_cbd_confirm_cooling_water" value="Risk" formControlName="oot_cbd_confirm_cooling_water" (change)="onRadioChangeup()"/>
-            <label for="oot_cbd_confirm_cooling_water-risk"class="action">Risk</label>
+            <input type="radio" class="custom-radio" id="oot_confirm_cooling_water-risk" name="oot_confirm_cooling_water" value="Risk" formControlName="oot_confirm_cooling_water" (change)="onRadioChangeup()"/>
+            <label for="oot_confirm_cooling_water-risk"class="action">Risk</label>
             
-            <input type="radio" class="custom-radio" id="oot_cbd_confirm_cooling_water-skip" name="oot_cbd_confirm_cooling_water" value="Skip" formControlName="oot_cbd_confirm_cooling_water"  (change)="onRadioChangeup()"/>
-            <label for="oot_cbd_confirm_cooling_water-skip"class="action"[ngStyle]="{
-              'background-color': colour === 'oot_cbd_confirm_cooling_water_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
-                                   (colour === 'oot_cbd_confirm_cooling_water_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
-                                   (ChecklistE?.get('oot_cbd_confirm_cooling_water')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
+            <input type="radio" class="custom-radio" id="oot_confirm_cooling_water-skip" name="oot_confirm_cooling_water" value="Skip" formControlName="oot_confirm_cooling_water"  (change)="onRadioChangeup()"/>
+            <label for="oot_confirm_cooling_water-skip"class="action"[ngStyle]="{
+              'background-color': colour === 'oot_confirm_cooling_water_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
+                                   (colour === 'oot_confirm_cooling_water_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
+                                   (ChecklistE?.get('oot_confirm_cooling_water')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
             }">Skip</label>
             
-            <div *ngIf="ChecklistE?.get('oot_cbd_confirm_cooling_water')?.value === 'Skip'">
-              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_cbd_confirm_cooling_water_comment" (focusout)="patchvalue()"></textarea>
+            <div *ngIf="ChecklistE?.get('oot_confirm_cooling_water')?.value === 'Skip'">
+              <textarea id="w3review" name="w3review" rows="4" cols="40" formControlName="oot_confirm_cooling_water_comment" (focusout)="patchvalue()"></textarea>
               <div style="margin-left: 31%;">
-                <button class="btn btn-primary m-1"(click)="ChecklistE?.get('oot_cbd_confirm_cooling_water')?.setValue(''); ChecklistE?.get('oot_cbd_confirm_cooling_water_comment')?.setValue('')" >cancel</button>
+                <button class="btn btn-primary m-1"(click)="ChecklistE?.get('oot_confirm_cooling_water')?.setValue(''); ChecklistE?.get('oot_confirm_cooling_water_comment')?.setValue('')" >cancel</button>
                 <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
               </div>
             </div>
