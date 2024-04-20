@@ -43,9 +43,13 @@ export class SwprequestComponent implements OnInit {
   }
   formInitialization() {
     const currentDate = new Date();
-   this.formattedDate = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`;
-  // Format the time as needed (e.g., HH:MM:SS)
-     this.formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+
+    // Format the date as needed (e.g., DD/MM/YYYY)
+    this.formattedDate = new Date().toISOString().split('T')[0]; 
+    
+    
+    // Format the time as needed (e.g., HH:MM:SS)
+    this.formattedTime = new Date().toTimeString().split(' ')[0];
 console.log("date",this.formattedDate);
 console.log("time",this.formattedTime);
    this.swpForm = this.formBuilder.group({

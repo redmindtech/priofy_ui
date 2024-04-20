@@ -7,56 +7,52 @@
       </div>
       <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
-    <mat-card class= mat [ngClass]="{ 'position-row': position !== 'SWP_Issuer' }">
+    <!-- [ngClass]="{ 'position-row': position !== 'SWP_Issuer' }" -->
+    <mat-card class= mat >
       <mat-card class= mat1>
       <mat-card-content>
 
-        <h4 class="header">Safe Work Permit Issuer</h4>
+        <h4 class="header">Genrral Infomation</h4>
         <!-- <h6 style="margin-left: 30%;"><strong>PROCEDURE CHECKLIST #A ESTABLISH STEAM DRUM LEVEL</strong></h6> -->
         <form [formGroup]="swpForm" >
-          <div class="form-row">
-            <br>
-            <div class="col-md-3">
-              <div class="form-group1">
-                <label >Start Date</label>
-                <input type="text" id="startDate"  class="form-control" formControlName="startDate" value="{{ formattedDate}}">
-              </div>
+          <div class="form-row row mt-3">
+    
+            <div class="col ">
+            <label class="label" for="date">Date And Time</label>
+            <div class="row">
+                <div class="col-sm-4"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
+                <div class="col-sm-4"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
             </div>
-            <div class="col-md-3">
-              <div class="form-group1">
-                <label >Start Time</label>
-                <input id="startTime" type="text" class="form-control" formControlName="startTime"value="{{ formattedTime }}" >
-              </div>
             </div>
-            <div class="col-md-3">
-              <div class="form-group1">
-                <label >End Date</label>
-                <input id="endDate" type="text" class="form-control" formControlName="endDate" value="{{ formattedDate }}">
+            <div class="col">
+              <label class="label" for="date">End Date And Time</label>
+              <div class="row">
+                    <div class="col-sm-4"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
+                    <div class="col-sm-4"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
               </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group1">
-                <label >End Time</label>
-                <input id="endTime" type="text" class="form-control" formControlName="endTime"value="{{ formattedTime }}">
               </div>
-            </div>
           </div>
           <div class="form-row">
             <div class="col-md-3">
               <div class="form-group">
-                <label for="requestorName">User Name</label>
+                <label for="requestorName">Requestor Name</label>
                 <input id="requestorName" type="text" class="form-control" formControlName="Requestorname" value="SWP Issuer" >
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label for="eaz">EAZ</label>
-                <mat-form-field>
+                <div class="truncate">
+                  <mat-select class="form-control" style="width: 200px;" formControlName="EAZ" multiple>
+                    <mat-option *ngFor="let zone of allZones" [value]="zone">{{ zone }}</mat-option>
+                  </mat-select>
+                </div>
+                <!-- <mat-form-field>
 
                   <mat-select  class="select-wrapper1"  formControlName="EAZ" multiple>
                     <mat-option *ngFor="let zone of allZones" [value]="zone">{{ zone }}</mat-option>
                   </mat-select>
-                </mat-form-field>
+                </mat-form-field> -->
 
                <!-- <div class="select-wrapper" [class.expanded]="expandedDropdownId==='eaz'"  (click)="toggleSelectExpand('eaz')">
                 <select id="eaz" multiple class="form-control" formControlName="EAZ" value="Zone1">
@@ -79,12 +75,15 @@
               <div class="col-md-3">
               <div class="form-group">
                 <label for="equipmentID">Equipment ID</label>
-                <mat-form-field>
+                <mat-select class="form-control" style="width: 200px;" formControlName="EquipmentID" multiple>
+                  <mat-option *ngFor="let equip of EquipID" [value]="equip">{{ equip }}</mat-option>
+                </mat-select>
+                <!-- <mat-form-field> -->
                   <!-- <mat-label>Select Zones</mat-label> -->
-                  <mat-select class="select-wrapper1"  formControlName="EquipmentID" multiple>
+                  <!-- <mat-select class="select-wrapper1"  formControlName="EquipmentID" multiple>
                     <mat-option *ngFor="let equip of EquipID" [value]="equip">{{ equip }}</mat-option>
                   </mat-select>
-                </mat-form-field>
+                </mat-form-field> -->
 
 
                 <!-- <div class="select-wrapper" [class.expanded]="expandedDropdownId==='equipmentID'"  (click)="toggleSelectExpand('equipmentID')">
@@ -97,12 +96,17 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label for="workLocation">Work Location</label>
-                <mat-form-field>
+                <div class="truncate">
+                  <mat-select class="form-control" style="width: 200px;" formControlName="workLocation" multiple>
+                    <mat-option *ngFor="let work of workloc" [value]="work">{{ work }}</mat-option>
+                  </mat-select>
+                </div>
+                <!-- <mat-form-field>
 
                 <mat-select class="select-wrapper1"  formControlName="workLocation" multiple>
                   <mat-option *ngFor="let work of workloc" [value]="work">{{ work }}</mat-option>
                 </mat-select>
-              </mat-form-field>
+              </mat-form-field> -->
                 <!-- <div class="select-wrapper" [class.expanded]="expandedDropdownId==='workLocation'"  (click)="toggleSelectExpand('workLocation')">
                 <select id="workLocation" multiple class="form-control" formControlName="WorkLocation">
                   <option value="Zone1" >EU2-E-2231A/B/C/D/E &F PRIMARY TLE'S</option>
@@ -130,12 +134,12 @@
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
-          <h3 style="text-align:center;font-weight: bold ;">Scope</h3>
+          <h3 class="header">Scope</h3>
         </div>
         </div>
           <div class="col-md-6">
           <div class="form-group">
-        <h3 style="text-align:center;font-weight: bold ;">Tools</h3>
+        <h4 class="header">Tools</h4>
        </div>
       </div>
       </div>
@@ -151,12 +155,17 @@
            <div class="col-md-6">
               <div class="form-group">
                 <label for="toolsrequired">Tools Required</label>
-                <mat-form-field>
+                <div class="truncate">
+                  <mat-select class="form-control" style="width: 200px;" formControlName="toppings" multiple>
+                    <mat-option *ngFor="let tool of tools" [value]="tool">{{ tool }}</mat-option>
+                  </mat-select>
+                </div>
+                <!-- <mat-form-field>
 
                     <mat-select class="select-wrapper1"  formControlName="toolsrequired" multiple>
                     <mat-option *ngFor="let tool of tools" [value]="tool">{{ tool }}</mat-option>
                   </mat-select>
-                </mat-form-field>
+                </mat-form-field> -->
                 <!-- <div class="select-wrapper" [class.expanded]="expandedDropdownId==='toolsrequired'"  (click)="toggleSelectExpand('toolsrequired')">
 
                 <select id="toolsrequired" multiple class="form-control" formControlName="Toolsrequired">
@@ -178,13 +187,17 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="clothing">Clothing</label>
-
-                  <mat-form-field>
+                  <div class="truncate">
+                    <mat-select class="form-control" style="width: 200px;" formControlName="clothing" multiple>
+                      <mat-option *ngFor="let clothing of cloth" [value]="clothing">{{ clothing }}</mat-option>
+                    </mat-select>
+                  </div>
+                  <!-- <mat-form-field>
 
                     <mat-select class="select-wrapper1"  formControlName="clothing" multiple>
                     <mat-option *ngFor="let clothing of cloth" [value]="clothing">{{ clothing }}</mat-option>
                   </mat-select>
-                </mat-form-field>
+                </mat-form-field> -->
                   <!-- <div class="select-wrapper" [class.expanded]="expandedDropdownId==='clothing'" (click)="toggleSelectExpand('clothing')">
                     <select id="clothing" multiple class="form-control" formControlName="clothing">
                     <option value="jacket" >Jacket</option>
@@ -195,25 +208,35 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="fhprotection">Face/Head Protection</label>
+                    <div class="truncate">
+                      <mat-select class="form-control" style="width: 200px;" formControlName="fhprotection" multiple>
+                        <mat-option *ngFor="let protect of headprotect" [value]="protect">{{ protect}}</mat-option>
+                      </mat-select>
+                    </div>
 
-                    <mat-form-field>
+                    <!-- <mat-form-field>
 
                       <mat-select class="select-wrapper1"  formControlName="fhprotection" multiple>
                       <mat-option *ngFor="let protect of headprotect" [value]="protect">{{ protect}}</mat-option>
                     </mat-select>
-                  </mat-form-field>
+                  </mat-form-field> -->
                   </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="respirator">Respiratory</label>
+                      <div class="truncate">
+                        <mat-select class="form-control" style="width: 200px;" formControlName="Respiratory" multiple>
+                          <mat-option *ngFor="let respirator of respir" [value]="respirator">{{respirator}}</mat-option>
+                        </mat-select>
+                      </div>
   
-                      <mat-form-field>
+                      <!-- <mat-form-field>
   
                         <mat-select class="select-wrapper1"  formControlName="Respiratory" multiple>
                         <mat-option *ngFor="let respirator of respir" [value]="respirator">{{respirator}}</mat-option>
                       </mat-select>
-                    </mat-form-field>
+                    </mat-form-field> -->
                   
                     <!-- <div class="select-wrapper" [class.expanded]="expandedDropdownId==='fhprotection'"  (click)="toggleSelectExpand('fhprotection')">
                     <select id="fhprotection" multiple class="form-control" formControlName="fhprotection">
@@ -233,13 +256,18 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label for="footleg">Foot/Leg Protection</label>
+                  <div class="truncate">
+                    <mat-select class="form-control" style="width: 200px;" formControlName="footleg" multiple>
+                      <mat-option *ngFor="let foot of footlegs" [value]="foot">{{foot}}</mat-option>
+                    </mat-select>
+                  </div>
 
-                    <mat-form-field>
+                    <!-- <mat-form-field>
 
                       <mat-select class="select-wrapper1"  formControlName="footleg" multiple>
                       <mat-option *ngFor="let foot of footlegs" [value]="foot">{{foot}}</mat-option>
                     </mat-select>
-                  </mat-form-field>
+                  </mat-form-field> -->
                   <!-- <div class="select-wrapper" [class.expanded]="expandedDropdownId==='footleg'"  (click)="toggleSelectExpand('footleg')">
                   <select id="footleg" multiple class="form-control" formControlName="footleg">
                     <option value="footleg">Ankle High Safety Shoes</option>
@@ -250,13 +278,18 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="ear">Hearing Protection</label>
+                  <div class="truncate">
+                    <mat-select class="form-control" style="width: 200px;" formControlName="ear" multiple>
+                      <mat-option *ngFor="let earp of earprotect" [value]="earp">{{earp}}</mat-option>
+                    </mat-select>
+                  </div>
 
-                  <mat-form-field>
+                  <!-- <mat-form-field> -->
                     <!-- <mat-label>Select </mat-label> -->
-                    <mat-select class="select-wrapper1"  formControlName="ear" multiple>
+                    <!-- <mat-select class="select-wrapper1"  formControlName="ear" multiple>
                     <mat-option *ngFor="let earp of earprotect" [value]="earp">{{earp}}</mat-option>
                   </mat-select>
-                </mat-form-field>
+                </mat-form-field> -->
                   <!-- <div class="select-wrapper" [class.expanded]="expandedDropdownId==='ear'"  (click)="toggleSelectExpand('ear')">
                   <select id="ear" multiple class="form-control" formControlName="ear">
                     <option value="earmuff">Ear Muffs</option>
@@ -267,12 +300,17 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="eyeprotect">Eye Protection</label>
-                  <mat-form-field>
+                  <div class="truncate">
+                    <mat-select class="form-control" style="width: 200px;" formControlName="eyeprotect" multiple>
+                      <mat-option *ngFor="let eye of eyeprotect" [value]="eye">{{eye}}</mat-option>
+                    </mat-select>
+                  </div>
+                  <!-- <mat-form-field>
 
                     <mat-select class="select-wrapper1"  formControlName="eyeprotect" multiple>
                     <mat-option *ngFor="let eye of eyeprotect" [value]="eye">{{eye}}</mat-option>
                   </mat-select>
-                </mat-form-field>
+                </mat-form-field> -->
                   <!-- <div class="select-wrapper" [class.expanded]="expandedDropdownId==='eyeprotect'"  (click)="toggleSelectExpand('eyeprotect')">
                   <select id="eyeprotect" multiple class="form-control" formControlName="eyeprotect">
                     <option value="eyeprotect">Safety Glasses with Side Shields</option>

@@ -203,6 +203,11 @@ h5{
   width:200px;
   margin-bottom: 10px;
 }
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /* Assuming you have a class named 'save-button-container' wrapping the button */
 
 .save-button-container {
