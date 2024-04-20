@@ -40,7 +40,7 @@ export class MainComponent implements OnInit {
     this.username="Shift-Operator4"
     this.menu = this.getOperator1Menu();
    }
-   else if(name=="admin"){
+   else if(name=="Admin"){
     this.headname="Equate- Process Digitization"
     this.username="Shift-Leader";
     this.menu = this.getAdminMenu();
@@ -67,6 +67,8 @@ export class MainComponent implements OnInit {
       this.headname="Safe Work Permit"
       this.username="Job Representative";
     }
+    
+    
 
     document.querySelector('body')?.removeAttribute('class');
     document.querySelector('body')?.classList.add('sidebar-mini','sidebar-open','layout-fixed');
