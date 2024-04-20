@@ -7,26 +7,26 @@
 
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
-        <h5  style="display: contents; color:rgb(115, 182, 158)"><strong>Stage #2 :Processing SWP</strong> </h5>
+        <h5  style="display: contents; color:rgb(115, 182, 158)"><strong>Stage #2 :SWP - Safe Work Permit</strong> </h5>
       </div>
       <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
     <mat-card class= mat>
     <mat-card class="card" [ngClass]="{ 'position-row': position !== 'PAC' }">
-      <div style="background-color: #147737; padding: 7px; color: white;">
-        <h6 style="margin-left: 40%;"><strong>SWP - Safe Work Permit</strong></h6>
+      <div class="header">
+        <h6 ><strong>Preparation</strong></h6>
       </div>
         
       <mat-card-content>
         <form [formGroup]="Safeworkpermit">
-          <h6 style="margin: 1%;"><strong>ECP : {{764564}}</strong></h6>
+          <h6 style="margin-top: 2%;"><strong>ECP : {{764564}}</strong></h6>
           
             
         <div class="row mt-3">
 
 <div class="col">
-  <label class="label" for="preparations">Preparations And Tests</label>
-  <textarea type="text" class="form-control" rows="3"   id="preparations" placeholder="Enter Preparations And Tests" formControlName="preparations_and_test"></textarea>
+  <label class="label" for="preparations">Preparations & Tests</label>
+  <textarea type="text" class="form-control" rows="3"   id="preparations" placeholder="Enter Preparations & Tests" formControlName="preparations_and_test"></textarea>
 </div>
 <div class="col">
   <label class="label" for="house_keeping_instructions">Waste Disposal & House Keeping Instructions</label>
@@ -63,7 +63,7 @@
       </div>
       <div class="col">
         <label class="label" for="conditions_set_by">Conditions Set By</label>
-        <input type="text" class="form-control" id="conditions_set_by" value="Siva">
+        <input type="text" class="form-control" id="conditions_set_by" value="Saktivel VijayKumar">
       </div>
       </div>
      
@@ -73,19 +73,19 @@
 
 
         <mat-card class= "card" [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
-          <div style="background-color: #147737; padding: 7px;color: white;">
-            <h6 style="margin-left: 40%;"><strong>MC - Master Card</strong></h6>
+          <div class="header">
+            <h6><strong>General Information</strong></h6>
           </div>
             
           <mat-card-content>
             <form [formGroup]="Safeworkpermit">
-              <h6 style="margin: 1%;"><strong>Master Card Number : {{76488}}</strong></h6>
+              <h6 style="margin-top: 2%;"><strong>Master Card Number : {{76488}}</strong></h6>
               
                 
             <div class="row mt-3">
     
               <div class="col">
-                <label class="label" for="date">Date And Time</label>
+                <label class="label" for="date">Date & Time</label>
                 <div class="row">
 <div class="col-sm-4"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
 <div class="col-sm-4"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
@@ -126,118 +126,145 @@
             </mat-card-content>
             </mat-card>
 
-            <mat-card class="card" >
-              <div style="background-color: #147737;padding: 1px; margin-top: 2%;color: white;"[ngClass]="{ 'position-row': position !== 'Facility_Rep' && position !== 'Job_rep' }">
-                <h6 style="margin-left: 30%; margin-top: 2%;"><strong>Tags added to the location list of ECP while master card is active
-                </strong></h6>
+            <mat-card class="card">
+              <div class="header" [ngClass]="{ 'position-row': position !== 'Facility_Rep' && position !== 'Job_rep' }">
+                <h6><strong>Energy Control Plan - Tags</strong></h6>
               </div>
               <mat-card-content>
                 <form [formGroup]="Safeworkpermit">
                  
                   
-                  <div class="row mt-3" [ngClass]="{ 'position-row': position !== 'Facility_Rep' }" >
+                  <div class="row mt-3" >
               
-                    <div class="col-sm-2">
+                    <div class="col-sm-2"[ngClass]="{ 'position-row': position !== 'Facility_Rep' }" >
             <label class="label" for="add_tag">Number of added tags</label>
             <input type="text" class="form-control truncate "  id="add_tag" placeholder="Enter Number of added tags" formControlName="add_tag" oninput="this.value = this.value.replace(/[^0-9]/g, '');" readonly>
           </div>
-          <div class="col">
-           
-          </div>
-          </div>
-          <div class="row mt-3">
+          
+          
               
            
             <div class="col" [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
               <label for="facility_representative_sign">Facility Representative (sign)</label>
-              <textarea formControlName="facility_representative_sign" class="form-control " rows="3" id="facility_representative_sign" placeholder="Enter Facility Representative Sign"></textarea>
-              <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage7.style.display = (signatureImage7.style.display === 'none' ? 'block' : 'none')">Signature</button>
-              <img #signatureImage7 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
-          </div>
-          <div id="signature-card" *ngIf="showSignature" >
+            
+              <div style="display: flex; flex-direction: column; align-items: left;">
+                <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage10.style.display = (signatureImage10.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                <div style="margin-top: 10px;">
+                  <img #signatureImage10 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                </div>
+                <div *ngIf="signatureImage10.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                 <strong>Gopal Jawahar</strong><br>
+                <strong>[4Emp87650251]</strong> 
+                </div>
+      </div>
+          <!-- <div id="signature-card" *ngIf="showSignature" >
               <canvas id="signature-canvas" width="300" height="150" style="border: 1px solid #000;"></canvas>
               <button (click)="clearCanvas()"style="background-color: #147737;color: white; margin-top: 1%;">Clear</button>
               <button (click)="saveSignature()"style="background-color: #147737;color: white; margin-top: 1%;">Save</button>
+          </div> -->
+          
           </div>
-          
-          
           <div class="col" [ngClass]="{ 'position-row': position !== 'Job_rep' }">
             <label  for="job_representative_sign">Job Representative (sign)</label>
-            <textarea type="text" class="form-control "   rows="3" id="job_representative_sign" placeholder="Enter Job Representative Sign" formControlName="job_representative_sign"></textarea>
-            <div style="display: flex; align-items: center;">               
-              <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Signature</button>
-              <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
+            
+            <div style="display: flex; flex-direction: column; align-items: left;">
+              <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+              <div style="margin-top: 10px;">
+                <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+              </div>
+              <div *ngIf="signatureImage1.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+               <strong>Rishi kalyan</strong><br>
+              <strong>[4Emp8765251]</strong> 
+              </div>
+    </div>
             </div>
-            </div>
-          </div>
-          <div class="row mt-3"[ngClass]="{ 'position-row': position !== 'Other_Rep' }">
+          
               
            
-            <div class="col">
-            <label  for="signature_other_unit_facility_representative">Signature of other unit Facility Representative</label>
-            <textarea type="text" class="form-control"   rows="3" id="signature_other_unit_facility_representative" placeholder="Enter Facility Representative Sign" formControlName="signature_other_unit_facility_representative"></textarea>
-            <div style="display: flex; align-items: center;"> 
-            <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                                      <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
-            </div>
-            </div>
-            <div class="col">
-              <label  for="employee_number:">Employee Number</label>
-              <textarea type="text" class="form-control"   rows="3" id="employee_number" placeholder="Enter Employee Number" formControlName="employee_number" ></textarea>
-              <div style="display: flex; align-items: center;"> 
-              <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Signature</button>
-              <img #signatureImage2 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
+            <div class="col truncate"[ngClass]="{ 'position-row': position !== 'Other_Rep' }">
+            <label  for="signature_other_unit_facility_representative" class="truncate">Sign of other unit Facility Representative</label>
+           
+            <div style="display: flex; flex-direction: column; align-items: left;">
+              <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+              <div style="margin-top: 10px;">
+                <img #signatureImage2 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
               </div>
+              <div *ngIf="signatureImage2.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+               <strong>Parthibhan Hari</strong><br>
+              <strong>[6Emp8890251]</strong> 
+              </div>
+    </div>
+            </div>
+            <div class="col"[ngClass]="{ 'position-row': position !== 'Other_Rep' }">
+              <label  for="employee_number:">Employee Number</label>
+             
+              <div style="display: flex; flex-direction: column; align-items: left;">
+                <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage3.style.display = (signatureImage3.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                <div style="margin-top: 10px;">
+                  <img #signatureImage3 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                </div>
+                <div *ngIf="signatureImage3.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                 <strong>Sujitha Hari</strong><br>
+                <strong>[7Emp9990251]</strong> 
+                </div>
+      </div>
               </div>
             </div>
            
                 </form>
               </mat-card-content>
               </mat-card>
-            <mat-card class= "card" [ngClass]="{ 'position-row': position !== 'ECP_Issuer' }">
-              <div style="background-color: #147737; padding: 7px; color: white;">
-                <h6 style="margin-left: 40%;"><strong>ECP - Energy Control Plan</strong></h6>
+            <mat-card class= "card"  [ngClass]="{ 'position-row': position !== 'ECP_Issuer' }">
+              <div class="header">
+                <h6><strong>Requirements</strong></h6>
               </div>
                 
               <mat-card-content>
                 <form [formGroup]="Safeworkpermit">
                   <div class="row">
-                 <div class="col"><h6 style="margin: 1%;"><strong>ECP : {{764564}}</strong></h6></div>
-                     <div class="col"><h6 style="margin: 1%;"><strong>Master Card Number : {{76488}}</strong></h6></div>
-                       <div class="col"><h6 style="margin: 1%;"><strong>ECP Issued by: {{76488}}</strong></h6></div>
+                 <div class="col"><h6 style="margin-top: 2%;"><strong>ECP : {{764564}}</strong></h6></div>
+                    
                   </div>
                   
                   <div class="row mt-3">
         
-                    <div class="col-sm-4">
-                      <label class="label" for="date">Date And Time</label>
+                    <div class="col-sm-6">
+                     
+                      <div class="row ml-2"><label>Master Card Number : {{76488}}</label></div>
+                      <div class="row ml-2"><label class="label" for="date">Date & Time</label></div>
+                      
+                      
                       <div class="row">
-      <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" placeholder="Enter Date"></div>
-      <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime"placeholder="Enter Time" ></div>
+      <div class="col"><input type="date" class="form-control" id="date" [value]="yesterdaydate" placeholder="Enter Date"disabled></div>
+      <div class="col"><input type="time" class="form-control" id="date" [value]="yesterdaytime"placeholder="Enter Time" disabled></div>
                       </div>
                       </div>
-                      <div class="col-sm-4">
-                        <label class="label" for="date">Date And Time</label>
-                        <div class="row">
+                      <div class="col-sm-6">
+                        <div class="col "><label>ECP Issued by: {{76488}}</label></div>
+                      <div class="row ml-2"><label class="label" for="date">Date & Time</label></div>
+                        <div class="row ">
         <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate"placeholder="Enter Date" ></div>
         <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime"placeholder="Enter Time" ></div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                      <div class="row">
-                        <div class="col">
-                          <label class="label" for="equipment_id">Equipment ID</label>
-                          <input type="text" class="form-control truncate" id="equipment_id" value="11" placeholder="Enter Equipment ID " oninput="this.value = this.value.replace(/[^0-9]/g, '');" >
-                        </div>
-                        <div class="col">
-                          <label class="label" for="scope">Scope</label>
-                          <input type="text" class="form-control truncate" id="scope" value="jk" placeholder="Enter Scope" >
-                        </div>
+                    
+                      
+                        
                       </div>
-                    </div>
-</div>
+                    
 
-               
+<div class="row mt-3">
+  <div class="col">
+    <div class="row ml-1"><label class="label" for="equipment_id">Equipment ID</label></div>
+   <input type="text" class="form-control truncate" id="equipment_id" value="F-2230" placeholder="Enter Equipment ID " oninput="this.value = this.value.replace(/[^0-9]/g, '');"disabled >
+ </div>
+ <div class="col">
+   
+   <div class="row ml-3"><label class="label" for="scope">Scope</label></div>
+   
+   <input type="text" class="form-control truncate" id="scope" value="" placeholder="Enter Scope" disabled>
+ </div>
+</div>
       
         <div class="row mt-3">
         
@@ -278,21 +305,21 @@
                 </mat-card>
           
   <mat-card class= "card" [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
-                  <div style="background-color: #147737; padding: 7px; color: white;">
-                    <h6 style="margin-left: 40%;"><strong>ECP - Energy Control Plan(Facility Rep.)</strong></h6>
+                  <div class="header">
+                    <h6 ><strong>Tags & Locks Table</strong></h6>
                   </div>
                   <mat-card-content>
                     <form [formGroup]="Safeworkpermit">
                       <table>
                         <tr>
                           <th>Isolation Method</th>
-                          <th>Location of Red Tags</th>
-                          <th>Red Tag Number</th>
+                          <th>Loc. of Red Tags</th>
+                          <th>Red Tag No.</th>
                           <th>Lock Number</th>
                           <th>Tag Removed Date</th>
                           <th>Tag Removed Time</th>
-                          <th>Tag Placed Signature</th>
-                          <th>Tag Removed Signature</th>
+                          <th>Tag Placed Sign</th>
+                          <th>Tag Removed Sign</th>
                           
 
                         </tr>
@@ -311,14 +338,14 @@
                           <td><input type="time" class="form-control truncate" id="time" placeholder="Enter Time" formControlName="time"></td>
                           <td>
                             <div style="display: flex; align-items: center;">
-                                <button mat-raised-button style="background-color: #147737; color: white;">Signature</button>
-                                <img #signatureImage3 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; margin-left: 10px;">
+                                <button mat-raised-button style="background-color: #147737; color: white;">Sign</button>
+                                <img #signatureImage14 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; margin-left: 10px;">
                             </div>
                         </td>
                         <td>
                           <div style="display: flex; align-items: center;">
-                              <button mat-raised-button style="background-color: #147737; color: white;">Signature</button>
-                              <img #signatureImage3 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; margin-left: 10px;">
+                              <button mat-raised-button style="background-color: #147737; color: white;">Sign</button>
+                              <img #signatureImage15 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; margin-left: 10px;">
                           </div>
                       </td>
                        
@@ -333,10 +360,10 @@
                     </mat-card>
 
 
-
+                    
                     <mat-card class= "card" [ngClass]="{ 'position-row': position !== 'ECP_Issuer' }">
-                      <div style="background-color: #147737; padding: 7px;color: white;">
-                        <h6 style="margin-left: 40%;"><strong>ECP - Energy Control Plan(ECP Issuer)</strong></h6>
+                      <div class="header">
+                        <h6><strong>Tags Reconcilation</strong></h6>
                       </div>
                         
                       <mat-card-content>
@@ -346,10 +373,10 @@
                           <div class="row mt-3">
                 
                             <div class="col">
-                              <label class="label" for="date">Date And Time</label>
+                              <label class="label" for="date">Date & Time</label>
                               <div class="row">
-                              <div class="col-sm-4"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                            <div class="col-sm-4"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                              <div class="col-sm-5"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
+                            <div class="col-sm-5"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
                               </div>
                           </div>
 
@@ -370,31 +397,48 @@
                           <div class="col">
                               
                             <label  for="tags_reconciled_signature">Tags Reconciled Signature</label>
-                            <textarea type="text" class="form-control"   rows="3" id="tags_reconciled_signature" placeholder="Enter Tags Reconciled Signature" formControlName="tags_reconciled_signature"></textarea>
-                            <div style="display: flex; align-items: center;"> 
-                            <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage5.style.display = (signatureImage5.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                            <img #signatureImage5 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
-                            </div>
+                            
+                            <div style="display: flex; flex-direction: column; align-items: left;">
+                              <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage5.style.display = (signatureImage5.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                              <div style="margin-top: 10px;">
+                                <img #signatureImage5 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                              </div>
+                              <div *ngIf="signatureImage5.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                               <strong>Sundhar Kumarasan</strong><br>
+                              <strong>[4Emp87650251]</strong> 
+                              </div>
+                    </div>
                             </div>
                             <div class="col">
                               <label  for="tag_deleted_location_sign">Tags Deleted from Location List Signature</label>
-                              <textarea type="text" class="form-control"   rows="3" id="tag_deleted_location_sign" placeholder="Enter Tags Deleted to Location List Signature" formControlName="tag_deleted_location_sign"></textarea>
-                              <div style="display: flex; align-items: center;"> 
-                              <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage6.style.display = (signatureImage6.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                                      <img #signatureImage6 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
-                              </div>  
-                            
+                              
+                              <div style="display: flex; flex-direction: column; align-items: left;">
+                                <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage6.style.display = (signatureImage6.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                                <div style="margin-top: 10px;">
+                                  <img #signatureImage6 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                                </div>
+                                <div *ngIf="signatureImage6.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                                 <strong>Monish Harish</strong><br>
+                                <strong>[6Emp456789]</strong> 
+                                </div>
+                      </div>
                 </div>
                 
                   
                   
                     <div class="col">
                       <label  for="tag_added_location_sign">Tags Added to Location List Signature</label>
-                      <textarea type="text" class="form-control"   rows="3" id="tag_added_location_sign" placeholder="Enter Tags Added to Location List Signature" formControlName="tag_added_location_sign"></textarea>
-                      <div style="display: flex; align-items: center;"> 
-                      <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage7.style.display = (signatureImage7.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                      <img #signatureImage7 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
-                      </div>
+                     
+                      <div style="display: flex; flex-direction: column; align-items: left;">
+                        <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage7.style.display = (signatureImage7.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                        <div style="margin-top: 10px;">
+                          <img #signatureImage7 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                        </div>
+                        <div *ngIf="signatureImage7.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                         <strong>Narmadha VijayKumar</strong><br>
+                        <strong>[19Emp029871]</strong> 
+                        </div>
+              </div>
                     </div>
                    </div>
                      
@@ -404,172 +448,168 @@
 
 
                         <mat-card class= "card" [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
-                          <div style="background-color: #147737; padding: 7px; color: white;">
-                            <h6 style="margin-left: 40%;"><strong>SWP - Safe Work Permit</strong></h6>
+                          <div class="header">
+                            <h6 ><strong>Preparation</strong></h6>
                           </div>
+                          <mat-card-content>
                             <h6 style="text-align: center;">Atmospheric Test Requirements</h6>
                             <h6 style="text-align: center;">Initial Test</h6>
-                          <mat-card-content>
-                            <form [formGroup]="Safeworkpermit">
-                             
+                            <mat-card>
+                            <mat-card-content>
                               
-                              <div class="row mt-3">
+                              <form [formGroup]="Safeworkpermit">
+                                <div class="row mt-3">
                     
                                 
-                                <div class="col"><label >User Initials : {{'operator'}}</label></div>
-                              
-                              <div class="col">
+                                  <div class="col"><label >User Initials : {{'operator'}}</label></div>
                                 
+                                <div class="col">
+                                  
+                                  </div>
+                              </div>
+                                
+                                <div class="row mt-1">
+                      
+                                  <div class="col-sm-4">
+                                  <div class="row">
+                                    <div class="col">
+                                    <label class="label" for="initial_oxygen">oxygen</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control truncate" id="initial_oxygen" placeholder="Enter oxygen" formControlName="initial_oxygen">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                              
-                              
-                              <div class="row mt-3">
-                    
-                                <div class="col-sm-4">
-                                <div class="row">
-                                  <div class="col">
-                                  <label class="label" for="initial_oxygen">oxygen</label>
+                                
+                                <div class="col-sm-6">
+                                  <label class="label" for="initial_lel">LEL</label>
                                   <div class="input-group">
-                                      <input type="text" class="form-control truncate" id="initial_oxygen" placeholder="Enter oxygen" formControlName="initial_oxygen">
+                                      <input type="text" class="form-control truncate" id="initial_lel" placeholder="Enter LEL" formControlName="initial_lel">
                                       <div class="input-group-append">
                                           <span class="input-group-text">%</span>
                                       </div>
                                   </div>
                               </div>
-                              
-                              <div class="col-sm-6">
-                                <label class="label" for="initial_lel">LEL</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control truncate" id="initial_lel" placeholder="Enter LEL" formControlName="initial_lel">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">%</span>
+                            </div>
+                         </div>
+                            <div class="col-sm-4">
+                              <label class="label" for="date">Date & Time</label>
+                              <div class="row">
+                              <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
+                            <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                              </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <label class="label" for="initial_others">Initial Others</label>
+                          <input type="text" class="form-control truncate"  id="initial_others" placeholder="Enter others" formControlName="initial_others">
+                        </div>
+                                </div>
+<div class="row header" style="margin-top: 2%;"><label class="label "><strong>Retest #1</strong></label></div>
+                                <div class="row mt-3">
+                                  
+                                  
+                                  <div class="col"><label >User Initials : {{'Siva'}}</label></div>
+                                
+                                <div class="col">
+                                  
+                                  </div>
+                                  </div>
+
+                                <div class="row mt-1">
+                      
+                                  <div class="col-sm-4">
+                                  <div class="row">
+                                    <div class="col">
+                                    <label class="label" for="retest_1_oxygen">oxygen</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control truncate" id="retest_1_oxygen" placeholder="Enter oxygen" formControlName="retest_1_oxygen">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">%</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                          </div>
-                       </div>
-                          <div class="col-sm-4">
-                            <label class="label" for="date">Date And Time</label>
-                            <div class="row">
-                            <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                          <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
-                            </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="label" for="initial_others">Initial Others</label>
-                        <input type="text" class="form-control truncate"  id="initial_others" placeholder="Enter others" formControlName="initial_others">
-                      </div>
-                              </div>
-                              
-                              <mat-card class="mt-2">
-                            <div class="row mt-1" style="background-color: #147737; padding: 5px;color: white; text-align: center;">
-                    
-                              <div class="col">
-                                <label class="label"  >Retest #1</label>
-                               
-                              </div>
-                              <div class="col">
-                                <label class="label ">Retest #2</label>
                                 
-                                </div>
-                    </div>
-                    <div class="row mt-3">
-                    
-                      <div class="col">
-                        <div class="row"><label >User Initials : {{'operator'}}</label></div>
-                        <div class="col">
-                          <div class="row">
-                          <div class="col">
-                            <label class="label" style="margin-right: 2%;" for="Retest_1_oxygen">oxygen</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control truncate" id="Retest_1_oxygen" placeholder="Enter oxygen" formControlName="Retest_1_oxygen">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">%</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col">
-                          <label class="label" for="retest_1_lel">LEL</label>
-                          <div class="input-group">
-                              <input type="text"class="form-control truncate"  id="retest_1_lel" placeholder="Enter LEL" formControlName="retest_1_lel">
-                              <div class="input-group-append">
-                                  <span class="input-group-text">%</span>
+                                <div class="col-sm-6">
+                                  <label class="label" for="retest_1_lel">LEL</label>
+                                  <div class="input-group">
+                                      <input type="text" class="form-control truncate" id="retest_1_lel" placeholder="Enter LEL" formControlName="retest_1_lel">
+                                      <div class="input-group-append">
+                                          <span class="input-group-text">%</span>
+                                      </div>
+                                  </div>
                               </div>
-                          </div>
-                          </div>
+                            </div>
+                         </div>
+                            <div class="col-sm-4">
+                              <label class="label" for="date">Date & Time</label>
+                              <div class="row">
+                              <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
+                            <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                              </div>
                         </div>
-                        </div>
-                        
-                        <div class="row">
-                          <label class="label " for="date">Date And Time</label>
-                          
-                    </div>
-                    <div class="row">
-                      <div class="col"><input type="date" class="form-control " id="date" [value]="formattedDate" ></div>
-                    <div class="col"><input type="time" class="form-control truncate" id="date" [value]="formattedTime" ></div>
-                  </div>
-                        <div class="row">
+                        <div class="col-sm-4">
                           <label class="label" for="retest_1_others">Others</label>
                           <input type="text" class="form-control truncate"  id="retest_1_others" placeholder="Enter others" formControlName="retest_1_others">
                         </div>
+                                </div>
+                                <div class="row header" style="margin-top: 2%;"><label class="label "><strong>Retest #2</strong></label></div>
+                                <div class="row mt-3">
+                                  
+                                  
+                                  <div class="col"><label >User Initials : {{'Sakthi'}}</label></div>
+                                
+                                <div class="col">
+                                  
+                                  </div>
+                                  </div>
+                                <div class="row mt-1">
                       
-                        
-
-                
-                      </div>
-                      <div class="col">
-                        <div class="row"><label >User Initials : {{'operator'}}</label></div>
-                        <div class="row">
-                        <div class="col">
-                          <label class="label" for="Retest_2_oxygen">oxygen</label>
-                          <div class="input-group">
-                              <input type="text" class="form-control truncate" id="Retest_2_oxygen" placeholder="Enter oxygen" formControlName="Retest_2_oxygen">
-                              <div class="input-group-append">
-                                  <span class="input-group-text">%</span>
+                                  <div class="col-sm-4">
+                                  <div class="row">
+                                    <div class="col">
+                                    <label class="label" for="retest_2_oxygen">oxygen</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control truncate" id="retest_2_oxygen" placeholder="Enter oxygen" formControlName="retest_2_oxygen">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                  <label class="label" for="retest_2_lel">LEL</label>
+                                  <div class="input-group">
+                                      <input type="text" class="form-control truncate" id="retest_2_lel" placeholder="Enter LEL" formControlName="retest_2_lel">
+                                      <div class="input-group-append">
+                                          <span class="input-group-text">%</span>
+                                      </div>
+                                  </div>
                               </div>
-                          </div>
-                      </div>
-                      
-                      <div class="col">
-                        <label class="label" for="retest_2_lel">LEL</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control truncate"  id="retest_2_lel" placeholder="Enter LEL" formControlName="retest_2_lel">
-                            <div class="input-group-append">
-                                <span class="input-group-text">%</span>
                             </div>
+                         </div>
+                            <div class="col-sm-4">
+                              <label class="label" for="date">Date & Time</label>
+                              <div class="row">
+                              <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
+                            <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                              </div>
                         </div>
-                      </div>
+                        <div class="col-sm-4">
+                          <label class="label" for="retest_2_others">Others</label>
+                          <input type="text" class="form-control truncate"  id="retest_2_others" placeholder="Enter others" formControlName="retest_2_others">
                         </div>
-                        <div class="row">
-                          <label class="label ml-1" for="date">Date And Time</label>
-                          
-                      </div>
-                      <div class="row">
-                        <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                      <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
-                    </div>
-                        <div class="row">
-                          <label class="label ml-1" for="retest_2_others">Others</label>
-                          <input type="text" class="form-control ml-2"  id="retest_2_others" placeholder="Enter others" formControlName="retest_2_others">
-                        </div>
-                      
-                       
-
-                    
-                      </div>
-                       </div>
-                         </mat-card>
-                           </form>
+                                </div>
+                                
+                              </form>
                             </mat-card-content>
+                          </mat-card>
+                           </mat-card-content>
                             </mat-card>
 
 
                             <mat-card class= "card" [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
-                              <div style="background-color: #147737; padding: 7px;color: white;">
-                                <h6 style="margin-left: 40%;"><strong>SWP - Safe Work Permit</strong></h6>
-                              </div>
+                              
                                  <h6 style="text-align: center;">Equipment Prepared by (Facility Rep.)</h6>
                               <mat-card-content>
                                 <form [formGroup]="Safeworkpermit">
@@ -590,7 +630,7 @@
                                    
                         
                                   <div class="col">
-                                    <label class="label" for="date">Date And Time</label>
+                                    <label class="label" for="date">Date & Time</label>
                                     <div class="row">
                                     <div class="col-sm-6"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
                                   <div class="col-sm-6.5"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
@@ -664,8 +704,8 @@
                                   <mat-card-content>
                                     <form [formGroup]="Safeworkpermit">
                                     <div [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
-                                  <div style="background-color: #147737; padding: 7px;color: white;">
-                                    <h6 style="margin-left: 40%;"><strong>MC - Master Card</strong></h6>
+                                  <div class="header">
+                                    <h6 ><strong>PEFM Confirmation</strong></h6>
                                   </div>
                               
                                      <h6 style="text-align: center;margin-top: 1%;">Equipment is Prepared for Work Described Above</h6>
@@ -679,7 +719,7 @@
                                           <input type="text" class="form-control truncate"  id="facility_representative_name" placeholder="Enter Facility Representative Name" formControlName="facility_representative_name">
                                         </div>
                                         <div class="col">
-                                          <label class="label" for="facility_representative_employee_number">Facility Representative Employee Numbe</label>
+                                          <label class="label" for="facility_representative_employee_number">Facility Representative Employee Number</label>
                                           <input type="text" class="form-control truncate"  id="facility_representative_employee_number" placeholder="Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number">
                                         </div>
                                        
@@ -688,7 +728,7 @@
                                        
                             
                                       <div class="col">
-                                        <label class="label" for="date">Date And Time</label>
+                                        <label class="label" for="date">Date & Time</label>
                                         <div class="row">
                                         <div class="col-sm-6"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
                                       <div class="col-sm-6.5"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
@@ -697,10 +737,16 @@
                                     <div class="col">
                                       <label class="label" for="facility_representative_employee_number_sign">Facility Representative Employee Number</label>
                                       <textarea type="text" class="form-control truncate"   rows="1" id="facility_representative_employee_number" placeholder="Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number"></textarea>
-                                      <div style="display: flex; align-items: center;"> 
-                                      <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage8.style.display = (signatureImage8.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                                      <img #signatureImage8 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
-                                    </div>
+                                      <div style="display: flex; flex-direction: column; align-items: left;">
+                                        <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage8.style.display = (signatureImage8.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                                        <div style="margin-top: 10px;">
+                                          <img #signatureImage8 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                                        </div>
+                                        <div *ngIf="signatureImage8.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                                         <strong>Dhinesh Kumar</strong><br>
+                                        <strong>[4Emp8769251]</strong> 
+                                        </div>
+                              </div>
                                     </div>
                             </div>
                           </div>
@@ -735,8 +781,8 @@
                           </div>
                   </div> -->
                   <div [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
-                  <div style="background-color: #147737;color: white;padding: 3px;margin-top: 2%;">
-                  <h6 style="text-align: center;"><strong> MC - Master Card PEFM Confirmation Job Representative</strong></h6>
+                  <div class="header">
+                  <h6><strong>PEFM Confirmation</strong></h6>
                 </div>
                   
                   <div class="row mt-3">
@@ -745,7 +791,7 @@
                       <input type="text" class="form-control truncate"  id="job_facility_representative_name" placeholder="Enter Job Facility Representative Name" formControlName="job_facility_representative_name">
                     </div>
                     <div class="col">
-                      <label class="label" for="job_facility_representative_employee_number">Facility Representative Employee Numbe</label>
+                      <label class="label" for="job_facility_representative_employee_number">Facility Representative Employee Number</label>
                       <input type="text" class="form-control truncate"  id="job_facility_representative_employee_number" placeholder="Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number">
                     </div>
                     <div class="col">
@@ -763,10 +809,16 @@
                 <div class="col">
                   <label class="label" for="job_facility_representative_employee_number_sign">Facility Representative Employee Number</label>
                   <textarea type="text" class="form-control"   rows="1" id="job_facility_representative_employee_number_sign" placeholder="Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number_sign"></textarea>
-                  <div style="display: flex; align-items: center;"> 
-                  <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%;" (click)="signatureImage9.style.display = (signatureImage9.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                  <img #signatureImage9 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                </div>
+                  <div style="display: flex; flex-direction: column; align-items: left;">
+                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage9.style.display = (signatureImage9.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <div style="margin-top: 10px;">
+                      <img #signatureImage9 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                    </div>
+                    <div *ngIf="signatureImage9.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                     <strong>Naveen Nandesh</strong><br>
+                    <strong>[4Emp87676251]</strong> 
+                    </div>
+          </div>
                 </div>
                 
         </div>

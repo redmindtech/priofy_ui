@@ -19,6 +19,8 @@ export class ProcessingswpComponent implements OnInit {
   addcount:number=0;
   currentUser: any;
   position: any;
+  yesterdaytime: string;
+  yesterdaydate: string;
   constructor(
     private formBuilder: FormBuilder,
   ) { }
@@ -31,10 +33,14 @@ export class ProcessingswpComponent implements OnInit {
 
 // Format the date as needed (e.g., DD/MM/YYYY)
 this.formattedDate = new Date().toISOString().split('T')[0]; 
+this.yesterdaydate="2024-04-19"
+this.yesterdaytime="16:42:33"
+console.log('this.formattedDate: ', this.formattedDate);
 
 
 // Format the time as needed (e.g., HH:MM:SS)
 this.formattedTime = new Date().toTimeString().split(' ')[0];
+console.log('this.formattedTime: ', this.formattedTime);
 
 
 // Combine date and time
@@ -81,10 +87,10 @@ this.formattedTime = new Date().toTimeString().split(' ')[0];
      initial_lel:[''],
       initial_oxygen:[''],
       initial_others:[''],
-      Retest_1_oxygen:[''],
+      retest_1_oxygen:[''],
       retest_1_lel:[''],
       retest_1_others:[''],
-      Retest_2_oxygen:[''],
+      retest_2_oxygen:[''],
       retest_2_lel:[''],
       retest_2_others:[''],
       equipment_prepared_facility_rep:[''],
