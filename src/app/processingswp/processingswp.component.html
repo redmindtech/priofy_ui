@@ -150,7 +150,7 @@
            
             <div class="col" [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
               <label for="facility_representative_sign">Facility Representative (sign)</label>
-              <textarea formControlName="facility_representative_sign" class="form-control " rows="3" id="facility_representative_sign" placeholder="Please enter Facility Representative Sign"></textarea>
+              <textarea formControlName="facility_representative_sign" class="form-control " rows="3" id="facility_representative_sign" placeholder="Enter Facility Representative Sign"></textarea>
               <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage7.style.display = (signatureImage7.style.display === 'none' ? 'block' : 'none')">Signature</button>
               <img #signatureImage7 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
           </div>
@@ -163,9 +163,11 @@
           
           <div class="col" [ngClass]="{ 'position-row': position !== 'Job_rep' }">
             <label  for="job_representative_sign">Job Representative (sign)</label>
-            <textarea type="text" class="form-control "   rows="3" id="job_representative_sign" placeholder="Please Enter Job Representative Sign" formControlName="job_representative_sign"></textarea>
-            <button mat-raised-button style="background-color: #147737; color: white; margin-top: 1%;" (click)="signatureImage.style.display = (signatureImage.style.display === 'none' ? 'block' : 'none')">Signature</button>
-            <img #signatureImage src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
+            <textarea type="text" class="form-control "   rows="3" id="job_representative_sign" placeholder="Enter Job Representative Sign" formControlName="job_representative_sign"></textarea>
+            <div style="display: flex; align-items: center;">               
+              <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Signature</button>
+              <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
+            </div>
             </div>
           </div>
           <div class="row mt-3"[ngClass]="{ 'position-row': position !== 'Other_Rep' }">
@@ -173,15 +175,19 @@
            
             <div class="col">
             <label  for="signature_other_unit_facility_representative">Signature of other unit Facility Representative</label>
-            <textarea type="text" class="form-control"   rows="3" id="signature_other_unit_facility_representative" placeholder="Please Enter Facility Representative Sign" formControlName="signature_other_unit_facility_representative"></textarea>
+            <textarea type="text" class="form-control"   rows="3" id="signature_other_unit_facility_representative" placeholder="Enter Facility Representative Sign" formControlName="signature_other_unit_facility_representative"></textarea>
+            <div style="display: flex; align-items: center;"> 
             <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Signature</button>
                                       <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
             </div>
+            </div>
             <div class="col">
               <label  for="employee_number:">Employee Number</label>
-              <textarea type="text" class="form-control"   rows="3" id="employee_number" placeholder="Please Enter Employee Number" formControlName="employee_number" ></textarea>
+              <textarea type="text" class="form-control"   rows="3" id="employee_number" placeholder="Enter Employee Number" formControlName="employee_number" ></textarea>
+              <div style="display: flex; align-items: center;"> 
               <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Signature</button>
               <img #signatureImage2 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
+              </div>
               </div>
             </div>
            
@@ -237,33 +243,33 @@
         
           <div class="col">
             <label class="label" for="isolating_and_securing">Steps for shutting down, isolating and securing the isolation devices</label>
-            <input type="text" class="form-control"  id="isolating_and_securing" placeholder="Please Enter Isolating and Securing " formControlName="isolating_and_securing">
+            <input type="text" class="form-control"  id="isolating_and_securing" placeholder="Enter Isolating and Securing " formControlName="isolating_and_securing">
           </div>
           <div class="col">
             <label class="label" for="hazards_energies">List the energy sources being isolated and the hazards associated with those energies</label>
-            <input type="text" class="form-control"  id="hazards_energies" placeholder="Please Enter Hazards Energies" formControlName="hazards_energies">
+            <input type="text" class="form-control"  id="hazards_energies" placeholder="Enter Hazards Energies" formControlName="hazards_energies">
           </div>
           </div>
           <div class="row mt-3">
             
             <div class="col">
               <label class="label" for="residual_energy_material">Method(s) used to release the residual energy and/or materials</label>
-              <input type="text" class="form-control"  id="residual_energy_material" placeholder="Please Enter Residual Energy Material" formControlName="residual_energy_material">
+              <input type="text" class="form-control"  id="residual_energy_material" placeholder="Enter Residual Energy Material" formControlName="residual_energy_material">
             </div>
             <div class="col">
               <label class="label" for="inspection_required_job">Inspection Required During the Job</label>
-              <input type="text" class="form-control"  id="inspection_required_job" placeholder="Please Enter Inspection Required" formControlName="inspection_required_job">
+              <input type="text" class="form-control"  id="inspection_required_job" placeholder="Enter Inspection Required" formControlName="inspection_required_job">
             </div>
             </div>
             <div class="row mt-3">
               
               <div class="col">
                 <label class="label" for="inadvertent_operation">Method(s) used to secure the isolating devices from inadvertent operation (OnePlus)</label>
-                <input type="text" class="form-control truncate"  id="inadvertent_operation" placeholder="Please Enter Inadvertent Operation" formControlName="inadvertent_operation">
+                <input type="text" class="form-control truncate"  id="inadvertent_operation" placeholder="Enter Inadvertent Operation" formControlName="inadvertent_operation">
               </div>
               <div class="col">
                 <label class="label" for="special_instructions">Special Instructions</label>
-                <input type="text" class="form-control truncate"  id="special_instructions" placeholder="Please Enter Special Instructions" formControlName="special_instructions">
+                <input type="text" class="form-control truncate"  id="special_instructions" placeholder="Enter Special Instructions" formControlName="special_instructions">
               </div>
               </div>
              
@@ -298,11 +304,11 @@
                               </mat-select>
                             </div>
                           </td>
-                          <td><input type="text" class="form-control truncate" id="location_of_red_tags" placeholder="Please Enter Location of Red Tags" formControlName="location_of_red_tags"></td>
-                          <td><input type="text" class="form-control truncate" id="facilityrep_red_tag" placeholder="Please Enter Red Tag" formControlName="facilityrep_red_tag"></td>
-                          <td><input type="text" class="form-control truncate" id="lock_number" placeholder="Please Enter Lock Number" formControlName="lock_number"></td>
-                          <td><input type="date" class="form-control truncate" id="date" placeholder="Please Enter Date" formControlName="date"></td>
-                          <td><input type="time" class="form-control truncate" id="time" placeholder="Please Enter Time" formControlName="time"></td>
+                          <td><input type="text" class="form-control truncate" id="location_of_red_tags" placeholder="Enter Location of Red Tags" formControlName="location_of_red_tags"></td>
+                          <td><input type="text" class="form-control truncate" id="facilityrep_red_tag" placeholder="Enter Red Tag" formControlName="facilityrep_red_tag"></td>
+                          <td><input type="text" class="form-control truncate" id="lock_number" placeholder="Enter Lock Number" formControlName="lock_number"></td>
+                          <td><input type="date" class="form-control truncate" id="date" placeholder="Enter Date" formControlName="date"></td>
+                          <td><input type="time" class="form-control truncate" id="time" placeholder="Enter Time" formControlName="time"></td>
                           <td>
                             <div style="display: flex; align-items: center;">
                                 <button mat-raised-button style="background-color: #147737; color: white;">Signature</button>
@@ -349,11 +355,11 @@
 
                           <div class="col">
                             <label class="label" for="tag_added_location">Tags Added to Location List Number (Quantity)</label>
-                            <input type="text" class="form-control"  id="tag_added_location" placeholder="Please Enter Tags Added to Location List Number" formControlName="tag_added_location">
+                            <input type="text" class="form-control"  id="tag_added_location" placeholder="Enter Tags Added to Location List Number" formControlName="tag_added_location">
                           </div>
                           <div class="col">
                             <label class="label" for="tag_deleted_location">Tags Deleted From Location List Number (Quantity)</label>
-                            <input type="text" class="form-control"  id="tag_deleted_location" placeholder="Please Enter Tags Deleted to Location List Number" formControlName="tag_deleted_location">
+                            <input type="text" class="form-control"  id="tag_deleted_location" placeholder="Enter Tags Deleted to Location List Number" formControlName="tag_deleted_location">
                           </div>
                          
                               
@@ -364,28 +370,32 @@
                           <div class="col">
                               
                             <label  for="tags_reconciled_signature">Tags Reconciled Signature</label>
-                            <textarea type="text" class="form-control"   rows="3" id="tags_reconciled_signature" placeholder="Please Enter Tags Reconciled Signature" formControlName="tags_reconciled_signature"></textarea>
+                            <textarea type="text" class="form-control"   rows="3" id="tags_reconciled_signature" placeholder="Enter Tags Reconciled Signature" formControlName="tags_reconciled_signature"></textarea>
+                            <div style="display: flex; align-items: center;"> 
                             <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage5.style.display = (signatureImage5.style.display === 'none' ? 'block' : 'none')">Signature</button>
                             <img #signatureImage5 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
                             </div>
+                            </div>
                             <div class="col">
                               <label  for="tag_deleted_location_sign">Tags Deleted from Location List Signature</label>
-                              <textarea type="text" class="form-control"   rows="3" id="tag_deleted_location_sign" placeholder="Please Enter Tags Deleted to Location List Signature" formControlName="tag_deleted_location_sign"></textarea>
+                              <textarea type="text" class="form-control"   rows="3" id="tag_deleted_location_sign" placeholder="Enter Tags Deleted to Location List Signature" formControlName="tag_deleted_location_sign"></textarea>
+                              <div style="display: flex; align-items: center;"> 
                               <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage6.style.display = (signatureImage6.style.display === 'none' ? 'block' : 'none')">Signature</button>
                                       <img #signatureImage6 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
                               </div>  
                             
-                
+                </div>
                 
                   
                   
                     <div class="col">
                       <label  for="tag_added_location_sign">Tags Added to Location List Signature</label>
-                      <textarea type="text" class="form-control"   rows="3" id="tag_added_location_sign" placeholder="Please Enter Tags Added to Location List Signature" formControlName="tag_added_location_sign"></textarea>
+                      <textarea type="text" class="form-control"   rows="3" id="tag_added_location_sign" placeholder="Enter Tags Added to Location List Signature" formControlName="tag_added_location_sign"></textarea>
+                      <div style="display: flex; align-items: center;"> 
                       <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage7.style.display = (signatureImage7.style.display === 'none' ? 'block' : 'none')">Signature</button>
                       <img #signatureImage7 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
                       </div>
-                    
+                    </div>
                    </div>
                      
                        </form>
@@ -421,7 +431,7 @@
                                   <div class="col">
                                   <label class="label" for="initial_oxygen">oxygen</label>
                                   <div class="input-group">
-                                      <input type="text" class="form-control truncate" id="initial_oxygen" placeholder="Please Enter oxygen" formControlName="initial_oxygen">
+                                      <input type="text" class="form-control truncate" id="initial_oxygen" placeholder="Enter oxygen" formControlName="initial_oxygen">
                                       <div class="input-group-append">
                                           <span class="input-group-text">%</span>
                                       </div>
@@ -431,7 +441,7 @@
                               <div class="col-sm-6">
                                 <label class="label" for="initial_lel">LEL</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control truncate" id="initial_lel" placeholder="Please Enter LEL" formControlName="initial_lel">
+                                    <input type="text" class="form-control truncate" id="initial_lel" placeholder="Enter LEL" formControlName="initial_lel">
                                     <div class="input-group-append">
                                         <span class="input-group-text">%</span>
                                     </div>
@@ -448,7 +458,7 @@
                       </div>
                       <div class="col-sm-4">
                         <label class="label" for="initial_others">Initial Others</label>
-                        <input type="text" class="form-control truncate"  id="initial_others" placeholder="Please Enter others" formControlName="initial_others">
+                        <input type="text" class="form-control truncate"  id="initial_others" placeholder="Enter others" formControlName="initial_others">
                       </div>
                               </div>
                               
@@ -473,7 +483,7 @@
                           <div class="col">
                             <label class="label" style="margin-right: 2%;" for="Retest_1_oxygen">oxygen</label>
                             <div class="input-group">
-                                <input type="text" class="form-control truncate" id="Retest_1_oxygen" placeholder="Please Enter oxygen" formControlName="Retest_1_oxygen">
+                                <input type="text" class="form-control truncate" id="Retest_1_oxygen" placeholder="Enter oxygen" formControlName="Retest_1_oxygen">
                                 <div class="input-group-append">
                                     <span class="input-group-text">%</span>
                                 </div>
@@ -483,7 +493,7 @@
                         <div class="col">
                           <label class="label" for="retest_1_lel">LEL</label>
                           <div class="input-group">
-                              <input type="text"class="form-control truncate"  id="retest_1_lel" placeholder="Please Enter LEL" formControlName="retest_1_lel">
+                              <input type="text"class="form-control truncate"  id="retest_1_lel" placeholder="Enter LEL" formControlName="retest_1_lel">
                               <div class="input-group-append">
                                   <span class="input-group-text">%</span>
                               </div>
@@ -502,7 +512,7 @@
                   </div>
                         <div class="row">
                           <label class="label" for="retest_1_others">Others</label>
-                          <input type="text" class="form-control truncate"  id="retest_1_others" placeholder="Please Enter others" formControlName="retest_1_others">
+                          <input type="text" class="form-control truncate"  id="retest_1_others" placeholder="Enter others" formControlName="retest_1_others">
                         </div>
                       
                         
@@ -515,7 +525,7 @@
                         <div class="col">
                           <label class="label" for="Retest_2_oxygen">oxygen</label>
                           <div class="input-group">
-                              <input type="text" class="form-control truncate" id="Retest_2_oxygen" placeholder="Please Enter oxygen" formControlName="Retest_2_oxygen">
+                              <input type="text" class="form-control truncate" id="Retest_2_oxygen" placeholder="Enter oxygen" formControlName="Retest_2_oxygen">
                               <div class="input-group-append">
                                   <span class="input-group-text">%</span>
                               </div>
@@ -525,7 +535,7 @@
                       <div class="col">
                         <label class="label" for="retest_2_lel">LEL</label>
                         <div class="input-group">
-                            <input type="text" class="form-control truncate"  id="retest_2_lel" placeholder="Please Enter LEL" formControlName="retest_2_lel">
+                            <input type="text" class="form-control truncate"  id="retest_2_lel" placeholder="Enter LEL" formControlName="retest_2_lel">
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
@@ -542,7 +552,7 @@
                     </div>
                         <div class="row">
                           <label class="label ml-1" for="retest_2_others">Others</label>
-                          <input type="text" class="form-control ml-2"  id="retest_2_others" placeholder="Please Enter others" formControlName="retest_2_others">
+                          <input type="text" class="form-control ml-2"  id="retest_2_others" placeholder="Enter others" formControlName="retest_2_others">
                         </div>
                       
                        
@@ -568,11 +578,11 @@
                                   <div class="row mt-3">
                                     <div class="col">
                                       <label class="label" for="equipment_prepared_facility_rep">Name</label>
-                                      <input type="text" class="form-control truncate"  id="equipment_prepared_facility_rep" placeholder="Please Enter Name" formControlName="equipment_prepared_facility_rep">
+                                      <input type="text" class="form-control truncate"  id="equipment_prepared_facility_rep" placeholder="Enter Name" formControlName="equipment_prepared_facility_rep">
                                     </div>
                                     <div class="col">
                                       <label class="label" for="equipment_prepared_employee_number">Employee Number</label>
-                                      <input type="text" class="form-control truncate"  id="equipment_prepared_employee_number" placeholder="Please Enter Employee Number" formControlName="equipment_prepared_employee_number">
+                                      <input type="text" class="form-control truncate"  id="equipment_prepared_employee_number" placeholder="Enter Employee Number" formControlName="equipment_prepared_employee_number">
                                     </div>
                                    
                                    
@@ -588,45 +598,45 @@
                                 </div>
                                 <div class="col">
                                   <label class="label" for="equipment_prepared_master_card_Number">Master Card Number</label>
-                                  <input type="text" class="form-control truncate"  id="equipment_prepared_master_card_Number" placeholder="Please Enter Master Card Number" formControlName="equipment_prepared_master_card_Number">
+                                  <input type="text" class="form-control truncate"  id="equipment_prepared_master_card_Number" placeholder="Enter Master Card Number" formControlName="equipment_prepared_master_card_Number">
                                 </div>
                         </div>
                         <div class="row mt-3">
                         
                           <div class="col">
                             <label class="label" for="fire_watch_name">Fire Watch Name</label>
-                            <input type="text" class="form-control truncate"  id="fire_watch_name" placeholder="Please Enter Fire Watch Nmae" formControlName="fire_watch_name">
+                            <input type="text" class="form-control truncate"  id="fire_watch_name" placeholder="Enter Fire Watch Nmae" formControlName="fire_watch_name">
                           </div>
                           <div class="col">
                             <label class="label" for="initial_dep_rep">Initial of the other Dep Rep</label>
-                            <input type="text" class="form-control truncate"  id="initial_dep_rep" placeholder="Please Enter Dep Rep" formControlName="initial_dep_rep">
+                            <input type="text" class="form-control truncate"  id="initial_dep_rep" placeholder="Enter Dep Rep" formControlName="initial_dep_rep">
                           </div>
                           
                         
                             <div class="col">
                               <label class="label" for="safety_attendant_name">Safety Attendant Name</label>
-                              <input type="text" class="form-control truncate"  id="safety_attendant_name" placeholder="Please Enter Safety Attendant Name" formControlName="safety_attendant_name">
+                              <input type="text" class="form-control truncate"  id="safety_attendant_name" placeholder="Enter Safety Attendant Name" formControlName="safety_attendant_name">
                             </div>
                             <div class="col">
                               <label class="label" for="reviewed_by_trso">Reviewed by TRSO</label>
-                              <input type="text" class="form-control truncate"  id="reviewed_by_trso" placeholder="Please Enter Reviewed by TRSO" formControlName="reviewed_by_trso">
+                              <input type="text" class="form-control truncate"  id="reviewed_by_trso" placeholder="Enter Reviewed by TRSO" formControlName="reviewed_by_trso">
                             </div>
                              </div>
                              <div class="row mt-3">
                         
                               <div class="col">
                                 <label class="label" for="contractor_rso">Contractor RSO</label>
-                                <input type="text" class="form-control truncate"  id="contractor_rso" placeholder="Please Enter Contractor RSO" formControlName="contractor_rso">
+                                <input type="text" class="form-control truncate"  id="contractor_rso" placeholder="Enter Contractor RSO" formControlName="contractor_rso">
                               </div>
                               <div class="col">
                                 <label class="label" for="outside_barricade">Radiation Reading Outside Barricade</label>
-                                <input type="text" class="form-control truncate"  id="outside_barricade" placeholder="Please Enter Outside Barricade" formControlName="outside_barricade">
+                                <input type="text" class="form-control truncate"  id="outside_barricade" placeholder="Enter Outside Barricade" formControlName="outside_barricade">
                               </div>
                                
                         
                                 <div class="col">
                                   <label class="label" for="inside_barricade">Radiation Reading Inside Barricade</label>
-                                  <input type="text" class="form-control truncate"  id="inside_barricade" placeholder="Please Enter InsideBarricade" formControlName="inside_barricade">
+                                  <input type="text" class="form-control truncate"  id="inside_barricade" placeholder="Enter InsideBarricade" formControlName="inside_barricade">
                                 </div>
                                 <div class="col">
                                   <label class="label" >All radiation safe condition applied</label>
@@ -666,11 +676,11 @@
                                       <div class="row mt-3">
                                         <div class="col">
                                           <label class="label" for="facility_representative_name">Facility Representative Name</label>
-                                          <input type="text" class="form-control truncate"  id="facility_representative_name" placeholder="Please Enter Facility Representative Name" formControlName="facility_representative_name">
+                                          <input type="text" class="form-control truncate"  id="facility_representative_name" placeholder="Enter Facility Representative Name" formControlName="facility_representative_name">
                                         </div>
                                         <div class="col">
                                           <label class="label" for="facility_representative_employee_number">Facility Representative Employee Numbe</label>
-                                          <input type="text" class="form-control truncate"  id="facility_representative_employee_number" placeholder="Please Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number">
+                                          <input type="text" class="form-control truncate"  id="facility_representative_employee_number" placeholder="Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number">
                                         </div>
                                        
                                        
@@ -686,9 +696,11 @@
                                     </div>
                                     <div class="col">
                                       <label class="label" for="facility_representative_employee_number_sign">Facility Representative Employee Number</label>
-                                      <textarea type="text" class="form-control truncate"   rows="1" id="facility_representative_employee_number" placeholder="Please Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number"></textarea>
+                                      <textarea type="text" class="form-control truncate"   rows="1" id="facility_representative_employee_number" placeholder="Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number"></textarea>
+                                      <div style="display: flex; align-items: center;"> 
                                       <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%" (click)="signatureImage8.style.display = (signatureImage8.style.display === 'none' ? 'block' : 'none')">Signature</button>
                                       <img #signatureImage8 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
+                                    </div>
                                     </div>
                             </div>
                           </div>
@@ -730,11 +742,11 @@
                   <div class="row mt-3">
                     <div class="col">
                       <label class="label" for="job_facility_representative_name">Facility Representative Name</label>
-                      <input type="text" class="form-control truncate"  id="job_facility_representative_name" placeholder="Please Enter Job Facility Representative Name" formControlName="job_facility_representative_name">
+                      <input type="text" class="form-control truncate"  id="job_facility_representative_name" placeholder="Enter Job Facility Representative Name" formControlName="job_facility_representative_name">
                     </div>
                     <div class="col">
                       <label class="label" for="job_facility_representative_employee_number">Facility Representative Employee Numbe</label>
-                      <input type="text" class="form-control truncate"  id="job_facility_representative_employee_number" placeholder="Please Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number">
+                      <input type="text" class="form-control truncate"  id="job_facility_representative_employee_number" placeholder="Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number">
                     </div>
                     <div class="col">
                       <label class="label" for="date">Date And Time</label>
@@ -750,9 +762,11 @@
                 
                 <div class="col">
                   <label class="label" for="job_facility_representative_employee_number_sign">Facility Representative Employee Number</label>
-                  <textarea type="text" class="form-control"   rows="1" id="job_facility_representative_employee_number_sign" placeholder="Please Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number_sign"></textarea>
+                  <textarea type="text" class="form-control"   rows="1" id="job_facility_representative_employee_number_sign" placeholder="Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number_sign"></textarea>
+                  <div style="display: flex; align-items: center;"> 
                   <button mat-raised-button style="background-color: #147737; color: white;margin-top: 1%;" (click)="signatureImage9.style.display = (signatureImage9.style.display === 'none' ? 'block' : 'none')">Signature</button>
                   <img #signatureImage9 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
+                </div>
                 </div>
                 
         </div>
