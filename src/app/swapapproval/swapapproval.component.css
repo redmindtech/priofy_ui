@@ -1,5 +1,5 @@
 .heading, .body, tr, td, .sno {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 .heading {
@@ -27,7 +27,7 @@
 
 .accordion-header {
   font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
   color: rgb(115, 182, 158);
   background-color: #ffffff;
   padding: 10px;
@@ -244,7 +244,7 @@ mat-expansion-panel,
 mat-expansion-panel-header,
 mat-card,
 .row {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
   justify-content: space-evenly;
 }
 
@@ -282,11 +282,11 @@ mat-card,
 }
 h5{
   font-size: 20;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 .save-button,.agree-button {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
   display: block;
   margin: 0 auto; /* Center the button horizontally */
   padding: 10px 20px; /* Adjust padding as needed */

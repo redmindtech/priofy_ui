@@ -1,11 +1,11 @@
 /* Apply Montserrat font to dropdown menu */
 app-dropdown .dropdown-menu {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 /* Apply Montserrat font to dropdown menu items */
 app-dropdown .dropdown-item {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 /* Apply Montserrat font to specific elements within dropdown items */
@@ -13,7 +13,7 @@ app-dropdown .dropdown-header,
 app-dropdown .dropdown-footer,
 app-dropdown .text-muted,
 app-dropdown .text-sm {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 content {

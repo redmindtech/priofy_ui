@@ -1,6 +1,6 @@
 h5{
   font-size: 20;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 .theader{
@@ -8,14 +8,14 @@ h5{
 }
 
 .col, .mat-raised-button,.ml-2{
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 th, td {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 table {
