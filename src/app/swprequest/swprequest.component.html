@@ -143,7 +143,7 @@
        </div>
       </div>
       </div>
-          <div class="form-row">
+          <!-- <div class="form-row">
           <div class="col-md-6">
             <div class="form-group">
               <label for="Jobscope">Job Scope</label>
@@ -159,7 +159,7 @@
                   <mat-select class="form-control" style="width: 200px;" formControlName="toppings" multiple>
                     <mat-option *ngFor="let tool of tools" [value]="tool">{{ tool }}</mat-option>
                   </mat-select>
-                </div>
+                </div> -->
                 <!-- <mat-form-field>
 
                     <mat-select class="select-wrapper1"  formControlName="toolsrequired" multiple>
@@ -172,9 +172,28 @@
                   <option value="handtools" >Hand Tools</option>
                 </select>
               </div> -->
+            <!-- </div>
             </div>
+            </div> -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Jobscope">Job Scope</label>
+                  <textarea id="Jobscope" rows="4" class="form-control" formControlName="Jobscope" placeholder="Enter Job Scope"></textarea>
+                </div>
+              </div>
+              <div class="col-md-6"> <!-- Change col-md-6 to col-md-12 to make it occupy the full width -->
+                <div class="form-group">
+                  <label for="toolsrequired">Tools Required</label>
+                  <div class="truncate">
+                    <mat-select class="form-control" style="width: 200px;" formControlName="toppings" multiple>
+                      <mat-option *ngFor="let tool of tools" [value]="tool">{{ tool }}</mat-option>
+                    </mat-select>
+                  </div>
+                </div>
+              </div>
             </div>
-            </div>
+            
             </form>
             </mat-card-content>
           </mat-card>
