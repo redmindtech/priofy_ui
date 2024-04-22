@@ -3,7 +3,7 @@
   [disabled]="( formdisable ==='Completed'? 'true':  (checklistcformenable ? 'true':'false'))">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
-        <h5 style="margin-right: 1150px;display: contents;color:rgb(115, 182, 158)"><strong> 8.Procedure Checklist #C - Light Off</strong></h5>
+        <h5 style="margin-right: 1150px;display: contents;color:#25345D"><strong> 8.Procedure Checklist #C - Light Off</strong></h5>
         <!-- <h2>Procedure Checklist #C—Light Off Preparation</h2>
       <h5>Here's a step-by-step guide for EU2 Inside & Outside Operation Technologists to safely light off the furnace:
     </h5>
@@ -1095,16 +1095,16 @@
   <div *ngIf="disableIO ==='oot'">
     <div class="row" style="margin-left: 500px;">
       <div class="col">
-        <button mat-raised-button style="background-color: #147737;color: white;" (click)="toggleEnable()">Finish Shift</button>
+        <button mat-raised-button style="background-color: #25345D;color: white;" (click)="toggleEnable()">Finish Shift</button>
         </div>
         <div class="col">
-        <button mat-raised-button style="background-color: #147737;color: white; "  (click)="nxtAccEn()">Next</button>
+        <button mat-raised-button style="background-color: #25345D;color: white; "  (click)="nxtAccEn()">Next</button>
         </div>
       </div>
     <div *ngIf="enable"  [formGroup]="ChecklistC"style=" margin-top: 2%; ">
-      <textarea id="w3review" name="w3reviews" rows="4" cols="60" formControlName="shift_comment_c_oot" ></textarea>
-      <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;float: inline-end; " (click)="onRadioChangeup()">Comment</button>
-      <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
+      <textarea id="w3reviews" name="w3reviews" rows="4" cols="60" formControlName="shift_comment_c_oot" ></textarea>
+      <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%;float: inline-end; " (click)="onRadioChangeup()">Comment</button>
+      <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
     </div>
 
   </div>
@@ -1112,17 +1112,17 @@
 <div *ngIf="disableIO ==='iot'">
   <div class="row" style="margin-left: 500px;">
     <div class="col">
-      <button mat-raised-button style="background-color: #147737; color: white;" (click)="toggleEnable()">Finish Shift</button>
+      <button mat-raised-button style="background-color: #25345D; color: white;" (click)="toggleEnable()">Finish Shift</button>
       </div>
       <div class="col">
-      <button mat-raised-button style="background-color: #147737; color: white;" (click)="nxtAccEn()">Next</button>
+      <button mat-raised-button style="background-color: #25345D; color: white;" (click)="nxtAccEn()">Next</button>
       </div>
     </div>
-  <div *ngIf="enable" [formGroup]="ChecklistC"style=" margin-top: 2%; ">
+  <div *ngIf="enable" [formGroup]="ChecklistC"style="margin-top:2%; ">
     <div>
-      <textarea id="w3review" name="w3reviews" rows="4" cols="60" formControlName="shift_comment_c_iot" ></textarea>
-      <button class="btn btn-primary ml-2 "  style="background-color: #147737;margin-bottom: 4%;float: inline-end; "  (click)="onRadioChangeup()">Comment</button>
-      <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
+      <textarea id="w3reviews" name="w3reviews" rows="4" cols="60" formControlName="shift_comment_c_iot" ></textarea>
+      <button class="btn btn-primary ml-2 "  style="background-color: #25345D;margin-bottom: 4%;float: inline-end; "  (click)="onRadioChangeup()">Comment</button>
+      <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
     </div>
   </div>
 

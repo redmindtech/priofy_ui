@@ -3,7 +3,7 @@
   [disabled]="( formdisable ==='Completed'? 'true':  (checklistfformenable ? 'true':'false'))">
     <mat-expansion-panel-header class="mat_expansion_header_border" >
       <div class="row">
-        <h5 style="margin-right: 1150px;display: contents;color:rgb(115, 182, 158)"><strong>11.Procedure Checklist #F - Swing Mov (Decoke Header To CG Header)</strong>  </h5>
+        <h5 style="margin-right: 1150px;display: contents;color:#25345D"><strong>11.Procedure Checklist #F - Swing Mov (Decoke Header To CG Header)</strong>  </h5>
       </div>
       <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
@@ -639,17 +639,17 @@
     <div *ngIf="disableIO ==='oot'">
       <div class="row" style="margin-left: 500px;">
         <div class="col">
-          <button mat-raised-button style="background-color: #147737; color: white;"  (click)="toggleEnable()">Finish Shift</button>
+          <button mat-raised-button style="background-color: #25345D; color: white;"  (click)="toggleEnable()">Finish Shift</button>
           </div>
           <div class="col">
-            <button mat-raised-button style="background-color: #147737;color: white; " (click)="openDialog()" >Complete</button>
+            <button mat-raised-button style="background-color: #25345D;color: white; " (click)="openDialog()" >Complete</button>
             </div>  
         </div>
       <div *ngIf="enable" [formGroup]="ChecklistF"style=" margin-top: 2%; ">
         
         <textarea id="w3reviews" name="w3review" rows="4" cols="60" formControlName="shift_comment_f_oot"></textarea>
-        <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%; float: inline-end;" (click)="onRadioChangeup()">Comment</button>
-        <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
+        <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%; float: inline-end;" (click)="onRadioChangeup()">Comment</button>
+        <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
       </div>
      
     </div>
@@ -657,10 +657,10 @@
   <div *ngIf="disableIO ==='iot'">
     <div class="row" style="margin-left: 500px;">
     <div class="col">
-      <button mat-raised-button style="background-color: #147737; color: white;" (click)="toggleEnable()">Finish Shift</button>
+      <button mat-raised-button style="background-color: #25345D; color: white;" (click)="toggleEnable()">Finish Shift</button>
       </div>
       <div class="col">
-        <button mat-raised-button style="background-color: #147737;color: white; " (click)="openDialog()" >Complete</button>
+        <button mat-raised-button style="background-color: #25345D;color: white; " (click)="openDialog()" >Complete</button>
         </div>
       
     </div>
@@ -669,8 +669,8 @@
      
       <div>
         <textarea id="w3reviews" name="w3review" rows="4" cols="60" formControlName="shift_comment_f_iot"></textarea>
-        <button class="btn btn-primary ml-2"  style="background-color: #147737;margin-bottom: 4%;float: inline-end; "  (click)="onRadioChangeup()">Comment</button>
-        <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
+        <button class="btn btn-primary ml-2"  style="background-color: #25345D;margin-bottom: 4%;float: inline-end; "  (click)="onRadioChangeup()">Comment</button>
+        <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
       </div>
    
     </div>

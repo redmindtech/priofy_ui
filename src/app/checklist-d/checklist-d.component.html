@@ -3,7 +3,7 @@
   [disabled]="( formdisable ==='Completed'? 'true':  (checklistdformenable ? 'true':'false'))">
   <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
-        <h5 style="margin-right: 1150px;display: contents;color:rgb(115, 182, 158)"><strong>9.Procedure Checklist #D - Warm Up Arch</strong></h5>
+        <h5 style="margin-right: 1150px;display: contents;color:#25345D"><strong>9.Procedure Checklist #D - Warm Up Arch</strong></h5>
         <!-- <h5>EU2 Inside & Outside Operation Technologists follow these steps to warm up the furnace up to 450ºC Arch temperature.
         </h5><br>
         <h5><u>Note 1:</u> Warm up of furnace is done with Decoke Air through coils up to an Arch temperature of 380ºC and then with MS
@@ -1629,17 +1629,17 @@
           <div *ngIf="disableoot">
             <div class="row" style="margin-left: 500px;">
               <div class="col">
-                <button mat-raised-button style="background-color: #147737;color: white;" (click)="toggleEnable()">Finish Shift</button>
+                <button mat-raised-button style="background-color: #25345D;color: white;" (click)="toggleEnable()">Finish Shift</button>
                 </div>
                 <div class="col">
-                <button mat-raised-button style="background-color: #147737;color: white;"  (click)="nxtAccEn()">Next</button>
+                <button mat-raised-button style="background-color: #25345D;color: white;"  (click)="nxtAccEn()">Next</button>
                 </div>
               </div>
             <div *ngIf="enable"class="ml-2" [formGroup]="ChecklistD" style=" margin-top: 2%; ">
 
               <textarea id="w3reviews" name="w3review" rows="4" cols="60" formControlName="shift_comment_d_oot" ></textarea>
-              <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%; float: inline-end;" (click)="onRadioChangeup()">Comment</button>
-              <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
+              <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%; float: inline-end;" (click)="onRadioChangeup()">Comment</button>
+              <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
             </div>
 
           </div>
@@ -1658,8 +1658,8 @@
 
             <div>
               <textarea id="w3reviews" name="w3review" rows="4" cols="60" formControlName="shift_comment_d_iot"></textarea>
-              <button class="btn btn-primary ml-1"  style="background-color: #147737;margin-bottom: 4%; float: inline-end;"  (click)="onRadioChangeup()">Comment</button>
-              <button class="btn btn-primary ml-2" style="background-color: #147737;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
+              <button class="btn btn-primary ml-1"  style="background-color: #25345D;margin-bottom: 4%; float: inline-end;"  (click)="onRadioChangeup()">Comment</button>
+              <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
             </div>
           </div>
 
