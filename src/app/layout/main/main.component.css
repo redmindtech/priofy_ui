@@ -24,3 +24,6 @@ h2{
   padding: 10px; /* Add some padding for spacing */
   font-family: 'Montserrat', sans-serif !important;
 }
+.handsign{
+  cursor: pointer; /* Changes cursor to a pointer hand */
+}

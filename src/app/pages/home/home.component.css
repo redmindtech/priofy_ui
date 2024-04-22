@@ -93,3 +93,6 @@ h3{
 
   transition: opacity 0.7s ease;
 }
+.small-box-footer {
+  cursor: pointer; /* Changes cursor to a pointer hand */
+}
