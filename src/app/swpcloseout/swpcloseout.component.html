@@ -2,7 +2,7 @@
 <mat-expansion-panel class="mat_expansion_border" [expanded]="false">
   <mat-expansion-panel-header class="mat_expansion_header_border">
     <div class="row">
-      <h5 style="display: contents; color:rgb(115, 182, 158)"><strong>Stage #4 : Safe Work Permit Close-Out </strong>
+      <h5 style="display: contents; color:#25345D"><strong>Stage #4 : Safe Work Permit Close-Out </strong>
       </h5>
     </div>
     <mat-panel-description></mat-panel-description>
@@ -12,12 +12,12 @@
       <!-- <h6 style="margin-left: 30%;"><strong>PROCEDURE CHECKLIST #A ESTABLISH STEAM DRUM LEVEL</strong></h6> -->
       <form [formGroup]="swpcloseout">
         <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
-          <mat-card-content>        
+          <mat-card-content>
             <table>
               <thead>
                 <th class="theader">Safe Work Permit - Close-Out </th>
                 <th class="theader" style="width: 29%; text-align: left; padding-left: 85px;">Action</th>
-              </thead>              
+              </thead>
               <tr>
                 <td class="header">Is Housekeeping completed?</td>
                 <td>
@@ -83,18 +83,18 @@
               </td> -->
               <td style="text-align: right; padding-right: 40px;">
                 <div style="display: flex; flex-direction: column; align-items: left;">
-                  <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage.style.display = (signatureImage.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                  <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage.style.display = (signatureImage.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                   <div style="margin-top: 10px;">
                     <img #signatureImage src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
                   </div>
                   <div *ngIf="signatureImage.style.display !== 'none'" style="margin-top: 10px;" style="align-items: left;">
                    <strong>Ragasudha Ambayeram</strong><br>
-                  <strong>[1Emp2024001]</strong> 
+                  <strong>[1Emp2024001]</strong>
                   </div>
                 </div>
               </td>
-              
-              
+
+
               </tr>
             </table>
           </mat-card-content>
@@ -113,23 +113,23 @@
                   </select>
                 </div>
               </div>
-              
-              
+
+
               <div class="col-sm-3">
                 <div class="form-group" >
                   <label>Work complete signature</label>
                   <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                     <div style="margin-top: 10px;">
                       <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
                     </div>
                     <div *ngIf="signatureImage1.style.display !== 'none'" style="margin-top: 10px;" style="align-items: left;">
                      <strong>Ragasudha Ambayeram</strong><br>
-                    <strong>[1Emp2024001]</strong> 
+                    <strong>[1Emp2024001]</strong>
                     </div>
                   </div>
                   <!-- <div style="display: flex; align-items: center;">
-               
+
                   <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Signature</button>
                   <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
                 </div> -->
@@ -156,14 +156,14 @@
             <br>
             <div class="row">
               <div class="col text-center">
-                  <button mat-raised-button style="background-color: #147737; color: white; margin: 0 auto;">Save</button>
+                  <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;">Save</button>
               </div>
           </div>
           </mat-card-content>
         </mat-card>
         <br>
         <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'SWP_Issuer' }">
-          <mat-card-content>         
+          <mat-card-content>
             <div class="row">
               <div class="col-sm-3">
                 <div class="form-group">
@@ -180,17 +180,17 @@
                 <div class="form-group">
                   <label>Permit closed signature</label>
                   <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                     <div style="margin-top: 10px;">
                       <img #signatureImage2 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
                     </div>
                     <div *ngIf="signatureImage2.style.display !== 'none'" style="margin-top: 10px;" style="align-items: left;">
                      <strong>Ramya RajKumar</strong><br>
-                    <strong>[1Emp20240101]</strong> 
+                    <strong>[1Emp20240101]</strong>
                     </div>
                   </div>
                   <!-- <div style="display: flex; align-items: center;">
-               
+
                     <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Signature</button>
                     <img #signatureImage2 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
                   </div> -->
@@ -212,17 +212,17 @@
             <br>
             <div class="row">
               <div class="col text-center">
-                  <button mat-raised-button style="background-color: #147737; color: white; margin: 0 auto;">Save</button>
+                  <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;">Save</button>
               </div>
           </div>
           </mat-card-content>
         </mat-card>
         <br>
         <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
-          <mat-card-content>         
+          <mat-card-content>
             <table>
             <th class="theader"  style="width: 100%; text-align: center; ">Master Card - Work Completion </th>
-            </table>      
+            </table>
             <div class="row">
               <div class="col-sm-3">
                 <div class="form-group">
@@ -241,7 +241,7 @@
                   <input type="text" id="Work_Completed_emp" formControlName="Work_Completed_emp" class="form-control" placeholder="Enter Employee Number">
                 </div>
               </div>
-              
+
               <div class="col-sm-3">
                 <label class="col-sm-3 ">Date</label>
                 <div class="col-sm-9">
@@ -259,28 +259,28 @@
                 <div class="form-group">
                   <label>signature</label>
                   <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage3.style.display = (signatureImage3.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage3.style.display = (signatureImage3.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                     <div style="margin-top: 10px;">
                       <img #signatureImage3 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
                     </div>
                     <div *ngIf="signatureImage3.style.display !== 'none'" style="margin-top: 10px;" style="align-items: centr;">
                      <strong>Raja Kumaravel</strong><br>
-                    <strong>[1Emp20240101]</strong> 
+                    <strong>[1Emp20240101]</strong>
                     </div>
                   </div>
-                  <!-- <div style="display: flex; align-items: center;">               
+                  <!-- <div style="display: flex; align-items: center;">
                     <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage3.style.display = (signatureImage3.style.display === 'none' ? 'block' : 'none')">Signature</button>
                     <img #signatureImage3 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
                   </div> -->
                 </div>
               </div>
             </div>
-           
+
           </mat-card-content>
         </mat-card>
         <br>
         <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
-          <mat-card-content>         
+          <mat-card-content>
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
@@ -303,16 +303,16 @@
                 <div class="form-group">
                   <label>Work complete signature</label>
                   <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage4.style.display = (signatureImage4.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage4.style.display = (signatureImage4.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                     <div style="margin-top: 10px;">
                       <img #signatureImage4 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
                     </div>
                     <div *ngIf="signatureImage4.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
                      <strong>Raja Kumaravel</strong><br>
-                    <strong>[1Emp20240101]</strong> 
+                    <strong>[1Emp20240101]</strong>
                     </div>
                     </div>
-                  <!-- <div style="display: flex; align-items: center;">               
+                  <!-- <div style="display: flex; align-items: center;">
                     <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage4.style.display = (signatureImage4.style.display === 'none' ? 'block' : 'none')">Signature</button>
                     <img #signatureImage4 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
                   </div> -->
@@ -339,13 +339,13 @@
                 </div>
               </div>
             </div>
-            
+
           </mat-card-content>
         </mat-card>
         <br>
         <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
-          <mat-card-content>         
-            <div class="row">           
+          <mat-card-content>
+            <div class="row">
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Is House Keeping Completed?</label>
@@ -379,16 +379,16 @@
                 <div class="form-group">
                   <label>Work complete signature</label>
                   <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage5.style.display = (signatureImage5.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage5.style.display = (signatureImage5.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                     <div style="margin-top: 10px;">
                       <img #signatureImage5 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
                     </div>
                     <div *ngIf="signatureImage5.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
                      <strong>Raja Kumaravel</strong><br>
-                    <strong>[1Emp20240101]</strong> 
+                    <strong>[1Emp20240101]</strong>
                     </div>
                     </div>
-                  <!-- <div style="display: flex; align-items: center;">               
+                  <!-- <div style="display: flex; align-items: center;">
                     <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage5.style.display = (signatureImage5.style.display === 'none' ? 'block' : 'none')">Signature</button>
                     <img #signatureImage5 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
                   </div> -->
@@ -398,7 +398,7 @@
             <br>
             <div class="row">
               <div class="col text-center">
-                  <button mat-raised-button style="background-color: #147737; color: white; margin: 0 auto;">Save</button>
+                  <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;">Save</button>
               </div>
           </div>
           </mat-card-content>
@@ -409,7 +409,7 @@
           <mat-card-content>
             <table>
               <th class="theader"  style="width: 100%; text-align: center; ">Master Card - Work Completion Check & Equipment RFS</th>
-              </table>   
+              </table>
             <div class="row">
               <div class="col-sm-3" >
                 <div class="form-group">
@@ -445,16 +445,16 @@
                 <div class="form-group">
                   <label>Work complete signature</label>
                   <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage6.style.display = (signatureImage6.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage6.style.display = (signatureImage6.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                     <div style="margin-top: 10px;">
                       <img #signatureImage6 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
                     </div>
                     <div *ngIf="signatureImage6.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
                      <strong>Punitha Lokesh</strong><br>
-                    <strong>[1Emp20240151]</strong> 
+                    <strong>[1Emp20240151]</strong>
                     </div>
                     </div>
-                  <!-- <div style="display: flex; align-items: center;">               
+                  <!-- <div style="display: flex; align-items: center;">
                     <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage6.style.display = (signatureImage6.style.display === 'none' ? 'block' : 'none')">Signature</button>
                     <img #signatureImage6 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
                   </div> -->
@@ -466,8 +466,8 @@
         <br>
         <!--  -->
         <mat-card class=mat1  [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
-          <mat-card-content>         
-            <div class="row">           
+          <mat-card-content>
+            <div class="row">
               <div class="col-sm-4">
                 <div class="form-group">
                   <label>Equipment Tested</label>
@@ -500,7 +500,7 @@
                   formControlName="ReadyforService" />
                 <label for="ReadyforService-no" class="action">No</label>
                 </div>
-              </div> 
+              </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-3">
@@ -525,13 +525,13 @@
                 <div class="form-group">
                   <label>Work complete signature</label>
                   <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage7.style.display = (signatureImage7.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage7.style.display = (signatureImage7.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                     <div style="margin-top: 10px;">
                       <img #signatureImage7 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
                     </div>
                     <div *ngIf="signatureImage7.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
                      <strong>Sundhar Ramasamy</strong><br>
-                    <strong>[1Emp20240251]</strong> 
+                    <strong>[1Emp20240251]</strong>
                     </div>
                     </div>
                 </div>
@@ -541,17 +541,17 @@
           <br>
         <div class="row">
           <div class="col text-center">
-              <button mat-raised-button style="background-color: #147737; color: white; margin: 0 auto;">Save</button>
+              <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;">Save</button>
           </div>
       </div>
         </mat-card>
       </form>
       <div >
-        
-      
-      
-       
-      
+
+
+
+
+
       </div>
     </mat-card-content>
   </mat-card>

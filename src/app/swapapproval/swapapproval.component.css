@@ -5,19 +5,19 @@
 .heading {
   font-size: 18px;
   color: #ffffff;
-  background-color: #28a745;
+  background-color:#25345D;
   text-align: center;
 }
 
 .mat{
   border-color: rgb(165, 164, 164);
   border-width: thick;
-  border-style: double;
+  border-style: inherit;
   margin: 50%;
   border-radius: 2%;
   width: 94%;
   align-items: center;
-  margin: auto; 
+  margin: auto;
   padding: 20px;
 }
 
@@ -28,7 +28,7 @@
 .accordion-header {
   font-size: 20px;
   /* font-family: 'Montserrat', sans-serif; */
-  color: rgb(115, 182, 158);
+  color: #25345D;
   background-color: #ffffff;
   padding: 10px;
   cursor: pointer;
@@ -47,7 +47,7 @@ th, td {
 }
 
 th {
-  background-color: #147737;
+  background-color: #25345D;
 }
 
 table tr.last-row {

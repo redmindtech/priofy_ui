@@ -35,13 +35,13 @@ th {
   font-size: 16px
 }
 .theader{
-  background-color:#147737;
+  background-color:#25345D;
   padding:15px ;
   text-align: center;
   color: white;
 }
 .mat-expansion-panel-header-description {
-  
+
   flex-grow: unset !important;
   margin-left: 10px !important;
 }
@@ -59,7 +59,7 @@ th {
   border: 2px solid rgba(148, 141, 141,0.57);
   cursor: pointer;
   border-radius: 30px;
-  
+
 
 
 }
@@ -92,17 +92,17 @@ th {
       border-width: thick;
       border-style: double;
       border-radius: 2%;
-   
+
   } */
   .mat{
     border-color: rgb(165, 164, 164);
     border-width: thick;
-    border-style: double;
-  
+    border-style: inherit;
+
     border-radius: 2%;
     width: 94%;
     align-items: center;
-    margin: auto; 
+    margin: auto;
     padding: 20px;
   }
   #w3reviews{
@@ -113,7 +113,7 @@ th {
   #w3reviews{
     margin-left: 30%;
     }
-    
+
 }
 label {
   display: block;

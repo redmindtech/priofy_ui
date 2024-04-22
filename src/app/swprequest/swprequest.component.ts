@@ -38,41 +38,44 @@ export class SwprequestComponent implements OnInit {
     this.userObject = JSON.parse(this.userDetails);
     this.position = this.userObject.position;
     console.log(this.position)
-    
+
     this.formInitialization()
   }
   formInitialization() {
     const currentDate = new Date();
 
     // Format the date as needed (e.g., DD/MM/YYYY)
-    this.formattedDate = new Date().toISOString().split('T')[0]; 
-    
-    
+    this.formattedDate = new Date().toISOString().split('T')[0];
+
+
     // Format the time as needed (e.g., HH:MM:SS)
     this.formattedTime = new Date().toTimeString().split(' ')[0];
 console.log("date",this.formattedDate);
 console.log("time",this.formattedTime);
    this.swpForm = this.formBuilder.group({
-    startDate:[this.formattedDate],
-    endDate:[this.formattedDate],
-    startTime:[this.formattedTime],
-    endTime:[this.formattedTime],
-     EAZ: [[]],
-      EquipmentID:['F-2230'],
-      WorkLocation:['EU2-E-2231A/B/C/D/E &F PRIMARY TLE S'],
-      Clothing:['Jacket'],
-      fhprotection:['Mesh','Face Shield','Helmet'],
-      Jobscope: [''],
-      Toolsrequired: ['handtools'],
-      clothing: ['jacket'],
-      Respiratory: ['mesh'],
-      footleg: ['footleg'],
-      ear: ['earmuff'],
-      eyeprotect: ['eyeprotect'],
-      Ergonomics: [''],
-      Heatstress: [''],
-      Elevated: [''],
-      Others: [''],
+    // startDate:[this.formattedDate],
+    // endDate:[this.formattedDate],
+    // startTime:[this.formattedTime],
+    // endTime:[this.formattedTime],
+
+      Requestorname: ['SWP Issuer'], // Initialize with default value
+      EAZ: [[]],
+      EquipmentID: [''], // Initialize with default value
+      WorkLocation: [''], // Initialize with default value
+      WorkDescription:[''],
+      EquipmentDescription:[''],
+      Clothing: [''], // Initialize with default value
+      fhprotection: [['']], // Initialize with default value as an array
+      Jobscope: [''], // Initialize with default value
+      Toolsrequired: [['']], // Initialize with default value as an array
+      Respiratory: [''], // Initialize with default value
+      footleg: [['']], // Initialize with default value as an array
+      ear: [['']], // Initialize with default value as an array
+      eyeprotect: [['']], // Initialize with default value as an array
+      Ergonomics: [''], // Initialize with default value
+      Heatstress: [''], // Initialize with default value
+      Elevated: [''], // Initialize with default value
+      Others: [''], // Initialize with default value
     });
   }
 
