@@ -111,7 +111,7 @@ console.log("time",this.formattedTime);
 
   saveForm() {
     // this.accordionClosed=true
-    this.accordionClosed = !this.accordionClosed;
+    this.accordionClosed = false;
     
   }
 

@@ -82,6 +82,6 @@ export class SwpcloseoutComponent implements OnInit {
     this.signatureImage = this.signatureImage1; // Replace this with your actual signature image URL
   }
   save(){
-    this.accordionClosed=!this.accordionClosed
+    this.accordionClosed=false;
   }
 }

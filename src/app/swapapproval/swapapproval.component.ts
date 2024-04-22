@@ -59,6 +59,6 @@ export class SwapapprovalComponent implements OnInit {
     return Object.values(formValues).every(value => value === true);
   }
   save(){
-this.accordionClosed=!this.accordionClosed
+this.accordionClosed=false;
   }
 }

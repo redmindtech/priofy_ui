@@ -1,8 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 <mat-accordion>
 
-
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="accordionClosed"
+  <mat-expansion-panel class="mat_expansion_border" [(expanded)]="accordionClosed"
   [disabled]="false">
 
     <mat-expansion-panel-header class="mat_expansion_header_border">
@@ -825,7 +824,7 @@
 </div>
                                    </form>
                                    <div class="col text-center" [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
-                                    <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;" (click)="close()">Save</button>
+                                    <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;" (click)="expandclose()">Save</button>
                                 </div>
                                     </mat-card-content>
                                     </mat-card>

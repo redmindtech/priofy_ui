@@ -201,8 +201,8 @@ console.log('this.formattedTime: ', this.formattedTime);
     // var redTagValue = value; // Saving the updated value to a global variable
 }
 
-
-close(){
-  this.accordionClosed = !this.accordionClosed;
+expandclose(){
+  this.accordionClosed=false;
 }
+
 }
