@@ -34,8 +34,8 @@ mat-panel-title {
 
   border-color: rgb(165, 164, 164);
   border-width:thick;
-  border-style: double;
-   margin: 3%;
+  border-style: inherit;
+   margin: 2%;
    border-radius: 3%;
    font-family: 'Montserrat', sans-serif;
 
@@ -83,3 +83,13 @@ mat-panel-title {
 .align-right {
   text-align: right;
 }
+.heading{
+  color:white;
+  width:50%;
+  text-align: center;
+  font-size: 18px !important;
+  font-family:'Montserrat' sans-serif !important;
+  padding: 7px;
+  background-color: #25345D;
+
+ }

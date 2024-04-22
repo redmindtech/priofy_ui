@@ -8,19 +8,19 @@
   <mat-expansion-panel class="mat_expansion_border" [expanded]="open">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
-        <h5 style="margin-right: 1150px;display: contents;color:rgb(115, 182, 158)"><strong>1.Hazards & Precaution</strong></h5>
+        <h5 style="margin-right: 1150px;display: contents;color:#25345D"><strong>1.Hazards & Precaution</strong></h5>
       </div>
       <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
 
 
     <form [formGroup]="FirstForm">
-      <mat-card class="mat">
+      <mat-card class="mat mat-focus-indicator">
         <mat-card-content>
-          <div class="row" style="background-color:#147737 ;color: white;" >
-            <div class="col header"><strong>HAZARDS</strong>
+          <div class="row ">
+            <div class="col heading"><strong>HAZARDS</strong>
             </div>
-            <div class="col header"  ><strong>PRECAUTION</strong> 
+            <div class="col heading"><strong>PRECAUTION</strong> 
             </div>
           </div>
           <div class="row">
@@ -153,8 +153,8 @@
 
 
           <div style="display: flex; justify-content: center;">
-            <button class="btn1" mat-raised-button style="background-color: #147737; color: white;margin-right: 10px;" (click)="nxt()">Agree</button>
-            <button class="btn2" mat-raised-button style="background-color: #147737;color: white;" (click)="showmsg()">Disagree</button>
+            <button class="btn1" mat-raised-button style="background-color: #25345D; color: white;margin-right: 10px;" (click)="nxt()">Agree</button>
+            <button class="btn2" mat-raised-button style="background-color: #25345D;color: white;" (click)="showmsg()">Disagree</button>
           </div>
 
         </mat-card-content>
