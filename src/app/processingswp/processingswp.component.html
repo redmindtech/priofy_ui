@@ -824,7 +824,7 @@
         </div>
 </div>
                                    </form>
-                                   <div class="col text-center">
+                                   <div class="col text-center" [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
                                     <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;" (click)="close()">Save</button>
                                 </div>
                                     </mat-card-content>
