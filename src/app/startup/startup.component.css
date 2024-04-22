@@ -33,7 +33,7 @@ h2{
 
   border-color: rgb(165, 164, 164);
   border-width: thick;
-  border-style: double;
+  border-style: inherit;
   margin: 3%;
   border-radius: 3%;
 }

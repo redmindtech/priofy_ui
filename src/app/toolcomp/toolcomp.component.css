@@ -9,7 +9,8 @@ mat-accordion, mat-expansion-panel, mat-expansion-panel-header, mat-card, table,
   font-size: 18px !important;
   font-family:'Montserrat' sans-serif !important;
   margin-top: 2%;
-  background-color: #147737;
+    background-color: #25345D
+  ;
  }
  
  h4{
@@ -27,7 +28,7 @@ mat-accordion, mat-expansion-panel, mat-expansion-panel-header, mat-card, table,
   border-color: black; */
   border-color:  rgb(165, 164, 164);
   border-width: thick;
-  border-style: double;
+  border-style: inherit;
   margin: 3%;
   border-radius: 3%;
 

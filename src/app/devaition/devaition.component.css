@@ -81,7 +81,7 @@ label {
 .mat{
   border-color: rgb(165, 164, 164);
   border-width: thick;
-  border-style: double;
+  border-style: inherit;
   border-radius: 2%;
 
 }
