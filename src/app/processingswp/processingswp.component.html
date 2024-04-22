@@ -2,7 +2,7 @@
 <mat-accordion>
 
 
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="false"
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="accordionClosed"
   [disabled]="false">
 
     <mat-expansion-panel-header class="mat_expansion_header_border">
@@ -824,6 +824,9 @@
         </div>
 </div>
                                    </form>
+                                   <div class="col text-center">
+                                    <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;" (click)="close()">Save</button>
+                                </div>
                                     </mat-card-content>
                                     </mat-card>
 

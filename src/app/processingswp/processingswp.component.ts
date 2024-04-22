@@ -21,6 +21,7 @@ export class ProcessingswpComponent implements OnInit {
   position: any;
   yesterdaytime: string;
   yesterdaydate: string;
+  accordionClosed: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
   ) { }
@@ -201,5 +202,7 @@ console.log('this.formattedTime: ', this.formattedTime);
 }
 
 
-
+close(){
+  this.accordionClosed = !this.accordionClosed;
+}
 }
