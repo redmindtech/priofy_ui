@@ -13,6 +13,9 @@ export class SwapapprovalComponent implements OnInit {
   allChecked: boolean = false;
   currentUser: any;
   position: any;
+  accordionClosed: boolean = false;
+  
+
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -54,5 +57,8 @@ export class SwapapprovalComponent implements OnInit {
   allCheckboxesChecked(): boolean {
     const formValues = this.agreementForm.value;
     return Object.values(formValues).every(value => value === true);
+  }
+  save(){
+this.accordionClosed=!this.accordionClosed
   }
 }

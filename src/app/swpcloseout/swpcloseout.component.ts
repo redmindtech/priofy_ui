@@ -15,6 +15,7 @@ export class SwpcloseoutComponent implements OnInit {
   position: any;
   Job_rep_disable:any;
   SWP_Issuer_disable:any;
+  accordionClosed: boolean = false;
 
 
   constructor( private formBuilder: FormBuilder,) { }
@@ -79,5 +80,8 @@ export class SwpcloseoutComponent implements OnInit {
   showSignature() {
   console.log("cdsfdgrg")
     this.signatureImage = this.signatureImage1; // Replace this with your actual signature image URL
+  }
+  save(){
+    this.accordionClosed=!this.accordionClosed
   }
 }

@@ -1,6 +1,6 @@
 <form [formGroup]="agreementForm">
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border"  [expanded]="false" [disabled]="false">
+  <mat-expansion-panel class="mat_expansion_border"  [expanded]="accordionClosed">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents; color:#25345D"><strong>Stage #3 :Safe Work Permit </strong></h5>
@@ -230,7 +230,7 @@
           <br>
           <div class="row">
             <div class="col text-center">
-                <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;">Save</button>
+                <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;"(click)="save()">Save</button>
             </div>
             </div>
         </mat-card>

@@ -18,6 +18,7 @@ export class SwprequestComponent implements OnInit {
   userObject: any;
   position: any;
   expandedDropdownId: string | null = null;
+  accordionClosed: boolean = false;
 
   allZones: string[] = ['Zone1', 'Zone2', 'Zone3', 'Zone4', 'Zone5', 'Zone6', 'Zone7', 'Zone8', 'Zone9', 'Zone10'];
   EquipID:string[]= ['F-2230','d-3220','e-4422','g-2213'];
@@ -42,6 +43,7 @@ export class SwprequestComponent implements OnInit {
     this.formInitialization()
   }
   formInitialization() {
+    
     const currentDate = new Date();
 
     // Format the date as needed (e.g., DD/MM/YYYY)
@@ -108,13 +110,9 @@ console.log("time",this.formattedTime);
   }
 
   saveForm() {
-    if (this.swpForm.valid) {
-      // Perform your save operation here, like sending the form data to a backend API
-      console.log('Form is valid. Saving...');
-    } else {
-      // Handle the case where the form is invalid
-      console.log('Form is invalid. Cannot save.');
-    }
+    // this.accordionClosed=true
+    this.accordionClosed = !this.accordionClosed;
+    
   }
 
 }
