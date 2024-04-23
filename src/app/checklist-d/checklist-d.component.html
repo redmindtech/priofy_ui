@@ -1,6 +1,6 @@
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand && formdisable === 'Incompleted'"
-  [disabled]="( formdisable ==='Completed'? 'true':  (checklistdformenable ? 'true':'false'))">
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand"
+  [disabled]="checklistdformenable">
   <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents;color:#25345D"><strong>9.Procedure Checklist #D - Warm Up Arch</strong></h5>
@@ -20,7 +20,7 @@
     </mat-expansion-panel-header>
     <mat-card class="mat">
       <mat-card-content>
-        <form [formGroup]="ChecklistD" (ngSubmit)="onSubmit()">
+        <form [formGroup]="ChecklistD" (ngSubmit)="onSubmit()"[ngClass]="{ 'disabled-form': formdisable }">
 
           <thead>
             <tr>
@@ -78,24 +78,24 @@
             <td class="style"> 2. </td>
             <td class="header">OOT to open decoke air ONIS blind and 6” main B/V</td>
             <td>
-              <input type="radio" class="custom-radio" id="OOT_air_ONIS_blind-done" name="OOT_air_ONIS_blind" value="Done" formControlName="OOT_air_ONIS_blind"  (change)="onRadioChangeup()"/>
-              <label for="OOT_air_ONIS_blind-done"class="action">Done</label>
+              <input type="radio" class="custom-radio" id="oot_air_ONIS_blind-done" name="oot_air_ONIS_blind" value="Done" formControlName="oot_air_ONIS_blind"  (change)="onRadioChangeup()"/>
+              <label for="oot_air_ONIS_blind-done"class="action">Done</label>
 
-              <input type="radio" class="custom-radio" id="OOT_air_ONIS_blind-risk" name="OOT_air_ONIS_blind" value="Risk" formControlName="OOT_air_ONIS_blind" (change)="onRadioChangeup()"/>
-              <label for="OOT_air_ONIS_blind-risk"class="action">Risk</label>
+              <input type="radio" class="custom-radio" id="oot_air_ONIS_blind-risk" name="oot_air_ONIS_blind" value="Risk" formControlName="oot_air_ONIS_blind" (change)="onRadioChangeup()"/>
+              <label for="oot_air_ONIS_blind-risk"class="action">Risk</label>
 
-              <input type="radio" class="custom-radio" id="OOT_air_ONIS_blind-skip" name="OOT_air_ONIS_blind" value="Skip" formControlName="OOT_air_ONIS_blind"  (change)="onRadioChangeup()"/>
-              <label for="OOT_air_ONIS_blind-skip"class="action" [ngStyle]="{
-                'background-color': colour === 'OOT_air_ONIS_blind' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' :
-                                     (colour === 'OOT_air_ONIS_blind' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' :
+              <input type="radio" class="custom-radio" id="oot_air_ONIS_blind-skip" name="oot_air_ONIS_blind" value="Skip" formControlName="oot_air_ONIS_blind"  (change)="onRadioChangeup()"/>
+              <label for="oot_air_ONIS_blind-skip"class="action" [ngStyle]="{
+                'background-color': colour === 'oot_air_ONIS_blind' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' :
+                                     (colour === 'oot_air_ONIS_blind' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' :
                                      (ChecklistD?.get('OOT_air_ONIS')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
               }">Skip</label>
 
-              <div *ngIf="ChecklistD?.get('OOT_air_ONIS_blind')?.value === 'Skip'">
-                <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="OOT_air_ONIS_blind_comment" (focusout)="patchvalue()"></textarea>
+              <div *ngIf="ChecklistD?.get('oot_air_ONIS_blind')?.value === 'Skip'">
+                <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="oot_air_ONIS_blind_comment" (focusout)="patchvalue()"></textarea>
                 <div style="margin-left: 31%;">
                  <button class="btn btn-primary m-1"
-                        (click)="ChecklistD?.get('OOT_air_ONIS_blind')?.setValue(''); ChecklistD?.get('OOT_air_ONIS_blind_comment')?.setValue('')">Cancel</button>
+                        (click)="ChecklistD?.get('oot_air_ONIS_blind')?.setValue(''); ChecklistD?.get('oot_air_ONIS_blind_comment')?.setValue('')">Cancel</button>
                   <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
                 </div>
               </div>
@@ -1613,7 +1613,7 @@
 
 
 
-        </form>
+        
         <div *ngIf="remainingValues && remainingValues.shift_comment_d_oot != null">
           <p><strong>Comment : </strong>{{ remainingValues.shift_comment_d_oot }}</p>
         </div>
@@ -1635,7 +1635,7 @@
                 <button mat-raised-button style="background-color: #25345D;color: white;"  (click)="nxtAccEn()">Next</button>
                 </div>
               </div>
-            <div *ngIf="enable"class="ml-2" [formGroup]="ChecklistD" style=" margin-top: 2%; ">
+            <div *ngIf="enable"class="ml-2" style=" margin-top: 2%; ">
 
               <textarea id="w3reviews" name="w3review" rows="4" cols="60" formControlName="shift_comment_d_oot" ></textarea>
               <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%; float: inline-end;" (click)="onRadioChangeup()">Comment</button>
@@ -1654,7 +1654,7 @@
             </div>
           </div>
 
-          <div *ngIf="enable" class="ml-2" [formGroup]="ChecklistD" style=" margin-top: 2%; ">
+          <div *ngIf="enable" class="ml-2" style=" margin-top: 2%; ">
 
             <div>
               <textarea id="w3reviews" name="w3review" rows="4" cols="60" formControlName="shift_comment_d_iot"></textarea>
@@ -1666,6 +1666,7 @@
         </div>
 
       </div>
+    </form>
       </mat-card-content>
     </mat-card>
   </mat-expansion-panel>

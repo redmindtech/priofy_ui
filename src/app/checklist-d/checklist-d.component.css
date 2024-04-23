@@ -107,3 +107,7 @@ th {
 .btn{
   background-color: #25345D!important;
 }
+.disabled-form {
+  pointer-events: none;
+  opacity: 0.5;
+}

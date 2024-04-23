@@ -1,6 +1,6 @@
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand && formdisable === 'Incompleted'"
-  [disabled]="( formdisable ==='Completed'? 'true':  (checklistbformenable ? 'true':'false'))">
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand"
+  [disabled]="checklistbformenable">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents;color:#25345D"><strong> 7.Procedure Checklist #B - Light Off Preparation </strong></h5>
@@ -14,7 +14,7 @@
       <mat-card-content>
         <!-- <h6 style="margin-left: 35%;"><strong>Procedure Checklist #B</strong></h6> -->
 
-        <form [formGroup]="ChecklistB"(ngSubmit)="onSubmit()">
+        <form [formGroup]="ChecklistB"(ngSubmit)="onSubmit()" [ngClass]="{ 'disabled-form': formdisable }">
 
           <thead>
             <tr>
@@ -694,23 +694,23 @@
                 seat.</td>
 
                 <td>
-                  <input type="radio" class="custom-radio" id="oot_LS_steam_condensate-done" name="oot_LS_steam_condensate" value="Done" formControlName="oot_LS_steam_condensate"  (change)="onRadioChangeup()"/>
-                  <label for="oot_LS_steam_condensate-done"class="action">Done</label>
+                  <input type="radio" class="custom-radio" id="oot_LS_Steam_condensate-done" name="oot_LS_Steam_condensate" value="Done" formControlName="oot_LS_Steam_condensate"  (change)="onRadioChangeup()"/>
+                  <label for="oot_LS_Steam_condensate-done"class="action">Done</label>
 
-                  <input type="radio" class="custom-radio" id="oot_LS_steam_condensate-risk" name="oot_LS_steam_condensate" value="Risk" formControlName="oot_LS_steam_condensate" (change)="onRadioChangeup()"/>
-                  <label for="oot_LS_steam_condensate-risk"class="action">Risk</label>
+                  <input type="radio" class="custom-radio" id="oot_LS_Steam_condensate-risk" name="oot_LS_Steam_condensate" value="Risk" formControlName="oot_LS_Steam_condensate" (change)="onRadioChangeup()"/>
+                  <label for="oot_LS_Steam_condensate-risk"class="action">Risk</label>
 
-                  <input type="radio" class="custom-radio" id="oot_LS_steam_condensate-skip" name="oot_LS_steam_condensate" value="Skip" formControlName="oot_LS_steam_condensate"  (change)="onRadioChangeup()"/>
-                  <label for="oot_LS_steam_condensate-skip"class="action" [ngStyle]="{
-                    'background-color': colour === 'oot_LS_steam_condensate_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' :
-                                         (colour === 'oot_LS_steam_condensate_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' :
-                                         (ChecklistB?.get('oot_LS_steam_condensate')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
+                  <input type="radio" class="custom-radio" id="oot_LS_Steam_condensate-skip" name="oot_LS_Steam_condensate" value="Skip" formControlName="oot_LS_Steam_condensate"  (change)="onRadioChangeup()"/>
+                  <label for="oot_LS_Steam_condensate-skip"class="action" [ngStyle]="{
+                    'background-color': colour === 'oot_LS_Steam_condensate_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' :
+                                         (colour === 'oot_LS_Steam_condensate_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' :
+                                         (ChecklistB?.get('oot_LS_Steam_condensate')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
                   }">Skip</label>
 
-                  <div *ngIf="ChecklistB?.get('oot_LS_steam_condensate')?.value === 'Skip'">
-                    <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="oot_LS_steam_condensate_comment" (focusout)="patchvalue()"></textarea>
+                  <div *ngIf="ChecklistB?.get('oot_LS_Steam_condensate')?.value === 'Skip'">
+                    <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="oot_LS_Steam_condensate_comment" (focusout)="patchvalue()"></textarea>
                     <div style="margin-left: 31%;">
-                      <button class="btn btn-primary m-1" (click)="ChecklistB?.get('oot_LS_steam_condensate')?.setValue(''); ChecklistB?.get('oot_LS_steam_condensate_comment')?.setValue('')">Cancel</button>
+                      <button class="btn btn-primary m-1" (click)="ChecklistB?.get('oot_LS_Steam_condensate')?.setValue(''); ChecklistB?.get('oot_LS_Steam_condensate_comment')?.setValue('')">Cancel</button>
                       <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
                     </div>
                   </div>
@@ -779,23 +779,23 @@
               <td></td>
               <td class="header">*CG MOVs intermediate PT-22X6-07 (also HV-22X6-15 must be closed).</td>
               <td>
-                <input type="radio" class="custom-radio" id="oot_CG_movs_intermediate-done" name="oot_CG_movs_intermediate" value="Done" formControlName="oot_CG_movs_intermediate"  (change)="onRadioChangeup()"/>
-                <label for="oot_CG_movs_intermediate-done"class="action">Done</label>
+                <input type="radio" class="custom-radio" id="oot_CG_MOVs_intermediate-done" name="oot_CG_MOVs_intermediate" value="Done" formControlName="oot_CG_MOVs_intermediate"  (change)="onRadioChangeup()"/>
+                <label for="oot_CG_MOVs_intermediate-done"class="action">Done</label>
 
-                <input type="radio" class="custom-radio" id="oot_CG_movs_intermediate-risk" name="oot_CG_movs_intermediate" value="Risk" formControlName="oot_CG_movs_intermediate" (change)="onRadioChangeup()"/>
-                <label for="oot_CG_movs_intermediate-risk"class="action">Risk</label>
+                <input type="radio" class="custom-radio" id="oot_CG_MOVs_intermediate-risk" name="oot_CG_MOVs_intermediate" value="Risk" formControlName="oot_CG_MOVs_intermediate" (change)="onRadioChangeup()"/>
+                <label for="oot_CG_MOVs_intermediate-risk"class="action">Risk</label>
 
-                <input type="radio" class="custom-radio" id="oot_CG_movs_intermediate-skip" name="oot_CG_movs_intermediate" value="Skip" formControlName="oot_CG_movs_intermediate"  (change)="onRadioChangeup()"/>
-                <label for="oot_CG_movs_intermediate-skip"class="action" [ngStyle]="{
-                  'background-color': colour === 'oot_CG_movs_intermediate_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' :
-                                       (colour === 'oot_CG_movs_intermediate_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' :
-                                       (ChecklistB?.get('oot_CG_movs_intermediate')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
+                <input type="radio" class="custom-radio" id="oot_CG_MOVs_intermediate-skip" name="oot_CG_MOVs_intermediate" value="Skip" formControlName="oot_CG_MOVs_intermediate"  (change)="onRadioChangeup()"/>
+                <label for="oot_CG_MOVs_intermediate-skip"class="action" [ngStyle]="{
+                  'background-color': colour === 'oot_CG_MOVs_intermediate_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' :
+                                       (colour === 'oot_CG_MOVs_intermediate_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' :
+                                       (ChecklistB?.get('oot_CG_MOVs_intermediate')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
                 }">Skip</label>
 
-                <div *ngIf="ChecklistB?.get('oot_CG_movs_intermediate')?.value === 'Skip'">
-                  <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="oot_CG_movs_intermediate_comment" (focusout)="patchvalue()"></textarea>
+                <div *ngIf="ChecklistB?.get('oot_CG_MOVs_intermediate')?.value === 'Skip'">
+                  <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="oot_CG_MOVs_intermediate_comment" (focusout)="patchvalue()"></textarea>
                   <div style="margin-left: 31%;">
-                    <button class="btn btn-primary m-1" (click)="ChecklistB?.get('oot_CG_movs_intermediate')?.setValue(''); ChecklistB?.get('oot_CG_movs_intermediate_comment')?.setValue('')" >Cancel</button>
+                    <button class="btn btn-primary m-1" (click)="ChecklistB?.get('oot_CG_MOVs_intermediate')?.setValue(''); ChecklistB?.get('oot_CG_MOVs_intermediate_comment')?.setValue('')" >Cancel</button>
                     <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
                   </div>
                 </div>
@@ -1342,7 +1342,7 @@
 
           </tbody>
 
-        </form>
+        
         <div *ngIf="remainingValues && remainingValues.shift_comment_b_oot != null">
           <p><strong>Comment : </strong>{{ remainingValues.shift_comment_b_oot }}</p>
         </div>
@@ -1364,7 +1364,7 @@
                 <button mat-raised-button style="background-color: #25345D;color: white; " (click)="nxtAccEn()">Next</button>
                 </div>
               </div>
-            <div *ngIf="enable"  [formGroup]="ChecklistB" style=" margin-top: 2%; " >
+            <div *ngIf="enable"  style=" margin-top: 2%; " >
               <textarea id="w3reviews" name="w3review" rows="4" cols="60" formControlName="shift_comment_b_oot" ></textarea>
               <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%;float: inline-end; " (click)="onRadioChangeup()">Comment</button>
               <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
@@ -1381,7 +1381,7 @@
               <button mat-raised-button style="background-color: #25345D;color: white; " (click)="nxtAccEn()">Next</button>
               </div>
             </div>
-          <div *ngIf="enable" [formGroup]="ChecklistB" style=" margin-top: 2%; " >
+          <div *ngIf="enable"  style=" margin-top: 2%; " >
             <div>
               <textarea id="w3reviews" name="w3review" rows="4" cols="60" formControlName="shift_comment_b_iot"></textarea>
               <button class="btn btn-primary ml-2 "  style="background-color: #25345D;margin-bottom: 4% ; float: inline-end;"  (click)="onRadioChangeup()">Comment</button>
@@ -1392,6 +1392,7 @@
         </div>
 
       </div>
+    </form>
       </mat-card-content>
     </mat-card>
   </mat-expansion-panel>

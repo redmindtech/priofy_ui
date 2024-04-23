@@ -23,7 +23,7 @@ export class ChecklistBComponent implements OnInit {
   colour:string = 'null';
   clrvalue: string='null';
   formid: any;
-  formdisable='Incompleted';
+  formdisable:boolean;
   @Input() expand: boolean;
   enable: boolean = false;
   aceptreject:string = 'null';
@@ -77,10 +77,10 @@ formInitialization(){
     iot_fan_motor_readings_id:['18.Has IOT checked FD fan/motor vibration readings are within the acceptable limits and NO alarms.'],
     oot_FD_shaft_speed_id:['19.Has OOT checked that the FD fan vibration and shaft speed local indicators are operational.'],
     oot_FD_fan_abnormality_id:['20.Has OOT checked the FD fan for any abnormality in the field.'],
-    oot_LS_steam_condensate_id:['21.Has OOT ensured LS steam / condensate main block valve at the furnace battery limit are open and LS is lined up to HV-22X6-13B seat.'],
+    oot_LS_Steam_condensate_id:['21.Has OOT ensured LS steam / condensate main block valve at the furnace battery limit are open and LS is lined up to HV-22X6-13B seat.'],
     oot_S_TLE_id:['22.Step1:*S-TLE inlet PT-22X5-05.'],
     oot_T_TLE_id:['22.Step2:*T-TLE outlet PT-22X6-01 and PT-22X6-02.'],
-    oot_CG_movs_intermediate_id:['22.Step3:*CG MOVs intermediate PT-22X6-07 (also HV-22X6-15 must be closed).'],
+    oot_CG_MOVs_intermediate_id:['22.Step3:*CG MOVs intermediate PT-22X6-07 (also HV-22X6-15 must be closed).'],
     oot_CG_HV_22X6_13A_id:['22.Step4:*CG MOVs HV-22X6-13A.'],
     oot_Decoke_MOV_id:['22.Step5:*Decoke MOV HV-22X6-14.'],
     oot_Double_Block_id:['23.OOT ensure that LS Purge to Instruments 2” Double Block is open.'],
@@ -128,10 +128,10 @@ formInitialization(){
     iot_fan_motor_readings:[null,Validators.required],
     oot_FD_shaft_speed:[null,Validators.required],
     oot_FD_fan_abnormality:[null,Validators.required],
-    oot_LS_steam_condensate:[null,Validators.required],
+    oot_LS_Steam_condensate:[null,Validators.required],
     oot_S_TLE:[null,Validators.required],
     oot_T_TLE:[null,Validators.required],
-    oot_CG_movs_intermediate:[null,Validators.required],
+    oot_CG_MOVs_intermediate:[null,Validators.required],
     oot_CG_HV_22X6_13A:[null,Validators.required],
     oot_Decoke_MOV:[null,Validators.required],
     oot_Double_Block:[null,Validators.required],
@@ -177,10 +177,10 @@ formInitialization(){
     iot_fan_motor_readings_comment:[null],
     oot_FD_shaft_speed_comment:[null],
     oot_FD_fan_abnormality_comment:[null],
-    oot_LS_steam_condensate_comment:[null],
+    oot_LS_Steam_condensate_comment:[null],
     oot_S_TLE_comment:[null],
     oot_T_TLE_comment:[null],
-    oot_CG_movs_intermediate_comment:[null],
+    oot_CG_MOVs_intermediate_comment:[null],
     oot_CG_HV_22X6_13A_comment:[null],
     oot_Decoke_MOV_comment:[null],
     oot_Double_Block_comment:[null],
@@ -230,10 +230,10 @@ patchvalue(){
     iot_fan_motor_readings_comment:this.concatenateValues(this.ChecklistB.get('iot_fan_motor_readings_id')?.value,this.ChecklistB.get('iot_fan_motor_readings_comment')?.value ),
     oot_FD_shaft_speed_comment:this.concatenateValues(this.ChecklistB.get('oot_FD_shaft_speed_id')?.value,this.ChecklistB.get(' oot_FD_shaft_speed_comment')?.value ),
     oot_FD_fan_abnormality_comment:this.concatenateValues(this.ChecklistB.get('oot_FD_fan_abnormality_id')?.value,this.ChecklistB.get('oot_FD_fan_abnormality_comment')?.value ),
-    oot_LS_steam_condensate_comment:this.concatenateValues(this.ChecklistB.get('oot_LS_steam_condensate_id')?.value,this.ChecklistB.get('oot_LS_steam_condensate_comment')?.value ),
+    oot_LS_Steam_condensate_comment:this.concatenateValues(this.ChecklistB.get('oot_LS_Steam_condensate_id')?.value,this.ChecklistB.get('oot_LS_Steam_condensate_comment')?.value ),
     oot_S_TLE_comment:this.concatenateValues(this.ChecklistB.get('oot_S_TLE_id')?.value,this.ChecklistB.get('oot_S_TLE_comment')?.value ),
     oot_T_TLE_comment:this.concatenateValues(this.ChecklistB.get('oot_T_TLE_id')?.value,this.ChecklistB.get('oot_T_TLE_comment')?.value ),
-    oot_CG_movs_intermediate_comment:this.concatenateValues(this.ChecklistB.get('oot_CG_movs_intermediate_id')?.value,this.ChecklistB.get('oot_CG_movs_intermediate_comment')?.value ),
+    oot_CG_MOVs_intermediate_comment:this.concatenateValues(this.ChecklistB.get('oot_CG_MOVs_intermediate_id')?.value,this.ChecklistB.get('oot_CG_MOVs_intermediate_comment')?.value ),
     oot_CG_HV_22X6_13A_comment:this.concatenateValues(this.ChecklistB.get('oot_CG_HV_22X6_13A_id')?.value,this.ChecklistB.get('oot_CG_HV_22X6_13A_comment')?.value ),
     oot_Decoke_MOV_comment:this.concatenateValues(this.ChecklistB.get('oot_Decoke_MOV_id')?.value,this.ChecklistB.get('oot_Decoke_MOV_comment')?.value ),
     oot_Double_Block_comment:this.concatenateValues(this.ChecklistB.get('oot_Double_Block_id')?.value,this.ChecklistB.get('oot_Double_Block_comment')?.value ),
@@ -315,7 +315,7 @@ add() {
   this.apiService.getchecklistB().subscribe((response: any) => {
     if (response && response.result) { // Check if response and response.result are not null or undefined
       this.remainingValues = response.result;
-      this.formdisable= response.result.status;
+      this.formdisable = response.result.status === "Complete" ? true : false;
       Object.keys(this.remainingValues).forEach(key => {
         if (key !== 'shift_comment_b_oot' && key !== 'shift_comment_b_iot') {
           this.ChecklistB.get(key)?.patchValue(this.remainingValues[key]);

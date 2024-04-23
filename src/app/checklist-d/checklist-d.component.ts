@@ -24,7 +24,7 @@ export class ChecklistDComponent implements OnInit {
   disableoot: any;
   skipcolor: any;
   formid: any;
-  formdisable='Incompleted';
+  formdisable:boolean;
   colour:string = 'null';
   clrvalue: string='null';
   private onSubmitInterval: any;
@@ -71,7 +71,7 @@ export class ChecklistDComponent implements OnInit {
     this.ChecklistD = this.fb.group({
 
       iot_arch_temperature_id:['1.Has IOTs confirm that “arch temperature” warm up ramp set point is 0.83 ºC/min (equivalent to 50 ºC/hr or to increase 200 ºC/hr in 4 hours) and that all fuel controllers are properly enabled and in the correct mode/mode attribute. '],
-      OOT_air_ONIS_blind_id:['2.OOT to open decoke air ONIS blind and 6” main B/V'],
+      oot_air_ONIS_blind_id:['2.OOT to open decoke air ONIS blind and 6” main B/V'],
       oot_to_open4_id:['3.COOT to open 4” decoke air B/V downstream each control valve FV-22X0-10A/B. '],
       iot_start_decoke_id:['4.Note: IOT to inform Utility before start decoke airflow IOT to enable Decoke Air controllers and start flow through the coils at the default set point of 3.0 Mt/h per pass (side) by resetting HV-22X0-07 through its HS.'],
       oot_fuel_gas_id:['5.OOT to light manual burners as requested by IOT (to maintain fuel gas pressure between 0.2 to 0.4 kg/cm2g) and by following Furnace, Burner Light off procedure.step1:Note 1: fuel gas pressure needs to be maintained as low as possible to keep the flame close to the tile when steam enters the firebox, in order to allow the scanner to see the flame.'],
@@ -136,7 +136,7 @@ export class ChecklistDComponent implements OnInit {
       id:[this.id],
         // burners_20_:[null,Validators.required],
         iot_arch_temperature:[null,Validators.required],
-        OOT_air_ONIS_blind:[null,Validators.required],
+        oot_air_ONIS_blind:[null,Validators.required],
         oot_to_open4:[null,Validators.required],
         iot_start_decoke:[null,Validators.required],
         oot_fuel_gas:[null,Validators.required],
@@ -189,7 +189,7 @@ export class ChecklistDComponent implements OnInit {
         // Warm_Up_arch_table_1_id:[]
 
         iot_arch_temperature_comment:[null],
-        OOT_air_ONIS_blind_comment:[null],
+        oot_air_ONIS_blind_comment:[null],
         oot_to_open4_comment:[null],
         iot_start_decoke_comment:[null],
         oot_fuel_gas_comment:[null],
@@ -254,7 +254,7 @@ export class ChecklistDComponent implements OnInit {
       this.ChecklistD.patchValue({
 
         iot_arch_temperature_comment:this.concatenateValues(this.ChecklistD.get('iot_arch_temperature_id')?.value,this.ChecklistD.get('iot_arch_temperature_comment')?.value ),
-        OOT_air_ONIS_blind_comment:this.concatenateValues(this.ChecklistD.get('OOT_air_ONIS_blind_id')?.value,this.ChecklistD.get('OOT_air_ONIS_blind_comment')?.value ),
+        oot_air_ONIS_blind_comment:this.concatenateValues(this.ChecklistD.get('oot_air_ONIS_blind_id')?.value,this.ChecklistD.get('oot_air_ONIS_blind_comment')?.value ),
         oot_to_open4_comment:this.concatenateValues(this.ChecklistD.get('oot_to_open4_id')?.value,this.ChecklistD.get('oot_to_open4_comment')?.value ),
         iot_start_decoke_comment:this.concatenateValues(this.ChecklistD.get('iot_start_decoke_id')?.value,this.ChecklistD.get('iot_start_decoke_comment')?.value ),
         oot_fuel_gas_comment:this.concatenateValues(this.ChecklistD.get('oot_fuel_gas_id')?.value,this.ChecklistD.get('oot_fuel_gas_comment')?.value ),
@@ -367,7 +367,7 @@ export class ChecklistDComponent implements OnInit {
     this.apiService.getchecklistD().subscribe((response: any) => {
       if (response && response.result) { // Check if response and response.result are not null or undefined
         this.remainingValues = response.result;
-        this.formdisable= response.result.status;
+        this.formdisable = response.result.status === "Complete" ? true : false;
         Object.keys(this.remainingValues).forEach(key => {
           if (key !== 'shift_comment_d_oot' && key !== 'shift_comment_d_iot') {
             this.ChecklistD.get(key)?.patchValue(this.remainingValues[key]);
