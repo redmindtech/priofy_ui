@@ -1,6 +1,6 @@
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border"[expanded]="expand && formdisable === 'Incompleted'"
-  [disabled]="( formdisable ==='Completed'? 'true':  (checklistfformenable ? 'true':'false'))">
+  <mat-expansion-panel class="mat_expansion_border"[expanded]="expand"
+  [disabled]="checklistfformenable">
     <mat-expansion-panel-header class="mat_expansion_header_border" >
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents;color:#25345D"><strong>11.Procedure Checklist #F - Swing Mov (Decoke Header To CG Header)</strong>  </h5>
@@ -10,7 +10,7 @@
 <mat-card class="mat" >
   <mat-card-content>
     <!-- <h6 style="margin-left: 30%;"><strong>PROCEDURE CHECKLIST #F -SWING MOV (DECOKE HEADER TO CG HEADER)</strong></h6> -->
-    <form  [formGroup]="ChecklistF">
+    <form  [formGroup]="ChecklistF" [ngClass]="{ 'disabled-form': formdisable }">
     <table>
       <thead>
         <tr>
@@ -623,7 +623,7 @@
 
       </tbody>
     </table>
-  </form>
+ 
   <div *ngIf="remainingValues && remainingValues.shift_comment_f_oot != null">
     <p><strong>Comment : </strong>{{ remainingValues.shift_comment_f_oot }}</p>
   </div>
@@ -645,7 +645,7 @@
             <button mat-raised-button style="background-color: #25345D;color: white; " (click)="openDialog()" >Complete</button>
             </div>  
         </div>
-      <div *ngIf="enable" [formGroup]="ChecklistF"style=" margin-top: 2%; ">
+      <div *ngIf="enable" style=" margin-top: 2%; ">
         
         <textarea id="w3reviews" name="w3review" rows="4" cols="60" formControlName="shift_comment_f_oot"></textarea>
         <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%; float: inline-end;" (click)="onRadioChangeup()">Comment</button>
@@ -665,7 +665,7 @@
       
     </div>
     
-    <div *ngIf="enable" class="m-2" [formGroup]="ChecklistF"style=" margin-top: 2%; ">
+    <div *ngIf="enable" class="m-2"style=" margin-top: 2%; ">
      
       <div>
         <textarea id="w3reviews" name="w3review" rows="4" cols="60" formControlName="shift_comment_f_iot"></textarea>
@@ -679,7 +679,7 @@
   
 </div>
 
-  
+</form>
   </mat-card-content>
 </mat-card>
 </mat-expansion-panel>

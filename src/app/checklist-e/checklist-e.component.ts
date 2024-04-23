@@ -25,7 +25,7 @@ export class ChecklistEComponent implements OnInit {
   skipcolor: any;
   colour:string = 'null'; 
   clrvalue: string='null';
-  formdisable='Incompleted';
+  formdisable:boolean;
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ChecklistEService
@@ -167,7 +167,7 @@ add() {
   this.apiService.getchecklistE().subscribe((response: any) => {
     if (response && response.result) { // Check if response and response.result are not null or undefined
       this.remainingValues = response.result;
-      this.formdisable= response.result.status;
+      this.formdisable = response.result.status === "Complete" ? true : false;
       Object.keys(this.remainingValues).forEach(key => {
         if (key !== 'shift_comment_e_oot' && key !== 'shift_comment_e_iot') {
           this.ChecklistE.get(key)?.patchValue(this.remainingValues[key]);

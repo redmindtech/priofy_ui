@@ -1,6 +1,6 @@
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand && formdisable === 'Incompleted'"
-  [disabled]="( formdisable ==='Completed'? 'true':  (checklisteformenable ? 'true':'false'))">
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand"
+  [disabled]="checklisteformenable">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents;color:#25345D"><strong>10.Procedure Checklist #E - Warm Up COT</strong>  </h5>
@@ -11,7 +11,7 @@
 <mat-card class="mat">
   <mat-card-content>
     <!-- <h6 style="margin-left: 35%;"><strong>Procedure Checklist #E—Warm Up COT</strong></h6> -->
-    <form  [formGroup]="ChecklistE">
+    <form  [formGroup]="ChecklistE" [ngClass]="{ 'disabled-form': formdisable }">
     <table>
       <thead>
         <tr>
@@ -427,7 +427,7 @@
         </tr>
       </tbody>
     </table>
-  </form>
+  
   
   <div *ngIf="remainingValues && remainingValues.shift_comment_e_oot != null">
     <p><strong>Comment : </strong>{{ remainingValues.shift_comment_e_oot }}</p>
@@ -450,7 +450,7 @@
           <button mat-raised-button style="background-color: #25345D;color: white; " (click)="nxtAccEn()">Next</button>
           </div>
       </div>
-    <div *ngIf="enable" [formGroup]="ChecklistE"style=" margin-top: 2%; ">
+    <div *ngIf="enable" style=" margin-top: 2%; ">
       
       <textarea id="w3reviews" name="w3review" rows="4" cols="60" formControlName="shift_comment_e_oot"></textarea>
       <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%;float: inline-end;" (click)="onRadioChangeup()">Add Comment</button>
@@ -469,7 +469,7 @@
       </div>
   </div>
   
-  <div *ngIf="enable" class="m-2" [formGroup]="ChecklistE" style=" margin-top: 2%; ">
+  <div *ngIf="enable" class="m-2"  style=" margin-top: 2%; ">
    
     <div>
       <textarea id="w3reviews" name="w3review" rows="4" cols="60" formControlName="shift_comment_e_iot"></textarea>
@@ -481,7 +481,7 @@
 </div>
 
 </div>
-
+</form>
 </mat-card-content>
 </mat-card>
 </mat-expansion-panel>

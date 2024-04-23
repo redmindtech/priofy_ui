@@ -26,7 +26,7 @@ export class ChecklistFComponent implements OnInit {
   id :any;
   remainingValues: any;
   enable: boolean = false;
-  formdisable='Incompleted';
+  formdisable:boolean;
   skipcolor: any;
   colour:string = 'null'; 
   clrvalue: string='null';
@@ -222,11 +222,12 @@ export class ChecklistFComponent implements OnInit {
     this.apiService.getchecklistF().subscribe((response: any) => {
       if (response && response.result) { // Check if response and response.result are not null or undefined
         this.remainingValues = response.result;
-        console.log(  this.remainingValues.id)
-        this.formdisable= response.result.status;
-        this.ChecklistF.patchValue(response.result);
+       
+        this.formdisable = response.result.status === "Complete" ? false : true;
+        
         Object.keys(this.remainingValues).forEach(key => {
           if (key !== 'shift_comment_f_oot' && key !== 'shift_comment_f_iot') {
+            console.log('this.remainingValues[key]: ', this.remainingValues);
             this.ChecklistF.get(key)?.patchValue(this.remainingValues[key]);
           }
         });

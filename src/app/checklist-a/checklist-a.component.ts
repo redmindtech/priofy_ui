@@ -34,7 +34,8 @@ export class ChecklistAComponent implements OnInit {
   colour:string = 'null'; 
   clrvalue: string='null';
   formid: any;
-  formdisable='Incompleted';
+  formdisable:boolean;
+  
   
 
   constructor(
@@ -299,8 +300,9 @@ export class ChecklistAComponent implements OnInit {
     if (response && response.result) { // Check if response and response.result are not null or undefined
       this.remainingValues = response.result;
       this.formid= response.result.id;
-     this.formdisable= response.result.status;
      
+     this.formdisable = response.result.status === "Complete" ? true : false;
+
       Object.keys(this.remainingValues).forEach(key => {
         if (key !== 'shift_comment_a_oot' && key !== 'shift_comment_a_iot') {
           this.ChecklistA.get(key)?.patchValue(this.remainingValues[key]);

@@ -1,6 +1,6 @@
-<mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand && formdisable === 'Incompleted'"
-  [disabled]="( formdisable ==='Completed'? 'true':  (checklistcformenable ? 'true':'false'))">
+<mat-accordion>{{checklistcformenable}}
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand"
+  [disabled]="checklistcformenable">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents;color:#25345D"><strong> 8.Procedure Checklist #C - Light Off</strong></h5>
@@ -13,7 +13,7 @@
     </mat-expansion-panel-header>
     <mat-card class="mat">
       <mat-card-content>
-   <form [formGroup]="ChecklistC" >
+   <form [formGroup]="ChecklistC" [ngClass]="{ 'disabled-form': formdisable }" >
 
       <thead>
           <tr>
@@ -1079,7 +1079,7 @@
 
 
 </tbody>
-</form>
+
 <div *ngIf="remainingValues && remainingValues.shift_comment_c_oot != null">
   <p><strong>Comment : </strong>{{ remainingValues.shift_comment_c_oot }}</p>
 </div>
@@ -1101,7 +1101,7 @@
         <button mat-raised-button style="background-color: #25345D;color: white; "  (click)="nxtAccEn()">Next</button>
         </div>
       </div>
-    <div *ngIf="enable"  [formGroup]="ChecklistC"style=" margin-top: 2%; ">
+    <div *ngIf="enable" style=" margin-top: 2%; ">
       <textarea id="w3reviews" name="w3reviews" rows="4" cols="60" formControlName="shift_comment_c_oot" ></textarea>
       <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%;float: inline-end; " (click)="onRadioChangeup()">Comment</button>
       <button class="btn btn-primary ml-2" style="background-color: #25345D;margin-bottom: 4%;float: inline-end; " (click)="toggleEnable();clearTextarea()">Cancal</button>
@@ -1118,7 +1118,7 @@
       <button mat-raised-button style="background-color: #25345D; color: white;" (click)="nxtAccEn()">Next</button>
       </div>
     </div>
-  <div *ngIf="enable" [formGroup]="ChecklistC"style="margin-top:2%; ">
+  <div *ngIf="enable" style="margin-top:2%; ">
     <div>
       <textarea id="w3reviews" name="w3reviews" rows="4" cols="60" formControlName="shift_comment_c_iot" ></textarea>
       <button class="btn btn-primary ml-2 "  style="background-color: #25345D;margin-bottom: 4%;float: inline-end; "  (click)="onRadioChangeup()">Comment</button>
@@ -1129,6 +1129,7 @@
 </div>
 
 </div>
+</form>
 </mat-card-content>
 </mat-card>
 </mat-expansion-panel>
