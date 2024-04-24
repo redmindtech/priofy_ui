@@ -345,7 +345,7 @@ export class ChecklistDComponent implements OnInit {
           this.id=response.result.id;
           // this.ChecklistD.get('id')?.setValue(this.id);
           console.log('Data saved successfully:', response);
-          this.toast.open('Data saved successfully', 'Close', { duration: 3000 });
+          // this.toast.open('Data saved successfully', 'Close', { duration: 3000 });
 
           console.log('this.id: ', this.id);
           // this.router.navigate(['/blank']);
@@ -353,7 +353,7 @@ export class ChecklistDComponent implements OnInit {
         (error) => {
 
           console.error('Error saving data:', error);
-          this.toast.open('Error saving data', 'Close', { duration: 3000 });
+          // this.toast.open('Error saving data', 'Close', { duration: 3000 });
         }
       );
 

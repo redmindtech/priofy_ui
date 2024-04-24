@@ -228,7 +228,7 @@ patchvalue(){
     iot_close_the_doors_comment:this.concatenateValues(this.ChecklistB.get('iot_close_the_doors_id')?.value,this.ChecklistB.get('iot_close_the_doors_comment')?.value ),
     iot_FC_back_in_auto_comment:this.concatenateValues(this.ChecklistB.get('iot_FC_back_in_auto_id')?.value,this.ChecklistB.get('iot_FC_back_in_auto_comment')?.value ),
     iot_fan_motor_readings_comment:this.concatenateValues(this.ChecklistB.get('iot_fan_motor_readings_id')?.value,this.ChecklistB.get('iot_fan_motor_readings_comment')?.value ),
-    oot_FD_shaft_speed_comment:this.concatenateValues(this.ChecklistB.get('oot_FD_shaft_speed_id')?.value,this.ChecklistB.get(' oot_FD_shaft_speed_comment')?.value ),
+    oot_FD_shaft_speed_comment:this.concatenateValues(this.ChecklistB.get('oot_FD_shaft_speed_id')?.value,this.ChecklistB.get('oot_FD_shaft_speed_comment')?.value ),
     oot_FD_fan_abnormality_comment:this.concatenateValues(this.ChecklistB.get('oot_FD_fan_abnormality_id')?.value,this.ChecklistB.get('oot_FD_fan_abnormality_comment')?.value ),
     oot_LS_Steam_condensate_comment:this.concatenateValues(this.ChecklistB.get('oot_LS_Steam_condensate_id')?.value,this.ChecklistB.get('oot_LS_Steam_condensate_comment')?.value ),
     oot_S_TLE_comment:this.concatenateValues(this.ChecklistB.get('oot_S_TLE_id')?.value,this.ChecklistB.get('oot_S_TLE_comment')?.value ),
@@ -294,23 +294,27 @@ onSubmit()
       (response) => {
         this.id=response.result.id;
         console.log('Data saved successfully:', response);
-        this.toast.open('Data saved successfully', 'Close', { duration: 3000 });
+        // this.toast.open('Data saved successfully', 'Close', { duration: 3000 });
 
         // this.router.navigate(['/blank']);
       },
       (error) => {
 
         console.error('Error saving data:', error);
-        this.toast.open('Error saving data', 'Close', { duration: 3000 });
+        // this.toast.open('Error saving data', 'Close', { duration: 3000 });
       }
     );
 
 }
+
+
 nxtAccEn(){
   this.checklistcformenable=false;
   this.expand = false;
     this.open1 =true
 }
+
+
 add() {
   this.apiService.getchecklistB().subscribe((response: any) => {
     if (response && response.result) { // Check if response and response.result are not null or undefined
