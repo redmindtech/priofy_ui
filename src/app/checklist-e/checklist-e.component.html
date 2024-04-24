@@ -32,7 +32,7 @@
             <input type="radio" class="custom-radio" id="oot_lower_level_burner-risk" name="oot_lower_level_burner" value="Risk" formControlName="oot_lower_level_burner" (change)="onRadioChange()"/>
             <label for="oot_lower_level_burner-risk"  class="action">Risk</label>
             
-            <input type="radio" class="custom-radio" id="oot_lower_level_burner-skip" name="oot_lower_level_burner" value="Skip" formControlName="oot_lower_level_burner"  (change)="onRadioChange()"/>
+            <input type="radio" class="custom-radio" id="oot_lower_level_burner-skip" name="oot_lower_level_burner" (click)="confirmClicked = false" value="Skip" formControlName="oot_lower_level_burner"  (change)="onRadioChange()"/>
             <label for="oot_lower_level_burner-skip"  class="action"[ngStyle]="{
               'background-color': colour === 'oot_lower_level_burner_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
                                    (colour === 'oot_lower_level_burner_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
@@ -61,7 +61,7 @@
             <input type="radio" class="custom-radio" id="iot_monitor_the_fuel_gas-risk" name="iot_monitor_the_fuel_gas" value="Risk" formControlName="iot_monitor_the_fuel_gas" (change)="onRadioChangeup()"/>
             <label for="iot_monitor_the_fuel_gas-risk"class="action">Risk</label>
             
-            <input type="radio" class="custom-radio" id="iot_monitor_the_fuel_gas-skip" name="iot_monitor_the_fuel_gas" value="Skip" formControlName="iot_monitor_the_fuel_gas"  (change)="onRadioChangeup()"/>
+            <input type="radio" class="custom-radio" id="iot_monitor_the_fuel_gas-skip" name="iot_monitor_the_fuel_gas" (click)="confirmClicked = false" value="Skip" formControlName="iot_monitor_the_fuel_gas"  (change)="onRadioChangeup()"/>
             <label for="iot_monitor_the_fuel_gas-skip"class="action"[ngStyle]="{
               'background-color': colour === 'iot_monitor_the_fuel_gas_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
                                    (colour === 'iot_monitor_the_fuel_gas_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
@@ -91,7 +91,7 @@
             <input type="radio" class="custom-radio" id="oot_desuperheater-risk" name="oot_desuperheater" value="Risk" formControlName="oot_desuperheater" (change)="onRadioChangeup()"/>
             <label for="oot_desuperheater-risk"class="action">Risk</label>
             
-            <input type="radio" class="custom-radio" id="oot_desuperheater-skip" name="oot_desuperheater" value="Skip" formControlName="oot_desuperheater"  (change)="onRadioChangeup()"/>
+            <input type="radio" class="custom-radio" id="oot_desuperheater-skip" name="oot_desuperheater" (click)="confirmClicked = false" value="Skip" formControlName="oot_desuperheater"  (change)="onRadioChangeup()"/>
             <label for="oot_desuperheater-skip"class="action"[ngStyle]="{
               'background-color': colour === 'oot_desuperheater_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
                                    (colour === 'oot_desuperheater_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
@@ -120,7 +120,7 @@
             <input type="radio" class="custom-radio" id="iot_desuperheater_not_pass-risk" name="iot_desuperheater_not_pass" value="Risk" formControlName="iot_desuperheater_not_pass" (change)="onRadioChangeup()"/>
             <label for="iot_desuperheater_not_pass-risk" class="action">Risk</label>
             
-            <input type="radio" class="custom-radio" id="iot_desuperheater_not_pass-skip" name="iot_desuperheater_not_pass" value="Skip" formControlName="iot_desuperheater_not_pass"  (change)="onRadioChangeup()"/>
+            <input type="radio" class="custom-radio" id="iot_desuperheater_not_pass-skip" name="iot_desuperheater_not_pass" (click)="confirmClicked = false" value="Skip" formControlName="iot_desuperheater_not_pass"  (change)="onRadioChangeup()"/>
             <label for="iot_desuperheater_not_pass-skip" class="action"[ngStyle]="{
               'background-color': colour === 'iot_desuperheater_not_pass_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
                                    (colour === 'iot_desuperheater_not_pass_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
@@ -155,7 +155,7 @@
             <input type="radio" class="custom-radio" id="oot_lineup_sd-risk" name="oot_lineup_sd" value="Risk" formControlName="oot_lineup_sd" (change)="onRadioChangeup()"/>
             <label for="oot_lineup_sd-risk" class="action">Risk</label>
             
-            <input type="radio" class="custom-radio" id="oot_lineup_sd-skip" name="oot_lineup_sd" value="Skip" formControlName="oot_lineup_sd"  (change)="onRadioChangeup()"/>
+            <input type="radio" class="custom-radio" id="oot_lineup_sd-skip" name="oot_lineup_sd" value="Skip" formControlName="oot_lineup_sd"(click)="confirmClicked = false"   (change)="onRadioChangeup()"/>
             <label for="oot_lineup_sd-skip" class="action"[ngStyle]="{
               'background-color': colour === 'oot_lineup_sd_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
                                    (colour === 'oot_lineup_sd_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
@@ -183,7 +183,7 @@
             <input type="radio" class="custom-radio" id="oot_cbd-risk" name="oot_cbd" value="Risk" formControlName="oot_cbd" (change)="onRadioChangeup()"/>
             <label for="oot_cbd-risk"class="action">Risk</label>
             
-            <input type="radio" class="custom-radio" id="oot_cbd-skip" name="oot_cbd" value="Skip" formControlName="oot_cbd"  (change)="onRadioChangeup()"/>
+            <input type="radio" class="custom-radio" id="oot_cbd-skip" name="oot_cbd" value="Skip" formControlName="oot_cbd"(click)="confirmClicked = false"   (change)="onRadioChangeup()"/>
             <label for="oot_cbd-skip"class="action"[ngStyle]="{
               'background-color': colour === 'oot_lineup_sd_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
                                    (colour === 'oot_lineup_sd_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
