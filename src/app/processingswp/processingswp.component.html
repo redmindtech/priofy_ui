@@ -62,7 +62,7 @@
       </div>
       <div class="col">
         <label class="label" for="conditions_set_by">Conditions Set By</label>
-        <input type="text" class="form-control" id="conditions_set_by" value="Saktivel VijayKumar">
+        <input type="text" class="form-control" id="conditions_set_by" formControlName="conditions_set_by" placeholder="Enter Conditions Set By">
       </div>
       </div>
 
@@ -86,8 +86,8 @@
               <div class="col">
                 <label class="label" for="date">Date & Time</label>
                 <div class="row">
-<div class="col-sm-4"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-<div class="col-sm-4"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+<div class="col-sm-4"><input type="date" class="form-control" id="mastercard_date" formControlName="mastercard_date"placeholder="Enter Date"  ></div>
+<div class="col-sm-4"><input type="time" class="form-control" id="mastercard_time" formControlName="mastercard_time"placeholder="Enter Time" ></div>
                 </div>
 
 
@@ -145,7 +145,7 @@
 
             <div class="col" [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
               <label for="facility_representative_sign">Facility Representative (sign)</label>
-
+              <textarea type="text" class="form-control" rows="3"   id="facility_representative_sign" placeholder="Enter Facility Representative Sign" formControlName="facility_representative_sign"></textarea>
               <div style="display: flex; flex-direction: column; align-items: left;">
                 <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage10.style.display = (signatureImage10.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                 <div style="margin-top: 10px;">
@@ -165,7 +165,7 @@
           </div>
           <div class="col" [ngClass]="{ 'position-row': position !== 'Job_rep' }">
             <label  for="job_representative_sign">Job Representative (sign)</label>
-
+            <textarea type="text" class="form-control" rows="3"   id="job_representative_sign" placeholder="Enter Job Representative Sign" formControlName="job_representative_sign"></textarea>
             <div style="display: flex; flex-direction: column; align-items: left;">
               <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
               <div style="margin-top: 10px;">
@@ -182,7 +182,7 @@
 
             <div class="col truncate"[ngClass]="{ 'position-row': position !== 'Other_Rep' }">
             <label  for="signature_other_unit_facility_representative" class="truncate">Sign of other unit Facility Representative</label>
-
+            <textarea type="text" class="form-control" rows="3"   id="signature_other_unit_facility_representative" placeholder="Enter Sign Unit Facility Representative Sign" formControlName="signature_other_unit_facility_representative"></textarea>
             <div style="display: flex; flex-direction: column; align-items: left;">
               <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
               <div style="margin-top: 10px;">
@@ -196,7 +196,7 @@
             </div>
             <div class="col"[ngClass]="{ 'position-row': position !== 'Other_Rep' }">
               <label  for="employee_number:">Employee Number</label>
-
+              <textarea type="text" class="form-control" rows="3"   id="employee_number" placeholder="Enter Employee Number" formControlName="employee_number"></textarea>
               <div style="display: flex; flex-direction: column; align-items: left;">
                 <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage3.style.display = (signatureImage3.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                 <div style="margin-top: 10px;">
@@ -234,16 +234,16 @@
 
 
                       <div class="row">
-      <div class="col"><input type="date" class="form-control" id="date" [value]="yesterdaydate" placeholder="Enter Date"disabled></div>
-      <div class="col"><input type="time" class="form-control" id="date" [value]="yesterdaytime"placeholder="Enter Time" disabled></div>
+      <div class="col"><input type="date" class="form-control" id="ecp_date" formControlName="ecp_date" placeholder="Enter Date"[disabled]="true"></div>
+      <div class="col"><input type="time" class="form-control" id="ecp_time" formControlName="ecp_time" placeholder="Enter Time"[disabled]="true" ></div>
                       </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="col "><label>ECP Issued by: {{76488}}</label></div>
                       <div class="row ml-2"><label class="label" for="date">Date & Time</label></div>
                         <div class="row ">
-        <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate"placeholder="Enter Date" ></div>
-        <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime"placeholder="Enter Time" ></div>
+        <div class="col"><input type="date" class="form-control" id="ecp_issued_date" formControlName="ecp_issued_date"placeholder="Enter Date" ></div>
+        <div class="col"><input type="time" class="form-control" id="ecp_issued_time" formControlName="ecp_issued_time"placeholder="Enter Time" ></div>
                         </div>
                     </div>
 
@@ -302,8 +302,8 @@
                </form>
                 </mat-card-content>
                 </mat-card>
-
-  <mat-card class= "card" [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
+                <!-- [ngClass]="{ 'position-row': position !== 'Facility_Rep' }" -->
+  <mat-card class= "card" >
                   <div class="header">
                     <h6 ><strong>Tags & Locks Table</strong></h6>
                   </div>
@@ -333,8 +333,8 @@
                           <td><input type="text" class="form-control truncate" id="location_of_red_tags" placeholder="Enter Location of Red Tags" formControlName="location_of_red_tags"></td>
                           <td><input type="text" class="form-control truncate" id="facilityrep_red_tag" placeholder="Enter Red Tag" formControlName="facilityrep_red_tag"></td>
                           <td><input type="text" class="form-control truncate" id="lock_number" placeholder="Enter Lock Number" formControlName="lock_number"></td>
-                          <td><input type="date" class="form-control truncate" id="date" placeholder="Enter Date" formControlName="date"></td>
-                          <td><input type="time" class="form-control truncate" id="time" placeholder="Enter Time" formControlName="time"></td>
+                          <td><input type="date" class="form-control truncate" id="date_lock_table" placeholder="Enter Date" formControlName="date_lock_table"></td>
+                          <td><input type="time" class="form-control truncate" id="date_lock_time" placeholder="Enter Time" formControlName="date_lock_time"></td>
                           <td>
                             <div style="display: flex; align-items: center;">
                                 <button mat-raised-button style="background-color: #25345D; color: white;">Sign</button>
@@ -374,8 +374,8 @@
                             <div class="col">
                               <label class="label" for="date">Date & Time</label>
                               <div class="row">
-                              <div class="col-sm-5"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                            <div class="col-sm-5"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                              <div class="col-sm-6"><input type="date" class="form-control" id="tags_reconcilation_date" formControlName="tags_reconcilation_date" ></div>
+                            <div class="col-sm-6"><input type="time" class="form-control" id="tags_reconcilation_time" formControlName="tags_reconcilation_time" ></div>
                               </div>
                           </div>
 
@@ -495,8 +495,8 @@
                             <div class="col-sm-4">
                               <label class="label" for="date">Date & Time</label>
                               <div class="row">
-                              <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                            <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                              <div class="col"><input type="date" class="form-control" id="initial_date" formControlName="initial_date"></div>
+                            <div class="col"><input type="time" class="form-control" id="initial_time" formControlName="initial_time" ></div>
                               </div>
                         </div>
                         <div class="col-sm-4">
@@ -543,8 +543,8 @@
                             <div class="col-sm-4">
                               <label class="label" for="date">Date & Time</label>
                               <div class="row">
-                              <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                            <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                              <div class="col"><input type="date" class="form-control" id="retest_1_date" formControlName="retest_1_date" ></div>
+                            <div class="col"><input type="time" class="form-control" id="retest_1_time" formControlName="retest_1_time" ></div>
                               </div>
                         </div>
                         <div class="col-sm-4">
@@ -590,8 +590,8 @@
                             <div class="col-sm-4">
                               <label class="label" for="date">Date & Time</label>
                               <div class="row">
-                              <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                            <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                              <div class="col"><input type="date" class="form-control" id="retest_2_date" formControlName="retest_2_date"></div>
+                            <div class="col"><input type="time" class="form-control" id="retest_2_time" formControlName="retest_2_time"></div>
                               </div>
                         </div>
                         <div class="col-sm-4">
@@ -631,13 +631,13 @@
                                   <div class="col">
                                     <label class="label" for="date">Date & Time</label>
                                     <div class="row">
-                                    <div class="col-sm-6"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                                  <div class="col-sm-6.5"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                                    <div class="col-sm-7"><input type="date" class="form-control" id="equipment_prepared_date" formControlName="equipment_prepared_date"></div>
+                                  <div class="col-sm-7.5"><input type="time" class="form-control" id="equipment_prepared_time" formControlName="equipment_prepared_time"></div>
                                     </div>
                                 </div>
                                 <div class="col">
                                   <label class="label" for="equipment_prepared_master_card_Number">Master Card Number</label>
-                                  <input type="text" class="form-control truncate"  id="equipment_prepared_master_card_Number" placeholder="Enter Master Card Number" formControlName="equipment_prepared_master_card_Number">
+                                  <input type="text" class="form-control truncate"  id="equipment_prepared_master_card_Number" >
                                 </div>
                         </div>
                         <div class="row mt-3">
@@ -729,8 +729,8 @@
                                       <div class="col">
                                         <label class="label" for="date">Date & Time</label>
                                         <div class="row">
-                                        <div class="col-sm-6"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                                      <div class="col-sm-6.5"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                                        <div class="col-sm-6"><input type="date" class="form-control" id="facility_rep_date" formControlName="facility_rep_date"></div>
+                                      <div class="col-sm-6.5"><input type="time" class="form-control" id="facility_rep_time" formControlName="facility_rep_time"></div>
                                         </div>
                                     </div>
                                     <div class="col">
@@ -796,8 +796,8 @@
                     <div class="col">
                       <label class="label" for="date">Date And Time</label>
                       <div class="row">
-                      <div class="col-sm-6"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                    <div class="col-sm-6.5"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                      <div class="col-sm-6"><input type="date" class="form-control" id="job_rep_date" formControlName="job_rep_date" ></div>
+                    <div class="col-sm-6.5"><input type="time" class="form-control" id="job_rep_time" formControlName="job_rep_time"></div>
 
                    </div>
                       </div>
