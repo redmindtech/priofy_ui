@@ -26,6 +26,8 @@ export class ChecklistEComponent implements OnInit {
   colour:string = 'null'; 
   clrvalue: string='null';
   formdisable:boolean;
+  
+  confirmClicked: boolean ;
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ChecklistEService
@@ -151,6 +153,7 @@ export class ChecklistEComponent implements OnInit {
   }
 
   onSubmit() {
+    
     const permitFormValue = this.ChecklistE.value;
     console.log('Form Data:', permitFormValue);
     this.addSubscription = this.apiService.createchecklistE(permitFormValue).subscribe(
@@ -225,6 +228,7 @@ onRadioChangeup() {
   }
 }
 updateFormValues(): void {
+  
   // this.ChecklistE.get('shift_comment_e_oot')?.setValue(this.remainingValues.shift_comment_e_oot);
   // this.ChecklistE.get('shift_comment_e_iot')?.setValue(this.remainingValues.shift_comment_e_iot);
   const formData = this.ChecklistE.value;
