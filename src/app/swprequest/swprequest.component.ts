@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SwprequestService } from '@app/utils/swprequest.service';
 
 @Component({
   selector: 'app-swprequest',
@@ -30,8 +31,10 @@ export class SwprequestComponent implements OnInit {
   footlegs:string[]=['Ankle High Safety Shoes','Metatarsal Guard','Steel/Composite Safety Toe','Thermal Insulated Shoes','Puncture-Resistant Shoes'];
   earprotect:string[]=['Ear Muff',' Earplugs',' Earplug Dispensers',' Audiometry Cabins '];
   eyeprotect:string[]=['Safety Glasses with Side Shields','Goggles','Hand Shield','Helmet type Stationary Window'];
+  startDateTime: string;
+  selectedFileName: any;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,private apiService: SwprequestService,) {
 
   }
   ngOnInit(): void {
@@ -39,7 +42,8 @@ export class SwprequestComponent implements OnInit {
     this.userObject = JSON.parse(this.userDetails);
     this.position = this.userObject.position;
     console.log(this.position)
-
+    // this.paramsId = this.activatedRoute.snapshot.queryParams?.['id'];
+    // this.queryPath = this.activatedRoute.snapshot.url[0]?.path;
     this.formInitialization()
   }
   formInitialization() {
@@ -52,55 +56,91 @@ export class SwprequestComponent implements OnInit {
 
     // Format the time as needed (e.g., HH:MM:SS)
     this.formattedTime = new Date().toTimeString().split(' ')[0];
+     this.startDateTime = this.formattedDate + 'T' + this.formattedTime+'Z';
 console.log("date",this.formattedDate);
 console.log("time",this.formattedTime);
    this.swpForm = this.formBuilder.group({
-    // startDate:[this.formattedDate],
-    // endDate:[this.formattedDate],
-    // startTime:[this.formattedTime],
-    // endTime:[this.formattedTime],
-
-      Requestorname: ['SWP Issuer'], // Initialize with default value
-      EAZ: [[]],
-      EquipmentID: [''], // Initialize with default value
-      WorkLocation: [''], // Initialize with default value
-      WorkDescription:[''],
-      EquipmentDescription:[''],
-      Clothing: [''], // Initialize with default value
-      fhprotection: [['']], // Initialize with default value as an array
-      Jobscope: [''], // Initialize with default value
-      Toolsrequired: [['']], // Initialize with default value as an array
-      Respiratory: [''], // Initialize with default value
+    start_date:[this.formattedDate],
+    end_date:[this.formattedDate],
+    start_time:[this.formattedTime],
+    end_time:[this.formattedTime],
+    sjp_attachment:[''],
+      requestorname: ['SWP Issuer'], // Initialize with default value
+      eaz: [['']],
+      equipmentID: [''], // Initialize with default value
+      workLocation: [''], // Initialize with default value
+      workDescription:[''],
+      equipmentDescription:[''],
+      clothing: [''], // Initialize with default value
+      fhProtection: [['']], // Initialize with default value as an array
+      jobScope: [''], // Initialize with default value
+      toolsRequired: [['']], // Initialize with default value as an array
+      respiratory: [''], // Initialize with default value
       footleg: [['']], // Initialize with default value as an array
       ear: [['']], // Initialize with default value as an array
-      eyeprotect: [['']], // Initialize with default value as an array
-      Ergonomics: [''], // Initialize with default value
-      Heatstress: [''], // Initialize with default value
-      Elevated: [''], // Initialize with default value
-      Others: [''], // Initialize with default value
+      eyeProtect: [['']], // Initialize with default value as an array
+      ergonomics: [''], // Initialize with default value
+      heatStress: [''], // Initialize with default value
+      elevated: [''], // Initialize with default value
+      others: [''], // Initialize with default value
+      userid:[this.userObject.id],
     });
   }
 
-  onFileSelected(): void {
-    const file = this.fileInput.nativeElement.files[0];
-    const allowedTypes = ['application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/pdf'];
+  onFileSelected(event: any): void {
+    const file = event.target.files[0]; // Extract file from event
     const maxFileSize = 100 * 1024; // 100KB
 
-    if (file && allowedTypes.includes(file.type) && file.size <= maxFileSize) {
+    if (file) {
+        if (file.size > maxFileSize) {
+            alert('File size exceeds the maximum allowed size of 100KB.');
+            this.swpForm.get('sjp_attachment')?.setValue('');
+            return;
+        }
 
-      console.log('File selected:', file.name);
+        console.log('File selected:', file.name);
 
-    } else {
-
-      if (!allowedTypes.includes(file.type)) {
-        alert('Please select a Word document (DOC/DOCX) or a PDF file.');
-      } else if (file.size > maxFileSize) {
-        alert('File size exceeds the maximum allowed size of 100KB.');
-      }
-
-      this.fileInput.nativeElement.value = '';
+        if (file.type === 'application/pdf') {
+          this.selectedFileName = file.name;
+            this.readPDFFile(file);
+        } else {
+            alert('Please select a PDF file.');
+        }
     }
+}
+
+readPDFFile(file: File): void {
+    const reader = new FileReader();
+    reader.onload = () => {
+        const byteArray = new Uint8Array(reader.result as ArrayBuffer);
+        // Convert Uint8Array to base64 string
+        const base64String = this.uint8ArrayToBase64(byteArray);
+        // Set the base64 string as the value of the form control
+        this.swpForm.get('sjp_attachment')?.setValue(base64String);
+    };
+    reader.readAsArrayBuffer(file);
+}
+
+uint8ArrayToBase64(uint8Array: Uint8Array): string {
+    let binaryString = '';
+    for (let i = 0; i < uint8Array.length; i++) {
+        binaryString += String.fromCharCode(uint8Array[i]);
+    }
+    return btoa(binaryString);
+}
+
+deleteFile() {
+    
+  // You may also want to reset the file input to allow re-uploading if needed
+  const fileInput: HTMLInputElement = document.getElementById('fileUpload') as HTMLInputElement;
+  if (fileInput) {
+    this.selectedFileName =""
+      fileInput.value = ''; // Reset file input value
   }
+}
+
+
+
   toggleSelectExpand(dropdownId: string) {
     if (this.expandedDropdownId === dropdownId) {
       this.expandedDropdownId = null;
@@ -112,9 +152,53 @@ console.log("time",this.formattedTime);
   saveForm() {
     // this.accordionClosed=true
     this.accordionClosed = false;
-    
+    this.swpForm.get('start_date')?.setValue(this.startDateTime);
+    this.swpForm.get('end_date')?.setValue(this.startDateTime);
+    this.swpForm.get('start_time')?.setValue(this.startDateTime);
+    this.swpForm.get('end_time')?.setValue(this.startDateTime);
+    const firstFormValue = this.swpForm.value;
+    console.log('Form Data:', firstFormValue);
+    this.apiService.saveswprequest(firstFormValue).subscribe(
+      (response) => {
+        console.log('Response from server:', response);
+        
+        // this.router.navigate(['/main/toolcomp']);
+        
+     
+      },
+      (error) => {
+        console.error('Error while sending data:', error);
+        
+      }
+    );
   }
-
+  
+updateFormValues(): void {
+  const formData = this.swpForm.value;
+  console.log('formData: ', formData);
+  this.apiService.updateswprequest(formData).subscribe(
+    (response) => {
+    
+    },
+    (error) => {
+      console.error('An error occurred:', error);
+      
+      // Handle error appropriately, e.g., show error message to user
+    }
+  );
 }
-
+// getbydata
+onEditClick(): void {
+  // Fetch permit data by ID
+  this.apiService.getswprequestById('1').subscribe(
+    (data: any) => {
+      console.log(data);
+      // Patch form values with API response
+      this.swpForm.patchValue(data.result); // Assuming data structure matches form controls
+    },
+    (error: any) => {
+      console.error('Error fetching data:', error);
+    }
+  );}
+}
 

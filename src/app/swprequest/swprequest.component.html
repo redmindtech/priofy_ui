@@ -21,15 +21,15 @@
             <div class="col ">
             <label class="label" for="date">Date And Time</label>
             <div class="row">
-                <div class="col-sm-4"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                <div class="col-sm-4"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                <div class="col-sm-4"><input type="date" class="form-control" id="date" formControlName="start_date"></div>
+                <div class="col-sm-4"><input type="time" class="form-control" id="date" formControlName="start_time" ></div>
             </div>
             </div>
             <div class="col">
               <label class="label" for="date">End Date And Time</label>
               <div class="row">
-                    <div class="col-sm-4"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                    <div class="col-sm-4"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
+                    <div class="col-sm-4"><input type="date" class="form-control" id="date" formControlName="end_date"></div>
+                    <div class="col-sm-4"><input type="time" class="form-control" id="date" formControlName="end_time" ></div>
               </div>
               </div>
           </div>
@@ -37,14 +37,14 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label for="Requestorname">Requestor Name</label>
-                <input id="Requestorname" type="text" class="form-control" formControlName="Requestorname" value="SWP Issuer" >
+                <input id="Requestorname" type="text" class="form-control" formControlName="requestorname" value="SWP Issuer" >
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label for="eaz">EAZ</label>
                 <div class="truncate">
-                  <mat-select class="form-control" style="width: 200px;" formControlName="EAZ" multiple>
+                  <mat-select class="form-control" style="width: 200px;" formControlName="eaz" multiple>
                     <mat-option *ngFor="let zone of allZones" [value]="zone">{{ zone }}</mat-option>
                   </mat-select>
                 </div>
@@ -76,7 +76,7 @@
               <div class="col-md-3">
               <div class="form-group">
                 <label for="equipmentID">Equipment ID</label>
-                <mat-select class="form-control" style="width: 200px;" formControlName="EquipmentID" multiple>
+                <mat-select class="form-control" style="width: 200px;" formControlName="equipmentID" multiple>
                   <mat-option *ngFor="let equip of EquipID" [value]="equip">{{ equip }}</mat-option>
                 </mat-select>
                 <!-- <mat-form-field> -->
@@ -98,7 +98,7 @@
               <div class="form-group">
                 <label for="wWorkLocation">Work Location</label>
                 <div class="truncate">
-                  <mat-select class="form-control" style="width: 200px;" formControlName="WorkLocation" multiple>
+                  <mat-select class="form-control" style="width: 200px;" formControlName="workLocation" multiple>
                     <mat-option *ngFor="let work of workloc" [value]="work">{{ work }}</mat-option>
                   </mat-select>
                 </div>
@@ -120,14 +120,14 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="EquipmentDescription">Equipment Description</label>
-                <textarea id="EquipmentDescription" rows="4"class="form-control" formControlName="EquipmentDescription"  placeholder="Enter Equipment Description"></textarea>
+                <textarea id="EquipmentDescription" rows="4"class="form-control" formControlName="equipmentDescription"  placeholder="Enter Equipment Description"></textarea>
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="form-group">
                 <label for="WorkDescription">Work Description</label>
-                <textarea id="WorkDescription" rows="4" class="form-control" formControlName="WorkDescription" placeholder="Enter Work Description" ></textarea>
+                <textarea id="WorkDescription" rows="4" class="form-control" formControlName="workDescription" placeholder="Enter Work Description" ></textarea>
               </div>
             </div>
           </div>
@@ -180,14 +180,14 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="Jobscope">Job Scope</label>
-                  <textarea id="Jobscope" rows="4" class="form-control" formControlName="Jobscope" placeholder="Enter Job Scope"></textarea>
+                  <textarea id="Jobscope" rows="4" class="form-control" formControlName="jobScope" placeholder="Enter Job Scope"></textarea>
                 </div>
               </div>
               <div class="col-md-6"> <!-- Change col-md-6 to col-md-12 to make it occupy the full width -->
                 <div class="form-group">
                   <label for="toolsrequired">Tools Required</label>
                   <div class="truncate">
-                    <mat-select class="form-control" style="width: 200px;" formControlName="Toolsrequired" multiple>
+                    <mat-select class="form-control" style="width: 200px;" formControlName="toolsRequired" multiple>
                       <mat-option *ngFor="let tool of tools" [value]="tool">{{ tool }}</mat-option>
                     </mat-select>
                   </div>
@@ -208,7 +208,7 @@
                 <div class="form-group">
                   <label for="Clothing">Clothing</label>
                   <div class="truncate">
-                    <mat-select class="form-control" style="width: 200px;" formControlName="Clothing" multiple>
+                    <mat-select class="form-control" style="width: 200px;" formControlName="clothing" multiple>
                       <mat-option *ngFor="let clothing of cloth" [value]="clothing">{{ clothing }}</mat-option>
                     </mat-select>
                   </div>
@@ -229,7 +229,7 @@
                   <div class="form-group">
                     <label for="fhprotection">Face/Head Protection</label>
                     <div class="truncate">
-                      <mat-select class="form-control" style="width: 200px;" formControlName="fhprotection" multiple>
+                      <mat-select class="form-control" style="width: 200px;" formControlName="fhProtection" multiple>
                         <mat-option *ngFor="let protect of headprotect" [value]="protect">{{ protect}}</mat-option>
                       </mat-select>
                     </div>
@@ -246,7 +246,7 @@
                     <div class="form-group">
                       <label for="respirator">Respiratory</label>
                       <div class="truncate">
-                        <mat-select class="form-control" style="width: 200px;" formControlName="Respiratory" multiple>
+                        <mat-select class="form-control" style="width: 200px;" formControlName="respiratory" multiple>
                           <mat-option *ngFor="let respirator of respir" [value]="respirator">{{respirator}}</mat-option>
                         </mat-select>
                       </div>
@@ -321,7 +321,7 @@
                 <div class="form-group">
                   <label for="eyeprotect">Eye Protection</label>
                   <div class="truncate">
-                    <mat-select class="form-control" style="width: 200px;" formControlName="eyeprotect" multiple>
+                    <mat-select class="form-control" style="width: 200px;" formControlName="eyeProtect" multiple>
                       <mat-option *ngFor="let eye of eyeprotect" [value]="eye">{{eye}}</mat-option>
                     </mat-select>
                   </div>
@@ -342,26 +342,26 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="Ergonomics">Ergonomics</label>
-                  <textarea id="Ergonomics" rows="4" class="form-control" formControlName="Ergonomics"  placeholder="Enter Ergonomics"></textarea>
+                  <textarea id="Ergonomics" rows="4" class="form-control" formControlName="ergonomics"  placeholder="Enter Ergonomics"></textarea>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="Heatstress">Heat Stress</label>
-                  <textarea id="Heatstress" rows="4" class="form-control" formControlName="Heatstress" placeholder="Enter heat stress"></textarea>
+                  <textarea id="Heatstress" rows="4" class="form-control" formControlName="heatStress" placeholder="Enter heat stress"></textarea>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="Elevated">Elevated Work</label>
-                  <textarea id="Elevated" rows="4" class="form-control" formControlName="Elevated"placeholder="Enter Elevated Work"></textarea>
+                  <textarea id="Elevated" rows="4" class="form-control" formControlName="elevated"placeholder="Enter Elevated Work"></textarea>
                 </div>
               </div>
 
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="Others">Others</label>
-                  <textarea id="Others" rows="4" class="form-control" formControlName="Others"placeholder="Enter others specify"></textarea>
+                  <textarea id="Others" rows="4" class="form-control" formControlName="others"placeholder="Enter others specify"></textarea>
                 </div>
               </div>
             </div>
@@ -370,13 +370,37 @@
               </mat-card>
             <mat-card class="mat1">
               <mat-card-content>
-            <!-- <form [formGroup]="swpForm" > -->
-           <h4  class="header">Safe Job Plan Attachment </h4>
-            <div class="form-group">
-            <label for="fileUpload">Upload File (Word/PDF, MAX 100KB):</label>
-            <input #fileInput id="fileUpload" type="file" class="form-control" accept=".doc, .docx, .pdf" (change)="onFileSelected()">
-          </div>
-               <!-- </form> -->
+                <form [formGroup]="swpForm">
+                  <h4 class="header">Safe Job Plan Attachment</h4>
+                  <div class="form-group">
+                      <label for="fileUpload">Upload File (PDF, MAX 100KB):</label>
+                      <div style="display: flex; align-items: center;">
+                          <label for="fileUpload" class="custom-file-upload">
+                              {{ 'Choose File' }}
+                          </label>
+                          <input style="width: 30%; display: none;" #fileInput id="fileUpload" type="file" class="form-control" accept=".pdf" (change)="onFileSelected($event)" formControlName="sjp_attachment">
+                          <div *ngIf="selectedFileName" style=" padding: 1px; border-radius: 20%; margin-left: 2%;">
+                            <span style="font-weight: bold;">{{ selectedFileName }}</span>
+                            <button mat-icon-button
+        [matTooltipPosition]="'above'"
+        matTooltipHideDelay="50"
+        matTooltipClass="tooltip"
+        matTooltip="Clear"
+        color="warn"
+        (click)="deleteFile()">
+    <mat-icon color="inherit">clear</mat-icon>
+</button>
+
+                        </div>
+                        
+                      </div>
+                  </div>
+              </form>
+              
+              
+              
+              
+              
       </mat-card-content>
     </mat-card>
     <mat-accordion>

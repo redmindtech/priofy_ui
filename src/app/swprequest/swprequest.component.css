@@ -222,3 +222,15 @@ h5{
 }
 /* Style for the button itself */
 
+.custom-file-upload {
+  border: 1px solid #25345D; /* Blue border */
+  background-color: #25345D; /* Blue background */
+  color: white; /* White text */
+  padding: 8px 20px; /* Padding */
+  cursor: pointer; /* Pointer cursor */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.custom-file-upload:hover {
+  background-color: #0056b3; /* Darker blue background on hover */
+}
