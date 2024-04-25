@@ -631,8 +631,8 @@
                                   <div class="col">
                                     <label class="label" for="date">Date & Time</label>
                                     <div class="row">
-                                    <div class="col-sm-7"><input type="date" class="form-control" id="equipment_prepared_date" formControlName="equipment_prepared_date"></div>
-                                  <div class="col-sm-7.5"><input type="time" class="form-control" id="equipment_prepared_time" formControlName="equipment_prepared_time"></div>
+                                    <div class="col-sm"><input type="date" class="form-control" id="equipment_prepared_date" style="white-space: normal" formControlName="equipment_prepared_date"></div>
+                                  <div class="col-sm"><input type="time" class="form-control" id="equipment_prepared_time" style="white-space: normal" formControlName="equipment_prepared_time" ></div>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -699,135 +699,99 @@
 
 
 
-                                <mat-card class= "card">
+                                <mat-card class="card">
                                   <mat-card-content>
                                     <form [formGroup]="Safeworkpermit">
-                                    <div [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
-                                  <div class="header">
-                                    <h6 ><strong>PEFM Confirmation</strong></h6>
-                                  </div>
-
-                                     <h6 style="text-align: center;margin-top: 1%;">Equipment is Prepared for Work Described Above</h6>
-
-
-
-
-                                      <div class="row mt-3">
-                                        <div class="col">
-                                          <label class="label" for="facility_representative_name">Facility Representative Name</label>
-                                          <input type="text" class="form-control truncate"  id="facility_representative_name" placeholder="Enter Facility Representative Name" formControlName="facility_representative_name">
+                                      <div [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
+                                        <div class="header">
+                                          <h6><strong>PEFM Confirmation</strong></h6>
                                         </div>
-                                        <div class="col">
-                                          <label class="label" for="facility_representative_employee_number">Facility Representative Employee Number</label>
-                                          <input type="text" class="form-control truncate"  id="facility_representative_employee_number" placeholder="Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number">
+                                        <h6 style="text-align: center;margin-top: 1%;">Equipment is Prepared for Work Described Above</h6>
+                                        <div class="row mt-3">
+                                          <div class="col">
+                                            <label class="label" for="facility_representative_name">Facility Representative Name</label>
+                                            <input type="text" class="form-control truncate" id="facility_representative_name" placeholder="Enter Facility Representative Name" formControlName="facility_representative_name">
+                                          </div>
+                                          <div class="col">
+                                            <label class="label" for="facility_representative_employee_number">Facility Representative Employee Number</label>
+                                            <input type="text" class="form-control truncate" id="facility_representative_employee_number" placeholder="Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number">
+                                          </div>
                                         </div>
-
-
-
-
-
-                                      <div class="col">
-                                        <label class="label" for="date">Date & Time</label>
-                                        <div class="row">
-                                        <div class="col-sm-6"><input type="date" class="form-control" id="facility_rep_date" formControlName="facility_rep_date"></div>
-                                      <div class="col-sm-6.5"><input type="time" class="form-control" id="facility_rep_time" formControlName="facility_rep_time"></div>
+                                        <div class="row mt-3">
+                                          <div class="col">
+                                            <label class="label" for="date">Date & Time</label>
+                                            <div class="row">
+                                              <div class="col-sm-4"><input type="date" class="form-control" id="facility_rep_date" formControlName="facility_rep_date"></div>
+                                              <div class="col-sm-4"><input type="time" class="form-control" id="facility_rep_time" formControlName="facility_rep_time"></div>
+                                            </div>
+                                          </div>
+                                          <div class="col">
+                                            <label class="label" for="facility_representative_employee_number_sign">Facility Representative Employee Number</label>
+                                            <textarea type="text" class="form-control truncate" rows="1" id="facility_representative_employee_number" placeholder="Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number"></textarea>
+                                            <div style="display: flex; flex-direction: column; align-items: left;">
+                                              <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage8.style.display = (signatureImage8.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                                              <div style="margin-top: 10px;">
+                                                <img #signatureImage8 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                                              </div>
+                                              <div *ngIf="signatureImage8.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                                                <strong>Dhinesh Kumar</strong><br>
+                                                <strong>[4Emp8769251]</strong>
+                                              </div>
+                                            </div>
+                                          </div>
                                         </div>
-                                    </div>
-                                    <div class="col">
-                                      <label class="label" for="facility_representative_employee_number_sign">Facility Representative Employee Number</label>
-                                      <textarea type="text" class="form-control truncate"   rows="1" id="facility_representative_employee_number" placeholder="Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number"></textarea>
-                                      <div style="display: flex; flex-direction: column; align-items: left;">
-                                        <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage8.style.display = (signatureImage8.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
-                                        <div style="margin-top: 10px;">
-                                          <img #signatureImage8 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                                      </div>
+                                
+                                      <div [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
+                                        <div class="header">
+                                          <h6><strong>PEFM Confirmation</strong></h6>
                                         </div>
-                                        <div *ngIf="signatureImage8.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
-                                         <strong>Dhinesh Kumar</strong><br>
-                                        <strong>[4Emp8769251]</strong>
+                                        <div class="row mt-3">
+                                          <div class="col">
+                                            <label class="label" for="job_facility_representative_name">Facility Representative Name</label>
+                                            <input type="text" class="form-control truncate" id="job_facility_representative_name" placeholder="Enter Job Facility Representative Name" formControlName="job_facility_representative_name">
+                                          </div>
+                                          <div class="col">
+                                            <label class="label" for="job_facility_representative_employee_number">Facility Representative Employee Number</label>
+                                            <input type="text" class="form-control truncate" id="job_facility_representative_employee_number" placeholder="Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number">
+                                          </div>
                                         </div>
-                              </div>
-                                    </div>
-                            </div>
-                          </div>
-
-                            <!-- <div class="row mt-3">
-                              <div class="col">
-                                <label class="label" for="facility_representative_name">Facility Representative Name</label>
-                                <input type="text" class="form-control"  id="facility_representative_name" placeholder="Please Enter Facility Representative Name" formControlName="facility_representative_name">
-                              </div>
-                              <div class="col">
-                                <label class="label" for="facility_representative_employee_number">Facility Representative Employee Numbe</label>
-                                <input type="text" class="form-control"  id="facility_representative_employee_number" placeholder="Please Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number">
-                              </div>
-
-
-
-                             </div>
-
-                          <div class="row mt-3">
-
-                            <div class="col">
-                              <label class="label" for="date">Date And Time</label>
-                              <div class="row">
-                              <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                            <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
-                              </div>
-                          </div>
-                          <div class="col">
-                            <label class="label" for="facility_representative_employee_number">Facility Representative Employee Number</label>
-                            <textarea type="text" class="form-control"   rows="3" id="facility_representative_employee_number" placeholder="Please Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number"></textarea>
-                            <button  style="background-color: #147737;color: white; margin-top: 1%;" >Signature</button>
-                          </div>
-                  </div> -->
-                  <div [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
-                  <div class="header">
-                  <h6><strong>PEFM Confirmation</strong></h6>
-                </div>
-
-                  <div class="row mt-3">
-                    <div class="col">
-                      <label class="label" for="job_facility_representative_name">Facility Representative Name</label>
-                      <input type="text" class="form-control truncate"  id="job_facility_representative_name" placeholder="Enter Job Facility Representative Name" formControlName="job_facility_representative_name">
-                    </div>
-                    <div class="col">
-                      <label class="label" for="job_facility_representative_employee_number">Facility Representative Employee Number</label>
-                      <input type="text" class="form-control truncate"  id="job_facility_representative_employee_number" placeholder="Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number">
-                    </div>
-                    <div class="col">
-                      <label class="label" for="date">Date And Time</label>
-                      <div class="row">
-                      <div class="col-sm-6"><input type="date" class="form-control" id="job_rep_date" formControlName="job_rep_date" ></div>
-                    <div class="col-sm-6.5"><input type="time" class="form-control" id="job_rep_time" formControlName="job_rep_time"></div>
-
-                   </div>
-                      </div>
-
-
-
-
-                <div class="col">
-                  <label class="label" for="job_facility_representative_employee_number_sign">Facility Representative Employee Number</label>
-                  <textarea type="text" class="form-control"   rows="1" id="job_facility_representative_employee_number_sign" placeholder="Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number_sign"></textarea>
-                  <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage9.style.display = (signatureImage9.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
-                    <div style="margin-top: 10px;">
-                      <img #signatureImage9 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
-                    </div>
-                    <div *ngIf="signatureImage9.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
-                     <strong>Naveen Nandesh</strong><br>
-                    <strong>[4Emp87676251]</strong>
-                    </div>
-          </div>
-                </div>
-
-        </div>
-</div>
-                                   </form>
-                                   <div class="col text-center" [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
-                                    <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;" (click)="expandclose()">Save</button>
-                                </div>
-                                    </mat-card-content>
-                                    </mat-card>
+                                        <div class="row mt-3">
+                                          <div class="col">
+                                            <label class="label" for="date">Date And Time</label>
+                                            <div class="row">
+                                              <div class="col-sm-4"><input type="date" class="form-control" id="job_rep_date" formControlName="job_rep_date"></div>
+                                              <div class="col-sm-4"><input type="time" class="form-control" id="job_rep_time" formControlName="job_rep_time"></div>
+                                            </div>
+                                          </div>
+                                          <div class="col">
+                                            <label class="label" for="job_facility_representative_employee_number_sign">Facility Representative Employee Number</label>
+                                            <textarea type="text" class="form-control" rows="1" id="job_facility_representative_employee_number_sign" placeholder="Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number_sign"></textarea>
+                                            <div style="display: flex; flex-direction: column; align-items: left;">
+                                              <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage8.style.display = (signatureImage8.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                                              <div style="margin-top: 10px;">
+                                                <img #signatureImage8 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                                              </div>
+                                              <div *ngIf="signatureImage8.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                                                <strong>Naveen Nandesh</strong><br>
+                                                <strong>[4Emp87676251]</strong>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                
+                                        <div class="row mt-3">
+                                          <div class="col text-center">
+                                            <button mat-raised-button style="background-color: #25345D; color: white;" (click)="expandclose()">Save</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </form>
+                                  </mat-card-content>
+                                </mat-card>
+                                
+                                
+                                
 
 
           </mat-card>
