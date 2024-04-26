@@ -21,27 +21,27 @@ export class MainComponent implements OnInit {
     this.currentUser = storedUser ? JSON.parse(storedUser) : null;
    let name= this.currentUser.username
    if(name=="Operator1"){
-    this.headname="Equate- Process Digitization"
+    this.headname="EQUATE- Process Digitization"
       this.username="Shift-Operator1"
       this.menu = this.getOperator1Menu();
    }
    else if(name=="Operator2"){
-    this.headname="Equate- Process Digitization"
+    this.headname="EQUATE- Process Digitization"
     this.username="Shift-Operator2"
     this.menu = this.getOperator1Menu();
    }
    else if(name=="Operator3"){
-    this.headname="Equate- Process Digitization"
+    this.headname="EQUATE- Process Digitization"
     this.username="Shift-Operator3"
     this.menu = this.getOperator1Menu();
    }
    else if(name=="Operator4"){
-    this.headname="Equate- Process Digitization"
+    this.headname="EQUATE- Process Digitization"
     this.username="Shift-Operator4"
     this.menu = this.getOperator1Menu();
    }
    else if(name=="Admin"){
-    this.headname="Equate- Process Digitization"
+    this.headname="EQUATE- Process Digitization"
     this.username="Shift-Leader";
     this.menu = this.getAdminMenu();
    }

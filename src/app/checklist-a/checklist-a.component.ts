@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup,FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ChecklistAService } from '@app/utils/service/checklist-a.service';
 import { Subscription } from 'rxjs';
+import { SkipConfirmationDialogComponent } from '@app/skip-confirmation-dialog/skip-confirmation-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-checklist-a',
@@ -35,6 +37,12 @@ export class ChecklistAComponent implements OnInit {
   clrvalue: string='null';
   formid: any;
   formdisable:boolean;
+  oot_high_pressure: boolean = true;
+  oothbfinlet: boolean = true;
+  skipConfirmed: boolean = false;
+  
+  
+
   
   
 
@@ -42,6 +50,7 @@ export class ChecklistAComponent implements OnInit {
     private formBuilder: FormBuilder,
     private apiService: ChecklistAService,
     private toast: MatSnackBar,
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
@@ -277,7 +286,7 @@ export class ChecklistAComponent implements OnInit {
     }, 5 * 1000); // 2 minutes in milliseconds
   }
 
-  onSubmit() {
+  onSubmit(controlName: string) {
    
       const permitFormValue = this.ChecklistA.value;
       console.log('Form Data:', permitFormValue);
@@ -293,7 +302,11 @@ export class ChecklistAComponent implements OnInit {
             console.error('Error while sending data:', error);
           }
         );
-   
+        if (controlName === 'oot_high_pressure') {
+          this.oot_high_pressure = false;
+        } else if (controlName === 'some_other_control_name') {
+          // Handle other controls similarly
+        }
   }
   add() {
   this.apiService.getchecklist().subscribe((response: any) => {
@@ -346,16 +359,27 @@ export class ChecklistAComponent implements OnInit {
     this.open1 =true
   }
 
-  onRadioChange() {
+  onRadioChange(controlName: string) {
     // You may want to check if the input field has focus or not
     // before making the API call
     const activeElement = document.activeElement as HTMLElement;
     console.log('activeElement: ', activeElement);
     console.log('activeElement.tagName.toLowerCase(): ', activeElement.tagName.toLowerCase());
     if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
-        this.onSubmit();
+      this.onSubmit(controlName);
     }
-}
+  
+    if (controlName === 'oot_high_pressure') {
+      if (this.ChecklistA?.get('oot_high_pressure')?.value === 'Skip' && this.oot_high_pressure) {
+        this.oot_high_pressure = true; // Show textarea and buttons if Skip is selected for the first time
+      } else {
+        this.oot_high_pressure = false; // Hide textarea and buttons if Skip is not selected or already pressed
+      }
+    } else if (controlName === 'some_other_control_name') {
+      // Handle logic for other radio buttons similarly
+    }
+  }
+  
 onRadioChangeup() {
   // You may want to check if the input field has focus or not
   // before making the API call
@@ -397,5 +421,59 @@ clearTextarea(){
   this.ChecklistA.get('shift_comment_a_oot')?.setValue(null);
   this.ChecklistA.get('shift_comment_a_iot')?.setValue(null);
 }
+
+onSkip(controlName: string) {
+  if (controlName === 'iot_decoke_mov') {
+    const dialogRef = this.dialog.open(SkipConfirmationDialogComponent, {
+      width: '400px',
+      data: {
+        title: 'Skip Confirmation',
+        message: 'On Skipping This, it will Automatically Skip 4 & 5. Continue?',
+        confirmText: 'Continue',
+        cancelText: 'Cancel'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // This code will execute after closing the dialog
+    });
+  }
+}
+
+confirmSkip() {
+  const comment = this.ChecklistA.get('iot_decoke_mov_comment')?.value || '';
+
+  // Update the comment and set the skip value for the 3rd row
+  this.updateCommentsAndSkip('iot_decoke_mov_comment', comment);
+
+  // Set comment of the 3rd row to 4th and 5th row textboxes if it is skipped
+  const thirdRowValue = this.ChecklistA.get('iot_decoke_mov')?.value;
+  if (thirdRowValue === 'Skip') {
+    // Assign the comment of the 3rd row to thirdRowComment
+    const thirdRowComment = comment;
+
+    // Set comments and skip values for the 4th and 5th rows
+    this.updateCommentsAndSkip('iot_furnace_control_sequence_comment', thirdRowComment);
+    this.updateCommentsAndSkip('iot_bm_sequence_comment', thirdRowComment);
+  }
+}
+
+
+
+updateCommentsAndSkip(controlName: string, comment: string) {
+  const commentControl = this.ChecklistA.get(controlName);
+  if (commentControl) {
+    commentControl.setValue(comment);
+  }
+
+  const skipControlName = controlName.replace('_comment', '');
+  const skipControl = this.ChecklistA.get(skipControlName);
+  if (skipControl) {
+    skipControl.setValue('Skip');
+  }
+}
+
+
+
 
 }

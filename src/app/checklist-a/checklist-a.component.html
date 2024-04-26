@@ -29,15 +29,15 @@
 
                 <td>
                   <input type="radio" class="custom-radio" id="oot_high_pressure-done" name="oot_high_pressure"
-                    value="Done" formControlName="oot_high_pressure" (change)="onRadioChange()" />
+                    value="Done" formControlName="oot_high_pressure" (change)="onRadioChange('oot_high_pressure')" />
                   <label for="oot_high_pressure-done" class="action">Done</label>
 
                   <input type="radio" class="custom-radio" id="oot_high_pressure-risk" name="oot_high_pressure"
-                    value="Risk" formControlName="oot_high_pressure" (change)="onRadioChange()" />
+                    value="Risk" formControlName="oot_high_pressure" (change)="onRadioChange('oot_high_pressure')" />
                   <label for="oot_high_pressure-risk" class="action">Risk</label>
 
                   <input type="radio" class="custom-radio" id="oot_high_pressure-skip" name="oot_high_pressure"
-                    value="Skip" formControlName="oot_high_pressure" (change)="onRadioChange()" />
+                    value="Skip" formControlName="oot_high_pressure" (change)="onRadioChange('oot_high_pressure')" />
                     <label for="oot_high_pressure-skip" class="action" [ngStyle]="{
                       'background-color': colour === 'oot_high_pressure_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
                                            (colour === 'oot_high_pressure_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
@@ -45,13 +45,13 @@
                     }">Skip</label>
                     
 
-                  <div *ngIf="ChecklistA?.get('oot_high_pressure')?.value === 'Skip'">
+                  <div *ngIf="ChecklistA?.get('oot_high_pressure')?.value === 'Skip' && oot_high_pressure">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
                       formControlName="oot_high_pressure_comment" (focusout)="patchvalue()" ></textarea>
                     <div style="margin-left: 31%;">
                       <button class="btn btn-primary m-1"
-                        (click)="ChecklistA?.get('oot_high_pressure')?.setValue(''); ChecklistA?.get('oot_high_pressure_comment')?.setValue('')">Cancel</button>
-                      <button class="btn btn-primary m-1" (click)="onSubmit()">Confirm</button>
+                        (click)="ChecklistA?.get('oot_high_pressure')?.setValue(''); ChecklistA?.get('oot_high_pressure_comment')?.setValue(''); oot_high_pressure = false;">Cancel</button>
+                      <button class="btn btn-primary m-1" (click)="onSubmit('oot_high_pressure'); oot_high_pressure= false;">Confirm</button>
                     </div>
                   </div>
                 </td>
@@ -83,13 +83,13 @@
                                            (ChecklistA?.get('oot_hbf_inlet')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
                     }">Skip</label>
 
-                  <div *ngIf="ChecklistA?.get('oot_hbf_inlet')?.value === 'Skip'">
+                  <div *ngIf="ChecklistA?.get('oot_hbf_inlet')?.value === 'Skip' && oothbfinlet">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
                       formControlName="oot_hbf_inlet_comment" (focusout)="patchvalue()"></textarea>
                     <div style="margin-left: 31%;">
                       <button class="btn btn-primary m-1"
-                        (click)="ChecklistA?.get('oot_hbf_inlet')?.setValue(''); ChecklistA?.get('oot_hbf_inlet_comment')?.setValue('')">Cancel</button>
-                      <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+                        (click)="ChecklistA?.get('oot_hbf_inlet')?.setValue(''); ChecklistA?.get('oot_hbf_inlet_comment')?.setValue('');oothbfinlet = false;">Cancel</button>
+                      <button class="btn btn-primary m-1" (click)="onSubmit('oot_hbf_inlet'); onRadioChangeup();oothbfinlet = false;">Confirm</button>
                     </div>
                   </div>
                 </td>
@@ -805,7 +805,7 @@
                   <label for="iot_decoke_mov-risk" class="action">Risk</label>
 
                   <input type="radio" class="custom-radio" id="iot_decoke_mov-skip" name="iot_decoke_mov"
-                    value="Skip" formControlName="iot_decoke_mov" (change)="onRadioChangeup()" />
+                    value="Skip" formControlName="iot_decoke_mov" (change)="onSkip('iot_decoke_mov')" />
                     <label for="iot_decoke_mov-skip" class="action" [ngStyle]="{
                       'background-color': colour === 'iot_decoke_mov_comment_status' && clrvalue === 'accept' ? 'rgb(155, 247, 155)' : 
                                            (colour === 'iot_decoke_mov_comment_status' && clrvalue === 'reject' ? 'rgb(240, 130, 130)' : 
@@ -818,7 +818,8 @@
                     <div style="margin-left: 31%;">
                       <button class="btn btn-primary m-1"
                         (click)="ChecklistA?.get('iot_decoke_mov')?.setValue(''); ChecklistA?.get('iot_decoke_mov_comment')?.setValue('')">Cancel</button>
-                      <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+                      <button class="btn btn-primary m-1" (click)="confirmSkip(); 
+                      onRadioChangeup();  ">Confirm</button>
                     </div>
                   </div>
                 </td>

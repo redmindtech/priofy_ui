@@ -118,6 +118,7 @@ import { SwpcloseoutComponent } from './swpcloseout/swpcloseout.component';
 import { SwprequestComponent } from './swprequest/swprequest.component';
 import { PacdashboardComponent } from './pacdashboard/pacdashboard.component';
 import { SwptableComponent } from './swptable/swptable.component';
+import { SkipConfirmationDialogComponent } from './skip-confirmation-dialog/skip-confirmation-dialog.component';
 
 
 
@@ -165,7 +166,8 @@ import { SwptableComponent } from './swptable/swptable.component';
      SwpcloseoutComponent,
      SwprequestComponent,
      PacdashboardComponent,
-     SwptableComponent 
+     SwptableComponent,
+     SkipConfirmationDialogComponent 
     
        
     

@@ -99,7 +99,7 @@
                 <input type="text" class="form-control truncate"  formControlName="red_tag" placeholder="Enter Total No. of Red Tags" (focusout)="updateRedTagValue()" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
 
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
               <label class="label" for="equipment_identification_iD">Equipment Identification ID</label>
               <input type="text" class="form-control" id="equipment_identification_iD" value="56789" readonly >
             </div>
@@ -234,16 +234,16 @@
 
 
                       <div class="row">
-      <div class="col"><input type="date" class="form-control" id="ecp_date" formControlName="ecp_date" placeholder="Enter Date"[disabled]="true"></div>
-      <div class="col"><input type="time" class="form-control" id="ecp_time" formControlName="ecp_time" placeholder="Enter Time"[disabled]="true" ></div>
+      <div class="col-sm-4"><input type="date" class="form-control" id="ecp_date" formControlName="ecp_date" placeholder="Enter Date"[disabled]="true"></div>
+      <div class="col-sm-4"><input type="time" class="form-control" id="ecp_time" formControlName="ecp_time" placeholder="Enter Time"[disabled]="true" ></div>
                       </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="col "><label>ECP Issued by: {{76488}}</label></div>
                       <div class="row ml-2"><label class="label" for="date">Date & Time</label></div>
                         <div class="row ">
-        <div class="col"><input type="date" class="form-control" id="ecp_issued_date" formControlName="ecp_issued_date"placeholder="Enter Date" ></div>
-        <div class="col"><input type="time" class="form-control" id="ecp_issued_time" formControlName="ecp_issued_time"placeholder="Enter Time" ></div>
+        <div class="col-sm-4"><input type="date" class="form-control" id="ecp_issued_date" formControlName="ecp_issued_date"placeholder="Enter Date" ></div>
+        <div class="col-sm-4"><input type="time" class="form-control" id="ecp_issued_time" formControlName="ecp_issued_time"placeholder="Enter Time" ></div>
                         </div>
                     </div>
 
@@ -325,7 +325,7 @@
                         <tr *ngFor="let item of items;let i=index">
                           <td>
                             <div class="truncate">
-                              <mat-select class="form-control" style="width: 200px;" formControlName="toppings" multiple>
+                              <mat-select class="form-control" style="width: 150px;" formControlName="toppings" multiple>
                                 <mat-option *ngFor="let topping of toppingList" [value]="topping">{{ topping }}</mat-option>
                               </mat-select>
                             </div>
@@ -333,7 +333,7 @@
                           <td><input type="text" class="form-control truncate" id="location_of_red_tags" placeholder="Enter Location of Red Tags" formControlName="location_of_red_tags"></td>
                           <td><input type="text" class="form-control truncate" id="facilityrep_red_tag" placeholder="Enter Red Tag" formControlName="facilityrep_red_tag"></td>
                           <td><input type="text" class="form-control truncate" id="lock_number" placeholder="Enter Lock Number" formControlName="lock_number"></td>
-                          <td><input type="date" class="form-control truncate" id="date_lock_table" placeholder="Enter Date" formControlName="date_lock_table"></td>
+                          <td><input type="date" class="form-control truncate" id="date_lock_date" placeholder="Enter Date" formControlName="date_lock_date"></td>
                           <td><input type="time" class="form-control truncate" id="date_lock_time" placeholder="Enter Time" formControlName="date_lock_time"></td>
                           <td>
                             <div style="display: flex; align-items: center;">
@@ -495,8 +495,8 @@
                             <div class="col-sm-4">
                               <label class="label" for="date">Date & Time</label>
                               <div class="row">
-                              <div class="col"><input type="date" class="form-control" id="initial_date" formControlName="initial_date"></div>
-                            <div class="col"><input type="time" class="form-control" id="initial_time" formControlName="initial_time" ></div>
+                              <div class="col-sm-6"><input type="date" class="form-control" id="initial_date" formControlName="initial_date"></div>
+                            <div class="col-sm-6"><input type="time" class="form-control" id="initial_time" formControlName="initial_time" ></div>
                               </div>
                         </div>
                         <div class="col-sm-4">
@@ -543,8 +543,8 @@
                             <div class="col-sm-4">
                               <label class="label" for="date">Date & Time</label>
                               <div class="row">
-                              <div class="col"><input type="date" class="form-control" id="retest_1_date" formControlName="retest_1_date" ></div>
-                            <div class="col"><input type="time" class="form-control" id="retest_1_time" formControlName="retest_1_time" ></div>
+                              <div class="col-sm-6"><input type="date" class="form-control" id="retest_1_date" formControlName="retest_1_date" ></div>
+                            <div class="col-sm-6"><input type="time" class="form-control" id="retest_1_time" formControlName="retest_1_time" ></div>
                               </div>
                         </div>
                         <div class="col-sm-4">
@@ -590,8 +590,8 @@
                             <div class="col-sm-4">
                               <label class="label" for="date">Date & Time</label>
                               <div class="row">
-                              <div class="col"><input type="date" class="form-control" id="retest_2_date" formControlName="retest_2_date"></div>
-                            <div class="col"><input type="time" class="form-control" id="retest_2_time" formControlName="retest_2_time"></div>
+                              <div class="col-sm-6"><input type="date" class="form-control" id="retest_2_date" formControlName="retest_2_date"></div>
+                            <div class="col-sm-6"><input type="time" class="form-control" id="retest_2_time" formControlName="retest_2_time"></div>
                               </div>
                         </div>
                         <div class="col-sm-4">
@@ -631,8 +631,8 @@
                                   <div class="col">
                                     <label class="label" for="date">Date & Time</label>
                                     <div class="row">
-                                    <div class="col-sm"><input type="date" class="form-control" id="equipment_prepared_date" style="white-space: normal" formControlName="equipment_prepared_date"></div>
-                                  <div class="col-sm"><input type="time" class="form-control" id="equipment_prepared_time" style="white-space: normal" formControlName="equipment_prepared_time" ></div>
+                                    <div class="col-sm-8"><input type="date" class="form-control" id="equipment_prepared_date" style="white-space: normal" formControlName="equipment_prepared_date"></div>
+                                  <div class="col-sm-8"><input type="time" class="form-control" id="equipment_prepared_time" style="white-space: normal" formControlName="equipment_prepared_time" ></div>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -728,7 +728,7 @@
                                           <div class="col">
                                             <label class="label" for="facility_representative_employee_number_sign">Facility Representative Employee Number</label>
                                             <textarea type="text" class="form-control truncate" rows="1" id="facility_representative_employee_number" placeholder="Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number"></textarea>
-                                            <div style="display: flex; flex-direction: column; align-items: left;">
+                                            <div style="display: flex; flex-direction: column; align-items: left;padding-top: 15px;">
                                               <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage8.style.display = (signatureImage8.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                                               <div style="margin-top: 10px;">
                                                 <img #signatureImage8 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
@@ -767,7 +767,7 @@
                                           <div class="col">
                                             <label class="label" for="job_facility_representative_employee_number_sign">Facility Representative Employee Number</label>
                                             <textarea type="text" class="form-control" rows="1" id="job_facility_representative_employee_number_sign" placeholder="Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number_sign"></textarea>
-                                            <div style="display: flex; flex-direction: column; align-items: left;">
+                                            <div style="display: flex; flex-direction: column; align-items: left;padding-top: 15px;">
                                               <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage8.style.display = (signatureImage8.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                                               <div style="margin-top: 10px;">
                                                 <img #signatureImage8 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
