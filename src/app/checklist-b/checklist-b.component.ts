@@ -28,6 +28,7 @@ export class ChecklistBComponent implements OnInit {
   enable: boolean = false;
   aceptreject:string = 'null';
   remainingValues: any;
+  statusvalue: { [x: string]: string; };
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
   constructor(private fb: FormBuilder,
@@ -288,7 +289,7 @@ setupSubmitInterval() {
 
 onSubmit()
   {
-
+    
     const formData = this.ChecklistB.value;
     this.apiService.savecheckBpage(formData).subscribe(
       (response) => {
@@ -398,7 +399,8 @@ console.log("mm");
     
       Object.entries(this.skipcolor).forEach(([key, value]) => {
         if (value === 'accept'|| value==='reject') {
-         
+          this.statusvalue = { [key]: value };
+          console.log('this.statusvalue: ', this.statusvalue);
 
             this.colour = (key);
             console.log('this.colour: ', this.colour);
@@ -438,7 +440,9 @@ if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
 updateFormValues(): void {
   // this.ChecklistB.get('shift_comment_b_oot')?.setValue(this.remainingValues.shift_comment_b_oot);
   //   this.ChecklistB.get('shift_comment_b_iot')?.setValue(this.remainingValues.shift_comment_b_iot);
+  // this.ChecklistB.setValue(this.statusvalue);
 const formData = this.ChecklistB.value;
+
 console.log('formData: ', formData);
 
 
