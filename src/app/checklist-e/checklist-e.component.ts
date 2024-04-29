@@ -177,6 +177,36 @@ add() {
       console.log("Response or response.result is null or undefined.");
       // Handle the error or notify the user accordingly
     }
+    this.ChecklistE.get('furnace_sequence_to_swing_mov_comment')?.setValue(this.ChecklistE.get('furnace_sequence_to_swing_mov_comment')?.value ? this.ChecklistE.get('furnace_sequence_to_swing_mov_comment')?.value.split("||")[1].trim() : null);
+
+    this.ChecklistE.get('ootIOT_decoke_air_comment')?.setValue(this.ChecklistE.get('ootIOT_decoke_air_comment')?.value ? this.ChecklistE.get('ootIOT_decoke_air_comment')?.value.split("||")[1].trim() : null);
+
+    this.ChecklistE.get('psv_evt_complete_comment')?.setValue(this.ChecklistE.get('psv_evt_complete_comment')?.value ? this.ChecklistE.get('psv_evt_complete_comment')?.value.split("||")[1].trim() : null);
+
+    this.ChecklistE.get('psv_evt_start_comment')?.setValue(this.ChecklistE.get('psv_evt_start_comment')?.value ? this.ChecklistE.get('psv_evt_start_comment')?.value.split("||")[1].trim() : null);
+
+    this.ChecklistE.get('iot_to_enable_sd_comment')?.setValue(this.ChecklistE.get('iot_to_enable_sd_comment')?.value ? this.ChecklistE.get('iot_to_enable_sd_comment')?.value.split("||")[1].trim() : null);
+
+    this.ChecklistE.get('oot_desuperheater_untreated_bfw_comment')?.setValue(this.ChecklistE.get('oot_desuperheater_untreated_bfw_comment')?.value ? this.ChecklistE.get('oot_desuperheater_untreated_bfw_comment')?.value.split("||")[1].trim() : null);
+
+    this.ChecklistE.get('oot_stle_blowdown_analyzer_comment')?.setValue(this.ChecklistE.get('oot_stle_blowdown_analyzer_comment')?.value ? this.ChecklistE.get('oot_stle_blowdown_analyzer_comment')?.value.split("||")[1].trim() : null);
+
+    this.ChecklistE.get('oot_confirm_cooling_water_comment')?.setValue(this.ChecklistE.get('oot_confirm_cooling_water_comment')?.value ? this.ChecklistE.get('oot_confirm_cooling_water_comment')?.value.split("||")[1].trim() : null);
+
+    this.ChecklistE.get('oot_cbd_comment')?.setValue(this.ChecklistE.get('oot_cbd_comment')?.value ? this.ChecklistE.get('oot_cbd_comment')?.value.split("||")[1].trim() : null);
+
+    this.ChecklistE.get('oot_lineup_sd_comment')?.setValue(this.ChecklistE.get('oot_lineup_sd_comment')?.value ? this.ChecklistE.get('oot_lineup_sd_comment')?.value.split("||")[1].trim() : null);
+
+    this.ChecklistE.get('iot_desuperheater_not_pass_comment')?.setValue(this.ChecklistE.get('iot_desuperheater_not_pass_comment')?.value ? this.ChecklistE.get('iot_desuperheater_not_pass_comment')?.value.split("||")[1].trim() : null);
+
+    this.ChecklistE.get('oot_desuperheater_comment')?.setValue(this.ChecklistE.get('oot_desuperheater_comment')?.value ? this.ChecklistE.get('oot_desuperheater_comment')?.value.split("||")[1].trim() : null);
+
+    this.ChecklistE.get('iot_monitor_the_fuel_gas_comment')?.setValue(this.ChecklistE.get('iot_monitor_the_fuel_gas_comment')?.value ? this.ChecklistE.get('iot_monitor_the_fuel_gas_comment')?.value.split("||")[1].trim() : null);
+
+    this.ChecklistE.get('oot_lower_level_burner_comment')?.setValue(this.ChecklistE.get('oot_lower_level_burner_comment')?.value ? this.ChecklistE.get('oot_lower_level_burner_comment')?.value.split("||")[1].trim() : null);
+
+
+
     if (response && response.result) {
       this.skipcolor = response.result;
       
