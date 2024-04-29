@@ -317,19 +317,81 @@ nxtAccEn(){
 
 add() {
   this.apiService.getchecklistB().subscribe((response: any) => {
-    if (response && response.result) { // Check if response and response.result are not null or undefined
+    if (response ) { // Check if response and response.result are not null or undefined
+      
       this.remainingValues = response.result;
-      this.formdisable = response.result.status === "Complete" ? true : false;
+     
+console.log("mm");    
+
+ this.formdisable = response.result.status === "Complete" ? true : false;
+   
+
+
       Object.keys(this.remainingValues).forEach(key => {
         if (key !== 'shift_comment_b_oot' && key !== 'shift_comment_b_iot') {
+          
+          
           this.ChecklistB.get(key)?.patchValue(this.remainingValues[key]);
         }
+   
       });
     } else {
       console.log("Response or response.result is null or undefined.");
       // Handle the error or notify the user accordingly
     }
-    if (response && response.result) {
+        this.ChecklistB.get('ups_system_comment')?.setValue(this.ChecklistB.get('ups_system_comment')?.value ? this.ChecklistB.get('ups_system_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('iot_Overview_HMI_comment')?.setValue(this.ChecklistB.get('iot_Overview_HMI_comment')?.value ? this.ChecklistB.get('iot_Overview_HMI_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_bearings_oil_levels_comment')?.setValue(this.ChecklistB.get('oot_bearings_oil_levels_comment')?.value ? this.ChecklistB.get('oot_bearings_oil_levels_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_caged_doors_open_comment')?.setValue(this.ChecklistB.get('oot_caged_doors_open_comment')?.value ? this.ChecklistB.get('oot_caged_doors_open_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_peep_doors_closed_comment')?.setValue(this.ChecklistB.get('oot_peep_doors_closed_comment')?.value ? this.ChecklistB.get('oot_peep_doors_closed_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_local_start_stop_comment')?.setValue(this.ChecklistB.get('oot_local_start_stop_comment')?.value ? this.ChecklistB.get('oot_local_start_stop_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_ID_fan_casing_comment')?.setValue(this.ChecklistB.get('oot_ID_fan_casing_comment')?.value ? this.ChecklistB.get('oot_ID_fan_casing_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_FD_suction_comment')?.setValue(this.ChecklistB.get('oot_FD_suction_comment')?.value ? this.ChecklistB.get('oot_FD_suction_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_Floor_burners_comment')?.setValue(this.ChecklistB.get('oot_Floor_burners_comment')?.value ? this.ChecklistB.get('oot_Floor_burners_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_Wall_burners_comment')?.setValue(this.ChecklistB.get('oot_Wall_burners_comment')?.value ? this.ChecklistB.get('oot_Wall_burners_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('iot_start_ID_fan_comment')?.setValue(this.ChecklistB.get('iot_start_ID_fan_comment')?.value ? this.ChecklistB.get('iot_start_ID_fan_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('iot_ID_fan_running_comment')?.setValue(this.ChecklistB.get('iot_ID_fan_running_comment')?.value ? this.ChecklistB.get('iot_ID_fan_running_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('iot_FD_fan_motor_readings_comment')?.setValue(this.ChecklistB.get('iot_FD_fan_motor_readings_comment')?.value ? this.ChecklistB.get('iot_FD_fan_motor_readings_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_ID_fan_abnormality_comment')?.setValue(this.ChecklistB.get('oot_ID_fan_abnormality_comment')?.value ? this.ChecklistB.get('oot_ID_fan_abnormality_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_four_air_duct_comment')?.setValue(this.ChecklistB.get('oot_four_air_duct_comment')?.value ? this.ChecklistB.get('oot_four_air_duct_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('iot_start_FD_comment')?.setValue(this.ChecklistB.get('iot_start_FD_comment')?.value ? this.ChecklistB.get('iot_start_FD_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('iot_FD_fan_running_comment')?.setValue(this.ChecklistB.get('iot_FD_fan_running_comment')?.value ? this.ChecklistB.get('iot_FD_fan_running_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('iot_FC_signal_comment')?.setValue(this.ChecklistB.get('iot_FC_signal_comment')?.value ? this.ChecklistB.get('iot_FC_signal_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('iot_close_the_doors_comment')?.setValue(this.ChecklistB.get('iot_close_the_doors_comment')?.value ? this.ChecklistB.get('iot_close_the_doors_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('iot_FC_back_in_auto_comment')?.setValue(this.ChecklistB.get('iot_FC_back_in_auto_comment')?.value ? this.ChecklistB.get('iot_FC_back_in_auto_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('iot_fan_motor_readings_comment')?.setValue(this.ChecklistB.get('iot_fan_motor_readings_comment')?.value ? this.ChecklistB.get('iot_fan_motor_readings_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_FD_shaft_speed_comment')?.setValue(this.ChecklistB.get('oot_FD_shaft_speed_comment')?.value ? this.ChecklistB.get('oot_FD_shaft_speed_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_FD_fan_abnormality_comment')?.setValue(this.ChecklistB.get('oot_FD_fan_abnormality_comment')?.value ? this.ChecklistB.get('oot_FD_fan_abnormality_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_LS_Steam_condensate_comment')?.setValue(this.ChecklistB.get('oot_LS_Steam_condensate_comment')?.value ? this.ChecklistB.get('oot_LS_Steam_condensate_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_S_TLE_comment')?.setValue(this.ChecklistB.get('oot_S_TLE_comment')?.value ? this.ChecklistB.get('oot_S_TLE_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_T_TLE_comment')?.setValue(this.ChecklistB.get('oot_T_TLE_comment')?.value ? this.ChecklistB.get('oot_T_TLE_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_CG_MOVs_intermediate_comment')?.setValue(this.ChecklistB.get('oot_CG_MOVs_intermediate_comment')?.value ? this.ChecklistB.get('oot_CG_MOVs_intermediate_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_CG_HV_22X6_13A_comment')?.setValue(this.ChecklistB.get('oot_CG_HV_22X6_13A_comment')?.value ? this.ChecklistB.get('oot_CG_HV_22X6_13A_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_Decoke_MOV_comment')?.setValue(this.ChecklistB.get('oot_Decoke_MOV_comment')?.value ? this.ChecklistB.get('oot_Decoke_MOV_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_Double_Block_comment')?.setValue(this.ChecklistB.get('oot_Double_Block_comment')?.value ? this.ChecklistB.get('oot_Double_Block_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_LS_purge_lined_up_comment')?.setValue(this.ChecklistB.get('oot_LS_purge_lined_up_comment')?.value ? this.ChecklistB.get('oot_LS_purge_lined_up_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('ms_Steam_comment')?.setValue(this.ChecklistB.get('ms_Steam_comment')?.value ? this.ChecklistB.get('ms_Steam_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('fgs_ready_comment')?.setValue(this.ChecklistB.get('fgs_ready_comment')?.value ? this.ChecklistB.get('fgs_ready_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_burners_manual_BV_comment')?.setValue(this.ChecklistB.get('oot_burners_manual_BV_comment')?.value ? this.ChecklistB.get('oot_burners_manual_BV_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_ignitor_and_flame_scanner_comment')?.setValue(this.ChecklistB.get('oot_ignitor_and_flame_scanner_comment')?.value ? this.ChecklistB.get('oot_ignitor_and_flame_scanner_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_1_BV_to_AT_22X0_11A_comment')?.setValue(this.ChecklistB.get('oot_fourth_platform_level_comment')?.value ? this.ChecklistB.get('oot_fourth_platform_level_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_1_BV_to_AT_22X0_11B_comment')?.setValue(this.ChecklistB.get('oot_1_BV_to_AT_22X0_11A_comment')?.value ? this.ChecklistB.get('oot_1_BV_to_AT_22X0_11A_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_LS_purge_lined_up_comment')?.setValue(this.ChecklistB.get('oot_1_BV_to_AT_22X0_11B_comment')?.value ? this.ChecklistB.get('oot_1_BV_to_AT_22X0_11B_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_34_BV_to_AP_22X0_11A_comment')?.setValue(this.ChecklistB.get('oot_34_BV_to_AP_22X0_11A_comment')?.value ? this.ChecklistB.get('oot_34_BV_to_AP_22X0_11A_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_34_BV_to_AP_22X0_11B_comment')?.setValue(this.ChecklistB.get('oot_34_BV_to_AP_22X0_11B_comment')?.value ? this.ChecklistB.get('oot_34_BV_to_AP_22X0_11B_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('iot_ignitors_and_flame_scanners_comment')?.setValue(this.ChecklistB.get('iot_ignitors_and_flame_scanners_comment')?.value ? this.ChecklistB.get('iot_ignitors_and_flame_scanners_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('blow_down_HXS_header_comment')?.setValue(this.ChecklistB.get('blow_down_HXS_header_comment')?.value ? this.ChecklistB.get('blow_down_HXS_header_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_10_block_valves_comment')?.setValue(this.ChecklistB.get('oot_10_block_valves_comment')?.value ? this.ChecklistB.get('oot_10_block_valves_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_8_NRV_valve_comment')?.setValue(this.ChecklistB.get('oot_8_NRV_valve_comment')?.value ? this.ChecklistB.get('oot_8_NRV_valve_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('iot_SD_level_comment')?.setValue(this.ChecklistB.get('iot_SD_level_comment')?.value ? this.ChecklistB.get('iot_SD_level_comment')?.value.split("||")[1].trim() : null);
+        this.ChecklistB.get('oot_bleed_to_flare_comment')?.setValue(this.ChecklistB.get('oot_bleed_to_flare_comment')?.value ? this.ChecklistB.get('oot_bleed_to_flare_comment')?.value.split("||")[1].trim() : null);
+
+
+
+
+
+        
+        if (response && response.result) {
       this.skipcolor = response.result;
       
    
