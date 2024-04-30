@@ -13,7 +13,7 @@ export class SwapapprovalComponent implements OnInit {
   allChecked: boolean = false;
   currentUser: any;
   position: any;
-  accordionClosed: boolean = false;
+  // accordionClosed: boolean = false;
   
 
 
@@ -33,10 +33,6 @@ export class SwapapprovalComponent implements OnInit {
   
 
     this.agreementForm = this.formBuilder.group({
-      people_training: [''],
-      location_known: [''],
-      equipment_prepared: [''],
-      boundaries_reviewed: [''],
       scopeOfWork: false,
       hazards: false,
       ppeRequirements: false,
@@ -58,7 +54,7 @@ export class SwapapprovalComponent implements OnInit {
     const formValues = this.agreementForm.value;
     return Object.values(formValues).every(value => value === true);
   }
-  save(){
-this.accordionClosed=false;
-  }
+//   save(){
+// this.accordionClosed=false;
+//   }
 }

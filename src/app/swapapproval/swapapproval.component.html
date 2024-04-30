@@ -1,9 +1,9 @@
 <form [formGroup]="agreementForm">
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border"  [(expanded)]="accordionClosed">
+  <mat-expansion-panel class="mat_expansion_border"  [expanded]="false" [disabled]="false">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
-        <h5 style="margin-right: 1150px;display: contents; color:#25345D"><strong>Stage #3 :Safe Work Permit </strong></h5>
+        <h5 style="margin-right: 1150px;display: contents; color: #25345D;"><strong>Stage #3 :Safe Work Permit </strong></h5>
       </div>
       <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
@@ -11,7 +11,6 @@
     <div class="mat">
       <div class="form-section">
     <div class="mat-box">
-      <!--  -->
       <mat-card class= card [ngClass]="{ 'position-row': position !== 'Job_rep' }">
     <table>
       <thead>
@@ -64,14 +63,15 @@
     </table>
       <!-- Signature section -->
       <div class="row" style="  margin-top: 20px;">
-        <!-- <div class="cols-4">
+        <div class="cols-4">
           <label>Signature:</label>
-          <div style="display: flex; align-items: center;">
-            <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Signature</button>
+          <div class="signature-box">
+            <button mat-raised-button style="background-color:  #25345D; color: white;  margin-top: 1%;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Signature</button>
             <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; margin-left: 10px;">
         </div>
-        </div> -->
-        <div class="row">
+        </div>
+
+        <!-- <div class="row">
         <div style="display: flex; flex-direction: column; align-items: left;">
           <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage.style.display = (signatureImage.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
           <div style="margin-top: 10px;">
@@ -82,7 +82,7 @@
           <strong>[1Emp2024001]</strong>
           </div>
         </div>
-        </div>
+        </div> -->
 
             <div class="cols-4em">
               <label>Employee Number:</label>
@@ -106,23 +106,24 @@
         </div>
 
       </div>
-      <br>
+      <!-- <br>
       <div class="row">
         <div class="col text-center">
             <button mat-raised-button style="background-color: 25345D; color: white; margin: 0 auto;" [disabled]="!allCheckboxesChecked()">Agree</button>
         </div>
-        </div>
-      <!-- <button type="button" style="  margin-top: 20px;"  class="agree-button" [disabled]="!allCheckboxesChecked()">Agree</button> -->
-      <!-- <div>
+        </div> -->
+        
+      <button type="button" style="  margin-top: 20px;"  class="agree-button" [disabled]="!allCheckboxesChecked()">Agree</button>
+       <div>
         <button type="button" style="  margin-top: 20px;"  class="save-button">Save</button>
-      </div> -->
+      </div>
       </mat-card>
     </div>
   </div>
     <div class="empty"></div>
     <div class="form-section">
     <div class="mat-box">
-      <mat-card class= card [ngClass]="{ 'position-row': position !== 'SWP_Issuer' }">
+      <mat-card class= card [ngClass]="{ 'position-row': position !== 'swp_issuer' }">
       <table>
         <thead>
           <tr class="heading">
@@ -193,18 +194,13 @@
 
           <!-- Signature section -->
           <div class="row" style="  margin-top: 20px;">
-            <div class="row">
-              <div style="display: flex; flex-direction: column; align-items: left;">
-                <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
-                <div style="margin-top: 10px;">
-                  <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
-                </div>
-                <div *ngIf="signatureImage1.style.display !== 'none'" style="margin-top: 10px;" style="align-items: left;">
-                 <strong>Sankar Karthick</strong><br>
-                <strong>[1Emp2024021]</strong>
-                </div>
+            <div class="cols-4">
+              <label>Signature:</label>
+              <div class="signature-box">
+                <button mat-raised-button style="background-color:#25345D; color: white;margin-top: 1%" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Signature</button>
+                <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
               </div>
-              </div>
+            </div>
 
             <div class="cols-4em">
               <label>Employee Number:</label>
@@ -227,12 +223,10 @@
               </div>
             </div>
           </div>
-          <br>
-          <div class="row">
-            <div class="col text-center">
-                <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;"(click)="save()">Save</button>
-            </div>
-            </div>
+         
+          <div>
+            <button type="button" style="  margin-top: 20px;"  class="save-button">Save</button>
+          </div>
         </mat-card>
   </div>
       </div>
