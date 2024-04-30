@@ -178,6 +178,39 @@ formInitialization(){
     iot_to_confirm_comment:[null],
     e_attempted_via_the_HMI:[null,Validators.required],
     e_attempted_via_the_HMI_comment:[null],
+
+
+    iot_furnace_control_comment_status:[null],
+    pressure_test_comment_status:[null],
+    iot_fuel_header_purge_comment_status:[null],
+    oot_adjacent_furnaces_area_comment_status:[null],
+    iot_request_local_reset_comment_status:[null],
+    iot_move_pressure_test_comment_status:[null],
+    iot_pressure_up_comment_status:[null],
+    iot_Hold_comment_status:[null],
+    oot_pressure_test_comment_status:[null],
+    pressure_test_BM_sequence_comment_status:[null],
+    oot_4_automated_burners_comment_status:[null],
+    oot_wall_burners_comment_status:[null],
+    bm_sequence_moves_purge_comment_status:[null],
+    iot_steam_drum_level_comment_status:[null],
+    iot_firebox_draft_comment_status:[null],
+    iot_automated_burners_comment_status:[null],
+    iot_purge_permissive_comment_status:[null],
+    iot_no_combustibles_comment_status:[null],
+    iot_fuel_control_comment_status:[null],
+    iot_total_trip_comment_status:[null],
+    iot_to_manually_RESET_comment_status:[null],
+    one_burner_bms_comment_status:[null],
+    oot_adjust_air_damper_comment_status:[null],
+    oot_igniters_not_stuck_comment_status:[null],
+    iot_unsuccessful_light_comment_status:[null],
+    iot_successful_light_comment_status:[null],
+    furnace_failed_comment_status:[null],
+    iot_manually_move_BM_sequence_comment_status:[null],
+    iot_to_confirm_comment_status:[null],
+    e_attempted_via_the_HMI_comment_status:[null],
+    
     shift_comment_c_oot:[null],
     shift_comment_c_iot:[null],
     userid:[this.currentUser.id],
@@ -332,27 +365,27 @@ add() {
     this.ChecklistC.get('iot_to_confirm_comment')?.setValue(this.ChecklistC.get('iot_to_confirm_comment')?.value ? this.ChecklistC.get('iot_to_confirm_comment')?.value.split("||")[1].trim() : null);
     this.ChecklistC.get('e_attempted_via_the_HMI_comment')?.setValue(this.ChecklistC.get('e_attempted_via_the_HMI_comment')?.value ? this.ChecklistC.get('e_attempted_via_the_HMI_comment')?.value.split("||")[1].trim() : null);
 
-    if (response && response.result) {
-      this.skipcolor = response.result;
+    // if (response && response.result) {
+    //   this.skipcolor = response.result;
       
    
     
-      Object.entries(this.skipcolor).forEach(([key, value]) => {
-        if (value === 'accept'|| value==='reject') {
+    //   Object.entries(this.skipcolor).forEach(([key, value]) => {
+    //     if (value === 'accept'|| value==='reject') {
          
 
-            this.colour = (key);
-            console.log('this.colour: ', this.colour);
-            this.clrvalue=(value);
-            console.log('this.clrvalue: ', this.clrvalue);
-        }
-    });
+    //         this.colour = (key);
+    //         console.log('this.colour: ', this.colour);
+    //         this.clrvalue=(value);
+    //         console.log('this.clrvalue: ', this.clrvalue);
+    //     }
+    // });
     
       
-    } else {
-      console.log("Response or response.result is null or undefined.");
-      // Handle the error or notify the user accordingly
-    }
+    // } else {
+    //   console.log("Response or response.result is null or undefined.");
+    //   // Handle the error or notify the user accordingly
+    // }
   });
 }
 

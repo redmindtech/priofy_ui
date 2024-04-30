@@ -198,6 +198,52 @@ export class ChecklistAComponent implements OnInit {
       iot_steam_drum_level_control_master_comment: [null],
       pressurize_the_downstream: [null, Validators.required],
       pressurize_the_downstream_comment: [null],
+
+
+
+      oot_high_pressure_comment_status: [null],
+      oot_hbf_inlet_comment_status:[null],
+      iot_decoke_mov_comment_status: [null],
+      iot_furnace_control_sequence_comment_status: [null],
+      iot_bm_sequence_comment_status: [null],
+      iot_individual_auto_burner_comment_status: [null],
+      oot_feed_and_fuel_gas_comment_status: [null],
+      oot_downstream_1_drains_comment_status: [null],
+      oot_bypass_comment_status:[null],
+      oot_inlet_vents_comment_status: [null],
+      oot_outlet_drains_comment_status: [null],
+      oot_stream_drum_inlet_check_comment_status: [null],
+      oot_untreated_inlet_db_1_comment_status: [null],
+      oot_untreated_hbf_inlet_check_comment_status: [null],
+      oot_hpssh_2_Outlet_comment_status:[null],
+      oot_hxs_upstream_nrv_comment_status: [null],
+      oot_vent_silencer_upstream_comment_status: [null],
+      oot_vent_silencer_downstream_comment_status:[null],
+      oot_hxs_outlet_comment_status: [null],
+      oot_sdl_transmitters_comment_status: [null],
+      oot_sdi_blow_down_comment_status: [null],
+      oot_bd_header_comment_status: [null],
+      oot_secondary_tle_comment_status: [null],
+      oot_intermittent_bd_header_comment_status:[null],
+      oot_primary_tles_2_comment_status: [null],
+      oot_secondary_tle_1_comment_status: [null],
+      oot_primary_tles_commom_header_comment_status:[null],
+      iot_bm_control_sequence_to_stand_comment_status: [null],
+      iot_purge_light_off_comment_status: [null],
+      oot_open_and_car_sealed_comment_status: [null],
+      oot_second_bv_comment_status: [null],
+      oot_upstream_and_downstram_bv_open_comment_status:[null],
+      oot_bv_and_globe_value_close_comment_status: [null],
+      drum_3_startup_vent_comment_status: [null],
+      oot_hxs_vent_valve_comment_status: [null],
+      iot_default_pressure_comment_status: [null],
+      iot_filling_the_steam_drum_comment_status: [null],
+      iot_steam_drum_level_control_master_comment_status: [null],
+      pressurize_the_downstream_comment_status: [null],
+
+      
+
+
       shift_comment_a_oot:[null],
       shift_comment_a_iot:[null],
       userid: [this.userObject.id],
@@ -366,27 +412,27 @@ export class ChecklistAComponent implements OnInit {
       this.ChecklistA.get('iot_filling_the_steam_drum_comment')?.setValue(this.ChecklistA.get('iot_filling_the_steam_drum_comment')?.value ? this.ChecklistA.get('iot_filling_the_steam_drum_comment')?.value.split("||")[1].trim() : null);
      this.ChecklistA.get('iot_steam_drum_level_control_master_comment')?.setValue(this.ChecklistA.get('iot_steam_drum_level_control_master_comment')?.value ? this.ChecklistA.get('iot_steam_drum_level_control_master_comment')?.value.split("||")[1].trim() : null);
      
-    if (response && response.result) {
-      this.skipcolor = response.result;
+    // if (response && response.result) {
+    //   this.skipcolor = response.result;
       
    
     
-      Object.entries(this.skipcolor).forEach(([key, value]) => {
-        if (value === 'accept'|| value==='reject') {
+    //   Object.entries(this.skipcolor).forEach(([key, value]) => {
+    //     if (value === 'accept'|| value==='reject') {
          
 
-            this.colour = (key);
-            console.log('this.colour: ', this.colour);
-            this.clrvalue=(value);
-            console.log('this.clrvalue: ', this.clrvalue);
-        }
-    });
+    //         this.colour = (key);
+    //         console.log('this.colour: ', this.colour);
+    //         this.clrvalue=(value);
+    //         console.log('this.clrvalue: ', this.clrvalue);
+    //     }
+    // });
     
       
-    } else {
-      console.log("Response or response.result is null or undefined.");
-      // Handle the error or notify the user accordingly
-    }
+    // } else {
+    //   console.log("Response or response.result is null or undefined.");
+    //   // Handle the error or notify the user accordingly
+    // }
 
   });
   
