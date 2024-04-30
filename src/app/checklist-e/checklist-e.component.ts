@@ -94,6 +94,23 @@ export class ChecklistEComponent implements OnInit {
       oot_desuperheater_comment:[null],
       iot_monitor_the_fuel_gas_comment:[null],
       oot_lower_level_burner_comment:[null],
+
+      furnace_sequence_to_swing_mov_comment_status:[null],
+      ootIOT_decoke_air_comment_status:[null],
+      psv_evt_complete_comment_status:[null],
+      psv_evt_start_comment_status:[null],
+      iot_to_enable_sd_comment_status:[null],
+      oot_desuperheater_untreated_bfw_comment_status:[null],
+      oot_stle_blowdown_analyzer_comment_status:[null],
+      oot_confirm_cooling_water_comment_status:[null],
+      oot_cbd_comment_status:[null],
+      oot_lineup_sd_comment_status:[null],
+      iot_desuperheater_not_pass_comment_status:[null],
+      oot_desuperheater_comment_status:[null],
+      iot_monitor_the_fuel_gas_comment_status:[null],
+      oot_lower_level_burner_comment_status:[null],
+
+
       shift_comment_e_oot:[null],
       shift_comment_e_iot:[null],
       userid:[this.currentUser.id],
@@ -207,23 +224,23 @@ add() {
 
 
 
-    if (response && response.result) {
-      this.skipcolor = response.result;
+    // if (response && response.result) {
+    //   this.skipcolor = response.result;
       
    
     
-      Object.entries(this.skipcolor).forEach(([key, value]) => {
-        if (value === 'accept'|| value==='reject') {
-            this.colour = (key);
-            this.clrvalue=(value)
-        }
-    });
+    //   Object.entries(this.skipcolor).forEach(([key, value]) => {
+    //     if (value === 'accept'|| value==='reject') {
+    //         this.colour = (key);
+    //         this.clrvalue=(value)
+    //     }
+    // });
     
-      console.log(this.colour);
-    } else {
-      console.log("Response or response.result is null or undefined.");
-      // Handle the error or notify the user accordingly
-    }
+    //   console.log(this.colour);
+    // } else {
+    //   console.log("Response or response.result is null or undefined.");
+    //   // Handle the error or notify the user accordingly
+    // }
     
   });
 }

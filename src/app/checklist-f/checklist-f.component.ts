@@ -136,6 +136,31 @@ export class ChecklistFComponent implements OnInit {
       the_top_burners_comment: [null],
       increase_IBD_CBD_comment: [null],
       continue_with_Furnace_comment: [null],
+
+      iot_move_furnace_sequence_to_Swing_comment_status:[null],
+      iot_confirm_comment_status:[null],
+      oot_ALL_BV_of_LS_steam_comment_status:[null],
+      oot_flare_block_comment_status: [null],
+      oot_IOT_Decoke_Air_comment_status: [null],
+      oot_feed_DB_B_comment_status: [null],
+      iot_MOVs_status_comment_status: [null],
+      oot_MOVs_local_switches_comment_status: [null],
+      oot_furnace_is_clear_comment_status: [null],
+      iot_Operator_Permissives_comment_status: [null],
+      iot_second_CG_MOV_comment_status: [null],
+      iot_Decoke_MOV_comment_status: [null],
+      iot_higher_pressure_comment_status: [null],
+      iot_lower_pressure_comment_status: [null],
+      iot_decoke_MOV_closed_comment_status: [null],
+      iot_confirm_via_HMI_comment_status: [null],
+      iot_HSSB_Crack_Gas_step_comment_status: [null],
+      adjust_combustion_comment_status: [null],
+      the_top_burners_comment_status: [null],
+      increase_IBD_CBD_comment_status: [null],
+      continue_with_Furnace_comment_status: [null],
+
+
+
       shift_comment_f_iot:[null],
       shift_comment_f_oot:[null]
     });
@@ -235,43 +260,44 @@ export class ChecklistFComponent implements OnInit {
         console.log("Response or response.result is null or undefined.");
         // Handle the error or notify the user accordingly
       }
-      if (response && response.result) {
-        this.skipcolor = response.result;
+      this.ChecklistF.get('iot_move_furnace_sequence_to_Swing_comment')?.setValue(this.ChecklistF.get('iot_move_furnace_sequence_to_Swing_comment')?.value ? this.ChecklistF.get('iot_move_furnace_sequence_to_Swing_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('iot_confirm_comment')?.setValue(this.ChecklistF.get('iot_confirm_comment')?.value ? this.ChecklistF.get('iot_confirm_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('oot_ALL_BV_of_LS_steam_comment')?.setValue(this.ChecklistF.get('oot_ALL_BV_of_LS_steam_comment')?.value ? this.ChecklistF.get('oot_ALL_BV_of_LS_steam_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('oot_flare_block_comment')?.setValue(this.ChecklistF.get('oot_flare_block_comment')?.value ? this.ChecklistF.get('oot_flare_block_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('oot_IOT_Decoke_Air_comment')?.setValue(this.ChecklistF.get('oot_IOT_Decoke_Air_comment')?.value ? this.ChecklistF.get('oot_IOT_Decoke_Air_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('oot_feed_DB_B_comment')?.setValue(this.ChecklistF.get('oot_feed_DB_B_comment')?.value ? this.ChecklistF.get('oot_feed_DB_B_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('iot_MOVs_status_comment')?.setValue(this.ChecklistF.get('iot_MOVs_status_comment')?.value ? this.ChecklistF.get('iot_MOVs_status_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('oot_MOVs_local_switches_comment')?.setValue(this.ChecklistF.get('oot_MOVs_local_switches_comment')?.value ? this.ChecklistF.get('oot_MOVs_local_switches_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('oot_furnace_is_clear_comment')?.setValue(this.ChecklistF.get('oot_furnace_is_clear_comment')?.value ? this.ChecklistF.get('oot_furnace_is_clear_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('iot_Operator_Permissives_comment')?.setValue(this.ChecklistF.get('iot_Operator_Permissives_comment')?.value ? this.ChecklistF.get('iot_Operator_Permissives_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('iot_second_CG_MOV_comment')?.setValue(this.ChecklistF.get('iot_second_CG_MOV_comment')?.value ? this.ChecklistF.get('iot_second_CG_MOV_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('iot_Decoke_MOV_comment')?.setValue(this.ChecklistF.get('iot_Decoke_MOV_comment')?.value ? this.ChecklistF.get('iot_Decoke_MOV_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('iot_higher_pressure_comment')?.setValue(this.ChecklistF.get('iot_higher_pressure_comment')?.value ? this.ChecklistF.get('iot_higher_pressure_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('iot_lower_pressure_comment')?.setValue(this.ChecklistF.get('iot_lower_pressure_comment')?.value ? this.ChecklistF.get('iot_lower_pressure_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('iot_decoke_MOV_closed_comment')?.setValue(this.ChecklistF.get('iot_decoke_MOV_closed_comment')?.value ? this.ChecklistF.get('iot_decoke_MOV_closed_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('iot_confirm_via_HMI_comment')?.setValue(this.ChecklistF.get('iot_confirm_via_HMI_comment')?.value ? this.ChecklistF.get('iot_confirm_via_HMI_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('iot_HSSB_Crack_Gas_step_comment')?.setValue(this.ChecklistF.get('iot_HSSB_Crack_Gas_step_comment')?.value ? this.ChecklistF.get('iot_HSSB_Crack_Gas_step_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('adjust_combustion_comment')?.setValue(this.ChecklistF.get('adjust_combustion_comment')?.value ? this.ChecklistF.get('adjust_combustion_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('the_top_burners_comment')?.setValue(this.ChecklistF.get('the_top_burners_comment')?.value ? this.ChecklistF.get('the_top_burners_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('increase_IBD_CBD_comment')?.setValue(this.ChecklistF.get('increase_IBD_CBD_comment')?.value ? this.ChecklistF.get('increase_IBD_CBD_comment')?.value.split("||")[1].trim() : null);
+      this.ChecklistF.get('continue_with_Furnace_comment')?.setValue(this.ChecklistF.get('continue_with_Furnace_comment')?.value ? this.ChecklistF.get('continue_with_Furnace_comment')?.value.split("||")[1].trim() : null);
+      // if (response && response.result) {
+      //   this.skipcolor = response.result;
         
-        this.ChecklistF.get('iot_move_furnace_sequence_to_Swing_comment')?.setValue(this.ChecklistF.get('iot_move_furnace_sequence_to_Swing_comment')?.value ? this.ChecklistF.get('iot_move_furnace_sequence_to_Swing_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('iot_confirm_comment')?.setValue(this.ChecklistF.get('iot_confirm_comment')?.value ? this.ChecklistF.get('iot_confirm_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('oot_ALL_BV_of_LS_steam_comment')?.setValue(this.ChecklistF.get('oot_ALL_BV_of_LS_steam_comment')?.value ? this.ChecklistF.get('oot_ALL_BV_of_LS_steam_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('oot_flare_block_comment')?.setValue(this.ChecklistF.get('oot_flare_block_comment')?.value ? this.ChecklistF.get('oot_flare_block_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('oot_IOT_Decoke_Air_comment')?.setValue(this.ChecklistF.get('oot_IOT_Decoke_Air_comment')?.value ? this.ChecklistF.get('oot_IOT_Decoke_Air_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('oot_feed_DB_B_comment')?.setValue(this.ChecklistF.get('oot_feed_DB_B_comment')?.value ? this.ChecklistF.get('oot_feed_DB_B_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('iot_MOVs_status_comment')?.setValue(this.ChecklistF.get('iot_MOVs_status_comment')?.value ? this.ChecklistF.get('iot_MOVs_status_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('oot_MOVs_local_switches_comment')?.setValue(this.ChecklistF.get('oot_MOVs_local_switches_comment')?.value ? this.ChecklistF.get('oot_MOVs_local_switches_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('oot_furnace_is_clear_comment')?.setValue(this.ChecklistF.get('oot_furnace_is_clear_comment')?.value ? this.ChecklistF.get('oot_furnace_is_clear_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('iot_Operator_Permissives_comment')?.setValue(this.ChecklistF.get('iot_Operator_Permissives_comment')?.value ? this.ChecklistF.get('iot_Operator_Permissives_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('iot_second_CG_MOV_comment')?.setValue(this.ChecklistF.get('iot_second_CG_MOV_comment')?.value ? this.ChecklistF.get('iot_second_CG_MOV_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('iot_Decoke_MOV_comment')?.setValue(this.ChecklistF.get('iot_Decoke_MOV_comment')?.value ? this.ChecklistF.get('iot_Decoke_MOV_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('iot_higher_pressure_comment')?.setValue(this.ChecklistF.get('iot_higher_pressure_comment')?.value ? this.ChecklistF.get('iot_higher_pressure_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('iot_lower_pressure_comment')?.setValue(this.ChecklistF.get('iot_lower_pressure_comment')?.value ? this.ChecklistF.get('iot_lower_pressure_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('iot_decoke_MOV_closed_comment')?.setValue(this.ChecklistF.get('iot_decoke_MOV_closed_comment')?.value ? this.ChecklistF.get('iot_decoke_MOV_closed_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('iot_confirm_via_HMI_comment')?.setValue(this.ChecklistF.get('iot_confirm_via_HMI_comment')?.value ? this.ChecklistF.get('iot_confirm_via_HMI_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('iot_HSSB_Crack_Gas_step_comment')?.setValue(this.ChecklistF.get('iot_HSSB_Crack_Gas_step_comment')?.value ? this.ChecklistF.get('iot_HSSB_Crack_Gas_step_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('adjust_combustion_comment')?.setValue(this.ChecklistF.get('adjust_combustion_comment')?.value ? this.ChecklistF.get('adjust_combustion_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('the_top_burners_comment')?.setValue(this.ChecklistF.get('the_top_burners_comment')?.value ? this.ChecklistF.get('the_top_burners_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('increase_IBD_CBD_comment')?.setValue(this.ChecklistF.get('increase_IBD_CBD_comment')?.value ? this.ChecklistF.get('increase_IBD_CBD_comment')?.value.split("||")[1].trim() : null);
-        this.ChecklistF.get('continue_with_Furnace_comment')?.setValue(this.ChecklistF.get('continue_with_Furnace_comment')?.value ? this.ChecklistF.get('continue_with_Furnace_comment')?.value.split("||")[1].trim() : null);
+       
       
-        Object.entries(this.skipcolor).forEach(([key, value]) => {
-          if (value === 'accept'|| value==='reject') {
-              this.colour = (key);
-              this.clrvalue=(value)
-          }
-      });
+      //   Object.entries(this.skipcolor).forEach(([key, value]) => {
+      //     if (value === 'accept'|| value==='reject') {
+      //         this.colour = (key);
+      //         this.clrvalue=(value)
+      //     }
+      // });
       
-        console.log(this.colour);
-      } else {
-        console.log("Response or response.result is null or undefined.");
-        // Handle the error or notify the user accordingly
-      }
+      //   console.log(this.colour);
+      // } else {
+      //   console.log("Response or response.result is null or undefined.");
+      //   // Handle the error or notify the user accordingly
+      // }
     });
   }
   
