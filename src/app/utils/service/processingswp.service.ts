@@ -21,6 +21,10 @@ export class ProcessingswpService {
   public savepreparation(data: any): Observable<any> {
     return this.httpClient.post<any>(this.baseUrl + '/preparation1/Preparation1Save', data, this.httpOptions);
   }
+  
+  public savepreparation1(data: any): Observable<any> {
+    return this.httpClient.post<any>(this.baseUrl + '/preparation2/Preparation2Save', data, this.httpOptions);
+  }
 
   // Other methods...
 }

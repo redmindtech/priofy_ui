@@ -66,17 +66,28 @@ console.log('this.formattedTime: ', this.formattedTime);
     
   }
   saveForm(){
-    console.log(this.Safeworkpermit)
-    // savepreparation
-    // this.accordionClosed=true
-    // this.accordionClosed = false;
-    // this.swpForm.get('start_date')?.setValue(this.startDateTime);
-    // this.swpForm.get('end_date')?.setValue(this.startDateTime);
-    // this.swpForm.get('start_time')?.setValue(this.startDateTime);
-    // this.swpForm.get('end_time')?.setValue(this.startDateTime);
-    const firstFormValue = this.Safeworkpermit.value;
-    console.log('Form Data:', firstFormValue);
-    this.apiService.savepreparation(firstFormValue).subscribe(
+    console.log(this.Safeworkpermit)   
+    const Safeworkpermit = this.Safeworkpermit.value;
+    console.log('Form Data:', Safeworkpermit);
+    this.apiService.savepreparation(Safeworkpermit).subscribe(
+      (response) => {
+        console.log('Response from serverrrrr:', response);
+        
+        // this.router.navigate(['/main/toolcomp']);
+        
+     
+      },
+      (error) => {
+        console.error('Error while sending data:', error);
+        
+      }
+    );
+  }
+  saveForm1(){
+    console.log(this.Safeworkpermit1)   
+    const Safeworkpermit1 = this.Safeworkpermit1.value;
+    console.log('Form Data:', Safeworkpermit1);
+    this.apiService.savepreparation1(Safeworkpermit1).subscribe(
       (response) => {
         console.log('Response from serverrrrr:', response);
         
@@ -105,8 +116,20 @@ console.log('this.formattedTime: ', this.formattedTime);
       conditions_set_by:[this.position],
       userid:[1],
       safeworkpermitRequest_id:[1]
-
-
+    });
+    this.Safeworkpermit1=
+    this.formBuilder.group({
+      mastercard_date: [this.formattedDate],
+        mastercard_no:'001',
+        mastercard_time: [this.formattedTime],
+       reason_for_work: [''],
+        red_tag: [''],
+        safeworkpermitRequest_id: ['1'],
+        userid: ['1'],
+        work_description:[''],
+        // equipment_identification_id:['']
+     
+    });
     //   mastercard_date:[this.formattedDate],
     //   mastercard_time:[this.formattedTime],
     //   red_tag:[''],
@@ -182,8 +205,21 @@ console.log('this.formattedTime: ', this.formattedTime);
     //   job_rep_time:[this.formattedTime],
     //   date_lock_date:[this.formattedDate],
     //   date_lock_time:[this.formattedTime],
-  })
+
   }
+
+  
+//   preparation 2
+// {
+//   "mastercard_date": "string",
+//   "mastercard_no": 0,
+//   "mastercard_time": "string",
+//   "reason_for_work": "string",
+//   "red_tag": "string",
+//   "safeworkpermitRequest_id": "string",
+//   "userid": "string",
+//   "work_description": "string"
+// }
   
   showSignatureCard() {
     this.showSignature = true;
