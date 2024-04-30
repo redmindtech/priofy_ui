@@ -28,9 +28,10 @@ export class ChecklistBComponent implements OnInit {
   enable: boolean = false;
   aceptreject:string = 'null';
   remainingValues: any;
-  statusvalue: { [x: string]: string; };
+  
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
+  
   constructor(private fb: FormBuilder,
     private apiService:ChecklistBService,
     private router: Router,
@@ -201,6 +202,56 @@ formInitialization(){
     oot_8_NRV_valve_comment:[null],
     iot_SD_level_comment:[null],
     oot_bleed_to_flare_comment:[null],
+
+
+    oot_bearings_oil_levels_comment_status:[null],
+    iot_Overview_HMI_comment_status:[null],
+    ups_system_comment_status:[null],
+    oot_caged_doors_open_comment_status:[null],
+    oot_peep_doors_closed_comment_status:[null],
+    oot_local_start_stop_comment_status:[null],
+    oot_ID_fan_casing_comment_status:[null],
+    oot_FD_suction_comment_status:[null],
+    oot_Floor_burners_comment_status:[null],
+    oot_Wall_burners_comment_status:[null],
+    iot_start_ID_fan_comment_status:[null],
+    iot_ID_fan_running_comment_status:[null],
+    iot_FD_fan_motor_readings_comment_status:[null],
+    oot_ID_fan_abnormality_comment_status:[null],
+    oot_four_air_duct_comment_status:[null],
+    iot_start_FD_comment_status:[null],
+    iot_FD_fan_running_comment_status:[null],
+    iot_FC_signal_comment_status:[null],
+    iot_close_the_doors_comment_status:[null],
+    iot_FC_back_in_auto_comment_status:[null],
+    iot_fan_motor_readings_comment_status:[null],
+    oot_FD_shaft_speed_comment_status:[null],
+    oot_FD_fan_abnormality_comment_status:[null],
+    oot_LS_Steam_condensate_comment_status:[null],
+    oot_S_TLE_comment_status:[null],
+    oot_T_TLE_comment_status:[null],
+    oot_CG_MOVs_intermediate_comment_status:[null],
+    oot_CG_HV_22X6_13A_comment_status:[null],
+    oot_Decoke_MOV_comment_status:[null],
+    oot_Double_Block_comment_status:[null],
+    oot_LS_purge_lined_up_comment_status:[null],
+    ms_Steam_comment_status:[null],
+    fgs_ready_comment_status:[null],
+    oot_burners_manual_BV_comment_status:[null],
+    oot_ignitor_and_flame_scanner_comment_status:[null],
+    oot_fourth_platform_level_comment_status:[null],
+    oot_1_BV_to_AT_22X0_11A_comment_status:[null],
+    oot_1_BV_to_AT_22X0_11B_comment_status:[null],
+    oot_34_BV_to_AP_22X0_11A_comment_status:[null],
+    oot_34_BV_to_AP_22X0_11B_comment_status:[null],
+    iot_ignitors_and_flame_scanners_comment_status:[null],
+    blow_down_HXS_header_comment_status:[null],
+    oot_10_block_valves_comment_status:[null],
+    oot_8_NRV_valve_comment_status:[null],
+    iot_SD_level_comment_status:[null],
+    oot_bleed_to_flare_comment_status:[null],
+
+
     shift_comment_b_oot:[null],
     shift_comment_b_iot:[null],
 })
@@ -318,11 +369,14 @@ nxtAccEn(){
 
 add() {
   this.apiService.getchecklistB().subscribe((response: any) => {
-    if (response ) { // Check if response and response.result are not null or undefined
-      
+    if (response ) { 
+      console.log("open");// Check if response and response.result are not null or undefined
+   
+     
+ 
       this.remainingValues = response.result;
      
-console.log("mm");    
+console.log(this.remainingValues);    
 
  this.formdisable = response.result.status === "Complete" ? true : false;
    
@@ -340,6 +394,28 @@ console.log("mm");
       console.log("Response or response.result is null or undefined.");
       // Handle the error or notify the user accordingly
     }
+    // if (response && response.result) {
+    //   this.skipcolor = response.result;
+      
+      
+    
+    //   Object.entries(this.skipcolor).forEach(([key, value]) => {
+    //     if (value === 'accept'|| value==='reject') {
+          
+       
+
+    //         this.colour = (key);
+    //         console.log('this.colour: ', this.colour);
+    //         this.clrvalue=(value);
+    //         console.log('this.clrvalue: ', this.clrvalue);
+    //     }
+    // });
+    
+      
+    // } else {
+    //   console.log("Response or response.result is null or undefined.");
+    //   // Handle the error or notify the user accordingly
+    // }
         this.ChecklistB.get('ups_system_comment')?.setValue(this.ChecklistB.get('ups_system_comment')?.value ? this.ChecklistB.get('ups_system_comment')?.value.split("||")[1].trim() : null);
         this.ChecklistB.get('iot_Overview_HMI_comment')?.setValue(this.ChecklistB.get('iot_Overview_HMI_comment')?.value ? this.ChecklistB.get('iot_Overview_HMI_comment')?.value.split("||")[1].trim() : null);
         this.ChecklistB.get('oot_bearings_oil_levels_comment')?.setValue(this.ChecklistB.get('oot_bearings_oil_levels_comment')?.value ? this.ChecklistB.get('oot_bearings_oil_levels_comment')?.value.split("||")[1].trim() : null);
@@ -392,28 +468,7 @@ console.log("mm");
 
 
         
-        if (response && response.result) {
-      this.skipcolor = response.result;
       
-   
-    
-      Object.entries(this.skipcolor).forEach(([key, value]) => {
-        if (value === 'accept'|| value==='reject') {
-          this.statusvalue = { [key]: value };
-          console.log('this.statusvalue: ', this.statusvalue);
-
-            this.colour = (key);
-            console.log('this.colour: ', this.colour);
-            this.clrvalue=(value);
-            console.log('this.clrvalue: ', this.clrvalue);
-        }
-    });
-    
-      
-    } else {
-      console.log("Response or response.result is null or undefined.");
-      // Handle the error or notify the user accordingly
-    }
   });
 }
 
@@ -440,7 +495,7 @@ if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
 updateFormValues(): void {
   // this.ChecklistB.get('shift_comment_b_oot')?.setValue(this.remainingValues.shift_comment_b_oot);
   //   this.ChecklistB.get('shift_comment_b_iot')?.setValue(this.remainingValues.shift_comment_b_iot);
-  // this.ChecklistB.setValue(this.statusvalue);
+  
 const formData = this.ChecklistB.value;
 
 console.log('formData: ', formData);
