@@ -59,6 +59,12 @@ h5{
     text-overflow: ellipsis;
   }
 
+  
+.save-button-container {
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  margin-top: 20px; /* Adjust the margin as needed */
+}
   .position-row {
     opacity: 0.5; /* or any other styling to indicate disabled state */
     pointer-events: none; /* optionally disable pointer events */

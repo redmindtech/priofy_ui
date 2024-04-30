@@ -41,7 +41,7 @@ export class SwprequestComponent implements OnInit {
     this.userDetails = localStorage.getItem('currentUser');
     this.userObject = JSON.parse(this.userDetails);
     this.position = this.userObject.position;
-    console.log(this.position)
+    console.log("postionss:"+this.position)
     // this.paramsId = this.activatedRoute.snapshot.queryParams?.['id'];
     // this.queryPath = this.activatedRoute.snapshot.url[0]?.path;
     this.formInitialization()
@@ -53,10 +53,9 @@ export class SwprequestComponent implements OnInit {
     // Format the date as needed (e.g., DD/MM/YYYY)
     this.formattedDate = new Date().toISOString().split('T')[0];
 
-
     // Format the time as needed (e.g., HH:MM:SS)
     this.formattedTime = new Date().toTimeString().split(' ')[0];
-     this.startDateTime = this.formattedDate + 'T' + this.formattedTime+'Z';
+    //  this.startDateTime = this.formattedDate;
 console.log("date",this.formattedDate);
 console.log("time",this.formattedTime);
    this.swpForm = this.formBuilder.group({
@@ -65,7 +64,7 @@ console.log("time",this.formattedTime);
     start_time:[this.formattedTime],
     end_time:[this.formattedTime],
     sjp_attachment:[''],
-      requestorname: ['SWP Issuer'], // Initialize with default value
+      requestorname: [this.position], // Initialize with default value
       eaz: [['']],
       equipmentID: [''], // Initialize with default value
       workLocation: [''], // Initialize with default value
@@ -152,10 +151,10 @@ deleteFile() {
   saveForm() {
     // this.accordionClosed=true
     this.accordionClosed = false;
-    this.swpForm.get('start_date')?.setValue(this.startDateTime);
-    this.swpForm.get('end_date')?.setValue(this.startDateTime);
-    this.swpForm.get('start_time')?.setValue(this.startDateTime);
-    this.swpForm.get('end_time')?.setValue(this.startDateTime);
+    // this.swpForm.get('start_date')?.setValue(this.startDateTime);
+    // this.swpForm.get('end_date')?.setValue(this.startDateTime);
+    // this.swpForm.get('start_time')?.setValue(this.startDateTime);
+    // this.swpForm.get('end_time')?.setValue(this.startDateTime);
     const firstFormValue = this.swpForm.value;
     console.log('Form Data:', firstFormValue);
     this.apiService.saveswprequest(firstFormValue).subscribe(
