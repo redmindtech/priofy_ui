@@ -10,8 +10,9 @@
   <mat-card class=mat>
     <mat-card-content>
       <!-- <h6 style="margin-left: 30%;"><strong>PROCEDURE CHECKLIST #A ESTABLISH STEAM DRUM LEVEL</strong></h6> -->
-      <form [formGroup]="swpcloseout">
-        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
+      <form [formGroup]="swpcloseout1">
+        
+        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_Rep' }" >
           <mat-card-content>
             <table>
               <thead>
@@ -21,13 +22,13 @@
               <tr>
                 <td class="header">Is Housekeeping completed?</td>
                 <td>
-                  <input type="radio" class="custom-radio" id="Housekeeping-yes" name="Housekeeping" value="Yes"
-                    formControlName="Housekeeping" />
-                  <label for="Housekeeping-yes" class="action">Yes</label>
+                  <input type="radio" class="custom-radio" id="house_keeping-yes" name="house_keeping" value="Yes"
+                    formControlName="house_keeping" />
+                  <label for="house_keeping-yes" class="action">Yes</label>
 
-                  <input type="radio" class="custom-radio" id="Housekeeping-no" name="Housekeeping" value="No"
-                    formControlName="Housekeeping" />
-                  <label for="Housekeeping-no" class="action">No</label>
+                  <input type="radio" class="custom-radio" id="house_keeping-no" name="house_keeping" value="No"
+                    formControlName="house_keeping" />
+                  <label for="house_keeping-no" class="action">No</label>
                 </td>
               </tr>
               <tr>
@@ -35,36 +36,36 @@
 
                   Is Status of job and equipment reviewed?</td>
                 <td>
-                  <input type="radio" class="custom-radio" id="jobandequipment-yes" name="jobandequipment" value="Yes"
-                    formControlName="jobandequipment" />
-                  <label for="jobandequipment-yes" class="action">Yes</label>
-                  <input type="radio" class="custom-radio" id="jobandequipment-no" name="jobandequipment" value="No"
-                    formControlName="jobandequipment" />
-                  <label for="jobandequipment-no" class="action">No</label>
+                  <input type="radio" class="custom-radio" id="job_and_equipment-yes" name="job_and_equipment" value="Yes"
+                    formControlName="job_and_equipment" />
+                  <label for="job_and_equipment-yes" class="action">Yes</label>
+                  <input type="radio" class="custom-radio" id="job_and_equipment-no" name="job_and_equipment" value="No"
+                    formControlName="job_and_equipment" />
+                  <label for="job_and_equipment-no" class="action">No</label>
                 </td>
               </tr>
               <tr>
                 <td class="header">Is Radioactive sources removed?</td>
                 <td>
-                  <input type="radio" class="custom-radio" id="Radioactive-yes" name="Radioactive" value="Yes"
-                    formControlName="Radioactive" />
-                  <label for="Radioactive-yes" class="action">Yes</label>
+                  <input type="radio" class="custom-radio" id="radio_active-yes" name="radio_active" value="Yes"
+                    formControlName="radio_active" />
+                  <label for="radio_active-yes" class="action">Yes</label>
 
-                  <input type="radio" class="custom-radio" id="Radioactive-no" name="Radioactive" value="No"
-                    formControlName="Radioactive" />
-                  <label for="Radioactive-no" class="action">No</label>
+                  <input type="radio" class="custom-radio" id="radio_active-no" name="radio_active" value="No"
+                    formControlName="radio_active" />
+                  <label for="radio_active-no" class="action">No</label>
                 </td>
               </tr>
               <tr>
                 <td class="header">
                   Is Area/Equipment surveyed by TRSO?</td>
                 <td>
-                  <input type="radio" class="custom-radio" id="Area_Equipment-yes" name="Area_Equipment" value="Yes"
-                    formControlName="Area_Equipment" />
-                  <label for="Area_Equipment-yes" class="action">Yes</label>
-                  <input type="radio" class="custom-radio" id="Area_Equipment-no" name="Area_Equipment" value="No"
-                    formControlName="Area_Equipment" />
-                  <label for="Area_Equipment-no" class="action">No</label>
+                  <input type="radio" class="custom-radio" id="area_Equipment-yes" name="area_Equipment" value="Yes"
+                    formControlName="area_Equipment" />
+                  <label for="area_Equipment-yes" class="action">Yes</label>
+                  <input type="radio" class="custom-radio" id="area_Equipment-no" name="area_Equipment" value="No"
+                    formControlName="area_Equipment" />
+                  <label for="area_Equipment-no" class="action">No</label>
                 </td>
               </tr>
               <tr>
@@ -100,13 +101,14 @@
           </mat-card-content>
         </mat-card>
         <br>
+        
         <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_Rep' }" >
           <mat-card-content>
             <div class="row">
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Permit close-out status</label>
-                  <select id="status" formControlName="closeoutstatus" class="form-control">
+                  <select id="status" formControlName="close_out_status" class="form-control">
                     <option value="" selected>Select status</option>
                     <option value="Pending">Pending</option>
                     <option value="complete">Complete</option>
@@ -156,24 +158,32 @@
             <br>
             <div class="row">
               <div class="col text-center">
-                  <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;">Save</button>
-              </div>
+                <button mat-raised-button
+                        style="background-color: #25345D; color: white; margin: 0 auto;"
+                        [class.disablesave1]="!swpcloseout1.valid"
+                        
+                        (click)="swpcloseoutsave1()">Save</button>
+            </div>
+            
           </div>
           </mat-card-content>
         </mat-card>
+      </form>
         <br>
-        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'SWP_Issuer' }">
+        <form [formGroup]="swpcloseout2">
+          
+        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'SWP_Issuer' }" >
           <mat-card-content>
             <div class="row">
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Is Duplicates and any additional checklists reconciled?</label>
-                  <input type="radio" class="custom-radio" id="additionalchecklists-yes" name="AreaEquipment" value="Yes"
-                  formControlName="additionalchecklists" />
-                <label for="additionalchecklists-yes" class="action">Yes</label>
-                <input type="radio" class="custom-radio" id="additionalchecklists-no" name="additionalchecklists" value="No"
-                  formControlName="additionalchecklists" />
-                <label for="additionalchecklists-no" class="action">No</label>
+                  <input type="radio" class="custom-radio" id="additional_checklists-yes" name="additional_checklists" value="Yes"
+                  formControlName="additional_checklists" />
+                <label for="additional_checklists-yes" class="action">Yes</label>
+                <input type="radio" class="custom-radio" id="additional_checklists-no" name="additional_checklists" value="No"
+                  formControlName="additional_checklists" />
+                <label for="additional_checklists-no" class="action">No</label>
                 </div>
               </div>
               <div class="col-sm-3">
@@ -199,25 +209,27 @@
               <div class="col-sm-3">
                 <label class="col-sm-3 ">Date</label>
                 <div class="col-sm-9">
-                  <input type="date" id="additionalchecklists_date" formControlName="additionalchecklists_date" class="form-control">
+                  <input type="date" id="additional_checklists_date" formControlName="additional_checklists_date" class="form-control">
                 </div>
               </div>
               <div class="col-sm-3">
                 <label class="col-sm-3 ">Time</label>
                 <div class="col-sm-9">
-                  <input type="time" id="additionalchecklists_time" formControlName="additionalchecklists_time" class="form-control">
+                  <input type="time" id="additional_checklists_time" formControlName="additional_checklists_time" class="form-control">
                 </div>
               </div>
             </div>
             <br>
             <div class="row">
               <div class="col text-center">
-                  <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;">Save</button>
+                  <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;" [class.disablesave2]="!swpcloseout2.valid"(click)="swpcloseoutsave2()">Save</button>
               </div>
           </div>
           </mat-card-content>
         </mat-card>
         <br>
+        </form>
+        <form [formGroup]="swpcloseout3">
         <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
           <mat-card-content>
             <table>
@@ -227,32 +239,32 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Is Work Completed?</label>
-                  <input type="radio" class="custom-radio" id="Work_Completed-yes" name="Work_Completed" value="Yes"
-                  formControlName="Work_Completed" />
-                <label for="Work_Completed-yes" class="action">Yes</label>
-                <input type="radio" class="custom-radio" id="Work_Completed-no" name="Work_Completed" value="No"
-                  formControlName="Work_Completed" />
-                <label for="Work_Completed-no" class="action">No</label>
+                  <input type="radio" class="custom-radio" id="work_Completed-yes" name="work_Completed" value="Yes"
+                  formControlName="work_Completed" />
+                <label for="work_Completed-yes" class="action">Yes</label>
+                <input type="radio" class="custom-radio" id="work_Completed-no" name="Work_Completed" value="No"
+                  formControlName="work_Completed" />
+                <label for="work_Completed-no" class="action">No</label>
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Employee Number</label>
-                  <input type="text" id="Work_Completed_emp" formControlName="Work_Completed_emp" class="form-control" placeholder="Enter Employee Number">
+                  <input type="text" id="work_Completed_emp" formControlName="work_Completed_emp" class="form-control" placeholder="Enter Employee Number">
                 </div>
               </div>
 
               <div class="col-sm-3">
                 <label class="col-sm-3 ">Date</label>
                 <div class="col-sm-9">
-                  <input type="date" id="Work_Completed_date" formControlName="Work_Completed_date" class="form-control">
+                  <input type="date" id="work_Completed_date" formControlName="work_Completed_date" class="form-control">
                 </div>
 
               </div>
               <div class="col-sm-3">
                 <label class="col-sm-3 ">Time</label>
                 <div class="col-sm-9">
-                  <input type="time" id="Work_Completed_time" formControlName="Work_Completed_time" class="form-control">
+                  <input type="time" id="work_Completed_time" formControlName="work_Completed_time" class="form-control">
                 </div>
               </div>
               <div class="col-sm-3">
@@ -285,18 +297,18 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <label>Additional Work Description (if any)</label>
-                  <textarea type="text" id="Additional_Work " formControlName="Additional_Work" rows="3" class="form-control" placeholder="Enter Additional Work Description (if any)"></textarea>
+                  <textarea type="text" id="additional_Work " formControlName="additional_Work" rows="3" class="form-control" placeholder="Enter Additional Work Description (if any)"></textarea>
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Is Additional Work Completed?</label>
-                  <input type="radio" class="custom-radio" id="Additional_Work_Completed-yes" name="Additional_Work_Completed" value="Yes"
-                  formControlName="Additional_Work_Completed" />
-                <label for="Additional_Work_Completed-yes" class="action">Yes</label>
-                <input type="radio" class="custom-radio" id="Additional_Work_Completed-no" name="Additional_Work_Completed" value="No"
-                  formControlName="Additional_Work_Completed" />
-                <label for="Additional_Work_Completed-no" class="action">No</label>
+                  <input type="radio" class="custom-radio" id="additional_Work_Completed-yes" name="additional_Work_Completed" value="Yes"
+                  formControlName="additional_Work_Completed" />
+                <label for="additional_Work_Completed-yes" class="action">Yes</label>
+                <input type="radio" class="custom-radio" id="additional_Work_Completed-no" name="additional_Work_Completed" value="No"
+                  formControlName="additional_Work_Completed" />
+                <label for="additional_Work_Completed-no" class="action">No</label>
                 </div>
               </div>
               <div class="col-sm-3">
@@ -323,19 +335,19 @@
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>Employee Number</label>
-                    <input type="text" id="Additional_Work_Completed_emp" formControlName="Additional_Work_Completed_emp" class="form-control" placeholder="Enter Employee Number">
+                    <input type="text" id="additional_Work_Completed_emp" formControlName="additional_Work_Completed_emp" class="form-control" placeholder="Enter Employee Number">
                     </div>
                   </div>
               <div class="col-sm-3">
                 <label class="col-sm-3 ">Date</label>
                 <div class="col-sm-9">
-                  <input type="date" id="Additional_Work_date" formControlName="Additional_Work_date" class="form-control">
+                  <input type="date" id="additional_Work_date" formControlName="additional_Work_date" class="form-control">
                 </div>
               </div>
               <div class="col-sm-3">
                 <label class="col-sm-3 ">Time</label>
                 <div class="col-sm-9">
-                  <input type="time" id="Additional_Work_time" formControlName="Additional_Work_time" class="form-control">
+                  <input type="time" id="additional_Work_time" formControlName="additional_Work_time" class="form-control">
                 </div>
               </div>
             </div>
@@ -349,30 +361,30 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Is House Keeping Completed?</label>
-                  <input type="radio" class="custom-radio" id="HouseKeeping_Comp-yes" name="HouseKeeping_Comp" value="Yes"
-                  formControlName="HouseKeeping_Comp" />
-                <label for="HouseKeeping_Comp-yes" class="action">Yes</label>
-                <input type="radio" class="custom-radio" id="HouseKeeping_Comp-no" name="HouseKeeping_Comp" value="No"
-                  formControlName="HouseKeeping_Comp" />
-                <label for="HouseKeeping_Comp-no" class="action">No</label>
+                  <input type="radio" class="custom-radio" id="houseKeeping_Comp-yes" name="houseKeeping_Comp" value="Yes"
+                  formControlName="houseKeeping_Comp" />
+                <label for="houseKeeping_Comp-yes" class="action">Yes</label>
+                <input type="radio" class="custom-radio" id="houseKeeping_Comp-no" name="houseKeeping_Comp" value="No"
+                  formControlName="houseKeeping_Comp" />
+                <label for="houseKeeping_Comp-no" class="action">No</label>
                 </div>
               </div>
                 <div class="col-sm-3">
                   <div class="form-group">
                     <label>Employee Number</label>
-                    <input type="text" id="HouseKeeping_Comp_emp" formControlName="HouseKeeping_Comp_emp" class="form-control" placeholder="Enter Employee Number">
+                    <input type="text" id="houseKeeping_Comp_emp" formControlName="houseKeeping_Comp_emp" class="form-control" placeholder="Enter Employee Number">
                   </div>
                 </div>
               <div class="col-sm-3">
                 <label class="col-sm-3 ">Date</label>
                 <div class="col-sm-9">
-                  <input type="date" id="HouseKeeping_Comp_date" formControlName="HouseKeeping_Comp_date" class="form-control">
+                  <input type="date" id="houseKeeping_Comp_date" formControlName="houseKeeping_Comp_date" class="form-control">
                 </div>
               </div>
               <div class="col-sm-3">
                 <label class="col-sm-3 ">Time</label>
                 <div class="col-sm-9">
-                  <input type="time" id="HouseKeeping_Comp_time" formControlName="HouseKeeping_Comp_time" class="form-control">
+                  <input type="time" id="houseKeeping_Comp_time" formControlName="houseKeeping_Comp_time" class="form-control">
                 </div>
               </div>
               <div class="col-sm-3">
@@ -398,12 +410,14 @@
             <br>
             <div class="row">
               <div class="col text-center">
-                  <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;">Save</button>
+                  <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;"(click)="swpcloseoutsave3()"[class.disablesave3]="!swpcloseout3.valid">Save</button>
               </div>
           </div>
           </mat-card-content>
         </mat-card>
+      </form>
         <br>
+        <form [formGroup]="swpcloseout4">
         <!--  -->
         <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
           <mat-card-content>
@@ -414,31 +428,31 @@
               <div class="col-sm-3" >
                 <div class="form-group">
                   <label>Is House Keeping Checked?</label>
-                  <input type="radio" class="custom-radio" id="HouseKeepingCheck-yes" name="HouseKeepingCheck" value="Yes"
-                  formControlName="HouseKeepingCheck" />
-                <label for="HouseKeepingCheck-yes" class="action">Yes</label>
+                  <input type="radio" class="custom-radio" id="house_Keeping_Check-yes" name="house_Keeping_Check" value="Yes"
+                  formControlName="house_Keeping_Check" />
+                <label for="house_Keeping_Check-yes" class="action">Yes</label>
 
-                <input type="radio" class="custom-radio" id="HouseKeepingCheck-no" name="HouseKeepingCheck" value="No"
-                  formControlName="HouseKeepingCheck" />
-                <label for="HouseKeepingCheck-no" class="action">No</label>
+                <input type="radio" class="custom-radio" id="house_Keeping_Check-no" name="house_Keeping_Check" value="No"
+                  formControlName="house_Keeping_Check" />
+                <label for="house_Keeping_Check-no" class="action">No</label>
                 </div>
               </div>
                 <div class="col-sm-3" >
                   <div class="form-group" >
                     <label>Employee Number</label>
-                    <input type="text" id="HouseKeeping_emp" formControlName="HouseKeeping_emp" class="form-control" placeholder="Enter Employee Number">
+                    <input type="text" id="houseKeeping_emp" formControlName="houseKeeping_emp" class="form-control" placeholder="Enter Employee Number">
                   </div>
                 </div>
               <div class="col-sm-3">
                 <label class="col-sm-3 ">Date</label>
                 <div class="col-sm-9">
-                  <input type="date" id="HouseKeeping_date" formControlName="HouseKeeping_date" class="form-control">
+                  <input type="date" id="houseKeeping_date" formControlName="houseKeeping_date" class="form-control">
                 </div>
               </div>
               <div class="col-sm-3">
                 <label class="col-sm-3 ">Time</label>
                 <div class="col-sm-9">
-                  <input type="time" id="HouseKeeping_time" formControlName="HouseKeeping_time" class="form-control">
+                  <input type="time" id="houseKeeping_time" formControlName="houseKeeping_time" class="form-control">
                 </div>
               </div>
               <div class="col-sm-3">
@@ -464,41 +478,41 @@
           </mat-card-content>
         </mat-card>
         <br>
-        <!--  -->
-        <mat-card class=mat1  [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
+        <!-- [ngClass]="{ 'position-row': position !== 'Facility_Rep' }" -->
+        <mat-card class=mat1  [ngClass]="{ 'position-row': position !== 'Facility_Rep' }" >
           <mat-card-content>
             <div class="row">
               <div class="col-sm-4">
                 <div class="form-group">
                   <label>Equipment Tested</label>
-                  <input type="radio" class="custom-radio" id="EquipmentTested-yes" name="EquipmentTested" value="Yes"
-                  formControlName="EquipmentTested" />
-                <label for="EquipmentTested-yes" class="action">Yes</label>
-                <input type="radio" class="custom-radio" id="EquipmentTested-no" name="EquipmentTested" value="No"
-                  formControlName="EquipmentTested" />
-                <label for="EquipmentTested-no" class="action">No</label>
+                  <input type="radio" class="custom-radio" id="equipmentTested-yes" name="equipmentTested" value="Yes"
+                  formControlName="equipmentTested" />
+                <label for="equipmentTested-yes" class="action">Yes</label>
+                <input type="radio" class="custom-radio" id="equipmentTested-no" name="equipmentTested" value="No"
+                  formControlName="equipmentTested" />
+                <label for="equipmentTested-no" class="action">No</label>
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="form-group">
                   <label>De-tagged</label>
-                  <input type="radio" class="custom-radio" id="Detagged-yes" name="Detagged" value="Yes"
-                  formControlName="Detagged" />
-                <label for="Detagged-yes" class="action">Yes</label>
-                <input type="radio" class="custom-radio" id="Detagged-no" name="Detagged" value="No"
-                  formControlName="Detagged" />
-                <label for="Detagged-no" class="action">No</label>
+                  <input type="radio" class="custom-radio" id="detagged-yes" name="detagged" value="Yes"
+                  formControlName="detagged" />
+                <label for="detagged-yes" class="action">Yes</label>
+                <input type="radio" class="custom-radio" id="detagged-no" name="detagged" value="No"
+                  formControlName="detagged" />
+                <label for="detagged-no" class="action">No</label>
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="form-group">
                   <label>Ready for Service</label>
-                  <input type="radio" class="custom-radio" id="ReadyforService-yes" name="ReadyforService" value="Yes"
-                  formControlName="ReadyforService" />
-                <label for="ReadyforService-yes" class="action">Yes</label>
-                <input type="radio" class="custom-radio" id="ReadyforService-no" name="ReadyforService" value="No"
-                  formControlName="ReadyforService" />
-                <label for="ReadyforService-no" class="action">No</label>
+                  <input type="radio" class="custom-radio" id="ready_for_Service-yes" name="ready_for_Service" value="Yes"
+                  formControlName="ready_for_Service" />
+                <label for="ready_for_Service-yes" class="action">Yes</label>
+                <input type="radio" class="custom-radio" id="ready_for_Service-no" name="ready_for_Service" value="No"
+                  formControlName="ready_for_Service" />
+                <label for="ready_for_Service-no" class="action">No</label>
                 </div>
               </div>
                 </div>
@@ -506,19 +520,19 @@
                   <div class="col-sm-3">
                     <div class="form-group">
                       <label>Employee Number</label>
-                      <input type="text" id="EquipmentTested_emp" formControlName="EquipmentTested_emp" class="form-control" placeholder="Enter Employee Number">
+                      <input type="text" id="equipmentTested_emp" formControlName="equipmentTested_emp" class="form-control" placeholder="Enter Employee Number">
                     </div>
                   </div>
               <div class="col-sm-3">
                 <label class="col-sm-3 ">Date</label>
                 <div class="col-sm-9">
-                  <input type="date" id="EquipmentTested_date" formControlName="EquipmentTested_date" class="form-control">
+                  <input type="date" id="equipmentTested_date" formControlName="equipmentTested_date" class="form-control">
                 </div>
               </div>
               <div class="col-sm-3">
                 <label class="col-sm-3 ">Time</label>
                 <div class="col-sm-9">
-                  <input type="time" id="EquipmentTested_time" formControlName="EquipmentTested_time" class="form-control">
+                  <input type="time" id="equipmentTested_time" formControlName="equipmentTested_time" class="form-control">
                 </div>
               </div>
               <div class="col-sm-3">
@@ -541,7 +555,7 @@
           <br>
         <div class="row">
           <div class="col text-center">
-              <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;" (click)="save()">Save</button>
+              <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;" (click)="swpcloseoutsave4()"[class.disablesave4]="!swpcloseout4.valid">Save</button>
           </div>
       </div>
         </mat-card>

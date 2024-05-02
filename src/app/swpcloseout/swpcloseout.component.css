@@ -143,3 +143,19 @@ border-color: rgba(148, 141, 141,0.57);
   opacity: 0.5; /* or any other styling to indicate disabled state */
   pointer-events: none; /* optionally disable pointer events */
 }
+.disablesave1{
+  opacity: 0.5; /* Example styling for disabled state */
+  cursor: not-allowed; /* Example styling for disabled state */
+}
+.disablesave2{
+  opacity: 0.5; /* Example styling for disabled state */
+  cursor: not-allowed; /* Example styling for disabled state */
+}
+.disablesave3{
+  opacity: 0.5; /* Example styling for disabled state */
+  cursor: not-allowed; /* Example styling for disabled state */
+}
+.disablesave4 {
+  opacity: 0.5; /* Example styling for disabled state */
+  cursor: not-allowed; /* Example styling for disabled state */
+}

@@ -1,4 +1,4 @@
-<form [formGroup]="agreementForm">
+
 <mat-accordion>
   <mat-expansion-panel class="mat_expansion_border"  [expanded]="false" [disabled]="false">
     <mat-expansion-panel-header class="mat_expansion_header_border">
@@ -11,7 +11,9 @@
     <div class="mat">
       <div class="form-section">
     <div class="mat-box">
-      <mat-card class= card [ngClass]="{ 'position-row': position !== 'Job_rep' }">
+      <form [formGroup]="agreementForm">
+        <!-- [ngClass]="{ 'position-row': position !== 'Job_rep' }" -->
+      <mat-card class= card >
     <table>
       <thead>
         <tr class="heading">
@@ -94,18 +96,19 @@
         <div class="cols-4dt">
           <label class="label" for="date">Date</label>
           <div class="row">
-            <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate"></div>
+            <div class="col"><input type="date" class="form-control" id="date" formControlName="date"></div>
           </div>
         </div>
 
         <div class="cols-4dt">
           <label class="label" for="time" style="margin-left: 40px;">Time</label>
           <div class="row">
-            <div class="col" style="margin-left: 40px;"><input type="time" class="form-control" id="time" [value]="formattedTime"></div>
+            <div class="col" style="margin-left: 40px;"><input type="time" class="form-control" id="time" formControlName="time"></div>
           </div>
         </div>
 
       </div>
+
       <!-- <br>
       <div class="row">
         <div class="col text-center">
@@ -113,17 +116,21 @@
         </div>
         </div> -->
         
-      <button type="button" style="  margin-top: 20px;"  class="agree-button" [disabled]="!allCheckboxesChecked()">Agree</button>
-       <div>
-        <button type="button" style="  margin-top: 20px;"  class="save-button">Save</button>
-      </div>
+        <button type="button" style="margin-top: 20px;" class="agree-button" [disabled]="!isFormValid()" (click)="agreementFormsave1()">Agree</button>
+      <!-- <div>
+        <button type="button" style="margin-top: 20px;" class="save-button"  [disabled]="!allCheckboxesChecked()" >Save</button>
+    </div> -->
+    
       </mat-card>
+    </form>
     </div>
   </div>
     <div class="empty"></div>
     <div class="form-section">
     <div class="mat-box">
-      <mat-card class= card [ngClass]="{ 'position-row': position !== 'swp_issuer' }">
+      <form [formGroup]="agreementForm1">
+        <!-- [ngClass]="{ 'position-row': position !== 'swp_issuer' }" -->
+      <mat-card class= card>
       <table>
         <thead>
           <tr class="heading">
@@ -136,13 +143,13 @@
     <td>All people working under this SWP have the necessary training and skills to perform the permitted work including the use of special PPE, if any</td>
     <td>
       <div class="button-group" >
-        <input type="radio" class="custom-radio" id="people_training_done" name="people_training"
+        <input type="radio" class="custom-radio" id="people_training-yes" name="people_training"
         value="Yes" formControlName="people_training" />
-      <label for="people_training_done" class="action">Yes</label>
+      <label for="people_training-yes" class="action">Yes</label>
 
-      <input type="radio" class="custom-radio" id="people_training_risk" name="people_training"
+      <input type="radio" class="custom-radio" id="people_training-no" name="people_training"
         value="No" formControlName="people_training" />
-      <label for="people_training_risk" class="action">No</label>
+      <label for="people_training-no" class="action">No</label>
       </div>
     </td>
   </tr>
@@ -150,13 +157,13 @@
     <td>All people working under this SWP know the location of assembly points, emergency equip. & nearest EB/SS?</td>
     <td>
       <div class="button-group">
-        <input type="radio" class="custom-radio" id="location_known_done" name="location_known"
+        <input type="radio" class="custom-radio" id="location_known-yes" name="location_known"
           value="Yes" formControlName="location_known" />
-        <label for="location_known_done" class="action">Yes</label>
+        <label for="location_known-yes" class="action">Yes</label>
 
-        <input type="radio" class="custom-radio" id="location_known_risk" name="location_known"
+        <input type="radio" class="custom-radio" id="location_known-no" name="location_known"
           value="No" formControlName="location_known" />
-        <label for="location_known_risk" class="action">No</label>
+        <label for="location_known-no" class="action">No</label>
       </div>
     </td>
   </tr>
@@ -164,13 +171,13 @@
     <td>Equipment to be worked on has been properly prepared, identified and is ready to work on?</td>
     <td>
       <div class="button-group">
-        <input type="radio" class="custom-radio" id="equipment_prepared_done" name="equipment_prepared"
+        <input type="radio" class="custom-radio" id="equipment_prepared-yes" name="equipment_prepared"
           value="Yes" formControlName="equipment_prepared" />
-        <label for="equipment_prepared_done" class="action">Yes</label>
+        <label for="equipment_prepared-yes" class="action">Yes</label>
 
-        <input type="radio" class="custom-radio" id="equipment_prepared_risk" name="equipment_prepared"
+        <input type="radio" class="custom-radio" id="equipment_prepared-no" name="equipment_prepared"
           value="No" formControlName="equipment_prepared" />
-        <label for="equipment_prepared_risk" class="action">No</label>
+        <label for="equipment_prepared-no" class="action">No</label>
       </div>
     </td>
   </tr>
@@ -178,13 +185,13 @@
     <td>Scope of boundaries of any other work in the area that could affect this permitted work has been reviewed and understood?</td>
     <td>
       <div class="button-group">
-        <input type="radio" class="custom-radio" id="boundaries_reviewed_done" name="boundaries_reviewed"
+        <input type="radio" class="custom-radio" id="boundaries_reviewed-yes" name="boundaries_reviewed"
           value="Yes" formControlName="boundaries_reviewed" />
-        <label for="boundaries_reviewed_done" class="action">Yes</label>
+        <label for="boundaries_reviewed-yes" class="action">Yes</label>
 
-        <input type="radio" class="custom-radio" id="boundaries_reviewed_risk" name="boundaries_reviewed"
+        <input type="radio" class="custom-radio" id="boundaries_reviewed-no" name="boundaries_reviewed"
           value="No" formControlName="boundaries_reviewed" />
-        <label for="boundaries_reviewed_risk" class="action">No</label>
+        <label for="boundaries_reviewed-no" class="action">No</label>
       </div>
     </td>
   </tr>
@@ -212,28 +219,31 @@
             <div class="cols-4dt">
               <label class="label" for="date">Date</label>
               <div class="row">
-                <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate"></div>
+                <div class="col"><input type="date" class="form-control" id="date" formControlName="date"></div>
               </div>
             </div>
 
             <div class="cols-4dt">
               <label class="label" for="time" style="margin-left: 40px;">Time</label>
               <div class="row">
-                <div class="col" style="margin-left: 40px;"><input type="time" class="form-control" id="time" [value]="formattedTime"></div>
+                <div class="col" style="margin-left: 40px;"><input type="time" class="form-control" id="time" formControlName="time"></div>
               </div>
             </div>
           </div>
          
           <div>
-            <button type="button" style="  margin-top: 20px;"  class="save-button">Save</button>
+          
+            <button type="button" style="margin-top: 20px;" class="agree-button" [disabled]="!agreementForm1.valid" (click)="agreementFormsave2()">Agree</button>
           </div>
+          
         </mat-card>
+      </form>
   </div>
       </div>
     </div>
   </mat-expansion-panel>
 </mat-accordion>
-</form>
+
 <br>
 <app-swpcloseout></app-swpcloseout>
 
