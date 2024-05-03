@@ -2,7 +2,7 @@
 <mat-expansion-panel class="mat_expansion_border" [(expanded)]="accordionClosed">
   <mat-expansion-panel-header class="mat_expansion_header_border">
     <div class="row">
-      <h5 style="display: contents; color:#25345D"><strong>Stage #4 : Safe Work Permit Close-Out </strong>
+      <h5 style="display: contents; color:#25345D"><strong>Stage #4 : Safe Work Permit - Close-Out </strong>
       </h5>
     </div>
     <mat-panel-description></mat-panel-description>
@@ -271,11 +271,11 @@
                 <div class="form-group">
                   <label>signature</label>
                   <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage3.style.display = (signatureImage3.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage31.style.display = (signatureImage31.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                     <div style="margin-top: 10px;">
-                      <img #signatureImage3 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                      <img #signatureImage31 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
                     </div>
-                    <div *ngIf="signatureImage3.style.display !== 'none'" style="margin-top: 10px;" style="align-items: centr;">
+                    <div *ngIf="signatureImage31.style.display !== 'none'" style="margin-top: 10px;" style="align-items: centr;">
                      <strong>Raja Kumaravel</strong><br>
                     <strong>[1Emp20240101]</strong>
                     </div>
