@@ -14,7 +14,7 @@
       <mat-card-content>
         <!-- <h6 style="margin-left: 35%;"><strong>Procedure Checklist #B</strong></h6> -->
 
-        <form [formGroup]="ChecklistB"(ngSubmit)="onSubmit()" [ngClass]="{ 'disabled-form': formdisable }">
+        <form [formGroup]="ChecklistB" [ngClass]="{ 'disabled-form': formdisable }">
 
           <thead>
             <tr>
@@ -48,7 +48,7 @@
               <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="oot_bearings_oil_levels_comment"(focusout)="patchvalue()" ></textarea>
               <div style="margin-left: 31%;">
                 <button class="btn btn-primary m-1" (click)="ChecklistB?.get('oot_bearings_oil_levels')?.setValue(''); ChecklistB?.get('oot_bearings_oil_levels_comment')?.setValue('')" >Cancel</button>
-                <button class="btn btn-primary m-1" (click)="onSubmit()">Confirm</button>
+                <button class="btn btn-primary m-1" >Confirm</button>
               </div>
             </div>
         </td>
@@ -334,7 +334,7 @@
                   <textarea id="w3review"  name="w3review" rows="4" cols="40" formControlName="oot_Floor_burners_comment" (focusout)="patchvalue()"></textarea>
                   <div style="margin-left: 31%;">
                     <button class="btn btn-primary m-1" (click)="ChecklistB?.get('oot_Floor_burners')?.setValue(''); ChecklistB?.get('oot_Floor_burners_comment')?.setValue('')" >Cancel</button>
-                    <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
+                    <button class="btn btn-primary m-1" >Confirm</button>
                   </div>
                 </div>
             </td>

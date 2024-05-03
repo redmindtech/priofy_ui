@@ -41,7 +41,7 @@ export class NotificationsComponent implements OnInit, OnDestroy {
   setupSubmitInterval() {
     this.onSubmitInterval = setInterval(() => {
       this.add();
-    }, 5 * 1000); // 5 seconds interval
+    }, 6 * 1000); // 5 seconds interval
   }
 
   add() {

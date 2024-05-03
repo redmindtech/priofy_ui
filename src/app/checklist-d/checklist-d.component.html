@@ -21,7 +21,7 @@
     </mat-expansion-panel-header>
     <mat-card class="mat">
       <mat-card-content>
-        <form [formGroup]="ChecklistD" (ngSubmit)="onSubmit()"[ngClass]="{ 'disabled-form': formdisable }">
+        <form [formGroup]="ChecklistD" [ngClass]="{ 'disabled-form': formdisable }">
 
           <thead>
             <tr>

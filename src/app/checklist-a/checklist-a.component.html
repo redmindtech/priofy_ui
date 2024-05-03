@@ -46,13 +46,14 @@
                     }">Skip</label>
                     
 
-                  <div *ngIf="ChecklistA?.get('oot_high_pressure')?.value === 'Skip' && oot_high_pressure">
+                  <div *ngIf="ChecklistA?.get('oot_high_pressure')?.value === 'Skip'">
+
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
                       formControlName="oot_high_pressure_comment" (focusout)="patchvalue()" ></textarea>
                     <div style="margin-left: 31%;">
                       <button class="btn btn-primary m-1"
-                        (click)="ChecklistA?.get('oot_high_pressure')?.setValue(''); ChecklistA?.get('oot_high_pressure_comment')?.setValue(''); oot_high_pressure = false;">Cancel</button>
-                      <button class="btn btn-primary m-1" (click)="onSubmit('oot_high_pressure'); oot_high_pressure= false;">Confirm</button>
+                        (click)="ChecklistA?.get('oot_high_pressure')?.setValue(''); ChecklistA?.get('oot_high_pressure_comment')?.setValue(''); ">Cancel</button>
+                      <button class="btn btn-primary m-1" (click)="onRadioChangeup()">Confirm</button>
                     </div>
                   </div>
                 </td>
@@ -92,13 +93,13 @@
                                            (ChecklistA?.get('oot_hbf_inlet')?.value === 'Skip' ? 'rgb(238, 238, 136)' : '')
                     }">Skip</label>
 
-                  <div *ngIf="ChecklistA?.get('oot_hbf_inlet')?.value === 'Skip' && oothbfinlet">
+                  <div *ngIf="ChecklistA?.get('oot_hbf_inlet')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
                       formControlName="oot_hbf_inlet_comment" (focusout)="patchvalue()"></textarea>
                     <div style="margin-left: 31%;">
                       <button class="btn btn-primary m-1"
-                        (click)="ChecklistA?.get('oot_hbf_inlet')?.setValue(''); ChecklistA?.get('oot_hbf_inlet_comment')?.setValue('');oothbfinlet = false;">Cancel</button>
-                      <button class="btn btn-primary m-1" (click)="onSubmit('oot_hbf_inlet'); onRadioChangeup();oothbfinlet = false;">Confirm</button>
+                        (click)="ChecklistA?.get('oot_hbf_inlet')?.setValue(''); ChecklistA?.get('oot_hbf_inlet_comment')?.setValue('');">Cancel</button>
+                      <button class="btn btn-primary m-1" (click)="onRadioChangeup();">Confirm</button>
                     </div>
                   </div>
                 </td>
@@ -181,11 +182,10 @@
                   <input type="radio" class="custom-radio" id="oot_bypass-risk" name="oot_bypass" value="Risk"
                     formControlName="oot_bypass" (change)="onRadioChangeup()" />
                   <label for="oot_bypass-risk" class="action">Risk</label>
-
                   <input type="radio" class="custom-radio" id="oot_bypass-skip" name="oot_bypass" value="Skip"
                     formControlName="oot_bypass" (change)="onRadioChangeup()" />
                     <label for="oot_bypass-skip" class="action" [ngStyle]="{
-                      'background-color': ChecklistA.get('oot_bypass_comment_status')?.value === 'Accept' ? 'rgb(155, 247, 155);' : 
+                      'background-color':ChecklistA.get('oot_bypass_comment_status')?.value === 'Accept' ? 'rgb(155, 247, 155)' : 
                       ChecklistA.get('oot_bypass_comment_status')?.value === 'Reject' ? 'rgb(240, 130, 130)' : 
                                            (ChecklistA?.get('oot_bypass')?.value === 'Skip' ? 'rgb(238, 238, 136)' : '')
                     }">Skip</label>
@@ -729,9 +729,9 @@
                   <input type="radio" class="custom-radio" id="oot_bd_header-skip" name="oot_bd_header" value="Skip"
                     formControlName="oot_bd_header" (change)="onRadioChangeup()" />
                     <label for="oot_bd_header-skip" class="action" [ngStyle]="{
-                      'background-color': colour === 'oot_bd_header_comment_status' && clrvalue === 'Accept' ? 'rgb(155, 247, 155)' : 
-                                           (colour === 'oot_bd_header_comment_status' && clrvalue === 'Reject' ? 'rgb(240, 130, 130)' : 
-                                           (ChecklistA?.get('oot_bd_header')?.value === 'Skip' ? 'rgb(238, 238, 136)' : ''))
+                      'background-color': ChecklistA.get('oot_sdi_blow_down_comment_status')?.value === 'Accept' ? 'rgb(155, 247, 155)' : 
+                                           ChecklistA.get('oot_sdi_blow_down_comment_status')?.value === 'Reject' ? 'rgb(240, 130, 130)' : 
+                                           (ChecklistA?.get('oot_bd_header')?.value === 'Skip' ? 'rgb(238, 238, 136)' : '')
                     }">Skip</label>
 
                   <div *ngIf="ChecklistA?.get('oot_bd_header')?.value === 'Skip'">

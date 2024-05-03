@@ -209,6 +209,7 @@ formInitialization(){
     ups_system_comment_status:[null],
     oot_caged_doors_open_comment_status:[null],
     oot_peep_doors_closed_comment_status:[null],
+    
     oot_local_start_stop_comment_status:[null],
     oot_ID_fan_casing_comment_status:[null],
     oot_FD_suction_comment_status:[null],
@@ -415,7 +416,7 @@ console.log(this.remainingValues);
     // } else {
     //   console.log("Response or response.result is null or undefined.");
     //   // Handle the error or notify the user accordingly
-    // }
+    // // }
         this.ChecklistB.get('ups_system_comment')?.setValue(this.ChecklistB.get('ups_system_comment')?.value ? this.ChecklistB.get('ups_system_comment')?.value.split("||")[1].trim() : null);
         this.ChecklistB.get('iot_Overview_HMI_comment')?.setValue(this.ChecklistB.get('iot_Overview_HMI_comment')?.value ? this.ChecklistB.get('iot_Overview_HMI_comment')?.value.split("||")[1].trim() : null);
         this.ChecklistB.get('oot_bearings_oil_levels_comment')?.setValue(this.ChecklistB.get('oot_bearings_oil_levels_comment')?.value ? this.ChecklistB.get('oot_bearings_oil_levels_comment')?.value.split("||")[1].trim() : null);
