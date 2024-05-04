@@ -93,3 +93,17 @@ mat-panel-title {
   background-color: #25345D
 
  }
+ #print-button {
+  background-color: #25345D;
+  color: white;
+  padding: 4px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: auto;
+  
+}
+
+#print-button:hover {
+  background-color: #1a2647;
+}

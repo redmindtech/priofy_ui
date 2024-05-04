@@ -10,6 +10,9 @@ export class DevaitionComponent implements OnInit {
   @Input() devaitionformenable: boolean;
   checklistformenable: boolean = true;
   open1:boolean;
+  @Input() printexpand3: boolean = false; // Initialize printexpand when declared
+
+  printexpand4: boolean = this.printexpand3; 
   @Input() expand: boolean;
   constructor(
     private toast: MatSnackBar,

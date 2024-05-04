@@ -13,6 +13,9 @@ export class SafeoperComponent implements OnInit {
   devaitionformenable: boolean = true;
   FirstForm: FormGroup;
   open1:boolean;
+  @Input() printexpand2: boolean = false; // Initialize printexpand when declared
+
+  printexpand3: boolean; 
   @Input() expand: boolean;
   constructor(private fb: FormBuilder,
     private apiService:SafeoperService,

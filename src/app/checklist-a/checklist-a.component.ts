@@ -15,6 +15,9 @@ export class ChecklistAComponent implements OnInit {
   @Input() checklistformenable: boolean;
   open1:boolean;
   @Input() expand: boolean;
+  @Input() printexpand4: boolean = false; // Initialize printexpand when declared
+
+  printexpand5: boolean; 
   checklistbformenable: boolean = true;
   ChecklistA: FormGroup;
   formDisableControl = new FormControl(false);

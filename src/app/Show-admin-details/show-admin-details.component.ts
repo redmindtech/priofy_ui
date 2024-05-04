@@ -12,7 +12,7 @@ export class ShowAdminDetailsComponent implements OnInit {
   catagory: string;
   Procedure: FormGroup;
   listData: any[] = []; 
-  constructor(  public dialogRef: MatDialogRef<ShowAdminDetailsComponent>,@Inject(MAT_DIALOG_DATA) public data: any,private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder) { 
     this.Procedure = this.fb.group({
       Furnace_Id: [''],
       // job_plan_date:[''],

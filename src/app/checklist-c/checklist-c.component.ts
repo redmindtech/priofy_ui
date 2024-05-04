@@ -13,6 +13,9 @@ import { Subscription } from 'rxjs';
 export class ChecklistCComponent implements OnInit {
   @Input() checklistcformenable: boolean;
   checklistdformenable: boolean = true;
+  @Input() printexpand6: boolean = false; // Initialize printexpand when declared
+
+  printexpand7: boolean;
   ChecklistC  :FormGroup
   currentDate: string;
   currenttime: string;

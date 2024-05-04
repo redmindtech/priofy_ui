@@ -18,7 +18,9 @@ export class ChecklistFComponent implements OnInit {
   open1:boolean;
   @Input() expand: boolean;
   ChecklistF: FormGroup;
+  @Input() printexpand9: boolean = false; // Initialize printexpand when declared
 
+ 
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
   currentUser: any;
@@ -43,6 +45,7 @@ export class ChecklistFComponent implements OnInit {
   this.disableIO=this.currentUser.position;
     this.formInitialization();
     this.setupSubmitInterval();
+    console.log("ff");
 
   }
   openDialog(): void {

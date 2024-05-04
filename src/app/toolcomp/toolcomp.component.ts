@@ -14,6 +14,9 @@ import { ToolcompService } from '@app/utils/service/toolcomp.service';
 export class ToolcompComponent implements OnInit {
   @Input() nextformenable: boolean;
   @Input() expand: boolean;
+  @Input() printexpand: boolean=false; // Initialize printexpand when declared
+  printexpand1:boolean;
+   
   startupformenable: boolean = true;
   open1 : boolean ;
   
@@ -27,7 +30,6 @@ export class ToolcompComponent implements OnInit {
 ngOnInit(): void {
 
   this.formInitialization();
-  
   
 
 
@@ -101,6 +103,6 @@ nxt(){
   this.startupformenable=false;
   this.expand = false;
   this.open1 =true
-
 }
+
 }

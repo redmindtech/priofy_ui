@@ -1,6 +1,7 @@
 <mat-panel-title class="font-weight-bold master_header_color" style="color: #151516; margin: 1%;">
 
   <h3 style="text-align:center; margin-left: 40%;">Furnace Startup</h3>
+  <button id="print-button" (click)="printAndChange()">Print</button>
 </mat-panel-title>
 
 
@@ -163,4 +164,4 @@
   </mat-expansion-panel>
 </mat-accordion>
 <br>
-<app-toolcomp [nextformenable]="nextformenable" [expand]="expand"></app-toolcomp>
+<app-toolcomp [nextformenable]="nextformenable" [expand]="expand" [printexpand]="printexpand"></app-toolcomp>

@@ -1,5 +1,5 @@
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand"
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand || printexpand6"
   [disabled]="checklistcformenable">
   <!--  -->
     <mat-expansion-panel-header class="mat_expansion_header_border">
@@ -1367,4 +1367,4 @@
 </mat-expansion-panel>
 </mat-accordion>
 <br>
-<app-checklist-d [checklistdformenable]="checklistdformenable" [expand]="open1"></app-checklist-d>
+<app-checklist-d [checklistdformenable]="checklistdformenable" [expand]="open1"[printexpand7]="printexpand6"></app-checklist-d>

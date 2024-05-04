@@ -18,6 +18,7 @@ export class TodayComponent implements OnInit {
   currentUser: any;
   expand: boolean;
   open:boolean=true;
+  printexpand: boolean;
   
   constructor(private fb: FormBuilder, 
     private apiService: FirstpageService,
@@ -101,6 +102,38 @@ formInitialization(){
     nxt(){
       this.nextformenable=false;
       this.expand=true;
-     this. open=false
+     this.open=false
     }
+    printAndChange() {
+      this.open = true;
+      if (this.open) {
+          setTimeout(() => {
+            var printButton = document.getElementById("print-button");
+            console.log('printButton: ', printButton);
+            if (printButton !== null) {
+              printButton.style.display = "none";
+            } else {
+              console.error("Print button not found!");
+            }
+          
+              window.print();
+          }, 2000);
+  
+          this.printexpand = true;
+  
+          setTimeout(() => {
+              this.printexpand = false;
+              this.open=false
+              var printButton = document.getElementById("print-button");
+              console.log('printButton: ', printButton);
+              if (printButton !== null) {
+                printButton.style.display = "inline";
+              } else {
+                console.error("Print button not found!");
+              }
+          }, 5000);
+      }
+  }
+  
+     
 }

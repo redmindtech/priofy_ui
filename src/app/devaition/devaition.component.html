@@ -1,6 +1,6 @@
 
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand" [disabled]="devaitionformenable">
+  <mat-expansion-panel class="mat_expansion_border" [expanded]="expand || printexpand3" [disabled]="devaitionformenable">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents; color: #25345D"><strong> 5.Consequences of Deviation</strong></h5>
@@ -308,4 +308,4 @@ from outside and inside.</li>
       </mat-expansion-panel>
     </mat-accordion>
     <br>
-    <app-checklist-a [checklistformenable]="checklistformenable" [expand]="open1"></app-checklist-a>
+    <app-checklist-a [checklistformenable]="checklistformenable" [expand]="open1"[printexpand4]="printexpand3"></app-checklist-a>

@@ -16,6 +16,9 @@ export class StartupComponent implements OnInit {
   saferoperformenable: boolean = true;
   @Input() expand: boolean;
   open1 : boolean ;
+  @Input() printexpand1: boolean = false; // Initialize printexpand when declared
+
+  printexpand2: boolean; 
 
   FirstForm: FormGroup;
   constructor(private fb: FormBuilder,

@@ -15,6 +15,9 @@ export class ChecklistDComponent implements OnInit {
   @Input() checklistdformenable: boolean;
   checklisteformenable: boolean = true;
   open1:boolean;
+  @Input() printexpand7: boolean = false; // Initialize printexpand when declared
+
+  printexpand8: boolean;
   @Input() expand: boolean;
   ChecklistD:FormGroup
   userDetails: any;

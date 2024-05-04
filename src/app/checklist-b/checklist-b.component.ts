@@ -14,6 +14,10 @@ import { Subscription } from 'rxjs';
 export class ChecklistBComponent implements OnInit {
   @Input() checklistbformenable: boolean;
   checklistcformenable: boolean = true;
+  @Input() printexpand5: boolean = false; // Initialize printexpand when declared
+
+  printexpand6: boolean;
+
   ChecklistB: FormGroup;
   currentUser: any;
   disableIO: any;

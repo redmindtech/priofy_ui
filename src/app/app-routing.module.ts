@@ -29,6 +29,7 @@ import { SwpcloseoutComponent } from './swpcloseout/swpcloseout.component';
 import { SwprequestComponent } from './swprequest/swprequest.component';
 import { PacdashboardComponent } from './pacdashboard/pacdashboard.component';
 import { SwptableComponent } from './swptable/swptable.component';
+import { ShowAdminDetailsComponent } from './Show-admin-details/show-admin-details.component';
 
 const routes: Routes = [
   {
@@ -152,7 +153,10 @@ const routes: Routes = [
         path: 'dashboardpac',
         component: PacdashboardComponent,
       },
-     
+      {
+        path: 'showadmin',
+        component: ShowAdminDetailsComponent,
+      },
     ]
   }, {
     path: '',
