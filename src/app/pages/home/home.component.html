@@ -17,9 +17,9 @@
          <div class="row">
      <!-- small box -->
      <div class="col-lg-4 col-6 ">
-     <div class="small-box bg-info">
+     <div class="small-box .bg-royal-purple">
        <div class="inner">
-         <h3>Inprogress Procedures</h3>
+         <h3>InProgress Procedures</h3>
          <!-- <p>Registered Office Bearers</p> -->
        </div>
        <div class="icon">
@@ -35,7 +35,7 @@
      <br>
    <div class="col-lg-4 col-6">
      <!-- small box -->
-     <div class="small-box bg-success">
+     <div class="small-box .bg-royal-purple">
        <div class="inner">
          <h3>Open Procedures</h3>
          <!-- <p>No.of District Reg OB</p> -->
@@ -53,8 +53,8 @@
      <br>
    <div class="col-lg-4 col-6">
      <!-- small box -->
-     <div class="small-box bg-secondary">
-       <div class="inner" style="color: white;">
+     <div class="small-box .bg-royal-purple">
+       <div class="inner" >
          <h3>Complete Procedures</h3>
          <!-- <p>Number of District</p> -->
        </div>
@@ -77,8 +77,9 @@
 
 </div>
 </section>
-<mat-card class="mat" (click)="viewselected()"  *ngIf="addbutton">
-  <mat-card-content>
+<mat-card class="mat bg-royal-purple " (click)="viewselected()"  *ngIf="addbutton" >
+  
+  <mat-card-content >
     <div class="row headercolor">
       <h3 style="margin: 1%;">Furnace Startup</h3>
       <h3 class="align">(HV-2210-86)</h3>    
@@ -127,4 +128,5 @@
 
     
   </mat-card-content>
+  
 </mat-card>

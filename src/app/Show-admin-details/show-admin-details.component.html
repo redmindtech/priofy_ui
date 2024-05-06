@@ -1,20 +1,30 @@
 
             <div class="card card-warning" >
-                <div class="card-header" style="background-color: #25345D;color: white;padding: 6px;">
-                    <h3  class="card-title">Process Initialization</h3>
-                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-                </div>
-                <div class="card-body" style="margin-top: -20px;">
+              <div class="card-header" style="background-color: #25345D; color: white; padding: 6px; text-align: center; display: flex; justify-content: center;">
+                <h3 class="card-title" style="margin-left: 350px;">Work Order Initialization</h3>
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            </div>
+            
+            
+                <div class="card-body" style="margin-top: 5px;">
                     <form [formGroup]="Procedure" class="register-form" >
                         
   
                         <!-- <div class="row" *ngIf="!editfield"> -->
                           <div class="row">
-                          <div class="card-body"  *ngIf="!editfield" style="margin-left: -10px;">
+                          <!-- <div class="card-body"  *ngIf="!editfield" style="margin-left: -10px;"> -->
+                            <div class="col-sm-6">
                             <div class="form-group">
-                              <label for="Furnace_Id">Furnace Name</label>
-                              <input type="text" class="form-control" id="Furnace_Id" formControlName="Furnace_Id" placeholder="Enter Furnace Name">
+                              <label for="Furnace_Id">Equipment Name</label>
+                              <input type="text" class="form-control" id="Furnace_Id" formControlName="Furnace_Id" placeholder="Enter Equipment Name">
                               </div>
+
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>Equipment Id</label>
+                              <input type="text" id="ed_id" formControlName="ed_id" class="form-control" formControlName="ed_id" placeholder="Enter Equipment Id">
+                            </div>
                           </div>
                           </div>
                           
@@ -174,11 +184,13 @@
   
                     </form>
                 </div>
-            </div>
-        
-    <!-- <button style="margin-left: 92%;background-color: #97ca94;">Save</button> -->
-    <button type="button" class="btn btn-primary" style="margin-left: 85%;background-color: #25345D;color: white;width: max-content;" (click)="addItem()">Initiate Procedure</button>&nbsp;
-    
+            </div>     
+            <div style="text-align: center;">
+              <button type="button" class="btn btn-primary" style="margin-left: auto; margin-right: auto; background-color: #25345D; color: white; width: max-content;" (click)="addItem()">Initiate a Work Order
+              </button>
+          </div>
+          <div style="margin-top: 20px;"></div>
+           
 
   
   

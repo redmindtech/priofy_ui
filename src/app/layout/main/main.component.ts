@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ActivatedRoute, Router,NavigationEnd  } from '@angular/router';
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -12,37 +14,73 @@ export class MainComponent implements OnInit {
   currentUser: any;
   username: any;
   headname:any;
+  screen:any;
+  fullUrl:any;
 
-
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+   
     const storedUser = localStorage.getItem('currentUser');
     this.currentUser = storedUser ? JSON.parse(storedUser) : null;
    let name= this.currentUser.username
+   console.log(name)
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        // Get the full URL
+        this.fullUrl = event.url;
+        console.log(this.fullUrl);
+        console.log(name)
+        if(name === 'Admin')          {
+          console.log('else')
+            if (this.fullUrl === '/main/maindashboard') {
+              this.screen = "Main Dashboard";
+            } 
+             if (this.fullUrl === '/main/dashboard'){
+              this.screen = "Procedure Catalogs";
+            }
+            if (this.fullUrl === '/main/Admin'){
+              this.screen = "Work Orders";
+            }
+
+          }
+        if(name=="Operator1" || name=="Operator2" ||name=="Operator3" || name=="Operator4"){
+        if (this.fullUrl === '/main/dashboard') {
+          this.screen = "Dashboard";
+        } 
+         if (this.fullUrl === '/main/home'){
+          this.screen = "My work order";
+        }
+       
+        
+      }
+      }
+    });
+    
+   
    if(name=="Operator1"){
-    this.headname="EQUATE- Process Digitization"
-      this.username="Shift-Operator1"
+    this.headname="Process Digitization"
+      this.username="Prakash"
       this.menu = this.getOperator1Menu();
    }
    else if(name=="Operator2"){
-    this.headname="EQUATE- Process Digitization"
-    this.username="Shift-Operator2"
+    this.headname="Process Digitization"
+    this.username="Bala"
     this.menu = this.getOperator1Menu();
    }
    else if(name=="Operator3"){
-    this.headname="EQUATE- Process Digitization"
-    this.username="Shift-Operator3"
+    this.headname="Process Digitization"
+    this.username="Arun"
     this.menu = this.getOperator1Menu();
    }
    else if(name=="Operator4"){
-    this.headname="EQUATE- Process Digitization"
-    this.username="Shift-Operator4"
+    this.headname="Process Digitization"
+    this.username="Rangith"
     this.menu = this.getOperator1Menu();
    }
    else if(name=="Admin"){
-    this.headname="EQUATE- Process Digitization"
-    this.username="Shift-Leader";
+    this.headname="Process Digitization"
+    this.username="Shift - Leader Kumar";
     this.menu = this.getAdminMenu();
    }
   else if(name=='Processactivitycoordinator') 
@@ -130,14 +168,14 @@ export class MainComponent implements OnInit {
 private getAdminMenu() {
   return [
     { name: 'Dashboard', path: ['/main/maindashboard'] },
-    { name: 'Shift Leader Dashboard', path: ['/main/dashboard'] },
-    { name: 'Process Initialization', path: ['/main/Admin'] }
+    { name: 'Procedure Catalogs', path: ['/main/dashboard'] },
+    { name: 'Work Orders', path: ['/main/Admin'] }
   ];
 }
 private getOperator1Menu() {
   return [
-    { name: 'Procedural Dashboard', path: ['/main/dashboard'] },
-    { name: 'Operational Dashboard', path: ['/main/home'] },
+    { name: 'Dashboard', path: ['/main/dashboard'] },
+    { name: 'My Work Order', path: ['/main/home'] },
   ];
 }
 }

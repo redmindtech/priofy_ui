@@ -26,7 +26,8 @@ export class ShowAdminDetailsComponent implements OnInit {
       comments:[''],
       catagory:[''],
       other_qualification:[''],
-      Attributes:['']
+      Attributes:[''],
+      ed_id:['']
     });
   }
   addbutton=false;
