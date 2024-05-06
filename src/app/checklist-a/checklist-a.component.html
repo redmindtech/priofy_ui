@@ -2,7 +2,8 @@
   
 
   <mat-expansion-panel class="mat_expansion_border" [expanded]="expand || printexpand4"
-  [disabled]="checklistformenable">
+  [disabled]="false">
+  <!-- checklistformenable -->
 
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
@@ -903,7 +904,7 @@
                     <div style="margin-left: 31%;">
                       <button class="btn btn-primary m-1"
                         (click)="ChecklistA?.get('iot_decoke_mov')?.setValue(''); ChecklistA?.get('iot_decoke_mov_comment')?.setValue('')">Cancel</button>
-                        <button class="btn btn-primary m-1" (focusin)="patchvalue()"(click)="onSkipButtonClick()"(click)="onRadioChangeup()">Confirm</button>
+                        <button class="btn btn-primary m-1" (focusin)="patchvalue()"(click)="onSkipButtonClick()"(click)="onRadioChangeup()" (click)="confirmSkip()">Confirm</button>
                     </div>
                   </div>
                 </td>
@@ -941,7 +942,9 @@
                     value="Skip" formControlName="iot_furnace_control_sequence" (change)="onRadioChangeup()" />
                     <label for="iot_furnace_control_sequence-skip" class="action" (click)="onSkipButtonClick()">Skip</label>
 
-                  <div *ngIf="ChecklistA?.get('iot_furnace_control_sequence')?.value === 'Skip'">
+                  <div *ngIf="false">
+                    <!-- hideControlsForRows('iot_furnace_control_sequence') -->
+                    <!-- ChecklistA?.get('iot_furnace_control_sequence')?.value === 'Skip' -->
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
                       formControlName="iot_furnace_control_sequence_comment"></textarea>
                     <div style="margin-left: 31%;">
@@ -952,14 +955,15 @@
                   </div>
                 </td>
                 <td style="text-align:center">
-                  <div *ngIf="ChecklistA.get('iot_furnace_control_sequence_comment_status')?.value; else noStatus">
-                    {{ ChecklistA.get('iot_furnace_control_sequence_comment_status')?.value }}
+                  <div *ngIf="ChecklistA.get('iot_decoke_mov_comment_status')?.value; else noStatus">
+                    {{ ChecklistA.get('iot_decoke_mov_comment_status')?.value }}
                   </div>
                   <ng-template #noStatus>
                     <div>{{'-'}}</div>
                   </ng-template>
                 </td>
               </tr>
+
               <tr [class.disabled]="disableoot"class="colour2">
                 <td style="text-align:center">5</td>
                 <td class="header">IOT to move BM sequence to Process Wait step.</td>
@@ -984,7 +988,9 @@
                     value="Skip" formControlName="iot_bm_sequence" (change)="onRadioChangeup()" />
                     <label for="iot_bm_sequence-skip" class="action" (click)="onSkipButtonClick()">Skip</label>
 
-                  <div *ngIf="ChecklistA?.get('iot_bm_sequence')?.value === 'Skip'">
+                  <div *ngIf="false">
+                    <!-- hideControlsForRows('iot_bm_sequence') -->
+                    <!-- ChecklistA?.get('iot_bm_sequence')?.value === 'Skip' -->
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
                       formControlName="iot_bm_sequence_comment"></textarea>
                     <div style="margin-left: 31%;">
@@ -995,14 +1001,15 @@
                   </div>
                 </td>
                 <td style="text-align:center">
-                  <div *ngIf="ChecklistA.get('iot_bm_sequence_comment_status')?.value; else noStatus">
-                    {{ ChecklistA.get('iot_bm_sequence_comment_status')?.value }}
+                  <div *ngIf="ChecklistA.get('iot_decoke_mov_comment_status')?.value; else noStatus">
+                    {{ ChecklistA.get('iot_decoke_mov_comment_status')?.value }}
                   </div>
                   <ng-template #noStatus>
                     <div>{{'-'}}</div>
                   </ng-template>
                 </td>
               </tr>
+
               <tr [class.disabled]="disableoot"class="colour1">
                 <td style="text-align:center">6</td>
                 <td class="header">IOT to go to each individual auto burner and move its sequence to Process Wait.</td>

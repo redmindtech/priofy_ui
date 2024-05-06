@@ -518,23 +518,59 @@ clearTextarea(){
   this.ChecklistA.get('shift_comment_a_iot')?.setValue(null);
 }
 
+// Define properties to track skip status for each row
+skipStatus: { [key: string]: boolean } = {
+  'iot_decoke_mov': false,
+  'iot_furnace_control_sequence': false,
+  'iot_bm_sequence': false
+};
+
 onSkip(controlName: string) {
   if (controlName === 'iot_decoke_mov') {
     const dialogRef = this.dialog.open(SkipConfirmationDialogComponent, {
       width: '400px',
       data: {
         title: 'Skip Confirmation',
-        message: 'On Skipping This, it will Automatically Skip 4 & 5. Continue?',
-        confirmText: 'Continue',
+        message: 'On Skip this step, it will Automatically Skip Step 4 & 5.',
+        confirmText: 'Confirm',
         cancelText: 'Cancel'
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // This code will execute after closing the dialog
+      if (result) {
+        const comment = this.ChecklistA.get('iot_decoke_mov_comment')?.value || '';
+
+        // Update the comment and set the skip value for the 3rd row
+        this.updateCommentsAndSkip('iot_decoke_mov_comment', comment);
+
+        // Set comment of the 3rd row to 4th and 5th row textboxes if it is skipped
+        const thirdRowValue = this.ChecklistA.get('iot_decoke_mov')?.value;
+        if (thirdRowValue === 'Skip') {
+          // Assign the comment of the 3rd row to thirdRowComment
+          const thirdRowComment = comment;
+
+          // Set comments and skip values for the 4th and 5th rows
+          this.updateCommentsAndSkip('iot_furnace_control_sequence_comment', thirdRowComment);
+          this.updateCommentsAndSkip('iot_bm_sequence_comment', thirdRowComment);
+
+          // Update skip status for the 4th and 5th rows
+          this.skipStatus['iot_furnace_control_sequence'] = true;
+          this.skipStatus['iot_bm_sequence'] = true;
+        } else {
+          // Reset skip status for the 4th and 5th rows
+          this.skipStatus['iot_furnace_control_sequence'] = false;
+          this.skipStatus['iot_bm_sequence'] = false;
+        }
+      }
     });
   }
 }
+
+hideControlsForRows(row: string) {
+  return this.skipStatus[row];
+}
+
 
 confirmSkip() {
   const comment = this.ChecklistA.get('iot_decoke_mov_comment')?.value || '';
