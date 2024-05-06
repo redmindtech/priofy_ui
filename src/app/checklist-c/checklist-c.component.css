@@ -98,7 +98,7 @@ th {
   @media only screen and (max-width: 1400px)
 {
   #w3reviews{
-    margin-left: 30%;
+    margin-left: 40%;
     }
     
 }
@@ -108,4 +108,14 @@ th {
 .disabled-form {
   pointer-events: none;
   opacity: 0.5;
+}
+#shiftcommentbutton{
+  margin-left: 450px;
+}
+@media only screen and (max-width: 1400px)
+{
+  #shiftcommentbutton{
+    margin-left: 300px;
+    }
+    
 }
