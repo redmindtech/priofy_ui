@@ -72,3 +72,6 @@ h3{
 .small-box-footer {
   cursor: pointer; /* Changes cursor to a pointer hand */
 }
+.textcolour{
+  color: #130c0c;
+}

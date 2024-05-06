@@ -678,8 +678,8 @@
                   </div>
                 </td>
                 <td style="text-align:center">
-                  <div *ngIf="ChecklistA.get('oot_sdi_blow_down_comment_status')?.value; else noStatus">
-                    {{ ChecklistA.get('oot_sdi_blow_down_comment_status')?.value }}
+                  <div *ngIf="ChecklistA.get('oot_bd_header_comment_status')?.value; else noStatus">
+                    {{ ChecklistA.get('oot_bd_header_comment_status')?.value }}
                   </div>
                   <ng-template #noStatus>
                     <div>{{'-'}}</div>
@@ -1398,8 +1398,8 @@
                   </div>
                 </td>
                 <td style="text-align:center">
-                  <div *ngIf="ChecklistA.get('oot_bv_and_globe_value_close_comment_status')?.value; else noStatus">
-                    {{ ChecklistA.get('oot_bv_and_globe_value_close_comment_status')?.value }}
+                  <div *ngIf="ChecklistA.get('drum_3_startup_vent_comment_status')?.value; else noStatus">
+                    {{ ChecklistA.get('drum_3_startup_vent_comment_status')?.value }}
                   </div>
                   <ng-template #noStatus>
                     <div>{{'-'}}</div>

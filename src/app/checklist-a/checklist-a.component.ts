@@ -383,6 +383,7 @@ export class ChecklistAComponent implements OnInit {
       console.log("Response or response.result is null or undefined.");
       // Handle the error or notify the user accordingly
     }
+    console.log(this.ChecklistA.get('oot_hbf_inlet_comment')?.value);
     this.ChecklistA.get('oot_high_pressure_comment')?.setValue(this.ChecklistA.get('oot_high_pressure_comment')?.value ? this.ChecklistA.get('oot_high_pressure_comment')?.value.split("||")[1].trim() : null);
     this.ChecklistA.get('iot_bm_sequence_comment')?.setValue(this.ChecklistA.get('iot_bm_sequence_comment')?.value ? this.ChecklistA.get('iot_bm_sequence_comment')?.value.split("||")[1].trim() : null);
     this.ChecklistA.get('oot_hbf_inlet_comment')?.setValue(this.ChecklistA.get('oot_hbf_inlet_comment')?.value ? this.ChecklistA.get('oot_hbf_inlet_comment')?.value.split("||")[1].trim() : null);
