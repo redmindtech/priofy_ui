@@ -2,7 +2,7 @@ mat-accordion, mat-expansion-panel, mat-expansion-panel-header, mat-card, table,
 .btn1, .btn2, .header {
   font-family: 'Montserrat', sans-serif !important;
 }
-.header{
+#header{
   color:white;
   width:50%;
   text-align: center;
@@ -12,7 +12,16 @@ mat-accordion, mat-expansion-panel, mat-expansion-panel-header, mat-card, table,
     background-color: #25345D
   ;
  }
- 
+ #header1{
+  color:white;
+  width:50%;
+  text-align: center;
+  font-size: 18px !important;
+  font-family:'Montserrat' sans-serif !important;
+  margin-top: 2%;
+    background-color: #25345D
+  ;
+ }
  h4{
   text-align: center;
  }

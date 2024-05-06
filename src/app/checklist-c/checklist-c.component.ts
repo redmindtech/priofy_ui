@@ -34,6 +34,7 @@ export class ChecklistCComponent implements OnInit {
   remainingValues: any;
   open1:boolean;
   @Input() expand: boolean;
+  skipcondition:boolean=true;
 
   constructor(private fb: FormBuilder,
     private apiService:ChecklistCService,
@@ -295,8 +296,15 @@ toggleEnable() {
 setupSubmitInterval() {
   this.onSubmitInterval = setInterval(() => {
     console.log('onSubmitInterval: ', this.onSubmitInterval);
-    this.add();
+    if(this.skipcondition){
+      this.add();
+    }
   }, 5* 1000); // 2 minutes in milliseconds
+}
+onSkipButtonClick() {
+  // Set skipcondition to false
+  this.skipcondition = !this.skipcondition;
+  //this.setupSubmitInterval(); 
 }
 onSubmit() {
 

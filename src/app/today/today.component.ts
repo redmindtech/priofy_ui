@@ -109,7 +109,8 @@ formInitialization(){
       if (this.open) {
           setTimeout(() => {
             var printButton = document.getElementById("print-button");
-            // var mat0 = document.getElementById("mat-expansion-panel-header-0");
+            var mat0 = document.getElementById("header");
+            var mat1 = document.getElementById("header1");
             // var mat1 = document.getElementById("mat-expansion-panel-header-1");
             // var mat2 = document.getElementById("mat-expansion-panel-header-2");
             // var mat3 = document.getElementById("mat-expansion-panel-header-3");
@@ -118,12 +119,13 @@ formInitialization(){
             if (printButton !== null) {
               printButton.style.display = "none";
             }
-            // if (mat0 !== null) {
-            //   mat0.style.marginTop = "15%";
-            // } 
-            // if (mat1 !== null) {
-            //   mat1.style.marginTop = "30%";
-            // }
+            if (mat0 !== null) {
+              mat0.style.color = "black";
+              
+            } 
+            if (mat1 !== null) {
+              mat1.style.color = "black";
+            }
             // if (mat2 !== null) {
             //   mat2.style.marginTop = "3%";
             // }
@@ -143,7 +145,11 @@ formInitialization(){
               this.printexpand = false;
               this.open=false
               var printButton = document.getElementById("print-button");
-            //   var mat0 = document.getElementById("mat-expansion-panel-header-0");
+
+              var mat0 = document.getElementById("header");
+              var mat1 = document.getElementById("header1");
+              console.log('mat0: ', mat0);
+
             //   var mat1 = document.getElementById("mat-expansion-panel-header-1");
             //   var mat2 = document.getElementById("mat-expansion-panel-header-2");
             // var mat3 = document.getElementById("mat-expansion-panel-header-3");
@@ -151,12 +157,15 @@ formInitialization(){
               if (printButton !== null) {
                 printButton.style.display = "inline";
               } 
-              // if (mat0 !== null) {
-              //   mat0.style.marginTop = "0";
-              // } 
-              // if (mat1 !== null) {
-              //   mat1.style.marginTop = "0";
-              // } 
+              if (mat0 !== null) {
+                mat0.style.color = "white";
+                
+            }
+            
+            
+              if (mat1 !== null) {
+                mat1.style.color = "white";
+              } 
               // if (mat2 !== null) {
               //   mat2.style.marginTop = "0";
               // }

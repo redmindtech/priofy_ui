@@ -11,13 +11,11 @@ h3{
 }
 
 .mat {
-  border-width: thin;
-  border-color: black;
-  border-style: solid; /* Setting border style to solid */
+  /* Setting border style to solid */
   margin: 5% 1% 0; /* Adjusting top and left margin */
   width: 30%;
-  background-color: #147737;
-  color: white;
+  background-color: hwb(270 98% 1%);;
+  /* color: white; */
 }
 
 .align {
@@ -96,3 +94,10 @@ h3{
 .small-box-footer {
   cursor: pointer; /* Changes cursor to a pointer hand */
 }
+.bg-royal-purple {
+  background-color: hwb(270 98% 1%);
+}
+.bg-royal-green {
+  background-color: hwb(100 97% 2%);
+}
+
