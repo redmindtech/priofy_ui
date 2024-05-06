@@ -52,7 +52,7 @@ export class MainComponent implements OnInit {
             this.screen = 'Dashboard';
           }
           if (this.fullUrl === '/main/home') {
-            this.screen = 'My work order';
+            this.screen = 'My Work Orders';
           }
         }
       }
