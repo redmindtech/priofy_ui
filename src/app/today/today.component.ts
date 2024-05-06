@@ -109,10 +109,28 @@ formInitialization(){
       if (this.open) {
           setTimeout(() => {
             var printButton = document.getElementById("print-button");
-            console.log('printButton: ', printButton);
+            // var mat0 = document.getElementById("mat-expansion-panel-header-0");
+            // var mat1 = document.getElementById("mat-expansion-panel-header-1");
+            // var mat2 = document.getElementById("mat-expansion-panel-header-2");
+            // var mat3 = document.getElementById("mat-expansion-panel-header-3");
+          
+          
             if (printButton !== null) {
               printButton.style.display = "none";
-            } else {
+            }
+            // if (mat0 !== null) {
+            //   mat0.style.marginTop = "15%";
+            // } 
+            // if (mat1 !== null) {
+            //   mat1.style.marginTop = "30%";
+            // }
+            // if (mat2 !== null) {
+            //   mat2.style.marginTop = "3%";
+            // }
+            // if (mat3 !== null) {
+            //   mat3.style.marginTop = "15%";
+            // }
+            else {
               console.error("Print button not found!");
             }
           
@@ -125,10 +143,27 @@ formInitialization(){
               this.printexpand = false;
               this.open=false
               var printButton = document.getElementById("print-button");
+            //   var mat0 = document.getElementById("mat-expansion-panel-header-0");
+            //   var mat1 = document.getElementById("mat-expansion-panel-header-1");
+            //   var mat2 = document.getElementById("mat-expansion-panel-header-2");
+            // var mat3 = document.getElementById("mat-expansion-panel-header-3");
               console.log('printButton: ', printButton);
               if (printButton !== null) {
                 printButton.style.display = "inline";
-              } else {
+              } 
+              // if (mat0 !== null) {
+              //   mat0.style.marginTop = "0";
+              // } 
+              // if (mat1 !== null) {
+              //   mat1.style.marginTop = "0";
+              // } 
+              // if (mat2 !== null) {
+              //   mat2.style.marginTop = "0";
+              // }
+              // if (mat3 !== null) {
+              //   mat3.style.marginTop = "0";
+              // }
+              else {
                 console.error("Print button not found!");
               }
           }, 5000);

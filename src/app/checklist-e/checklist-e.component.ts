@@ -12,7 +12,7 @@ export class ChecklistEComponent implements OnInit {
   @Input() checklisteformenable: boolean;
   checklistfformenable: boolean = true;
   @Input() printexpand8: boolean = false; // Initialize printexpand when declared
-
+  skipcondition:boolean=true;
   printexpand9: boolean;
   ChecklistE!: FormGroup;
   private onSubmitInterval: any;
@@ -164,11 +164,22 @@ export class ChecklistEComponent implements OnInit {
     
   }
   setupSubmitInterval() {
+   
     this.onSubmitInterval = setInterval(() => {
       console.log('onSubmitInterval: ', this.onSubmitInterval);
-      this.add();
-    }, 5* 1000); // 2 minutes in milliseconds
+if(this.skipcondition){
+  this.add();
+}
+     
+    }, 5* 1000);
+    console.log('Submit interval set.');
+   // 2 minutes in milliseconds
   }
+  onSkipButtonClick() {
+    // Set skipcondition to false
+    this.skipcondition = !this.skipcondition;
+    //this.setupSubmitInterval(); 
+}
 
   onSubmit() {
     const permitFormValue = this.ChecklistE.value;
