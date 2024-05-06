@@ -101,3 +101,6 @@ h3{
   background-color: hwb(100 97% 2%);
 }
 
+.handsign{
+  cursor: pointer; /* Changes cursor to a pointer hand */
+}

@@ -121,10 +121,12 @@ formInitialization(){
             }
             if (mat0 !== null) {
               mat0.style.color = "black";
+              // mat0.style.backgroundColor="red";
               
             } 
             if (mat1 !== null) {
               mat1.style.color = "black";
+              // mat1.style.backgroundColor="red"
             }
             // if (mat2 !== null) {
             //   mat2.style.marginTop = "3%";
@@ -161,7 +163,6 @@ formInitialization(){
                 mat0.style.color = "white";
                 
             }
-            
             
               if (mat1 !== null) {
                 mat1.style.color = "white";
