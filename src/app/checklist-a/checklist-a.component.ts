@@ -43,6 +43,8 @@ export class ChecklistAComponent implements OnInit {
   oot_high_pressure: boolean = true;
   oothbfinlet: boolean = true;
   skipConfirmed: boolean = false;
+  disableIO: any;
+  skipcondition:boolean=true;
   
   
 
@@ -328,12 +330,18 @@ export class ChecklistAComponent implements OnInit {
     }
   
 
-  setupSubmitInterval() {
-    this.onSubmitInterval = setInterval(() => {
-      console.log('onSubmitInterval: ', this.onSubmitInterval);
-      this.add();
-    }, 5 * 1000); // 2 minutes in milliseconds
+    setupSubmitInterval() {
+   
+      this.onSubmitInterval = setInterval(() => {
+        console.log('onSubmitInterval: ', this.onSubmitInterval);
+  if(this.skipcondition){
+    this.add();
   }
+      }, 5* 1000);
+      console.log('Submit interval set.');
+     // 2 minutes in milliseconds
+    }
+
 
   onSubmit(controlName: string) {
    
@@ -560,7 +568,11 @@ updateCommentsAndSkip(controlName: string, comment: string) {
     skipControl.setValue('Skip');
   }
 }
-
+onSkipButtonClick() {
+  // Set skipcondition to false
+  this.skipcondition = !this.skipcondition;
+  //this.setupSubmitInterval(); 
+}
 
 
 

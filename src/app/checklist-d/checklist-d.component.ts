@@ -16,7 +16,7 @@ export class ChecklistDComponent implements OnInit {
   checklisteformenable: boolean = true;
   open1:boolean;
   @Input() printexpand7: boolean = false; // Initialize printexpand when declared
-
+  skipcondition:boolean=true;
   printexpand8: boolean;
   @Input() expand: boolean;
   ChecklistD:FormGroup
@@ -390,9 +390,17 @@ export class ChecklistDComponent implements OnInit {
     setupSubmitInterval() {
       this.onSubmitInterval = setInterval(() => {
         console.log('onSubmitInterval: ', this.onSubmitInterval);
-        this.add();
+        if(this.skipcondition){
+          this.add();
+        }
+      
       }, 5* 1000); // 2 minutes in milliseconds
     }
+    onSkipButtonClick() {
+      
+      this.skipcondition = !this.skipcondition;
+      
+  }
  onSubmit()
   {
 

@@ -20,7 +20,7 @@ export class ChecklistFComponent implements OnInit {
   ChecklistF: FormGroup;
   @Input() printexpand9: boolean = false; // Initialize printexpand when declared
 
- 
+  skipcondition:boolean=true;
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
   currentUser: any;
@@ -30,7 +30,7 @@ export class ChecklistFComponent implements OnInit {
   enable: boolean = false;
   formdisable:boolean;
   skipcolor: any;
-  colour:string = 'null'; 
+  colour:string = 'null';
   clrvalue: string='null';
 
   constructor(
@@ -50,18 +50,18 @@ export class ChecklistFComponent implements OnInit {
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(OpendialogcompleteComponent, {
-      width: '400px', 
+      width: '400px',
       height: '300px',
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       // console.log('The dialog was closed');
       dialogRef.close();
       this.router.navigate(['main/home']);
     });
   }
- 
-  
+
+
   ngOnDestroy(): void {
     clearInterval(this.onSubmitInterval);
     if (this.addSubscription) {
@@ -74,7 +74,7 @@ export class ChecklistFComponent implements OnInit {
       iot_confirm_id:['2.IOT to confirm that HV-22X0-02 (purge steam to ethane feed line(FV-22X0-14 A/B are open) opens to 100% automatically.)'],
       oot_ALL_BV_of_LS_steam_id:['3.OOT to ensure that ALL B/V of LS steam to PTs and MOVs are lined up.<br>Note: automated valve to CG MOV intermediate PT will not be auto enabled until 2 seconds after feed EBV is opened and will stay open for 120 seconds after the feed EBV closes.'],
       oot_flare_block_id:['4.OOT to confirm that both B/V of the CG MOVs purge steam lines drain valves and the flare block and bleed valves are closed.'],
-     
+
       oot_IOT_Decoke_Air_id: ['5.OOT&IOT to reconfirm that Decoke Air is blinded.'],
       oot_feed_DB_B_id: ['6.OOT to confirm that ethane feed DB&B are closed.'],
       iot_MOVs_status_id: ['7.IOT to confirm that ALL MOVs status signal are ok.'],
@@ -92,7 +92,7 @@ export class ChecklistFComponent implements OnInit {
       the_top_burners_id: ['18.If COT increase, follow the below step:A Cut some of the top burners if fuel gas pressure reaches 0.2 kg/cm2.'],
       increase_IBD_CBD_id: ['18.If COT increase, follow the below step:Increase IBD/ CBD.'],
       continue_with_Furnace_id: ['19.Continue with Furnace, Feed In procedure.'],
-      
+
 
       iot_move_furnace_sequence_to_Swing: [null,Validators.required],
       iot_confirm:  [null,Validators.required],
@@ -195,9 +195,9 @@ export class ChecklistFComponent implements OnInit {
       the_top_burners_comment: this.concatenateValues(this.ChecklistF.get('the_top_burners_id')?.value,this.ChecklistF.get('the_top_burners_comment')?.value ),
       increase_IBD_CBD_comment: this.concatenateValues(this.ChecklistF.get('increase_IBD_CBD_id')?.value,this.ChecklistF.get('increase_IBD_CBD_comment')?.value ),
       continue_with_Furnace_comment: this.concatenateValues(this.ChecklistF.get('continue_with_Furnace_id')?.value,this.ChecklistF.get('continue_with_Furnace_comment')?.value ),
-     
 
-    
+
+
     });
     console.log( this.ChecklistF)
   }
@@ -205,28 +205,35 @@ export class ChecklistFComponent implements OnInit {
       // console.log('controlValue1:'+controlValue1+'controlValue2:'+controlValue2)
       const control1Value = controlValue1 ;
       const control2Value =controlValue2 ? controlValue2 :null;
-     
+
       if (control2Value === null) {
-        let result :any; 
+        let result :any;
         console.log('if');
         return result;
     }
-    
-     
+
+
       else{
         let result1 = `${control1Value} || ${control2Value}`
         console.log('else:'+result1)
         return result1;
       }
-      
-      
+
+
     }
-  setupSubmitInterval() {
-    this.onSubmitInterval = setInterval(() => {
-      console.log('onSubmitInterval: ', this.onSubmitInterval);
-      this.add();
-    }, 5* 1000); // 2 minutes in milliseconds
-  }
+    setupSubmitInterval() {
+      this.onSubmitInterval = setInterval(() => {
+        console.log('onSubmitInterval: ', this.onSubmitInterval);
+        if(this.skipcondition){
+          this.add();
+        }
+      }, 5 * 1000); // 2 minutes in milliseconds
+    }
+    onSkipButtonClick() {
+      // Set skipcondition to false
+      this.skipcondition = !this.skipcondition;
+      //this.setupSubmitInterval();
+    }
 
   onSubmit() {
 
@@ -250,9 +257,9 @@ export class ChecklistFComponent implements OnInit {
     this.apiService.getchecklistF().subscribe((response: any) => {
       if (response && response.result) { // Check if response and response.result are not null or undefined
         this.remainingValues = response.result;
-       
-        this.formdisable = response.result.status === "Complete" ? false : true;
-        
+
+        this.formdisable = response.result.status === "Complete" ? true : false;
+
         Object.keys(this.remainingValues).forEach(key => {
           if (key !== 'shift_comment_f_oot' && key !== 'shift_comment_f_iot') {
             console.log('this.remainingValues[key]: ', this.remainingValues);
@@ -286,16 +293,16 @@ export class ChecklistFComponent implements OnInit {
       this.ChecklistF.get('continue_with_Furnace_comment')?.setValue(this.ChecklistF.get('continue_with_Furnace_comment')?.value ? this.ChecklistF.get('continue_with_Furnace_comment')?.value.split("||")[1].trim() : null);
       // if (response && response.result) {
       //   this.skipcolor = response.result;
-        
-       
-      
+
+
+
       //   Object.entries(this.skipcolor).forEach(([key, value]) => {
       //     if (value === 'accept'|| value==='reject') {
       //         this.colour = (key);
       //         this.clrvalue=(value)
       //     }
       // });
-      
+
       //   console.log(this.colour);
       // } else {
       //   console.log("Response or response.result is null or undefined.");
@@ -303,7 +310,7 @@ export class ChecklistFComponent implements OnInit {
       // }
     });
   }
-  
+
   onRadioChange() {
     // You may want to check if the input field has focus or not
     // before making the API call
@@ -326,7 +333,7 @@ onRadioChangeup() {
   }
 }
 updateFormValues(): void {
- 
+
 
   const formData = this.ChecklistF.value;
   console.log('formData: ', formData);

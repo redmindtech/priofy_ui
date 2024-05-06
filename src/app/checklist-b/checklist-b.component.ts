@@ -15,7 +15,7 @@ export class ChecklistBComponent implements OnInit {
   @Input() checklistbformenable: boolean;
   checklistcformenable: boolean = true;
   @Input() printexpand5: boolean = false; // Initialize printexpand when declared
-
+  skipcondition:boolean=true;
   printexpand6: boolean;
 
   ChecklistB: FormGroup;
@@ -32,10 +32,10 @@ export class ChecklistBComponent implements OnInit {
   enable: boolean = false;
   aceptreject:string = 'null';
   remainingValues: any;
-  
+
   private onSubmitInterval: any;
   private addSubscription: Subscription | undefined;
-  
+
   constructor(private fb: FormBuilder,
     private apiService:ChecklistBService,
     private router: Router,
@@ -213,7 +213,7 @@ formInitialization(){
     ups_system_comment_status:[null],
     oot_caged_doors_open_comment_status:[null],
     oot_peep_doors_closed_comment_status:[null],
-    
+
     oot_local_start_stop_comment_status:[null],
     oot_ID_fan_casing_comment_status:[null],
     oot_FD_suction_comment_status:[null],
@@ -339,13 +339,20 @@ concatenateValues(controlValue1:any, controlValue2:any): string {
 setupSubmitInterval() {
   this.onSubmitInterval = setInterval(() => {
     console.log('onSubmitInterval: ', this.onSubmitInterval);
-    this.add();
+    if(this.skipcondition){
+      this.add();
+    }
   }, 5 * 1000); // 2 minutes in milliseconds
+}
+onSkipButtonClick() {
+  // Set skipcondition to false
+  this.skipcondition = !this.skipcondition;
+  //this.setupSubmitInterval();
 }
 
 onSubmit()
   {
-    
+
     const formData = this.ChecklistB.value;
     this.apiService.savecheckBpage(formData).subscribe(
       (response) => {
@@ -374,26 +381,26 @@ nxtAccEn(){
 
 add() {
   this.apiService.getchecklistB().subscribe((response: any) => {
-    if (response ) { 
+    if (response ) {
       console.log("open");// Check if response and response.result are not null or undefined
-   
-     
- 
+
+
+
       this.remainingValues = response.result;
-     
-console.log(this.remainingValues);    
+
+console.log(this.remainingValues);
 
  this.formdisable = response.result.status === "Complete" ? true : false;
-   
+
 
 
       Object.keys(this.remainingValues).forEach(key => {
         if (key !== 'shift_comment_b_oot' && key !== 'shift_comment_b_iot') {
-          
-          
+
+
           this.ChecklistB.get(key)?.patchValue(this.remainingValues[key]);
         }
-   
+
       });
     } else {
       console.log("Response or response.result is null or undefined.");
@@ -401,13 +408,13 @@ console.log(this.remainingValues);
     }
     // if (response && response.result) {
     //   this.skipcolor = response.result;
-      
-      
-    
+
+
+
     //   Object.entries(this.skipcolor).forEach(([key, value]) => {
     //     if (value === 'accept'|| value==='reject') {
-          
-       
+
+
 
     //         this.colour = (key);
     //         console.log('this.colour: ', this.colour);
@@ -415,8 +422,8 @@ console.log(this.remainingValues);
     //         console.log('this.clrvalue: ', this.clrvalue);
     //     }
     // });
-    
-      
+
+
     // } else {
     //   console.log("Response or response.result is null or undefined.");
     //   // Handle the error or notify the user accordingly
@@ -472,8 +479,8 @@ console.log(this.remainingValues);
 
 
 
-        
-      
+
+
   });
 }
 
@@ -500,7 +507,7 @@ if (activeElement && activeElement.tagName.toLowerCase() !== 'input') {
 updateFormValues(): void {
   // this.ChecklistB.get('shift_comment_b_oot')?.setValue(this.remainingValues.shift_comment_b_oot);
   //   this.ChecklistB.get('shift_comment_b_iot')?.setValue(this.remainingValues.shift_comment_b_iot);
-  
+
 const formData = this.ChecklistB.value;
 
 console.log('formData: ', formData);
@@ -522,7 +529,7 @@ this.apiService.updatePermitData(formData).subscribe(
 }
 toggleEnable() {
   this.enable = !this.enable; // Toggle the value of enable between true and false
-  
+
 }
 clearTextarea(){
   this.ChecklistB.get('shift_comment_b_oot')?.setValue(null);

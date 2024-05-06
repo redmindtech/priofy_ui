@@ -62,17 +62,18 @@ th {
 }
 
 .custom-radio[value="Done"]:checked + label {
-  background-color: rgb(97, 185, 97); /* Change to green when selected */
+  background-color: rgb(155, 247, 155); /* Change to green when selected */
 }
 
-.custom-radio[value="Risk"]:checked + label {
+.custom-radio[value="Skip"]:checked + label {
   background-color: rgb(240, 130, 130); /* Change to red when "Risk" is selected */
 }
 
 
-.custom-radio[value="Skip"]:checked + label{
-  background-color: rgb(238, 238, 136); /* Change to yellow when "Skip" or "skip" is selected */
+.custom-radio[value="Inprogress"]:checked + label{
+  background-color: rgb(69, 111, 228); /* Change to yellow when "Skip" or "skip" is selected */
 }
+
 .action{
   margin-left: 11%;
 }
@@ -105,4 +106,15 @@ background-color:  white;
 .disabled-form {
   pointer-events: none;
   opacity: 0.5;
+}
+
+#shiftcommentbutton{
+  margin-left: 450px;
+}
+@media only screen and (max-width: 1400px)
+{
+  #shiftcommentbutton{
+    margin-left: 300px;
+    }
+    
 }
