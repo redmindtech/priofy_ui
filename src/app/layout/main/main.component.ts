@@ -41,8 +41,17 @@ export class MainComponent implements OnInit {
           }
           if (this.fullUrl === '/main/Admin') {
             this.screen = 'Work Orders';
-            
+           
           }
+          if(this.fullUrl === '/main/mainmenu')
+            {
+             this.screen='Furnace Startup' ; 
+              }
+              if(this.fullUrl === '/main/showadmin')
+                {
+                 this.screen='Furnace Startup' ; 
+                
+                }
         }
         if (
           name == 'Operator1' ||
@@ -56,6 +65,13 @@ export class MainComponent implements OnInit {
           if (this.fullUrl === '/main/home') {
             this.screen = 'My Work Orders';
           }
+          if(this.fullUrl === '/main/mainmenu')
+            {
+             this.screen='Furnace Startup' ;   
+                     }
+                     if(this.fullUrl === '/main/showadmin')
+                      {
+                       this.screen='Furnace Startup' ;            }
         }
       }
     });
@@ -133,7 +149,7 @@ export class MainComponent implements OnInit {
   //   {
   //    name: 'Process Initialization',
   //    path: ['/main/Admin']
-  //   },
+  //   },
   // {
   //   name: 'Administration',
   //   icon: 'fa-users-cog',
