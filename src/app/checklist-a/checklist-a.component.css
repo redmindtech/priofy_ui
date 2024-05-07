@@ -72,7 +72,7 @@ th {
 }
 
 
-.custom-radio[value="Inprogress"]:checked + label{
+.custom-radio[value="In Progress"]:checked + label{
   background-color: rgb(133, 155, 214); /* Change to yellow when "Skip" or "skip" is selected */
 }
 .action{

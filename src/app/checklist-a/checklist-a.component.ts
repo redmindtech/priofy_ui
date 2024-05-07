@@ -384,6 +384,7 @@ export class ChecklistAComponent implements OnInit {
       // Handle the error or notify the user accordingly
     }
     console.log(this.ChecklistA.get('oot_hbf_inlet_comment')?.value);
+   
     this.ChecklistA.get('oot_high_pressure_comment')?.setValue(this.ChecklistA.get('oot_high_pressure_comment')?.value ? this.ChecklistA.get('oot_high_pressure_comment')?.value.split("||")[1].trim() : null);
     this.ChecklistA.get('iot_bm_sequence_comment')?.setValue(this.ChecklistA.get('iot_bm_sequence_comment')?.value ? this.ChecklistA.get('iot_bm_sequence_comment')?.value.split("||")[1].trim() : null);
     this.ChecklistA.get('oot_hbf_inlet_comment')?.setValue(this.ChecklistA.get('oot_hbf_inlet_comment')?.value ? this.ChecklistA.get('oot_hbf_inlet_comment')?.value.split("||")[1].trim() : null);
@@ -526,77 +527,57 @@ skipStatus: { [key: string]: boolean } = {
   'iot_bm_sequence': false
 };
 
+skipStatusConfirmed: boolean = false;
+
 onSkip(controlName: string) {
   if (controlName === 'iot_decoke_mov') {
-    const dialogRef = this.dialog.open(SkipConfirmationDialogComponent, {
-      width: '400px',
-      data: {
-        title: 'Skip Confirmation',
-        message: 'On Skip this step, it will Automatically Skip Step 4 & 5.',
-        confirmText: 'Confirm',
-        cancelText: 'Cancel'
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        const comment = this.ChecklistA.get('iot_decoke_mov_comment')?.value || '';
-
-        // Update the comment and set the skip value for the 3rd row
-        this.updateCommentsAndSkip('iot_decoke_mov_comment', comment);
-
-        // Set comment of the 3rd row to 4th and 5th row textboxes if it is skipped
-        const thirdRowValue = this.ChecklistA.get('iot_decoke_mov')?.value;
-        if (thirdRowValue === 'Skip') {
-          // Assign the comment of the 3rd row to thirdRowComment
-          const thirdRowComment = comment;
-
-          // Set comments and skip values for the 4th and 5th rows
-          this.updateCommentsAndSkip('iot_furnace_control_sequence_comment', thirdRowComment);
-          this.updateCommentsAndSkip('iot_bm_sequence_comment', thirdRowComment);
-
-          // Update skip status for the 4th and 5th rows
-          this.skipStatus['iot_furnace_control_sequence'] = true;
-          this.skipStatus['iot_bm_sequence'] = true;
-        } else {
-          // Reset skip status for the 4th and 5th rows
-          this.skipStatus['iot_furnace_control_sequence'] = false;
-          this.skipStatus['iot_bm_sequence'] = false;
-        }
-      }
-    });
+    this.confirmSkip(); // Call confirmSkip directly
   }
 }
-
-hideControlsForRows(row: string) {
-  return this.skipStatus[row];
-}
-
 
 confirmSkip() {
   const comment = this.ChecklistA.get('iot_decoke_mov_comment')?.value || '';
+  const status = this.ChecklistA.get('iot_decoke_mov_comment_status')?.value || '';
 
-  // Update the comment and set the skip value for the 3rd row
-  this.updateCommentsAndSkip('iot_decoke_mov_comment', comment);
+  const dialogRef = this.dialog.open(SkipConfirmationDialogComponent, {
+    width: '400px',
+    data: {
+      title: 'Skip Confirmation',
+      message: 'Once this step is Skipped, Step #4 and #5 will be skipped subsequently.',
+      confirmText: 'Confirm',
+      cancelText: 'Cancel'
+    }
+  });
 
-  // Set comment of the 3rd row to 4th and 5th row textboxes if it is skipped
-  const thirdRowValue = this.ChecklistA.get('iot_decoke_mov')?.value;
-  if (thirdRowValue === 'Skip') {
-    // Assign the comment of the 3rd row to thirdRowComment
-    const thirdRowComment = comment;
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      this.skipConfirmed = result ? true : false;
+      this.skipStatusConfirmed = true; // Set the flag to true when skip status is confirmed
 
-    // Set comments and skip values for the 4th and 5th rows
-    this.updateCommentsAndSkip('iot_furnace_control_sequence_comment', thirdRowComment);
-    this.updateCommentsAndSkip('iot_bm_sequence_comment', thirdRowComment);
+      // Pass comment to the 4th and 5th rows
+      this.updateCommentsAndSkip('iot_furnace_control_sequence_comment', comment);
+      this.updateCommentsAndSkip('iot_bm_sequence_comment', comment);
+    }
+  });
+}
+
+hideControlsForRows(row: string) {
+  // Check if skip status has been confirmed, if so, return true to apply red color change
+  if (this.skipStatusConfirmed) {
+    return true;
+  } else {
+    return this.skipStatus[row];
   }
 }
 
-
-
-updateCommentsAndSkip(controlName: string, comment: string) {
+updateCommentsAndSkip(controlName: string, commentObj: any) {
   const commentControl = this.ChecklistA.get(controlName);
-  if (commentControl) {
-    commentControl.setValue(comment);
+  if (commentControl && commentObj) {
+    commentControl.setValue(commentObj.comment);
+    // Update status value if available in comment object
+    if (commentObj.status) {
+      this.ChecklistA.get(controlName + '_status')?.setValue(commentObj.status);
+    }
   }
 
   const skipControlName = controlName.replace('_comment', '');
@@ -605,12 +586,20 @@ updateCommentsAndSkip(controlName: string, comment: string) {
     skipControl.setValue('Skip');
   }
 }
+
+
+
+
+
 onSkipButtonClick() {
   // Set skipcondition to false
   this.skipcondition = !this.skipcondition;
   //this.setupSubmitInterval(); 
 }
 
+isRowDisabled(row: string) {
+  return this.skipStatus[row] || (this.skipStatusConfirmed && row !== 'iot_decoke_mov');
+}
 
 
 }

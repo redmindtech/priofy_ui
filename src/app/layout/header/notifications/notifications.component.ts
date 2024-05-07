@@ -304,7 +304,7 @@ export class NotificationsComponent implements OnInit, OnDestroy {
   accept(key: string) {
     console.log("acc");
     const formValue = this.notificationForm.get(key)?.value;
-    this.saveNotification(formValue, key, 'Accept');
+    this.saveNotification(formValue, key, 'Accepted');
     this.detailsHidden=true;
   }
 

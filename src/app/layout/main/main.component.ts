@@ -14,8 +14,9 @@ export class MainComponent implements OnInit {
   currentUser: any;
   username: any;
   headname: any;
-  screen: any;
+  screen: any='Dashboard';
   fullUrl: any;
+  role: string;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
   
@@ -33,13 +34,14 @@ export class MainComponent implements OnInit {
         if (name === 'Admin') {
           console.log('else');
           if (this.fullUrl === '/main/maindashboard') {
-            this.screen = 'Main Dashboard';
+            this.screen = 'Dashboard';
           }
           if (this.fullUrl === '/main/dashboard') {
-            this.screen = 'Procedure Catalogs';
+            this.screen = 'Procedure Catalogue';
           }
           if (this.fullUrl === '/main/Admin') {
             this.screen = 'Work Orders';
+            
           }
         }
         if (
@@ -61,22 +63,27 @@ export class MainComponent implements OnInit {
     if (name == 'Operator1') {
       this.headname = 'Process Digitization';
       this.username = 'Prakash';
+      this.role = 'Inside Operator'
       this.menu = this.getOperator1Menu();
     } else if (name == 'Operator2') {
       this.headname = 'Process Digitization';
+      this.role = 'Outside Operator'
       this.username = 'Bala';
       this.menu = this.getOperator1Menu();
     } else if (name == 'Operator3') {
       this.headname = 'Process Digitization';
+      this.role = 'Inside Operator'
       this.username = 'Arun';
       this.menu = this.getOperator1Menu();
     } else if (name == 'Operator4') {
       this.headname = 'Process Digitization';
+      this.role = 'Outside Operator'
       this.username = 'Rangith';
       this.menu = this.getOperator1Menu();
     } else if (name == 'Admin') {
       this.headname = 'Process Digitization';
-      this.username = 'Shift - Leader Kumar';
+      this.username = 'Kumar';
+      this.role = 'Shift Leader'
       this.menu = this.getAdminMenu();
     } else if (name == 'Processactivitycoordinator') {
       this.headname = 'Safe Work Permit';
@@ -155,14 +162,14 @@ export class MainComponent implements OnInit {
   private getAdminMenu() {
     return [
       { name: 'Dashboard', path: ['/main/maindashboard'] },
-      { name: 'Procedure Catalogs', path: ['/main/dashboard'] },
+      { name: 'Procedure Catalogue', path: ['/main/dashboard'] },
       { name: 'Work Orders', path: ['/main/Admin'] },
     ];
   }
   private getOperator1Menu() {
     return [
       { name: 'Dashboard', path: ['/main/dashboard'] },
-      { name: 'My Work Order', path: ['/main/home'] },
+      { name: 'My Work Orders', path: ['/main/home'] },
     ];
   }
 }
