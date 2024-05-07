@@ -1,9 +1,8 @@
 <mat-accordion>
-  
+
 
   <mat-expansion-panel class="mat_expansion_border" [expanded]="expand || printexpand4"
   [disabled]="false">
-  <!-- checklistformenable -->
 
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
@@ -32,7 +31,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_high_pressure-inprogress" name="oot_high_pressure"
                     value="Inprogress" formControlName="oot_high_pressure" (change)="onRadioChange('oot_high_pressure')" />
-                  <label for="oot_high_pressure-inprogress" class="action">Inprogress</label>
+                  <label for="oot_high_pressure-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_high_pressure-done" name="oot_high_pressure"
                     value="Done" formControlName="oot_high_pressure" (change)="onRadioChange('oot_high_pressure')" />
@@ -41,7 +40,7 @@
                   <input type="radio" class="custom-radio" id="oot_high_pressure-skip" name="oot_high_pressure"
                     value="Skip" formControlName="oot_high_pressure" (change)="onRadioChange('oot_high_pressure')" />
                     <label for="oot_high_pressure-skip" class="action" (click)="onSkipButtonClick()">Skip</label>
-                    
+
 
                   <div *ngIf="ChecklistA?.get('oot_high_pressure')?.value === 'Skip'">
 
@@ -76,7 +75,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_hbf_inlet-inprogress" name="oot_hbf_inlet" value="Inprogress"
                     formControlName="oot_hbf_inlet" (change)="onRadioChangeup()" />
-                  <label for="oot_hbf_inlet-inprogress" class="action">Inprogress</label>
+                  <label for="oot_hbf_inlet-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_hbf_inlet-done" name="oot_hbf_inlet" value="Done"
                     formControlName="oot_hbf_inlet" (change)="onRadioChangeup()" />
@@ -119,7 +118,7 @@
                   <input type="radio" class="custom-radio" id="oot_downstream_1_drains-inprogress"
                     name="oot_downstream_1_drains" value="Inprogress" formControlName="oot_downstream_1_drains"
                     (change)="onRadioChangeup()" />
-                  <label for="oot_downstream_1_drains-inprogress" class="action">Inprogress</label>
+                  <label for="oot_downstream_1_drains-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_downstream_1_drains-done"
                     name="oot_downstream_1_drains" value="Done" formControlName="oot_downstream_1_drains"
@@ -129,7 +128,7 @@
                   <input type="radio" class="custom-radio" id="oot_downstream_1_drains-skip"
                     name="oot_downstream_1_drains" value="Skip" formControlName="oot_downstream_1_drains"
                     (change)="onRadioChangeup()" />
-                    
+
                     <label for="oot_downstream_1_drains-skip" class="action" (click)="onSkipButtonClick()">Skip</label>
 
 
@@ -166,7 +165,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_bypass-inprogress" name="oot_bypass" value="Inprogress"
                     formControlName="oot_bypass" (change)="onRadioChangeup()" />
-                  <label for="oot_bypass-inprogress" class="action">Inprogress</label>
+                  <label for="oot_bypass-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_bypass-done" name="oot_bypass" value="Done"
                     formControlName="oot_bypass" (change)="onRadioChangeup()" />
@@ -201,7 +200,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_inlet_vents-inprogress" name="oot_inlet_vents" value="Inprogress"
                     formControlName="oot_inlet_vents" (change)="onRadioChangeup()" />
-                  <label for="oot_inlet_vents-inprogress" class="action">Inprogress</label>
+                  <label for="oot_inlet_vents-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_inlet_vents-done" name="oot_inlet_vents" value="Done"
                     formControlName="oot_inlet_vents" (change)="onRadioChangeup()" />
@@ -237,7 +236,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_outlet_drains-inprogress" name="oot_outlet_drains"
                     value="Inprogress" formControlName="oot_outlet_drains" (change)="onRadioChangeup()" />
-                  <label for="oot_outlet_drains-inprogress" class="action">Inprogress</label>
+                  <label for="oot_outlet_drains-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_outlet_drains-done" name="oot_outlet_drains"
                     value="Done" formControlName="oot_outlet_drains" (change)="onRadioChangeup()" />
@@ -274,7 +273,7 @@
                   <input type="radio" class="custom-radio" id="oot_stream_drum_inlet_check-inprogress"
                     name="oot_stream_drum_inlet_check" value="Inprogress" formControlName="oot_stream_drum_inlet_check"
                     (change)="onRadioChangeup()" />
-                  <label for="oot_stream_drum_inlet_check-inprogress" class="action">Inprogress</label>
+                  <label for="oot_stream_drum_inlet_check-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_stream_drum_inlet_check-done"
                     name="oot_stream_drum_inlet_check" value="Done" formControlName="oot_stream_drum_inlet_check"
@@ -312,7 +311,7 @@
                   <input type="radio" class="custom-radio" id="oot_untreated_inlet_db_1-inprogress"
                     name="oot_untreated_inlet_db_1" value="Inprogress" formControlName="oot_untreated_inlet_db_1"
                     (change)="onRadioChangeup()" />
-                  <label for="oot_untreated_inlet_db_1-inprogress" class="action">Inprogress</label>
+                  <label for="oot_untreated_inlet_db_1-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_untreated_inlet_db_1-done"
                     name="oot_untreated_inlet_db_1" value="Done" formControlName="oot_untreated_inlet_db_1"
@@ -350,7 +349,7 @@
                   <input type="radio" class="custom-radio" id="oot_untreated_hbf_inlet_check-inprogress"
                     name="oot_untreated_hbf_inlet_check" value="Inprogress" formControlName="oot_untreated_hbf_inlet_check"
                     (change)="onRadioChangeup()" />
-                  <label for="oot_untreated_hbf_inlet_check-inprogress" class="action">Inprogress</label>
+                  <label for="oot_untreated_hbf_inlet_check-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_untreated_hbf_inlet_check-done"
                     name="oot_untreated_hbf_inlet_check" value="Done" formControlName="oot_untreated_hbf_inlet_check"
@@ -388,7 +387,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_hpssh_2_Outlet-inprogress" name="oot_hpssh_2_Outlet"
                     value="Inprogress" formControlName="oot_hpssh_2_Outlet" (change)="onRadioChangeup()" />
-                  <label for="oot_hpssh_2_Outlet-inprogress" class="action">Inprogress</label>
+                  <label for="oot_hpssh_2_Outlet-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_hpssh_2_Outlet-done" name="oot_hpssh_2_Outlet"
                     value="Done" formControlName="oot_hpssh_2_Outlet" (change)="onRadioChangeup()" />
@@ -430,7 +429,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_hxs_upstream_nrv-inprogress" name="oot_hxs_upstream_nrv"
                     value="Inprogress" formControlName="oot_hxs_upstream_nrv" (change)="onRadioChangeup()" />
-                  <label for="oot_hxs_upstream_nrv-inprogress" class="action">Inprogress</label>
+                  <label for="oot_hxs_upstream_nrv-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_hxs_upstream_nrv-done" name="oot_hxs_upstream_nrv"
                     value="Done" formControlName="oot_hxs_upstream_nrv" (change)="onRadioChangeup()" />
@@ -467,7 +466,7 @@
                   <input type="radio" class="custom-radio" id="oot_vent_silencer_upstream-inprogress"
                     name="oot_vent_silencer_upstream" value="Inprogress" formControlName="oot_vent_silencer_upstream"
                     (change)="onRadioChangeup()" />
-                  <label for="oot_vent_silencer_upstream-inprogress" class="action">Inprogress</label>
+                  <label for="oot_vent_silencer_upstream-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_vent_silencer_upstream-done"
                     name="oot_vent_silencer_upstream" value="Done" formControlName="oot_vent_silencer_upstream"
@@ -512,7 +511,7 @@
                   <input type="radio" class="custom-radio" id="oot_vent_silencer_downstream-inprogress"
                     name="oot_vent_silencer_downstream" value="Inprogress" formControlName="oot_vent_silencer_downstream"
                     (change)="onRadioChangeup()" />
-                  <label for="oot_vent_silencer_downstream-inprogress" class="action">Inprogress</label>
+                  <label for="oot_vent_silencer_downstream-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_vent_silencer_downstream-done"
                     name="oot_vent_silencer_downstream" value="Done" formControlName="oot_vent_silencer_downstream"
@@ -550,7 +549,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_hxs_outlet-inprogress" name="oot_hxs_outlet" value="Inprogress"
                     formControlName="oot_hxs_outlet" (change)="onRadioChangeup()" />
-                  <label for="oot_hxs_outlet-inprogress" class="action">Inprogress</label>
+                  <label for="oot_hxs_outlet-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_hxs_outlet-done" name="oot_hxs_outlet" value="Done"
                     formControlName="oot_hxs_outlet" (change)="onRadioChangeup()" />
@@ -585,7 +584,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_sdl_transmitters-inprogress" name="oot_sdl_transmitters"
                     value="Inprogress" formControlName="oot_sdl_transmitters" (change)="onRadioChangeup()" />
-                  <label for="oot_sdl_transmitters-inprogress" class="action">Inprogress</label>
+                  <label for="oot_sdl_transmitters-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_sdl_transmitters-done" name="oot_sdl_transmitters"
                     value="Done" formControlName="oot_sdl_transmitters" (change)="onRadioChangeup()" />
@@ -616,11 +615,11 @@
               </tr>
               <tr [class.disabled]="disableiot"class="colour1">
                 <td class="header"></td>
-                <td class="header">*2" Steam Drum Intermittent Blow down (#2).</td>                
+                <td class="header">*2" Steam Drum Intermittent Blow down (#2).</td>
                 <td>
                   <input type="radio" class="custom-radio" id="oot_sdi_blow_down-inprogress" name="oot_sdi_blow_down"
                     value="Inprogress" formControlName="oot_sdi_blow_down" (change)="onRadioChangeup()" />
-                  <label for="oot_sdi_blow_down-inprogress" class="action">Inprogress</label>
+                  <label for="oot_sdi_blow_down-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_sdi_blow_down-done" name="oot_sdi_blow_down"
                     value="Done" formControlName="oot_sdi_blow_down" (change)="onRadioChangeup()" />
@@ -657,7 +656,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_bd_header-inprogress" name="oot_bd_header" value="Inprogress"
                     formControlName="oot_bd_header" (change)="onRadioChangeup()" />
-                  <label for="oot_bd_header-inprogress" class="action">Inprogress</label>
+                  <label for="oot_bd_header-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_bd_header-done" name="oot_bd_header" value="Done"
                     formControlName="oot_bd_header" (change)="onRadioChangeup()" />
@@ -678,8 +677,8 @@
                   </div>
                 </td>
                 <td style="text-align:center">
-                  <div *ngIf="ChecklistA.get('oot_bd_header_comment_status')?.value; else noStatus">
-                    {{ ChecklistA.get('oot_bd_header_comment_status')?.value }}
+                  <div *ngIf="ChecklistA.get('oot_sdi_blow_down_comment_status')?.value; else noStatus">
+                    {{ ChecklistA.get('oot_sdi_blow_down_comment_status')?.value }}
                   </div>
                   <ng-template #noStatus>
                     <div>{{'-'}}</div>
@@ -693,7 +692,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_secondary_tle-inprogress" name="oot_secondary_tle"
                     value="Inprogress" formControlName="oot_secondary_tle" (change)="onRadioChangeup()" />
-                  <label for="oot_secondary_tle-inprogress" class="action">Inprogress</label>
+                  <label for="oot_secondary_tle-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_secondary_tle-done" name="oot_secondary_tle"
                     value="Done" formControlName="oot_secondary_tle" (change)="onRadioChangeup()" />
@@ -735,7 +734,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_intermittent_bd_header-inprogress" name="oot_intermittent_bd_header"
                     value="Inprogress" formControlName="oot_intermittent_bd_header" (change)="onRadioChangeup()" />
-                  <label for="oot_intermittent_bd_header-inprogress" class="action">Inprogress</label>
+                  <label for="oot_intermittent_bd_header-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_intermittent_bd_header-done" name="oot_intermittent_bd_header"
                     value="Done" formControlName="oot_intermittent_bd_header" (change)="onRadioChangeup()" />
@@ -767,11 +766,11 @@
               <tr [class.disabled]="disableiot"class="colour1">
                 <td class="header"></td>
                 <td class="header">*Primary TLEs 2" blow downs (#12).</td>
-             
+
                 <td>
                   <input type="radio" class="custom-radio" id="oot_primary_tles_2-inprogress" name="oot_primary_tles_2"
                     value="Inprogress" formControlName="oot_primary_tles_2" (change)="onRadioChangeup()" />
-                  <label for="oot_primary_tles_2-inprogress" class="action">Inprogress</label>
+                  <label for="oot_primary_tles_2-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_primary_tles_2-done" name="oot_primary_tles_2"
                     value="Done" formControlName="oot_primary_tles_2" (change)="onRadioChangeup()" />
@@ -803,11 +802,11 @@
               <tr [class.disabled]="disableiot"class="colour2">
                 <td class="header"></td>
                 <td class="header">*Secondary TLE 1 blow downs (#2)</td>
-              
+
                 <td>
                   <input type="radio" class="custom-radio" id="oot_secondary_tle_1-inprogress" name="oot_secondary_tle_1"
                     value="Inprogress" formControlName="oot_secondary_tle_1" (change)="onRadioChangeup()" />
-                  <label for="oot_secondary_tle_1-inprogress" class="action">Inprogress</label>
+                  <label for="oot_secondary_tle_1-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_secondary_tle_1-done" name="oot_secondary_tle_1"
                     value="Done" formControlName="oot_secondary_tle_1" (change)="onRadioChangeup()" />
@@ -840,11 +839,11 @@
               <tr [class.disabled]="disableiot"class="colour1">
                 <td class="header"></td>
                 <td class="header">*Primary TLEs Common Header 1" bleeds.</td>
-               
+
                 <td>
                   <input type="radio" class="custom-radio" id="oot_primary_tles_commom_header-inprogress" name="oot_primary_tles_commom_header"
                     value="Inprogress" formControlName="oot_primary_tles_commom_header" (change)="onRadioChangeup()" />
-                  <label for="oot_primary_tles_commom_header-inprogress" class="action">Inprogress</label>
+                  <label for="oot_primary_tles_commom_header-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_primary_tles_commom_header-done" name="oot_primary_tles_commom_header"
                     value="Done" formControlName="oot_primary_tles_commom_header" (change)="onRadioChangeup()" />
@@ -888,7 +887,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="iot_decoke_mov-inprogress" name="iot_decoke_mov"
                     value="Inprogress" formControlName="iot_decoke_mov" (change)="onRadioChangeup()" />
-                  <label for="iot_decoke_mov-inprogress" class="action">Inprogress</label>
+                  <label for="iot_decoke_mov-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="iot_decoke_mov-done" name="iot_decoke_mov"
                     value="Done" formControlName="iot_decoke_mov" (change)="onRadioChangeup()" />
@@ -904,7 +903,7 @@
                     <div style="margin-left: 31%;">
                       <button class="btn btn-primary m-1"
                         (click)="ChecklistA?.get('iot_decoke_mov')?.setValue(''); ChecklistA?.get('iot_decoke_mov_comment')?.setValue('')">Cancel</button>
-                        <button class="btn btn-primary m-1" (focusin)="patchvalue()"(click)="onSkipButtonClick()"(click)="onRadioChangeup()" (click)="confirmSkip()">Confirm</button>
+                        <button class="btn btn-primary m-1" (focusin)="patchvalue()"(click)="onSkipButtonClick()"(click)="onRadioChangeup()">Confirm</button>
                     </div>
                   </div>
                 </td>
@@ -932,7 +931,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="iot_furnace_control_sequence-inprogress" name="iot_furnace_control_sequence"
                     value="Inprogress" formControlName="iot_furnace_control_sequence" (change)="onRadioChangeup()" />
-                  <label for="iot_furnace_control_sequence-inprogress" class="action">Inprogress</label>
+                  <label for="iot_furnace_control_sequence-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="iot_furnace_control_sequence-done" name="iot_furnace_control_sequence"
                     value="Done" formControlName="iot_furnace_control_sequence" (change)="onRadioChangeup()" />
@@ -942,9 +941,7 @@
                     value="Skip" formControlName="iot_furnace_control_sequence" (change)="onRadioChangeup()" />
                     <label for="iot_furnace_control_sequence-skip" class="action" (click)="onSkipButtonClick()">Skip</label>
 
-                  <div *ngIf="false">
-                    <!-- hideControlsForRows('iot_furnace_control_sequence') -->
-                    <!-- ChecklistA?.get('iot_furnace_control_sequence')?.value === 'Skip' -->
+                  <div *ngIf="ChecklistA?.get('iot_furnace_control_sequence')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
                       formControlName="iot_furnace_control_sequence_comment"></textarea>
                     <div style="margin-left: 31%;">
@@ -955,15 +952,14 @@
                   </div>
                 </td>
                 <td style="text-align:center">
-                  <div *ngIf="ChecklistA.get('iot_decoke_mov_comment_status')?.value; else noStatus">
-                    {{ ChecklistA.get('iot_decoke_mov_comment_status')?.value }}
+                  <div *ngIf="ChecklistA.get('iot_furnace_control_sequence_comment_status')?.value; else noStatus">
+                    {{ ChecklistA.get('iot_furnace_control_sequence_comment_status')?.value }}
                   </div>
                   <ng-template #noStatus>
                     <div>{{'-'}}</div>
                   </ng-template>
                 </td>
               </tr>
-
               <tr [class.disabled]="disableoot"class="colour2">
                 <td style="text-align:center">5</td>
                 <td class="header">IOT to move BM sequence to Process Wait step.</td>
@@ -978,7 +974,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="iot_bm_sequence-inprogress" name="iot_bm_sequence"
                     value="Inprogress" formControlName="iot_bm_sequence" (change)="onRadioChangeup()" />
-                  <label for="iot_bm_sequence-inprogress" class="action">Inprogress</label>
+                  <label for="iot_bm_sequence-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="iot_bm_sequence-done" name="iot_bm_sequence"
                     value="Done" formControlName="iot_bm_sequence" (change)="onRadioChangeup()" />
@@ -988,9 +984,7 @@
                     value="Skip" formControlName="iot_bm_sequence" (change)="onRadioChangeup()" />
                     <label for="iot_bm_sequence-skip" class="action" (click)="onSkipButtonClick()">Skip</label>
 
-                  <div *ngIf="false">
-                    <!-- hideControlsForRows('iot_bm_sequence') -->
-                    <!-- ChecklistA?.get('iot_bm_sequence')?.value === 'Skip' -->
+                  <div *ngIf="ChecklistA?.get('iot_bm_sequence')?.value === 'Skip'">
                     <textarea id="w3review" name="w3review" rows="4" cols="40"
                       formControlName="iot_bm_sequence_comment"></textarea>
                     <div style="margin-left: 31%;">
@@ -1001,15 +995,14 @@
                   </div>
                 </td>
                 <td style="text-align:center">
-                  <div *ngIf="ChecklistA.get('iot_decoke_mov_comment_status')?.value; else noStatus">
-                    {{ ChecklistA.get('iot_decoke_mov_comment_status')?.value }}
+                  <div *ngIf="ChecklistA.get('iot_bm_sequence_comment_status')?.value; else noStatus">
+                    {{ ChecklistA.get('iot_bm_sequence_comment_status')?.value }}
                   </div>
                   <ng-template #noStatus>
                     <div>{{'-'}}</div>
                   </ng-template>
                 </td>
               </tr>
-
               <tr [class.disabled]="disableoot"class="colour1">
                 <td style="text-align:center">6</td>
                 <td class="header">IOT to go to each individual auto burner and move its sequence to Process Wait.</td>
@@ -1024,7 +1017,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="iot_individual_auto_burner-inprogress" name="iot_individual_auto_burner"
                     value="Inprogress" formControlName="iot_individual_auto_burner" (change)="onRadioChangeup()" />
-                  <label for="iot_individual_auto_burner-inprogress" class="action">Inprogress</label>
+                  <label for="iot_individual_auto_burner-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="iot_individual_auto_burner-done" name="iot_individual_auto_burner"
                     value="Done" formControlName="iot_individual_auto_burner" (change)="onRadioChangeup()" />
@@ -1067,7 +1060,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_feed_and_fuel_gas-inprogress" name="oot_feed_and_fuel_gas"
                     value="Inprogress" formControlName="oot_feed_and_fuel_gas" (change)="onRadioChangeup()" />
-                  <label for="oot_feed_and_fuel_gas-inprogress" class="action">Inprogress</label>
+                  <label for="oot_feed_and_fuel_gas-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_feed_and_fuel_gas-done" name="oot_feed_and_fuel_gas"
                     value="Done" formControlName="oot_feed_and_fuel_gas" (change)="onRadioChangeup()" />
@@ -1110,7 +1103,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="iot_bm_control_sequence_to_stand-inprogress" name="iot_bm_control_sequence_to_stand"
                     value="Inprogress" formControlName="iot_bm_control_sequence_to_stand" (change)="onRadioChangeup()" />
-                  <label for="iot_bm_control_sequence_to_stand-inprogress" class="action">Inprogress</label>
+                  <label for="iot_bm_control_sequence_to_stand-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="iot_bm_control_sequence_to_stand-done" name="iot_bm_control_sequence_to_stand"
                     value="Done" formControlName="iot_bm_control_sequence_to_stand" (change)="onRadioChangeup()" />
@@ -1155,7 +1148,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="iot_purge_light_off-inprogress" name="iot_purge_light_off"
                     value="Inprogress" formControlName="iot_purge_light_off" (change)="onRadioChangeup()" />
-                  <label for="iot_purge_light_off-inprogress" class="action">Inprogress</label>
+                  <label for="iot_purge_light_off-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="iot_purge_light_off-done" name="iot_purge_light_off"
                     value="Done" formControlName="iot_purge_light_off" (change)="onRadioChangeup()" />
@@ -1199,7 +1192,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_open_and_car_sealed-inprogress" name="oot_open_and_car_sealed"
                     value="Inprogress" formControlName="oot_open_and_car_sealed" (change)="onRadioChangeup()" />
-                  <label for="oot_open_and_car_sealed-inprogress" class="action">Inprogress</label>
+                  <label for="oot_open_and_car_sealed-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_open_and_car_sealed-done" name="oot_open_and_car_sealed"
                     value="Done" formControlName="oot_open_and_car_sealed" (change)="onRadioChangeup()" />
@@ -1244,7 +1237,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_second_bv-inprogress" name="oot_second_bv"
                     value="Inprogress" formControlName="oot_second_bv" (change)="onRadioChangeup()" />
-                  <label for="oot_second_bv-inprogress" class="action">Inprogress</label>
+                  <label for="oot_second_bv-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_second_bv-done" name="oot_second_bv"
                     value="Done" formControlName="oot_second_bv" (change)="onRadioChangeup()" />
@@ -1289,7 +1282,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_upstream_and_downstram_bv_open-inprogress" name="oot_upstream_and_downstram_bv_open"
                     value="Inprogress" formControlName="oot_upstream_and_downstram_bv_open" (change)="onRadioChangeup()" />
-                  <label for="oot_upstream_and_downstram_bv_open-inprogress" class="action">Inprogress</label>
+                  <label for="oot_upstream_and_downstram_bv_open-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_upstream_and_downstram_bv_open-done" name="oot_upstream_and_downstram_bv_open"
                     value="Done" formControlName="oot_upstream_and_downstram_bv_open" (change)="onRadioChangeup()" />
@@ -1333,7 +1326,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_bv_and_globe_value_close-inprogress" name="oot_bv_and_globe_value_close"
                     value="Inprogress" formControlName="oot_bv_and_globe_value_close" (change)="onRadioChangeup()" />
-                  <label for="oot_bv_and_globe_value_close-inprogress" class="action">Inprogress</label>
+                  <label for="oot_bv_and_globe_value_close-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_bv_and_globe_value_close-done" name="oot_bv_and_globe_value_close"
                     value="Done" formControlName="oot_bv_and_globe_value_close" (change)="onRadioChangeup()" />
@@ -1376,7 +1369,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="drum_3_startup_vent-inprogress" name="drum_3_startup_vent"
                     value="Inprogress" formControlName="drum_3_startup_vent" (change)="onRadioChangeup()" />
-                  <label for="drum_3_startup_vent-inprogress" class="action">Inprogress</label>
+                  <label for="drum_3_startup_vent-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="drum_3_startup_vent-done" name="drum_3_startup_vent"
                     value="Done" formControlName="drum_3_startup_vent" (change)="onRadioChangeup()" />
@@ -1398,8 +1391,8 @@
                   </div>
                 </td>
                 <td style="text-align:center">
-                  <div *ngIf="ChecklistA.get('drum_3_startup_vent_comment_status')?.value; else noStatus">
-                    {{ ChecklistA.get('drum_3_startup_vent_comment_status')?.value }}
+                  <div *ngIf="ChecklistA.get('oot_bv_and_globe_value_close_comment_status')?.value; else noStatus">
+                    {{ ChecklistA.get('oot_bv_and_globe_value_close_comment_status')?.value }}
                   </div>
                   <ng-template #noStatus>
                     <div>{{'-'}}</div>
@@ -1420,7 +1413,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="oot_hxs_vent_valve-inprogress" name="oot_hxs_vent_valve"
                     value="Inprogress" formControlName="oot_hxs_vent_valve" (change)="onRadioChangeup()" />
-                  <label for="oot_hxs_vent_valve-inprogress" class="action">Inprogress</label>
+                  <label for="oot_hxs_vent_valve-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="oot_hxs_vent_valve-done" name="oot_hxs_vent_valve"
                     value="Done" formControlName="oot_hxs_vent_valve" (change)="onRadioChangeup()" />
@@ -1465,7 +1458,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="iot_default_pressure-inprogress" name="iot_default_pressure"
                     value="Inprogress" formControlName="iot_default_pressure" (change)="onRadioChangeup()" />
-                  <label for="iot_default_pressure-inprogress" class="action">Inprogress</label>
+                  <label for="iot_default_pressure-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="iot_default_pressure-done" name="iot_default_pressure"
                     value="Done" formControlName="iot_default_pressure" (change)="onRadioChangeup()" />
@@ -1512,7 +1505,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="pressurize_the_downstream-inprogress" name="pressurize_the_downstream"
                     value="Inprogress" formControlName="pressurize_the_downstream" (change)="onRadioChangeup()" />
-                  <label for="pressurize_the_downstream-inprogress" class="action">Inprogress</label>
+                  <label for="pressurize_the_downstream-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="pressurize_the_downstream-done" name="pressurize_the_downstream"
                     value="Done" formControlName="pressurize_the_downstream" (change)="onRadioChangeup()" />
@@ -1566,7 +1559,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="iot_filling_the_steam_drum-inprogress" name="iot_filling_the_steam_drum"
                     value="Inprogress" formControlName="iot_filling_the_steam_drum" (change)="onRadioChangeup()" />
-                  <label for="iot_filling_the_steam_drum-inprogress" class="action">Inprogress</label>
+                  <label for="iot_filling_the_steam_drum-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="iot_filling_the_steam_drum-done" name="iot_filling_the_steam_drum"
                     value="Done" formControlName="iot_filling_the_steam_drum" (change)="onRadioChangeup()" />
@@ -1611,7 +1604,7 @@
                 <td>
                   <input type="radio" class="custom-radio" id="iot_steam_drum_level_control_master-inprogress" name="iot_steam_drum_level_control_master"
                     value="Inprogress" formControlName="iot_steam_drum_level_control_master" (change)="onRadioChangeup()" />
-                  <label for="iot_steam_drum_level_control_master-inprogress" class="action">Inprogress</label>
+                  <label for="iot_steam_drum_level_control_master-inprogress" class="action">In Progress</label>
 
                   <input type="radio" class="custom-radio" id="iot_steam_drum_level_control_master-done" name="iot_steam_drum_level_control_master"
                     value="Done" formControlName="iot_steam_drum_level_control_master" (change)="onRadioChangeup()" />
@@ -1642,20 +1635,20 @@
 
             </tbody>
           </table>
-          
-        
+
+
         <div *ngIf="remainingValues && remainingValues.shift_comment_a_oot != null">
           <p><strong>Comment : </strong>{{ remainingValues.shift_comment_a_oot }}</p>
         </div>
       <div *ngIf="remainingValues && remainingValues.shift_comment_a_iot != null">
         <p><strong>Comment : </strong>{{ remainingValues.shift_comment_a_iot }}</p>
-      
+
       </div>
       <!-- <p><strong>2.UserName : </strong>{{ this.currentUser.username === 'Operator1' ? 'Siva' : 'Sakthi' }} <strong>Comment : </strong>{{ remainingValues.shift_comment_e_iot }}</p> -->
-      
-      
+
+
       <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2%;">
-        
+
         <div *ngIf="disableoot">
           <div class="row" id="shiftcommentbutton" >
             <div class="col">
@@ -1674,12 +1667,12 @@
           <div *ngIf="enable" style=" margin-top: 2%; ">
             <p id="shiftcommentbutton"><strong>Comment /Observation /Risk</strong></p>
             <textarea id="w3reviews" name="w3reviews" rows="4" cols="60" formControlName="shift_comment_a_oot" ></textarea>
-      
-      
+
+
           </div>
-      
+
         </div>
-      
+
       <div *ngIf="disableiot">
         <div class="row" id="shiftcommentbutton" >
           <div class="col">
@@ -1699,13 +1692,13 @@
           <div class="col">
             <p id="shiftcommentbutton"><strong>Comment /Observation /Risk</strong></p>
             <textarea id="w3reviews" name="w3reviews" rows="4" cols="60" formControlName="shift_comment_a_iot" ></textarea>
-      
-      
+
+
           </div>
         </div>
-      
+
       </div>
-       
+
       </div>
     </form>
       </mat-card-content>

@@ -27,7 +27,7 @@
           <td class="header">IOT to move furnace sequence to Swing MOV step, if not done before.</td>
           <td>
             <input type="radio" class="custom-radio" id="iot_move_furnace_sequence_to_Swing-inprogress" name="iot_move_furnace_sequence_to_Swing" value="Inprogress" formControlName="iot_move_furnace_sequence_to_Swing"  (change)="onRadioChange()"/>
-            <label for="iot_move_furnace_sequence_to_Swing-inprogress"class="action">Inprogress</label>
+            <label for="iot_move_furnace_sequence_to_Swing-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="iot_move_furnace_sequence_to_Swing-done" name="iot_move_furnace_sequence_to_Swing" value="Done" formControlName="iot_move_furnace_sequence_to_Swing" (change)="onRadioChange()"/>
             <label for="iot_move_furnace_sequence_to_Swing-done"class="action">Done</label>
@@ -59,7 +59,7 @@
           <td class="header">IOT to confirm that HV-22X0-02 (purge steam to ethane feed line(FV-22X0-14 A/B are open) opens to 100% automatically.)</td>
           <td>
             <input type="radio" class="custom-radio" id="iot_confirm-inprogress" name="iot_confirm" value="Inprogress" formControlName="iot_confirm"  (change)="onRadioChangeup()"/>
-            <label for="iot_confirm-inprogress"class="action">Inprogress</label>
+            <label for="iot_confirm-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="iot_confirm-done" name="iot_confirm" value="Done" formControlName="iot_confirm" (change)="onRadioChangeup()"/>
             <label for="iot_confirm-done"class="action">Done</label>
@@ -91,7 +91,7 @@
           <td class="header">OOT to ensure that ALL B/V of LS steam to PTs and MOVs are lined up.<br>Note: automated valve to CG MOV intermediate PT will not be auto enabled until 2 seconds after feed EBV is opened and will stay open for 120 seconds after the feed EBV closes.</td>
           <td>
             <input type="radio" class="custom-radio" id="oot_ALL_BV_of_LS_steam-inprogress" name="oot_ALL_BV_of_LS_steam" value="Inprogress" formControlName="oot_ALL_BV_of_LS_steam"  (change)="onRadioChangeup()"/>
-            <label for="oot_ALL_BV_of_LS_steam-inprogress"class="action">Inprogress</label>
+            <label for="oot_ALL_BV_of_LS_steam-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="oot_ALL_BV_of_LS_steam-done" name="oot_ALL_BV_of_LS_steam" value="Done" formControlName="oot_ALL_BV_of_LS_steam" (change)="onRadioChangeup()"/>
             <label for="oot_ALL_BV_of_LS_steam-done"class="action">Done</label>
@@ -123,7 +123,7 @@
             drain valves and the flare block and bleed valves are closed.</td>
             <td>
               <input type="radio" class="custom-radio" id="oot_flare_block-inprogress" name="oot_flare_block" value="Inprogress" formControlName="oot_flare_block"  (change)="onRadioChangeup()"/>
-              <label for="oot_flare_block-inprogress"class="action">Inprogress</label>
+              <label for="oot_flare_block-inprogress"class="action">In Progress</label>
 
               <input type="radio" class="custom-radio" id="oot_flare_block-done" name="oot_flare_block" value="Done" formControlName="oot_flare_block" (change)="onRadioChangeup()"/>
               <label for="oot_flare_block-done"class="action">Done</label>
@@ -154,7 +154,7 @@
           <td class="header">OOT&IOT to reconfirm that Decoke Air is blinded.</td>
           <td>
             <input type="radio" class="custom-radio" id="oot_IOT_Decoke_Air-inprogress" name="oot_IOT_Decoke_Air" value="Inprogress" formControlName="oot_IOT_Decoke_Air"  (change)="onRadioChangeup()"/>
-            <label for="oot_IOT_Decoke_Air-inprogress"class="action">Inprogress</label>
+            <label for="oot_IOT_Decoke_Air-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="oot_IOT_Decoke_Air-done" name="oot_IOT_Decoke_Air" value="Done" formControlName="oot_IOT_Decoke_Air" (change)="onRadioChangeup()"/>
             <label for="oot_IOT_Decoke_Air-done"class="action">Done</label>
@@ -185,7 +185,7 @@
           <td class="header">OOT to confirm that ethane feed DB&B are closed.</td>
           <td>
             <input type="radio" class="custom-radio" id="oot_feed_DB_B-inprogress" name="oot_feed_DB_B" value="Inprogress" formControlName="oot_feed_DB_B"  (change)="onRadioChangeup()"/>
-            <label for="oot_feed_DB_B-inprogress"class="action">Inprogress</label>
+            <label for="oot_feed_DB_B-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="oot_feed_DB_B-done" name="oot_feed_DB_B" value="Done" formControlName="oot_feed_DB_B" (change)="onRadioChangeup()"/>
             <label for="oot_feed_DB_B-done"class="action">Done</label>
@@ -216,7 +216,7 @@
           <td class="header">IOT to confirm that ALL MOVs status signal are ok.</td>
           <td>
             <input type="radio" class="custom-radio" id="iot_MOVs_status-inprogress" name="iot_MOVs_status" value="Inprogress" formControlName="iot_MOVs_status"  (change)="onRadioChangeup()"/>
-            <label for="iot_MOVs_status-inprogress"class="action">Inprogress</label>
+            <label for="iot_MOVs_status-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="iot_MOVs_status-done" name="iot_MOVs_status" value="Done" formControlName="iot_MOVs_status" (change)="onRadioChangeup()"/>
             <label for="iot_MOVs_status-done"class="action">Done</label>
@@ -247,7 +247,7 @@
           <td class="header">OOT to check and confirm that all the MOV’s local switches are in “auto” position.</td>
           <td>
             <input type="radio" class="custom-radio" id="oot_MOVs_local_switches-inprogress" name="oot_MOVs_local_switches" value="Inprogress" formControlName="oot_MOVs_local_switches"  (change)="onRadioChangeup()"/>
-            <label for="oot_MOVs_local_switches-inprogress"class="action">Inprogress</label>
+            <label for="oot_MOVs_local_switches-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="oot_MOVs_local_switches-risk" name="oot_MOVs_local_switches" value="Risk" formControlName="oot_MOVs_local_switches" (change)="onRadioChangeup()"/>
             <label for="oot_MOVs_local_switches-risk"class="action">Risk</label>
@@ -278,7 +278,7 @@
           <td class="header">OOT to ensure the furnace is clear of all personnel before the MOV swing starts.</td>
           <td>
             <input type="radio" class="custom-radio" id="oot_furnace_is_clear-inprogress" name="oot_furnace_is_clear" value="Inprogress" formControlName="oot_furnace_is_clear"  (change)="onRadioChangeup()"/>
-            <label for="oot_furnace_is_clear-inprogress"class="action">Inprogress</label>
+            <label for="oot_furnace_is_clear-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="oot_furnace_is_clear-done" name="oot_furnace_is_clear" value="Done" formControlName="oot_furnace_is_clear" (change)="onRadioChangeup()"/>
             <label for="oot_furnace_is_clear-done"class="action">Done</label>
@@ -309,7 +309,7 @@
           <td class="header">IOT to initiate the MOV swing via HMI by selecting “Operator Permissives to Swing to CG header”.<br>Note: First make sure to manually RESET the BM & BNR alarms (unlatch).</td>
           <td>
             <input type="radio" class="custom-radio" id="iot_Operator_Permissives-inprogress" name="iot_Operator_Permissives" value="Inprogress" formControlName="iot_Operator_Permissives"  (change)="onRadioChangeup()"/>
-            <label for="iot_Operator_Permissives-inprogress"class="action">Inprogress</label>
+            <label for="iot_Operator_Permissives-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="iot_Operator_Permissives-done" name="iot_Operator_Permissives" value="Done" formControlName="iot_Operator_Permissives" (change)="onRadioChangeup()"/>
             <label for="iot_Operator_Permissives-done"class="action">Done</label>
@@ -340,7 +340,7 @@
           <td class="header">IOT to confirm that second CG MOV fully opens (HV-22X6-13B).</td>
           <td>
             <input type="radio" class="custom-radio" id="iot_second_CG_MOV-inprogress" name="iot_second_CG_MOV" value="Inprogress" formControlName="iot_second_CG_MOV"  (change)="onRadioChangeup()"/>
-            <label for="iot_second_CG_MOV-inprogress"class="action">Inprogress</label>
+            <label for="iot_second_CG_MOV-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="iot_second_CG_MOV-done" name="iot_second_CG_MOV" value="Done" formControlName="iot_second_CG_MOV" (change)="onRadioChangeup()"/>
             <label for="iot_second_CG_MOV-done"class="action">Done</label>
@@ -371,7 +371,7 @@
           <td class="header">IOT to confirm that Decoke MOV (HV-22X6-14) begins to close after second CG MOV has opened.<br>Note: it will close to approximately 50% without ramp or until the pressure reach the higher-pressure set point (set point for closing MOV).</td>
           <td>
             <input type="radio" class="custom-radio" id="iot_Decoke_MOV-inprogress" name="iot_Decoke_MOV" value="Inprogress" formControlName="iot_Decoke_MOV"  (change)="onRadioChangeup()"/>
-            <label for="iot_Decoke_MOV-inprogress"class="action">Inprogress</label>
+            <label for="iot_Decoke_MOV-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="iot_Decoke_MOV-done" name="iot_Decoke_MOV" value="Done" formControlName="iot_Decoke_MOV" (change)="onRadioChangeup()"/>
             <label for="iot_Decoke_MOV-done"class="action">Done</label>
@@ -402,7 +402,7 @@
           <td class="header">IOT to confirm that Decoke MOV continues closing by delayed pulses to achieve the higher-pressure set point (set point for closing MOV).</td>
           <td>
             <input type="radio" class="custom-radio" id="iot_higher_pressure-inprogress" name="iot_higher_pressure" value="Inprogress" formControlName="iot_higher_pressure"  (change)="onRadioChangeup()"/>
-            <label for="iot_higher_pressure-inprogress"class="action">Inprogress</label>
+            <label for="iot_higher_pressure-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="iot_higher_pressure-done" name="iot_higher_pressure" value="Done" formControlName="iot_higher_pressure" (change)="onRadioChangeup()"/>
             <label for="iot_higher_pressure-done"class="action">Done</label>
@@ -433,7 +433,7 @@
           <td class="header">IOT to confirm that primary CG MOV (HV-22X6-13A) opens by delayed pulses to achieve the lower pressure set point (set point for opening MOV).</td>
           <td>
             <input type="radio" class="custom-radio" id="iot_lower_pressure-inprogress" name="iot_lower_pressure" value="Inprogress" formControlName="iot_lower_pressure"  (change)="onRadioChangeup()"/>
-            <label for="iot_lower_pressure-inprogress"class="action">Inprogress</label>
+            <label for="iot_lower_pressure-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="iot_lower_pressure-done" name="iot_lower_pressure" value="Done" formControlName="iot_lower_pressure" (change)="onRadioChangeup()"/>
             <label for="iot_lower_pressure-done"class="action">Done</label>
@@ -464,7 +464,7 @@
           <td class="header">IOT to confirm that MOVs continue to open/close until the Decoke MOV is fully closed.</td>
           <td>
             <input type="radio" class="custom-radio" id="iot_decoke_MOV_closed-inprogress" name="iot_decoke_MOV_closed" value="Inprogress" formControlName="iot_decoke_MOV_closed"  (change)="onRadioChangeup()"/>
-            <label for="iot_decoke_MOV_closed-inprogress"class="action">Inprogress</label>
+            <label for="iot_decoke_MOV_closed-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="iot_decoke_MOV_closed-done" name="iot_decoke_MOV_closed" value="Done" formControlName="iot_decoke_MOV_closed" (change)="onRadioChangeup()"/>
             <label for="iot_decoke_MOV_closed-done"class="action">Done</label>
@@ -495,7 +495,7 @@
           <td class="header">IOT to confirm via HMI that the Decoke MOV is fully closed after OOT confirms this in the field.<br>Note: this confirmation allows the IOT to open out primary CG MOV to fully open without delay pulses.</td>
           <td>
             <input type="radio" class="custom-radio" id="iot_confirm_via_HMI-inprogress" name="iot_confirm_via_HMI" value="Inprogress" formControlName="iot_confirm_via_HMI"  (change)="onRadioChangeup()"/>
-            <label for="iot_confirm_via_HMI-inprogress"class="action">Inprogress</label>
+            <label for="iot_confirm_via_HMI-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="iot_confirm_via_HMI-done" name="iot_confirm_via_HMI" value="Done" formControlName="iot_confirm_via_HMI" (change)="onRadioChangeup()"/>
             <label for="iot_confirm_via_HMI-done"class="action">Done</label>
@@ -526,7 +526,7 @@
           <td class="header">IOT to move the furnace sequence to HSSB Crack Gas step after the CG MOV is fully open.</td>
           <td>
             <input type="radio" class="custom-radio" id="iot_HSSB_Crack_Gas_step-inprogress" name="iot_HSSB_Crack_Gas_step" value="Inprogress" formControlName="iot_HSSB_Crack_Gas_step"  (change)="onRadioChangeup()"/>
-            <label for="iot_HSSB_Crack_Gas_step-inprogress"class="action">Inprogress</label>
+            <label for="iot_HSSB_Crack_Gas_step-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="iot_HSSB_Crack_Gas_step-done" name="iot_HSSB_Crack_Gas_step" value="Done" formControlName="iot_HSSB_Crack_Gas_step" (change)="onRadioChangeup()"/>
             <label for="iot_HSSB_Crack_Gas_step-done"class="action">Done</label>
@@ -564,7 +564,7 @@
           <td class="header">Adjust combustion air flow.</td>
           <td>
             <input type="radio" class="custom-radio" id="adjust_combustion-inprogress" name="adjust_combustion" value="Inprogress" formControlName="adjust_combustion"  (change)="onRadioChangeup()"/>
-            <label for="adjust_combustion-inprogress"class="action">Inprogress</label>
+            <label for="adjust_combustion-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="adjust_combustion-done" name="adjust_combustion" value="Done" formControlName="adjust_combustion" (change)="onRadioChangeup()"/>
             <label for="adjust_combustion-done"class="action">Done</label>
@@ -595,7 +595,7 @@
           <td class="header">A Cut some of the top burners if fuel gas pressure reaches 0.2 kg/cm2.</td>
           <td>
             <input type="radio" class="custom-radio" id="the_top_burners-inprogress" name="the_top_burners" value="Inprogress" formControlName="the_top_burners"  (change)="onRadioChangeup()"/>
-            <label for="the_top_burners-inprogress"class="action">Inprogress</label>
+            <label for="the_top_burners-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="the_top_burners-done" name="the_top_burners" value="Done" formControlName="the_top_burners" (change)="onRadioChangeup()"/>
             <label for="the_top_burners-done"class="action">Done</label>
@@ -626,7 +626,7 @@
           <td class="header">Increase IBD/ CBD.</td>
           <td>
             <input type="radio" class="custom-radio" id="increase_IBD_CBD-inprogress" name="increase_IBD_CBD" value="Inprogress" formControlName="increase_IBD_CBD"  (change)="onRadioChangeup()"/>
-            <label for="increase_IBD_CBD-inprogress"class="action">Inprogress</label>
+            <label for="increase_IBD_CBD-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="increase_IBD_CBD-done" name="increase_IBD_CBD" value="Done" formControlName="increase_IBD_CBD" (change)="onRadioChangeup()"/>
             <label for="increase_IBD_CBD-done"class="action">Done</label>
@@ -659,7 +659,7 @@
           <td class="header">Continue with Furnace, Feed In procedure.</td>
           <td>
             <input type="radio" class="custom-radio" id="continue_with_Furnace-inprogress" name="continue_with_Furnace" value="Inprogress" formControlName="continue_with_Furnace"  (change)="onRadioChangeup()"/>
-            <label for="continue_with_Furnace-inprogress"class="action">Inprogress</label>
+            <label for="continue_with_Furnace-inprogress"class="action">In Progress</label>
 
             <input type="radio" class="custom-radio" id="continue_with_Furnace-done" name="continue_with_Furnace" value="Done" formControlName="continue_with_Furnace" (change)="onRadioChangeup()"/>
             <label for="continue_with_Furnace-done"class="action">Done</label>
