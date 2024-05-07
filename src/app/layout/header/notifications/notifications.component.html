@@ -36,8 +36,8 @@
                 <div style="margin-top: 5px;"></div>
                 <p><strong>UserName : </strong>{{show?.userLoginDTO.username}}</p>
                 <p><strong>procedure : Checklist # </strong>{{ show?.checklist }}</p>
-                <p><strong>Steps : </strong>{{beforeValue}}</p>
-                <p><strong>Skip Request form Operators: </strong>{{afterValue}}</p>
+                <p><strong>Steps : </strong>{{text}}</p>
+                <p><strong>Skip Request form Operators: </strong>{{comment}}</p>
                 
                 
                 <div *ngFor="let keyValuePair of ootIotObject | keyvalue; let i = index">

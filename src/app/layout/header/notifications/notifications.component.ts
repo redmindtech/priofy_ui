@@ -20,6 +20,8 @@ export class NotificationsComponent implements OnInit, OnDestroy {
   afterValue: string;
   detailsHidden :boolean=true;
   currentUser: any;
+  comment: unknown[];
+  text: unknown[];
 
   constructor(
     private fb: FormBuilder,
@@ -54,36 +56,44 @@ export class NotificationsComponent implements OnInit, OnDestroy {
               key.endsWith('status') 
           );
 
-          if (this.ootIotObject) {
+          // if (this.ootIotObject) {
              
-            const lines = Object.entries(response.result).filter(([key, _]) =>
-              key.endsWith('comment') || key.endsWith('comment')
-          );
-          console.log('lines: ', lines);
-          if (lines.length > 0) {
-            console.log('lines: ', lines);
-            const line = lines[0][1] as string; // Extracting the string value from the array
-            const parts: string[] = line.split("||");
-            console.log('parts: ', parts);
-            if (parts.length > 1) {
-                this.beforeValue = parts[0].trim(); // Value before "||"
-                console.log('beforeValue: ', this.beforeValue);
-                // Join the remaining parts after splitting by "||" to handle any special characters
-                this.afterValue = parts.slice(1).join("||").trim(); 
-                console.log('afterValue: ', this.afterValue);
-                // Now you can use 'beforeValue' and 'afterValue' as needed
-            }
-            this.detailsHidden=false;
-        }
+          const lines = Object.entries(response.result).filter(([key, _]) =>
+            key.endsWith('comment') || key.endsWith('comment')
+        );
+this.comment = lines.map(([_, value]) => value);
+
+const text = Object.entries(response.result).filter(([key, _]) =>
+  key.endsWith('text') || key.endsWith('text')
+);
+this.text = text.map(([_, value]) => value);
+
+        //   console.log('lines: ', lines);
+        //   if (lines.length > 0) {
+        //     console.log('lines: ', lines);
+        //     const line = lines[0][1] as string; // Extracting the string value from the array
+        //     const parts: string[] = line.split("||");
+        //     console.log('parts: ', parts);
+        //     if (parts.length > 1) {
+        //         this.beforeValue = parts[0].trim(); // Value before "||"
+        //         console.log('beforeValue: ', this.beforeValue);
+        //         // Join the remaining parts after splitting by "||" to handle any special characters
+        //         this.afterValue = parts.slice(1).join("||").trim(); 
+        //         console.log('afterValue: ', this.afterValue);
+        //         // Now you can use 'beforeValue' and 'afterValue' as needed
+        //     }
+        //     this.detailsHidden=false;
+        // }
+        this.detailsHidden=false;
         this.ootIotObject = Object.fromEntries(ootIotEntries);
         console.log('ootIotObject: ',this.ootIotObject);
           this.createFormControls();
       }
           
-      } else {
-        console.log("hh");
+      // } else {
+      //   console.log("hh");
           
-      }
+      // }
     
   });
   this.notificationB();
@@ -97,34 +107,38 @@ export class NotificationsComponent implements OnInit, OnDestroy {
            const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
             key.endsWith('status') 
            );
-           if(this.ootIotObject){
-            const lines = Object.entries(response.result).filter(([key, _]) =>
-              key.endsWith('comment') || key.endsWith('comment')
-          );
+          
+           const lines = Object.entries(response.result).filter(([key, _]) =>
+            key.endsWith('comment') || key.endsWith('comment')
+        );
+this.comment = lines.map(([_, value]) => value);
+
+const text = Object.entries(response.result).filter(([key, _]) =>
+  key.endsWith('text') || key.endsWith('text')
+);
+this.text = text.map(([_, value]) => value);
           console.log('lines: ', lines);
-          if (lines.length > 0) {
-            console.log('lines: ', lines);
-            const line = lines[0][1] as string; // Extracting the string value from the array
-            const parts: string[] = line.split("||");
-            console.log('parts: ', parts);
-            if (parts.length > 1) {
-                this.beforeValue = parts[0].trim(); // Value before "||"
-                console.log('beforeValue: ', this.beforeValue);
-                // Join the remaining parts after splitting by "||" to handle any special characters
-                this.afterValue = parts.slice(1).join("||").trim(); 
-                console.log('afterValue: ', this.afterValue);
-                // Now you can use 'beforeValue' and 'afterValue' as needed
-            }
-            this.detailsHidden=false;
-        }
+        //   if (lines.length > 0) {
+        //     console.log('lines: ', lines);
+        //     const line = lines[0][1] as string; // Extracting the string value from the array
+        //     const parts: string[] = line.split("||");
+        //     console.log('parts: ', parts);
+        //     if (parts.length > 1) {
+        //         this.beforeValue = parts[0].trim(); // Value before "||"
+        //         console.log('beforeValue: ', this.beforeValue);
+        //         // Join the remaining parts after splitting by "||" to handle any special characters
+        //         this.afterValue = parts.slice(1).join("||").trim(); 
+        //         console.log('afterValue: ', this.afterValue);
+        //         // Now you can use 'beforeValue' and 'afterValue' as needed
+        //     }
+        //     this.detailsHidden=false;
+        // }
+        this.detailsHidden=false;
             this.ootIotObject = Object.fromEntries(ootIotEntries);
             console.log('ootIotObject: ',this.ootIotObject);
             this.createFormControls();
             
-           }
-           else{
-            
-           }
+          
       }
     });
     this.notificationC();
@@ -138,34 +152,38 @@ export class NotificationsComponent implements OnInit, OnDestroy {
            const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
             key.endsWith('status') 
            );
-           if(this.ootIotObject){
-            const lines = Object.entries(response.result).filter(([key, _]) =>
-              key.endsWith('comment') || key.endsWith('comment')
-          );
+           const lines = Object.entries(response.result).filter(([key, _]) =>
+            key.endsWith('comment') || key.endsWith('comment')
+        );
+this.comment = lines.map(([_, value]) => value);
+
+const text = Object.entries(response.result).filter(([key, _]) =>
+  key.endsWith('text') || key.endsWith('text')
+);
+this.text = text.map(([_, value]) => value);
           console.log('lines: ', lines);
-          if (lines.length > 0) {
-            console.log('lines: ', lines);
-            const line = lines[0][1] as string; // Extracting the string value from the array
-            const parts: string[] = line.split("||");
-            console.log('parts: ', parts);
-            if (parts.length > 1) {
-                this.beforeValue = parts[0].trim(); // Value before "||"
-                console.log('beforeValue: ', this.beforeValue);
-                // Join the remaining parts after splitting by "||" to handle any special characters
-                this.afterValue = parts.slice(1).join("||").trim(); 
-                console.log('afterValue: ', this.afterValue);
-                // Now you can use 'beforeValue' and 'afterValue' as needed
-            }
-            this.detailsHidden=false;
-        }
+        //   if (lines.length > 0) {
+        //     console.log('lines: ', lines);
+        //     const line = lines[0][1] as string; // Extracting the string value from the array
+        //     const parts: string[] = line.split("||");
+        //     console.log('parts: ', parts);
+        //     if (parts.length > 1) {
+        //         this.beforeValue = parts[0].trim(); // Value before "||"
+        //         console.log('beforeValue: ', this.beforeValue);
+        //         // Join the remaining parts after splitting by "||" to handle any special characters
+        //         this.afterValue = parts.slice(1).join("||").trim(); 
+        //         console.log('afterValue: ', this.afterValue);
+        //         // Now you can use 'beforeValue' and 'afterValue' as needed
+        //     }
+        //     this.detailsHidden=false;
+        // }
+        this.detailsHidden=false;
+
             this.ootIotObject = Object.fromEntries(ootIotEntries);
             console.log('ootIotObject: ',this.ootIotObject);
             this.createFormControls();
             
-           }
-           else{
-            
-           }
+           
       }
     });
     this.notificationD();
@@ -179,34 +197,39 @@ export class NotificationsComponent implements OnInit, OnDestroy {
            const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
             key.endsWith('status') 
            );
-           if(this.ootIotObject){
-            const lines = Object.entries(response.result).filter(([key, _]) =>
-              key.endsWith('comment') || key.endsWith('comment')
-          );
+           
+           const lines = Object.entries(response.result).filter(([key, _]) =>
+            key.endsWith('comment') || key.endsWith('comment')
+        );
+this.comment = lines.map(([_, value]) => value);
+
+const text = Object.entries(response.result).filter(([key, _]) =>
+  key.endsWith('text') || key.endsWith('text')
+);
+this.text = text.map(([_, value]) => value);
           console.log('lines: ', lines);
-          if (lines.length > 0) {
-            console.log('lines: ', lines);
-            const line = lines[0][1] as string; // Extracting the string value from the array
-            const parts: string[] = line.split("||");
-            console.log('parts: ', parts);
-            if (parts.length > 1) {
-                this.beforeValue = parts[0].trim(); // Value before "||"
-                console.log('beforeValue: ', this.beforeValue);
-                // Join the remaining parts after splitting by "||" to handle any special characters
-                this.afterValue = parts.slice(1).join("||").trim(); 
-                console.log('afterValue: ', this.afterValue);
-                // Now you can use 'beforeValue' and 'afterValue' as needed
-            }
-            this.detailsHidden=false;
-        }
+        //   if (lines.length > 0) {
+        //     console.log('lines: ', lines);
+        //     const line = lines[0][1] as string; // Extracting the string value from the array
+        //     const parts: string[] = line.split("||");
+        //     console.log('parts: ', parts);
+        //     if (parts.length > 1) {
+        //         this.beforeValue = parts[0].trim(); // Value before "||"
+        //         console.log('beforeValue: ', this.beforeValue);
+        //         // Join the remaining parts after splitting by "||" to handle any special characters
+        //         this.afterValue = parts.slice(1).join("||").trim(); 
+        //         console.log('afterValue: ', this.afterValue);
+        //         // Now you can use 'beforeValue' and 'afterValue' as needed
+        //     }
+        //     this.detailsHidden=false;
+        // }
+        this.detailsHidden=false;
+
             this.ootIotObject = Object.fromEntries(ootIotEntries);
             console.log('ootIotObject: ',this.ootIotObject);
             this.createFormControls();
             
-           }
-           else{
-            
-           }
+           
       }
     });
     this.notificationE();
@@ -220,35 +243,38 @@ export class NotificationsComponent implements OnInit, OnDestroy {
            const ootIotEntries = Object.entries(response.result).filter(([key, _]) =>
             key.endsWith('status') 
            );
-           if(this.ootIotObject){
-            const lines = Object.entries(response.result).filter(([key, _]) =>
-              key.endsWith('comment') || key.endsWith('comment')
-          );
+           const lines = Object.entries(response.result).filter(([key, _]) =>
+            key.endsWith('comment') || key.endsWith('comment')
+        );
+this.comment = lines.map(([_, value]) => value);
+
+const text = Object.entries(response.result).filter(([key, _]) =>
+  key.endsWith('text') || key.endsWith('text')
+);
+this.text = text.map(([_, value]) => value);
           console.log('lines: ', lines);
-          if (lines.length > 0) {
-            console.log('lines: ', lines);
-            const line = lines[0][1] as string; // Extracting the string value from the array
-            const parts: string[] = line.split("||");
-            console.log('parts: ', parts);
-            if (parts.length > 1) {
-                this.beforeValue = parts[0].trim(); // Value before "||"
-                console.log('beforeValue: ', this.beforeValue);
-                // Join the remaining parts after splitting by "||" to handle any special characters
-                this.afterValue = parts.slice(1).join("||").trim(); 
-                console.log('afterValue: ', this.afterValue);
-                // Now you can use 'beforeValue' and 'afterValue' as needed
-            }
-            this.detailsHidden=false;
-        }
+        //   if (lines.length > 0) {
+        //     console.log('lines: ', lines);
+        //     const line = lines[0][1] as string; // Extracting the string value from the array
+        //     const parts: string[] = line.split("||");
+        //     console.log('parts: ', parts);
+        //     if (parts.length > 1) {
+        //         this.beforeValue = parts[0].trim(); // Value before "||"
+        //         console.log('beforeValue: ', this.beforeValue);
+        //         // Join the remaining parts after splitting by "||" to handle any special characters
+        //         this.afterValue = parts.slice(1).join("||").trim(); 
+        //         console.log('afterValue: ', this.afterValue);
+        //         // Now you can use 'beforeValue' and 'afterValue' as needed
+        //     }
+        //     this.detailsHidden=false;
+        // }
+        this.detailsHidden=false;
             this.ootIotObject = Object.fromEntries(ootIotEntries);
             console.log('ootIotObject: ',this.ootIotObject);
             this.createFormControls();
             
-           }
-           else{
-            
-           }
-      }
+        
+    }
     });
     this.notificationF();
   }
@@ -264,22 +290,29 @@ export class NotificationsComponent implements OnInit, OnDestroy {
            const lines = Object.entries(response.result).filter(([key, _]) =>
             key.endsWith('comment') || key.endsWith('comment')
         );
+this.comment = lines.map(([_, value]) => value);
+
+const text = Object.entries(response.result).filter(([key, _]) =>
+  key.endsWith('text') || key.endsWith('text')
+);
+this.text = text.map(([_, value]) => value);
         console.log('lines: ', lines);
-        if (lines.length > 0) {
-          console.log('lines: ', lines);
-          const line = lines[0][1] as string; // Extracting the string value from the array
-          const parts: string[] = line.split("||");
-          console.log('parts: ', parts);
-          if (parts.length > 1) {
-              this.beforeValue = parts[0].trim(); // Value before "||"
-              console.log('beforeValue: ', this.beforeValue);
-              // Join the remaining parts after splitting by "||" to handle any special characters
-              this.afterValue = parts.slice(1).join("||").trim(); 
-              console.log('afterValue: ', this.afterValue);
-              // Now you can use 'beforeValue' and 'afterValue' as needed
-          }
-          this.detailsHidden=false;
-      }
+      //   if (lines.length > 0) {
+      //     console.log('lines: ', lines);
+      //     const line = lines[0][1] as string; // Extracting the string value from the array
+      //     const parts: string[] = line.split("||");
+      //     console.log('parts: ', parts);
+      //     if (parts.length > 1) {
+      //         this.beforeValue = parts[0].trim(); // Value before "||"
+      //         console.log('beforeValue: ', this.beforeValue);
+      //         // Join the remaining parts after splitting by "||" to handle any special characters
+      //         this.afterValue = parts.slice(1).join("||").trim(); 
+      //         console.log('afterValue: ', this.afterValue);
+      //         // Now you can use 'beforeValue' and 'afterValue' as needed
+      //     }
+      //     this.detailsHidden=false;
+      // }
+      this.detailsHidden=false;
             this.ootIotObject = Object.fromEntries(ootIotEntries);
             console.log('ootIotObject: ',this.ootIotObject);
             this.createFormControls();

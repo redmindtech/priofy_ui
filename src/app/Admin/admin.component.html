@@ -30,7 +30,7 @@
               <span>Column Visibility</span><span class="dt-down-arrow"></span>
             </button>
          <div class="dropdown-menu" [ngClass]="{'show': showColumnVisibilityDropdown}" role="menu">
-    <a class="dropdown-item" href="#" (click)="toggleColumnVisibility('Furnace_Id', $event)">Furnace Id</a>
+    <a class="dropdown-item" href="#" (click)="toggleColumnVisibility('Furnace_Id', $event)">Equipment ID</a>
     <a class="dropdown-item" href="#" (click)="toggleColumnVisibility('job_start_date', $event)">Job Start Date</a>
     <a class="dropdown-item" href="#" (click)="toggleColumnVisibility('job_end_date', $event)">Job End Date</a>
     <a class="dropdown-item" href="#" (click)="toggleColumnVisibility('oot_operator', $event)">OOT Operator</a>
@@ -50,7 +50,7 @@
   <thead>
   <tr>
     <th (click)="sortData('sno')" data-column="index">S.No <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'sno'}"></i></th>
-    <th (click)="sortData('Furnace_Id')" data-column="Furnace_Id">Furnace Id <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'Furnace_Id'}"></i></th>
+    <th (click)="sortData('Furnace_Id')" data-column="Furnace_Id">Equipment ID <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'Furnace_Id'}"></i></th>
     <th (click)="sortData('job_start_date')" data-column="job_start_date">Job Start Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'job_start_date'}"></i></th>
     <th (click)="sortData('job_end_date')" data-column="job_end_date">Job End Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'job_end_date'}"></i></th>
     <th (click)="sortData('oot_operator')" data-column="oot_operator">OOT Operator <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'oot_operator'}"></i></th>
