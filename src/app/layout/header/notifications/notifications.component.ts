@@ -343,7 +343,7 @@ this.text = text.map(([_, value]) => value);
 
   reject(key: string) {
     const formValue = this.notificationForm.get(key)?.value;
-    this.saveNotification(formValue, key, 'Reject');
+    this.saveNotification(formValue, key, 'Rejected');
     this.detailsHidden=true;
   }
 

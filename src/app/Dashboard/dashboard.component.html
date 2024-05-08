@@ -31,6 +31,7 @@
      <div class="small-box .bg-royal-purple cols-4 button-slide slide-in" style="width: fit-content;" *ngIf="addbutton">
        <div class="inner" style="width: 220px;">
          <h4>Furnace Startup</h4>
+         <div class="fas fa-info-circle info-icon" (click)="openModal()"> <a ></a> </div>
          <!-- <p>Registered Office Bearers</p> -->
        </div>
        <div class="icon">
@@ -54,7 +55,7 @@
 
      <div class="small-box .bg-royal-purple cols-4 button-slide slide-in" style="width: fit-content; " *ngIf="addbutton">
        <div class="inner" style="width: 220px;">
-         <h4>Dust Collector</h4>
+         <h4>Submersible Pump</h4>
          <!-- <p>Registered Office Bearers</p> -->
        </div>
        <div class="icon">
@@ -200,7 +201,7 @@
        </div>
        <div class="small-box bg-royal-purple cols-4  button-slide slide-in" style="width: fit-content;margin-left: 3px;" *ngIf="addbutton3">
          <div class="inner" style="width: 220px;">
-           <h4>Dust  Collector</h4>           
+           <h4>Submersible Pump</h4>           
          </div>
          <div class="icon">
            <i class="ion ion-stats-bars"></i>
@@ -220,5 +221,217 @@
 
  <!-- <div class="text-secondary text-center"  *ngIf="barchat==''"><h3><b>NO DATA FOUND FOR GRAPHS</b></h3></div> -->
 
+</div>
+<div class="modal fade" id="modal-xl" style="display: none;" aria-hidden="true" >
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Procedure Catalog</h4>
+        <button type="button" class="close" data-dismiss="modal"  aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <mat-card class="mat" style="border-top: 3px solid #25345D;">
+          <mat-card-content>
+            <h5 class="procedure-heading">Furnace F-22_0, Startup</h5>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;This procedure is used by EU2 Hot inside Operation Technologist and Furnace Outside Operation Technologist to safely start up a furnace after all preparation checks have been completed, and to bring it up to the Hot Steam Standby (HSSB) Cracked Gas step condition.</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;The tag numbers referred in this procedure for specific furnaces are as follows:</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;<b>Example:</b> HV-22X0-86 ; X to be replaced by 1 for F# 1, by 2 for F# 2 and so on.</p>
+          <!-- </mat-card-content>
+        </mat-card>
+        <br>
+        
+
+        <mat-card class="mat" style="border-top: 3px solid #25345D;">
+          <mat-card-content> -->
+            <h5 class="procedure-heading">Categories and Attributes</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="theader">Categories</th>
+                  <th class="theader">Attributes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: center;">🗹 Critical  Emergency  Operating  Maintenance  Other</td>
+                  <td style="text-align: center;"> Routine  Non-Routine</td>
+                </tr>
+              </tbody>
+            </table>
+          </mat-card-content>
+        </mat-card>
+        <br>
+         <!-- Required Qualifications -->
+         <mat-card class="mat" style="border-top: 3px solid #25345D;">
+          <mat-card-content>
+            <h5 class="procedure-heading">Required Qualifications to Perform this Procedure</h5>
+            <ul>
+              <li>API 510 – Pressure Vessel nspector</li>
+              <li>API 570 – Piping Inspector.</li>
+              
+            </ul>
+          </mat-card-content>
+        </mat-card>
+        <br>
+        <!-- Heading: Procedure Checklist #A -->
+        <mat-card class="mat" style="border-top: 3px solid #25345D;">
+          <mat-card-content>
+            <h5 class="procedure-heading">Procedure Checklist #A</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="theader">Step</th>
+                  <th class="theader">Action</th>
+                  <th class="theader">Edit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>OOT to ensure treated high pressure BFW (140 kg/cm2g HBF) is available.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>IOT to ensure that Decoke MOV is open, CG MOVs are closed and the local MOV switches are in “REMOTE” position.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>IOT to ensure Furnace control sequence is in Process Wait step.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>IOT to move BM sequence to Process Wait step.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>IOT to go to each individual auto burner and move its sequence to Process Wait.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>OOT to double check that feed and fuel gas are isolated.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>IOT to move BM control sequence to Stand By step.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>Once BMS is moved to Standby, IOT can manually move Furnace control sequence step from process wait to purge light off.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>OOT to ensure steam drum BFW inlet B/V at the inlet of steam drum is open and car sealed (on top deck).</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>OOT to ensure furnace battery limit HBF inlet 4” second B/V is closed.
+                    <br><b>Note:</b> First B/V should not be operated (it should be always open).
+                    <br><b>Note:</b> The first block valve bypass valves to be used for initial pressurization of the downstream system.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>OOT to ensure HBF control valve (FV-22X6-08) upstream and downstream B/Vs are open.
+                    <br><b>Note:</b> This step is applicable only for furnace-2280, and for the other furnaces should be closed.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td>OOT to ensure HBF control valve (FV-22X6-08) bypass 2” B/V and globe valve are closed.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>13</td>
+                  <td>Keep the steam drum 3” startup vent valves open.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>14</td>
+                  <td>OOT to open both HXS vent valve PV-22X0-43 4” upstream block valves.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>15</td>
+                  <td>IOT to ensure PV-22X0-43 is in “auto” control at the default flow set point of 10 Mt/h and default pressure set point of 112 kg/cm2g.
+                    <br><b>Note:</b> this will ensure that the HPSSHs will have the minimum steam flow.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>16</td>
+                  <td>Initially use the bypass valves across first block valve to pressurize the downstream header and then open the main block valve. Then close the bypass valves across the first block valve.
+                    <br>Start taking BFW to steam drum through FV-22X6-08 2”  bypass line; keeping first bypass open and throttling 2nd bypass  valve.
+                    <br><b>Note:</b> For F-2280 keep the side entry 4” header valve (manifold from battery limit) and bypass valve closed.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>17</td>
+                  <td>IOT to start filling the steam drum SLOWLY. Must enable “BFW to steam drum flow control slave” controller through activation of the HS.
+                    <br>Note 1: The control logic will initially fill the drum on flow control with a flow set point of 5 Mt/h until the level is within 5% of the fill set point at which time the level control will be enabled.
+                    <br>Note 2: The fill set point is 45%, which is less than the normal  run set point of 60 % to allow for swell. The set point will ramp  from 45% to 60 % when the steam drum pressure has reach 95 kg/cm2g.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+                <tr>
+                  <td>18</td>
+                  <td>IOT to confirm that “steam drum level control master” controller is automatically enabled after level has been within 5% of fill set point.</td>
+                  <td><div class="btn btn-info"><i class="far fa-edit"></i></div></td>
+                </tr>
+
+                <!-- Add more steps here -->
+              </tbody>
+            </table>
+          </mat-card-content>
+        </mat-card>
+        <br>
+        <mat-card style="border-top: 3px solid #25345D;">
+          <mat-card-content>
+            <h5 class="procedure-heading">Revision History</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="theader">Document Version</th>
+                  <th class="theader">Date</th>
+                  <th class="theader">Created/Updated By</th>
+                  <th class="theader">Approved By</th>
+                  <th class="theader">Change summary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: center;">1.0</td>
+                  <td style="text-align: center;">24-Nov-2023</td>
+                  <td style="text-align: center;">John</td>
+                  <td style="text-align: center;">Affleck</td>
+                  <td style="text-align: center;">Base version</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">1.0.1</td>
+                  <td style="text-align: center;">2-Feb-2024</td>
+                  <td style="text-align: center;">Ethan</td>
+                  <td style="text-align: center;">Affleck</td>
+                  <td style="text-align: center;">Step 4 Minor update</td>
+                </tr>
+              </tbody>
+            </table>
+          </mat-card-content>
+        </mat-card>
+        <br>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="closeModal()">Close</button>
+        <button type="button" class="btn btn-primary" (click)="closeModal()">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 </section>

@@ -1,0 +1,59 @@
+.body,
+.row,
+.card {
+  /* font-family: 'Montserrat', sans-serif !important; */
+}
+.info-box{
+  min-height: 100px;
+  border-top: 3px solid #9692ff;
+  /* background-color: #f1f3f4; */
+  border-radius: 10px;
+  box-shadow: 0 0 1px rgba(230, 230, 230, 0.13),0 1px 3px rgba(204, 204, 204, 0.2);
+  .info-box-number{
+    /* text-align: right; */
+    font-weight: 500;
+  }
+  .info-box-text{
+    text-transform: uppercase;
+    color: #525252;
+  }
+  .progress{
+    height: 7px;
+    border-radius: 10rem;
+    .progress-bar{
+      background-color: #9692ff;
+    }
+  }
+}
+.description-text{
+  font-weight: 300;
+  font-size: 10px;
+  text-transform: none;
+  color: #525252;
+}
+.card{
+  border-radius: 10px;
+  box-shadow: 0 0 1px rgba(230, 230, 230, 0.13),0 1px 3px rgba(204, 204, 204, 0.2);
+  .card-footer{
+    background-color: white;
+    border-radius: 10px;
+  }
+}
+.description-block > .description-header {
+  font-weight: 500;
+}
+.choose-range{
+  float: right;
+  width: 15%;
+}
+.card-primary.card-outline {
+  border-top: 3px solid #9692ff;
+}
+.progress-sm {
+  height: 10px;
+  border-radius: 10px;
+}
+
+.table-striped tbody tr:nth-of-type(2n+1) {
+  background-color: rgb(255, 255, 255);
+}

@@ -218,8 +218,8 @@ formInitialization(){
     shift_comment_c_oot:[null],
     shift_comment_c_iot:[null],
     userid:[this.currentUser.id],
-    master_text:[1],
-    Light_Off_table_1_id:[null,Validators.required],
+    master_id:[1],
+   
 id:[this.id]
 
   })

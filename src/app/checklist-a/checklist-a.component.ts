@@ -467,15 +467,15 @@ export class ChecklistAComponent implements OnInit {
       this.onSubmit(controlName);
     }
   
-    // if (controlName === 'oot_high_pressure') {
-    //   if (this.ChecklistA?.get('oot_high_pressure')?.value === 'Skip' && this.oot_high_pressure) {
-    //     this.oot_high_pressure = true; // Show textarea and buttons if Skip is selected for the first time
-    //   } else {
-    //     this.oot_high_pressure = false; // Hide textarea and buttons if Skip is not selected or already pressed
-    //   }
-    // } else if (controlName === 'some_other_control_name') {
-    //   // Handle logic for other radio buttons similarly
-    // }
+    if (controlName === 'oot_high_pressure') {
+      if (this.ChecklistA?.get('oot_high_pressure')?.value === 'Skip' && this.oot_high_pressure) {
+        this.oot_high_pressure = true; // Show textarea and buttons if Skip is selected for the first time
+      } else {
+        this.oot_high_pressure = false; // Hide textarea and buttons if Skip is not selected or already pressed
+      }
+    } else if (controlName === 'some_other_control_name') {
+      // Handle logic for other radio buttons similarly
+    }
   }
   
 onRadioChangeup() {

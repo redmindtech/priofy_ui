@@ -119,6 +119,7 @@ import { SwprequestComponent } from './swprequest/swprequest.component';
 import { PacdashboardComponent } from './pacdashboard/pacdashboard.component';
 import { SwptableComponent } from './swptable/swptable.component';
 import { SkipConfirmationDialogComponent } from './skip-confirmation-dialog/skip-confirmation-dialog.component';
+import { OperatordashboardComponent } from './operatordashboard/operatordashboard.component';
 
 
 
@@ -167,7 +168,8 @@ import { SkipConfirmationDialogComponent } from './skip-confirmation-dialog/skip
      SwprequestComponent,
      PacdashboardComponent,
      SwptableComponent,
-     SkipConfirmationDialogComponent 
+     SkipConfirmationDialogComponent,
+     OperatordashboardComponent 
     
        
     

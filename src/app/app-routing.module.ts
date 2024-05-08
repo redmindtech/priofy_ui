@@ -30,6 +30,7 @@ import { SwprequestComponent } from './swprequest/swprequest.component';
 import { PacdashboardComponent } from './pacdashboard/pacdashboard.component';
 import { SwptableComponent } from './swptable/swptable.component';
 import { ShowAdminDetailsComponent } from './Show-admin-details/show-admin-details.component';
+import { OperatordashboardComponent } from './operatordashboard/operatordashboard.component';
 
 const routes: Routes = [
   {
@@ -157,6 +158,10 @@ const routes: Routes = [
         path: 'showadmin',
         component: ShowAdminDetailsComponent,
       },
+      {
+        path:'operdashboard',
+        component:OperatordashboardComponent
+      }
     ]
   }, {
     path: '',

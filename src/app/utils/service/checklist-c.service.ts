@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ChecklistCService {
  
-  // baseUrl: string = "http://ec2-3-141-10-144.us-east-2.compute.amazonaws.com:8080/checklistC";
-  baseUrl: string = "http://localhost:8080/checklistC";
+  baseUrl: string = "http://18.117.156.141:8766/checklistC";
+  // baseUrl: string = "http://localhost:8080/checklistC";
 
   constructor(private httpClient: HttpClient) { }
   public savecheckcpage(data: any): Observable<any> {

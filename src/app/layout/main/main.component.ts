@@ -72,6 +72,13 @@ export class MainComponent implements OnInit {
                      if(this.fullUrl === '/main/showadmin')
                       {
                        this.screen='Furnace Startup' ;            }
+                       if(this.fullUrl === '/main/dashboard')
+                        {
+                              this.screen='Procedure Catalogue'           }
+                              if(this.fullUrl === 'main/operdashboard')
+                                {
+                                      this.screen='Dashboard'}
+                              
         }
       }
     });
@@ -79,21 +86,21 @@ export class MainComponent implements OnInit {
     if (name == 'Operator1') {
       this.headname = 'Process Digitization';
       this.username = 'Prakash';
-      this.role = 'Inside Operator'
+      this.role = 'Outside Operator'
       this.menu = this.getOperator1Menu();
     } else if (name == 'Operator2') {
       this.headname = 'Process Digitization';
-      this.role = 'Outside Operator'
+      this.role = 'Inside Operator'
       this.username = 'Bala';
       this.menu = this.getOperator1Menu();
     } else if (name == 'Operator3') {
       this.headname = 'Process Digitization';
-      this.role = 'Inside Operator'
+      this.role = 'Outside Operator'
       this.username = 'Arun';
       this.menu = this.getOperator1Menu();
     } else if (name == 'Operator4') {
       this.headname = 'Process Digitization';
-      this.role = 'Outside Operator'
+      this.role = 'Inside Operator'
       this.username = 'Rangith';
       this.menu = this.getOperator1Menu();
     } else if (name == 'Admin') {
@@ -184,8 +191,9 @@ export class MainComponent implements OnInit {
   }
   private getOperator1Menu() {
     return [
-      { name: 'Dashboard', path: ['/main/dashboard'] },
-      { name: 'My Work Orders', path: ['/main/home'] },
-    ];
-  }
+      { name: 'Dashboard', path: ['/main/operdashboard'] },
+      { name: 'Procedure Catalogue', path: ['/main/dashboard'] },
+      { name: 'My Work Orders', path: ['/main/home'] },
+];
+}
 }

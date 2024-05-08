@@ -75,3 +75,30 @@ h3{
 .textcolour{
   color: #130c0c;
 }
+.info-icon {
+  float: right !important;
+  opacity: 0.8;
+  scale: 1.5;
+}
+
+.procedure-heading {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.procedure-step {
+  margin-bottom: 20px;
+}
+.modal-body {
+  max-height: 600px; /* Set maximum height for the modal body */
+  overflow-y: auto; /* Enable vertical scrollbar if content exceeds the maximum height */
+}
+
+.theader{
+  background-color:#25345D;
+  padding:15px ;
+  text-align: center;
+  color: white;
+}
+.border-top{
+  border-top: 3px solid #9692ff;
+}

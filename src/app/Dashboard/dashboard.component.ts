@@ -122,5 +122,25 @@ handleClick() {
 toggleClicked(): void {
   this.isClicked = !this.isClicked;
 }
+openModal() {
+  // alert('called')
+  const modal = document.getElementById('modal-xl');
+  if (modal) {
+    modal.classList.add('show');
+    modal.removeAttribute('aria-hidden');
+    modal.setAttribute('aria-modal', 'true');
+    modal.style.display = 'block'; // Show the modal
+  }
+}
+
+closeModal() {
+  const modal = document.getElementById('modal-xl');
+  if (modal) {
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+    modal.removeAttribute('aria-modal');
+    modal.style.display = 'none'; // Hide the modal
+  }
+}
 }
 

@@ -43,7 +43,7 @@ export class LoginComponent {
            }
            
            else{
-            this.router.navigate(['/main/dashboard']);
+            this.router.navigate(['/main/operdashboard']);
            }
            
             

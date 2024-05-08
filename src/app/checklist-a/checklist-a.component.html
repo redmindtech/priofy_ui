@@ -37,9 +37,9 @@
                     value="Done" formControlName="oot_high_pressure" (change)="onRadioChange('oot_high_pressure')" />
                   <label for="oot_high_pressure-done" class="action">Done</label>
 
-                  <input type="radio" class="custom-radio" id="oot_high_pressure-skip" name="oot_high_pressure"
-                    value="Skip" formControlName="oot_high_pressure" (change)="onRadioChange('oot_high_pressure')" />
-                    <label for="oot_high_pressure-skip" class="action" (click)="onSkipButtonClick()">Skip</label>
+                  <input type="radio" class="custom-radio" id="oot_high_pressure-skip" name="oot_high_pressure" value="Skip"
+                  formControlName="oot_high_pressure" (change)="onRadioChange('oot_high_pressure')" />
+                  <label for="oot_high_pressure-skip" class="action"(click)="onSkipButtonClick()">Skip</label>
 
 
                   <div *ngIf="ChecklistA?.get('oot_high_pressure')?.value === 'Skip'">
@@ -49,7 +49,7 @@
                     <div style="margin-left: 31%;">
                       <button class="btn btn-primary m-1"
                         (click)="ChecklistA?.get('oot_high_pressure')?.setValue(''); ChecklistA?.get('oot_high_pressure_comment')?.setValue(''); ">Cancel</button>
-                        <button class="btn btn-primary m-1"  (click)="onSkipButtonClick()"(click)="onRadioChangeup()">Confirm</button>
+                        <button class="btn btn-primary m-1"  (click)="onSkipButtonClick()"(click)="onRadioChange('oot_high_pressure')">Confirm</button>
                     </div>
                   </div>
                 </td>
