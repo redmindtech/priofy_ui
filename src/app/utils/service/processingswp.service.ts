@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProcessingswpService {
-  baseUrl: string ='http://localhost:8080';
+  baseUrl: string ='http://localhost:8766';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -26,5 +26,31 @@ export class ProcessingswpService {
     return this.httpClient.post<any>(this.baseUrl + '/preparation2/Preparation2Save', data, this.httpOptions);
   }
 
+  public savepreparation2(data: any): Observable<any> {
+    return this.httpClient.post<any>(this.baseUrl + '/preparation3/Preparation3Save', data, this.httpOptions);
+  }
+
+  public savepreparation21(data: any): Observable<any> {
+    return this.httpClient.post<any>(this.baseUrl + '/preparation4/Preparation4Save', data, this.httpOptions);
+  }
+  public savepreparation3(data: any): Observable<any> {
+    return this.httpClient.post<any>(this.baseUrl + '/preparation5/Preparation5Save', data, this.httpOptions);
+  }
+  public savepreparation4(data: any): Observable<any> {
+    return this.httpClient.post<any>(this.baseUrl + '/preparation7/Preparation7Save', data, this.httpOptions);
+  }
+  public savepreparation5(data: any): Observable<any> {
+    return this.httpClient.post<any>(this.baseUrl + '/preparation6/Preparation6Save', data, this.httpOptions);
+  }
+  public savepreparation7(data: any): Observable<any> {
+    return this.httpClient.post<any>(this.baseUrl + '/preparation8/Preparation8Save', data, this.httpOptions);
+  }
+  public savepreparation8(data: any): Observable<any> {
+    return this.httpClient.post<any>(this.baseUrl + '/preparation9/Preparation9Save', data, this.httpOptions);
+  }
+
+  public savepreparation9(data: any): Observable<any> {
+    return this.httpClient.post<any>(this.baseUrl + '/preparation10/Preparation10Save', data, this.httpOptions);
+  }
   // Other methods...
 }

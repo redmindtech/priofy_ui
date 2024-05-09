@@ -77,9 +77,9 @@
     <td>{{ row.workLocation }}</td>
     <td>{{ row.start_date }}</td>
     <td>{{ row.end_date }}</td>
-    <td><i class="fas fa-edit" style="color: #25345D;"></i></td> <!-- Edit icon color -->
+    <td><i class="fas fa-edit" style="color: #25345D;"(click)="edit(row.id)"></i></td> <!-- Edit icon color -->
     <td><i class="fas fa-eye" style="color: green;"></i></td> <!-- View icon color -->
-    <td><i class="fas fa-trash-alt" style="color: red;"></i></td> <!-- Delete icon color -->
+    <td><i class="fas fa-trash-alt" style="color: red;"(click)="deleted(row.id)"></i></td> <!-- Delete icon color -->
   
   </tr>
   </table>

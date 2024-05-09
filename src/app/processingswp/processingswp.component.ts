@@ -17,8 +17,10 @@ export class ProcessingswpComponent implements OnInit {
   Safeworkpermit5!: FormGroup;
   Safeworkpermit6!: FormGroup;
   Safeworkpermit7!: FormGroup;
+  Safeworkpermit9!: FormGroup;
   Safeworkpermit8!: FormGroup;
 
+  isDisabled: boolean = true;
   
 
   items: string[] = [''];
@@ -102,8 +104,135 @@ console.log('this.formattedTime: ', this.formattedTime);
       }
     );
   }
-  
-  
+  saveForm2(){
+    console.log(this.Safeworkpermit1)   
+    const Safeworkpermit2 = this.Safeworkpermit2.value;
+    console.log('Form Data:', Safeworkpermit2);
+    this.apiService.savepreparation2(Safeworkpermit2).subscribe(
+      (response) => {
+        console.log('Response from serverrrrr:', response);
+        
+        // this.router.navigate(['/main/toolcomp']);
+        
+     
+      },
+      (error) => {
+        console.error('Error while sending data:', error);
+        
+      }
+    );
+  }
+  saveForm21(){
+    console.log(this.Safeworkpermit1)   
+    const Safeworkpermit21 = this.Safeworkpermit21.value;
+    console.log('Form Data:', Safeworkpermit21);
+    this.apiService.savepreparation21(Safeworkpermit21).subscribe(
+      (response) => {
+        console.log('Response from serverrrrr:', response);
+        
+        // this.router.navigate(['/main/toolcomp']);
+        
+     
+      },
+      (error) => {
+        console.error('Error while sending data:', error);
+        
+      }
+    );
+  }
+  saveForm3(){
+    console.log(this.Safeworkpermit3)   
+    const Safeworkpermit3 = this.Safeworkpermit3.value;
+    console.log('Form Data:', Safeworkpermit3);
+    this.apiService.savepreparation3(Safeworkpermit3).subscribe(
+      (response) => {
+        console.log('Response from serverrrrr:', response);
+        
+        // this.router.navigate(['/main/toolcomp']);
+        
+     
+      },
+      (error) => {
+        console.error('Error while sending data:', error);
+        
+      }
+    );
+  }
+  saveForm4(){
+    console.log(this.Safeworkpermit4)   
+    const Safeworkpermit4 = this.Safeworkpermit4.value;
+    console.log('Form Data:', Safeworkpermit4);
+    this.apiService.savepreparation4(Safeworkpermit4).subscribe(
+      (response) => {
+        console.log('Response from serverrrrr:', response);
+        
+        // this.router.navigate(['/main/toolcomp']);
+        
+     
+      },
+      (error) => {
+        console.error('Error while sending data:', error);
+        
+      }
+    );
+  }
+  saveForm7(){
+    console.log(this.Safeworkpermit7)   
+    const Safeworkpermit7 = this.Safeworkpermit7.value;
+    console.log('Form Data:', Safeworkpermit7);
+    this.apiService.savepreparation7(Safeworkpermit7).subscribe(
+      (response) => {
+        console.log('Response from serverrrrr:', response);
+        
+        // this.router.navigate(['/main/toolcomp']);
+        
+     
+      },
+      (error) => {
+        console.error('Error while sending data:', error);
+        
+      }
+    );
+  }
+
+  saveForm9(){
+    console.log(this.Safeworkpermit9)   
+    const Safeworkpermit9 = this.Safeworkpermit9.value;
+    console.log('Form Data:', Safeworkpermit9);
+    this.apiService.savepreparation9(Safeworkpermit9).subscribe(
+      (response) => {
+        console.log('Response from serverrrrr:', response);
+        
+        // this.router.navigate(['/main/toolcomp']);
+        
+     
+      },
+      (error) => {
+        console.error('Error while sending data:', error);
+        
+      }
+    );
+  }
+
+  saveForm8(){
+    console.log(this.Safeworkpermit8)   
+    const Safeworkpermit8 = this.Safeworkpermit8.value;
+    console.log('Form Data:', Safeworkpermit8);
+    this.apiService.savepreparation8(Safeworkpermit8).subscribe(
+      (response) => {
+        console.log('Response from serverrrrr:', response);
+        
+        // this.router.navigate(['/main/toolcomp']);
+        
+     
+      },
+      (error) => {
+        console.error('Error while sending data:', error);
+        
+      }
+    );
+  }
+
   formInitialization(){
     this.Safeworkpermit = this.formBuilder.group({
      
@@ -149,10 +278,8 @@ console.log('this.formattedTime: ', this.formattedTime);
       safeworkpermitRequest_id: [1],
         userid: [this.currentUser.id],
     });
-    this.Safeworkpermit3=
-    this.formBuilder.group({ 
+    this.Safeworkpermit3 = this.formBuilder.group({ 
 
-  
       // mastercard_time:[this.formattedTime],
       ecp_number:[null],
       equp_id:[null],
@@ -169,78 +296,100 @@ console.log('this.formattedTime: ', this.formattedTime);
       used_to_verify:[''],
       inadvertent_operation:[''],
       special_instructions:[''],
+      safeworkpermitRequest_id: [2],
+        userid: [this.currentUser.id],
     });
-    //   toppings:[''],
-    //   location_of_red_tags:[''],
-    //   facilityrep_red_tag:[''],
-    //   lock_number:[''],
-    //   tags_reconcilation_date:[this.formattedDate],
-    //   tags_reconcilation_time:[this.formattedTime],
-    //   tags_reconciled_signature:[''],
-    //   tag_added_location:[''],
-     
-    //   tag_deleted_location:[''],
-      
-    //  initial_lel:[''],
-    //   initial_oxygen:[''],
-    //   initial_others:[''],
-    //   initial_date:[this.formattedDate],
-    //   initial_time:[this.formattedTime],
-    //   retest_1_oxygen:[''],
-    //   retest_1_lel:[''],
-    //   retest_1_others:[''],
-    //   retest_1_date:[this.formattedDate],
-    //   retest_1_time:[this.formattedTime],
-    //   retest_2_oxygen:[''],
-    //   retest_2_lel:[''],
-    //   retest_2_others:[''],
-    //   retest_2_date:[this.formattedDate],
-    //   retest_2_time:[this.formattedTime],
-    //   equipment_prepared_facility_rep:[''],
-    //   equipment_prepared_employee_number:[''],
-    //   equipment_prepared_date:[this.formattedDate],
-    //   equipment_prepared_time:[this.formattedTime],
-      
-    //   fire_watch_name:[''],
-    //   initial_dep_rep:[''],
-    //   safety_attendant_name:[''],
-    //   reviewed_by_trso:[''],
-    //   contractor_rso:[''],
-    //   outside_barricade:[''],
-    //   inside_barricade:[''],
-    //   radition_safe_condition:[''],
+    this.Safeworkpermit4=
+    this.formBuilder.group({
+      tag_added_location:[''],
+      tag_added_location_sign:[''],
+      tag_deletion_location:[''],
+      tag_deletion_location_sign:[''],
+      tags_reconcilation_date:[this.formattedDate],
+      tags_reconcilation_time:[this.formattedTime],
+      tags_reconcilation_sign:[null],
+      safeworkpermitRequest_id: [1],
+        userid: [this.currentUser.id],
+    });
 
-    //   facility_representative_name:[''],
-    //   facility_representative_employee_number:[''],
-    //   facility_representative_employee_number_sign:[''],
-    //   facility_rep_date:[this.formattedDate],
-    //   facility_rep_time:[this.formattedTime],
-    //   job_facility_representative_name:[''],
-    //   job_facility_representative_employee_number:[''],
-    //   job_facility_representative_employee_number_sign:[''],
-    //   job_rep_date:[this.formattedDate],
-    //   job_rep_time:[this.formattedTime],
-    //   date_lock_date:[this.formattedDate],
-    //   date_lock_time:[this.formattedTime],
+    this.Safeworkpermit8=
+    this.formBuilder.group({
+      facility_representative_name:[null],
+      facility_representative_employee_number:[null],
+      facility_representative_employee_number_sign:[null],
+      facility_rep_date:[this.formattedDate],
+      facility_rep_time:[this.formattedTime],
+      safeworkpermitRequest_id: [1],
+        userid: [this.currentUser.id],
+    });
 
+    this.Safeworkpermit9=
+    this.formBuilder.group({
+      job_facility_representative_name:[null],
+      job_facility_representative_employee_number:[null],
+      job_facility_representative_employee_number_sign:[null],
+      job_rep_date:[this.formattedDate],
 
-    // })
+      job_rep_time:[this.formattedTime],
+      safeworkpermitRequest_id: [1],
+        userid: [this.currentUser.id],
+    });
+    this.Safeworkpermit7=
+    this.formBuilder.group({
+      contractor_rso:[''],
+      equipment_prepared_date:[this.formattedDate],
+      equipment_prepared_time:[this.formattedTime],
+      equipment_prepared_employee_name:[''],
+     equipment_prepared_employee_number:[''],
+     fire_watch_name:[''],
+     initial_date:[this.formattedDate],
+       initial_time:[this.formattedTime],
+    
+       initial_others:[''],
+       inside_barricade:[''],
+       intial_lel:[''],
+       intial_oxygen:[''],
+       master_card_no:[null],
+       outside_barricade:[''],
+       radition_safe_condition:[''],
+       retest_1_date:[this.formattedDate],
+       retest_1_time:[this.formattedTime],
+       retest_1_oxygen:[''],
+      retest_1_lel:[''],
+      retest_1_others:[''],
+      retest_2_oxygen:[''],
+        retest_2_lel:[''],
+        retest_2_others:[''],
+        retest_2_date:[this.formattedDate],
+        retest_2_time:[this.formattedTime],
+        reviewed_by_trso:[''],
+        safety_attendant_name:[''],
+        intial_test:[''],
+      safeworkpermitRequest_id: [2],
+        userid: [this.currentUser.id],
+    });
+
+this.Safeworkpermit5=
+    this.formBuilder.group({
+      toppings:[''],
+        location_of_red_tags:[''],
+        facilityrep_red_tag:[''],
+        lock_number:[''],
+       
+        tags_reconciled_signature:[''],
+        tag_added_location:[''],
+        date_lock_date:[''],
+        date_lock_time:[''],
+        tag_deleted_location:[''],
+        
+    });
+   
     
 
   }
 
   
-//   preparation 2
-// {
-//   "mastercard_date": "string",
-//   "mastercard_no": 0,
-//   "mastercard_time": "string",
-//   "reason_for_work": "string",
-//   "red_tag": "string",
-//   "safeworkpermitRequest_id": "string",
-//   "userid": "string",
-//   "work_description": "string"
-// }
+
   
   showSignatureCard() {
     this.showSignature = true;

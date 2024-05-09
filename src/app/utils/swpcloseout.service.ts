@@ -6,10 +6,10 @@ import { Observable } from 'rxjs'
   providedIn: 'root'
 })
 export class SwpcloseoutService {
-  baseUrl1: string ='http://localhost:8080/closeOut1';
-  baseUrl2: string ='http://localhost:8080/closeOut2';
-  baseUrl3: string ='http://localhost:8080/closeOut3';
-  baseUrl4: string ='http://localhost:8080/closeOut4';
+  baseUrl1: string ='http://localhost:8766/closeOut1';
+  baseUrl2: string ='http://localhost:8766/closeOut2';
+  baseUrl3: string ='http://localhost:8766/closeOut3';
+  baseUrl4: string ='http://localhost:8766/closeOut4';
 
 
   constructor(private httpClient: HttpClient) { }

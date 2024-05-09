@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class SwprequestService {
 
-  baseUrl: string ='http://localhost:8080/safeworkpermitrequest';
+  baseUrl: string ='http://localhost:8766/safeworkpermitrequest';
 
   constructor(private httpClient: HttpClient) { }
   public saveswprequest(data: any): Observable<any> {
@@ -50,5 +50,15 @@ export class SwprequestService {
   //getbyid
   public getswprequestById(id: string): Observable<any> {
     return this.httpClient.get(`${this.baseUrl}/${id}`);
+  }
+  deletePermitData(id: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        
+      })
+    };
+  
+    return this.httpClient.delete<any>(`${this.baseUrl}/${id}`, httpOptions);
   }
   }

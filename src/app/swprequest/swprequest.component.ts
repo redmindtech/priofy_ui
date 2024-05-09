@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { SwprequestService } from '@app/utils/swprequest.service';
 
 @Component({
@@ -33,11 +34,13 @@ export class SwprequestComponent implements OnInit {
   eyeprotect:string[]=['Safety Glasses with Side Shields','Goggles','Hand Shield','Helmet type Stationary Window'];
   startDateTime: string;
   selectedFileName: any;
+  paramsId: any;
 
-  constructor(private formBuilder: FormBuilder,private apiService: SwprequestService,) {
+  constructor(private formBuilder: FormBuilder,private apiService: SwprequestService,private activatedRoute: ActivatedRoute,) {
 
   }
   ngOnInit(): void {
+    this.paramsId = this.activatedRoute.snapshot.queryParams?.['id'];
     this.userDetails = localStorage.getItem('currentUser');
     this.userObject = JSON.parse(this.userDetails);
     this.position = this.userObject.position;
@@ -45,6 +48,9 @@ export class SwprequestComponent implements OnInit {
     // this.paramsId = this.activatedRoute.snapshot.queryParams?.['id'];
     // this.queryPath = this.activatedRoute.snapshot.url[0]?.path;
     this.formInitialization()
+    if (this.paramsId) {
+      this.onEditClick();
+    }
   }
   formInitialization() {
     
@@ -189,7 +195,7 @@ updateFormValues(): void {
 // getbydata
 onEditClick(): void {
   // Fetch permit data by ID
-  this.apiService.getswprequestById('1').subscribe(
+  this.apiService.getswprequestById(this.paramsId).subscribe(
     (data: any) => {
       console.log(data);
       // Patch form values with API response

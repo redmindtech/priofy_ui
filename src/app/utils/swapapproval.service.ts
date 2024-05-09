@@ -8,8 +8,8 @@ import { Observable } from 'rxjs'
 export class SwapapprovalService {
 
  
-  baseUrl1: string ='http://localhost:8080/approval1';
-  baseUrl2: string ='http://localhost:8080/approval2';
+  baseUrl1: string ='http://localhost:8766/approval1';
+  baseUrl2: string ='http://localhost:8766/approval2';
   constructor(private httpClient: HttpClient) { }
 
 

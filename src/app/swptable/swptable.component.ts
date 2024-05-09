@@ -4,6 +4,7 @@ import { ShowAdminDetailsComponent } from '@app/Show-admin-details/show-admin-de
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { SwprequestService } from '@app/utils/swprequest.service';
+import Swal from 'sweetalert2';
 
 declare var $: any;
 
@@ -162,6 +163,7 @@ export class SwptableComponent implements OnInit {
     const tableDatas = this.displayedColumns.values;
     this.apiService.fetchAllrequest(tableDatas).subscribe(
       (response)=> {
+        console.log("fetch");
         console.log('resonse From Server:',response);
         this.tableData = response.result;
         console.log(this.tableData)
@@ -172,5 +174,50 @@ export class SwptableComponent implements OnInit {
     )
    
   }
+  edit(id: string) {
+    console.log(id);
+    this.router.navigate(['main/swaprequest'], { queryParams: { id } }); // Assuming your edit route is '/editform/:id'
+  }
+  
+  deleted(id: string) {
+    // Display confirmation dialog
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You are about to delete this permit. This action cannot be undone.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'delete it!',
+      cancelButtonText: 'cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) { // If user clicks "Yes, delete it!"
+        this.apiService.deletePermitData(id).subscribe(
+          (response) => {
+            console.log('id: ', id);
+            this.showAlert('success', 'Permit Deleted successfully!');
+           
+          },
+          (error) => {
+            console.error('An error occurred:', error);
+            this.showAlert('error', 'Failed to Deleted permit.');
+          }
+        );
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        // Do nothing if user clicks "No, cancel!"
+      }
+    });
+  }
 
+  showAlert(icon: 'success' | 'error', text: string): void {
+    Swal.fire({
+      title: 'Permit Creation',
+      text: text,
+      icon: icon,
+      confirmButtonText: 'OK',
+    }).then((result) => {
+      if (result.isConfirmed) { // If user clicks OK
+        window.location.reload(); // Reload the page
+      }
+    });
+  }
 }

@@ -78,3 +78,7 @@ h5{
     text-align: center;
     color: white;
   }
+  .disable_formcontrol {
+    opacity: 0.5; /* or any other styling to indicate disabled state */
+    pointer-events: none; /* optionally disable pointer events */
+  }
