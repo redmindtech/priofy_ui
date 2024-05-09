@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ShowAdminDetailsComponent } from '@app/Show-admin-details/show-admin-details.component';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
+import { SwprequestService } from '@app/utils/swprequest.service';
+
 declare var $: any;
 
 @Component({
@@ -21,22 +23,12 @@ export class SwptableComponent implements OnInit {
   sortDirection: number = 1;
   showColumnVisibilityDropdown: boolean = false;
   tableData:any[]=[];
-
-  constructor(public dialog: MatDialog,private router: Router) { }
+  
+  constructor(public dialog: MatDialog,private router: Router,private apiService:SwprequestService) { }
 
   ngOnInit(): void {
-    this.tableData = [
-      { sno: 1, requester_name: 'Shift-Operater1', equipment_id: 'F-2230', work_location: 'EU2-E-2231A/B.C/D/E & F', start_date: '02-04-2024', end_date: '03-04-2024'},
-      { sno: 2, requester_name: 'Shift-Operater2', equipment_id: 'F-2231', work_location: 'EU2-E-2231A/B.C/D/E & F', start_date: '02-04-2024', end_date: '03-04-2024'},
-      { sno: 3, requester_name: 'Shift-Operater3', equipment_id: 'F-2232', work_location: 'EU2-E-2231A/B.C/D/E & F', start_date: '02-04-2024', end_date: '03-04-2024'},
-      { sno: 4, requester_name: 'Shift-Operater4', equipment_id: 'F-2233', work_location: 'EU2-E-2231A/B.C/D/E & F', start_date: '02-04-2024', end_date: '03-04-2024'},
-      { sno: 5, requester_name: 'Shift-Operater5', equipment_id: 'F-2234', work_location: 'EU2-E-2231A/B.C/D/E & F', start_date: '02-04-2024', end_date: '03-04-2024'},
-      { sno: 6, requester_name: 'Shift-Operater1', equipment_id: 'F-2235', work_location: 'EU2-E-2231A/B.C/D/E & F', start_date: '02-04-2024', end_date: '03-04-2024'},
-      { sno: 7, requester_name: 'Shift-Operater2', equipment_id: 'F-2236', work_location: 'EU2-E-2231A/B.C/D/E & F', start_date: '02-04-2024', end_date: '03-04-2024'},
-      { sno: 8, requester_name: 'Shift-Operater3', equipment_id: 'F-2237', work_location: 'EU2-E-2231A/B.C/D/E & F', start_date: '02-04-2024', end_date: '03-04-2024'},
-      { sno: 9, requester_name: 'Shift-Operater4', equipment_id: 'F-2238', work_location: 'EU2-E-2231A/B.C/D/E & F', start_date: '02-04-2024', end_date: '03-04-2024'},
-      { sno: 10, requester_name: 'Shift-Operater5', equipment_id: 'F-2239', work_location: 'EU2-E-2231A/B.C/D/E & F', start_date: '02-04-2024', end_date: '03-04-2024'}
-    ];
+    this.FetchAllForm();
+    
     const dropdownItem = document.querySelectorAll('.dropdown-item');
     dropdownItem.forEach(item =>{
       item.classList.add('selected');
@@ -164,6 +156,21 @@ export class SwptableComponent implements OnInit {
     } else {
       alert("Browser does not support copying to clipboard.");
     }
+  }
+
+  FetchAllForm(){
+    const tableDatas = this.displayedColumns.values;
+    this.apiService.fetchAllrequest(tableDatas).subscribe(
+      (response)=> {
+        console.log('resonse From Server:',response);
+        this.tableData = response.result;
+        console.log(this.tableData)
+      },
+      (error)=> {
+        console.error('Error while reciving data:',error);
+      }
+    )
+   
   }
 
 }

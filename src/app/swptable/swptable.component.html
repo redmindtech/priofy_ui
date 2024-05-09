@@ -56,10 +56,10 @@
   <table #example1Table id="example1" class="table table-bordered table-striped">
   <thead>
   <tr>
-    <th (click)="sortData('sno')" data-column="index">S.No <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'sno'}"></i></th>
-    <th (click)="sortData('requester_name')" data-column="requester_name">Requester Name <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'requester_name'}"></i></th>
-    <th (click)="sortData('equipment_id')" data-column="equipment_id">Equipment Id<i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'equipment_id'}"></i></th>
-    <th (click)="sortData('work_location')" data-column="work_location">Work Location <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'work_location'}"></i></th>
+    <th (click)="sortData('id')" data-column="index">S.No <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'id'}"></i></th>
+    <th (click)="sortData('requestorname')" data-column="requestorname">Requester Name <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'requestorname'}"></i></th>
+    <th (click)="sortData('equipmentID')" data-column="equipmentID">Equipment Id<i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'equipmentID'}"></i></th>
+    <th (click)="sortData('workLocation')" data-column="workLocation">Work Location <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'workLocation'}"></i></th>
     <th (click)="sortData('start_date')" data-column="start_date">Start Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'start_date'}"></i></th>
     <th (click)="sortData('end_date')" data-column="end_date">End Date <i class="fas fa-sort" [ngClass]="{'fa-flip-vertical': sortColumn === 'end_date'}"></i></th>
 
@@ -71,10 +71,10 @@
   <tbody>
   <tr>
     <tr *ngFor="let row of tableData">
-    <td>{{ row.sno }}</td>
-    <td>{{ row.requester_name }}</td>
-    <td>{{ row.equipment_id }}</td>
-    <td>{{ row.work_location }}</td>
+    <td>{{ row.id }}</td>
+    <td>{{ row.requestorname }}</td>
+    <td>{{ row.equipmentID }}</td>
+    <td>{{ row.workLocation }}</td>
     <td>{{ row.start_date }}</td>
     <td>{{ row.end_date }}</td>
     <td><i class="fas fa-edit" style="color: #25345D;"></i></td> <!-- Edit icon color -->

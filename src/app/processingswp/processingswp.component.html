@@ -6,7 +6,7 @@
 
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
-        <h5  style="display: contents; color:#25345D"><strong>Stage #2 : Safe Work Permit - Prepration</strong> </h5>
+        <h5  style="display: contents; color:#25345D"><strong>Stage #2 :SWP - Safe Work Permit - Prepration</strong> </h5>
       </div>
       <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
@@ -24,8 +24,8 @@
         <div class="row mt-3">
 
 <div class="col">
-  <label class="label" for="preparations">Preparations & Tests</label>
-  <textarea type="text" class="form-control" rows="3"   id="preparations" placeholder="Enter Preparations & Tests" formControlName="preparations_and_test"></textarea>
+  <label class="label" for="preparations_and_test">Preparations & Tests</label>
+  <textarea type="text" class="form-control" rows="3"   id="preparations_and_test" placeholder="Enter Preparations & Tests" formControlName="preparations_and_test"></textarea>
 </div>
 <div class="col">
   <label class="label" for="house_keeping_instructions">Waste Disposal & House Keeping Instructions</label>
@@ -40,7 +40,7 @@
   </div>
   <div class="col">
     <label class="label" for="Physical_Hazards">Physical Hazards</label>
-    <textarea type="text" class="form-control" rows="3"   id="Physical_Hazards" placeholder="Enter Physical Hazards" formControlName="Physical_Hazards"></textarea>
+    <textarea type="text" class="form-control" rows="3"   id="Physical_Hazards" placeholder="Enter Physical Hazards" formControlName="physical_Hazards"></textarea>
   </div>
   </div>
   <div class="row mt-3">
@@ -65,7 +65,9 @@
         <input type="text" class="form-control" id="conditions_set_by" formControlName="conditions_set_by" placeholder="Enter Conditions Set By">
       </div>
       </div>
-
+      <div class="save-button-container">
+        <button mat-raised-button style="background-color:#25345D; ; color: white; margin: 0 auto;" (click)="saveForm()">Save</button>
+        </div>
        </form>
         </mat-card-content>
         </mat-card>
@@ -77,7 +79,7 @@
           </div>
 
           <mat-card-content>
-            <form [formGroup]="Safeworkpermit">
+            <form [formGroup]="Safeworkpermit1">
               <h6 style="margin-top: 2%;"><strong>Master Card Number : {{76488}}</strong></h6>
 
 
@@ -99,9 +101,9 @@
                 <input type="text" class="form-control truncate"  formControlName="red_tag" placeholder="Enter Total No. of Red Tags" (focusout)="updateRedTagValue()" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
 
             </div>
-            <div class="col-sm-4">
-              <label class="label" for="equipment_identification_iD">Equipment Identification ID</label>
-              <input type="text" class="form-control" id="equipment_identification_iD" value="56789" readonly >
+            <div class="col-sm-6">
+              <label class="label" for="equipment_identification_id">Equipment Identification ID</label>
+              <input type="text" class="form-control" id="equipment_identification_id"  readonly >
             </div>
           </div>
           </div>
@@ -117,7 +119,9 @@
       </div>
       </div>
 
-
+      <div class="save-button-container">
+        <button mat-raised-button style="background-color:#25345D; ; color: white; margin: 0 auto;" (click)="saveForm1()">Save</button>
+        </div>
 
 
 
@@ -130,10 +134,11 @@
                 <h6><strong>Energy Control Plan - Tags</strong></h6>
               </div>
               <mat-card-content>
-                <form [formGroup]="Safeworkpermit">
+                <div class="row mt-3" >
+                <form [formGroup]="Safeworkpermit2">
 
 
-                  <div class="row mt-3" >
+                 
 
                     <div class="col-sm-2"[ngClass]="{ 'position-row': position !== 'Facility_Rep' }" >
             <label class="label" for="add_tag">Number of added tags</label>
@@ -144,8 +149,8 @@
 
 
             <div class="col" [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
-              <label for="facility_representative_sign">Facility Representative (sign)</label>
-              <textarea type="text" class="form-control" rows="3"   id="facility_representative_sign" placeholder="Enter Facility Representative Sign" formControlName="facility_representative_sign"></textarea>
+              <label for="facility_representative_sign_comment">Facility Representative (sign)</label>
+              <textarea type="text" class="form-control" rows="3"   id="facility_representative_sign_comment" placeholder="Enter Facility Representative Sign" formControlName="facility_representative_sign_comment"></textarea>
               <div style="display: flex; flex-direction: column; align-items: left;">
                 <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage10.style.display = (signatureImage10.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                 <div style="margin-top: 10px;">
@@ -163,9 +168,14 @@
           </div> -->
 
           </div>
+          <div class="save-button-container">
+            <button mat-raised-button style="background-color:#25345D; ; color: white; margin: 0 auto;">Save</button>
+            </div>
+        </form>
+        <form [formGroup]="Safeworkpermit21">
           <div class="col" [ngClass]="{ 'position-row': position !== 'Job_rep' }">
-            <label  for="job_representative_sign">Job Representative (sign)</label>
-            <textarea type="text" class="form-control" rows="3"   id="job_representative_sign" placeholder="Enter Job Representative Sign" formControlName="job_representative_sign"></textarea>
+            <label  for="job_representative_sign_comment">Job Representative (sign)</label>
+            <textarea type="text" class="form-control" rows="3"   id="job_representative_sign_comment" placeholder="Enter Job Representative Sign" formControlName="job_representative_sign_comment"></textarea>
             <div style="display: flex; flex-direction: column; align-items: left;">
               <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
               <div style="margin-top: 10px;">
@@ -177,12 +187,11 @@
               </div>
     </div>
             </div>
-
-
+          
 
             <div class="col truncate"[ngClass]="{ 'position-row': position !== 'Job_rep' }">
-            <label  for="signature_other_unit_facility_representative" class="truncate">Sign of other unit Facility Representative</label>
-            <textarea type="text" class="form-control" rows="3"   id="signature_other_unit_facility_representative" placeholder="Enter Sign Unit Facility Representative Sign" formControlName="signature_other_unit_facility_representative"></textarea>
+            <label  for="signature_other_unit_facility_representative_comment" class="truncate">Sign of other unit Facility Representative</label>
+            <textarea type="text" class="form-control" rows="3"   id="signature_other_unit_facility_representative_comment" placeholder="Enter Sign Unit Facility Representative Sign" formControlName="signature_other_unit_facility_representative_comment"></textarea>
             <div style="display: flex; flex-direction: column; align-items: left;">
               <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
               <div style="margin-top: 10px;">
@@ -194,6 +203,7 @@
               </div>
     </div>
             </div>
+       
             <div class="col"[ngClass]="{ 'position-row': position !== 'Job_rep' }">
               <label  for="employee_number:">Employee Number</label>
               <textarea type="text" class="form-control" rows="3"   id="employee_number" placeholder="Enter Employee Number" formControlName="employee_number"></textarea>
@@ -208,9 +218,14 @@
                 </div>
       </div>
               </div>
+              <div class="save-button-container">
+                <button mat-raised-button style="background-color:#25345D; ; color: white; margin: 0 auto;">Save</button>
+                </div>
+              </form>
+
             </div>
 
-                </form>
+                
               </mat-card-content>
               </mat-card>
             <mat-card class= "card"  [ngClass]="{ 'position-row': position !== 'ECP_Issuer' }">
@@ -219,7 +234,7 @@
               </div>
 
               <mat-card-content>
-                <form [formGroup]="Safeworkpermit">
+                <form [formGroup]="Safeworkpermit3">
                   <div class="row">
                  <div class="col"><h6 style="margin-top: 2%;"><strong>ECP : {{764564}}</strong></h6></div>
 
@@ -234,16 +249,16 @@
 
 
                       <div class="row">
-      <div class="col"><input type="date" class="form-control" id="ecp_date" formControlName="ecp_date" placeholder="Enter Date"[disabled]="true"></div>
-      <div class="col"><input type="time" class="form-control" id="ecp_time" formControlName="ecp_time" placeholder="Enter Time"[disabled]="true" ></div>
+      <div class="col-sm-4"><input type="date" class="form-control" id="ecp_date" formControlName="ecp_date" placeholder="Enter Date"[disabled]="true"></div>
+      <div class="col-sm-4"><input type="time" class="form-control" id="ecp_time" formControlName="ecp_time" placeholder="Enter Time"[disabled]="true" ></div>
                       </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="col "><label>ECP Issued by: {{76488}}</label></div>
                       <div class="row ml-2"><label class="label" for="date">Date & Time</label></div>
                         <div class="row ">
-        <div class="col"><input type="date" class="form-control" id="ecp_issued_date" formControlName="ecp_issued_date"placeholder="Enter Date" ></div>
-        <div class="col"><input type="time" class="form-control" id="ecp_issued_time" formControlName="ecp_issued_time"placeholder="Enter Time" ></div>
+        <div class="col-sm-4"><input type="date" class="form-control" id="ecp_issued_date" formControlName="ecp_issued_date"placeholder="Enter Date" ></div>
+        <div class="col-sm-4"><input type="time" class="form-control" id="ecp_issued_time" formControlName="ecp_issued_time"placeholder="Enter Time" ></div>
                         </div>
                     </div>
 
@@ -255,13 +270,13 @@
 <div class="row mt-3">
   <div class="col">
     <div class="row ml-1"><label class="label" for="equipment_id">Equipment ID</label></div>
-   <input type="text" class="form-control truncate" id="equipment_id" value="F-2230" placeholder="Enter Equipment ID " oninput="this.value = this.value.replace(/[^0-9]/g, '');"disabled >
+   <input type="text" class="form-control truncate" id="equipment_id" formControlName="equp_id" placeholder="Enter Equipment ID " oninput="this.value = this.value.replace(/[^0-9]/g, '');"[disabled]="true" >
  </div>
  <div class="col">
 
    <div class="row ml-3"><label class="label" for="scope">Scope</label></div>
 
-   <input type="text" class="form-control truncate" id="scope" value="" placeholder="Enter Scope" disabled>
+   <input type="text" class="form-control truncate" id="scope" formControlName="scope" placeholder="Enter Scope" [disabled]="true">
  </div>
 </div>
 
@@ -283,15 +298,15 @@
               <input type="text" class="form-control"  id="residual_energy_material" placeholder="Enter Residual Energy Material" formControlName="residual_energy_material">
             </div>
             <div class="col">
-              <label class="label" for="inspection_required_job">Inspection Required During the Job</label>
-              <input type="text" class="form-control"  id="inspection_required_job" placeholder="Enter Inspection Required" formControlName="inspection_required_job">
+              <label class="label" for="inadvertent_operation">Inspection Required During the Job</label>
+              <input type="text" class="form-control"  id="inadvertent_operation" placeholder="Enter Inspection Required" formControlName="inadvertent_operation">
             </div>
             </div>
             <div class="row mt-3">
 
               <div class="col">
                 <label class="label" for="inadvertent_operation">Method(s) used to secure the isolating devices from inadvertent operation (OnePlus)</label>
-                <input type="text" class="form-control truncate"  id="inadvertent_operation" placeholder="Enter Inadvertent Operation" formControlName="inadvertent_operation">
+                <input type="text" class="form-control truncate"  id="used_to_verify" placeholder="Enter Inadvertent Operation" formControlName="used_to_verify">
               </div>
               <div class="col">
                 <label class="label" for="special_instructions">Special Instructions</label>
@@ -308,7 +323,7 @@
                     <h6 ><strong>Tags & Locks Table</strong></h6>
                   </div>
                   <mat-card-content>
-                    <form [formGroup]="Safeworkpermit">
+                    <form [formGroup]="Safeworkpermit3">
                       <table>
                         <tr>
                           <th>Isolation Method</th>
@@ -325,7 +340,7 @@
                         <tr *ngFor="let item of items;let i=index">
                           <td>
                             <div class="truncate">
-                              <mat-select class="form-control" style="width: 200px;" formControlName="toppings" multiple>
+                              <mat-select class="form-control" style="width: 150px;" formControlName="toppings" multiple>
                                 <mat-option *ngFor="let topping of toppingList" [value]="topping">{{ topping }}</mat-option>
                               </mat-select>
                             </div>
@@ -333,8 +348,8 @@
                           <td><input type="text" class="form-control truncate" id="location_of_red_tags" placeholder="Enter Location of Red Tags" formControlName="location_of_red_tags"></td>
                           <td><input type="text" class="form-control truncate" id="facilityrep_red_tag" placeholder="Enter Red Tag" formControlName="facilityrep_red_tag"></td>
                           <td><input type="text" class="form-control truncate" id="lock_number" placeholder="Enter Lock Number" formControlName="lock_number"></td>
-                          <td><input type="date" class="form-control truncate" id="date_lock_table" placeholder="Enter Date" formControlName="date_lock_table"></td>
-                          <td><input type="time" class="form-control truncate" id="time_lock_table" placeholder="Enter Time" formControlName="time_lock_table"></td>
+                          <td><input type="date" class="form-control truncate" id="date_lock_date" placeholder="Enter Date" formControlName="date_lock_date"></td>
+                          <td><input type="time" class="form-control truncate" id="date_lock_time" placeholder="Enter Time" formControlName="date_lock_time"></td>
                           <td>
                             <div style="display: flex; align-items: center;">
                                 <button mat-raised-button style="background-color: #25345D; color: white;">Sign</button>
@@ -366,7 +381,7 @@
                       </div>
 
                       <mat-card-content>
-                        <form [formGroup]="Safeworkpermit">
+                        <form [formGroup]="Safeworkpermit3">
 
 
                           <div class="row mt-3">
@@ -456,7 +471,7 @@
                             <mat-card>
                             <mat-card-content>
 
-                              <form [formGroup]="Safeworkpermit">
+                              <form [formGroup]="Safeworkpermit3">
                                 <div class="row mt-3">
 
 
@@ -495,8 +510,8 @@
                             <div class="col-sm-4">
                               <label class="label" for="date">Date & Time</label>
                               <div class="row">
-                              <div class="col"><input type="date" class="form-control" id="initial_date" formControlName="initial_date"></div>
-                            <div class="col"><input type="time" class="form-control" id="initial_time" formControlName="initial_time" ></div>
+                              <div class="col-sm-6"><input type="date" class="form-control" id="initial_date" formControlName="initial_date"></div>
+                            <div class="col-sm-6"><input type="time" class="form-control" id="initial_time" formControlName="initial_time" ></div>
                               </div>
                         </div>
                         <div class="col-sm-4">
@@ -543,8 +558,8 @@
                             <div class="col-sm-4">
                               <label class="label" for="date">Date & Time</label>
                               <div class="row">
-                              <div class="col"><input type="date" class="form-control" id="retest_1_date" formControlName="retest_1_date" ></div>
-                            <div class="col"><input type="time" class="form-control" id="retest_1_time" formControlName="retest_1_time" ></div>
+                              <div class="col-sm-6"><input type="date" class="form-control" id="retest_1_date" formControlName="retest_1_date" ></div>
+                            <div class="col-sm-6"><input type="time" class="form-control" id="retest_1_time" formControlName="retest_1_time" ></div>
                               </div>
                         </div>
                         <div class="col-sm-4">
@@ -590,8 +605,8 @@
                             <div class="col-sm-4">
                               <label class="label" for="date">Date & Time</label>
                               <div class="row">
-                              <div class="col"><input type="date" class="form-control" id="retest_2_date" formControlName="retest_2_date"></div>
-                            <div class="col"><input type="time" class="form-control" id="retest_2_time" formControlName="retest_2_time"></div>
+                              <div class="col-sm-6"><input type="date" class="form-control" id="retest_2_date" formControlName="retest_2_date"></div>
+                            <div class="col-sm-6"><input type="time" class="form-control" id="retest_2_time" formControlName="retest_2_time"></div>
                               </div>
                         </div>
                         <div class="col-sm-4">
@@ -611,7 +626,7 @@
 
                                  <h6 style="text-align: center;">Equipment Prepared by (Facility Rep.)</h6>
                               <mat-card-content>
-                                <form [formGroup]="Safeworkpermit">
+                                <form [formGroup]="Safeworkpermit3">
 
 
                                   <div class="row mt-3">
@@ -631,8 +646,8 @@
                                   <div class="col">
                                     <label class="label" for="date">Date & Time</label>
                                     <div class="row">
-                                    <div class="col-sm-7"><input type="date" class="form-control" id="equipment_prepared_date" formControlName="equipment_prepared_date"></div>
-                                  <div class="col-sm-7.5"><input type="time" class="form-control" id="equipment_prepared_time" formControlName="equipment_prepared_time"></div>
+                                    <div class="col-sm-8"><input type="date" class="form-control" id="equipment_prepared_date" style="white-space: normal" formControlName="equipment_prepared_date"></div>
+                                  <div class="col-sm-8"><input type="time" class="form-control" id="equipment_prepared_time" style="white-space: normal" formControlName="equipment_prepared_time" ></div>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -699,135 +714,99 @@
 
 
 
-                                <mat-card class= "card">
+                                <mat-card class="card">
                                   <mat-card-content>
-                                    <form [formGroup]="Safeworkpermit">
-                                    <div [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
-                                  <div class="header">
-                                    <h6 ><strong>PEFM Confirmation</strong></h6>
-                                  </div>
-
-                                     <h6 style="text-align: center;margin-top: 1%;">Equipment is Prepared for Work Described Above</h6>
-
-
-
-
-                                      <div class="row mt-3">
-                                        <div class="col">
-                                          <label class="label" for="facility_representative_name">Facility Representative Name</label>
-                                          <input type="text" class="form-control truncate"  id="facility_representative_name" placeholder="Enter Facility Representative Name" formControlName="facility_representative_name">
+                                    <form [formGroup]="Safeworkpermit3">
+                                      <div [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
+                                        <div class="header">
+                                          <h6><strong>PEFM Confirmation</strong></h6>
                                         </div>
-                                        <div class="col">
-                                          <label class="label" for="facility_representative_employee_number">Facility Representative Employee Number</label>
-                                          <input type="text" class="form-control truncate"  id="facility_representative_employee_number" placeholder="Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number">
+                                        <h6 style="text-align: center;margin-top: 1%;">Equipment is Prepared for Work Described Above</h6>
+                                        <div class="row mt-3">
+                                          <div class="col">
+                                            <label class="label" for="facility_representative_name">Facility Representative Name</label>
+                                            <input type="text" class="form-control truncate" id="facility_representative_name" placeholder="Enter Facility Representative Name" formControlName="facility_representative_name">
+                                          </div>
+                                          <div class="col">
+                                            <label class="label" for="facility_representative_employee_number">Facility Representative Employee Number</label>
+                                            <input type="text" class="form-control truncate" id="facility_representative_employee_number" placeholder="Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number">
+                                          </div>
                                         </div>
-
-
-
-
-
-                                      <div class="col">
-                                        <label class="label" for="date">Date & Time</label>
-                                        <div class="row">
-                                        <div class="col-sm-6"><input type="date" class="form-control" id="facility_rep_date" formControlName="facility_rep_date"></div>
-                                      <div class="col-sm-6.5"><input type="time" class="form-control" id="facility_rep_time" formControlName="facility_rep_time"></div>
+                                        <div class="row mt-3">
+                                          <div class="col">
+                                            <label class="label" for="date">Date & Time</label>
+                                            <div class="row">
+                                              <div class="col-sm-4"><input type="date" class="form-control" id="facility_rep_date" formControlName="facility_rep_date"></div>
+                                              <div class="col-sm-4"><input type="time" class="form-control" id="facility_rep_time" formControlName="facility_rep_time"></div>
+                                            </div>
+                                          </div>
+                                          <div class="col">
+                                            <label class="label" for="facility_representative_employee_number_sign">Facility Representative Employee Number</label>
+                                            <textarea type="text" class="form-control truncate" rows="1" id="facility_representative_employee_number" placeholder="Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number"></textarea>
+                                            <div style="display: flex; flex-direction: column; align-items: left;padding-top: 15px;">
+                                              <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage8.style.display = (signatureImage8.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                                              <div style="margin-top: 10px;">
+                                                <img #signatureImage8 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                                              </div>
+                                              <div *ngIf="signatureImage8.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                                                <strong>Dhinesh Kumar</strong><br>
+                                                <strong>[4Emp8769251]</strong>
+                                              </div>
+                                            </div>
+                                          </div>
                                         </div>
-                                    </div>
-                                    <div class="col">
-                                      <label class="label" for="facility_representative_employee_number_sign">Facility Representative Employee Number</label>
-                                      <textarea type="text" class="form-control truncate"   rows="1" id="facility_representative_employee_number" placeholder="Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number"></textarea>
-                                      <div style="display: flex; flex-direction: column; align-items: left;">
-                                        <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage8.style.display = (signatureImage8.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
-                                        <div style="margin-top: 10px;">
-                                          <img #signatureImage8 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                                      </div>
+                                
+                                      <div [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
+                                        <div class="header">
+                                          <h6><strong>PEFM Confirmation</strong></h6>
                                         </div>
-                                        <div *ngIf="signatureImage8.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
-                                         <strong>Dhinesh Kumar</strong><br>
-                                        <strong>[4Emp8769251]</strong>
+                                        <div class="row mt-3">
+                                          <div class="col">
+                                            <label class="label" for="job_facility_representative_name">Facility Representative Name</label>
+                                            <input type="text" class="form-control truncate" id="job_facility_representative_name" placeholder="Enter Job Facility Representative Name" formControlName="job_facility_representative_name">
+                                          </div>
+                                          <div class="col">
+                                            <label class="label" for="job_facility_representative_employee_number">Facility Representative Employee Number</label>
+                                            <input type="text" class="form-control truncate" id="job_facility_representative_employee_number" placeholder="Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number">
+                                          </div>
                                         </div>
-                              </div>
-                                    </div>
-                            </div>
-                          </div>
-
-                            <!-- <div class="row mt-3">
-                              <div class="col">
-                                <label class="label" for="facility_representative_name">Facility Representative Name</label>
-                                <input type="text" class="form-control"  id="facility_representative_name" placeholder="Please Enter Facility Representative Name" formControlName="facility_representative_name">
-                              </div>
-                              <div class="col">
-                                <label class="label" for="facility_representative_employee_number">Facility Representative Employee Numbe</label>
-                                <input type="text" class="form-control"  id="facility_representative_employee_number" placeholder="Please Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number">
-                              </div>
-
-
-
-                             </div>
-
-                          <div class="row mt-3">
-
-                            <div class="col">
-                              <label class="label" for="date">Date And Time</label>
-                              <div class="row">
-                              <div class="col"><input type="date" class="form-control" id="date" [value]="formattedDate" ></div>
-                            <div class="col"><input type="time" class="form-control" id="date" [value]="formattedTime" ></div>
-                              </div>
-                          </div>
-                          <div class="col">
-                            <label class="label" for="facility_representative_employee_number">Facility Representative Employee Number</label>
-                            <textarea type="text" class="form-control"   rows="3" id="facility_representative_employee_number" placeholder="Please Enter Facility Representative Employee Number" formControlName="facility_representative_employee_number"></textarea>
-                            <button  style="background-color: #147737;color: white; margin-top: 1%;" >Signature</button>
-                          </div>
-                  </div> -->
-                  <div [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
-                  <div class="header">
-                  <h6><strong>PEFM Confirmation</strong></h6>
-                </div>
-
-                  <div class="row mt-3">
-                    <div class="col">
-                      <label class="label" for="job_facility_representative_name">Facility Representative Name</label>
-                      <input type="text" class="form-control truncate"  id="job_facility_representative_name" placeholder="Enter Job Facility Representative Name" formControlName="job_facility_representative_name">
-                    </div>
-                    <div class="col">
-                      <label class="label" for="job_facility_representative_employee_number">Facility Representative Employee Number</label>
-                      <input type="text" class="form-control truncate"  id="job_facility_representative_employee_number" placeholder="Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number">
-                    </div>
-                    <div class="col">
-                      <label class="label" for="date">Date And Time</label>
-                      <div class="row">
-                      <div class="col-sm-6"><input type="date" class="form-control" id="job_rep_date" formControlName="job_rep_date" ></div>
-                    <div class="col-sm-6.5"><input type="time" class="form-control" id="job_rep_time" formControlName="job_rep_time"></div>
-
-                   </div>
-                      </div>
-
-
-
-
-                <div class="col">
-                  <label class="label" for="job_facility_representative_employee_number_sign">Facility Representative Employee Number</label>
-                  <textarea type="text" class="form-control"   rows="1" id="job_facility_representative_employee_number_sign" placeholder="Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number_sign"></textarea>
-                  <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage9.style.display = (signatureImage9.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
-                    <div style="margin-top: 10px;">
-                      <img #signatureImage9 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
-                    </div>
-                    <div *ngIf="signatureImage9.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
-                     <strong>Naveen Nandesh</strong><br>
-                    <strong>[4Emp87676251]</strong>
-                    </div>
-          </div>
-                </div>
-
-        </div>
-</div>
-                                   </form>
-                                   <div class="col text-center" [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
-                                    <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;" (click)="expandclose()">Save</button>
-                                </div>
-                                    </mat-card-content>
-                                    </mat-card>
+                                        <div class="row mt-3">
+                                          <div class="col">
+                                            <label class="label" for="date">Date And Time</label>
+                                            <div class="row">
+                                              <div class="col-sm-4"><input type="date" class="form-control" id="job_rep_date" formControlName="job_rep_date"></div>
+                                              <div class="col-sm-4"><input type="time" class="form-control" id="job_rep_time" formControlName="job_rep_time"></div>
+                                            </div>
+                                          </div>
+                                          <div class="col">
+                                            <label class="label" for="job_facility_representative_employee_number_sign">Facility Representative Employee Number</label>
+                                            <textarea type="text" class="form-control" rows="1" id="job_facility_representative_employee_number_sign" placeholder="Enter Job Facility Representative Employee Number" formControlName="job_facility_representative_employee_number_sign"></textarea>
+                                            <div style="display: flex; flex-direction: column; align-items: left;padding-top: 15px;">
+                                              <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage8.style.display = (signatureImage8.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                                              <div style="margin-top: 10px;">
+                                                <img #signatureImage8 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                                              </div>
+                                              <div *ngIf="signatureImage8.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                                                <strong>Naveen Nandesh</strong><br>
+                                                <strong>[4Emp87676251]</strong>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                
+                                        <div class="row mt-3">
+                                          <div class="col text-center">
+                                            <button mat-raised-button style="background-color: #25345D; color: white;" (click)="expandclose()">Save</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </form>
+                                  </mat-card-content>
+                                </mat-card>
+                                
+                                
+                                
 
 
           </mat-card>

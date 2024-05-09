@@ -34,6 +34,19 @@ export class SwprequestService {
     // Assuming data.userId exists
     return this.httpClient.put<any>(`${this.baseUrl}/${data.id}`, data, httpOptions);
   }
+//fetchAll
+  public fetchAllrequest(data:any):Observable<any>{
+    console.log('data:',data);
+    const httpOptions={
+      headers:new HttpHeaders({
+        'Content-Type':'application/json',
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+      })
+    };
+    return this.httpClient.get<any>(this.baseUrl+('/fetchAll'));
+  }
   //getbyid
   public getswprequestById(id: string): Observable<any> {
     return this.httpClient.get(`${this.baseUrl}/${id}`);
