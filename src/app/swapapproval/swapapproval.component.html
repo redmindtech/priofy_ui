@@ -1,6 +1,6 @@
 
 <mat-accordion>
-  <mat-expansion-panel class="mat_expansion_border"  [expanded]="false" [disabled]="false">
+  <mat-expansion-panel class="mat_expansion_border"  [(expanded)]="accordionClosed" [disabled]="false">
     <mat-expansion-panel-header class="mat_expansion_header_border">
       <div class="row">
         <h5 style="margin-right: 1150px;display: contents; color: #25345D;"><strong>Stage #3 :Safe Work Permit - Approval  </strong></h5>
@@ -11,7 +11,7 @@
     <div class="mat">
       <div class="form-section">
     <div class="mat-box">
-      <form [formGroup]="agreementForm">
+      <form [formGroup]="agreementForm1">
         <!-- [ngClass]="{ 'position-row': position !== 'Job_rep' }" -->
       <mat-card class= card >
     <table>
@@ -86,10 +86,10 @@
         </div>
         </div> -->
 
-            <div class="cols-4em">
-              <label>Employee Number:</label>
-              <div class="employee-number-box">6973412</div>
-            </div>
+        <div class="cols-4em">
+          <label for="employee-number">Employee Number:</label>
+          <input id="employee-number" class="form-control" [value]="employeenumber">
+        </div>
 
 
 
@@ -116,7 +116,20 @@
         </div>
         </div> -->
         
-        <button type="button" style="margin-top: 20px;" class="agree-button" [disabled]="!isFormValid()" (click)="agreementFormsave1()">Agree</button>
+        <div class="save-button-container" *ngIf="!agreementForm1up">
+          <button type="button" style="margin-top: 20px;" class="agree-button" [disabled]="!isFormValid()" (click)="agreementFormsave1()">Agree</button>
+        </div>
+        
+        <div class="save-button-container" *ngIf="agreementForm1up">
+          <button
+            mat-raised-button
+            style="background-color: #25345d; color: white; margin-top: 20px" class="update-button"
+            (click)="saveFormup1()"
+          >
+            Update
+          </button>
+        </div>
+      
       <!-- <div>
         <button type="button" style="margin-top: 20px;" class="save-button"  [disabled]="!allCheckboxesChecked()" >Save</button>
     </div> -->
@@ -128,7 +141,7 @@
     <div class="empty"></div>
     <div class="form-section">
     <div class="mat-box">
-      <form [formGroup]="agreementForm1">
+      <form [formGroup]="agreementForm2">
         <!-- [ngClass]="{ 'position-row': position !== 'swp_issuer' }" -->
       <mat-card class= card>
       <table>
@@ -204,38 +217,60 @@
             <div class="cols-4">
               <label>Signature:</label>
               <div class="signature-box">
-                <button mat-raised-button style="background-color:#25345D; color: white;margin-top: 1%" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 1px;">
+                <button mat-raised-button style="background-color:  #25345D; color: white;  margin-top: 1%;" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Signature</button>
+                <img #signatureImage2 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; margin-left: 5px;">
+            </div>
+            </div>
+    
+            <!-- <div class="row">
+            <div style="display: flex; flex-direction: column; align-items: left;">
+              <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage.style.display = (signatureImage.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+              <div style="margin-top: 10px;">
+                <img #signatureImage src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+              </div>
+              <div *ngIf="signatureImage.style.display !== 'none'" style="margin-top: 10px;" style="align-items: left;">
+               <strong>Ragasudha Ambayeram</strong><br>
+              <strong>[1Emp2024001]</strong>
               </div>
             </div>
-
+            </div> -->
+    
             <div class="cols-4em">
-              <label>Employee Number:</label>
-              <div class="employee-number-box">6973412</div>
+              <label for="employee-number">Employee Number:</label>
+              <input id="employee-number" class="form-control" [value]="employeenumber">
             </div>
-
-
-
+    
+    
+    
             <div class="cols-4dt">
               <label class="label" for="date">Date</label>
               <div class="row">
                 <div class="col"><input type="date" class="form-control" id="date" formControlName="date"></div>
               </div>
             </div>
-
+    
             <div class="cols-4dt">
               <label class="label" for="time" style="margin-left: 40px;">Time</label>
               <div class="row">
                 <div class="col" style="margin-left: 40px;"><input type="time" class="form-control" id="time" formControlName="time"></div>
               </div>
             </div>
+    
           </div>
          
-          <div>
+          <div  class="save-button-container" *ngIf="!agreementForm2up">
           
-            <button type="button" style="margin-top: 20px;" class="agree-button" [disabled]="!agreementForm1.valid" (click)="agreementFormsave2()">Agree</button>
+            <button type="button" style="margin-top: 20px;" class="agree-button" [disabled]="!agreementForm2.valid" (click)="agreementFormsave2()">Agree</button>
           </div>
-          
+          <div class="save-button-container" *ngIf="agreementForm2up">
+            <button
+              mat-raised-button
+              style="background-color: #25345d; color: white; margin-top: 20px" class="update-button"
+              (click)="saveFormup2()"
+            >
+              Update
+            </button>
+          </div>
         </mat-card>
       </form>
   </div>

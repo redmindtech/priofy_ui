@@ -39,4 +39,32 @@ export class SwapapprovalService {
 
     return this.httpClient.post(this.baseUrl2+('/Approval2Save'), data, httpOptions);
   }
+
+  updateswpapproval1(data: any): Observable<any> {
+    console.log('data: ', data);
+    console.log(data.safeworkpermitRequest_id);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+
+    // Assuming data.userId exists
+    return this.httpClient.put<any>(`${this.baseUrl1}/${data.id}`, data, httpOptions);
+  }
+
+
+  updateswpapproval2(data: any): Observable<any> {
+    console.log('data: ', data);
+    console.log(data.safeworkpermitRequest_id);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+
+    // Assuming data.userId exists
+    return this.httpClient.put<any>(`${this.baseUrl2}/${data.id}`, data, httpOptions);
+  }
+  
 }

@@ -165,7 +165,8 @@ height: 25px;
 
 
 
-.employee-number-box,
+.employee-number-box1,
+.employee-number-box2,
 .date-time-box-type {
   display: block;
   width: 200px;
@@ -285,7 +286,7 @@ h5{
   /* font-family: 'Montserrat', sans-serif; */
 }
 
-.save-button,.agree-button {
+.save-button,.agree-button,.update-button {
   /* font-family: 'Montserrat', sans-serif; */
   display: block;
   margin: 0 auto; /* Center the button horizontally */
@@ -319,7 +320,8 @@ h5{
 }
 
 .signature-box,
-.employee-number-box,
+.employee-number-box1,
+.employee-number-box2,
 .date-time-box-type {
   width: 100%; /* Set width to 100% to fill the container */
 }
