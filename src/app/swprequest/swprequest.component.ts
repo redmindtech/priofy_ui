@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { SwprequestService } from '@app/utils/swprequest.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-swprequest',
@@ -21,6 +22,7 @@ export class SwprequestComponent implements OnInit {
   position: any;
   expandedDropdownId: string | null = null;
   accordionClosed: boolean = false;
+  
 
   allZones: string[] = ['Zone1', 'Zone2', 'Zone3', 'Zone4', 'Zone5', 'Zone6', 'Zone7', 'Zone8', 'Zone9', 'Zone10'];
   EquipID:string[]= ['F-2230','d-3220','e-4422','g-2213'];
@@ -35,6 +37,13 @@ export class SwprequestComponent implements OnInit {
   startDateTime: string;
   selectedFileName: any;
   paramsId: any;
+  base64String: string;
+  convertedPdf: string;
+  pdf: any;
+  safeid: any;
+  Safeworkpermitup: boolean;
+ 
+
 
   constructor(private formBuilder: FormBuilder,private apiService: SwprequestService,private activatedRoute: ActivatedRoute,) {
 
@@ -72,15 +81,15 @@ console.log("time",this.formattedTime);
     sjp_attachment:[''],
       requestorname: [this.position], // Initialize with default value
       eaz: [['']],
-      equipmentID: [''], // Initialize with default value
-      workLocation: [''], // Initialize with default value
+      equipmentID: [['']], // Initialize with default value
+      workLocation: [['']], // Initialize with default value
       workDescription:[''],
       equipmentDescription:[''],
-      clothing: [''], // Initialize with default value
+      clothing: [['']], // Initialize with default value
       fhProtection: [['']], // Initialize with default value as an array
       jobScope: [''], // Initialize with default value
       toolsRequired: [['']], // Initialize with default value as an array
-      respiratory: [''], // Initialize with default value
+      respiratory: [['']], // Initialize with default value
       footleg: [['']], // Initialize with default value as an array
       ear: [['']], // Initialize with default value as an array
       eyeProtect: [['']], // Initialize with default value as an array
@@ -89,6 +98,7 @@ console.log("time",this.formattedTime);
       elevated: [''], // Initialize with default value
       others: [''], // Initialize with default value
       userid:[this.userObject.id],
+      id:[this.safeid]
     });
   }
 
@@ -119,7 +129,8 @@ readPDFFile(file: File): void {
     reader.onload = () => {
         const byteArray = new Uint8Array(reader.result as ArrayBuffer);
         // Convert Uint8Array to base64 string
-        const base64String = this.uint8ArrayToBase64(byteArray);
+         const base64String = this.uint8ArrayToBase64(byteArray);
+         console.log('this.base64String: ', base64String);
         // Set the base64 string as the value of the form control
         this.swpForm.get('sjp_attachment')?.setValue(base64String);
     };
@@ -156,38 +167,39 @@ deleteFile() {
 
   saveForm() {
     // this.accordionClosed=true
-    this.accordionClosed = false;
-    // this.swpForm.get('start_date')?.setValue(this.startDateTime);
-    // this.swpForm.get('end_date')?.setValue(this.startDateTime);
-    // this.swpForm.get('start_time')?.setValue(this.startDateTime);
-    // this.swpForm.get('end_time')?.setValue(this.startDateTime);
+    
+
     const firstFormValue = this.swpForm.value;
     console.log('Form Data:', firstFormValue);
     this.apiService.saveswprequest(firstFormValue).subscribe(
       (response) => {
         console.log('Response from server:', response);
         
-        // this.router.navigate(['/main/toolcomp']);
-        
+        this.showAlert('success', 'Safe Work Permit Request Created successfully!');
+        this.swpForm.reset();
+        this.accordionClosed = false;
      
       },
       (error) => {
         console.error('Error while sending data:', error);
-        
+        this.showAlert('error', 'Failed to Create Safe Work Permit Request ');
       }
     );
   }
   
 updateFormValues(): void {
+ 
   const formData = this.swpForm.value;
   console.log('formData: ', formData);
   this.apiService.updateswprequest(formData).subscribe(
     (response) => {
-    
+      this.showAlert('success', 'Safe Work Permit Request Updated successfully!');
+      this.swpForm.reset();
+      this.accordionClosed = false;
     },
     (error) => {
       console.error('An error occurred:', error);
-      
+      this.showAlert('error', 'Failed to Update Safe Work Permit Request ');
       // Handle error appropriately, e.g., show error message to user
     }
   );
@@ -198,12 +210,68 @@ onEditClick(): void {
   this.apiService.getswprequestById(this.paramsId).subscribe(
     (data: any) => {
       console.log(data);
-      // Patch form values with API response
-      this.swpForm.patchValue(data.result); // Assuming data structure matches form controls
+      this.safeid=data.result[0].id;
+      this.Safeworkpermitup= data.result[0]?.id ? true : false;
+      this.pdf = data?.result?.sjp_attachment;
+      console.log('this.pdf: ', this.pdf);
+      this.swpForm.patchValue(data.result[0]);
+      
+      
     },
     (error: any) => {
+      // Handle error
       console.error('Error fetching data:', error);
+
     }
-  );}
+  );
+
+
+}
+
+  showAlert(icon: 'success' | 'error', text: string): void {
+    Swal.fire({
+      title: 'Permit Creation',
+      text: text,
+      icon: icon,
+      confirmButtonText: 'OK',
+    });
+  }
+  // dd(){
+  //   if (this.pdf) {
+  //     // Convert the byte array to a Blob
+  //     const blob = new Blob([this.pdf], { type: 'application/pdf' });
+
+  //     // Create a URL for the Blob
+  //     const url = URL.createObjectURL(blob);
+
+  //     // Open the URL in a new tab
+  //     const newWindow = window.open(url);
+      
+  //     // Check if the window was successfully opened
+  //     if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+  //       // Handle the case when the window couldn't be opened
+  //       console.error('Failed to open PDF in new tab.');
+  //     }
+  //   } else {
+  //     // Handle the case when the byte array is empty
+  //     console.error('Byte array is empty.');
+  //   }
+  // }
+  // openPDF(bytecode: any): void {
+  //   // Convert bytecode to a Uint8Array
+  //   const byteArray = new Uint8Array(bytecode);
+  
+  //   // Create a Blob object from the Uint8Array
+  //   const blob = new Blob([byteArray], { type: 'application/pdf' });
+  
+  //   // Create a URL for the Blob
+  //   const url = URL.createObjectURL(blob);
+  
+  //   // Open the URL in a new window or tab
+  //   window.open(url, '_blank');
+  // }
+  
+  
+ 
 }
 

@@ -49,7 +49,7 @@ export class SwprequestService {
   }
   //getbyid
   public getswprequestById(id: string): Observable<any> {
-    return this.httpClient.get(`${this.baseUrl}/${id}`);
+    return this.httpClient.get(`${this.baseUrl}/fetchallbyId/${id}`);
   }
   deletePermitData(id: string): Observable<any> {
     const httpOptions = {

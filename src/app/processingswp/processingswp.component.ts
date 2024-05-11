@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ProcessingswpService } from '@app/utils/service/processingswp.service';
+import { SwprequestService } from '@app/utils/swprequest.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-processingswp',
@@ -37,12 +40,23 @@ export class ProcessingswpComponent implements OnInit {
   yesterdaytime: string;
   yesterdaydate: string;
   accordionClosed: boolean = false;
+  paramsId: any;
+  safeid: any;
+  Safeworkpermitup: boolean;
+  Safeworkpermit1up: boolean;
+  ecp: any;
+  equimentid: any;
+  equimentid1: any;
+  equimentid2: any;
+  equimentid0: any;
+  equimentid3: any;
   
   constructor(
-    private formBuilder: FormBuilder,private apiService:ProcessingswpService
+    private formBuilder: FormBuilder,private apiService:ProcessingswpService,private activatedRoute: ActivatedRoute,private apiswpService: SwprequestService
   ) { }
 
   ngOnInit(): void {
+    this.paramsId = this.activatedRoute.snapshot.queryParams?.['id'];
     const storedUser = localStorage.getItem('currentUser');
      this.currentUser = storedUser ? JSON.parse(storedUser) : null;
      this.position=this.currentUser.position;
@@ -65,42 +79,50 @@ console.log('this.formattedTime: ', this.formattedTime);
 
 
     this.formInitialization();
-   
+    if (this.paramsId) {
+      this.onEditClick();
+    }
     
   }
   saveForm(){
     console.log(this.Safeworkpermit)   
+    this.Safeworkpermit.get('safeworkpermitRequest_id')?.setValue(this.safeid)
     const Safeworkpermit = this.Safeworkpermit.value;
     console.log('Form Data:', Safeworkpermit);
     this.apiService.savepreparation(Safeworkpermit).subscribe(
       (response) => {
         console.log('Response from serverrrrr:', response);
         
-        // this.router.navigate(['/main/toolcomp']);
+        this.showAlert('success', 'Safe Work Permit preparations Created successfully!');
+        this.Safeworkpermit.reset();
+        this.accordionClosed = false;
         
      
       },
       (error) => {
         console.error('Error while sending data:', error);
-        
+        this.showAlert('error', 'Failed to Create Safe Work Permit preparations ');
       }
     );
   }
   saveForm1(){
-    console.log(this.Safeworkpermit1)   
+    console.log(this.Safeworkpermit1)  
+    this.Safeworkpermit1.get('safeworkpermitRequest_id')?.setValue(this.safeid) 
     const Safeworkpermit1 = this.Safeworkpermit1.value;
     console.log('Form Data:', Safeworkpermit1);
     this.apiService.savepreparation1(Safeworkpermit1).subscribe(
       (response) => {
         console.log('Response from serverrrrr:', response);
         
-        // this.router.navigate(['/main/toolcomp']);
+        this.showAlert('success', 'Safe Work Permit preparations Created successfully!');
+        this.Safeworkpermit.reset();
+        this.accordionClosed = false;
         
      
       },
       (error) => {
         console.error('Error while sending data:', error);
-        
+        this.showAlert('error', 'Failed to Create Safe Work Permit preparations ');
       }
     );
   }
@@ -244,20 +266,21 @@ console.log('this.formattedTime: ', this.formattedTime);
       inspection_required:[''],
       checklists_Attachments_Required:[''],
       conditions_set_by:[this.position],
-      userid:[1],
-      safeworkpermitRequest_id:[1]
+      userid:[this.currentUser.id],
+      safeworkpermitRequest_id:[this.safeid],
+      id:[null]
     });
     this.Safeworkpermit1=
     this.formBuilder.group({
       mastercard_date: [this.formattedDate],
-        mastercard_no:'001',
+        mastercard_no:[null],
         mastercard_time: [this.formattedTime],
        reason_for_work: [''],
         red_tag: [''],
-        safeworkpermitRequest_id: ['1'],
-        userid: ['1'],
+        safeworkpermitRequest_id:[this.safeid],
+        userid: [this.currentUser.id],
         work_description:[''],
-        // equipment_identification_id:['']
+        id:[null]
         
     });
     this.Safeworkpermit2=
@@ -265,7 +288,7 @@ console.log('this.formattedTime: ', this.formattedTime);
       add_tag:['0'],
       facility_representative_sign_comment:[null],
       facility_representative_sign:[null],
-      safeworkpermitRequest_id: [1],
+      safeworkpermitRequest_id: [this.safeid],
         userid: [this.currentUser.id],
     });
     this.Safeworkpermit21=
@@ -478,6 +501,68 @@ this.Safeworkpermit5=
 
 expandclose(){
   this.accordionClosed=false;
+}
+onEditClick(): void {
+  // Fetch permit data by ID
+  this.apiswpService.getswprequestById(this.paramsId).subscribe(
+    (data: any) => {
+      console.log(data);
+      this.safeid=data.result[0].id
+      console.log('this.safeid: ', this.safeid);
+      this.ecp=data.result[0]?.preparation1?.ecp;
+      [this.equimentid0,this.equimentid1,this.equimentid2, this.equimentid3] = [data.result[0]?.equipmentID?.[0], data.result[0]?.equipmentID?.[1],data.result[0]?.equipmentID?.[2],data.result[0]?.equipmentID?.[3]];
+
+      
+      this.Safeworkpermitup= data.result[0]?.preparation1?.safeworkpermitRequest_id ? true : false;
+      this.Safeworkpermit1up= data.result[0]?.preparation2?.safeworkpermitRequest_id ? true : false;
+      // Patch form values with API response
+      this.Safeworkpermit.patchValue(data.result[0].preparation1);
+      this.Safeworkpermit1.patchValue(data.result[0].preparation2); // Assuming data structure matches form controls
+    },
+    (error: any) => {
+      console.error('Error fetching data:', error);
+    }
+  );}
+
+  showAlert(icon: 'success' | 'error', text: string): void {
+    Swal.fire({
+      title: 'Permit Creation',
+      text: text,
+      icon: icon,
+      confirmButtonText: 'OK',
+    });
+  }
+  saveFormup(): void {
+      const formData = this.Safeworkpermit.value;
+      console.log('formData: ', formData);
+      this.apiService.updateswprequest(formData).subscribe(
+        (response) => {
+          this.showAlert('success', 'Safe Work Permit preparations Updated successfully!');
+          this.Safeworkpermit.reset();
+          this.accordionClosed=false;
+        },
+        (error) => {
+          console.error('An error occurred:', error);
+          this.showAlert('error', 'Failed to Updated Safe Work Permit preparations');
+          // Handle error appropriately, e.g., show error message to user
+        }
+      )
+  }
+  saveFormup1(): void {
+    const formData = this.Safeworkpermit1.value;
+    console.log('formData: ', formData);
+    this.apiService.updateswprequest1(formData).subscribe(
+      (response) => {
+        this.showAlert('success', 'Safe Work Permit preparations Updated successfully!');
+        this.Safeworkpermit.reset();
+        this.accordionClosed=false;
+      },
+      (error) => {
+        console.error('An error occurred:', error);
+        this.showAlert('error', 'Failed to Updated Safe Work Permit preparations ');
+        // Handle error appropriately, e.g., show error message to user
+      }
+    )
 }
 
 }

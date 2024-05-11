@@ -52,5 +52,34 @@ export class ProcessingswpService {
   public savepreparation9(data: any): Observable<any> {
     return this.httpClient.post<any>(this.baseUrl + '/preparation10/Preparation10Save', data, this.httpOptions);
   }
+ 
   // Other methods...
+
+  updateswprequest(data: any): Observable<any> {
+    console.log('data: ', data);
+    console.log(data.safeworkpermitRequest_id);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+
+    // Assuming data.userId exists
+    return this.httpClient.put<any>(`${this.baseUrl}/preparation1/${data.id}`, data, httpOptions);
+  }
+
+  updateswprequest1(data: any): Observable<any> {
+    console.log('data: ', data);
+    console.log(data.safeworkpermitRequest_id);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+
+    // Assuming data.userId exists
+    return this.httpClient.put<any>(`${this.baseUrl}/preparation2/${data.id}`, data, httpOptions);
+  }
+
+
 }
