@@ -809,126 +809,46 @@
                 <th>Tag Removed Time</th>
                 <th>Tag Placed Sign</th>
                 <th>Tag Removed Sign</th>
+
+
               </tr>
-              <tr *ngFor="let item of items; let i = index">
+              <ng-container formArrayName="items1">
+                <tr *ngFor="let item of items1.controls; let i=index" [formGroupName]="i">
                 <td>
                   <div class="truncate">
-                    <mat-select
-                      class="form-control"
-                      style="width: 150px"
-                      formControlName="toppings"
-                      multiple
-                    >
-                      <mat-option
-                        *ngFor="let topping of toppingList"
-                        [value]="topping"
-                        >{{ topping }}</mat-option
-                      >
+                    <mat-select class="form-control" style="width: 150px;" formControlName="iso_method" multiple>
+                      <mat-option *ngFor="let iso_method of iso_methodList" [value]="iso_method">{{ iso_method }}</mat-option>
                     </mat-select>
                   </div>
                 </td>
+                <td><input type="text" class="form-control truncate" id="location_of_red_tags" placeholder="Enter Location of Red Tags" formControlName="location_of_red_tags"></td>
+                <td><input type="text" class="form-control truncate" id="facilityrep_red_tag" placeholder="Enter Red Tag" formControlName="facilityrep_red_tag"></td>
+                <td><input type="text" class="form-control truncate" id="lock_number" placeholder="Enter Lock Number" formControlName="lock_number"></td>
+                <td><input type="date" class="form-control truncate" id="tag_Remov_date" placeholder="Enter Date" formControlName="tag_Remov_date"></td>
+                <td><input type="time" class="form-control truncate" id="tag_Remov_time" placeholder="Enter Time" formControlName="tag_Remov_time"></td>
                 <td>
-                  <input
-                    type="text"
-                    class="form-control truncate"
-                    id="location_of_red_tags"
-                    placeholder="Enter Location of Red Tags"
-                    formControlName="location_of_red_tags"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    class="form-control truncate"
-                    id="facilityrep_red_tag"
-                    placeholder="Enter Red Tag"
-                    formControlName="facilityrep_red_tag"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    class="form-control truncate"
-                    id="lock_number"
-                    placeholder="Enter Lock Number"
-                    formControlName="lock_number"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="date"
-                    class="form-control truncate"
-                    id="date_lock_date"
-                    placeholder="Enter Date"
-                    formControlName="date_lock_date"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="time"
-                    class="form-control truncate"
-                    id="date_lock_time"
-                    placeholder="Enter Time"
-                    formControlName="date_lock_time"
-                  />
-                </td>
-                <td>
-                  <div style="display: flex; align-items: center">
-                    <button
-                      mat-raised-button
-                      style="background-color: #25345d; color: white"
-                    >
-                      Sign
-                    </button>
-                    <img
-                      #signatureImage14
-                      src="../../../assets/img/sign.png"
-                      alt="Signature"
-                      style="
-                        max-width: 100px;
-                        max-height: 100px;
-                        margin-left: 10px;
-                      "
-                    />
+                  <div style="display: flex; align-items: center;">
+                      <button mat-raised-button style="background-color: #25345D; color: white;">Sign</button>
+                      <img #signatureImage14 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; margin-left: 10px;">
                   </div>
-                </td>
-                <td>
-                  <div style="display: flex; align-items: center">
-                    <button
-                      mat-raised-button
-                      style="background-color: #25345d; color: white"
-                    >
-                      Sign
-                    </button>
-                    <img
-                      #signatureImage15
-                      src="../../../assets/img/sign.png"
-                      alt="Signature"
-                      style="
-                        max-width: 100px;
-                        max-height: 100px;
-                        margin-left: 10px;
-                      "
-                    />
-                  </div>
-                </td>
-              </tr>
+              </td>
+              <td>
+                <div style="display: flex; align-items: center;">
+                    <button mat-raised-button style="background-color: #25345D; color: white;">Sign</button>
+                    <img #signatureImage15 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; margin-left: 10px;">
+                </div>
+            </td>
+
+                  </tr>
+              </ng-container>
             </table>
-            <button
-              mat-raised-button
-              type="button"
-              style="
-                background-color: #25345d;
-                color: white;
-                margin-left: 90%;
-                margin-top: 1%;
-              "
-              (click)="addRow()"
-            >
-              Add Row
-            </button>
-          </form>
+            </form>
+            <button mat-raised-button type="button" style="background-color: #25345D; color: white; margin-left: 90%;margin-top: 1%;" (click)="addRow()">Add Row</button>
+          
+          <button mat-raised-button type="button" style="background-color: #25345D; color: white; margin-left: 90%;margin-top: 1%;" (click)="saveForm5()">Save</button>
+        
         </mat-card-content>
+        
       </mat-card>
 <!-- [ngClass]="{ 'position-row': position !== 'ECP_Issuer' }" -->
       <mat-card

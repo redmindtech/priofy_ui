@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ProcessingswpService } from '@app/utils/service/processingswp.service';
 import { SwprequestService } from '@app/utils/swprequest.service';
@@ -27,7 +27,7 @@ export class ProcessingswpComponent implements OnInit {
   
 
   items: string[] = [''];
-  toppingList: string[] = ['CV-Closed Valve', 'OV-Open Valve', 'SB-Slip Blind', 'SR-Spool Removed', 'OP-One Plus', 'TL-Tag Lock','ED-Electrical Disconnect',
+  iso_methodList: string[] = ['CV-Closed Valve', 'OV-Open Valve', 'SB-Slip Blind', 'SR-Spool Removed', 'OP-One Plus', 'TL-Tag Lock','ED-Electrical Disconnect',
     'GD-Grounding Device','DL-Disconnect Line','BF-Blind Flange','AT-Adhesive Tape','RB-Remove Breaker & Lock','OF-Open Flange','BD-Blocking Device Installed',
     'ID-Instrument Disconnect','DV-Double Valve & Vent','RO-Rack-out Breaker & Lock','OL-Off Tag Lock'];
   formattedDate: string;
@@ -50,6 +50,7 @@ export class ProcessingswpComponent implements OnInit {
   equimentid2: any;
   equimentid0: any;
   equimentid3: any;
+  items1: FormArray;
   
   constructor(
     private formBuilder: FormBuilder,private apiService:ProcessingswpService,private activatedRoute: ActivatedRoute,private apiswpService: SwprequestService
@@ -254,7 +255,20 @@ console.log('this.formattedTime: ', this.formattedTime);
       }
     );
   }
-
+  saveForm5() {
+    console.log(this.Safeworkpermit5);
+    const Safeworkpermit5form = this.Safeworkpermit5.value;
+    console.log('Form Data:', Safeworkpermit5form);
+    this.apiService.savepreparation5(Safeworkpermit5form).subscribe(
+      (response) => {
+        console.log('Response from serverrrrr:', response);
+        // this.router.navigate(['/main/toolcomp']);
+      },
+      (error) => {
+        console.error('Error while sending data:', error);
+      }
+    )
+  };
   formInitialization(){
     this.Safeworkpermit = this.formBuilder.group({
      
@@ -392,20 +406,14 @@ console.log('this.formattedTime: ', this.formattedTime);
         userid: [this.currentUser.id],
     });
 
-this.Safeworkpermit5=
-    this.formBuilder.group({
-      toppings:[''],
-        location_of_red_tags:[''],
-        facilityrep_red_tag:[''],
-        lock_number:[''],
-       
-        tags_reconciled_signature:[''],
-        tag_added_location:[''],
-        date_lock_date:[''],
-        date_lock_time:[''],
-        tag_deleted_location:[''],
-        
+    this.Safeworkpermit5 = this.formBuilder.group({
+      items1: this.formBuilder.array([]), // Initialize items as empty array
+      
     });
+    this.items1 = this.Safeworkpermit5.get('items1') as FormArray;
+    this.addRow();
+  
+
    
     
 
@@ -477,22 +485,31 @@ this.Safeworkpermit5=
   }
   addRow() {
     // Push a new item to the items array
-    this.items.push('');
-    this.addcount = this.items.length - this.redtagaccount;
+    this.items1.push(this.createItem());
+    this.addcount = this.items1.length - this.redtagaccount;
     console.log('this.addcount: ', this.addcount);
-    this.Safeworkpermit.get('add_tag')?.setValue(this.addcount)
-    
+    this.Safeworkpermit2.get('add_tag')?.setValue(this.addcount)
+    }
+    createItem() {
+      return this.Safeworkpermit6 = this.formBuilder.group({
+        iso_method: [''],
+        location_of_red_tags: [''],
+        facilityrep_red_tag: [''],
+        lock_number: [''],
+        tag_Remov_date: [''],
+        tag_Remov_time: ['']
+      });
+    }
 
-  }
   updateRedTagValue() {
     console.log("ll");
     // Your logic here to handle the updated value
-    this.redtagaccount=this.Safeworkpermit.get('red_tag')?.value
+    this.redtagaccount=this.Safeworkpermit1.get('red_tag')?.value
     if(this.redtagaccount){
       console.log("jj");
       this.items = [''];
       for (let i = 0; i < this.redtagaccount-1; i++) {
-        this.items.push('');
+        this.items1.push(this.createItem());
       }
     }
     // For example:
