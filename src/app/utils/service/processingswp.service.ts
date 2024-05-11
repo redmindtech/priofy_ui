@@ -81,5 +81,88 @@ export class ProcessingswpService {
     return this.httpClient.put<any>(`${this.baseUrl}/preparation2/${data.id}`, data, httpOptions);
   }
 
+  updateswprequest2(data: any): Observable<any> {
+    console.log('data: ', data);
+    console.log(data.safeworkpermitRequest_id);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
 
+    // Assuming data.userId exists
+    return this.httpClient.put<any>(`${this.baseUrl}/preparation3/${data.id}`, data, httpOptions);
+  }
+  updateswprequest21(data: any): Observable<any> {
+    console.log('data: ', data);
+    console.log(data.safeworkpermitRequest_id);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+
+    // Assuming data.userId exists
+    return this.httpClient.put<any>(`${this.baseUrl}/preparation4/${data.id}`, data, httpOptions);
+  }
+  updateswprequest3(data: any): Observable<any> {
+    console.log('data: ', data);
+    console.log(data.safeworkpermitRequest_id);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+
+    // Assuming data.userId exists
+    return this.httpClient.put<any>(`${this.baseUrl}/preparation5/${data.id}`, data, httpOptions);
+  }
+  updateswprequest4(data: any): Observable<any> {
+    console.log('data: ', data);
+    console.log(data.safeworkpermitRequest_id);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+
+    // Assuming data.userId exists
+    return this.httpClient.put<any>(`${this.baseUrl}/preparation7/${data.id}`, data, httpOptions);
+  }
+  updateswprequest7(data: any): Observable<any> {
+    console.log('data: ', data);
+    console.log(data.safeworkpermitRequest_id);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+
+    // Assuming data.userId exists
+    return this.httpClient.put<any>(`${this.baseUrl}/preparation8/${data.id}`, data, httpOptions);
+  }
+  updateswprequest8(data: any): Observable<any> {
+    console.log('data: ', data);
+    console.log(data.safeworkpermitRequest_id);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+
+    // Assuming data.userId exists
+    return this.httpClient.put<any>(`${this.baseUrl}/preparation9/${data.id}`, data, httpOptions);
+  }
+  updateswprequest9(data: any): Observable<any> {
+    console.log('data: ', data);
+    console.log(data.safeworkpermitRequest_id);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+
+    // Assuming data.userId exists
+    return this.httpClient.put<any>(`${this.baseUrl}/preparation10/${data.id}`, data, httpOptions);
+  }
 }

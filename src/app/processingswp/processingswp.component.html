@@ -160,10 +160,10 @@
           </form>
         </mat-card-content>
       </mat-card>
-<!-- [ngClass]="{ 'position-row': position !== 'Facility_Rep' }" -->
+<!-- -->
       <mat-card
         class="card"
-        
+        [ngClass]="{ 'position-row': position !== 'Facility_Rep' }" 
       >
         <div class="header">
           <h6><strong>General Information</strong></h6>
@@ -172,7 +172,7 @@
         <mat-card-content>
           <form [formGroup]="Safeworkpermit1">
             <h6 style="margin-top: 2%">
-              <strong>Master Card Number : {{ 76488 }}</strong>
+              <strong>Master Card Number : {{ mastercardno }}</strong>
             </h6>
 
             <div class="row mt-3">
@@ -222,7 +222,7 @@
                       type="text"
                       class="form-control"
                       id="equipment_identification_id"
-                      [value]="this.equimentid0 + ',' + this.equimentid1 + ',' + this.equimentid2 + ',' + this.equimentid3"
+                      [value]="this.equimentid0 + ' ' + this.equimentid1 + ' ' + this.equimentid2 + ' ' + this.equimentid3"
 
                       readonly
                     />
@@ -562,6 +562,7 @@
             <div class="save-button-container" *ngIf=" position === 'Facility_Rep' " >
               <button
                 mat-raised-button
+                *ngIf="!Safeworkpermit2up"
                 style="
                   background-color: #25345d;
                   color: white;
@@ -571,19 +572,37 @@
               >
                 Save
               </button>
+              <div class="save-button-container"*ngIf="Safeworkpermit2up">
+                <button
+                  mat-raised-button
+                  style="background-color: #25345d; color: white; margin: 0 auto"
+                  (click)="saveFormup2()"
+                >
+                Update
+                </button>
+              </div>
             </div>
 
             <div class="save-button-container" *ngIf="position === 'Job_rep'" >
-            <button mat-raised-button style="background-color:#25345D; ; color: white; margin: 0 auto;" (click)="saveForm21()">save</button>
-            </div> 
+            <button *ngIf="!Safeworkpermit21up" mat-raised-button style="background-color:#25345D; ; color: white; margin: 0 auto;" (click)="saveForm21()">save</button>
+            
+            <div class="save-button-container"*ngIf="Safeworkpermit21up">
+              <button
+                mat-raised-button
+                style="background-color: #25345d; color: white; margin: 0 auto"
+                (click)="saveFormup21()"
+              >
+              Update
+              </button>
+            </div></div> 
           </div>
         </mat-card-content>
       </mat-card>
       <mat-card
         class="card"
-      
+        [ngClass]="{ 'position-row': position !== 'ECP_Issuer' }" 
       >
-      <!--  [ngClass]="{ 'position-row': position !== 'ECP_Issuer' }" -->
+      <!--  -->
         <div class="header" >
           <h6><strong>Requirements</strong></h6>
         </div>
@@ -593,7 +612,7 @@
             <div class="row">
               <div class="col">
                 <h6 style="margin-top: 2%">
-                  <strong>ECP : {{ 764564 }}</strong>
+                  <strong>ECP : {{ ecp }}</strong>
                 </h6>
               </div>
             </div>
@@ -601,7 +620,7 @@
             <div class="row mt-3">
               <div class="col-sm-6">
                 <div class="row ml-2">
-                  <label>Master Card Number : {{ 76488 }}</label>
+                  <label>Master Card Number : {{ mastercardno }}</label>
                 </div>
                 <div class="row ml-2" [ngClass]="{ 'disable_formcontrol': true }">
                   <label class="label" for="date">Date & Time</label>
@@ -632,7 +651,7 @@
               </div>
               <div class="col-sm-6">
                 <div class="col">
-                  <label>ECP Issued by: {{ 76488 }}</label>
+                  <label>ECP Issued by: {{ employeenumber }}</label>
                 </div>
                 <div class="row ml-2">
                   <label class="label" for="date">Date & Time</label>
@@ -777,7 +796,7 @@
               </div>
             </div>
           </form>
-          <div class="save-button-container" >
+          <div class="save-button-container" *ngIf="!Safeworkpermit3up">
             <button
               mat-raised-button
               style="
@@ -788,6 +807,15 @@
               (click)="saveForm3()"
             >
               Save
+            </button>
+          </div>
+          <div class="save-button-container"*ngIf="Safeworkpermit3up">
+            <button
+              mat-raised-button
+              style="background-color: #25345d; color: white; margin: 0 auto"
+              (click)="saveFormup3()"
+            >
+            Update
             </button>
           </div>
         </mat-card-content>
@@ -1040,7 +1068,7 @@
               </div>
             </div>
           </form>
-          <div class="save-button-container" >
+          <div class="save-button-container"*ngIf="!Safeworkpermit4up" >
             <button
               mat-raised-button
               style="
@@ -1052,7 +1080,20 @@
             >
               Save
             </button>
-          </div>
+            </div>
+            <div class="save-button-container" *ngIf="Safeworkpermit4up">
+              <button
+                mat-raised-button
+                style="
+                  background-color: #25345d;
+                  color: white;
+                  margin: 0 auto;
+                "
+                (click)="saveFormup4()"
+              >
+               Update
+              </button>
+              </div>
         </mat-card-content>
       </mat-card>
 <!--  -->
@@ -1517,7 +1558,7 @@
               </div>
             </div>
           </form>
-          <div class="save-button-container" >
+          <div class="save-button-container"*ngIf="!Safeworkpermit7up" >
             <button
               mat-raised-button
               style="
@@ -1530,15 +1571,28 @@
               Save
             </button>
           </div>
+          <div class="save-button-container" *ngIf="Safeworkpermit7up">
+            <button
+              mat-raised-button
+              style="
+                background-color: #25345d;
+                color: white;
+                margin: 0 auto;
+              "
+              (click)="saveFormup7()"
+            >
+             Update
+            </button>
+            </div>
         </mat-card-content>
       </mat-card>
 
-      <mat-card class="card">
+      <mat-card class="card"[ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
         <mat-card-content>
           <form [formGroup]="Safeworkpermit8">
             <div >
-              <!-- [ngClass]="{ 'position-row': position !== 'Facility_Rep' }" -->
-              <div class="header">
+              <!--  -->
+              <div class="header" >
                 <h6><strong>PEFM Confirmation</strong></h6>
               </div>
               <h6 style="text-align: center;margin-top: 1%;">Equipment is Prepared for Work Described Above</h6>
@@ -1576,20 +1630,33 @@
                 </div>
               </div>
               <div class="row mt-3">
-                <div class="col text-center">
+                <div class="col text-center" *ngIf="!Safeworkpermit8up">
                   <button mat-raised-button style="background-color: #25345D; color: white;" (click)="saveForm8()">Save</button>
                 </div>
+                <div class="save-button-container" *ngIf="Safeworkpermit8up">
+                  <button
+                    mat-raised-button
+                    style="
+                      background-color: #25345d;
+                      color: white;
+                      margin: 0 auto;
+                    "
+                    (click)="saveFormup8()"
+                  >
+                   Update
+                  </button>
+                  </div>
               </div>
               </div>
           </form>
         </mat-card-content>
       </mat-card>
 
-      <mat-card class="card">
+      <mat-card class="card"  [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
         <mat-card-content>
           <form [formGroup]="Safeworkpermit9">
             <div >
-              <!-- [ngClass]="{ 'position-row': position !== 'Job_Rep' }" -->
+              <!-- -->
               <div class="header">
                 <h6><strong>PEFM Confirmation</strong></h6>
               </div>
@@ -1628,9 +1695,22 @@
               </div>
 
               <div class="row mt-3">
-                <div class="col text-center">
+                <div class="col text-center"*ngIf="!Safeworkpermit9up">
                   <button mat-raised-button style="background-color: #25345D; color: white;" (click)="saveForm9()">Save</button>
                 </div>
+                <div class="save-button-container" *ngIf="Safeworkpermit9up">
+                  <button
+                    mat-raised-button
+                    style="
+                      background-color: #25345d;
+                      color: white;
+                      margin: 0 auto;
+                    "
+                    (click)="saveFormup9()"
+                  >
+                   Update
+                  </button>
+                  </div>
               </div>
             </div>
           </form>
