@@ -24,7 +24,7 @@ export class ProcessingswpComponent implements OnInit {
   Safeworkpermit8!: FormGroup;
 
   isDisabled: boolean = true;
-  
+
 
   items: string[] = [''];
   iso_methodList: string[] = ['CV-Closed Valve', 'OV-Open Valve', 'SB-Slip Blind', 'SR-Spool Removed', 'OP-One Plus', 'TL-Tag Lock','ED-Electrical Disconnect',
@@ -61,7 +61,9 @@ export class ProcessingswpComponent implements OnInit {
   Safeworkpermit9up: boolean;
   mastercardno: any;
   employeenumber: any;
-  
+  Safeworkpermit5up: boolean;
+  userid: any;
+
   constructor(
     private formBuilder: FormBuilder,private apiService:ProcessingswpService,private activatedRoute: ActivatedRoute,private apiswpService: SwprequestService
   ) { }
@@ -74,7 +76,7 @@ export class ProcessingswpComponent implements OnInit {
     const currentDate = new Date();
 
 // Format the date as needed (e.g., DD/MM/YYYY)
-this.formattedDate = new Date().toISOString().split('T')[0]; 
+this.formattedDate = new Date().toISOString().split('T')[0];
 this.yesterdaydate="2024-04-19"
 this.yesterdaytime="16:42:33"
 console.log('this.formattedDate: ', this.formattedDate);
@@ -93,22 +95,22 @@ console.log('this.formattedTime: ', this.formattedTime);
     if (this.paramsId) {
       this.onEditClick();
     }
-    
+
   }
   saveForm(){
-    console.log(this.Safeworkpermit)   
+    console.log(this.Safeworkpermit)
     this.Safeworkpermit.get('safeworkpermitRequest_id')?.setValue(this.safeid)
     const Safeworkpermit = this.Safeworkpermit.value;
     console.log('Form Data:', Safeworkpermit);
     this.apiService.savepreparation(Safeworkpermit).subscribe(
       (response) => {
         console.log('Response from serverrrrr:', response);
-        
+
         this.showAlert('success', 'Safe Work Permit preparations Created successfully!');
         this.Safeworkpermit.reset();
         this.accordionClosed = false;
-        
-     
+
+
       },
       (error) => {
         console.error('Error while sending data:', error);
@@ -117,19 +119,19 @@ console.log('this.formattedTime: ', this.formattedTime);
     );
   }
   saveForm1(){
-    console.log(this.Safeworkpermit1)  
-    this.Safeworkpermit1.get('safeworkpermitRequest_id')?.setValue(this.safeid) 
+    console.log(this.Safeworkpermit1)
+    this.Safeworkpermit1.get('safeworkpermitRequest_id')?.setValue(this.safeid)
     const Safeworkpermit1 = this.Safeworkpermit1.value;
     console.log('Form Data:', Safeworkpermit1);
     this.apiService.savepreparation1(Safeworkpermit1).subscribe(
       (response) => {
         console.log('Response from serverrrrr:', response);
-        
+
         this.showAlert('success', 'Safe Work Permit preparations Created successfully!');
         this.Safeworkpermit.reset();
         this.accordionClosed = false;
-        
-     
+
+
       },
       (error) => {
         console.error('Error while sending data:', error);
@@ -138,7 +140,7 @@ console.log('this.formattedTime: ', this.formattedTime);
     );
   }
   saveForm2(){
-    console.log(this.Safeworkpermit1)   
+    console.log(this.Safeworkpermit1)
     this.Safeworkpermit2.get('safeworkpermitRequest_id')?.setValue(this.safeid)
 
     const Safeworkpermit2 = this.Safeworkpermit2.value;
@@ -146,14 +148,14 @@ console.log('this.formattedTime: ', this.formattedTime);
     this.apiService.savepreparation2(Safeworkpermit2).subscribe(
       (response) => {
         console.log('Response from serverrrrr:', response);
-        
+
         // this.router.navigate(['/main/toolcomp']);
-        
-     
+
+
       },
       (error) => {
         console.error('Error while sending data:', error);
-        
+
       }
     );
   }
@@ -166,19 +168,19 @@ console.log('this.formattedTime: ', this.formattedTime);
     this.apiService.savepreparation21(Safeworkpermit21).subscribe(
       (response) => {
         console.log('Response from serverrrrr:', response);
-        
+
         // this.router.navigate(['/main/toolcomp']);
-        
-     
+
+
       },
       (error) => {
         console.error('Error while sending data:', error);
-        
+
       }
     );
   }
   saveForm3(){
-    console.log(this.Safeworkpermit3)   
+    console.log(this.Safeworkpermit3)
     this.Safeworkpermit3.get('safeworkpermitRequest_id')?.setValue(this.safeid)
 
     const Safeworkpermit3 = this.Safeworkpermit3.value;
@@ -186,19 +188,19 @@ console.log('this.formattedTime: ', this.formattedTime);
     this.apiService.savepreparation3(Safeworkpermit3).subscribe(
       (response) => {
         console.log('Response from serverrrrr:', response);
-        
+
         // this.router.navigate(['/main/toolcomp']);
-        
-     
+
+
       },
       (error) => {
         console.error('Error while sending data:', error);
-        
+
       }
     );
   }
   saveForm4(){
-    console.log(this.Safeworkpermit4)  
+    console.log(this.Safeworkpermit4)
     this.Safeworkpermit4.get('safeworkpermitRequest_id')?.setValue(this.safeid)
 
     const Safeworkpermit4 = this.Safeworkpermit4.value;
@@ -206,19 +208,19 @@ console.log('this.formattedTime: ', this.formattedTime);
     this.apiService.savepreparation4(Safeworkpermit4).subscribe(
       (response) => {
         console.log('Response from serverrrrr:', response);
-        
+
         // this.router.navigate(['/main/toolcomp']);
-        
-     
+
+
       },
       (error) => {
         console.error('Error while sending data:', error);
-        
+
       }
     );
   }
   saveForm7(){
-    console.log(this.Safeworkpermit7)  
+    console.log(this.Safeworkpermit7)
     this.Safeworkpermit7.get('safeworkpermitRequest_id')?.setValue(this.safeid)
 
     const Safeworkpermit7 = this.Safeworkpermit7.value;
@@ -226,20 +228,20 @@ console.log('this.formattedTime: ', this.formattedTime);
     this.apiService.savepreparation7(Safeworkpermit7).subscribe(
       (response) => {
         console.log('Response from serverrrrr:', response);
-        
+
         // this.router.navigate(['/main/toolcomp']);
-        
-     
+
+
       },
       (error) => {
         console.error('Error while sending data:', error);
-        
+
       }
     );
   }
 
   saveForm9(){
-    console.log(this.Safeworkpermit9) 
+    console.log(this.Safeworkpermit9)
     this.Safeworkpermit9.get('safeworkpermitRequest_id')?.setValue(this.safeid)
 
     const Safeworkpermit9 = this.Safeworkpermit9.value;
@@ -247,39 +249,55 @@ console.log('this.formattedTime: ', this.formattedTime);
     this.apiService.savepreparation9(Safeworkpermit9).subscribe(
       (response) => {
         console.log('Response from serverrrrr:', response);
-        
+
         // this.router.navigate(['/main/toolcomp']);
-        
-     
+
+
       },
       (error) => {
         console.error('Error while sending data:', error);
-        
+
       }
     );
   }
 
   saveForm8(){
     this.Safeworkpermit8.get('safeworkpermitRequest_id')?.setValue(this.safeid)
-    console.log(this.Safeworkpermit8)   
+    console.log(this.Safeworkpermit8)
     const Safeworkpermit8 = this.Safeworkpermit8.value;
     console.log('Form Data:', Safeworkpermit8);
     this.apiService.savepreparation8(Safeworkpermit8).subscribe(
       (response) => {
         console.log('Response from serverrrrr:', response);
-        
+
         // this.router.navigate(['/main/toolcomp']);
-        
-     
+
+
       },
       (error) => {
         console.error('Error while sending data:', error);
-        
+
       }
     );
   }
   saveForm5() {
     console.log(this.Safeworkpermit5);
+    const items1Array = this.Safeworkpermit5.get('items1') as FormArray;
+  const items1Array1 = this.Safeworkpermit6.get('items1') as FormArray;
+  console.log('itemsarray formup5', items1Array);
+  console.log('itemsarray1 formup5', items1Array1);
+
+  for (let i = 0; i < items1Array.length; i++) {
+    const itemGroup = items1Array.at(i) as FormGroup;
+    itemGroup.get('safeworkpermitRequest_id')?.setValue(this.safeid);
+  }
+
+  const Safeworkpermit5 = this.Safeworkpermit5.value;
+  console.log('formsaveData5:', Safeworkpermit5);
+    // for (let i = 0; i < this.redtagaccount-1; i++) {
+    // this.Safeworkpermit6.get('value.items1[i].safeworkpermitRequest_id')?.setValue(this.safeid)
+    // this.Safeworkpermit5.get('value.items1[i].safeworkpermitRequest_id')?.setValue(this.safeid)
+    // }
     const Safeworkpermit5form = this.Safeworkpermit5.value;
     console.log('Form Data:', Safeworkpermit5form);
     this.apiService.savepreparation5(Safeworkpermit5form).subscribe(
@@ -294,7 +312,7 @@ console.log('this.formattedTime: ', this.formattedTime);
   };
   formInitialization(){
     this.Safeworkpermit = this.formBuilder.group({
-     
+
       preparations_and_test:[''],
       house_keeping_instructions:[''],
       environmental_concerns:[''],
@@ -318,7 +336,7 @@ console.log('this.formattedTime: ', this.formattedTime);
         userid: [this.currentUser.id],
         work_description:[''],
         id:[null]
-        
+
     });
     this.Safeworkpermit2=
     this.formBuilder.group({
@@ -342,7 +360,7 @@ console.log('this.formattedTime: ', this.formattedTime);
       id:[null]
 
     });
-    this.Safeworkpermit3 = this.formBuilder.group({ 
+    this.Safeworkpermit3 = this.formBuilder.group({
 
       // mastercard_time:[this.formattedTime],
       ecp_number:[null],
@@ -362,7 +380,7 @@ console.log('this.formattedTime: ', this.formattedTime);
       special_instructions:[''],
       safeworkpermitRequest_id: [this.safeid],
         userid: [this.currentUser.id],
-      
+
 
     });
     this.Safeworkpermit4=
@@ -414,7 +432,7 @@ console.log('this.formattedTime: ', this.formattedTime);
      fire_watch_name:[''],
      initial_date:[this.formattedDate],
        initial_time:[this.formattedTime],
-    
+
        initial_others:[''],
        inside_barricade:[''],
        intial_lel:[''],
@@ -443,21 +461,15 @@ console.log('this.formattedTime: ', this.formattedTime);
 
     this.Safeworkpermit5 = this.formBuilder.group({
       items1: this.formBuilder.array([]), // Initialize items as empty array
-      
+      // safeworkpermitRequest_id: [3],
+      //   userid: [this.currentUser.id],
+
     });
     this.items1 = this.Safeworkpermit5.get('items1') as FormArray;
     this.addRow();
-  
-
-   
-    
-
   }
 
-  
-
-  
-  showSignatureCard() {
+ showSignatureCard() {
     this.showSignature = true;
     this.setupCanvas();
   }
@@ -520,19 +532,26 @@ console.log('this.formattedTime: ', this.formattedTime);
   }
   addRow() {
     // Push a new item to the items array
+    if (this.items1.length === 0) {
+      this.Safeworkpermit5.get('items1.result[0].preparation6[0].safeworkpermitRequest_id')?.setValue(this.safeid);
+      console.log("inside addrow for safeid");
+
+    }
     this.items1.push(this.createItem());
     this.addcount = this.items1.length - this.redtagaccount;
     console.log('this.addcount: ', this.addcount);
     this.Safeworkpermit2.get('add_tag')?.setValue(this.addcount|| 0)
     }
     createItem() {
-      return this.Safeworkpermit6 = this.formBuilder.group({
+       return this.Safeworkpermit6 = this.formBuilder.group({
         iso_method: [''],
         location_of_red_tags: [''],
         facilityrep_red_tag: [''],
         lock_number: [''],
         tag_Remov_date: [''],
-        tag_Remov_time: ['']
+        tag_Remov_time: [''],
+        safeworkpermitRequest_id: [this.safeid],
+        userid: [this.currentUser.id],
       });
     }
 
@@ -558,9 +577,11 @@ onEditClick(): void {
   // Fetch permit data by ID
   this.apiswpService.getswprequestById(this.paramsId).subscribe(
     (data: any) => {
-      console.log(data);
+      console.log("data values",data);
+
       this.safeid=data.result[0].id
       console.log('this.safeid: ', this.safeid);
+
       this.ecp=data.result[0]?.preparation1?.ecp;
       this.mastercardno=data.result[0]?.preparation2?.mastercard_no;
     this.employeenumber=data.result[0]?.userLoginDTO?.employee_id;
@@ -575,28 +596,51 @@ onEditClick(): void {
     this.equimentid1 = data.result[0]?.equipmentID?.[1] || '';
     this.equimentid2 = data.result[0]?.equipmentID?.[2] || '';
     this.equimentid3 = data.result[0]?.equipmentID?.[3] || '';
-    
-    
-      
+
+
+
       this.Safeworkpermitup= data.result[0]?.preparation1?.safeworkpermitRequest_id ? true : false;
       this.Safeworkpermit1up= data.result[0]?.preparation2?.safeworkpermitRequest_id ? true : false;
       this.Safeworkpermit2up= data.result[0]?.preparation3?.safeworkpermitRequest_id ? true : false;
       this.Safeworkpermit21up= data.result[0]?.preparation4?.safeworkpermitRequest_id ? true : false;
       this.Safeworkpermit3up= data.result[0]?.preparation5?.safeworkpermitRequest_id ? true : false;
       this.Safeworkpermit4up= data.result[0]?.preparation7?.safeworkpermitRequest_id ? true : false;
+
+      data.result[0].preparation6[0].safeworkpermitRequest_id=this.safeid;
+      this.Safeworkpermit5up= data.result[0]?.preparation6[0]?.safeworkpermitRequest_id ? true : false;
+      console.log("Is Safe Work Permit Request ID returned?", this.Safeworkpermit5up);
+
       this.Safeworkpermit9up= data.result[0]?.preparation10?.safeworkpermitRequest_id ? true : false;
       this.Safeworkpermit7up= data.result[0]?.preparation8?.safeworkpermitRequest_id ? true : false;
       this.Safeworkpermit8up= data.result[0]?.preparation9?.safeworkpermitRequest_id ? true : false;
       // Patch form values with API response
       this.Safeworkpermit.patchValue(data.result[0].preparation1);
       this.Safeworkpermit1.patchValue(data.result[0].preparation2);
-      this.Safeworkpermit2.patchValue(data.result[0].preparation3); 
+      this.Safeworkpermit2.patchValue(data.result[0].preparation3);
       this.Safeworkpermit21.patchValue(data.result[0].preparation4);
       this.Safeworkpermit3.patchValue(data.result[0].preparation5);
-      this.Safeworkpermit4.patchValue(data.result[0].preparation7);  
-      this.Safeworkpermit7.patchValue(data.result[0].preparation8);  
-      this.Safeworkpermit8.patchValue(data.result[0].preparation9);  
-      this.Safeworkpermit9.patchValue(data.result[0].preparation10);  
+      //this.Safeworkpermit5.patchValue(data.result[0].preparation6);
+      const preparation6Values = data.result[0].preparation6;
+
+      const items1Array = this.Safeworkpermit5.get('items1') as FormArray;
+
+      // Adjust the length of the FormArray to match the length of preparation6Values
+      while (items1Array.length < preparation6Values.length) {
+        items1Array.push(this.createItem());
+      }
+      while (items1Array.length > preparation6Values.length) {
+        items1Array.removeAt(items1Array.length - 1);
+      }
+
+      // Patch values to the 'items1' array
+      preparation6Values.forEach((value: any, index: number) => {
+        items1Array.at(index).patchValue(value);
+      });
+
+      this.Safeworkpermit4.patchValue(data.result[0].preparation7);
+      this.Safeworkpermit7.patchValue(data.result[0].preparation8);
+      this.Safeworkpermit8.patchValue(data.result[0].preparation9);
+      this.Safeworkpermit9.patchValue(data.result[0].preparation10);
 
     },
     (error: any) => {
@@ -724,6 +768,36 @@ saveFormup7(): void {
     }
   )
 }
+saveFormup5(): void {
+  console.log('safeidfor formup5', this.safeid);
+  const items1Array = this.Safeworkpermit5.get('items1') as FormArray;
+  //const items1Array1 = this.Safeworkpermit6.get('items1') as FormArray;
+  console.log('itemsarray formup5', items1Array);
+ // console.log('itemsarray1 formup5', items1Array1);
+
+  for (let i = 0; i < items1Array.length; i++) {
+    const itemGroup = items1Array.at(i) as FormGroup;
+    itemGroup.get('safeworkpermitRequest_id')?.setValue(this.safeid);
+  }
+
+  const Safeworkpermit5 = this.Safeworkpermit5.value;
+  console.log('formData5:  for formup5', Safeworkpermit5);
+  //formData['safeworkpermitRequest_id'] = this.safeid;
+
+  this.apiService.updateswprequest5(Safeworkpermit5).subscribe(
+    (response) => {
+      this.showAlert('success', 'Safe Work Permit preparations Updated successfully!');
+      this.Safeworkpermit.reset();
+      this.accordionClosed=false;
+    },
+    (error) => {
+      console.error('An error occurred:', error);
+      this.showAlert('error', 'Failed to Updated Safe Work Permit preparations ');
+      // Handle error appropriately, e.g., show error message to user
+    }
+  )
+}
+
 saveFormup8(): void {
   const formData = this.Safeworkpermit4.value;
   console.log('formData: ', formData);

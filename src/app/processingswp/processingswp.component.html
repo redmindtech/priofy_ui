@@ -163,7 +163,7 @@
 <!-- -->
       <mat-card
         class="card"
-        [ngClass]="{ 'position-row': position !== 'Facility_Rep' }" 
+        [ngClass]="{ 'position-row': position !== 'Facility_Rep' }"
       >
         <div class="header">
           <h6><strong>General Information</strong></h6>
@@ -377,7 +377,7 @@
           </div> -->
                 </div>
               </div>
-              
+
               </form>
             </div>
             <div class="col">
@@ -555,8 +555,8 @@
                 </div>
               </div>
             </form>
-                
-              
+
+
             </div>
             </div>
             <div class="save-button-container" *ngIf=" position === 'Facility_Rep' " >
@@ -585,7 +585,7 @@
 
             <div class="save-button-container" *ngIf="position === 'Job_rep'" >
             <button *ngIf="!Safeworkpermit21up" mat-raised-button style="background-color:#25345D; ; color: white; margin: 0 auto;" (click)="saveForm21()">save</button>
-            
+
             <div class="save-button-container"*ngIf="Safeworkpermit21up">
               <button
                 mat-raised-button
@@ -594,13 +594,13 @@
               >
               Update
               </button>
-            </div></div> 
+            </div></div>
           </div>
         </mat-card-content>
       </mat-card>
       <mat-card
         class="card"
-        [ngClass]="{ 'position-row': position !== 'ECP_Issuer' }" 
+        [ngClass]="{ 'position-row': position !== 'ECP_Issuer' }"
       >
       <!--  -->
         <div class="header" >
@@ -634,7 +634,7 @@
                       id="ecp_date"
                       formControlName="ecp_date"
                       placeholder="Enter Date"
-                      
+
                     />
                   </div>
                   <div class="col-sm-4">
@@ -644,7 +644,7 @@
                       id="ecp_time"
                       formControlName="ecp_time"
                       placeholder="Enter Time"
-                      
+
                     />
                   </div>
                 </div>
@@ -691,10 +691,10 @@
                 formControlName="equp_id"
                 placeholder="Enter Equipment ID "
                 oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                
+
               />
-              
-              
+
+
               </div>
               <div class="col" [ngClass]="{ 'disable_formcontrol': true }">
 
@@ -708,7 +708,7 @@
                   id="scope"
                   formControlName="scope"
                   placeholder="Enter Scope"
-                 
+
                 />
               </div>
             </div>
@@ -872,11 +872,36 @@
             </table>
             </form>
             <button mat-raised-button type="button" style="background-color: #25345D; color: white; margin-left: 90%;margin-top: 1%;" (click)="addRow()">Add Row</button>
-          
-          <button mat-raised-button type="button" style="background-color: #25345D; color: white; margin-left: 90%;margin-top: 1%;" (click)="saveForm5()">Save</button>
-        
+
+            <div class="save-button-container"*ngIf="!Safeworkpermit5up" >
+              <button
+                mat-raised-button
+                style="
+                  background-color: #25345d;
+                  color: white;
+                  margin: 0 auto;
+                "
+                (click)="saveForm5()"
+              >
+                Save
+              </button>
+              </div>
+              <div class="save-button-container" *ngIf="Safeworkpermit5up">
+                <button
+                  mat-raised-button
+                  style="
+                    background-color: #25345d;
+                    color: white;
+                    margin: 0 auto;
+                  "
+                  (click)="saveFormup5()"
+                >
+                 Update
+                </button>
+                </div>
+
         </mat-card-content>
-        
+
       </mat-card>
 <!-- [ngClass]="{ 'position-row': position !== 'ECP_Issuer' }" -->
       <mat-card

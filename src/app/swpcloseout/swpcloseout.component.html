@@ -1,573 +1,610 @@
 <mat-accordion>
-<mat-expansion-panel class="mat_expansion_border" [(expanded)]="accordionClosed">
-  <mat-expansion-panel-header class="mat_expansion_header_border">
-    <div class="row">
-      <h5 style="display: contents; color:#25345D"><strong>Stage #4 : Safe Work Permit - Close-Out </strong>
-      </h5>
-    </div>
-    <mat-panel-description></mat-panel-description>
-  </mat-expansion-panel-header>
-  <mat-card class=mat>
-    <mat-card-content>
-      <!-- <h6 style="margin-left: 30%;"><strong>PROCEDURE CHECKLIST #A ESTABLISH STEAM DRUM LEVEL</strong></h6> -->
-      <form [formGroup]="swpcloseout1">
-        
-        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_Rep' }" >
-          <mat-card-content>
-            <table>
-              <thead>
-                <th class="theader">Safe Work Permit - Close-Out </th>
-                <th class="theader" style="width: 29%; text-align: left; padding-left: 85px;">Action</th>
-              </thead>
-              <tr>
-                <td class="header">Is Housekeeping completed?</td>
-                <td>
-                  <input type="radio" class="custom-radio" id="house_keeping-yes" name="house_keeping" value="Yes"
-                    formControlName="house_keeping" />
-                  <label for="house_keeping-yes" class="action">Yes</label>
+  <mat-expansion-panel class="mat_expansion_border" [(expanded)]="accordionClosed">
+    <mat-expansion-panel-header class="mat_expansion_header_border">
+      <div class="row">
+        <h5 style="display: contents; color:#25345D"><strong>Stage #4 : Safe Work Permit - Close-Out </strong>
+        </h5>
+      </div>
+      <mat-panel-description></mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card class=mat>
+      <mat-card-content>
+        <!-- <h6 style="margin-left: 30%;"><strong>PROCEDURE CHECKLIST #A ESTABLISH STEAM DRUM LEVEL</strong></h6> -->
+        <form [formGroup]="swpcloseout1">
 
-                  <input type="radio" class="custom-radio" id="house_keeping-no" name="house_keeping" value="No"
-                    formControlName="house_keeping" />
-                  <label for="house_keeping-no" class="action">No</label>
-                </td>
-              </tr>
-              <tr>
-                <td class="header">
+          <mat-card class=mat1 >
 
-                  Is Status of job and equipment reviewed?</td>
-                <td>
-                  <input type="radio" class="custom-radio" id="job_and_equipment-yes" name="job_and_equipment" value="Yes"
-                    formControlName="job_and_equipment" />
-                  <label for="job_and_equipment-yes" class="action">Yes</label>
-                  <input type="radio" class="custom-radio" id="job_and_equipment-no" name="job_and_equipment" value="No"
-                    formControlName="job_and_equipment" />
-                  <label for="job_and_equipment-no" class="action">No</label>
-                </td>
-              </tr>
-              <tr>
-                <td class="header">Is Radioactive sources removed?</td>
-                <td>
-                  <input type="radio" class="custom-radio" id="radio_active-yes" name="radio_active" value="Yes"
-                    formControlName="radio_active" />
-                  <label for="radio_active-yes" class="action">Yes</label>
+          <!-- </mat-card>[ngClass]="{ 'position-row': position !== 'Job_Rep' }" > -->
+            <mat-card-content>
+              <table>
+                <thead>
+                  <th class="theader">Safe Work Permit - Close-Out </th>
+                  <th class="theader" style="width: 29%; text-align: left; padding-left: 85px;">Action</th>
+                </thead>
+                <tr>
+                  <td class="header">Is Housekeeping completed?</td>
+                  <td>
+                    <input type="radio" class="custom-radio" id="house_keeping-yes" name="house_keeping" value="Yes"
+                      formControlName="house_keeping" />
+                    <label for="house_keeping-yes" class="action">Yes</label>
 
-                  <input type="radio" class="custom-radio" id="radio_active-no" name="radio_active" value="No"
-                    formControlName="radio_active" />
-                  <label for="radio_active-no" class="action">No</label>
+                    <input type="radio" class="custom-radio" id="house_keeping-no" name="house_keeping" value="No"
+                      formControlName="house_keeping" />
+                    <label for="house_keeping-no" class="action">No</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="header">
+
+                    Is Status of job and equipment reviewed?</td>
+                  <td>
+                    <input type="radio" class="custom-radio" id="job_and_equipment-yes" name="job_and_equipment" value="Yes"
+                      formControlName="job_and_equipment" />
+                    <label for="job_and_equipment-yes" class="action">Yes</label>
+                    <input type="radio" class="custom-radio" id="job_and_equipment-no" name="job_and_equipment" value="No"
+                      formControlName="job_and_equipment" />
+                    <label for="job_and_equipment-no" class="action">No</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="header">Is Radioactive sources removed?</td>
+                  <td>
+                    <input type="radio" class="custom-radio" id="radio_active-yes" name="radio_active" value="Yes"
+                      formControlName="radio_active" />
+                    <label for="radio_active-yes" class="action">Yes</label>
+
+                    <input type="radio" class="custom-radio" id="radio_active-no" name="radio_active" value="No"
+                      formControlName="radio_active" />
+                    <label for="radio_active-no" class="action">No</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="header">
+                    Is Area/Equipment surveyed by TRSO?</td>
+                  <td>
+                    <input type="radio" class="custom-radio" id="area_Equipment-yes" name="area_Equipment" value="Yes"
+                      formControlName="area_Equipment" />
+                    <label for="area_Equipment-yes" class="action">Yes</label>
+                    <input type="radio" class="custom-radio" id="area_Equipment-no" name="area_Equipment" value="No"
+                      formControlName="area_Equipment" />
+                    <label for="area_Equipment-no" class="action">No</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="header">
+                    Signature of TRSO
                 </td>
-              </tr>
-              <tr>
-                <td class="header">
-                  Is Area/Equipment surveyed by TRSO?</td>
-                <td>
-                  <input type="radio" class="custom-radio" id="area_Equipment-yes" name="area_Equipment" value="Yes"
-                    formControlName="area_Equipment" />
-                  <label for="area_Equipment-yes" class="action">Yes</label>
-                  <input type="radio" class="custom-radio" id="area_Equipment-no" name="area_Equipment" value="No"
-                    formControlName="area_Equipment" />
-                  <label for="area_Equipment-no" class="action">No</label>
-                </td>
-              </tr>
-              <tr>
-                <td class="header">
-                  Signature of TRSO
-              </td>
-              <!-- <td style="text-align: left; padding-left: 70px;">
-                <div style="display: flex; align-items: center;">
-                  <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage.style.display = (signatureImage.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
-                  <img #signatureImage src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                  <span *ngIf="signatureImage.style.display !== 'none'">
-                    Employee Name: Ragasudha Ambayeram<br>
-                    Employee No.: 1Emp2024001
-                  </span>
-                </div>
-              </td> -->
-              <td style="text-align: right; padding-right: 40px;">
-                <div style="display: flex; flex-direction: column; align-items: left;">
-                  <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage.style.display = (signatureImage.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
-                  <div style="margin-top: 10px;">
-                    <img #signatureImage src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                <!-- <td style="text-align: left; padding-left: 70px;">
+                  <div style="display: flex; align-items: center;">
+                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage.style.display = (signatureImage.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <img #signatureImage src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
+                    <span *ngIf="signatureImage.style.display !== 'none'">
+                      Employee Name: Ragasudha Ambayeram<br>
+                      Employee No.: 1Emp2024001
+                    </span>
                   </div>
-                  <div *ngIf="signatureImage.style.display !== 'none'" style="margin-top: 10px;" style="align-items: left;">
-                   <strong>Ragasudha Ambayeram</strong><br>
-                  <strong>[1Emp2024001]</strong>
-                  </div>
-                </div>
-              </td>
-
-
-              </tr>
-            </table>
-          </mat-card-content>
-        </mat-card>
-        <br>
-        
-        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_Rep' }" >
-          <mat-card-content>
-            <div class="row">
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label>Permit close-out status</label>
-                  <select id="status" formControlName="close_out_status" class="form-control">
-                    <option value="" selected>Select status</option>
-                    <option value="Pending">Pending</option>
-                    <option value="complete">Complete</option>
-                  </select>
-                </div>
-              </div>
-
-
-              <div class="col-sm-3">
-                <div class="form-group" >
-                  <label>Work complete signature</label>
+                </td> -->
+                <td style="text-align: right; padding-right: 40px;">
                   <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage.style.display = (signatureImage.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
                     <div style="margin-top: 10px;">
-                      <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                      <img #signatureImage src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
                     </div>
-                    <div *ngIf="signatureImage1.style.display !== 'none'" style="margin-top: 10px;" style="align-items: left;">
-                     <strong>Ragasudha Ambayeram</strong><br>
+                    <div *ngIf="signatureImage.style.display !== 'none'" style="margin-top: 10px;" style="align-items: left;">
+                     <strong formControlName="trso_sign">Ragasudha Ambayeram</strong><br>
                     <strong>[1Emp2024001]</strong>
                     </div>
                   </div>
-                  <!-- <div style="display: flex; align-items: center;">
+                </td>
 
-                  <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                  <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                </div> -->
-                </div>
-              </div>
-              <div class="col-sm-3">
 
-                <label class="col-sm-3 ">Date</label>
-                <div class="col-sm-9">
-                  <input type="date" id="close_out_status_date" formControlName="close_out_status_date" class="form-control">
-                </div>
+                </tr>
+              </table>
+            </mat-card-content>
+          </mat-card>
+          <br>
 
-              </div>
-              <div class="col-sm-3">
+          <mat-card class=mat1 >
 
-                <label class="col-sm-3 ">Time</label>
-                <div class="col-sm-9">
-                  <input type="time" id="close_out_status_time" formControlName="close_out_status_time" class="form-control">
-
-                </div>
-              </div>
-
-            </div>
-            <br>
-            <div class="row">
-              <div class="col text-center">
-                <button mat-raised-button
-                        style="background-color: #25345D; color: white; margin: 0 auto;"
-                        [class.disablesave1]="!swpcloseout1.valid"
-                        
-                        (click)="swpcloseoutsave1()">Save</button>
-            </div>
-            
-          </div>
-          </mat-card-content>
-        </mat-card>
-      </form>
-        <br>
-        <form [formGroup]="swpcloseout2">
-          
-        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'SWP_Issuer' }" >
-          <mat-card-content>
-            <div class="row">
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label>Is Duplicates and any additional checklists reconciled?</label>
-                  <input type="radio" class="custom-radio" id="additional_checklists-yes" name="additional_checklists" value="Yes"
-                  formControlName="additional_checklists" />
-                <label for="additional_checklists-yes" class="action">Yes</label>
-                <input type="radio" class="custom-radio" id="additional_checklists-no" name="additional_checklists" value="No"
-                  formControlName="additional_checklists" />
-                <label for="additional_checklists-no" class="action">No</label>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label>Permit closed signature</label>
-                  <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
-                    <div style="margin-top: 10px;">
-                      <img #signatureImage2 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
-                    </div>
-                    <div *ngIf="signatureImage2.style.display !== 'none'" style="margin-top: 10px;" style="align-items: left;">
-                     <strong>Ramya RajKumar</strong><br>
-                    <strong>[1Emp20240101]</strong>
-                    </div>
-                  </div>
-                  <!-- <div style="display: flex; align-items: center;">
-
-                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                    <img #signatureImage2 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                  </div> -->
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <label class="col-sm-3 ">Date</label>
-                <div class="col-sm-9">
-                  <input type="date" id="additional_checklists_date" formControlName="additional_checklists_date" class="form-control">
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <label class="col-sm-3 ">Time</label>
-                <div class="col-sm-9">
-                  <input type="time" id="additional_checklists_time" formControlName="additional_checklists_time" class="form-control">
-                </div>
-              </div>
-            </div>
-            <br>
-            <div class="row">
-              <div class="col text-center">
-                  <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;" [class.disablesave2]="!swpcloseout2.valid"(click)="swpcloseoutsave2()">Save</button>
-              </div>
-          </div>
-          </mat-card-content>
-        </mat-card>
-        <br>
-        </form>
-        <form [formGroup]="swpcloseout3">
-        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
-          <mat-card-content>
-            <table>
-            <th class="theader"  style="width: 100%; text-align: center; ">Master Card - Work Completion </th>
-            </table>
-            <div class="row">
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label>Is Work Completed?</label>
-                  <input type="radio" class="custom-radio" id="work_Completed-yes" name="work_Completed" value="Yes"
-                  formControlName="work_Completed" />
-                <label for="work_Completed-yes" class="action">Yes</label>
-                <input type="radio" class="custom-radio" id="work_Completed-no" name="Work_Completed" value="No"
-                  formControlName="work_Completed" />
-                <label for="work_Completed-no" class="action">No</label>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label>Employee Number</label>
-                  <input type="text" id="work_Completed_emp" formControlName="work_Completed_emp" class="form-control" placeholder="Enter Employee Number">
-                </div>
-              </div>
-
-              <div class="col-sm-3">
-                <label class="col-sm-3 ">Date</label>
-                <div class="col-sm-9">
-                  <input type="date" id="work_Completed_date" formControlName="work_Completed_date" class="form-control">
-                </div>
-
-              </div>
-              <div class="col-sm-3">
-                <label class="col-sm-3 ">Time</label>
-                <div class="col-sm-9">
-                  <input type="time" id="work_Completed_time" formControlName="work_Completed_time" class="form-control">
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label>signature</label>
-                  <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage31.style.display = (signatureImage31.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
-                    <div style="margin-top: 10px;">
-                      <img #signatureImage31 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
-                    </div>
-                    <div *ngIf="signatureImage31.style.display !== 'none'" style="margin-top: 10px;" style="align-items: centr;">
-                     <strong>Raja Kumaravel</strong><br>
-                    <strong>[1Emp20240101]</strong>
-                    </div>
-                  </div>
-                  <!-- <div style="display: flex; align-items: center;">
-                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage3.style.display = (signatureImage3.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                    <img #signatureImage3 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                  </div> -->
-                </div>
-              </div>
-            </div>
-
-          </mat-card-content>
-        </mat-card>
-        <br>
-        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
-          <mat-card-content>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label>Additional Work Description (if any)</label>
-                  <textarea type="text" id="additional_Work " formControlName="additional_Work" rows="3" class="form-control" placeholder="Enter Additional Work Description (if any)"></textarea>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label>Is Additional Work Completed?</label>
-                  <input type="radio" class="custom-radio" id="additional_Work_Completed-yes" name="additional_Work_Completed" value="Yes"
-                  formControlName="additional_Work_Completed" />
-                <label for="additional_Work_Completed-yes" class="action">Yes</label>
-                <input type="radio" class="custom-radio" id="additional_Work_Completed-no" name="additional_Work_Completed" value="No"
-                  formControlName="additional_Work_Completed" />
-                <label for="additional_Work_Completed-no" class="action">No</label>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label>Work complete signature</label>
-                  <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage4.style.display = (signatureImage4.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
-                    <div style="margin-top: 10px;">
-                      <img #signatureImage4 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
-                    </div>
-                    <div *ngIf="signatureImage4.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
-                     <strong>Raja Kumaravel</strong><br>
-                    <strong>[1Emp20240101]</strong>
-                    </div>
-                    </div>
-                  <!-- <div style="display: flex; align-items: center;">
-                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage4.style.display = (signatureImage4.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                    <img #signatureImage4 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                  </div> -->
-                </div>
-              </div>
-              </div>
+          <!-- </mat-card>[ngClass]="{ 'position-row': position !== 'Job_Rep' }" > -->
+            <mat-card-content>
               <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-3">
                   <div class="form-group">
-                    <label>Employee Number</label>
-                    <input type="text" id="additional_Work_Completed_emp" formControlName="additional_Work_Completed_emp" class="form-control" placeholder="Enter Employee Number">
-                    </div>
+                    <label>Permit close-out status</label>
+                    <select id="status" formControlName="close_out_status" class="form-control">
+                      <option value="" selected>Select status</option>
+                      <option value="Pending">Pending</option>
+                      <option value="complete">Complete</option>
+                    </select>
                   </div>
-              <div class="col-sm-3">
-                <label class="col-sm-3 ">Date</label>
-                <div class="col-sm-9">
-                  <input type="date" id="additional_Work_date" formControlName="additional_Work_date" class="form-control">
                 </div>
-              </div>
-              <div class="col-sm-3">
-                <label class="col-sm-3 ">Time</label>
-                <div class="col-sm-9">
-                  <input type="time" id="additional_Work_time" formControlName="additional_Work_time" class="form-control">
-                </div>
-              </div>
-            </div>
 
-          </mat-card-content>
-        </mat-card>
-        <br>
-        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Job_Rep' }">
-          <mat-card-content>
-            <div class="row">
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label>Is House Keeping Completed?</label>
-                  <input type="radio" class="custom-radio" id="houseKeeping_Comp-yes" name="houseKeeping_Comp" value="Yes"
-                  formControlName="houseKeeping_Comp" />
-                <label for="houseKeeping_Comp-yes" class="action">Yes</label>
-                <input type="radio" class="custom-radio" id="houseKeeping_Comp-no" name="houseKeeping_Comp" value="No"
-                  formControlName="houseKeeping_Comp" />
-                <label for="houseKeeping_Comp-no" class="action">No</label>
+
+                <div class="col-sm-3">
+                  <div class="form-group" >
+                    <label>Work complete signature</label>
+                    <div style="display: flex; flex-direction: column; align-items: left;">
+                      <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                      <div style="margin-top: 10px;">
+                        <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                      </div>
+                      <div *ngIf="signatureImage1.style.display !== 'none'" style="margin-top: 10px;" style="align-items: left;">
+                       <strong formControlName="trso_sign">Ragasudha Ambayeram</strong><br>
+                      <strong>[1Emp2024001]</strong>
+                      </div>
+                    </div>
+                    <!-- <div style="display: flex; align-items: center;">
+
+                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage1.style.display = (signatureImage1.style.display === 'none' ? 'block' : 'none')">Signature</button>
+                    <img #signatureImage1 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
+                  </div> -->
+                  </div>
+                </div>
+                <div class="col-sm-3">
+
+                  <label class="col-sm-3 ">Date</label>
+                  <div class="col-sm-9">
+                    <input type="date" id="close_out_status_date" formControlName="close_out_status_date" class="form-control">
+                  </div>
+
+                </div>
+                <div class="col-sm-3">
+
+                  <label class="col-sm-3 ">Time</label>
+                  <div class="col-sm-9">
+                    <input type="time" id="close_out_status_time" formControlName="close_out_status_time" class="form-control">
+
+                  </div>
+                </div>
+
+              </div>
+              <br>
+              <div class="row">
+                <div class="col text-center" *ngIf="!Safeworkpermitup1">
+                  <button mat-raised-button
+                          style="background-color: #25345D; color: white; margin: 0 auto;"
+                          [disabled]="!swpcloseout1.valid"
+                          (click)="swpcloseoutsave1()">Save</button>
+                </div>
+                <div class="col text-center" *ngIf="Safeworkpermitup1">
+                  <button mat-raised-button
+                          style="background-color: #25345d; color: white; margin: 0 auto"
+                          [disabled]="!swpcloseout1.valid"
+                          (click)="swpcloseupdate1()">Update
+                  </button>
                 </div>
               </div>
+
+            </mat-card-content>
+          </mat-card>
+        </form>
+          <br>
+          <form [formGroup]="swpcloseout2">
+
+          <mat-card class=mat1  >
+            <!-- [ngClass]="{ 'position-row': position !== 'SWP_Issuer' }" -->
+            <mat-card-content>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label>Is Duplicates and any additional checklists reconciled?</label>
+                    <input type="radio" class="custom-radio" id="additional_checklists-yes" name="additional_checklists" value="Yes"
+                    formControlName="additional_checklists" />
+                  <label for="additional_checklists-yes" class="action">Yes</label>
+                  <input type="radio" class="custom-radio" id="additional_checklists-no" name="additional_checklists" value="No"
+                    formControlName="additional_checklists" />
+                  <label for="additional_checklists-no" class="action">No</label>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label>Permit closed signature</label>
+                    <div style="display: flex; flex-direction: column; align-items: left;">
+                      <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                      <div style="margin-top: 10px;">
+                        <img #signatureImage2 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                      </div>
+                      <div *ngIf="signatureImage2.style.display !== 'none'" style="margin-top: 10px;" style="align-items: left;">
+                       <strong>Ramya RajKumar</strong><br>
+                      <strong>[1Emp20240101]</strong>
+                      </div>
+                    </div>
+                    <!-- <div style="display: flex; align-items: center;">
+
+                      <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage2.style.display = (signatureImage2.style.display === 'none' ? 'block' : 'none')">Signature</button>
+                      <img #signatureImage2 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
+                    </div> -->
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <label class="col-sm-3 ">Date</label>
+                  <div class="col-sm-9">
+                    <input type="date" id="additional_checklists_date" formControlName="additional_checklists_date" class="form-control">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <label class="col-sm-3 ">Time</label>
+                  <div class="col-sm-9">
+                    <input type="time" id="additional_checklists_time" formControlName="additional_checklists_time" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col text-center">
+                    <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;" [class.disablesave2]="!swpcloseout2.valid"(click)="swpcloseoutsave2()">Save</button>
+                </div>
+                <div class="col text_center" *ngIf="Safeworkpermitup2">
+                  <button
+                    mat-raised-button
+                    style="background-color: #25345d; color: white; margin: 0 auto"
+                    (click)="swpcloseupdate2()"> Update
+                  </button>
+                </div>
+            </div>
+            </mat-card-content>
+          </mat-card>
+          <br>
+          </form>
+          <form [formGroup]="swpcloseout3">
+          <mat-card class=mat1 >
+            <!-- [ngClass]="{ 'position-row': position !== 'Job_Rep' }" -->
+            <mat-card-content>
+              <table>
+              <th class="theader"  style="width: 100%; text-align: center; ">Master Card - Work Completion </th>
+              </table>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label>Is Work Completed?</label>
+                    <input type="radio" class="custom-radio" id="work_Completed-yes" name="work_Completed" value="Yes"
+                    formControlName="work_Completed" />
+                  <label for="work_Completed-yes" class="action">Yes</label>
+                  <input type="radio" class="custom-radio" id="work_Completed-no" name="Work_Completed" value="No"
+                    formControlName="work_Completed" />
+                  <label for="work_Completed-no" class="action">No</label>
+                  </div>
+                </div>
                 <div class="col-sm-3">
                   <div class="form-group">
                     <label>Employee Number</label>
-                    <input type="text" id="houseKeeping_Comp_emp" formControlName="houseKeeping_Comp_emp" class="form-control" placeholder="Enter Employee Number">
+                    <input type="text" id="work_Completed_emp" formControlName="work_Completed_emp" class="form-control" placeholder="Enter Employee Number">
                   </div>
                 </div>
-              <div class="col-sm-3">
-                <label class="col-sm-3 ">Date</label>
-                <div class="col-sm-9">
-                  <input type="date" id="houseKeeping_Comp_date" formControlName="houseKeeping_Comp_date" class="form-control">
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <label class="col-sm-3 ">Time</label>
-                <div class="col-sm-9">
-                  <input type="time" id="houseKeeping_Comp_time" formControlName="houseKeeping_Comp_time" class="form-control">
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label>Work complete signature</label>
-                  <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage5.style.display = (signatureImage5.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
-                    <div style="margin-top: 10px;">
-                      <img #signatureImage5 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
-                    </div>
-                    <div *ngIf="signatureImage5.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
-                     <strong>Raja Kumaravel</strong><br>
-                    <strong>[1Emp20240101]</strong>
-                    </div>
-                    </div>
-                  <!-- <div style="display: flex; align-items: center;">
-                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage5.style.display = (signatureImage5.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                    <img #signatureImage5 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                  </div> -->
-                </div>
-              </div>
-            </div>
-            <br>
-            <div class="row">
-              <div class="col text-center">
-                  <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;"(click)="swpcloseoutsave3()"[class.disablesave3]="!swpcloseout3.valid">Save</button>
-              </div>
-          </div>
-          </mat-card-content>
-        </mat-card>
-      </form>
-        <br>
-        <form [formGroup]="swpcloseout4">
-        <!--  -->
-        <mat-card class=mat1 [ngClass]="{ 'position-row': position !== 'Facility_Rep' }">
-          <mat-card-content>
-            <table>
-              <th class="theader"  style="width: 100%; text-align: center; ">Master Card - Work Completion Check & Equipment RFS</th>
-              </table>
-            <div class="row">
-              <div class="col-sm-3" >
-                <div class="form-group">
-                  <label>Is House Keeping Checked?</label>
-                  <input type="radio" class="custom-radio" id="house_Keeping_Check-yes" name="house_Keeping_Check" value="Yes"
-                  formControlName="house_Keeping_Check" />
-                <label for="house_Keeping_Check-yes" class="action">Yes</label>
 
-                <input type="radio" class="custom-radio" id="house_Keeping_Check-no" name="house_Keeping_Check" value="No"
-                  formControlName="house_Keeping_Check" />
-                <label for="house_Keeping_Check-no" class="action">No</label>
+                <div class="col-sm-3">
+                  <label class="col-sm-3 ">Date</label>
+                  <div class="col-sm-9">
+                    <input type="date" id="work_Completed_date" formControlName="work_Completed_date" class="form-control">
+                  </div>
+
                 </div>
-              </div>
-                <div class="col-sm-3" >
-                  <div class="form-group" >
-                    <label>Employee Number</label>
-                    <input type="text" id="houseKeeping_emp" formControlName="houseKeeping_emp" class="form-control" placeholder="Enter Employee Number">
+                <div class="col-sm-3">
+                  <label class="col-sm-3 ">Time</label>
+                  <div class="col-sm-9">
+                    <input type="time" id="work_Completed_time" formControlName="work_Completed_time" class="form-control">
                   </div>
                 </div>
-              <div class="col-sm-3">
-                <label class="col-sm-3 ">Date</label>
-                <div class="col-sm-9">
-                  <input type="date" id="houseKeeping_date" formControlName="houseKeeping_date" class="form-control">
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <label class="col-sm-3 ">Time</label>
-                <div class="col-sm-9">
-                  <input type="time" id="houseKeeping_time" formControlName="houseKeeping_time" class="form-control">
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label>Work complete signature</label>
-                  <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage6.style.display = (signatureImage6.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
-                    <div style="margin-top: 10px;">
-                      <img #signatureImage6 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label>signature</label>
+                    <div style="display: flex; flex-direction: column; align-items: left;">
+                      <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage31.style.display = (signatureImage31.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                      <div style="margin-top: 10px;">
+                        <img #signatureImage31 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                      </div>
+                      <div *ngIf="signatureImage31.style.display !== 'none'" style="margin-top: 10px;" style="align-items: centr;">
+                       <strong>Raja Kumaravel</strong><br>
+                      <strong>[1Emp20240101]</strong>
+                      </div>
                     </div>
-                    <div *ngIf="signatureImage6.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
-                     <strong>Punitha Lokesh</strong><br>
-                    <strong>[1Emp20240151]</strong>
-                    </div>
-                    </div>
-                  <!-- <div style="display: flex; align-items: center;">
-                    <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage6.style.display = (signatureImage6.style.display === 'none' ? 'block' : 'none')">Signature</button>
-                    <img #signatureImage6 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
-                  </div> -->
+                    <!-- <div style="display: flex; align-items: center;">
+                      <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage3.style.display = (signatureImage3.style.display === 'none' ? 'block' : 'none')">Signature</button>
+                      <img #signatureImage3 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
+                    </div> -->
+                  </div>
                 </div>
               </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
-        <br>
-        <!-- [ngClass]="{ 'position-row': position !== 'Facility_Rep' }" -->
-        <mat-card class=mat1  [ngClass]="{ 'position-row': position !== 'Facility_Rep' }" >
-          <mat-card-content>
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label>Equipment Tested</label>
-                  <input type="radio" class="custom-radio" id="equipmentTested-yes" name="equipmentTested" value="Yes"
-                  formControlName="equipmentTested" />
-                <label for="equipmentTested-yes" class="action">Yes</label>
-                <input type="radio" class="custom-radio" id="equipmentTested-no" name="equipmentTested" value="No"
-                  formControlName="equipmentTested" />
-                <label for="equipmentTested-no" class="action">No</label>
+
+            </mat-card-content>
+          </mat-card>
+          <br>
+          <mat-card class=mat1 >
+            <!-- [ngClass]="{ 'position-row': position !== 'Job_Rep' }" -->
+            <mat-card-content>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Additional Work Description (if any)</label>
+                    <textarea type="text" id="additional_Work " formControlName="additional_Work" rows="3" class="form-control" placeholder="Enter Additional Work Description (if any)"></textarea>
+                  </div>
                 </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label>De-tagged</label>
-                  <input type="radio" class="custom-radio" id="detagged-yes" name="detagged" value="Yes"
-                  formControlName="detagged" />
-                <label for="detagged-yes" class="action">Yes</label>
-                <input type="radio" class="custom-radio" id="detagged-no" name="detagged" value="No"
-                  formControlName="detagged" />
-                <label for="detagged-no" class="action">No</label>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label>Is Additional Work Completed?</label>
+                    <input type="radio" class="custom-radio" id="additional_Work_Completed-yes" name="additional_Work_Completed" value="Yes"
+                    formControlName="additional_Work_Completed" />
+                  <label for="additional_Work_Completed-yes" class="action">Yes</label>
+                  <input type="radio" class="custom-radio" id="additional_Work_Completed-no" name="additional_Work_Completed" value="No"
+                    formControlName="additional_Work_Completed" />
+                  <label for="additional_Work_Completed-no" class="action">No</label>
+                  </div>
                 </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label>Ready for Service</label>
-                  <input type="radio" class="custom-radio" id="ready_for_Service-yes" name="ready_for_Service" value="Yes"
-                  formControlName="ready_for_Service" />
-                <label for="ready_for_Service-yes" class="action">Yes</label>
-                <input type="radio" class="custom-radio" id="ready_for_Service-no" name="ready_for_Service" value="No"
-                  formControlName="ready_for_Service" />
-                <label for="ready_for_Service-no" class="action">No</label>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label>Work complete signature</label>
+                    <div style="display: flex; flex-direction: column; align-items: left;">
+                      <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage4.style.display = (signatureImage4.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                      <div style="margin-top: 10px;">
+                        <img #signatureImage4 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                      </div>
+                      <div *ngIf="signatureImage4.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                       <strong>Raja Kumaravel</strong><br>
+                      <strong>[1Emp20240101]</strong>
+                      </div>
+                      </div>
+                    <!-- <div style="display: flex; align-items: center;">
+                      <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage4.style.display = (signatureImage4.style.display === 'none' ? 'block' : 'none')">Signature</button>
+                      <img #signatureImage4 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
+                    </div> -->
+                  </div>
                 </div>
-              </div>
                 </div>
                 <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Employee Number</label>
+                      <input type="text" id="additional_Work_Completed_emp" formControlName="additional_Work_Completed_emp" class="form-control" placeholder="Enter Employee Number">
+                      </div>
+                    </div>
+                <div class="col-sm-3">
+                  <label class="col-sm-3 ">Date</label>
+                  <div class="col-sm-9">
+                    <input type="date" id="additional_Work_date" formControlName="additional_Work_date" class="form-control">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <label class="col-sm-3 ">Time</label>
+                  <div class="col-sm-9">
+                    <input type="time" id="additional_Work_time" formControlName="additional_Work_time" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+            </mat-card-content>
+          </mat-card>
+          <br>
+          <mat-card class=mat1 >
+            <!-- [ngClass]="{ 'position-row': position !== 'Job_Rep' }" -->
+            <mat-card-content>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label>Is House Keeping Completed?</label>
+                    <input type="radio" class="custom-radio" id="houseKeeping_Comp-yes" name="houseKeeping_Comp" value="Yes"
+                    formControlName="houseKeeping_Comp" />
+                  <label for="houseKeeping_Comp-yes" class="action">Yes</label>
+                  <input type="radio" class="custom-radio" id="houseKeeping_Comp-no" name="houseKeeping_Comp" value="No"
+                    formControlName="houseKeeping_Comp" />
+                  <label for="houseKeeping_Comp-no" class="action">No</label>
+                  </div>
+                </div>
                   <div class="col-sm-3">
                     <div class="form-group">
                       <label>Employee Number</label>
-                      <input type="text" id="equipmentTested_emp" formControlName="equipmentTested_emp" class="form-control" placeholder="Enter Employee Number">
+                      <input type="text" id="houseKeeping_Comp_emp" formControlName="houseKeeping_Comp_emp" class="form-control" placeholder="Enter Employee Number">
                     </div>
                   </div>
-              <div class="col-sm-3">
-                <label class="col-sm-3 ">Date</label>
-                <div class="col-sm-9">
-                  <input type="date" id="equipmentTested_date" formControlName="equipmentTested_date" class="form-control">
+                <div class="col-sm-3">
+                  <label class="col-sm-3 ">Date</label>
+                  <div class="col-sm-9">
+                    <input type="date" id="houseKeeping_Comp_date" formControlName="houseKeeping_Comp_date" class="form-control">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <label class="col-sm-3 ">Time</label>
+                  <div class="col-sm-9">
+                    <input type="time" id="houseKeeping_Comp_time" formControlName="houseKeeping_Comp_time" class="form-control">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label>Work complete signature</label>
+                    <div style="display: flex; flex-direction: column; align-items: left;">
+                      <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage5.style.display = (signatureImage5.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                      <div style="margin-top: 10px;">
+                        <img #signatureImage5 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                      </div>
+                      <div *ngIf="signatureImage5.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                       <strong>Raja Kumaravel</strong><br>
+                      <strong>[1Emp20240101]</strong>
+                      </div>
+                      </div>
+                    <!-- <div style="display: flex; align-items: center;">
+                      <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage5.style.display = (signatureImage5.style.display === 'none' ? 'block' : 'none')">Signature</button>
+                      <img #signatureImage5 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
+                    </div> -->
+                  </div>
                 </div>
               </div>
-              <div class="col-sm-3">
-                <label class="col-sm-3 ">Time</label>
-                <div class="col-sm-9">
-                  <input type="time" id="equipmentTested_time" formControlName="equipmentTested_time" class="form-control">
+              <br>
+              <div class="row">
+                <div class="col text-center">
+                    <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;"(click)="swpcloseoutsave3()"[class.disablesave3]="!swpcloseout3.valid">Save</button>
                 </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label>Work complete signature</label>
-                  <div style="display: flex; flex-direction: column; align-items: left;">
-                    <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage7.style.display = (signatureImage7.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
-                    <div style="margin-top: 10px;">
-                      <img #signatureImage7 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
-                    </div>
-                    <div *ngIf="signatureImage7.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
-                     <strong>Sundhar Ramasamy</strong><br>
-                    <strong>[1Emp20240251]</strong>
-                    </div>
-                    </div>
+                <div class="col text_center" *ngIf="Safeworkpermitup3">
+                  <button
+                    mat-raised-button
+                    style="background-color: #25345d; color: white; margin: 0 auto"
+                    (click)="swpcloseupdate3()"> Update
+                  </button>
                 </div>
-              </div>
             </div>
-          </mat-card-content>
+            </mat-card-content>
+          </mat-card>
+        </form>
           <br>
-        <div class="row">
-          <div class="col text-center">
-              <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;" (click)="swpcloseoutsave4()"[class.disablesave4]="!swpcloseout4.valid">Save</button>
-          </div>
-      </div>
-        </mat-card>
-      </form>
-      <div >
+          <form [formGroup]="swpcloseout4">
+          <!--  -->
+          <mat-card class=mat1 >
+            <!-- [ngClass]="{ 'position-row': position !== 'Facility_Rep' }" -->
+            <mat-card-content>
+              <table>
+                <th class="theader"  style="width: 100%; text-align: center; ">Master Card - Work Completion Check & Equipment RFS</th>
+                </table>
+              <div class="row">
+                <div class="col-sm-3" >
+                  <div class="form-group">
+                    <label>Is House Keeping Checked?</label>
+                    <input type="radio" class="custom-radio" id="house_Keeping_Check-yes" name="house_Keeping_Check" value="Yes"
+                    formControlName="house_Keeping_Check" />
+                  <label for="house_Keeping_Check-yes" class="action">Yes</label>
+
+                  <input type="radio" class="custom-radio" id="house_Keeping_Check-no" name="house_Keeping_Check" value="No"
+                    formControlName="house_Keeping_Check" />
+                  <label for="house_Keeping_Check-no" class="action">No</label>
+                  </div>
+                </div>
+                  <div class="col-sm-3" >
+                    <div class="form-group" >
+                      <label>Employee Number</label>
+                      <input type="text" id="houseKeeping_emp" formControlName="houseKeeping_emp" class="form-control" placeholder="Enter Employee Number">
+                    </div>
+                  </div>
+                <div class="col-sm-3">
+                  <label class="col-sm-3 ">Date</label>
+                  <div class="col-sm-9">
+                    <input type="date" id="houseKeeping_date" formControlName="houseKeeping_date" class="form-control">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <label class="col-sm-3 ">Time</label>
+                  <div class="col-sm-9">
+                    <input type="time" id="houseKeeping_time" formControlName="houseKeeping_time" class="form-control">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label>Work complete signature</label>
+                    <div style="display: flex; flex-direction: column; align-items: left;">
+                      <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage6.style.display = (signatureImage6.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                      <div style="margin-top: 10px;">
+                        <img #signatureImage6 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                      </div>
+                      <div *ngIf="signatureImage6.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                       <strong>Punitha Lokesh</strong><br>
+                      <strong>[1Emp20240151]</strong>
+                      </div>
+                      </div>
+                    <!-- <div style="display: flex; align-items: center;">
+                      <button mat-raised-button style="background-color: #147737; color: white;" (click)="signatureImage6.style.display = (signatureImage6.style.display === 'none' ? 'block' : 'none')">Signature</button>
+                      <img #signatureImage6 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 100px; max-height: 100px; display: none; margin-left: 10px;">
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br>
+          <!-- [ngClass]="{ 'position-row': position !== 'Facility_Rep' }" -->
+          <mat-card class=mat1   >
+            <!-- [ngClass]="{ 'position-row': position !== 'Facility_Rep' }" -->
+            <mat-card-content>
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label>Equipment Tested</label>
+                    <input type="radio" class="custom-radio" id="equipmentTested-yes" name="equipmentTested" value="Yes"
+                    formControlName="equipmentTested" />
+                  <label for="equipmentTested-yes" class="action">Yes</label>
+                  <input type="radio" class="custom-radio" id="equipmentTested-no" name="equipmentTested" value="No"
+                    formControlName="equipmentTested" />
+                  <label for="equipmentTested-no" class="action">No</label>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label>De-tagged</label>
+                    <input type="radio" class="custom-radio" id="detagged-yes" name="detagged" value="Yes"
+                    formControlName="detagged" />
+                  <label for="detagged-yes" class="action">Yes</label>
+                  <input type="radio" class="custom-radio" id="detagged-no" name="detagged" value="No"
+                    formControlName="detagged" />
+                  <label for="detagged-no" class="action">No</label>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label>Ready for Service</label>
+                    <input type="radio" class="custom-radio" id="ready_for_Service-yes" name="ready_for_Service" value="Yes"
+                    formControlName="ready_for_Service" />
+                  <label for="ready_for_Service-yes" class="action">Yes</label>
+                  <input type="radio" class="custom-radio" id="ready_for_Service-no" name="ready_for_Service" value="No"
+                    formControlName="ready_for_Service" />
+                  <label for="ready_for_Service-no" class="action">No</label>
+                  </div>
+                </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Employee Number</label>
+                        <input type="text" id="equipmentTested_emp" formControlName="equipmentTested_emp" class="form-control" placeholder="Enter Employee Number">
+                      </div>
+                    </div>
+                <div class="col-sm-3">
+                  <label class="col-sm-3 ">Date</label>
+                  <div class="col-sm-9">
+                    <input type="date" id="equipmentTested_date" formControlName="equipmentTested_date" class="form-control">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <label class="col-sm-3 ">Time</label>
+                  <div class="col-sm-9">
+                    <input type="time" id="equipmentTested_time" formControlName="equipmentTested_time" class="form-control">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label>Work complete signature</label>
+                    <div style="display: flex; flex-direction: column; align-items: left;">
+                      <button mat-raised-button style="background-color: #25345D; color: white;" (click)="signatureImage7.style.display = (signatureImage7.style.display === 'none' ? 'block' : 'none')">Click to Sign</button>
+                      <div style="margin-top: 10px;">
+                        <img #signatureImage7 src="../../../assets/img/sign.png" alt="Signature" style="max-width: 150px; max-height: 150px; display: none;">
+                      </div>
+                      <div *ngIf="signatureImage7.style.display !== 'none'" style="margin-top: 10px;" style="align-items: center;">
+                       <strong>Sundhar Ramasamy</strong><br>
+                      <strong>[1Emp20240251]</strong>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+            <br>
+          <div class="row">
+            <div class="col text-center">
+                <button mat-raised-button style="background-color: #25345D; color: white; margin: 0 auto;" (click)="swpcloseoutsave4()"[class.disablesave4]="!swpcloseout4.valid">Save</button>
+            </div>
+            <div class="col text_center" *ngIf="Safeworkpermitup4">
+              <button
+                mat-raised-button
+                style="background-color: #25345d; color: white; margin: 0 auto;"
+                (click)="swpcloseupdate4()"> Update
+              </button>
+            </div>
+        </div>
+          </mat-card>
+        </form>
+        <div >
 
 
 
 
 
-      </div>
-    </mat-card-content>
-  </mat-card>
-</mat-expansion-panel>
-</mat-accordion>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-expansion-panel>
+  </mat-accordion>
