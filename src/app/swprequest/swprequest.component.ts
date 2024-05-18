@@ -22,7 +22,12 @@ export class SwprequestComponent implements OnInit {
   position: any;
   expandedDropdownId: string | null = null;
   accordionClosed: boolean = false;
-  
+
+
+  pdfURL: string | null = null;
+  base64File: string | null = null;
+
+
 
   allZones: string[] = ['Zone1', 'Zone2', 'Zone3', 'Zone4', 'Zone5', 'Zone6', 'Zone7', 'Zone8', 'Zone9', 'Zone10'];
   EquipID:string[]= ['F-2230','d-3220','e-4422','g-2213'];
@@ -37,12 +42,11 @@ export class SwprequestComponent implements OnInit {
   startDateTime: string;
   selectedFileName: any;
   paramsId: any;
-  base64String: string;
   convertedPdf: string;
   pdf: any;
   safeid: any;
   Safeworkpermitup: boolean;
- 
+
 
 
   constructor(private formBuilder: FormBuilder,private apiService: SwprequestService,private activatedRoute: ActivatedRoute,) {
@@ -62,7 +66,7 @@ export class SwprequestComponent implements OnInit {
     }
   }
   formInitialization() {
-    
+
     const currentDate = new Date();
 
     // Format the date as needed (e.g., DD/MM/YYYY)
@@ -102,58 +106,58 @@ console.log("time",this.formattedTime);
     });
   }
 
-  onFileSelected(event: any): void {
-    const file = event.target.files[0]; // Extract file from event
-    const maxFileSize = 100 * 1024; // 100KB
+//   onFileSelected(event: any): void {
+//     const file = event.target.files[0]; // Extract file from event
+//     const maxFileSize = 100 * 1024; // 100KB
 
-    if (file) {
-        if (file.size > maxFileSize) {
-            alert('File size exceeds the maximum allowed size of 100KB.');
-            this.swpForm.get('sjp_attachment')?.setValue('');
-            return;
-        }
+//     if (file) {
+//         if (file.size > maxFileSize) {
+//             alert('File size exceeds the maximum allowed size of 100KB.');
+//             this.swpForm.get('sjp_attachment')?.setValue('');
+//             return;
+//         }
 
-        console.log('File selected:', file.name);
+//         console.log('File selected:', file.name);
 
-        if (file.type === 'application/pdf') {
-          this.selectedFileName = file.name;
-            this.readPDFFile(file);
-        } else {
-            alert('Please select a PDF file.');
-        }
-    }
-}
+//         if (file.type === 'application/pdf') {
+//           this.selectedFileName = file.name;
+//             this.readPDFFile(file);
+//         } else {
+//             alert('Please select a PDF file.');
+//         }
+//     }
+// }
 
-readPDFFile(file: File): void {
-    const reader = new FileReader();
-    reader.onload = () => {
-        const byteArray = new Uint8Array(reader.result as ArrayBuffer);
-        // Convert Uint8Array to base64 string
-         const base64String = this.uint8ArrayToBase64(byteArray);
-         console.log('this.base64String: ', base64String);
-        // Set the base64 string as the value of the form control
-        this.swpForm.get('sjp_attachment')?.setValue(base64String);
-    };
-    reader.readAsArrayBuffer(file);
-}
+// readPDFFile(file: File): void {
+//     const reader = new FileReader();
+//     reader.onload = () => {
+//         const byteArray = new Uint8Array(reader.result as ArrayBuffer);
+//         // Convert Uint8Array to base64 string
+//          const base64String = this.uint8ArrayToBase64(byteArray);
+//          console.log('this.base64String: ', base64String);
+//         // Set the base64 string as the value of the form control
+//         this.swpForm.get('sjp_attachment')?.setValue(base64String);
+//     };
+//     reader.readAsArrayBuffer(file);
+// }
 
-uint8ArrayToBase64(uint8Array: Uint8Array): string {
-    let binaryString = '';
-    for (let i = 0; i < uint8Array.length; i++) {
-        binaryString += String.fromCharCode(uint8Array[i]);
-    }
-    return btoa(binaryString);
-}
+// uint8ArrayToBase64(uint8Array: Uint8Array): string {
+//     let binaryString = '';
+//     for (let i = 0; i < uint8Array.length; i++) {
+//         binaryString += String.fromCharCode(uint8Array[i]);
+//     }
+//     return btoa(binaryString);
+// }
 
-deleteFile() {
-    
-  // You may also want to reset the file input to allow re-uploading if needed
-  const fileInput: HTMLInputElement = document.getElementById('fileUpload') as HTMLInputElement;
-  if (fileInput) {
-    this.selectedFileName =""
-      fileInput.value = ''; // Reset file input value
-  }
-}
+// deleteFile() {
+
+//   // You may also want to reset the file input to allow re-uploading if needed
+//   const fileInput: HTMLInputElement = document.getElementById('fileUpload') as HTMLInputElement;
+//   if (fileInput) {
+//     this.selectedFileName =""
+//       fileInput.value = ''; // Reset file input value
+//   }
+// }
 
 
 
@@ -167,18 +171,18 @@ deleteFile() {
 
   saveForm() {
     // this.accordionClosed=true
-    
+
 
     const firstFormValue = this.swpForm.value;
     console.log('Form Data:', firstFormValue);
     this.apiService.saveswprequest(firstFormValue).subscribe(
       (response) => {
         console.log('Response from server:', response);
-        
+
         this.showAlert('success', 'Safe Work Permit Request Created successfully!');
         this.swpForm.reset();
         this.accordionClosed = false;
-     
+
       },
       (error) => {
         console.error('Error while sending data:', error);
@@ -186,9 +190,9 @@ deleteFile() {
       }
     );
   }
-  
+
 updateFormValues(): void {
- 
+
   const formData = this.swpForm.value;
   console.log('formData: ', formData);
   this.apiService.updateswprequest(formData).subscribe(
@@ -205,28 +209,28 @@ updateFormValues(): void {
   );
 }
 // getbydata
-onEditClick(): void {
-  // Fetch permit data by ID
-  this.apiService.getswprequestById(this.paramsId).subscribe(
-    (data: any) => {
-      console.log(data);
-      this.safeid=data.result[0].id;
-      this.Safeworkpermitup= data.result[0]?.id ? true : false;
-      this.pdf = data?.result?.sjp_attachment;
-      console.log('this.pdf: ', this.pdf);
-      this.swpForm.patchValue(data.result[0]);
-      
-      
-    },
-    (error: any) => {
-      // Handle error
-      console.error('Error fetching data:', error);
-
-    }
-  );
+// onEditClick(): void {
+//   // Fetch permit data by ID
+//   this.apiService.getswprequestById(this.paramsId).subscribe(
+//     (data: any) => {
+//       console.log(data);
+//       this.safeid=data.result[0].id;
+//       this.Safeworkpermitup= data.result[0]?.id ? true : false;
+//       this.pdf = data?.result?.sjp_attachment;
+//       console.log('this.pdf: ', this.pdf);
+//       this.swpForm.patchValue(data.result[0]);
 
 
-}
+//     },
+//     (error: any) => {
+//       // Handle error
+//       console.error('Error fetching data:', error);
+
+//     }
+//   );
+
+
+// }
 
   showAlert(icon: 'success' | 'error', text: string): void {
     Swal.fire({
@@ -246,7 +250,7 @@ onEditClick(): void {
 
   //     // Open the URL in a new tab
   //     const newWindow = window.open(url);
-      
+
   //     // Check if the window was successfully opened
   //     if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
   //       // Handle the case when the window couldn't be opened
@@ -260,18 +264,116 @@ onEditClick(): void {
   // openPDF(bytecode: any): void {
   //   // Convert bytecode to a Uint8Array
   //   const byteArray = new Uint8Array(bytecode);
-  
+
   //   // Create a Blob object from the Uint8Array
   //   const blob = new Blob([byteArray], { type: 'application/pdf' });
-  
+
   //   // Create a URL for the Blob
   //   const url = URL.createObjectURL(blob);
-  
+
   //   // Open the URL in a new window or tab
   //   window.open(url, '_blank');
   // }
-  
-  
- 
+
+
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    const maxFileSize = 100 * 1024; // 100KB
+
+    if (file) {
+      if (file.size > maxFileSize) {
+        alert('File size exceeds the maximum allowed size of 100KB.');
+        this.swpForm.get('sjp_attachment')?.setValue(null);
+        return;
+      }
+
+      if (file.type === 'application/pdf') {
+        this.selectedFileName = file.name;
+        this.readPDFFile(file);
+      } else {
+        alert('Please select a PDF file.');
+      }
+    }
+  }
+
+  readPDFFile(file: File): void {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const base64String = reader.result?.toString().split(',')[1] || '';
+      this.base64File = base64String;
+      this.createPDFUrl(base64String);
+      this.swpForm.get('sjp_attachment')?.setValue(base64String);
+    };
+    reader.readAsDataURL(file);
+  }
+
+  deleteFile(): void {
+    this.selectedFileName = null;
+    this.base64File = null;
+    this.pdfURL = null;
+    this.swpForm.get('sjp_attachment')?.setValue(null);
+    const fileInput: HTMLInputElement = document.getElementById('fileUpload') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = ''; // Reset file input value
+    }
+  }
+
+  onEditClick(): void {
+    this.apiService.getswprequestById(this.paramsId).subscribe(
+      (data: any) => {
+        this.safeid = data.result[0].id;
+        this.Safeworkpermitup = !!data.result[0]?.id;
+        const pdfBase64 = data.result[0]?.sjp_attachment;
+        if (pdfBase64) {
+          this.loadSavedPDF(pdfBase64);
+        }
+        this.swpForm.patchValue(data.result[0]);
+      },
+      (error: any) => {
+        console.error('Error fetching data:', error);
+      }
+    );
+  }
+
+  convertBase64ToBlob(base64String: string): Blob {
+    const byteCharacters = atob(base64String);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: 'application/pdf' });
+  }
+
+  createPDFUrl(base64String: string): void {
+    const blob = this.convertBase64ToBlob(base64String);
+    this.pdfURL = URL.createObjectURL(blob);
+
+    console.log('Generated PDF URL:', this.pdfURL); // Debugging line
+  }
+
+  loadSavedPDF(base64String: string): void {
+    this.base64File = base64String;
+    this.createPDFUrl(base64String);
+    this.swpForm.get('sjp_attachment')?.setValue(base64String);
+  }
+
+  downloadfile():void{
+    if (this.pdfURL) {
+      let filename = "download pdf";
+      let link = document.createElement('a');
+      link.download = filename;
+      link.target = "_blank";
+      link.href = this.pdfURL;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      alert('No PDF file available for download.');
+    }
+
+  }
+
+
 }
 
